@@ -1,3 +1,7 @@
+# MLX
+
+MLX42
+
 # Prerequisites
 *.d
 
@@ -6,6 +10,7 @@
 *.ko
 *.obj
 *.elf
+*.sh
 
 # Linker output
 *.ilk
