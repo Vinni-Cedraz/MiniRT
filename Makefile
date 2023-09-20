@@ -22,11 +22,13 @@ VNC_CHECK := $(shell ps aux | grep -q '[X]vnc' && echo "VNC")
 all: $(NAME)
 
 ifeq ($(VNC_CHECK), "VNC")
-$(NAME): $(LIBMLX_TARGET) $(OBJS)
-	$(CC) -DUSE_CODAM=0 $(CFLAGS) $(OBJS) $(LIBX_FLAGS) -D -o $@
+$(NAME): $(OBJS)
+	#$(CC) -DUSE_CODAM=0 $(CFLAGS) $(OBJS) $(LIBX_FLAGS) -D -o $@
+	echo "É workspace"
 else
 $(NAME): $(LIBMLX_TARGET) $(OBJS)
-	$(CC) -DUSE_CODAM=1 $(CFLAGS) $(OBJS) -I$(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -o $@
+	#$(CC) -DUSE_CODAM=1 $(CFLAGS) $(OBJS) -I$(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -o $@
+	echo "Não é"
 endif
 
 $(BUILD_DIR_RT)%.o: %.c
