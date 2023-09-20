@@ -1,6 +1,9 @@
 # MLX
 
 MLX42
+.cache
+minirt
+compile_commands.json
 
 # Prerequisites
 *.d
