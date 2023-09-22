@@ -4,7 +4,7 @@ libft = libft.a
 MLXSRC = git@github.com:codam-coding-college/MLX42.git
 VPATH= ./src
 MLXDIR = ./MLX42
-SRC= main.c
+SRC= create_tuples.c
 BUILD_SRC = ./build/
 INCLUDE = ./include
 C_FLAGS = -Wall -Werror -Wextra
@@ -23,7 +23,7 @@ all: $(NAME)
 
 ifeq ($(VNC_CHECK), "VNC")
 $(NAME): $(OBJS)
-	#$(CC) -DUSE_CODAM=0 $(CFLAGS) $(OBJS) $(LIBX_FLAGS) -D -o $@
+	$(CC) -DUSE_CODAM=0 $(CFLAGS) $(OBJS) $(LIBX_FLAGS) -D -o $@
 	echo "É workspace"
 else
 $(NAME): $(LIBMLX_TARGET) $(OBJS)
