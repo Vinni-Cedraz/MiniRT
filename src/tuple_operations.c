@@ -12,4 +12,11 @@
 
 #include "../include/minirt.h"
 
+void add_tuples(t_tuple a, t_tuple b, t_tuple result)
+{
+    result[X] = a[X] + b[X];
+    result[Y] = a[Y] + b[Y];
+    result[Z] = a[Z] + b[Z];
+    result[W] = a[W] + b[W];
+}
 
