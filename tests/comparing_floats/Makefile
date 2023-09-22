@@ -1,6 +1,12 @@
+#probably only need to mofify TEST:
+TEST = compare_floats
+
+CFLAGS = cc -O3 -lcriterion -I../
+LIB = ../../libft_gnl/*.a 
+
 all: 
-	cc *.c ../../libft_gnl/*.a -o compare_floats -lcriterion
-	./compare_floats --verbose
+	$(CFLAGS) $(TEST).c $(LIB) -o $(TEST)
+	./$(TEST) --verbose
 
 clean:
-	rm -f tests
+	rm -f $(TEST)

@@ -1,4 +1,4 @@
-#include "../tester.h"
+#include "tester.h"
 #include "../../src/compare_floats.c"
 
 #define suite_name float_tests

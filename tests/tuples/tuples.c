@@ -9,25 +9,22 @@
 
 Test(suite_name, tuple_is_a_valid_point, .description = test1_description)
 {
-	t_tuple *tuple;
+	t_tuple tuple = {1, 2, 6};
 
-	tuple = malloc(sizeof(t_tuple));
-	*tuple = (t_tuple){1, 2, 6};
-	*tuple = create_a_point(tuple);
-	cr_expect_eq(1, tuple->x);
-	cr_expect_eq(2, tuple->y);
-	cr_expect_eq(6, tuple->z);
-	cr_expect_eq(1, tuple->w);
-	free(tuple);
+	create_a_point(tuple);
+	cr_expect_eq(1, tuple[X]);
+	cr_expect_eq(2, tuple[Y]);
+	cr_expect_eq(6, tuple[Z]);
+	cr_expect_eq(1, tuple[W]);
 }
 
 Test(suite_name, tuple_is_a_valid_vector, .description = test2_description)
 {
-	t_tuple tuple;
+	t_tuple tuple = {2, 3, 4};
 
-	tuple = create_a_vector(&(t_tuple){2, 3, 4});
-	cr_expect_eq(2, tuple.x);
-	cr_expect_eq(3, tuple.y);
-	cr_expect_eq(4, tuple.z);
-	cr_expect_eq(0, tuple.w);
+	create_a_vector(tuple);
+	cr_expect_eq(2, tuple[X]);
+	cr_expect_eq(3, tuple[Y]);
+	cr_expect_eq(4, tuple[Z]);
+	cr_expect_eq(0, tuple[W]);
 }
