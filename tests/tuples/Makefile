@@ -1,7 +1,7 @@
 #probably only need to mofify TEST:
 TEST = tuples
 
-CFLAGS = cc -O3 -lcriterion -I../
+CFLAGS = cc -g3 -lcriterion -I../
 LIB = ../../libft_gnl/*.a 
 
 all: 
