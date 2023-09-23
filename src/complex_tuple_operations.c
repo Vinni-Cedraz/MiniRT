@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   complex_tuple_operations.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/09/23 19:59:10 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/09/23 19:54:50 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/09/23 19:59:23 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "../include/minirt.h"
 
-# include "../libft_gnl/libft.h"
-# include <math.h>
-
-# define EPSILON 0.0001
-# define X 0
-# define Y 1
-# define Z 2
-# define W 3
-#define VECTOR 0
-#define POINT 1
-
-typedef float	t_tuple[4];
-
-#endif
+float vector_magnitude(const t_tuple vec)
+{
+	if (vec[W] == POINT)
+		return (-1);
+	return (hypot(hypot(vec[X], vec[Y]), vec[Z]));
+}
