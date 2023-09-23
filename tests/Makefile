@@ -1,6 +1,6 @@
-TESTDIRS = comparing_floats \
-		   tuple_operations \
-		   tuples
+TESTDIRS = tuples \
+		   comparing_floats \
+		   basic_tuple_operations
 
 all: makelibft
 	@$(foreach file,$(TESTDIRS),$(MAKE) --no-print-directory -C $(file);)
