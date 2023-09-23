@@ -11,8 +11,14 @@
 /* ************************************************************************** */
 
 #include "../include/minirt.h"
+#include <stdio.h>
 
-void	add_tuples(t_tuple a, t_tuple b, t_tuple result)
+// static void	print_tuple(t_tuple a)
+// {
+// 	printf("X: %f, Y: %f, Z: %f, W: %f\n", a[X], a[Y], a[Z], a[W]);
+// }
+
+void	add_tuples(const t_tuple a, const t_tuple b, t_tuple result)
 {
 	result[X] = a[X] + b[X];
 	result[Y] = a[Y] + b[Y];
@@ -20,10 +26,27 @@ void	add_tuples(t_tuple a, t_tuple b, t_tuple result)
 	result[W] = a[W] + b[W];
 }
 
-void	subtract_tuples(t_tuple a, t_tuple b, t_tuple result)
+void	subtract_tuples(const t_tuple a, const t_tuple b, t_tuple result)
 {
 	result[X] = a[X] - b[X];
 	result[Y] = a[Y] - b[Y];
 	result[Z] = a[Z] - b[Z];
 	result[W] = a[W] - b[W];
+}
+
+void	negate_tuple(const t_tuple a, t_tuple result)
+{
+	result[X] = -a[X];
+	result[Y] = -a[Y];
+	result[Z] = -a[Z];
+	result[W] = -a[W];
+}
+
+void multiply_tuple_by_scalar(const t_tuple a, const float scalar, t_tuple res)
+{
+
+	res[X] = a[X] * scalar;
+	res[Y] = a[Y] * scalar;
+	res[Z] = a[Z] * scalar;
+	res[W] = a[W] * scalar;
 }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
+# define MINIRT_H
 
 # include "../libft_gnl/libft.h"
 # include <math.h>
