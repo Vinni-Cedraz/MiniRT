@@ -5,8 +5,8 @@ CFLAGS = cc -O3 -lcriterion -I../
 LIB = ../../libft_gnl/*.a 
 
 all: 
-	$(CFLAGS) $(TEST).c $(LIB) -o $(TEST)
-	./$(TEST) --verbose
+	@$(CFLAGS) $(TEST).c $(LIB) -o $(TEST)
+	@./$(TEST) --verbose
 
 clean:
 	rm -f $(TEST)

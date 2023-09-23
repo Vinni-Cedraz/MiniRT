@@ -6,7 +6,7 @@
 #define test2_description CYAN"checks if two tuples are being subtracted correctly"RESET
 #define test3_description CYAN"checks if the values of a duple are each being inverted"RESET
 
-Test(suit_name, adding_two_tuples, .description = test1_description) {
+Test(suite_name, adding_two_tuples, .description = test1_description) {
 	t_tuple a = {1.2, 2.4, 3.5, 0};
 	t_tuple b = {1.2, 2.4, 3.5, 1};
 	t_tuple result = {0, 0, 0, 0};
