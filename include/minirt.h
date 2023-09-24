@@ -23,6 +23,8 @@
 # define W 3
 # define VECTOR 0
 # define POINT 1
+# define FALSE 0
+# define TRUE 1
 
 typedef float	t_tuple[4];
 typedef char t_bool;

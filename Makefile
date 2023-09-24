@@ -25,7 +25,7 @@ all: $(NAME)
 
 ##### THIS IS FOR COMPILING ALL ALL FUNCTIONS INTO A STATIC LIBRARY TO BE EASILY INCLUDED BY THE TESTERS #####
 SRCSLIB := $(wildcard ./src/*.c)
-OBJSLIB:= $(SRCSLIB:.c=.o)
+OBJSLIB:= $(SRCSLIB:.c=.o) libft_gnl/objs/*.o
 LIB := minirt.a
 %.o: %.c
 	$(CC) -c $< -o $@
