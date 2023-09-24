@@ -12,9 +12,21 @@
 
 #include "../include/minirt.h"
 
-float vector_magnitude(const t_tuple vec)
+float	vector_magnitude(const t_tuple vec)
 {
 	if (vec[W] == POINT)
 		return (-1);
 	return (hypot(hypot(vec[X], vec[Y]), vec[Z]));
+}
+
+short normalize_vector(const t_tuple vec, t_tuple result)
+{
+	const float	magnitude = vector_magnitude(vec);
+
+	if (magnitude == 0 || vec[W] == POINT)
+		return -1;
+	result[X] = vec[X] / magnitude;
+	result[Y] = vec[Y] / magnitude;
+	result[Z] = vec[Z] / magnitude;
+	return (0);
 }

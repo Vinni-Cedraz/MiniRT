@@ -1,6 +1,4 @@
-#include "../../src/basic_tuple_operations.c"
-#include "../tester.h"
-#include <stdio.h>
+#include "tester.h"
 
 #define suite_name basic_tuple_operations
 

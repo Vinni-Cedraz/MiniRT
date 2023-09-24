@@ -12,7 +12,7 @@
 
 #include "../include/minirt.h"
 
-_Bool	compare_floats(float a, float b)
+t_bool compare_floats(float a, float b)
 {
 	return (ft_abs(a - b) < EPSILON);
 }

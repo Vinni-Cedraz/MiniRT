@@ -1,7 +1,6 @@
-#include "../tester.h"
-#include "../../src/complex_tuple_operations.c"
+#include "tester.h"
 
-#define suite_name complex_tuple_operations
+#define suite_name magnitude
 #define SQRT_OF_14 3.7416573867739413
 
 const t_tuple vectors[] = {
@@ -9,7 +8,8 @@ const t_tuple vectors[] = {
 		{1, -2, -3, VECTOR},
 		{1, 0, 0, VECTOR},
 		{0, 1, 0, VECTOR},
-		{0, 0, 1, VECTOR}
+		{0, 0, 1, VECTOR},
+		{0, 0, 1, POINT}
 };
 
 const float expected_results[] = {
@@ -17,7 +17,8 @@ const float expected_results[] = {
 		SQRT_OF_14,
 		1,
 		1,
-		1
+		1,
+		-1
 };
 
 Test(suite_name, magnitude_of_positive_vector) {
@@ -38,4 +39,8 @@ Test(suite_name, magnitude_of_unit_vector2) {
 
 Test(suite_name, magnitude_of_unit_vector3) {
 	cr_expect_eq(vector_magnitude(vectors[4]), expected_results[4]);
+}
+
+Test(suite_name, magnitude_of_a_point_should_be_always_negative_one) {
+	cr_expect_eq(vector_magnitude(vectors[5]), expected_results[5]);
 }

@@ -17,18 +17,33 @@ LIBX_FLAGS = -lmlx -lXext -lX11 -lm -lz
 CODAM_LIB_FLAGS = -L./MLX42/build/ -lmlx42 -ldl -lglfw -pthread -lm
 VNC_CHECK := $(shell ps aux | grep -q '[X]vnc' && echo "VNC")
 
+
 .PHONY: all clean fclean re mlxclean
 
 all: $(NAME)
 
+
+##### THIS IS FOR COMPILING ALL ALL FUNCTIONS INTO A STATIC LIBRARY TO BE EASILY INCLUDED BY THE TESTERS #####
+SRCSLIB := $(wildcard ./src/*.c)
+OBJSLIB:= $(SRCSLIB:.c=.o)
+LIB := minirt.a
+%.o: %.c
+	$(CC) -c $< -o $@
+$(LIB): $(OBJSLIB)
+	ar rcs $@ $^
+as_lib: $(LIB)
+##### THIS IS FOR COMPILING ALL ALL FUNCTIONS INTO A STATIC LIBRARY TO BE EASILY INCLUDED BY THE TESTERS #####
+
+
+
 ifeq ($(VNC_CHECK), "VNC")
 $(NAME): $(OBJS)
-	$(CC) -DUSE_CODAM=0 $(CFLAGS) $(OBJS) $(LIBX_FLAGS) -D -o $@
+	# $(CC) -DUSE_CODAM=0 $(CFLAGS) $(OBJS) $(LIBX_FLAGS) -D -o $@
 	echo "É workspace"
 else
 $(NAME): $(LIBMLX_TARGET) $(OBJS)
-	#$(CC) -DUSE_CODAM=1 $(CFLAGS) $(OBJS) -I$(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -o $@
-	echo "Não é"
+	# $(CC) -DUSE_CODAM=1 $(CFLAGS) $(OBJS) -I$(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -o $@
+	echo "Não é workspace"
 endif
 
 $(BUILD_DIR_RT)%.o: %.c
@@ -42,15 +57,16 @@ $(MLXDIR):
 	git clone $(MLXSRC) $(MLXDIR);
 	cd $(MLXDIR) && cmake -B build
 
-
 mlxclean:
 	@echo "Cleaning MLX42..."
 	@rm -rf $(MLXDIR)
 
-fclean: mlxclean
-	@echo "Full cleaning..."
-	@rm -rf $(BUILD_DIR_RT)
-	@rm -f $(NAME)
+clean: mlxclean
+	@echo "Cleaning..."
+	rm -f src/*.o
 
+fclean: mlxclean clean
+	@echo "Fully Cleaning..."
+	@rm -f $(NAME) $(LIB)
 
 re: fclean all
