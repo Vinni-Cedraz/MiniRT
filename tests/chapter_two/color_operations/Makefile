@@ -12,5 +12,6 @@ makeminirt_as_lib:
 	@make as_lib --no-print-directory -C ../../../
 makelibft:
 	@make --no-print-directory -C ../../../libft_gnl/
+
 clean:
 	rm -f $(TEST)
