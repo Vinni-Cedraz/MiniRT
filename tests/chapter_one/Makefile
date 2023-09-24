@@ -8,11 +8,9 @@ ORANGE = \033[38;5;214m
 RESET = \033[0m
 
 all: makeminirt_as_lib
-	printf "$(ORANGE)=== CHAPTER ONE ===$(RESET)\n"
+	@printf "$(ORANGE)=== CHAPTER ONE ===$(RESET)\n"
 	@$(foreach file,$(TESTDIRS),$(MAKE) --no-print-directory -C $(file);)
 
-makelibft:
-	@make --no-print-directory -C ../../libft_gnl
 makeminirt_as_lib:
 	@make as_lib --no-print-directory -C ../../
 

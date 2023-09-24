@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/09/23 19:59:10 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/09/24 17:23:45 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@
 # define X 0
 # define Y 1
 # define Z 2
+# define R 0
+# define G 1
+# define B 2
 # define W 3
 # define VECTOR 0
 # define POINT 1
+# define COLOR 2
 # define FALSE 0
 # define TRUE 1
 

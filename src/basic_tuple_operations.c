@@ -18,6 +18,8 @@ void	add_tuples(const t_tuple a, const t_tuple b, t_tuple result)
 	result[Y] = a[Y] + b[Y];
 	result[Z] = a[Z] + b[Z];
 	result[W] = a[W] + b[W];
+	if (a[W] == COLOR && a[W] == COLOR)
+		result[W] = COLOR;
 }
 
 void	subtract_tuples(const t_tuple a, const t_tuple b, t_tuple result)
@@ -26,6 +28,8 @@ void	subtract_tuples(const t_tuple a, const t_tuple b, t_tuple result)
 	result[Y] = a[Y] - b[Y];
 	result[Z] = a[Z] - b[Z];
 	result[W] = a[W] - b[W];
+	if (a[W] == COLOR && a[W] == COLOR)
+		result[W] = COLOR;
 }
 
 void	negate_tuple(const t_tuple a, t_tuple result)
@@ -43,4 +47,6 @@ void multiply_tuple_by_scalar(const t_tuple a, const float scalar, t_tuple res)
 	res[Y] = a[Y] * scalar;
 	res[Z] = a[Z] * scalar;
 	res[W] = a[W] * scalar;
+	if (a[W] == COLOR && a[W] == COLOR)
+		res[W] = COLOR;
 }

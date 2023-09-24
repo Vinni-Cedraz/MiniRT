@@ -25,13 +25,16 @@ all: $(NAME)
 
 ##### THIS IS FOR COMPILING ALL ALL FUNCTIONS INTO A STATIC LIBRARY TO BE EASILY INCLUDED BY THE TESTERS #####
 SRCSLIB := $(wildcard ./src/*.c)
-OBJSLIB:= $(SRCSLIB:.c=.o) libft_gnl/objs/*.o
+MINIRT_LIB_OBJS:= $(SRCSLIB:.c=.o)
+LIB_OBJS = $(wildcard libft_gnl/objs/*.o)
 LIB := minirt.a
+makelib:
+	@make --no-print-directory -C libft_gnl/
 %.o: %.c
 	$(CC) -c $< -o $@
-$(LIB): $(OBJSLIB)
-	ar rcs $@ $^
-as_lib: $(LIB)
+$(LIB): $(MINIRT_LIB_OBJS)
+	ar rcs $@ $^ $(LIB_OBJS) 
+as_lib: makelib $(LIB)
 ##### THIS IS FOR COMPILING ALL ALL FUNCTIONS INTO A STATIC LIBRARY TO BE EASILY INCLUDED BY THE TESTERS #####
 
 
@@ -63,10 +66,12 @@ mlxclean:
 
 clean: mlxclean
 	@echo "Cleaning..."
+	@make clean --no-print-directory -C libft_gnl/
 	rm -f src/*.o
 
 fclean: mlxclean clean
 	@echo "Fully Cleaning..."
+	@make fclean --no-print-directory -C libft_gnl/
 	@rm -f $(NAME) $(LIB)
 
 re: fclean all
