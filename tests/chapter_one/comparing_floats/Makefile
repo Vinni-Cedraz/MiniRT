@@ -1,7 +1,7 @@
 #probably only need to mofify TEST:
 TEST = compare_floats
 
-CFLAGS = cc -g3 -lcriterion -I../../
+CFLAGS = cc -O3 -lcriterion -I../../
 LIB = ../../../libft_gnl/*.a ../../../minirt.a
 
 all: makelibft makeminirt_as_lib

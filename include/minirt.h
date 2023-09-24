@@ -16,7 +16,7 @@
 # include "../libft_gnl/libft.h"
 # include <math.h>
 
-# define EPSILON 0.0001
+# define EPSILON 1e-6
 # define X 0
 # define Y 1
 # define Z 2
@@ -26,8 +26,8 @@
 # define FALSE 0
 # define TRUE 1
 
-typedef float	t_tuple[4];
-typedef char t_bool;
+typedef float			t_tuple[4];
+typedef unsigned short	t_bool;
 
 void	create_point(t_tuple tuple);
 void	create_vector(t_tuple tuple);
@@ -39,7 +39,7 @@ void	multiply_tuple_by_scalar(const t_tuple a, const float s, t_tuple res);
 t_bool	compare_floats(float a, float b);
 float	magnitude(const t_tuple vec);
 short	normalize(const t_tuple vec, t_tuple result);
-short 	dot(const t_tuple a, const t_tuple b, float dot_product);
+short	dot(const t_tuple a, const t_tuple b, float dot_product);
 short	cross(const t_tuple a, const t_tuple b, t_tuple cross_product);
 
 #endif
