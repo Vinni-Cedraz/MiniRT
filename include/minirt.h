@@ -40,6 +40,7 @@ void	add_tuples(const t_tuple a, const t_tuple b, t_tuple result);
 void	subtract_tuples(const t_tuple a, const t_tuple b, t_tuple result);
 void	negate_tuple(const t_tuple a, t_tuple result);
 void	multiply_tuple_by_scalar(const t_tuple a, const float s, t_tuple res);
+void	multiply_colors(const t_tuple c1, const t_tuple c2, t_tuple result);
 t_bool	compare_floats(float a, float b);
 float	magnitude(const t_tuple vec);
 short	normalize(const t_tuple vec, t_tuple result);

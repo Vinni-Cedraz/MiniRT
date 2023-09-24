@@ -17,9 +17,8 @@ Test(suite_name, normalizing_vector_4_0_0) {
 
 Test(suite_name, normalizing_vector_1_2_3) {
     normalize(vecs[1], res);
-    cr_expect_eq(compare_floats(res[X], expected[1][X]), TRUE);
-    cr_expect_eq(compare_floats(res[Y], expected[1][Y]), TRUE);
-    cr_expect_eq(compare_floats(res[Z], expected[1][Z]), TRUE);
+	t_bool is_equal = cr_expect_tuple_eq(res, expected[1]);
+	cr_expect_eq(is_equal, TRUE);
 }
 
 Test(suite_name, magnitude_of_normalized_vector_1_2_3) {

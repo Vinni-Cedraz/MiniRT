@@ -50,3 +50,13 @@ void multiply_tuple_by_scalar(const t_tuple a, const float scalar, t_tuple res)
 	if (a[W] == COLOR && a[W] == COLOR)
 		res[W] = COLOR;
 }
+
+void multiply_colors(const t_tuple c1, const t_tuple c2, t_tuple result)
+{
+	if (c1[W] != COLOR && c2[W] != COLOR)
+		return ;
+	result[R] = c1[R] * c2[R];
+	result[G] = c1[G] * c2[G];
+	result[B] = c1[B] * c2[B];
+	result[W] = COLOR;
+}

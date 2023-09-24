@@ -1,5 +1,5 @@
 #probably only need to mofify TEST:
-TEST = 
+TEST = color_operations
 
 CFLAGS = cc -O3 -lcriterion -I../../
 LIB = ../../../libft_gnl/*.a  ../../../minirt.a
