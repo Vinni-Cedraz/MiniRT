@@ -1,6 +1,7 @@
 #include "tester.h"
 
 #define suite_name cross_product
+// the resulting vector is perpendicular to both inputs
 
 #define scenario1 CYAN"\nGiven a ← vector(1, 2, 3)\n"              \
 					    "And b ← vector(2, 3, 4)\n"                \
