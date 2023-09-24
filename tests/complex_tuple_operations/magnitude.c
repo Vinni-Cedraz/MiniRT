@@ -22,25 +22,25 @@ const float expected_results[] = {
 };
 
 Test(suite_name, magnitude_of_positive_vector) {
-	cr_expect_eq(vector_magnitude(vectors[0]), expected_results[0]);
+	cr_expect_eq(magnitude(vectors[0]), expected_results[0]);
 }
 
 Test(suite_name, magnitude_of_negative_vector) {
-	cr_expect_eq(vector_magnitude(vectors[1]), expected_results[1]);
+	cr_expect_eq(magnitude(vectors[1]), expected_results[1]);
 }
 
 Test(suite_name, magnitude_of_unit_vector1) {
-	cr_expect_eq(vector_magnitude(vectors[2]), expected_results[2]);
+	cr_expect_eq(magnitude(vectors[2]), expected_results[2]);
 }
 
 Test(suite_name, magnitude_of_unit_vector2) {
-	cr_expect_eq(vector_magnitude(vectors[3]), expected_results[3]);
+	cr_expect_eq(magnitude(vectors[3]), expected_results[3]);
 }
 
 Test(suite_name, magnitude_of_unit_vector3) {
-	cr_expect_eq(vector_magnitude(vectors[4]), expected_results[4]);
+	cr_expect_eq(magnitude(vectors[4]), expected_results[4]);
 }
 
 Test(suite_name, magnitude_of_a_point_should_be_always_negative_one) {
-	cr_expect_eq(vector_magnitude(vectors[5]), expected_results[5]);
+	cr_expect_eq(magnitude(vectors[5]), expected_results[5]);
 }
