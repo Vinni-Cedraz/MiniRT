@@ -19,22 +19,33 @@ float	magnitude(const t_tuple vec)
 	return (hypot(hypot(vec[X], vec[Y]), vec[Z]));
 }
 
-short normalize(const t_tuple vec, t_tuple result)
+short	normalize(const t_tuple vec, t_tuple result)
 {
 	const float	mag = magnitude(vec);
 
 	if (mag == 0 || vec[W] != VECTOR)
-		return -1;
+		return (-1);
 	result[X] = vec[X] / mag;
 	result[Y] = vec[Y] / mag;
 	result[Z] = vec[Z] / mag;
 	return (0);
 }
 
-short dot(const t_tuple a, const t_tuple b, float dot_product)
+short	dot(const t_tuple a, const t_tuple b, float dot_product)
 {
 	if (a[W] != VECTOR || b[W] != VECTOR)
 		return (-1);
 	dot_product = a[X] * b[X] + a[Y] * b[Y] + a[Z] * b[Z];
+	return (0);
+}
+
+short	cross(const t_tuple a, const t_tuple b, t_tuple cross_product)
+{
+	if (a[W] != VECTOR || b[W] != VECTOR)
+		return (-1);
+	cross_product[X] = a[Y] * b[Z] - a[Z] * b[Y];
+	cross_product[Y] = a[Z] * b[X] - a[X] * b[Z];
+	cross_product[Z] = a[X] * b[Y] - a[Y] * b[X];
+	cross_product[W] = VECTOR;
 	return (0);
 }

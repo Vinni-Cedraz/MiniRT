@@ -37,5 +37,6 @@ t_bool	compare_floats(float a, float b);
 float	magnitude(const t_tuple vec);
 short	normalize(const t_tuple vec, t_tuple result);
 short 	dot(const t_tuple a, const t_tuple b, float dot_product);
+short	cross(const t_tuple a, const t_tuple b, t_tuple cross_product);
 
 #endif
