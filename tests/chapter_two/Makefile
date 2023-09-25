@@ -1,8 +1,7 @@
 
 TESTDIRS = representing_colors \
 		   color_operations \
-		   # creating_a_canvas \
-		   # saving_a_canvas \
+		   canvas \
 		   # putting_it_together
 
 ORANGE = \033[38;5;214m

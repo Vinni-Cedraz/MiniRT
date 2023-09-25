@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/09/25 17:31:03 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/09/25 18:26:25 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ short		dot(const t_tuple a, const t_tuple b, float dot_product);
 short		cross(const t_tuple a, const t_tuple b, t_tuple cross_product);
 t_canvas	create_canvas(unsigned short width, unsigned short height);
 void		write_pixel(t_canvas *canvas, int x, int y, t_tuple pixel);
+const char	*canvas_to_ppm(const t_canvas *canvas);
 
 #endif
