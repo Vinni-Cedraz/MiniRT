@@ -29,22 +29,31 @@
 # define COLOR 2
 # define FALSE 0
 # define TRUE 1
+# define BLACK 0.000000
+
 
 typedef float			t_tuple[4];
 typedef unsigned short	t_bool;
 
-void	create_point(t_tuple tuple);
-void	create_vector(t_tuple tuple);
-t_bool	compare_floats(float a, float b);
-void	add_tuples(const t_tuple a, const t_tuple b, t_tuple result);
-void	subtract_tuples(const t_tuple a, const t_tuple b, t_tuple result);
-void	negate_tuple(const t_tuple a, t_tuple result);
-void	multiply_tuple_by_scalar(const t_tuple a, const float s, t_tuple res);
-void	multiply_colors(const t_tuple c1, const t_tuple c2, t_tuple result);
-t_bool	compare_floats(float a, float b);
-float	magnitude(const t_tuple vec);
-short	normalize(const t_tuple vec, t_tuple result);
-short	dot(const t_tuple a, const t_tuple b, float dot_product);
-short	cross(const t_tuple a, const t_tuple b, t_tuple cross_product);
+typedef struct s_canvas {
+	unsigned short	width;
+	unsigned short	height;
+	t_tuple			**pixels;
+}				t_canvas;
+
+void		create_point(t_tuple tuple);
+void		create_vector(t_tuple tuple);
+t_bool		compare_floats(float a, float b);
+void		add_tuples(const t_tuple a, const t_tuple b, t_tuple result);
+void		subtract_tuples(const t_tuple a, const t_tuple b, t_tuple result);
+void		negate_tuple(const t_tuple a, t_tuple result);
+void		multiply_tuple_by_scalar(const t_tuple a, const float s, t_tuple r);
+void		multiply_colors(const t_tuple c1, const t_tuple c2, t_tuple result);
+t_bool		compare_floats(float a, float b);
+float		magnitude(const t_tuple vec);
+short		normalize(const t_tuple vec, t_tuple result);
+short		dot(const t_tuple a, const t_tuple b, float dot_product);
+short		cross(const t_tuple a, const t_tuple b, t_tuple cross_product);
+t_canvas	create_canvas(unsigned short width, unsigned short height);
 
 #endif
