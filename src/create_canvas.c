@@ -45,7 +45,7 @@ static t_tuple	*create_row_of_pixels(unsigned short width)
 	return (pixels);
 }
 
-void	destroy_canvas(t_canvas *canvas)
+void	destroy_canvas(const t_canvas *canvas)
 {
 	unsigned short	height;
 

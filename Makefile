@@ -7,7 +7,7 @@ MLXDIR = ./MLX42
 SRC= create_tuples.c
 BUILD_SRC = ./build/
 INCLUDE = ./include
-C_FLAGS = -Wall -Werror -Wextra
+C_FLAGS = -Wall -Werror -Wextra -g3
 OBJS = $(addprefix $(BUILD_DIR_RT), $(SRC:.c=.o))
 BUILD_DIR_MLX = $(MLXDIR)/build
 BUILD_DIR_RT= ./build/

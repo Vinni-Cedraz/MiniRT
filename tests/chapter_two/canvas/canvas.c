@@ -54,3 +54,33 @@ Test(suite_name, saving_a_canvas, .description = scenario3) {
 	const char *ppm_header = canvas_to_ppm(&c);
 	cr_expect_str_eq(ppm_header, expected);
 }
+
+  //  =======================================================================  //
+ //               Scenario: Constructing the PPM pixel data                   //
+//  =======================================================================  //
+// #define scenario4 CYAN "\nGiven c ← canvas(5, 3)\n"                           \
+// 					     "And c1 ← color(1.5, 0, 0)\n"                        \
+// 						 "And c2 ← color(0, 0.5, 0)\n"                        \
+// 						 "And c3 ← color(-0.5, 0, 1)\n"                       \
+// 						 "When write_pixel(c, 0, 0, c1)\n"                    \
+// 						 "And write_pixel(c, 2, 1, c2)\n"                     \
+// 						 "And write_pixel(c, 4, 2, c3)\n"                     \
+// 						 "And ppm ← canvas_to_ppm(c)\n"                       \
+// 						 "Then lines 4-6 of ppm are\n"                        \
+// 						 "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n"                  \
+// 						 "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0\n"                  \
+// 						 "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255\n"
+//
+// Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scenario4) {
+// 	t_canvas c = create_canvas(5, 3);
+// 	const char expected[] ="P3\n5 3\n255\n" \
+// 	"255 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n"     \
+// 	"0 0 0 0 0 0 0 128 0 0 0 0 0 0 0\n"     \
+// 	"0 0 0 0 0 0 0 0 0 0 0 0 0 0 255\n";
+//
+// 	write_pixel(&c, 0, 0, (t_tuple){1, 0, 0, COLOR});
+// 	write_pixel(&c, 2, 1, (t_tuple){0, 5, 0, COLOR});
+// 	write_pixel(&c, 4, 2, (t_tuple){0.5, 0, 1, COLOR});
+// 	cr_expect_str_eq(canvas_to_ppm(&c), expected);
+// 	destroy_canvas(&c);
+// }
