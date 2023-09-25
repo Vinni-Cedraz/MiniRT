@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.c                                           :+:      :+:    :+:   */
+/*   create_canvas.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 17:22:18 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/09/24 17:22:40 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/09/25 17:26:18 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/09/25 17:26:19 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static t_tuple	*create_row_of_pixels(unsigned short width)
 	pixels = malloc(sizeof(t_tuple) * width);
 	while (width)
 	{
-		pixels[width - 1][R] = BLACK;
-		pixels[width - 1][G] = BLACK;
-		pixels[width - 1][B] = BLACK;
+		pixels[width - 1][R] = 0;
+		pixels[width - 1][G] = 0;
+		pixels[width - 1][B] = 0;
 		pixels[width - 1][W] = COLOR;
 		width--;
 	}

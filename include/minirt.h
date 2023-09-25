@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/09/24 17:23:45 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:31:03 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 # define COLOR 2
 # define FALSE 0
 # define TRUE 1
-# define BLACK 0.000000
 
 
 typedef float			t_tuple[4];
@@ -55,5 +54,6 @@ short		normalize(const t_tuple vec, t_tuple result);
 short		dot(const t_tuple a, const t_tuple b, float dot_product);
 short		cross(const t_tuple a, const t_tuple b, t_tuple cross_product);
 t_canvas	create_canvas(unsigned short width, unsigned short height);
+void		write_pixel(t_canvas *canvas, int x, int y, t_tuple pixel);
 
 #endif
