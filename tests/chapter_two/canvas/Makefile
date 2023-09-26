@@ -15,3 +15,4 @@ makelibft:
 
 clean:
 	rm -f $(TEST)
+	rm -f output.ppm
