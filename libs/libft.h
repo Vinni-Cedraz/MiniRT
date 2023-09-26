@@ -39,9 +39,6 @@ typedef void		(*t_function_ptr)(const void *a, const t_ype t);
 
 typedef struct s_trings
 {
-	t_string	next;
-	t_string	str2;
-	t_string	str3;
 	t_string	a;
 	t_string	b;
 	t_string	c;

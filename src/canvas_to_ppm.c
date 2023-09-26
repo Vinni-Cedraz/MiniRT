@@ -45,46 +45,56 @@ static void	pixels_to_str(const t_canvas *canvas, char *pxls_str)
 	while (idx < canvas->width * canvas->height)
 	{
 		pxl_str = fmt_s(canvas, idx);
-		len = ft_strlen(pxls_str) + ft_strlen(pxl_str) + 1;
+		len = ft_strlen(pxls_str) + ft_strlen(pxl_str) + 2;
 		ft_strlcat(pxls_str, pxl_str, len);
 		free(pxl_str);
 		idx++;
 	}
 }
 
-static char	*fmt_s(const t_canvas *c, const int idx)
+static inline char	*fmt_s(const t_canvas *c, const int idx)
 {
-	char			*res;
+	char			*pxl_str;
 	t_strings		*strings;
 	const int		w = c->width;
-	static t_string	fmt_str = "%s %s %s\n";
+	static t_string	fmt_str = "%s %s %s";
 	const t_ints	ints = {
-		(int)(c->pixels[idx / w][idx % w][R] * 255),
-		(int)(c->pixels[idx / w][idx % w][G] * 255),
-		(int)(c->pixels[idx / w][idx % w][B] * 255),
+		(int)ceil(c->pixels[idx / w][idx % w][R] * 255),
+		(int)ceil(c->pixels[idx / w][idx % w][G] * 255),
+		(int)ceil(c->pixels[idx / w][idx % w][B] * 255),
 	};
 
 	strings = malloc(sizeof(t_strings));
 	convert_rgb_values_to_strings(ints, strings);
-	res = ft_fmt_str(fmt_str, strings->a, strings->b, strings->c);
+	pxl_str = ft_fmt_str(fmt_str, strings->a, strings->b, strings->c);
+	if (!((idx + 1) % w))
+		pxl_str = ft_strjoin(pxl_str, ft_strdup("\n"));
+	else
+		pxl_str = ft_strjoin(pxl_str, ft_strdup(" "));
 	free_t_strings(strings);
-	return (res);
+	return (pxl_str);
 }
 
 static void	convert_rgb_values_to_strings(const t_ints rgb, t_strings *strings)
 {
-	if (rgb.a <= 255)
-		strings->a = ft_itoa(rgb.a);
-	else
+	if (rgb.a > 255)
 		strings->a = ft_itoa(255);
-	if (rgb.b <= 255)
-		strings->b = ft_itoa(rgb.b);
+	else if (rgb.a < 0)
+		strings->a = ft_itoa(0);
 	else
+		strings->a = ft_itoa(rgb.a);
+	if (rgb.b > 255)
 		strings->b = ft_itoa(255);
-	if (rgb.c <= 255)
-		strings->c = ft_itoa(rgb.c);
+	else if (rgb.b < 0)
+		strings->b = ft_itoa(0);
 	else
+		strings->b = ft_itoa(rgb.b);
+	if (rgb.c > 255)
 		strings->c = ft_itoa(255);
+	else if (rgb.c < 0)
+		strings->c = ft_itoa(0);
+	else
+		strings->c = ft_itoa(rgb.c);
 }
 
 void	free_t_strings(t_strings *strs)
@@ -94,36 +104,3 @@ void	free_t_strings(t_strings *strs)
 	free((void *)strs->c);
 	free(strs);
 }
-
-// #include <stdio.h>
-// #include <stdlib.h>
-//
-// // Define the t_canvas structure and required functions here
-// // ...
-//
-// int main() {
-//     // Create a sample t_canvas structure with some pixel data
-//     t_canvas canvas = create_canvas(2, 2);
-//     canvas.pixels[0][0][0] = 1.0;  // Red component
-//     canvas.pixels[0][0][1] = 0.0;  // Green component
-//     canvas.pixels[0][0][2] = 0.0;  // Blue component
-//     canvas.pixels[0][1][0] = 0.0;
-//     canvas.pixels[0][1][1] = 1.0;
-//     canvas.pixels[0][1][2] = 0.0;
-//     canvas.pixels[1][0][0] = 0.0;
-//     canvas.pixels[1][0][1] = 0.0;
-//     canvas.pixels[1][0][2] = 1.0;
-//     canvas.pixels[1][1][0] = 1.0;
-//     canvas.pixels[1][1][1] = 1.0;
-//     canvas.pixels[1][1][2] = 1.0;
-//
-//     // Call the canvas_to_ppm function
-//     char *ppm = canvas_to_ppm(&canvas);
-//
-//     // Print the resulting PPM header
-//     printf("%s", ppm);
-//
-//     // Remember to free the allocated memory
-//     free(ppm);
-// 	destroy_canvas(&canvas);
-// }

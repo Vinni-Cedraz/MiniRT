@@ -14,7 +14,7 @@
 
 static t_tuple	*create_row_of_pixels(unsigned short width);
 
-t_canvas	create_canvas(unsigned short width, unsigned short height)
+t_canvas	create_canvas(unsigned short height, unsigned short width)
 {
 	t_canvas	canvas;
 

@@ -24,12 +24,12 @@ char	*ft_fmt_str(t_string format, t_string s1, t_string s2, t_string s3)
 	i = 0;
 	format_idx = 0;
 	ft_bzero(result, STR_LIMIT);
-	strs = (t_strings){.next = s1, .str2 = s2, .str3 = s3};
+	strs = (t_strings){.a = s1, .b = s2, .c = s3};
 	while (format[format_idx])
 	{
 		if (format[format_idx] == '%' && format[format_idx + 1] == 's')
 		{
-			if (strs.next)
+			if (strs.a)
 				expand_format_str(&strs, result);
 			format_idx += 2;
 			i = ft_strlen(result);
@@ -42,8 +42,8 @@ char	*ft_fmt_str(t_string format, t_string s1, t_string s2, t_string s3)
 
 static void	expand_format_str(t_strings *strs, char *result)
 {
-	ft_strlcat(result, strs->next, STR_LIMIT);
-	strs->next = strs->str2;
-	strs->str2 = strs->str3;
-	strs->str3 = NULL;
+	ft_strlcat(result, strs->a, STR_LIMIT);
+	strs->a = strs->b;
+	strs->b = strs->c;
+	strs->c = NULL;
 }

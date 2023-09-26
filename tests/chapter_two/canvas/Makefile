@@ -2,7 +2,7 @@
 TEST = canvas
 
 CFLAGS = cc -O3 -lcriterion -I../../
-LIB = ../../../libs/*.a  ../../../minirt.a
+LIB = ../../../libs/*.a  ../../../minirt.a -lm
 
 all: makelibft makeminirt_as_lib 
 	@$(CFLAGS) $(TEST).c $(LIB) -o $(TEST)

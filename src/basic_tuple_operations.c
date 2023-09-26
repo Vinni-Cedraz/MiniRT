@@ -40,18 +40,18 @@ void	negate_tuple(const t_tuple a, t_tuple result)
 	result[W] = -a[W];
 }
 
-void multiply_tuple_by_scalar(const t_tuple a, const float scalar, t_tuple res)
+void	multiply_tuple_by_scalar(
+		const t_tuple a, const float scalar, t_tuple re)
 {
-
-	res[X] = a[X] * scalar;
-	res[Y] = a[Y] * scalar;
-	res[Z] = a[Z] * scalar;
-	res[W] = a[W] * scalar;
+	re[X] = a[X] * scalar;
+	re[Y] = a[Y] * scalar;
+	re[Z] = a[Z] * scalar;
+	re[W] = a[W] * scalar;
 	if (a[W] == COLOR && a[W] == COLOR)
-		res[W] = COLOR;
+		re[W] = COLOR;
 }
 
-void multiply_colors(const t_tuple c1, const t_tuple c2, t_tuple result)
+void	multiply_colors(const t_tuple c1, const t_tuple c2, t_tuple result)
 {
 	if (c1[W] != COLOR && c2[W] != COLOR)
 		return ;
