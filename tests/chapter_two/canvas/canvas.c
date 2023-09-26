@@ -18,8 +18,7 @@ Test(suite_name, creating_a_canvas, .description = scenario1) {
     cr_expect_eq(c.width, 10);
     cr_expect_eq(c.height, 20);
     for (int i = 0; i < c.width * c.height; i++) {
-        int eq = cr_expect_tuple_eq(c.pixels[i / c.width][i % c.width],
-                                    (t_tuple){0, 0, 0, COLOR});
+        int eq = cr_expect_tuple_eq(c.pixels[i / c.width][i % c.width], (t_tuple){0, 0, 0, COLOR});
         cr_assert_eq(eq, TRUE);
     }
 }
@@ -98,9 +97,9 @@ Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scen
 
 #define scenario5                                                                        \
     CYAN "\nScenario: Splitting long lines in PPM files"                                 \
-         "Given c ← canvas(2, 10)\n"                                                   \
+         "Given c ← canvas(2, 10)\n"                                                     \
          "When every pixel of c is set to color(1, 0.8, 0.6)\n"                          \
-         "And ppm ← canvas_to_ppm(c)\n"                                                \
+         "And ppm ← canvas_to_ppm(c)\n"                                                  \
          "Then lines 4-7 of ppm are\n"                                                   \
          "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204\n"         \
          "153 255 204 153 255 204 153 255 204 153 255 204 153\n"                         \
@@ -109,32 +108,35 @@ Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scen
 
 
 Test(suite_name, lines_longer_than_70_should_break, .description = scenario5) {
-    const t_canvas c = create_canvas(2, 10);
-	t_string ppm_string = canvas_to_ppm(&c);
+    t_canvas c;
+	t_string ppm_string;
 	char *line;
-	printf("%s\n", ppm_string);
-	int fd = create_ppm_file(ppm_string, "scenario5.ppm");
+	int fd;
 
+	c = create_canvas(2, 10);
+	ppm_string = canvas_to_ppm(&c);
+	fd = create_ppm_file(ppm_string, "scenario5.ppm");
 	line = ft_gnl(fd);
-	printf(GREEN"\n\n\n\n\n\n\nline: %s\n"RESET, line);
-	// cr_expect_str_eq(line, "P3\n");
+	cr_assert_str_eq(line, "P3\n");
+	free(line);
+	line = ft_gnl(fd);
+	cr_assert_str_eq(line, "10 2\n");
+	free(line);
+	line = ft_gnl(fd);
+	cr_assert_str_eq(line, "255\n");
 	free(line);
 }
 
 int create_ppm_file(t_string ppm_string, const char filename[]) {
-	int fd = open(filename, O_CREAT | O_RDWR, 0666);
+	int fd = open(filename, O_CREAT, 0666);
     if (fd < 0)
     	perror("Error opening file!\n");
-    if (write(fd, ppm_string, strlen(ppm_string)) != strlen(ppm_string)) {
-        perror("Error writing to file!\n");
-    }
+    write(fd, ppm_string, strlen(ppm_string));
 	return fd;
 }
 
 static void set_all_pixels_to_one_color(const t_canvas *c, t_tuple color) {
-    for (int y = 0; y < c->height; y++) {
-        for (int x = 0; x < c->width; x++) {
-            write_pixel((t_canvas *)c, x, y, color);
-        }
-    }
+    for (int y = 0; y < c->height; y++)
+        for (int x = 0; x < c->width; x++)
+            write_pixel((t_canvas *)c, y, x, color);
 }
