@@ -72,10 +72,22 @@ Test(suite_name, saving_a_canvas, .description = scenario3) {
 
 Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scenario4) {
 	t_canvas c = create_canvas(5, 3);
-	const char expected[] ="P3\n5 3\n255\n" \
-	"255 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n"     \
-	"0 0 0 0 0 0 0 128 0 0 0 0 0 0 0\n"     \
-	"0 0 0 0 0 0 0 0 0 0 0 0 0 0 255\n";
+	const char expected[] = "P3\n5 3\n255\n" \
+	"255 0 0\n" \
+	"0 0 0\n"   \
+	"0 0 0\n"   \
+	"0 0 0\n"   \
+	"0 0 0\n"   \
+	"0 0 0\n"   \
+	"0 0 0\n"   \
+	"0 128 0\n" \
+	"0 0 0\n"   \
+	"0 0 0\n"   \
+	"0 0 0\n"   \
+	"0 0 0\n"   \
+	"0 0 0\n"   \
+	"0 0 0\n"   \
+	"0 0 255\n";
 
 	write_pixel(&c, 0, 0, (t_tuple){1, 0, 0, COLOR});
 	write_pixel(&c, 2, 1, (t_tuple){0, 5, 0, COLOR});

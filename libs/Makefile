@@ -82,7 +82,6 @@ ft_itoa \
 ft_split \
 ft_randomize_array \
 ft_iswhitespace \
-ft_check_balanced \
 ft_fmt_str \
 
 BSRCS = ft_lstadd_back \
@@ -100,6 +99,7 @@ ft_lst_circular \
 ft_lstcircular_free \
 ft_lstpop \
 ft_lstshift \
+ft_check_balanced \
 	
 OBJS = $(addprefix $(OBJS_PATH), $(addsuffix .o, $(SRCS)))
 OBJSB = $(addprefix $(OBJSB_PATH), $(addsuffix .o, $(BSRCS)))
