@@ -13,7 +13,7 @@
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include "../libft_gnl/libft.h"
+# include "../libs/libft.h"
 # include <math.h>
 
 # define EPSILON 1e-6

@@ -2,7 +2,7 @@
 TEST = tuples
 
 CFLAGS = cc -O3 -lcriterion -I../../
-LIB = ../../../libft_gnl/*.a  ../../../minirt.a
+LIB = ../../../libs/*.a  ../../../minirt.a
 
 all: makeminirt_as_lib
 	@$(CFLAGS) $(TEST).c $(LIB) -o $(TEST)

@@ -1,5 +1,5 @@
 CFLAGS = cc -O3 -lcriterion -I../../ -lm -w
-LIB = ../../../libft_gnl/*.a  ../../../minirt.a
+LIB = ../../../libs/*.a  ../../../minirt.a
 
 all: makeminirt_as_lib
 	@$(CFLAGS) magnitude.c $(LIB) -o magnitude

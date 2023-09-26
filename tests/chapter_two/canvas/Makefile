@@ -2,7 +2,7 @@
 TEST = canvas
 
 CFLAGS = cc -O3 -lcriterion -I../../
-LIB = ../../../libft_gnl/*.a  ../../../minirt.a
+LIB = ../../../libs/*.a  ../../../minirt.a
 
 all: makelibft makeminirt_as_lib 
 	@$(CFLAGS) $(TEST).c $(LIB) -o $(TEST)
@@ -11,7 +11,7 @@ all: makelibft makeminirt_as_lib
 makeminirt_as_lib:
 	@make as_lib --no-print-directory -C ../../../
 makelibft:
-	@make --no-print-directory -C ../../../libft_gnl/
+	@make --no-print-directory -C ../../../libs/
 
 clean:
 	rm -f $(TEST)

@@ -14,7 +14,7 @@
 
 void	write_pixel(t_canvas *canvas, int x, int y, t_tuple pixel)
 {
-	canvas->pixels[x][y][R] = pixel[R];
-	canvas->pixels[x][y][G] = pixel[G];
-	canvas->pixels[x][y][B] = pixel[B];
+	canvas->pixels[y][x][R] = pixel[R];
+	canvas->pixels[y][x][G] = pixel[G];
+	canvas->pixels[y][x][B] = pixel[B];
 }
