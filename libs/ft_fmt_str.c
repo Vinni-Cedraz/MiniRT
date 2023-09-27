@@ -14,7 +14,7 @@
 
 static void	expand_format_str(t_strings *strs, char *result);
 
-char	*ft_fmt_str(t_string format, t_string s1, t_string s2, t_string s3)
+char	*ft_fmt_str(t_constr format, t_constr s1, t_constr s2, t_constr s3)
 {
 	int			i;
 	int			format_idx;

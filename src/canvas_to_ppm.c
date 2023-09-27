@@ -57,7 +57,7 @@ static inline char	*fmt_s(const t_canvas *c, const int idx)
 	char			*pxl_str;
 	t_strings		*strings;
 	const int		w = c->width;
-	static t_string	fmt_str = "%s %s %s";
+	static t_constr fmt_str = "%s %s %s";
 	const t_ints	ints = {
 		(int)ceil(c->pixels[idx / w][idx % w][R] * 255),
 		(int)ceil(c->pixels[idx / w][idx % w][G] * 255),
