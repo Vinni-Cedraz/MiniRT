@@ -26,7 +26,7 @@
 #  define BUFFER_SIZE 10000
 # endif
 
-typedef const char	*t_string;
+typedef const char	*t_constr;
 
 typedef enum e_type
 {
@@ -39,14 +39,13 @@ typedef void		(*t_function_ptr)(const void *a, const t_ype t);
 
 typedef struct s_trings
 {
-	t_string	a;
-	t_string	b;
-	t_string	c;
+	t_constr	a;
+	t_constr	b;
+	t_constr	c;
 }					t_strings;
 
 typedef struct s_ints
 {
-
 	int			a;
 	int			b;
 	int			c;
@@ -272,7 +271,7 @@ void	ft_randomize_array(int *arr, int arr_size);
 // atoi but returns a long
 long	ft_atol(char *str);
 // like a mini sprinf that only works for three strings
-char	*ft_fmt_str(t_string fm, t_string s1, t_string s2, t_string s3);
+char	*ft_fmt_str(t_constr fm, t_constr s1, t_constr s2, t_constr s3);
 // iterates linearly on a 2d array applying a given function
 void	ft_2d_iter(void **a, int n, t_function_ptr funct, t_ype t);
 

@@ -9,15 +9,22 @@
 #define GREEN "\033[32m"
 #define RESET "\033[0m"
 
-inline static void	print_tuple(const t_tuple a)
+static inline void	print_tuple(const t_tuple a)
 {
 	printf("X: %f, Y: %f, Z: %f, W: %f\n", a[X], a[Y], a[Z], a[W]);
 }
 
-inline static t_bool cr_expect_tuple_eq(const t_tuple result, const t_tuple expected) {
+static inline t_bool cr_expect_tuple_eq(const t_tuple result, const t_tuple expected) {
 	for (int i = 0; i < 4; i++)
 		if (!compare_floats(result[i], expected[i]))
 			return (FALSE);
 	return (TRUE);
 }
+
+static inline void set_all_pixels_to_one_color(const t_canvas *c, t_tuple color) {
+    for (int y = 0; y < c->height; y++)
+        for (int x = 0; x < c->width; x++)
+            write_pixel((t_canvas *)c, y, x, color);
+}
+
 #endif

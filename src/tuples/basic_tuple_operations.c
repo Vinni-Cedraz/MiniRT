@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minirt.h"
+#include "minirt.h"
 
 void	add_tuples(const t_tuple a, const t_tuple b, t_tuple result)
 {

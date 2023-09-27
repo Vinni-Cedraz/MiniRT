@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minirt.h"
+#include "minirt.h"
 
 float	magnitude(const t_tuple vec)
 {

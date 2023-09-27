@@ -15,6 +15,7 @@
 
 # include "../libs/libft.h"
 # include <math.h>
+# include <stdio.h>
 
 # define EPSILON 1e-6
 # define X 0
@@ -54,7 +55,7 @@ short		normalize(const t_tuple vec, t_tuple result);
 short		dot(const t_tuple a, const t_tuple b, float dot_product);
 short		cross(const t_tuple a, const t_tuple b, t_tuple cross_product);
 t_canvas	create_canvas(unsigned short width, unsigned short height);
-void		write_pixel(t_canvas *canvas, int x, int y, t_tuple pixel);
+void		write_pixel(t_canvas *canvas, int x, int y, const t_tuple pixel);
 char		*canvas_to_ppm(const t_canvas *canvas);
 void		destroy_canvas(const t_canvas *canvas);
 

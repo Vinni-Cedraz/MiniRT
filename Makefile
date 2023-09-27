@@ -2,7 +2,7 @@ NAME = minirt
 LIBMLX = libmlx42.a
 libft = libft.a
 MLXSRC = git@github.com:codam-coding-college/MLX42.git
-VPATH= ./src
+VPATH= ./src/canvas/ ./src/tuples/
 MLXDIR = ./MLX42
 SRC= create_tuples.c
 BUILD_SRC = ./build/
@@ -24,14 +24,14 @@ all: $(NAME)
 
 
 ##### THIS IS FOR COMPILING ALL ALL FUNCTIONS INTO A STATIC LIBRARY TO BE EASILY INCLUDED BY THE TESTERS #####
-SRCSLIB := $(wildcard ./src/*.c)
+SRCSLIB := $(wildcard ./src/*/*.c)
 MINIRT_LIB_OBJS:= $(SRCSLIB:.c=.o)
 LIB_OBJS = $(wildcard libs/objs/*.o)
 LIB := minirt.a
 makelib:
 	@make --no-print-directory -C libs/
 %.o: %.c
-	$(CC) -c $< -o $@
+	$(CC) -I$(INCLUDE) -c $< -o $@
 $(LIB): $(MINIRT_LIB_OBJS)
 	ar rcs $@ $^ $(LIB_OBJS) 
 as_lib: makelib $(LIB)

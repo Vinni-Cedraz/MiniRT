@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minirt.h"
-#include <stdio.h>
+#include "minirt.h"
 
 static void		pixels_to_str(const t_canvas *canvas, char *pxls_str);
 static char		*fmt_s(const t_canvas *c, const int idx);
@@ -38,7 +37,6 @@ static void	pixels_to_str(const t_canvas *canvas, char *pxls_str)
 {
 	char					*pxl_str;
 	int						idx;
-	const unsigned short	w = canvas->width;
 	int						len;
 
 	idx = 0;
@@ -57,7 +55,7 @@ static inline char	*fmt_s(const t_canvas *c, const int idx)
 	char			*pxl_str;
 	t_strings		*strings;
 	const int		w = c->width;
-	static t_string	fmt_str = "%s %s %s";
+	static t_constr fmt_str = "%s %s %s";
 	const t_ints	ints = {
 		(int)ceil(c->pixels[idx / w][idx % w][R] * 255),
 		(int)ceil(c->pixels[idx / w][idx % w][G] * 255),
@@ -103,4 +101,18 @@ void	free_t_strings(t_strings *strs)
 	free((void *)strs->b);
 	free((void *)strs->c);
 	free(strs);
+}
+
+
+#include "../tests/tester.h"
+
+Test(test, set_all_pixels_to_one_color){
+	t_canvas c = create_canvas(20, 10);
+
+	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.5, 0.9});
+    for (int i = 0; i < c.width * c.height; i++) {
+        int eq = cr_expect_tuple_eq(c.pixels[i / c.width][i % c.width], (t_tuple){1.0, 0.5, 0.9, COLOR});
+        cr_assert_eq(eq, TRUE);
+    }
+	destroy_canvas(&c);
 }

@@ -1,15 +1,14 @@
 #include "../../tester.h"
 
 #define suite_name canvas
-static void set_all_pixels_to_one_color(const t_canvas *c, t_tuple color);
-int create_ppm_file(t_string ppm_string, const char filename[]);
+void create_ppm_file(t_constr ppm_string, const char filename[]);
 
 //  =======================================================================  //
 //                         Scenario: creating a canvas                       //
 //  =======================================================================  //
 #define scenario1                                                                        \
     CYAN "\n"                                                                            \
-         "Given c ← canvas(20, 10)\n"                                                  \
+         "Given c ← canvas(20, 10)\n"                                                    \
          "Then c.width = 10 And c.height = 20\n"                                         \
          "And every pixel of c is color(0, 0, 0)" RESET
 
@@ -28,7 +27,7 @@ Test(suite_name, creating_a_canvas, .description = scenario1) {
 //  =======================================================================  //
 #define scenario2                                                                        \
     CYAN "\n"                                                                            \
-         "Given c ← canvas(20, 10)\n"                                                  \
+         "Given c ← canvas(20, 10)\n"                                                    \
          "When write_pixel(c, 2, 3, red)\n"                                              \
          "Then pixel_at(c, 2, 3) = red" RESET
 
@@ -44,12 +43,12 @@ Test(suite_name, writing_a_pixel_in_a_canvas, .description = scenario2) {
 //  =======================================================================  //
 #define scenario3                                                                        \
     CYAN "\n"                                                                            \
-         "Given c ← canvas(3, 5)\n"                                                    \
-         "When ppm ← canvas_to_ppm(c)\n"                                               \
+         "Given c ← canvas(3, 5)\n"                                                      \
+         "When ppm ← canvas_to_ppm(c)\n"                                                 \
          "Then lines 1-3 of ppm are:\n"                                                  \
          "P3\n"                                                                          \
          "5 3\n"                                                                         \
-         "255\n" RESET
+         "255" RESET
 
 Test(suite_name, constructing_the_ppm_header, .description = scenario3) {
     const char expected[] = "P3\n5 3\n255\n"; // "P3\n" and "255\n" are fixed for all ppm
@@ -64,19 +63,19 @@ Test(suite_name, constructing_the_ppm_header, .description = scenario3) {
 //  =======================================================================  //
 //               Scenario: Constructing the PPM pixel data                   //
 //  =======================================================================  //
-#define scenario4                                                                        \
+#define scenario4                                                                      \
     CYAN "\nGiven c ← canvas(3, 5)\n"                                                  \
          "And c1 ← color(1.5, 0, 0)\n"                                                 \
          "And c2 ← color(0, 0.5, 0)\n"                                                 \
          "And c3 ← color(-0.5, 0, 1)\n"                                                \
-         "When write_pixel(c, 0, 0, c1)\n"                                               \
-         "And write_pixel(c, 2, 1, c2)\n"                                                \
-         "And write_pixel(c, 4, 2, c3)\n"                                                \
+         "When write_pixel(c, 0, 0, c1)\n"                                             \
+         "And write_pixel(c, 2, 1, c2)\n"                                              \
+         "And write_pixel(c, 4, 2, c3)\n"                                              \
          "And ppm ← canvas_to_ppm(c)\n"                                                \
-         "Then lines 4-6 of ppm are\n"                                                   \
-         "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n"                                             \
-         "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0\n"                                             \
-         "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255\n"
+         "Then lines 4-6 of ppm are\n"                                                 \
+         "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n"                                           \
+         "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0\n"                                           \
+         "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255" RESET
 
 Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scenario4) {
     t_canvas c = create_canvas(3, 5);
@@ -88,15 +87,14 @@ Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scen
     write_pixel(&c, 0, 0, (t_tuple){1.5, 0, 0, COLOR});
     write_pixel(&c, 1, 2, (t_tuple){0, 0.5, 0, COLOR});
     write_pixel(&c, 2, 4, (t_tuple){-0.5, 0, 1, COLOR});
-    const char *res = canvas_to_ppm(&c);
+    t_constr res = canvas_to_ppm(&c);
     cr_expect_str_eq(res, expected);
-	int fd = create_ppm_file(res, "output_scenario4.ppm");
+	create_ppm_file(res, "output_scenario4.ppm");
     destroy_canvas(&c);
-    close(fd);
 }
 
 #define scenario5                                                                        \
-    CYAN "\nScenario: Splitting long lines in PPM files"                                 \
+    CYAN "\nScenario: Splitting long lines in PPM files\n"                               \
          "Given c ← canvas(2, 10)\n"                                                     \
          "When every pixel of c is set to color(1, 0.8, 0.6)\n"                          \
          "And ppm ← canvas_to_ppm(c)\n"                                                  \
@@ -104,39 +102,39 @@ Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scen
          "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204\n"         \
          "153 255 204 153 255 204 153 255 204 153 255 204 153\n"                         \
          "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204\n"         \
-         "153 255\n"
+         "153 255" RESET
 
+#define LINES 8
+t_constr lines_to_assert[LINES] = {
+            "P3\n",
+			"10 2\n",
+			"255\n",
+			"255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204\n",
+         	"153 255 204 153 255 204 153 255 204 153 255 204 153\n",
+         	"255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204\n",
+         	"153 255\n",
+};
 
-Test(suite_name, lines_longer_than_70_should_break, .description = scenario5) {
+Test(suite_name, lines_all_being_written_to_file, .description = scenario5) {
     t_canvas c;
-	t_string ppm_string;
 	char *line;
-	int fd;
-
-	c = create_canvas(2, 10);
-	ppm_string = canvas_to_ppm(&c);
-	fd = create_ppm_file(ppm_string, "scenario5.ppm");
-	line = ft_gnl(fd);
-	cr_assert_str_eq(line, "P3\n");
-	free(line);
-	line = ft_gnl(fd);
-	cr_assert_str_eq(line, "10 2\n");
-	free(line);
-	line = ft_gnl(fd);
-	cr_assert_str_eq(line, "255\n");
-	free(line);
+   
+    c = create_canvas(2, 10);
+	set_all_pixels_to_one_color(&c, (t_tuple){1, 0.8, 0.6});
+	t_constr ppm_string = canvas_to_ppm(&c);
+	create_ppm_file(ppm_string, "output_scenario5.ppm");
+	int fd = open("output_scenario5.ppm", O_RDONLY);
+	for (int i = 0; i < LINES; i++)
+	{
+		line = ft_gnl(fd);
+		cr_assert_str_eq(line, lines_to_assert[i]);
+		free(line);
+	}
+    destroy_canvas(&c);
 }
 
-int create_ppm_file(t_string ppm_string, const char filename[]) {
-	int fd = open(filename, O_CREAT, 0666);
-    if (fd < 0)
-    	perror("Error opening file!\n");
-    write(fd, ppm_string, strlen(ppm_string));
-	return fd;
-}
-
-static void set_all_pixels_to_one_color(const t_canvas *c, t_tuple color) {
-    for (int y = 0; y < c->height; y++)
-        for (int x = 0; x < c->width; x++)
-            write_pixel((t_canvas *)c, y, x, color);
+void create_ppm_file(t_constr ppm_string, const char filename[]) {
+	char CMD[STR_LIMIT];
+	sprintf(CMD, "echo '%s' > %s", ppm_string, filename);
+	system(CMD);
 }

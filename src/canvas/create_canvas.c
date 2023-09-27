@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minirt.h"
+#include "minirt.h"
 
 static t_tuple	*create_row_of_pixels(unsigned short width);
 
