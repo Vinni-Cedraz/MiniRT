@@ -10,21 +10,22 @@ CODAM_LIB_FLAGS = -L./MLX42/build/ -lmlx42 -ldl -lglfw -pthread -lm
 
 
 ### LIBFT
-libft = ./libs/libft.a
+LIBFT = ./libs/libft.a
 SRCSLIB := $(wildcard ./src/*/*.c)
 LIB_OBJS = $(wildcard libs/objs/*.o)
 LIB := minirt.a
 
 ### MINIRT
 NAME = minirt
-SRC = main.c
-VPATH= ./src
+SRC = main.c canvas_to_ppm.c create_canvas.c write_pixel.c basic_tuple_operations.c compare_floats.c \
+	  complex_tuple_operations.c create_tuples.c
+VPATH= ./src ./src/canvas/ ./src/tuples/
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/
-C_FLAGS = -Wall -Werror -Wextra -g3
+C_FLAGS = -Wall -Werror -Wextra -g3 
 OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))
 BUILD_DIR_RT= ./build/
-CMD = $(CC) $(OBJS) $(C_FLAGS) -I$(MLX_INCLUDE) -I $(INCLUDE) -c $< -o $@
+CMD = $(CC) $(LIBFT) $(OBJS) $(C_FLAGS) -I$(MLX_INCLUDE) -I $(INCLUDE) -c $< -o $@
 
 ### RECIPES
 
@@ -34,14 +35,14 @@ all: $(NAME)
 
 $(NAME): $(LIBMLX_TARGET) $(OBJS)
 	@printf "$(GREEN)[ Build ]$(DEF_COLOR) $(RED) $@ $(GREEN)complete $(DEF_COLOR)"
-	@$(CC) $(LIBFT) $(CFLAGS) $(OBJS) $(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -o $@
+	$(CC) $(C_FLAGS) $(OBJS) $(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -L ./libs/ -lft -o $@
 
-$(BUILD_DIR_RT)%.o: %.c $(libft)
+$(BUILD_DIR_RT)%.o: %.c $(LIBFT)
 	@test -d $(BUILD_DIR_RT) || mkdir $(BUILD_DIR_RT)
 	@echo "$(GREEN)[ Compiling ] $(DEF_COLOR) $< $(GREEN) with instruction $(DEF_COLOR) $(CMD)"
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-$(libft):
+$(LIBFT):
 	make -C ./libs
 
 $(LIBMLX_TARGET): $(MLXDIR)
