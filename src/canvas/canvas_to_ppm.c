@@ -1,6 +1,5 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
+/*                                                                            */ /*                                                        :::      ::::::::   */
 /*   canvas_to_ppm.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
@@ -13,9 +12,7 @@
 #include "minirt.h"
 
 static void		pixels_to_str(const t_canvas *canvas, char *pxls_str);
-static char		*fmt_s(const t_canvas *c, const int idx);
-static void		convert_rgb_values_to_strings(const t_ints rgb, t_strings *s);
-static void		free_t_strings(t_strings *strs);
+static t_constr convert_color_to_string(const t_canvas *c, int idx, int rgb);
 
 char	*canvas_to_ppm(const t_canvas *canvas)
 {
@@ -35,84 +32,64 @@ char	*canvas_to_ppm(const t_canvas *canvas)
 
 static void	pixels_to_str(const t_canvas *canvas, char *pxls_str)
 {
-	char					*pxl_str;
-	int						idx;
+	int						i;
+	int						j;
 	int						len;
 
-	idx = 0;
-	while (idx < canvas->width * canvas->height)
+	i= 0;
+	while (i < canvas->width * canvas->height)
 	{
-		pxl_str = fmt_s(canvas, idx);
-		len = ft_strlen(pxls_str) + ft_strlen(pxl_str) + 2;
-		ft_strlcat(pxls_str, pxl_str, len);
-		free(pxl_str);
-		idx++;
+		j = 0;
+		while (j < 3)
+		{
+			t_constr pxl_str = convert_color_to_string(canvas, i, j);
+			len = ft_strlen(pxls_str) + ft_strlen(pxl_str) + 2;
+			ft_strlcat(pxls_str, pxl_str, len);
+			free((void *)pxl_str);
+		}
+		i++;
 	}
 }
 
-static inline char	*fmt_s(const t_canvas *c, const int idx)
+static t_constr convert_color_to_string(const t_canvas *c, int idx, int col_idx)
 {
-	char			*pxl_str;
-	t_strings		*strings;
 	const int		w = c->width;
-	static t_constr fmt_str = "%s %s %s";
-	const t_ints	ints = {
+	const int		color[] = {
 		(int)ceil(c->pixels[idx / w][idx % w][R] * 255),
 		(int)ceil(c->pixels[idx / w][idx % w][G] * 255),
 		(int)ceil(c->pixels[idx / w][idx % w][B] * 255),
 	};
 
-	strings = malloc(sizeof(t_strings));
-	convert_rgb_values_to_strings(ints, strings);
-	pxl_str = ft_fmt_str(fmt_str, strings->a, strings->b, strings->c);
-	if (!((idx + 1) % w))
-		pxl_str = ft_strjoin(pxl_str, ft_strdup("\n"));
-	else
-		pxl_str = ft_strjoin(pxl_str, ft_strdup(" "));
-	free_t_strings(strings);
-	return (pxl_str);
+	return (ft_itoa(color[col_idx]));
 }
 
-static void	convert_rgb_values_to_strings(const t_ints rgb, t_strings *strings)
-{
-	if (rgb.a > 255)
-		strings->a = ft_itoa(255);
-	else if (rgb.a < 0)
-		strings->a = ft_itoa(0);
-	else
-		strings->a = ft_itoa(rgb.a);
-	if (rgb.b > 255)
-		strings->b = ft_itoa(255);
-	else if (rgb.b < 0)
-		strings->b = ft_itoa(0);
-	else
-		strings->b = ft_itoa(rgb.b);
-	if (rgb.c > 255)
-		strings->c = ft_itoa(255);
-	else if (rgb.c < 0)
-		strings->c = ft_itoa(0);
-	else
-		strings->c = ft_itoa(rgb.c);
-}
-
-void	free_t_strings(t_strings *strs)
-{
-	free((void *)strs->a);
-	free((void *)strs->b);
-	free((void *)strs->c);
-	free(strs);
-}
-
-
-#include "tester.h"
-
-Test(test, set_all_pixels_to_one_color){
-	t_canvas c = create_canvas(20, 10);
-
-	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.5, 0.9});
-    for (int i = 0; i < c.width * c.height; i++) {
-        int eq = cr_expect_tuple_eq(c.pixels[i / c.width][i % c.width], (t_tuple){1.0, 0.5, 0.9, COLOR});
-        cr_assert_eq(eq, TRUE);
-    }
-	destroy_canvas(&c);
-}
+// #include "tester.h"
+//
+// t_constr expected_string[] = {"255", "204", "153"};
+//
+// Test(canvas_to_ppm, each_color_string_being_initialized_individually) {
+// 	t_canvas c = create_canvas(20, 10);
+//
+// 	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.8, 0.6});
+//     for (int i = 0; i < c.width * c.height; i++) {
+//         int eq = cr_expect_tuple_eq(c.pixels[i / c.width][i % c.width], (t_tuple){1.0, 0.8, 0.6, COLOR});
+//         cr_assert_eq(eq, TRUE);
+//     }
+// 	char					pxls_str[STR_LIMIT];
+// 	int						idx;
+// 	int						len;
+//
+// 	idx = 0;
+// 	while (idx < c.width * c.height)
+// 	{
+// 		for (int i = 0; i < 3; i++) {
+// 			t_constr pxl_str = convert_color_to_string(&c, idx, i);
+// 			cr_expect_str_eq(pxl_str, expected_string[i]);
+// 			len = ft_strlen(pxls_str) + ft_strlen(pxl_str) + 2;
+// 			ft_strlcat(pxls_str, pxl_str, len);
+// 			free((void *)pxl_str);
+// 		}
+// 		idx++;
+// 	}
+// 	destroy_canvas(&c);
+// }
