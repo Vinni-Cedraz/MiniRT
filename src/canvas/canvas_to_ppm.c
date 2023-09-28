@@ -14,7 +14,8 @@
 
 static void	pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *t);
 static void	color_to_string(const t_canvas *c, int i, int j, t_buf *t);
-static void	concat_linebreak_or_space(int *accumulator, t_buf *t, int l);
+static void	concat_space(int *accumulator, t_buf *t);
+static void	concat_linebreak(char *pxls_str, int *accum, t_buf *t);
 
 char	*canvas_to_ppm(const t_canvas *canvas)
 {
@@ -37,7 +38,6 @@ static void	pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *t)
 {
 	int			i;
 	int			j;
-	int			l;
 	int			accumulator;
 	int			t_buf_len;
 
@@ -49,25 +49,33 @@ static void	pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *t)
 		{
 			color_to_string(c, i, j, t);
 			t_buf_len = ft_strlen(t->buf);
-			accumulator += t_buf_len;
-			l = t_buf_len + ft_strlen(pxls_str) + 2;
-			concat_linebreak_or_space(&accumulator, t, l);
-			ft_strlcat(pxls_str, t->buf, l + 2);
+			accumulator += t_buf_len + 1;
+			t->len = t_buf_len + ft_strlen(pxls_str) + 2;
+			concat_space(&accumulator, t);
+			ft_strlcat(pxls_str, t->buf, t->len + 2);
 			j++;
 		}
-		i++;
+		if (0 == ++i % c->width)
+			concat_linebreak(pxls_str, &accumulator, t);
 	}
 }
 
-static void	concat_linebreak_or_space(int *accumulator, t_buf *t, int l)
+static void	concat_linebreak(char *pxls_str, int *accum, t_buf *t)
 {
-	if (*accumulator > 68)
+	ft_memmove(pxls_str + ft_strlen(pxls_str) - 1, "\0", 1);
+	ft_strlcat(pxls_str, "\n", t->len + 2);
+	*accum = 0;
+}
+
+static void	concat_space(int *accumulator, t_buf *t)
+{
+	if (*accumulator >= 67)
 	{
-		ft_strlcat(t->buf, "\n", l);
+		ft_strlcat(t->buf, "\n", t->len);
 		*accumulator = 0;
+		return ;
 	}
-	else
-		ft_strlcat(t->buf, " ", l);
+	ft_strlcat(t->buf, " ", t->len);
 }
 
 static void	color_to_string(const t_canvas *c, int i, int j, t_buf *t)
@@ -122,13 +130,10 @@ static void	color_to_string(const t_canvas *c, int i, int j, t_buf *t)
 // .description = CYAN"\npixels_to_string aux function test"RESET)
 // {
 //
-// 	char
-// 	pxls_str[STR_LIMIT];
-// 	const t_canvas 				c = create_canvas(20, 10);
-// 	t_buf t;
+// 	const t_canvas 				c = create_canvas(2, 10);
 //
 // 	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.8, 0.6});
-// 	pixels_to_str(&c, pxls_str, &t);
-// 	create_ppm_file(pxls_str, "outfile.ppm");
+// 	t_constr pxls_str = canvas_to_ppm(&c);
+// 	create_ppm_file(pxls_str, "./src/canvas/outfile.ppm");
 // 	destroy_canvas(&c);
 // }

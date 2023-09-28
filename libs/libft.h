@@ -106,6 +106,7 @@ typedef struct s_read_one
 
 typedef struct s_imple_itoa
 {
+	int			len;
 	char		buf[STR_LIMIT];
 }					t_buf;
 

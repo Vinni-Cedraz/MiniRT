@@ -29,7 +29,7 @@ MINIRT_LIB_OBJS:= $(SRCSLIB:.c=.o)
 LIB_OBJS = $(wildcard libs/objs/*.o)
 LIB := minirt.a
 makelib:
-	@make --no-print-directory -C libs/
+	@compiledb make --no-print-directory -C libs/
 %.o: %.c
 	$(CC) -I$(INCLUDE) -c $< -o $@
 $(LIB): $(MINIRT_LIB_OBJS)
