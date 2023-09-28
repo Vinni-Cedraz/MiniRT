@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 09:41:49 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/09/26 14:21:43 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/09/28 15:10:35 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,5 +274,7 @@ long	ft_atol(char *str);
 char	*ft_fmt_str(t_constr fm, t_constr s1, t_constr s2, t_constr s3);
 // iterates linearly on a 2d array applying a given function
 void	ft_2d_iter(void **a, int n, t_function_ptr funct, t_ype t);
+// does what itoa does but without allocating memory in the heap
+void	ft_simple_itoa(int num, char pxl_str[]);
 
 #endif
