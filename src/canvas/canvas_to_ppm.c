@@ -104,7 +104,7 @@ void	free_t_strings(t_strings *strs)
 }
 
 
-#include "../tests/tester.h"
+#include "tester.h"
 
 Test(test, set_all_pixels_to_one_color){
 	t_canvas c = create_canvas(20, 10);

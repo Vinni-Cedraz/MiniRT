@@ -6,7 +6,7 @@ VPATH= ./src/canvas/ ./src/tuples/
 MLXDIR = ./MLX42
 SRC= create_tuples.c
 BUILD_SRC = ./build/
-INCLUDE = ./include
+INCLUDE = -I./include -I./libs/
 C_FLAGS = -Wall -Werror -Wextra -g3
 OBJS = $(addprefix $(BUILD_DIR_RT), $(SRC:.c=.o))
 BUILD_DIR_MLX = $(MLXDIR)/build
@@ -67,6 +67,7 @@ mlxclean:
 clean: mlxclean
 	@echo "Cleaning..."
 	@make clean --no-print-directory -C libs/
+	@make clean --no-print-directory -C tests/
 	rm -f src/*.o
 
 fclean: mlxclean clean
