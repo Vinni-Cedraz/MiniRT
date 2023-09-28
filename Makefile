@@ -20,11 +20,11 @@ NAME = minirt
 SRC = main.c
 VPATH= ./src
 BUILD_SRC = ./build/
-INCLUDE = ./include
+INCLUDE = -I ./include -I ./libs/
 C_FLAGS = -Wall -Werror -Wextra -g3
 OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))
-	BUILD_DIR_RT= ./build/
-	CMD = $(CC) $(OBJS) $(C_FLAGS) -I$(MLX_INCLUDE) -I $(INCLUDE) -c $< -o $@
+BUILD_DIR_RT= ./build/
+CMD = $(CC) $(OBJS) $(C_FLAGS) -I$(MLX_INCLUDE) -I $(INCLUDE) -c $< -o $@
 
 ### RECIPES
 
@@ -34,12 +34,12 @@ all: $(NAME)
 
 $(NAME): $(LIBMLX_TARGET) $(OBJS)
 	@printf "$(GREEN)[ Build ]$(DEF_COLOR) $(RED) $@ $(GREEN)complete $(DEF_COLOR)"
-	@$(CC) $(LIBFT) $(CFLAGS) $(OBJS) -I$(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -o $@
+	@$(CC) $(LIBFT) $(CFLAGS) $(OBJS) $(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -o $@
 
 $(BUILD_DIR_RT)%.o: %.c $(libft)
 	@test -d $(BUILD_DIR_RT) || mkdir $(BUILD_DIR_RT)
 	@echo "$(GREEN)[ Compiling ] $(DEF_COLOR) $< $(GREEN) with instruction $(DEF_COLOR) $(CMD)"
-	@$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(libft):
 	make -C ./libs
