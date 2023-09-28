@@ -1,53 +1,34 @@
-NAME = minirt
+### CODAM BUILD
 LIBMLX = libmlx42.a
-libft = libft.a
 MLXSRC = git@github.com:codam-coding-college/MLX42.git
-VPATH= ./src
+BUILD_DIR_MLX = $(MLXDIR)/build
+MLX_INCLUDE = ./MLX42/include/MLX42/
+LIBMLX_TARGET = $(BUILD_DIR_MLX)/$(LIBMLX)
+LIBX_FLAGS = -lmlx -lXext -lX11 -lm -lz
 MLXDIR = ./MLX42
-SRC= create_tuples.c
+CODAM_LIB_FLAGS = -L./MLX42/build/ -lmlx42 -ldl -lglfw -pthread -lm
+
+
+### LIBFT
+libft = ./libs/libft.a
+
+### MINIRT
+NAME = minirt
+VPATH= ./src
 BUILD_SRC = ./build/
 INCLUDE = ./include
 C_FLAGS = -Wall -Werror -Wextra -g3
 OBJS = $(addprefix $(BUILD_DIR_RT), $(SRC:.c=.o))
-BUILD_DIR_MLX = $(MLXDIR)/build
 BUILD_DIR_RT= ./build/
-MLX_INCLUDE = ./MLX42/include/MLX42/
-LIBMLX_TARGET = $(BUILD_DIR_MLX)/$(LIBMLX)
-LIBX_FLAGS = -lmlx -lXext -lX11 -lm -lz
-CODAM_LIB_FLAGS = -L./MLX42/build/ -lmlx42 -ldl -lglfw -pthread -lm
-VNC_CHECK := $(shell ps aux | grep -q '[X]vnc' && echo "VNC")
 
-
-.PHONY: all clean fclean re mlxclean
+### RECIPES
 
 all: $(NAME)
 
-
-##### THIS IS FOR COMPILING ALL ALL FUNCTIONS INTO A STATIC LIBRARY TO BE EASILY INCLUDED BY THE TESTERS #####
-SRCSLIB := $(wildcard ./src/*.c)
-MINIRT_LIB_OBJS:= $(SRCSLIB:.c=.o)
-LIB_OBJS = $(wildcard libs/objs/*.o)
-LIB := minirt.a
-makelib:
-	@make --no-print-directory -C libs/
-%.o: %.c
-	$(CC) -c $< -o $@
-$(LIB): $(MINIRT_LIB_OBJS)
-	ar rcs $@ $^ $(LIB_OBJS) 
-as_lib: makelib $(LIB)
-##### THIS IS FOR COMPILING ALL ALL FUNCTIONS INTO A STATIC LIBRARY TO BE EASILY INCLUDED BY THE TESTERS #####
-
-
-
-ifeq ($(VNC_CHECK), "VNC")
-$(NAME): $(OBJS)
-	# $(CC) -DUSE_CODAM=0 $(CFLAGS) $(OBJS) $(LIBX_FLAGS) -D -o $@
-	echo "É workspace"
-else
 $(NAME): $(LIBMLX_TARGET) $(OBJS)
-	# $(CC) -DUSE_CODAM=1 $(CFLAGS) $(OBJS) -I$(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -o $@
-	echo "Não é workspace"
-endif
+	@make --no-print-directory -C libs/
+	@printf "$(GREEN)[ Build ]$(DEF_COLOR) $(RED) $@ $(GREEN)complete$(DEF_COLOR)"
+	@$(CC) $(LIBFT) $(CFLAGS) $(OBJS) -I$(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -o $@
 
 $(BUILD_DIR_RT)%.o: %.c
 	@test -d $(BUILD_DIR_RT) || mkdir $(BUILD_DIR_RT)
@@ -75,3 +56,21 @@ fclean: mlxclean clean
 	@rm -f $(NAME) $(LIB)
 
 re: fclean all
+
+### Sources
+
+
+SRC= main.c
+
+# COLORS
+GRAY = \033[0;37m
+RED = \033[0;91m
+BLUE = \033[0;94m
+CYAN = \033[0;96m
+GREEN = \033[0;92m
+WHITE = \033[0;97m
+YELLOW = \033[0;93m
+MAGENTA = \033[0;95m
+DEF_COLOR = \033[0;39m
+
+.PHONY: all clean fclean re mlxclean
