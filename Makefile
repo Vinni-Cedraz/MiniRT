@@ -35,7 +35,7 @@ all: $(NAME)
 
 $(NAME): $(LIBMLX_TARGET) $(OBJS)
 	@printf "$(GREEN)[ Build ]$(DEF_COLOR) $(RED) $@ $(GREEN)complete $(DEF_COLOR)"
-	$(CC) $(C_FLAGS) $(OBJS) $(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -L ./libs/ -lft -o $@
+	@$(CC) $(C_FLAGS) $(OBJS) $(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -L ./libs/ -lft -o $@
 
 $(BUILD_DIR_RT)%.o: %.c $(LIBFT)
 	@test -d $(BUILD_DIR_RT) || mkdir $(BUILD_DIR_RT)
@@ -43,7 +43,7 @@ $(BUILD_DIR_RT)%.o: %.c $(LIBFT)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(LIBFT):
-	make -C ./libs
+	make --no-print-directory -C ./libs
 
 $(LIBMLX_TARGET): $(MLXDIR)
 	cd $(MLXDIR) && cmake --build build -j4;
@@ -63,7 +63,8 @@ clean: mlxclean
 
 fclean: mlxclean clean
 	@echo "Fully Cleaning..."
-	@make fclean --no-print-directory -C libs/
+	@make fclean --no-print-directory -C ./libs/
+	@make clean --no-print-directory -C ./tests
 	@rm -f $(NAME) $(LIB)
 
 makelib:
@@ -72,6 +73,9 @@ makelib:
 $(LIB): $(LIBMLX_TARGET) $(OBJS)
 	@printf "\n$(YELLOW)[ linking ] $(DEF_COLOR)objects into library $(YELLOW)$@ $(DEF_COLOR)\n"
 	@ar rcs $@ $^ $(LIB_OBJS)
+
+test:
+	@make --no-print-directory -C ./tests
 
 as_lib: makelib $(LIB)
 re: fclean all
