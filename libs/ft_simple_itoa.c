@@ -12,25 +12,28 @@
 
 #include "libft.h"
 
-void	ft_simple_itoa(int num, char pxl_str[])
+t_buf	ft_simple_itoa(int num)
 {
 	int		j;
 	int		k;
 	char	tmp;
+	t_buf	t;
 
 	j = 0;
 	k = 0;
+	ft_bzero(t.buf, sizeof(t.buf));
 	while (num != 0)
 	{
-		pxl_str[j++] = (num % 10) + '0';
+		t.buf[j++] = (num % 10) + '0';
 		num /= 10;
 	}
-	pxl_str[j] = '\0';
+	t.buf[j] = '\0';
 	while (k < j / 2)
 	{
-		tmp = pxl_str[k];
-		pxl_str[k] = pxl_str[j - k - 1];
-		pxl_str[j - k - 1] = tmp;
+		tmp = t.buf[k];
+		t.buf[k] = t.buf[j - k - 1];
+		t.buf[j - k - 1] = tmp;
 		k++;
 	}
+	return (t);
 }

@@ -132,9 +132,3 @@ Test(suite_name, lines_all_being_written_to_file, .description = scenario5) {
 	}
     destroy_canvas(&c);
 }
-
-void create_ppm_file(t_constr ppm_string, const char filename[]) {
-	char CMD[STR_LIMIT];
-	sprintf(CMD, "echo '%s' > %s", ppm_string, filename);
-	system(CMD);
-}

@@ -12,7 +12,7 @@
 
 ## SET-UP VARIABLES ##
 NAME = libft.a
-CFLAGS = -Wall -Werror -Wextra -O3
+CFLAGS = -Wall -Werror -Wextra -g
 R = rm -f
 RD = rm -rf
 OBJS_PATH = ./objs/

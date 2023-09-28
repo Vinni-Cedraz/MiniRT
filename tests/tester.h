@@ -27,4 +27,11 @@ static inline void set_all_pixels_to_one_color(const t_canvas *c, t_tuple color)
             write_pixel((t_canvas *)c, y, x, color);
 }
 
+
+static inline void create_ppm_file(t_constr ppm_string, const char filename[]) {
+	char CMD[STR_LIMIT];
+	sprintf(CMD, "echo '%s' > %s", ppm_string, filename);
+	system(CMD);
+}
+
 #endif
