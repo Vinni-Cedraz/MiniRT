@@ -1,4 +1,4 @@
-#include "../../tester.h"
+#include "tester.h"
 
 #define suite_name canvas
 void create_ppm_file(t_constr ppm_string, const char filename[]);
@@ -65,7 +65,7 @@ Test(suite_name, constructing_the_ppm_header, .description = scenario3) {
 //  =======================================================================  //
 #define scenario4                                                                      \
     CYAN "\nGiven c ← canvas(3, 5)\n"                                                  \
-         "And c1 ← color(1.5, 0, 0)\n"                                                 \
+         "And c1 ← color(1.0, 0, 0)\n"                                                 \
          "And c2 ← color(0, 0.5, 0)\n"                                                 \
          "And c3 ← color(-0.5, 0, 1)\n"                                                \
          "When write_pixel(c, 0, 0, c1)\n"                                             \
@@ -86,7 +86,7 @@ Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scen
 
     write_pixel(&c, 0, 0, (t_tuple){1.5, 0, 0, COLOR});
     write_pixel(&c, 1, 2, (t_tuple){0, 0.5, 0, COLOR});
-    write_pixel(&c, 2, 4, (t_tuple){-0.5, 0, 1, COLOR});
+    write_pixel(&c, 2, 4, (t_tuple){0, -0.5, 1, COLOR});
     t_constr res = canvas_to_ppm(&c);
     cr_expect_str_eq(res, expected);
 	create_ppm_file(res, "output_scenario4.ppm");
@@ -102,9 +102,9 @@ Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scen
          "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204\n"         \
          "153 255 204 153 255 204 153 255 204 153 255 204 153\n"                         \
          "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204\n"         \
-         "153 255" RESET
+         "153 255 204 153 255 204 153 255 204 153 255 204 153" RESET                     \
 
-#define LINES 8
+#define LINES 7
 t_constr lines_to_assert[LINES] = {
             "P3\n",
 			"10 2\n",
@@ -112,10 +112,10 @@ t_constr lines_to_assert[LINES] = {
 			"255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204\n",
          	"153 255 204 153 255 204 153 255 204 153 255 204 153\n",
          	"255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204\n",
-         	"153 255\n",
+         	"153 255 204 153 255 204 153 255 204 153 255 204 153\n"
 };
 
-Test(suite_name, lines_all_being_written_to_file, .description = scenario5) {
+Test(suite_name, lines_longer_than_70_must_break, .description = scenario5) {
     t_canvas c;
 	char *line;
    
@@ -131,10 +131,4 @@ Test(suite_name, lines_all_being_written_to_file, .description = scenario5) {
 		free(line);
 	}
     destroy_canvas(&c);
-}
-
-void create_ppm_file(t_constr ppm_string, const char filename[]) {
-	char CMD[STR_LIMIT];
-	sprintf(CMD, "echo '%s' > %s", ppm_string, filename);
-	system(CMD);
 }

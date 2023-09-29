@@ -6,13 +6,13 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/05/07 21:05:08 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/09/28 15:10:47 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ## SET-UP VARIABLES ##
 NAME = libft.a
-CFLAGS = -Wall -Werror -Wextra -O3
+CFLAGS = -Wall -Werror -Wextra -g
 R = rm -f
 RD = rm -rf
 OBJS_PATH = ./objs/
@@ -83,6 +83,7 @@ ft_split \
 ft_randomize_array \
 ft_iswhitespace \
 ft_fmt_str \
+ft_simple_itoa \
 
 BSRCS = ft_lstadd_back \
 ft_lstadd_front \

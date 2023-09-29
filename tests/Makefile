@@ -4,8 +4,8 @@ TESTDIRS = chapter_one \
 	      #  chapter_four \
 	      #  chapter_five \
 		   
-all: makeminirt_as_lib
-	@$(foreach file,$(TESTDIRS),$(MAKE) --no-print-directory -C $(file);)
+run: makeminirt_as_lib
+	@$(foreach file,$(TESTDIRS),$(MAKE) run --no-print-directory -C $(file);)
 
 makeminirt_as_lib:
 	@make as_lib --no-print-directory -C ../

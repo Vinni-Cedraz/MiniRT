@@ -1,0 +1,21 @@
+[
+ {
+  "directory": "/root/MiniRT/tests/chapter_one/basic_tuple_operations",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-w",
+   "basic_tuple_operations.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "basic_tuple_operations"
+  ],
+  "file": "basic_tuple_operations.c"
+ }
+]
