@@ -1,6 +1,6 @@
 ### CODAM BUILD
 LIBMLX = libmlx42.a
-MLXSRC = git@github.com:codam-coding-college/MLX42.git
+MLXSRC = https://github.com/codam-coding-college/MLX42.git
 BUILD_DIR_MLX = $(MLXDIR)/build
 MLX_INCLUDE = ./MLX42/include/MLX42/
 LIBMLX_TARGET = $(BUILD_DIR_MLX)/$(LIBMLX)
