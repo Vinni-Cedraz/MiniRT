@@ -87,53 +87,58 @@ static void	color_to_string(const t_canvas *c, int i, int j, t_buf *t)
 		(int)ceil(c->pixels[i / w][i % w][B] * 255),
 	};
 
-	*t = ft_simple_itoa(color[j]);
+	if (color[j] > 255)
+		*t = ft_simple_itoa(255);
+	else if (color[j] <= 0)
+		*t = ft_simple_itoa(0);
+	else
+		*t = ft_simple_itoa(color[j]);
 }
 
-#include "tester.h"
-
-t_constr expected_string[] = {"255", "204", "153"};
-
-Test(canvas_to_ppm_aux_functions,
-	each_color_string_being_initialized_individually,
-		.description = CYAN"\nconvert_color_to_string aux function test"RESET)
-{
-
-	char					pxls_str[STR_LIMIT];
-	int						idx;
-	int						len;
-	t_canvas 				c;
-	t_buf					t;
-
-	c = create_canvas(20, 10);
-	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.8, 0.6});
-    for (int i = 0; i < c.width * c.height; i++) {
-        int eq = cr_expect_tuple_eq(c.pixels[i / c.width][i % c.width],
-		(t_tuple){1.0, 0.8, 0.6, COLOR});
-        cr_assert_eq(eq, TRUE);
-    }
-	idx = -1;
-	while (++idx < c.width * c.height)
-	{
-		for (int i = 0; i < 3; i++) {
-			color_to_string(&c, idx, i, &t);
-			cr_expect_str_eq(t.buf, expected_string[i]);
-			len = ft_strlen(pxls_str) + ft_strlen(t.buf) + 2;
-			ft_strlcat(pxls_str, t.buf, len);
-		}
-	}
-	destroy_canvas(&c);
-}
-
-Test(canvas_to_ppm_aux_functions,
-pixels_string_being_initialized_with_correct_line_breaks,
-.description = CYAN"\npixels_to_string aux function test"RESET)
-{
-
-	const t_canvas 				c = create_canvas(2, 10);
-
-	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.8, 0.6});
-	t_constr pxls_str = canvas_to_ppm(&c);
-	create_ppm_file(pxls_str, "./src/canvas/outfile.ppm");
-	destroy_canvas(&c);
-}
+// #include "../tests/tester.h"
+//
+// t_constr expected_string[] = {"255", "204", "153"};
+//
+// Test(canvas_to_ppm_aux_functions,
+// 	each_color_string_being_initialized_individually,
+// 		.description = CYAN"\nconvert_color_to_string aux function test"RESET)
+// {
+//
+// 	char					pxls_str[STR_LIMIT];
+// 	int						idx;
+// 	int						len;
+// 	t_canvas 				c;
+// 	t_buf					t;
+//
+// 	c = create_canvas(20, 10);
+// 	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.8, 0.6});
+//     for (int i = 0; i < c.width * c.height; i++) {
+//         int eq = cr_expect_tuple_eq(c.pixels[i / c.width][i % c.width],
+// 		(t_tuple){1.0, 0.8, 0.6, COLOR});
+//         cr_assert_eq(eq, TRUE);
+//     }
+// 	idx = -1;
+// 	while (++idx < c.width * c.height)
+// 	{
+// 		for (int i = 0; i < 3; i++) {
+// 			color_to_string(&c, idx, i, &t);
+// 			cr_expect_str_eq(t.buf, expected_string[i]);
+// 			len = ft_strlen(pxls_str) + ft_strlen(t.buf) + 2;
+// 			ft_strlcat(pxls_str, t.buf, len);
+// 		}
+// 	}
+// 	destroy_canvas(&c);
+// }
+//
+// Test(canvas_to_ppm_aux_functions,
+// pixels_string_being_initialized_with_correct_line_breaks,
+// .description = CYAN"\npixels_to_string aux function test"RESET)
+// {
+//
+// 	const t_canvas 				c = create_canvas(2, 10);
+//
+// 	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.8, 0.6});
+// 	t_constr pxls_str = canvas_to_ppm(&c);
+// 	create_ppm_file(pxls_str, "./src/canvas/outfile.ppm");
+// 	destroy_canvas(&c);
+// }

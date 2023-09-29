@@ -22,12 +22,13 @@ t_buf	ft_simple_itoa(int num)
 	j = 0;
 	k = 0;
 	ft_bzero(t.buf, sizeof(t.buf));
+	if (num == 0)
+		t.buf[0] = 48;
 	while (num != 0)
 	{
 		t.buf[j++] = (num % 10) + '0';
 		num /= 10;
 	}
-	t.buf[j] = '\0';
 	while (k < j / 2)
 	{
 		tmp = t.buf[k];
