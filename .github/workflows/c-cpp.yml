@@ -8,12 +8,12 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-20.04
     steps:
+    - name: install deps
+      run: sudo apt update && sudo apt upgrade && sudo apt install libglfw3 libglfw3-dev
     - uses: actions/checkout@v3
-    - name: make
+    - name: Build project
       run: make
-    - name: make test
-      run: make check
+    - name: Make test
+      run: make t
