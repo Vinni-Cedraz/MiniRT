@@ -17,10 +17,10 @@ define run_fn
 endef
 
 all: makeminirt_as_lib
-	@$(foreach name, $(TESTS), $(call compile_fn, $(name)))
+	$(foreach name, $(TESTS), $(call compile_fn, $(name)))
 
 run: all
-	@$(foreach name, $(TESTS), $(call run_fn, ./$(name)))
+	$(foreach name, $(TESTS), $(call run_fn, ./$(name)))
 
 makeminirt_as_lib:
 	@make as_lib --no-print-directory -C ../../../
