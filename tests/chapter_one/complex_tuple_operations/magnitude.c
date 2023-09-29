@@ -1,6 +1,5 @@
 #include "tester.h"
 
-#define suite_name magnitude
 #define SQRT_OF_14 3.7416573867739413
 
 const t_tuple vectors[] = {
@@ -21,26 +20,26 @@ const float expected_results[] = {
 		-1
 };
 
-Test(suite_name, magnitude_of_positive_vector) {
+Test(magnitude, magnitude_of_positive_vector) {
 	cr_expect_eq(magnitude(vectors[0]), expected_results[0]);
 }
 
-Test(suite_name, magnitude_of_negative_vector) {
+Test(magnitude, magnitude_of_negative_vector) {
 	cr_expect_eq(magnitude(vectors[1]), expected_results[1]);
 }
 
-Test(suite_name, magnitude_of_unit_vector1) {
+Test(magnitude, magnitude_of_unit_vector1) {
 	cr_expect_eq(magnitude(vectors[2]), expected_results[2]);
 }
 
-Test(suite_name, magnitude_of_unit_vector2) {
+Test(magnitude, magnitude_of_unit_vector2) {
 	cr_expect_eq(magnitude(vectors[3]), expected_results[3]);
 }
 
-Test(suite_name, magnitude_of_unit_vector3) {
+Test(magnitude, magnitude_of_unit_vector3) {
 	cr_expect_eq(magnitude(vectors[4]), expected_results[4]);
 }
 
-Test(suite_name, magnitude_of_a_point_should_be_always_negative_one) {
+Test(magnitude, magnitude_of_a_point_should_be_always_negative_one) {
 	cr_expect_eq(magnitude(vectors[5]), expected_results[5]);
 }
