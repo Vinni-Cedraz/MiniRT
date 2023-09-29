@@ -89,5 +89,125 @@
    "src/tuples/create_tuples.o"
   ],
   "file": "src/tuples/create_tuples.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/main.c",
+   "-o",
+   "build/main.o"
+  ],
+  "file": "./src/main.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/canvas/canvas_to_ppm.c",
+   "-o",
+   "build/canvas_to_ppm.o"
+  ],
+  "file": "./src/canvas/canvas_to_ppm.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/canvas/create_canvas.c",
+   "-o",
+   "build/create_canvas.o"
+  ],
+  "file": "./src/canvas/create_canvas.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/canvas/write_pixel.c",
+   "-o",
+   "build/write_pixel.o"
+  ],
+  "file": "./src/canvas/write_pixel.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/tuples/basic_tuple_operations.c",
+   "-o",
+   "build/basic_tuple_operations.o"
+  ],
+  "file": "./src/tuples/basic_tuple_operations.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/tuples/compare_floats.c",
+   "-o",
+   "build/compare_floats.o"
+  ],
+  "file": "./src/tuples/compare_floats.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/tuples/complex_tuple_operations.c",
+   "-o",
+   "build/complex_tuple_operations.o"
+  ],
+  "file": "./src/tuples/complex_tuple_operations.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/tuples/create_tuples.c",
+   "-o",
+   "build/create_tuples.o"
+  ],
+  "file": "./src/tuples/create_tuples.c"
  }
 ]

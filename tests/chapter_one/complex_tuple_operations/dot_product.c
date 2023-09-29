@@ -1,6 +1,5 @@
 #include "tester.h"
 
-#define suite_name dot_product
 // fun fact: the dot product of two unit vectors is the cosine of the angle between them
 
 #define scenario1                                                                      \
@@ -23,28 +22,28 @@
          "And b <- vector(-1, 0, 0, 1)\n"                                                \
          "Then dot(a, b, dot_product) returns an error" RESET
 
-Test(suite_name, dot_product_of_two_tuples, .description = scenario1) {
+Test(dot_product, dot_product_of_two_tuples, .description = scenario1) {
 	float dot_product;
 
     dot((t_tuple){1, 2, 3}, (t_tuple){2, 3, 4}, dot_product);
     cr_expect_eq(compare_floats(dot_product, 20.0), TRUE);
 }
 
-Test(suite_name, dot_product_of_identical_unit_vectors, .description = scenario2) {
+Test(dot_product, dot_product_of_identical_unit_vectors, .description = scenario2) {
 	float dot_product;
 
     dot((t_tuple){1, 0, 0}, (t_tuple){1, 0, 0}, dot_product);
     cr_expect_eq(compare_floats(dot_product, 1), TRUE);
 }
 
-Test(suite_name, dot_product_of_opposite_unit_vectors, .description = scenario3) {
+Test(dot_product, dot_product_of_opposite_unit_vectors, .description = scenario3) {
 	float dot_product;
 
     dot((t_tuple){1, 0, 0}, (t_tuple){-1, 0, 0}, dot_product);
     cr_expect_eq(compare_floats(dot_product, -1), TRUE);
 }
 
-Test(suite_name, dot_product_of_things_that_are_not_vectors, .description = scenario4) {
+Test(dot_product, dot_product_of_things_that_are_not_vectors, .description = scenario4) {
     int err = dot((t_tuple){1, 0, 0, 5}, (t_tuple){-1, 0, 0, 1}, (float){0});
     cr_expect_eq(err, -1);
 }
