@@ -31,7 +31,7 @@ LIB := minirt.a
 makelib:
 	@compiledb make --no-print-directory -C libs/
 %.o: %.c
-	$(CC) -I$(INCLUDE) -c $< -o $@
+	$(CC) $(INCLUDE) -c $< -o $@
 $(LIB): $(MINIRT_LIB_OBJS)
 	ar rcs $@ $^ $(LIB_OBJS) 
 as_lib: makelib $(LIB)

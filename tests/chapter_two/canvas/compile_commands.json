@@ -1,0 +1,21 @@
+[
+ {
+  "directory": "/root/MiniRT/tests/chapter_two/canvas",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-w",
+   "canvas.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "canvas"
+  ],
+  "file": "canvas.c"
+ }
+]

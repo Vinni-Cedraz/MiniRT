@@ -1,20 +1,29 @@
-CFLAGS = cc -O3 -lcriterion -I../../ -lm -w
-LIB = ../../../libs/*.a  ../../../minirt.a
+EXECS = magnitude \
+		normalization \
+		dot_product \
+		cross_product \
 
-all: makeminirt_as_lib
-	@$(CFLAGS) magnitude.c $(LIB) -o magnitude
-	@$(CFLAGS) normalization.c $(LIB) -o normalization
-	@$(CFLAGS) dot_product.c $(LIB) -o dot_product
-	@$(CFLAGS) cross_product.c $(LIB) -o cross_product
-	@./magnitude --verbose
-	@./normalization --verbose
-	@./dot_product --verbose
-	@./cross_product --verbose
+SRCS = $(addsuffix .c, $(EXECS))
+INCS = -I../../ -I../../../include/ -I../../../libs/
+FLAGS = -O3 -lcriterion -lm -w
+LIBS = ../../../libs/*.a ../../../minirt.a
+RM = rm -f
+SHELL = /bin/zsh
+
+define run_fn
+	$(1) --verbose;
+endef
+
+all: makeminirt_as_lib $(EXECS)
+
+$(EXECS): $(SRCS)
+	$(CC) $(FLAGS) $< $(INCS) $(LIBS) -o $@
+
+run: all
+	@$(foreach name, $(EXECS), $(call run_fn, ./$(name)))
 
 makeminirt_as_lib:
 	@make as_lib --no-print-directory -C ../../../
+
 clean:
-	rm -f magnitude
-	rm -f dot_product
-	rm -f normalization
-	rm -f cross_product
+	$(foreach name, $(EXECS), $(RM) $(name);)

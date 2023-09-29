@@ -1,18 +1,26 @@
-#probably only need to mofify TEST:
-TEST = canvas
+EXECS = canvas
 
-CFLAGS = cc -O3 -lcriterion -I../../
-LIB = ../../../libs/*.a  ../../../minirt.a -lm
+SRCS = $(addsuffix .c, $(EXECS))
+INCS = -I../../ -I../../../include/ -I../../../libs/
+FLAGS = -O3 -lcriterion -lm -w
+LIBS = ../../../libs/*.a ../../../minirt.a
+RM = rm -f
+SHELL = /bin/zsh
 
-all: makelibft makeminirt_as_lib 
-	@$(CFLAGS) $(TEST).c $(LIB) -o $(TEST)
-	@./$(TEST) --verbose
+define run_fn
+	$(1) --verbose;
+endef
+
+all: makeminirt_as_lib $(EXECS)
+
+$(EXECS): $(SRCS)
+	$(CC) $(FLAGS) $< $(INCS) $(LIBS) -o $@
+
+run: all
+	@$(foreach name, $(EXECS), $(call run_fn, ./$(name)))
 
 makeminirt_as_lib:
 	@make as_lib --no-print-directory -C ../../../
-makelibft:
-	@make --no-print-directory -C ../../../libs/
 
 clean:
-	rm -f $(TEST)
-	rm -f output*.ppm
+	$(foreach name, $(EXECS), $(RM) $(name);)

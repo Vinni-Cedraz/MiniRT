@@ -1,0 +1,866 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_abs.o",
+      "ft_abs.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_abs.c",
+    "output": "/root/MiniRT/libs/objs/ft_abs.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_atoi.o",
+      "ft_atoi.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_atoi.c",
+    "output": "/root/MiniRT/libs/objs/ft_atoi.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_free_t_split.o",
+      "ft_free_t_split.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_free_t_split.c",
+    "output": "/root/MiniRT/libs/objs/ft_free_t_split.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_free_arr.o",
+      "ft_free_arr.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_free_arr.c",
+    "output": "/root/MiniRT/libs/objs/ft_free_arr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_free_arr_size.o",
+      "ft_free_arr_size.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_free_arr_size.c",
+    "output": "/root/MiniRT/libs/objs/ft_free_arr_size.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_isalpha.o",
+      "ft_isalpha.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_isalpha.c",
+    "output": "/root/MiniRT/libs/objs/ft_isalpha.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_isascii.o",
+      "ft_isascii.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_isascii.c",
+    "output": "/root/MiniRT/libs/objs/ft_isascii.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_isdigit.o",
+      "ft_isdigit.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_isdigit.c",
+    "output": "/root/MiniRT/libs/objs/ft_isdigit.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_ishexup.o",
+      "ft_ishexup.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_ishexup.c",
+    "output": "/root/MiniRT/libs/objs/ft_ishexup.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_ishexlow.o",
+      "ft_ishexlow.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_ishexlow.c",
+    "output": "/root/MiniRT/libs/objs/ft_ishexlow.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_memchr.o",
+      "ft_memchr.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_memchr.c",
+    "output": "/root/MiniRT/libs/objs/ft_memchr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_memcmp.o",
+      "ft_memcmp.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_memcmp.c",
+    "output": "/root/MiniRT/libs/objs/ft_memcmp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_memcpy.o",
+      "ft_memcpy.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_memcpy.c",
+    "output": "/root/MiniRT/libs/objs/ft_memcpy.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_memorylen.o",
+      "ft_memorylen.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_memorylen.c",
+    "output": "/root/MiniRT/libs/objs/ft_memorylen.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_memset.o",
+      "ft_memset.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_memset.c",
+    "output": "/root/MiniRT/libs/objs/ft_memset.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_numlen.o",
+      "ft_numlen.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_numlen.c",
+    "output": "/root/MiniRT/libs/objs/ft_numlen.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_putchar.o",
+      "ft_putchar.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_putchar.c",
+    "output": "/root/MiniRT/libs/objs/ft_putchar.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_putchar_fd.o",
+      "ft_putchar_fd.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_putchar_fd.c",
+    "output": "/root/MiniRT/libs/objs/ft_putchar_fd.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_strlen.o",
+      "ft_strlen.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_strlen.c",
+    "output": "/root/MiniRT/libs/objs/ft_strlen.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_atoi_base.o",
+      "ft_atoi_base.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_atoi_base.c",
+    "output": "/root/MiniRT/libs/objs/ft_atoi_base.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_strncmp.o",
+      "ft_strncmp.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_strncmp.c",
+    "output": "/root/MiniRT/libs/objs/ft_strncmp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_word_counter.o",
+      "ft_word_counter.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_word_counter.c",
+    "output": "/root/MiniRT/libs/objs/ft_word_counter.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_calloc.o",
+      "ft_calloc.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_calloc.c",
+    "output": "/root/MiniRT/libs/objs/ft_calloc.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_memmove.o",
+      "ft_memmove.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_memmove.c",
+    "output": "/root/MiniRT/libs/objs/ft_memmove.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_putnbr_fd.o",
+      "ft_putnbr_fd.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_putnbr_fd.c",
+    "output": "/root/MiniRT/libs/objs/ft_putnbr_fd.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_putstr.o",
+      "ft_putstr.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_putstr.c",
+    "output": "/root/MiniRT/libs/objs/ft_putstr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_putstr_fd.o",
+      "ft_putstr_fd.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_putstr_fd.c",
+    "output": "/root/MiniRT/libs/objs/ft_putstr_fd.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_striteri.o",
+      "ft_striteri.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_striteri.c",
+    "output": "/root/MiniRT/libs/objs/ft_striteri.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_strrchr.o",
+      "ft_strrchr.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_strrchr.c",
+    "output": "/root/MiniRT/libs/objs/ft_strrchr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_strrev.o",
+      "ft_strrev.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_strrev.c",
+    "output": "/root/MiniRT/libs/objs/ft_strrev.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_swap.o",
+      "ft_swap.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_swap.c",
+    "output": "/root/MiniRT/libs/objs/ft_swap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_tolower.o",
+      "ft_tolower.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_tolower.c",
+    "output": "/root/MiniRT/libs/objs/ft_tolower.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_toupper.o",
+      "ft_toupper.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_toupper.c",
+    "output": "/root/MiniRT/libs/objs/ft_toupper.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_bzero.o",
+      "ft_bzero.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_bzero.c",
+    "output": "/root/MiniRT/libs/objs/ft_bzero.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_atol.o",
+      "ft_atol.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_atol.c",
+    "output": "/root/MiniRT/libs/objs/ft_atol.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_isalnum.o",
+      "ft_isalnum.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_isalnum.c",
+    "output": "/root/MiniRT/libs/objs/ft_isalnum.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_itoa_base.o",
+      "ft_itoa_base.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_itoa_base.c",
+    "output": "/root/MiniRT/libs/objs/ft_itoa_base.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_putendl_fd.o",
+      "ft_putendl_fd.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_putendl_fd.c",
+    "output": "/root/MiniRT/libs/objs/ft_putendl_fd.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_strchr.o",
+      "ft_strchr.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_strchr.c",
+    "output": "/root/MiniRT/libs/objs/ft_strchr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_strdup.o",
+      "ft_strdup.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_strdup.c",
+    "output": "/root/MiniRT/libs/objs/ft_strdup.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_strlcat.o",
+      "ft_strlcat.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_strlcat.c",
+    "output": "/root/MiniRT/libs/objs/ft_strlcat.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_strlcpy.o",
+      "ft_strlcpy.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_strlcpy.c",
+    "output": "/root/MiniRT/libs/objs/ft_strlcpy.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_strmapi.o",
+      "ft_strmapi.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_strmapi.c",
+    "output": "/root/MiniRT/libs/objs/ft_strmapi.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_strnstr.o",
+      "ft_strnstr.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_strnstr.c",
+    "output": "/root/MiniRT/libs/objs/ft_strnstr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_strjoin.o",
+      "ft_strjoin.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_strjoin.c",
+    "output": "/root/MiniRT/libs/objs/ft_strjoin.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_strtrim.o",
+      "ft_strtrim.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_strtrim.c",
+    "output": "/root/MiniRT/libs/objs/ft_strtrim.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_substr.o",
+      "ft_substr.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_substr.c",
+    "output": "/root/MiniRT/libs/objs/ft_substr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_gnl.o",
+      "ft_gnl.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_gnl.c",
+    "output": "/root/MiniRT/libs/objs/ft_gnl.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_itoa.o",
+      "ft_itoa.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_itoa.c",
+    "output": "/root/MiniRT/libs/objs/ft_itoa.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_split.o",
+      "ft_split.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_split.c",
+    "output": "/root/MiniRT/libs/objs/ft_split.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_randomize_array.o",
+      "ft_randomize_array.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_randomize_array.c",
+    "output": "/root/MiniRT/libs/objs/ft_randomize_array.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_iswhitespace.o",
+      "ft_iswhitespace.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_iswhitespace.c",
+    "output": "/root/MiniRT/libs/objs/ft_iswhitespace.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_fmt_str.o",
+      "ft_fmt_str.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_fmt_str.c",
+    "output": "/root/MiniRT/libs/objs/ft_fmt_str.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-o",
+      "objs/ft_simple_itoa.o",
+      "ft_simple_itoa.c"
+    ],
+    "directory": "/root/MiniRT/libs",
+    "file": "/root/MiniRT/libs/ft_simple_itoa.c",
+    "output": "/root/MiniRT/libs/objs/ft_simple_itoa.o"
+  }
+]

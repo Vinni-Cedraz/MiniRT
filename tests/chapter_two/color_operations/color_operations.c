@@ -1,4 +1,4 @@
-#include "../../tester.h"
+#include "tester.h"
 
 #define suite_name color_operations
 

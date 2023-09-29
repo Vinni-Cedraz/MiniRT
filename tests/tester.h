@@ -2,7 +2,7 @@
 #define TEST_H
 
 #include <criterion/criterion.h>
-#include "../include/minirt.h"
+#include "minirt.h"
 #include <stdio.h>
 #define CYAN "\033[36m"
 #define RED "\033[31m"

@@ -1,4 +1,4 @@
-#include "../../tester.h"
+#include "tester.h"
 
 #define suite_name canvas
 void create_ppm_file(t_constr ppm_string, const char filename[]);
@@ -115,7 +115,7 @@ t_constr lines_to_assert[LINES] = {
          	"153 255 204 153 255 204 153 255 204 153 255 204 153\n"
 };
 
-Test(suite_name, lines_all_being_written_to_file, .description = scenario5) {
+Test(suite_name, lines_longer_than_70_must_break, .description = scenario5) {
     t_canvas c;
 	char *line;
    
