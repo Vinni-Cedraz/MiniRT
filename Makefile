@@ -39,8 +39,7 @@ $(NAME): $(LIBMLX_TARGET) $(OBJS)
 
 $(BUILD_DIR_RT)%.o: %.c $(LIBFT)
 	@test -d $(BUILD_DIR_RT) || mkdir $(BUILD_DIR_RT)
-	@printf "\r$(GREEN)[ Compiling ] $(DEF_COLOR) $< $(GREEN)                 "
-	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(LIBFT):
 	make --no-print-directory -C ./libs

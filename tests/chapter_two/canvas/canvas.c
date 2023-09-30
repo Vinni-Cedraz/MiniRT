@@ -8,17 +8,16 @@ void create_ppm_file(t_constr ppm_string, const char filename[]);
 //  =======================================================================  //
 #define scenario1                                                                        \
     CYAN "\n"                                                                            \
-         "Given c ← canvas(20, 10)\n"                                                    \
-         "Then c.width = 10 And c.height = 20\n"                                         \
+         "Given c ← canvas(550, 900)\n"                                                    \
+         "Then c.width = 900 And c.height = 550\n"                                         \
          "And every pixel of c is color(0, 0, 0)" RESET
 
 Test(suite_name, creating_a_canvas, .description = scenario1) {
-    const t_canvas c = create_canvas(20, 10);
-    cr_expect_eq(c.width, 10);
-    cr_expect_eq(c.height, 20);
+    const t_canvas c = create_canvas(550, 900);
+    cr_expect_eq(c.width, 900);
+    cr_expect_eq(c.height, 550);
     for (int i = 0; i < c.width * c.height; i++) {
-        int eq = cr_expect_tuple_eq(c.pixels[i / c.width][i % c.width], (t_tuple){0, 0, 0, COLOR});
-        cr_assert_eq(eq, TRUE);
+        cr_expect_tuple_eq(c.pixels[i / c.width][i % c.width], (t_tuple){0, 0, 0, COLOR});
     }
 }
 
@@ -34,8 +33,7 @@ Test(suite_name, creating_a_canvas, .description = scenario1) {
 Test(suite_name, writing_a_pixel_in_a_canvas, .description = scenario2) {
     t_canvas c = create_canvas(20, 10);
     write_pixel(&c, 3, 2, (t_tuple){1, 0, 0, COLOR});
-    int eq = cr_expect_tuple_eq(c.pixels[3][2], (t_tuple){1, 0, 0, COLOR});
-    cr_expect_eq(eq, TRUE);
+    cr_expect_tuple_eq(c.pixels[3][2], (t_tuple){1, 0, 0, COLOR});
 }
 
 //  =======================================================================  //

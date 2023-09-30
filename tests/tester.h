@@ -25,10 +25,12 @@ static inline void	print_tuple(const t_tuple a)
 }
 
 static inline t_bool cr_expect_tuple_eq(const t_tuple result, const t_tuple expected) {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
+		cr_assert(compare_floats(result[i], expected[i]));
 		if (!compare_floats(result[i], expected[i]))
-			return (FALSE);
-	return (TRUE);
+			return (1);
+	}
+	return (0);
 }
 
 static inline void set_all_pixels_to_one_color(const t_canvas *c, t_tuple color) {
