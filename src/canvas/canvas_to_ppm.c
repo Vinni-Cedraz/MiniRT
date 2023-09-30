@@ -20,18 +20,18 @@ static void	concat_linebreak(char *pxls_str, int *accum, t_buf *t);
 char	*canvas_to_ppm(const t_canvas *canvas)
 {
 	char		*header;
-	char		pxls_str[STR_LIMIT];
+	char		*pxls_str;
 	const char	ppm_header_fmt_str[35] = "P3\n%s %s\n255\n";
 	t_buf		t;
 
-	ft_bzero(pxls_str, STR_LIMIT);
+	pxls_str = ft_calloc(canvas->width * canvas->height * 12, sizeof(char) + 2);
 	pixels_to_str(canvas, pxls_str, &t);
 	header = ft_fmt_str(
 			ppm_header_fmt_str,
 			ft_simple_itoa(canvas->width).buf,
-			ft_simple_itoa(canvas->height).buf, pxls_str
-			);
-	return (ft_strjoin(header, ft_strdup(pxls_str)));
+			ft_simple_itoa(canvas->height).buf,
+			pxls_str);
+	return (ft_strjoin(header, pxls_str));
 }
 
 static void	pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *t)
@@ -42,6 +42,7 @@ static void	pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *t)
 	int			t_buf_len;
 
 	i = 0;
+	accumulator = 0;
 	while (i < c->width * c->height)
 	{
 		j = 0;
@@ -52,7 +53,7 @@ static void	pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *t)
 			accumulator += t_buf_len + 1;
 			t->len = t_buf_len + ft_strlen(pxls_str) + 2;
 			concat_space(&accumulator, t);
-			ft_strlcat(pxls_str, t->buf, t->len + 2);
+			ft_strlcat(pxls_str, t->buf, t->len);
 			j++;
 		}
 		if (0 == ++i % c->width)
@@ -130,7 +131,7 @@ static void	color_to_string(const t_canvas *c, int i, int j, t_buf *t)
 // .description = CYAN"\npixels_to_string aux function test"RESET)
 // {
 //
-// 	const t_canvas 				c = create_canvas(2, 10);
+// 	const t_canvas 				c = create_canvas(350, 1);
 //
 // 	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.8, 0.6});
 // 	t_constr pxls_str = canvas_to_ppm(&c);

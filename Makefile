@@ -22,7 +22,7 @@ SRC = main.c canvas_to_ppm.c create_canvas.c write_pixel.c basic_tuple_operation
 VPATH= ./src ./src/canvas/ ./src/tuples/
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/
-C_FLAGS = -Wall -Werror -Wextra -g3 
+C_FLAGS = -Wall -Werror -Wextra -O3 
 OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))
 BUILD_DIR_RT= ./build/
 CMD = $(CC) $(LIBFT) $(OBJS) $(C_FLAGS) -I$(MLX_INCLUDE) -I $(INCLUDE) -c $< -o $@
@@ -36,7 +36,7 @@ all: $(NAME)
 $(NAME): $(LIBMLX_TARGET) $(OBJS)
 	@printf "$(GREEN)[ Build ]$(DEF_COLOR) $(RED) $@ $(GREEN)complete $(DEF_COLOR)"
 	@$(CC) $(C_FLAGS) $(OBJS) $(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -L ./libs/ -lft -o $@
-	@make as_lib --no-print-directory | compiledb
+	@compiledb make as_lib --no-print-directory
 
 $(BUILD_DIR_RT)%.o: %.c $(LIBFT)
 	@test -d $(BUILD_DIR_RT) || mkdir $(BUILD_DIR_RT)
