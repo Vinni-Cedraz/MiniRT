@@ -113,9 +113,8 @@ static void	color_to_string(const t_canvas *c, int i, int j, t_buf *t)
 // 	c = create_canvas(20, 10);
 // 	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.8, 0.6});
 //     for (int i = 0; i < c.width * c.height; i++) {
-//         int eq = cr_expect_tuple_eq(c.pixels[i / c.width][i % c.width],
+//         cr_expect_tuple_eq(c.pixels[i / c.width][i % c.width],
 // 		(t_tuple){1.0, 0.8, 0.6, COLOR});
-//         cr_assert_eq(eq, TRUE);
 //     }
 // 	idx = -1;
 // 	while (++idx < c.width * c.height)
