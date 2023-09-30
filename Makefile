@@ -76,6 +76,7 @@ $(LIB): $(LIBMLX_TARGET) $(OBJS)
 
 t:
 	@make --no-print-directory -C ./tests
+	@make run --no-print-directory -C ./tests
 
 as_lib: makelib $(LIB)
 re: fclean all

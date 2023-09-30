@@ -8,8 +8,8 @@ SHELL = /bin/zsh
 
 define compile_fn
 	if [[ ! -f $(1) ]] || [[ $(1).c -nt $(1) ]]; then \
-		$(CC) $(FLAGS) $(1).c $(INCS) $(LIBS) -o $(1) && sleep 0.1; \
-	fi;
+		$(CC) $(FLAGS) $(1).c $(INCS) $(LIBS) -o $(1) && sleep 0.1 && printf "$(CC) $(FLAGS) $(1).c $(INCS) $(LIBS) -o $(1)\n"; \
+	fi
 endef
 
 define run_fn
@@ -19,7 +19,7 @@ endef
 all: makeminirt_as_lib
 	@$(foreach name, $(TESTS), $(call compile_fn, $(name)))
 
-run: all
+run:
 	@$(foreach name, $(TESTS), $(call run_fn, ./$(name)))
 
 makeminirt_as_lib:
@@ -27,3 +27,8 @@ makeminirt_as_lib:
 
 clean:
 	$(foreach name, $(TESTS), $(RM) $(name);)
+
+fclean: clean
+	$(RM) compile_commands.json
+
+re: fclean all
