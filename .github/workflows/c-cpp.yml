@@ -1,0 +1,19 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: install deps
+      run: sudo apt install libglfw3 libglfw3-dev  && sudo apt install libcriterion-dev && sudo apt install zsh 
+    - uses: actions/checkout@v3
+    - name: Build project
+      run: make
+    - name: Make test
+      run: make t

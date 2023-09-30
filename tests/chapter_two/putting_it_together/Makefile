@@ -1,3 +1,4 @@
+#probably only need to mofify TESTS:
 TESTS = projectile
 
 INCS = -I../../ -I../../../include/ -I../../../libs/
@@ -19,7 +20,7 @@ endef
 all: makeminirt_as_lib
 	@$(foreach name, $(TESTS), $(call compile_fn, $(name)))
 
-run: all
+run:
 	@$(foreach name, $(TESTS), $(call run_fn, ./$(name)))
 
 makeminirt_as_lib:
@@ -32,3 +33,4 @@ fclean: clean
 	$(RM) compile_commands.json
 
 re: fclean all
+
