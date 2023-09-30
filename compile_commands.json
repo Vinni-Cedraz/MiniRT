@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -15,7 +15,7 @@
   "file": "./src/main.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -30,7 +30,7 @@
   "file": "./src/canvas/canvas_to_ppm.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -45,7 +45,7 @@
   "file": "./src/canvas/create_canvas.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -60,7 +60,7 @@
   "file": "./src/canvas/write_pixel.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -75,7 +75,7 @@
   "file": "./src/tuples/basic_tuple_operations.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -90,7 +90,7 @@
   "file": "./src/tuples/compare_floats.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -105,7 +105,7 @@
   "file": "./src/tuples/complex_tuple_operations.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-I",
