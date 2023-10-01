@@ -72,5 +72,6 @@ t_buf		normalize_rgb_string(int rgb);
 void		color_to_string(const t_canvas *c, int i, int j, t_buf *t);
 void 		concatenator(t_concatenator *t);
 void		concat_space(int *accumulator, t_buf *t);
+int 		cached_str_len(int *accumulator, t_buf *t, char *pxls_str);
 
 #endif

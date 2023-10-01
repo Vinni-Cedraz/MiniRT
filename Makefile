@@ -22,7 +22,7 @@ SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c write_pixel.c
 VPATH= ./src ./src/canvas/ ./src/tuples/ ./src/ppm/
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/
-C_FLAGS = -Wall -Werror -Wextra -O3 
+C_FLAGS = -Wall -Werror -Wextra -g 
 OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))
 BUILD_DIR_RT= ./build/
 CMD = $(CC) $(LIBFT) $(OBJS) $(C_FLAGS) -I$(MLX_INCLUDE) -I $(INCLUDE) -c $< -o $@

@@ -38,29 +38,25 @@ static void	pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *t)
 	int			i;
 	int			j;
 	int			accumulator;
-	int			t_buf_len;
 	int			pxls_str_len;
 	int			last_len;
 
-	i = 0;
+	i = -1;
 	accumulator = 0;
 	pxls_str_len = 0;
-	while (i < c->width * c->height)
+	while (++i < c->width * c->height)
 	{
-		j = 0;
-		while (j < 3)
+		j = -1;
+		while (++j < 3)
 		{
 			color_to_string(c, i, j, t);
-			t_buf_len = strlen(t->buf);
-			accumulator += t_buf_len + 1;
+			accumulator += strlen(t->buf) + 1;
 			last_len = pxls_str_len;
 			pxls_str_len += strlen(pxls_str + pxls_str_len);
-			t->len = t_buf_len + pxls_str_len;
 			concat_space(&accumulator, t);
 			strcat(pxls_str + last_len, t->buf);
-			j++;
 		}
-		if (0 == ++i % c->width)
+		if (!(i % c->width))
 			concat_linebreak(pxls_str, &accumulator);
 	}
 }
@@ -129,7 +125,7 @@ void	color_to_string(const t_canvas *c, int i, int j, t_buf *t)
 // 	creating_outfile,
 // 			.description = CYAN"\ncanvas_to_ppm speed test"RESET)
 // {
-// 	const t_canvas 				c = create_canvas(550, 900);
+// 	const t_canvas 				c = create_canvas(1080, 1920);
 //
 // 	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.8, 0.6});
 // 	t_constr pxls_str = canvas_to_ppm(&c);
