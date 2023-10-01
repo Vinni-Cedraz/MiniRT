@@ -133,5 +133,20 @@
    "build/canvas_to_ppm_aux.o"
   ],
   "file": "./src/ppm/canvas_to_ppm_aux.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrices/operations.c",
+   "-o",
+   "build/operations.o"
+  ],
+  "file": "./src/matrices/operations.c"
  }
 ]

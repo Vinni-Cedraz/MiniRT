@@ -26,21 +26,21 @@ Test(dot_product, dot_product_of_two_tuples, .description = scenario1) {
 	float dot_product;
 
     dot((t_tuple){1, 2, 3}, (t_tuple){2, 3, 4}, dot_product);
-    cr_expect_eq(compare_floats(dot_product, 20.0), TRUE);
+    cr_expect_eq(floats_eq(dot_product, 20.0), TRUE);
 }
 
 Test(dot_product, dot_product_of_identical_unit_vectors, .description = scenario2) {
 	float dot_product;
 
     dot((t_tuple){1, 0, 0}, (t_tuple){1, 0, 0}, dot_product);
-    cr_expect_eq(compare_floats(dot_product, 1), TRUE);
+    cr_expect_eq(floats_eq(dot_product, 1), TRUE);
 }
 
 Test(dot_product, dot_product_of_opposite_unit_vectors, .description = scenario3) {
 	float dot_product;
 
     dot((t_tuple){1, 0, 0}, (t_tuple){-1, 0, 0}, dot_product);
-    cr_expect_eq(compare_floats(dot_product, -1), TRUE);
+    cr_expect_eq(floats_eq(dot_product, -1), TRUE);
 }
 
 Test(dot_product, dot_product_of_things_that_are_not_vectors, .description = scenario4) {

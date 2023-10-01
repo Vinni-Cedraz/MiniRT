@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/01 09:58:06 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/01 16:53:46 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@
 # define FALSE 0
 # define TRUE 1
 
-
 typedef float			t_tuple[4];
+typedef float			t_3x3_row[3];
+typedef float			t_2x2_row[2];
 typedef unsigned short	t_bool;
 
 typedef struct s_canvas {
@@ -42,24 +43,33 @@ typedef struct s_canvas {
 	t_tuple			**pixels;
 }				t_canvas;
 
-typedef struct s_concat {
-	const t_canvas *c;
-	t_buf			t;
-	int				*accumulator;
-	char			*res;
-	int				i;
-	int				*j;
-}				t_concatenator;
+typedef struct s_matrix {
+	t_tuple		row_1;
+	t_tuple		row_2;
+	t_tuple		row_3;
+	t_tuple		row_4;
+}				t_matrix;
+
+typedef struct s_2x2matrix {
+	t_2x2_row	row_1;
+	t_2x2_row	row_2;
+}				t_2x2_matrix;
+
+typedef struct s_3x3matrix {
+	t_3x3_row	row_1;
+	t_3x3_row	row_2;
+	t_3x3_row	row_3;
+}				t_3x3_matrix;
 
 void		create_point(t_tuple tuple);
 void		create_vector(t_tuple tuple);
-t_bool		compare_floats(float a, float b);
+t_bool		floats_eq(float a, float b);
 void		add_tuples(const t_tuple a, const t_tuple b, t_tuple result);
 void		subtract_tuples(const t_tuple a, const t_tuple b, t_tuple result);
 void		negate_tuple(const t_tuple a, t_tuple result);
 void		multiply_tuple_by_scalar(const t_tuple a, const float s, t_tuple r);
 void		multiply_colors(const t_tuple c1, const t_tuple c2, t_tuple result);
-t_bool		compare_floats(float a, float b);
+t_bool		floats_eq(float a, float b);
 float		magnitude(const t_tuple vec);
 short		normalize(const t_tuple vec, t_tuple result);
 short		dot(const t_tuple a, const t_tuple b, float dot_product);
@@ -70,8 +80,8 @@ char		*canvas_to_ppm(const t_canvas *canvas);
 void		destroy_canvas(const t_canvas *canvas);
 t_buf		normalize_rgb_string(int rgb);
 void		color_to_string(const t_canvas *c, int i, int j, t_buf *t);
-void 		concatenator(t_concatenator *t);
 void		concat_space(int *accumulator, t_buf *t);
-int 		cached_str_len(int *accumulator, t_buf *t, char *pxls_str);
+int			cached_str_len(int *accumulator, t_buf *t, char *pxls_str);
+t_bool		tuples_neq(const t_tuple result, const t_tuple expected);
 
 #endif

@@ -20,7 +20,7 @@ Test(normalization, normalizing_vector_1_2_3) {
 
 Test(normalization, magnitude_of_normalized_vector_1_2_3) {
     normalize(vecs[1], res);
-    cr_expect_eq(compare_floats(magnitude(res), 1), TRUE);
+    cr_expect_eq(floats_eq(magnitude(res), 1), TRUE);
 }
 
 Test(normalization, normalization_of_zero_magnitude_vector_should_fail) {

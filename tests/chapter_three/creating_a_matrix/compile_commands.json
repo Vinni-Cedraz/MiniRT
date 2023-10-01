@@ -1,21 +1,21 @@
 [
  {
-  "directory": "/root/MiniRT/tests/chapter_two/canvas",
+  "directory": "/root/MiniRT/tests/chapter_three/creating_a_matrix",
   "arguments": [
    "cc",
    "-O3",
    "-lcriterion",
    "-lm",
    "-w",
-   "canvas.c",
+   "creating_a_matrix.c",
    "-I../../",
    "-I../../../include/",
    "-I../../../libs/",
    "../../../libs/*.a",
    "../../../minirt.a",
    "-o",
-   "canvas"
+   "creating_a_matrix"
   ],
-  "file": "canvas.c"
+  "file": "creating_a_matrix.c"
  }
 ]
