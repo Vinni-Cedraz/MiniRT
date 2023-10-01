@@ -127,14 +127,14 @@ static void	color_to_string(const t_canvas *c, int i, int j, t_buf *t)
 // }
 //
 // Test(canvas_to_ppm_aux_functions,
-// pixels_string_being_initialized_with_correct_line_breaks,
-// .description = CYAN"\npixels_to_string aux function test"RESET)
+// 	creating_outfile,
+// 		.timeout = 1,
+// 			.description = CYAN"\ncanvas_to_ppm speed test"RESET)
 // {
-//
-// 	const t_canvas 				c = create_canvas(350, 1);
+// 	const t_canvas 				c = create_canvas(100, 100);
 //
 // 	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.8, 0.6});
 // 	t_constr pxls_str = canvas_to_ppm(&c);
-// 	create_ppm_file(pxls_str, "./src/canvas/outfile.ppm");
+// 	create_ppm_file(pxls_str, "$HOME/MiniRT/src/canvas/CANVAS.ppm");
 // 	destroy_canvas(&c);
 // }
