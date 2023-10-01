@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:22:50 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/09/28 15:27:38 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/01 09:58:05 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,7 @@ static void	color_to_string(const t_canvas *c, int i, int j, t_buf *t)
 		(int)ceil(c->pixels[i / w][i % w][B] * 255),
 	};
 
-	if (color[j] > 255)
-		*t = ft_simple_itoa(255);
-	else if (color[j] <= 0)
-		*t = ft_simple_itoa(0);
-	else
-		*t = ft_simple_itoa(color[j]);
+	*t = normalize_rgb_string(color[j]);
 }
 
 // #include "../tests/tester.h"
@@ -135,6 +130,6 @@ static void	color_to_string(const t_canvas *c, int i, int j, t_buf *t)
 //
 // 	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.8, 0.6});
 // 	t_constr pxls_str = canvas_to_ppm(&c);
-// 	create_ppm_file(pxls_str, "$HOME/MiniRT/src/canvas/CANVAS.ppm");
+// 	create_ppm_file(pxls_str, "$HOME/MiniRT/src/ppm/CANVAS.ppm");
 // 	destroy_canvas(&c);
 // }

@@ -8,36 +8,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/main.c",
-   "-o",
-   "build/main.o"
-  ],
-  "file": "./src/main.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/canvas/canvas_to_ppm.c",
-   "-o",
-   "build/canvas_to_ppm.o"
-  ],
-  "file": "./src/canvas/canvas_to_ppm.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/canvas/create_canvas.c",
    "-o",
    "build/create_canvas.o"
@@ -118,5 +88,50 @@
    "build/create_tuples.o"
   ],
   "file": "./src/tuples/create_tuples.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/minirt.c",
+   "-o",
+   "build/minirt.o"
+  ],
+  "file": "./src/minirt.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/ppm/canvas_to_ppm.c",
+   "-o",
+   "build/canvas_to_ppm.o"
+  ],
+  "file": "./src/ppm/canvas_to_ppm.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/ppm/canvas_to_ppm_aux.c",
+   "-o",
+   "build/canvas_to_ppm_aux.o"
+  ],
+  "file": "./src/ppm/canvas_to_ppm_aux.c"
  }
 ]

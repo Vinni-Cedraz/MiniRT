@@ -17,9 +17,9 @@ LIB := minirt.a
 
 ### MINIRT
 NAME = minirt
-SRC = main.c canvas_to_ppm.c create_canvas.c write_pixel.c basic_tuple_operations.c compare_floats.c \
+SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c write_pixel.c basic_tuple_operations.c compare_floats.c \
 	  complex_tuple_operations.c create_tuples.c
-VPATH= ./src ./src/canvas/ ./src/tuples/
+VPATH= ./src ./src/canvas/ ./src/tuples/ ./src/ppm/
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/
 C_FLAGS = -Wall -Werror -Wextra -O3 
