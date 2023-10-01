@@ -29,5 +29,5 @@ Test(suite_name, projectile_goes_up_and_down) {
         p = tick(e, p);
     }
     t_constr ppm_string = canvas_to_ppm(&c);
-    create_ppm_file(ppm_string, "$HOME/MiniRT/tests/chapter_two/putting_it_together/projectile_chapter_two.ppm");
+    create_ppm_file(ppm_string);
 }

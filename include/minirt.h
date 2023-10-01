@@ -42,6 +42,15 @@ typedef struct s_canvas {
 	t_tuple			**pixels;
 }				t_canvas;
 
+typedef struct s_concat {
+	const t_canvas *c;
+	t_buf			t;
+	int				*accumulator;
+	char			*res;
+	int				i;
+	int				*j;
+}				t_concatenator;
+
 void		create_point(t_tuple tuple);
 void		create_vector(t_tuple tuple);
 t_bool		compare_floats(float a, float b);
@@ -60,5 +69,8 @@ void		write_pixel(t_canvas *canvas, int x, int y, const t_tuple pixel);
 char		*canvas_to_ppm(const t_canvas *canvas);
 void		destroy_canvas(const t_canvas *canvas);
 t_buf		normalize_rgb_string(int rgb);
+void		color_to_string(const t_canvas *c, int i, int j, t_buf *t);
+void 		concatenator(t_concatenator *t);
+void		concat_space(int *accumulator, t_buf *t);
 
 #endif
