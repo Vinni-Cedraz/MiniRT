@@ -41,10 +41,10 @@ static void	pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *t)
 	int			pxls_str_len;
 	int			last_len;
 
-	i = -1;
+	i = 0;
 	accumulator = 0;
 	pxls_str_len = 0;
-	while (++i < c->width * c->height)
+	while (i < c->width * c->height)
 	{
 		j = -1;
 		while (++j < 3)
@@ -56,7 +56,7 @@ static void	pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *t)
 			concat_space(&accumulator, t);
 			strcat(pxls_str + last_len, t->buf);
 		}
-		if (!(i % c->width))
+		if (!(++i % c->width))
 			concat_linebreak(pxls_str, &accumulator);
 	}
 }

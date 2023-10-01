@@ -60,7 +60,7 @@ void	destroy_canvas(const t_canvas *canvas)
 
 // #include "../../tests/tester.h"
 //
-//Test(create_canvas, test_create_row_of_pixels,
+// Test(create_canvas, test_create_row_of_pixels,
 //.description = CYAN
 //"\n"
 //"Given a t_canvas with width of 550 a row of 550 t_tuples{0,0,0,COLOR}\n"
