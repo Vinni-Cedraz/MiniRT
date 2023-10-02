@@ -13,18 +13,20 @@
 #include "minirt.h"
 #include <string.h>
 
-static void	pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *t);
-static void	concat_linebreak(char *pxls_str, int *accum);
+static char		*pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *str);
+t_buf			color_to_string(const t_canvas *c, int i, int j, t_buf *t);
+void			concat_space(int *accumulator, t_buf *t);
+void			concat_linebreak(char *pxls_str, int *accum);
 
 char	*canvas_to_ppm(const t_canvas *canvas)
 {
 	char		*header;
 	char		*pxls_str;
+	t_buf		str;
 	const char	ppm_header_fmt_str[35] = "P3\n%s %s\n255\n";
-	t_buf		t;
 
 	pxls_str = calloc(canvas->width * canvas->height * 12, sizeof(char) + 2);
-	pixels_to_str(canvas, pxls_str, &t);
+	pxls_str = pixels_to_str(canvas, pxls_str, &str);
 	header = ft_fmt_str(
 			ppm_header_fmt_str,
 			ft_simple_itoa(canvas->width).buf,
@@ -33,13 +35,13 @@ char	*canvas_to_ppm(const t_canvas *canvas)
 	return (ft_strjoin(header, pxls_str));
 }
 
-static void	pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *t)
+static char	*pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *str)
 {
-	int			i;
-	int			j;
-	int			accumulator;
-	int			pxls_str_len;
-	int			last_len;
+	int	i;
+	int	j;
+	int	accumulator;
+	int	pxls_str_len;
+	int	last_len;
 
 	i = 0;
 	accumulator = 0;
@@ -49,46 +51,17 @@ static void	pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *t)
 		j = -1;
 		while (++j < 3)
 		{
-			color_to_string(c, i, j, t);
-			accumulator += strlen(t->buf) + 1;
+			*str = color_to_string(c, i, j, str);
+			accumulator += str->len + 1;
 			last_len = pxls_str_len;
 			pxls_str_len += strlen(pxls_str + pxls_str_len);
-			concat_space(&accumulator, t);
-			strcat(pxls_str + last_len, t->buf);
+			concat_space(&accumulator, str);
+			strcat(pxls_str + last_len, str->buf);
 		}
 		if (!(++i % c->width))
 			concat_linebreak(pxls_str, &accumulator);
 	}
-}
-
-static void	concat_linebreak(char *pxls_str, int *accum)
-{
-	memmove(pxls_str + strlen(pxls_str) - 1, "\0", 1);
-	strcat(pxls_str, "\n");
-	*accum = 0;
-}
-
-void	concat_space(int *accumulator, t_buf *t)
-{
-	if (*accumulator >= 67)
-	{
-		strcat(t->buf, "\n");
-		*accumulator = 0;
-		return ;
-	}
-	strcat(t->buf, " ");
-}
-
-void	color_to_string(const t_canvas *c, int i, int j, t_buf *t)
-{
-	const int	w = c->width;
-	const int	color[] = {
-		(int)ceil(c->pixels[i / w][i % w][R] * 255),
-		(int)ceil(c->pixels[i / w][i % w][G] * 255),
-		(int)ceil(c->pixels[i / w][i % w][B] * 255),
-	};
-
-	*t = normalize_rgb_string(color[j]);
+	return (pxls_str);
 }
 
 // #include "../tests/tester.h"

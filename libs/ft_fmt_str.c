@@ -23,7 +23,8 @@ char	*ft_fmt_str(t_constr format, t_constr s1, t_constr s2, t_constr s3)
 
 	i = 0;
 	format_idx = 0;
-	result = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + ft_strlen(s3) + 1, sizeof(char));
+	result = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + ft_strlen(s3) + 1,
+			sizeof(char));
 	strs = (t_strings){.a = s1, .b = s2, .c = s3};
 	while (format[format_idx])
 	{

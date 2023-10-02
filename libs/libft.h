@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define GREEN "\033[0;32m"
+# define RESET "\033[0m"
 # define INTMIN -2147483648
 # define UPPER "0123456789ABCDEF"
 # define LOWER "0123456789abcdef"
@@ -107,7 +109,7 @@ typedef struct s_read_one
 typedef struct s_imple_itoa
 {
 	int			len;
-	char		buf[STR_LIMIT];
+	char		buf[5];
 }					t_buf;
 
 // ASCII TYPE IDENTIFICATION FUNCTIONS:

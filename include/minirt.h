@@ -78,10 +78,6 @@ t_canvas	create_canvas(unsigned short width, unsigned short height);
 void		write_pixel(t_canvas *canvas, int x, int y, const t_tuple pixel);
 char		*canvas_to_ppm(const t_canvas *canvas);
 void		destroy_canvas(const t_canvas *canvas);
-t_buf		normalize_rgb_string(int rgb);
-void		color_to_string(const t_canvas *c, int i, int j, t_buf *t);
-void		concat_space(int *accumulator, t_buf *t);
-int			cached_str_len(int *accumulator, t_buf *t, char *pxls_str);
 t_bool		tuples_neq(const t_tuple result, const t_tuple expected);
 
 #endif
