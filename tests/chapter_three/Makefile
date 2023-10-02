@@ -22,11 +22,11 @@ MAKE_CLEAN = make clean --no-print-directory -C
 MAKE_FCLEAN = make fclean --no-print-directory -C
 
 all:
-	@printf "\n$(ORANGE)=== CHAPTER TWO ===$(RESET)\n"
+	@printf "\n$(ORANGE)=== CHAPTER THREE ===$(RESET)\n"
 	@$(foreach dir,$(TESTDIRS),$(call MAKE_COMPILE, $(dir));)
 
 run:
-	@printf "\n$(ORANGE)=== CHAPTER TWO ===$(RESET)\n"
+	@printf "\n$(ORANGE)=== CHAPTER THREE ===$(RESET)\n"
 	@$(foreach dir,$(TESTDIRS),$(call MAKE_RUN, $(dir));)
 
 makeminirt_as_lib:

@@ -79,5 +79,6 @@ void		write_pixel(t_canvas *canvas, int x, int y, const t_tuple pixel);
 char		*canvas_to_ppm(const t_canvas *canvas);
 void		destroy_canvas(const t_canvas *canvas);
 t_bool		tuples_neq(const t_tuple result, const t_tuple expected);
+t_bool		_4x4matrices_eq(t_matrix a, t_matrix b);
 
 #endif
