@@ -31,6 +31,10 @@
 # define COLOR 2
 # define FALSE 0
 # define TRUE 1
+# define COL1 0
+# define COL2 1
+# define COL3 2
+# define COL4 3
 
 typedef float			t_tuple[4];
 typedef float			t_3x3_row[3];

@@ -1,7 +1,7 @@
 TESTDIRS = creating_a_matrix \
-		   # multiplying_matrices \
-		   # the_identity_matrix \
-		   # transposing_matrices \
+		   multiplying_matrices \
+		   the_identity_matrix \
+		   transposing_matrices \
 		   # inverting_matrices  \
 		   # putting_it_together
 
