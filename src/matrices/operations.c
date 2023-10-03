@@ -11,12 +11,35 @@
 /* ************************************************************************** */
 
 #include "minirt.h"
-#include <criterion/internal/test.h>
 
-static void 
+static void	init_col(t_matrix b, int col_idx, t_tuple col);
+static void	multiply_row_by_matrix(t_tuple row, t_matrix mat, t_tuple res);
 
+t_matrix	mult_matrices(t_matrix a, t_matrix b)
+{
+	t_matrix	result;
 
-static void init_col(t_matrix b, int col_idx, t_tuple col)
+	multiply_row_by_matrix(a.row_1, b, result.row_1);
+	multiply_row_by_matrix(a.row_2, b, result.row_2);
+	multiply_row_by_matrix(a.row_3, b, result.row_3);
+	multiply_row_by_matrix(a.row_4, b, result.row_4);
+	return (result);
+}
+
+static void	multiply_row_by_matrix(t_tuple row, t_matrix mat, t_tuple res)
+{
+	t_tuple	col;
+	int		idx;
+
+	idx = -1;
+	while (++idx < 4)
+	{
+		init_col(mat, idx, col);
+		res[idx] = dot(row, col);
+	}
+}
+
+static void	init_col(t_matrix b, int col_idx, t_tuple col)
 {
 	col[X] = b.row_1[col_idx];
 	col[Y] = b.row_2[col_idx];
@@ -24,53 +47,38 @@ static void init_col(t_matrix b, int col_idx, t_tuple col)
 	col[W] = b.row_4[col_idx];
 }
 
-t_matrix	mult_matrices(t_matrix a, t_matrix b)
-{
-	t_matrix		result;
-	t_tuple			col;
-
-	init_col(b, 0, col);
-	result.row_1[X] = (float)dot(a.row_1, col);
-	init_col(b, 1, col);
-	result.row_1[Y] = (float)dot(a.row_1, col);
-	init_col(b, 2, col);
-	result.row_1[Z] = (float)dot(a.row_1, col);
-	init_col(b, 3, col);
-	result.row_1[W] = (float)dot(a.row_1, col);
-}
-
-#include "../../tests/tester.h"
-
-Test(operations, init_col){
-	t_matrix matrix = {
-		.row_1 = {1, 2, 3, 4},
-		.row_2 = {5, 6, 7, 8},
-		.row_3 = {9, 10, 11, 12},
-		.row_4 = {13, 14, 15, 16}
-	};
-
-	t_tuple expect_col = {1, 5, 9, 13};
-	t_tuple col;
-
-	init_col(matrix, 0, col);
-	cr_expect_tuple_eq(col, expect_col);
-}
-
-Test(operations, mult_row_by_col){
-	t_tuple row = {1, 2, 3, 4};
-	t_tuple col = {5, 6, 7, 8};
-	t_tuple expect = {70, 80, 90, 100};
-	t_tuple result;
-
-	cr_expect_tuple_eq(result, expect);
-}
-
-Test(operations, init_result_row){
-	t_tuple row = {1, 2, 3, 4};
-	t_tuple col = {5, 6, 7, 8};
-	t_tuple expect = {70, 80, 90, 100};
-	t_tuple result/* = {0, 0, 0, 0}*/;
-
-	mult_row_by_col(row, col, result);
-	cr_expect_tuple_eq(expected, result);
-}
+// #include "../../tests/tester.h"
+// Test(operations, init_col)
+// {
+// 	t_tuple		expect_col = {1, 5, 9, 13};
+// 	t_matrix	matrix = {
+// 		{1, 2, 3, 4},
+// 		{5, 6, 7, 8},
+// 		{9, 10, 11, 12},
+// 		{13, 14, 15, 16}
+// 	};
+// 	t_tuple		col;
+//
+// 	init_col(matrix, 0, col);
+// 	cr_expect_tuple_eq(col, expect_col);
+// }
+//
+// Test(operations, multiply_row_by_matrix) {
+// 	t_matrix a = {
+// 		{1,2,3,4},
+// 		{0,0,0,0},
+// 		{0,0,0,0},
+// 		{0,0,0,0},
+// 	};
+// 	t_matrix b = {
+// 		{-2, 1, 2,3 },
+// 		{3, 2, 1, -1},
+// 		{4, 3, 6, 5},
+// 		{1, 2, 7, 8}
+// 	};
+// 	t_tuple expected = {20, 22, 50, 48};
+// 	t_tuple res;
+//
+// 	multiply_row_by_matrix(a.row_1, b, res);
+// 	cr_expect_tuple_eq(expected, res);
+// }

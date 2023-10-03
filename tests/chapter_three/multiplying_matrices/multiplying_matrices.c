@@ -21,7 +21,6 @@
        "| 16| 26 | 46 | 42 |"
 
 Test(multiplying_matrices, multiplying_two_matrices, .description = scenario1) {
-
 	t_matrix a = {
 		{1,2,3,4},
 		{5,6,7,8},
@@ -43,5 +42,4 @@ Test(multiplying_matrices, multiplying_two_matrices, .description = scenario1) {
 
 	t_matrix result = mult_matrices(a , b);
 	cr_assert_eq(matrices_eq(expected, result), TRUE);
-
 }
