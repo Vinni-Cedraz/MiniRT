@@ -1,4 +1,10 @@
-TESTS = inverting_matrices
+TESTS = 2x2_determinant \
+		# computing_cofactors \
+		# 4x4_determinant \
+		# computing_cofactors \
+		# manipulating_minors \
+		# spotting_submatrices \
+		# implementing_inversion
 
 INCS = -I../../ -I../../../include/ -I../../../libs/
 FLAGS = -O3 -lcriterion -lm -w

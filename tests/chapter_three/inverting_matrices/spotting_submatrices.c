@@ -36,18 +36,18 @@
 " | -7 | -1 | 1 |\n"                               \
 
 Test(spotting_submatrices, submatrix_of_3x3_matrix, .description = scenario1) {
-	t_matrix a = {
+	t_3x3_matrix a = {
 		{1,5,0},
 		{-3,2,7},
 		{0,6,-3}
 	};
-	t_matrix expected = {
+	t_2x2_matrix expected = {
 		{-3,2},
 		{0,6}
 	};
-	t_matrix result;
+	t_2x2_matrix result;
 
-	result = submatrix(a, 0, 2);
+	result = submatrix_of_3x3_matrix(a, 0, 2);
 	cr_expect_eq(TRUE, matrices_eq(result, expected));
 }
 
@@ -58,13 +58,13 @@ Test(spotting_submatrices, submatrix_of_4x4_matrix, .description = scenario2) {
 		{-1,0,8,2},
 		{-7,1,-1,1}
 	};
-	t_matrix expected = {
+	t_3x3_matrix expected = {
 		{-6,1,6},
 		{-8,8,6},
 		{-7,-1,1}
 	};
 	t_matrix result;
 
-	result = submatrix(a, 2, 1);
+	result = submatrix_of_4x4_matrix(a, 2, 1);
 	cr_expect_eq(TRUE, matrices_eq(result, expected));
 }

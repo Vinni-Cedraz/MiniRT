@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/03 11:48:37 by johmatos         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:45:34 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ t_bool		matrices_eq(t_matrix a, t_matrix b);
 float		dot(const t_tuple a, const t_tuple b);
 t_matrix	mult_by_identity(t_matrix a);
 t_matrix	transpose_matrix(t_matrix a);
+int			_2x2determinant(t_2x2_matrix m);
 
 #endif

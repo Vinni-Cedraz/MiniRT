@@ -23,7 +23,7 @@
 " And minor(A, 1, 0) = 25\n"                               \
 " And cofactor(A, 1, 0) = -25\n"                               \
 
-Test(computing_cofactos, calculating_a_cofactor_of_a_3x3_matrix, .description = scenario1) {
+Test(computing_cofactor, calculating_a_cofactor_of_a_3x3_matrix, .description = scenario1) {
 	t_matrix a = {
 		{3,5,0},
 		{2,-1,-7},
