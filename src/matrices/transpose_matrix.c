@@ -49,6 +49,21 @@ static inline void	init_col(t_matrix b, int col_idx, t_tuple col)
 
 // #include "../../tests/tester.h"
 //
+//
+// Test(operations, init_col)
+// {
+// 	t_tuple		expect_col = {1, 5, 9, 13};
+// 	t_matrix	matrix = {
+// 		{1, 2, 3, 4},
+// 		{5, 6, 7, 8},
+// 		{9, 10, 11, 12},
+// 		{13, 14, 15, 16}
+// 	};
+// 	t_tuple		col;
+//
+// 	init_col(matrix, 0, col);
+// 	cr_expect_tuple_eq(col, expect_col);
+// }
 // Test(transpose_matrix, turn_col_into_row)
 // {
 // 	t_matrix m = {
