@@ -143,11 +143,11 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/matrices/operations.c",
+   "./src/matrices/comparison.c",
    "-o",
-   "build/operations.o"
+   "build/comparison.o"
   ],
-  "file": "./src/matrices/operations.c"
+  "file": "./src/matrices/comparison.c"
  },
  {
   "directory": "/root/MiniRT",
@@ -158,10 +158,10 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/matrices/comparison.c",
+   "./src/matrices/mult_matrices.c",
    "-o",
-   "build/comparison.o"
+   "build/mult_matrices.o"
   ],
-  "file": "./src/matrices/comparison.c"
+  "file": "./src/matrices/mult_matrices.c"
  }
 ]

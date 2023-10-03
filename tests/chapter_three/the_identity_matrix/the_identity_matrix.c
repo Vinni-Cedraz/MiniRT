@@ -21,13 +21,7 @@ Test(the_identity_matrix, Multiplying_by_identity, .description = scenario1) {
 		{4, 8, 16, 32},
 	};
 
-	t_matrix identity = {
-		{1, 0, 0, 0},
-		{0, 1, 0, 0},
-		{0, 0, 1, 0},
-		{0, 0, 0, 1},
-	};
-
-	t_matrix res = mult_matrices(a, identity);
+	t_matrix res = mult_by_identity(a);
 	cr_expect_eq(TRUE, matrices_eq(a, res));
 }
+
