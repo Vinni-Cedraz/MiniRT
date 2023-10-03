@@ -148,5 +148,20 @@
    "build/operations.o"
   ],
   "file": "./src/matrices/operations.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrices/comparison.c",
+   "-o",
+   "build/comparison.o"
+  ],
+  "file": "./src/matrices/comparison.c"
  }
 ]

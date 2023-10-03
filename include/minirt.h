@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/01 16:53:46 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:48:37 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,13 @@ void		multiply_colors(const t_tuple c1, const t_tuple c2, t_tuple result);
 t_bool		floats_eq(float a, float b);
 float		magnitude(const t_tuple vec);
 short		normalize(const t_tuple vec, t_tuple result);
-short		dot(const t_tuple a, const t_tuple b, float dot_product);
 short		cross(const t_tuple a, const t_tuple b, t_tuple cross_product);
 t_canvas	create_canvas(unsigned short width, unsigned short height);
 void		write_pixel(t_canvas *canvas, int x, int y, const t_tuple pixel);
 char		*canvas_to_ppm(const t_canvas *canvas);
 void		destroy_canvas(const t_canvas *canvas);
 t_bool		tuples_neq(const t_tuple result, const t_tuple expected);
+t_matrix	mult_matrices(t_matrix a, t_matrix b);
 t_bool		matrices_eq(t_matrix a, t_matrix b);
-
+float		dot(const t_tuple a, const t_tuple b);
 #endif

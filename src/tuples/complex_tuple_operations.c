@@ -31,12 +31,9 @@ short	normalize(const t_tuple vec, t_tuple result)
 	return (0);
 }
 
-short	dot(const t_tuple a, const t_tuple b, float dot_product)
+float	dot(const t_tuple a, const t_tuple b)
 {
-	if (a[W] != VECTOR || b[W] != VECTOR)
-		return (-1);
-	dot_product = a[X] * b[X] + a[Y] * b[Y] + a[Z] * b[Z];
-	return (0);
+	return (a[X] * b[X] + a[Y] * b[Y] + a[Z] * b[Z] + a[W] * b[W]);
 }
 
 short	cross(const t_tuple a, const t_tuple b, t_tuple cross_product)
