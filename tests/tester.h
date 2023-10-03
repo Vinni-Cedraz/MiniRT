@@ -6,7 +6,6 @@
 #include <stdio.h>
 #define CYAN "\033[36m"
 #define RED "\033[31m"
-#define GREEN "\033[32m"
 #define RESET "\033[0m"
 
 typedef struct s_projectile {
