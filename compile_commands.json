@@ -163,5 +163,20 @@
    "build/mult_matrices.o"
   ],
   "file": "./src/matrices/mult_matrices.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrices/transpose_matrix.c",
+   "-o",
+   "build/transpose_matrix.o"
+  ],
+  "file": "./src/matrices/transpose_matrix.c"
  }
 ]

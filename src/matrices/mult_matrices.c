@@ -39,7 +39,7 @@ static void	multiply_row_by_matrix(t_tuple row, t_matrix mat, t_tuple res)
 	}
 }
 
-static void	init_col(t_matrix b, int col_idx, t_tuple col)
+static inline void	init_col(t_matrix b, int col_idx, t_tuple col)
 {
 	col[X] = b.row_1[col_idx];
 	col[Y] = b.row_2[col_idx];
