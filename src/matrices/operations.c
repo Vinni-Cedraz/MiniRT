@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_bool	_4x4matrices_eq(t_matrix a, t_matrix b)
+t_bool	matrices_eq(t_matrix a, t_matrix b)
 {
 	int	res;
 

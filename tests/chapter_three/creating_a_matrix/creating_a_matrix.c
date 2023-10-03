@@ -125,7 +125,7 @@ Test(matrix_equality, _4x4identical_matrices, .description = scenario4) {
 		{9, 8, 7, 6},
 		{5, 4, 3, 2}
 	};
-	_4x4matrices_eq(matrix_a, matrix_b);
+	matrices_eq(matrix_a, matrix_b);
 }
 
 Test(matrix_equality, _4x4different_matrices, .description = scenario5) {
@@ -141,5 +141,5 @@ Test(matrix_equality, _4x4different_matrices, .description = scenario5) {
 		{8, 7, 6, 5},
 		{4, 3, 2, 1}
 	};
-	_4x4matrices_eq(matrix_a, matrix_b);
+	matrices_eq(matrix_a, matrix_b);
 }
