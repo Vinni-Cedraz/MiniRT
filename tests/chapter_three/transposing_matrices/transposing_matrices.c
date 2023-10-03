@@ -17,9 +17,9 @@
 
 Test(transposing_matrices, transposing_a_matrix, .description = Scenario1) {
 	t_matrix a = {
-		{0, 9, 3, 0},
+		{0,9,3,0},
 		{9,8,0,8},
-		{1, 8, 5,3},
+		{1,8,5,3},
 		{0,0,5,8}
 	};
 	t_matrix expected = {
@@ -32,6 +32,5 @@ Test(transposing_matrices, transposing_a_matrix, .description = Scenario1) {
 
 	result = transpose_matrix(a);
 	cr_expect_eq(TRUE, matrices_eq(result, expected));
-
 }
 
