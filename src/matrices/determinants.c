@@ -12,7 +12,24 @@
 
 #include "minirt.h"
 
-int	_2x2determinant(t_2x2matrix m)
+float	_2x2determinant(t_2x2matrix m)
 {
 	return (m.row_1[X] * m.row_2[Y] - m.row_2[X] * m.row_1[Y]);
+}
+
+float	minor(t_3x3matrix m, int row, int col)
+{
+	return (_2x2determinant(_3x3submatrix(m, row, col)));
+}
+
+float	cofactor(t_3x3matrix m, int row, int col)
+{
+	float	_minor;
+	float	_cofactor;
+
+	_minor = minor(m, row, col);
+	_cofactor = _minor;
+	if ((row + col) % 2)
+		_cofactor = _minor * -1;
+	return (_cofactor);
 }

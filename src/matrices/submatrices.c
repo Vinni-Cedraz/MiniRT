@@ -12,19 +12,16 @@
 
 #include "minirt.h"
 
-void	subrow(t_tuple row, int col_to_delete, float subrow[2]);
+static void	subrow(t_tuple row, int col_to_delete, float subrow[], int len);
 
 t_2x2matrix	_3x3submatrix(t_3x3matrix m, int not_row, int col_to_delete)
 {
 	t_2x2matrix				res;
 	const	float			(*m_row[]) = {
-		m.row_1,
-		m.row_2,
-		m.row_3,
+		m.row_1, m.row_2, m.row_3,
 	};
 	const	float			(*res_row[]) = {
-		res.row_1,
-		res.row_2,
+		res.row_1, res.row_2,
 	};
 	int						m_idx;
 	int						res_idx;
@@ -36,31 +33,56 @@ t_2x2matrix	_3x3submatrix(t_3x3matrix m, int not_row, int col_to_delete)
 		if (m_idx != not_row)
 			subrow((float *)m_row[m_idx++],
 				col_to_delete,
-				(float *)res_row[res_idx++]);
+				(float *)res_row[res_idx++], 3);
 		else
 			m_idx++;
 	}
 	return (res);
 }
 
-void	subrow(t_tuple row, int col_to_delete, float subrow[2])
+t_3x3matrix	_4x4submatrix(t_matrix m, int row_to_delete, int col_to_delete)
 {
-	int				idx3x3;
-	int				idx2x2;
+	t_3x3matrix				res;
+	const	float			(*m_row[]) = {
+		m.row_1, m.row_2, m.row_3, m.row_4,
+	};
+	const	float			(*res_row[]) = {
+		res.row_1, res.row_2, res.row_3,
+	};
+	int						m_idx;
+	int						res_idx;
 
-	idx2x2 = 0;
-	idx3x3 = 0;
-	while (idx3x3 != 3)
+	m_idx = 0;
+	res_idx = 0;
+	while (m_idx != 4)
 	{
-		if (col_to_delete != idx3x3)
-			subrow[idx2x2++] = row[idx3x3++];
+		if (m_idx != row_to_delete)
+			subrow((float *)m_row[m_idx++],
+				col_to_delete,
+				(float *)res_row[res_idx++], 4);
 		else
-			idx3x3++;
+			m_idx++;
+	}
+	return (res);
+}
+
+void	subrow(t_tuple row, int col_to_delete, float subrow[], int len)
+{
+	int				i;
+	int				j;
+
+	j = 0;
+	i = 0;
+	while (i != len)
+	{
+		if (col_to_delete != i)
+			subrow[j++] = row[i++];
+		else
+			i++;
 	}
 }
 
 // #include "../../tests/tester.h"
-//
 // Test(submatrix, subrow) {
 // 	t_tuple a = {1,5,0};
 // 	t_tuple expected0 = {5,0};
@@ -68,10 +90,10 @@ void	subrow(t_tuple row, int col_to_delete, float subrow[2])
 // 	t_tuple expected2 = {1,5};
 // 	t_tuple result;
 //
-// 	subrow(a, 0, result);
+// 	subrow(a, 0, result, 3);
 // 	cr_expect_tuple_eq(result, expected0);
-// 	subrow(a, 1, result);
+// 	subrow(a, 1, result, 3);
 // 	cr_expect_tuple_eq(result, expected1);
-// 	subrow(a, 2, result);
+// 	subrow(a, 2, result, 3);
 // 	cr_expect_tuple_eq(result, expected2);
 // }

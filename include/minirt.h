@@ -81,13 +81,18 @@ t_canvas	create_canvas(unsigned short width, unsigned short height);
 void		write_pixel(t_canvas *canvas, int x, int y, const t_tuple pixel);
 char		*canvas_to_ppm(const t_canvas *canvas);
 void		destroy_canvas(const t_canvas *canvas);
-t_bool		tuples_neq(const t_tuple result, const t_tuple expected);
 t_matrix	mult_matrices(t_matrix a, t_matrix b);
 t_bool		matrices_eq(t_matrix a, t_matrix b);
 float		dot(const t_tuple a, const t_tuple b);
 t_matrix	mult_by_identity(t_matrix a);
 t_matrix	transpose_matrix(t_matrix a);
-int			_2x2determinant(t_2x2matrix m);
+float		_2x2determinant(t_2x2matrix m);
 t_2x2matrix _3x3submatrix(t_3x3matrix m, int not_row, int col_to_delete);
+t_bool		tuples_neq(const t_tuple result, const t_tuple expected, int len);
+t_bool		_3x3matrices_eq(t_3x3matrix a, t_3x3matrix b);
+t_bool		_2x2matrices_eq(t_2x2matrix a, t_2x2matrix b);
+t_3x3matrix	_4x4submatrix(t_matrix m, int not_row, int not_col);
+float		minor(t_3x3matrix m, int row, int col);
+float		cofactor(t_3x3matrix m, int row, int col);
 
 #endif
