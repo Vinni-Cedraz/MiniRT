@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/04 17:52:50 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/04 18:07:12 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,6 @@ float		_3x3minor(t_3x3matrix m, int row, int col);
 float		_4x4minor(t_matrix m, int row, int col);
 float		_3x3cofactor(t_3x3matrix m, int row, int col);
 float		_4x4cofactor(t_matrix m, int row, int col);
+t_bool		is_invertible(t_matrix m);
 
 #endif
