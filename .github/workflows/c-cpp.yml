@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: install deps
-      run: sudo apt install libglfw3 libglfw3-dev  && sudo apt install libcriterion-dev && sudo apt install zsh 
+      run: sudo apt install libglfw3 libglfw3-dev  && sudo apt install libcriterion-dev && sudo apt install zsh && pip install compiledb
     - uses: actions/checkout@v3
     - name: Build project
       run: make
