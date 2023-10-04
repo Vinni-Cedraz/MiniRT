@@ -41,7 +41,7 @@ Test(creating_a_matrix, 4x4matrix, .description = scenario1) {
 				"And M[1,1] = -2" RESET
 
 Test(creating_a_matrix, _2x2matrix, .description = scenario2) {
-	t_2x2_matrix matrix= {
+	t_2x2matrix matrix= {
 		.row_1 = {-3, 5},
 		.row_2 = {1, 5},
 	};
@@ -65,7 +65,7 @@ Test(creating_a_matrix, _2x2matrix, .description = scenario2) {
 				"And M[2,2] = 1" RESET
 
 Test(creating_a_matrix, _3x3matrix, .description = scenario3) {
-	t_3x3_matrix matrix = {
+	t_3x3matrix matrix = {
 		.row_1 = {-3, 5, 0},
 		.row_2 = {1, -2, 7},
 		.row_3 = {0, 1, 1},

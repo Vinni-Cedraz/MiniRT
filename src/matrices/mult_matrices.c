@@ -16,7 +16,7 @@ static void	multiply_row_by_matrix(t_tuple row, t_matrix mat, t_tuple res);
 
 t_matrix	mult_matrices(t_matrix a, t_matrix b)
 {
-	t_matrix	result;
+	t_matrix		result;
 	const t_matrix	mat = transpose_matrix(b);
 
 	multiply_row_by_matrix(a.row_1, mat, result.row_1);
@@ -26,12 +26,12 @@ t_matrix	mult_matrices(t_matrix a, t_matrix b)
 	return (result);
 }
 
-static void	multiply_row_by_matrix(t_tuple row, t_matrix transposed_matrix, t_tuple res)
+static void	multiply_row_by_matrix(t_tuple row, t_matrix m, t_tuple res)
 {
-	res[X] = dot(row, transposed_matrix.row_1);
-	res[Y] = dot(row, transposed_matrix.row_2);
-	res[Z] = dot(row, transposed_matrix.row_3);
-	res[W] = dot(row, transposed_matrix.row_4);
+	res[Y] = dot(row, m.row_2);
+	res[X] = dot(row, m.row_1);
+	res[Z] = dot(row, m.row_3);
+	res[W] = dot(row, m.row_4);
 }
 
 // #include "../../tests/tester.h"

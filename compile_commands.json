@@ -178,5 +178,35 @@
    "build/transpose_matrix.o"
   ],
   "file": "./src/matrices/transpose_matrix.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrices/determinants.c",
+   "-o",
+   "build/determinants.o"
+  ],
+  "file": "./src/matrices/determinants.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrices/submatrices.c",
+   "-o",
+   "build/submatrices.o"
+  ],
+  "file": "./src/matrices/submatrices.c"
  }
 ]

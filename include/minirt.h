@@ -57,13 +57,13 @@ typedef struct s_matrix {
 typedef struct s_2x2matrix {
 	t_2x2_row	row_1;
 	t_2x2_row	row_2;
-}				t_2x2_matrix;
+}				t_2x2matrix;
 
 typedef struct s_3x3matrix {
 	t_3x3_row	row_1;
 	t_3x3_row	row_2;
 	t_3x3_row	row_3;
-}				t_3x3_matrix;
+}				t_3x3matrix;
 
 void		create_point(t_tuple tuple);
 void		create_vector(t_tuple tuple);
@@ -87,6 +87,7 @@ t_bool		matrices_eq(t_matrix a, t_matrix b);
 float		dot(const t_tuple a, const t_tuple b);
 t_matrix	mult_by_identity(t_matrix a);
 t_matrix	transpose_matrix(t_matrix a);
-int			_2x2determinant(t_2x2_matrix m);
+int			_2x2determinant(t_2x2matrix m);
+t_2x2matrix _3x3submatrix(t_3x3matrix m, int not_row, int col_to_delete);
 
 #endif

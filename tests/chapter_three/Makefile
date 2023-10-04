@@ -2,7 +2,7 @@ TESTDIRS = creating_a_matrix \
 		   multiplying_matrices \
 		   the_identity_matrix \
 		   transposing_matrices \
-		   # inverting_matrices  \
+		   inverting_matrices  \
 		   # putting_it_together
 
 ORANGE = \033[38;5;214m
