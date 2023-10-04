@@ -17,18 +17,17 @@ static void	multiply_row_by_matrix(t_tuple row, t_matrix mat, t_tuple res);
 t_matrix	mult_matrices(t_matrix a, t_matrix b)
 {
 	t_matrix	result;
+	const t_matrix	mat = transpose_matrix(b);
 
-	multiply_row_by_matrix(a.row_1, b, result.row_1);
-	multiply_row_by_matrix(a.row_2, b, result.row_2);
-	multiply_row_by_matrix(a.row_3, b, result.row_3);
-	multiply_row_by_matrix(a.row_4, b, result.row_4);
+	multiply_row_by_matrix(a.row_1, mat, result.row_1);
+	multiply_row_by_matrix(a.row_2, mat, result.row_2);
+	multiply_row_by_matrix(a.row_3, mat, result.row_3);
+	multiply_row_by_matrix(a.row_4, mat, result.row_4);
 	return (result);
 }
 
-static void	multiply_row_by_matrix(t_tuple row, t_matrix mat, t_tuple res)
+static void	multiply_row_by_matrix(t_tuple row, t_matrix transposed_matrix, t_tuple res)
 {
-	const t_matrix	transposed_matrix = transpose_matrix(mat);
-
 	res[X] = dot(row, transposed_matrix.row_1);
 	res[Y] = dot(row, transposed_matrix.row_2);
 	res[Z] = dot(row, transposed_matrix.row_3);
