@@ -38,7 +38,7 @@
 
 
 Test(determinant_large_matrices, calculating_the_determinant_of_a_3x3_matrix, .description = scenario1) {
-	t_matrix a = {
+	t_3x3matrix a = {
 		{1,2,6},
 		{-5,8,-4},
 		{2,6,4}
@@ -47,20 +47,20 @@ Test(determinant_large_matrices, calculating_the_determinant_of_a_3x3_matrix, .d
 	cr_expect_eq(56, cofactor(a, 0, 0));
 	cr_expect_eq(12, cofactor(a, 0, 1));
 	cr_expect_eq(-46, cofactor(a, 0, 2));
-	cr_expect_eq(-196, _4x4determinant(a));
+	cr_expect_eq(floats_eq(-196, _3x3determinant(a)), TRUE);
 }
 
-Test(determinant_large_matrices, calculating_the_determinant_of_a_4x4_matrix, .description = scenario2) {
-	t_matrix a = {
-		{-2,-8,3,5},
-		{-3,1,7,3},
-		{1,2,-9,6},
-		{-6,7,7,-9}
-	};
-
-	cr_expect_eq(690, cofactor(a, 0, 0));
-	cr_expect_eq(447, cofactor(a, 0, 1));
-	cr_expect_eq(210, cofactor(a, 0, 2));
-	cr_expect_eq(51, cofactor(a, 0, 3));
-	cr_expect_eq(-4071, _4x4determinant(a));
-}
+// Test(determinant_large_matrices, calculating_the_determinant_of_a_4x4_matrix, .description = scenario2) {
+// 	t_matrix a = {
+// 		{-2,-8,3,5},
+// 		{-3,1,7,3},
+// 		{1,2,-9,6},
+// 		{-6,7,7,-9}
+// 	};
+//
+// 	cr_expect_eq(690, cofactor(a, 0, 0));
+// 	cr_expect_eq(447, cofactor(a, 0, 1));
+// 	cr_expect_eq(210, cofactor(a, 0, 2));
+// 	cr_expect_eq(51, cofactor(a, 0, 3));
+// 	cr_expect_eq(-4071, _4x4determinant(a));
+// }

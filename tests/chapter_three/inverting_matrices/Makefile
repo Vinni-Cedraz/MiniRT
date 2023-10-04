@@ -2,7 +2,7 @@ TESTS = 2x2_determinant \
 		spotting_submatrices \
 		manipulating_minors \
 		computing_cofactors \
-		# 4x4_determinant \
+		4x4_determinant \
 		# implementing_inversion
 
 INCS = -I../../ -I../../../include/ -I../../../libs/

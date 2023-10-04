@@ -55,5 +55,43 @@
    "computing_cofactors"
   ],
   "file": "computing_cofactors.c"
+ },
+ {
+  "directory": "/root/MiniRT/tests/chapter_three/inverting_matrices",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-w",
+   "manipulating_minors.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "manipulating_minors"
+  ],
+  "file": "manipulating_minors.c"
+ },
+ {
+  "directory": "/root/MiniRT/tests/chapter_three/inverting_matrices",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-w",
+   "4x4_determinant.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "4x4_determinant"
+  ],
+  "file": "4x4_determinant.c"
  }
 ]

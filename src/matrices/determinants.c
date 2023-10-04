@@ -17,6 +17,13 @@ float	_2x2determinant(t_2x2matrix m)
 	return (m.row_1[X] * m.row_2[Y] - m.row_2[X] * m.row_1[Y]);
 }
 
+float	_3x3determinant(t_3x3matrix m)
+{
+	return (m.row_1[X] * cofactor(m, 0, X)
+		+ m.row_2[X] * cofactor(m, 1, X)
+		+ m.row_3[X] * cofactor(m, 2, X));
+}
+
 float	minor(t_3x3matrix m, int row, int col)
 {
 	return (_2x2determinant(_3x3submatrix(m, row, col)));

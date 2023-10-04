@@ -94,5 +94,6 @@ t_bool		_2x2matrices_eq(t_2x2matrix a, t_2x2matrix b);
 t_3x3matrix	_4x4submatrix(t_matrix m, int not_row, int not_col);
 float		minor(t_3x3matrix m, int row, int col);
 float		cofactor(t_3x3matrix m, int row, int col);
+float		_3x3determinant(t_3x3matrix m);
 
 #endif
