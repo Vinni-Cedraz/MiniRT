@@ -188,11 +188,11 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/matrices/determinants.c",
+   "./src/matrices/submatrices.c",
    "-o",
-   "build/determinants.o"
+   "build/submatrices.o"
   ],
-  "file": "./src/matrices/determinants.c"
+  "file": "./src/matrices/submatrices.c"
  },
  {
   "directory": "/root/MiniRT",
@@ -203,10 +203,40 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/matrices/submatrices.c",
+   "./src/matrices/2x2determinant.c",
    "-o",
-   "build/submatrices.o"
+   "build/2x2determinant.o"
   ],
-  "file": "./src/matrices/submatrices.c"
+  "file": "./src/matrices/2x2determinant.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrices/large_determinants.c",
+   "-o",
+   "build/large_determinants.o"
+  ],
+  "file": "./src/matrices/large_determinants.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrices/minors.c",
+   "-o",
+   "build/minors.o"
+  ],
+  "file": "./src/matrices/minors.c"
  }
 ]

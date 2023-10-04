@@ -18,7 +18,7 @@ LIB := minirt.a
 ### MINIRT
 NAME = minirt
 SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c write_pixel.c basic_tuple_operations.c compare_floats.c \
-	  complex_tuple_operations.c create_tuples.c mult_matrices.c comparison.c transpose_matrix.c determinants.c submatrices.c
+	  complex_tuple_operations.c create_tuples.c mult_matrices.c comparison.c transpose_matrix.c 2x2determinant.c large_determinants.c minors.c submatrices.c
 VPATH= ./src ./src/canvas/ ./src/tuples/ ./src/ppm/ ./src/matrices
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/03 18:45:34 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/04 17:52:50 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,13 @@ t_bool		tuples_neq(const t_tuple result, const t_tuple expected, int len);
 t_bool		_3x3matrices_eq(t_3x3matrix a, t_3x3matrix b);
 t_bool		_2x2matrices_eq(t_2x2matrix a, t_2x2matrix b);
 t_3x3matrix	_4x4submatrix(t_matrix m, int not_row, int not_col);
-float		minor(t_3x3matrix m, int row, int col);
-float		cofactor(t_3x3matrix m, int row, int col);
+float		_3x3minor(t_3x3matrix m, int row, int col);
+float		_3x3cofactor(t_3x3matrix m, int row, int col);
 float		_3x3determinant(t_3x3matrix m);
+float		_4x4determinant(t_matrix m);
+float		_3x3minor(t_3x3matrix m, int row, int col);
+float		_4x4minor(t_matrix m, int row, int col);
+float		_3x3cofactor(t_3x3matrix m, int row, int col);
+float		_4x4cofactor(t_matrix m, int row, int col);
 
 #endif
