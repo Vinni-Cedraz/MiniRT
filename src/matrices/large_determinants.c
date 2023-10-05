@@ -12,22 +12,22 @@
 
 #include "minirt.h"
 
-float	_3x3determinant(t_3x3matrix m)
+float	_3x3determinant(const t_3x3matrix m)
 {
-	return (m.row_1[X] * _3x3cofactor(m, 0, X)
-		+ m.row_2[X] * _3x3cofactor(m, 1, X)
-		+ m.row_3[X] * _3x3cofactor(m, 2, X));
+	return (m.row_1[COL1] * _3x3cofactor(m, ROW1, COL1)
+		+ m.row_2[COL1] * _3x3cofactor(m, ROW2, COL1)
+		+ m.row_3[COL1] * _3x3cofactor(m, ROW3, COL1));
 }
 
-float	_4x4determinant(t_matrix m)
+float	_4x4determinant(const t_matrix m)
 {
-	return (m.row_1[X] * _4x4cofactor(m, 0, X)
-		+ m.row_2[X] * _4x4cofactor(m, 1, X)
-		+ m.row_3[X] * _4x4cofactor(m, 2, X)
-		+ m.row_4[X] * _4x4cofactor(m, 3, X));
+	return (m.row_1[COL1] * _4x4cofactor(m, 0, COL1)
+		+ m.row_2[COL1] * _4x4cofactor(m, 1, COL1)
+		+ m.row_3[COL1] * _4x4cofactor(m, 2, COL1)
+		+ m.row_4[COL1] * _4x4cofactor(m, 3, COL1));
 }
 
-float	_3x3cofactor(t_3x3matrix m, int row, int col)
+float	_3x3cofactor(const t_3x3matrix m, int row, int col)
 {
 	float	_minor;
 	float	_cofactor;
@@ -39,7 +39,7 @@ float	_3x3cofactor(t_3x3matrix m, int row, int col)
 	return (_cofactor);
 }
 
-float	_4x4cofactor(t_matrix m, int row, int col)
+float	_4x4cofactor(const t_matrix m, int row, int col)
 {
 	float	_minor;
 	float	_cofactor;

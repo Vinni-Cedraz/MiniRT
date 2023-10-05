@@ -64,3 +64,13 @@ Test(determinant_large_matrices, calculating_the_determinant_of_a_4x4_matrix, .d
 	cr_expect_eq(51, _4x4cofactor(a, 0, 3));
 	cr_expect_eq(floats_eq(-4071, _4x4determinant(a)), TRUE);
 }
+
+Test(cofactor, a_1_1) {
+	t_3x3matrix a = {
+		{1,2,6},
+		{-5,8,-4},
+		{2,6,4}
+	};
+	printf("%f\n", _3x3cofactor(a, 1, 1));
+	cr_expect_eq(-8, _3x3cofactor(a, 1, 1));
+}

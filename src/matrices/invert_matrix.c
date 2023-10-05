@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_matrix	create_matrix_of_cofactors(t_matrix m);
+t_matrix	create_matrix_of_cofactors(const t_matrix m);
 t_matrix	divide_transposed_matrix_by_determinant_of_the_original(t_matrix m);
 
 t_matrix	invert_matrix(t_matrix m)
@@ -27,7 +27,7 @@ t_matrix	invert_matrix(t_matrix m)
 	return (res);
 }
 
-t_matrix	create_matrix_of_cofactors(t_matrix m)
+t_matrix	create_matrix_of_cofactors(const t_matrix m)
 {
 	int			i;
 	t_matrix	res;
@@ -59,3 +59,29 @@ t_matrix	divide_transposed_matrix_by_determinant_of_the_original(t_matrix m)
 	}
 	return (res);
 }
+
+// #include "../../tests/tester.h"
+// // check the cofactor matrix is correct
+// Test(invert, cofactor_matrix) {
+// 	const t_matrix m = {
+// 		{5, 2, 6, -8},
+// 		{1, -5, 1, 8},
+// 		{7, 7, -6, -7},
+// 		{1, -3, 7, 4},
+// 	};
+// 	const t_matrix expected = {
+// 		.row_1 = {116, -430, -42, -278},
+// 		.row_2 = {240, -775, -119, -433},
+// 		.row_3 = {128, -236, -28, -160},
+// 		.row_4 = {-24, 277, 105, 163},
+// 	};
+// 	const t_matrix res = create_matrix_of_cofactors(m);
+// 	cr_expect_tuple_eq(res.row_1, expected.row_1);
+// 	cr_expect_tuple_eq(res.row_2, expected.row_2);
+// 	cr_expect_tuple_eq(res.row_3, expected.row_3);
+// 	cr_expect_tuple_eq(res.row_4, expected.row_4);
+// 	print_tuple(res.row_1);
+// 	print_tuple(res.row_2);
+// 	print_tuple(res.row_3);
+// 	print_tuple(res.row_4);
+// }

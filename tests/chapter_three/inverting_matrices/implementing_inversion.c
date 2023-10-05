@@ -86,10 +86,6 @@ Test(inversion, calculating_the_inverse_of_a_matrix, .description = scenario3) {
 		{1,-3,7,4}
 	};
 	t_matrix b = invert_matrix(a);
-	printf("b.row_3[0] = %f\n", b.row_3[0]);
-	printf("b.row_3[1] = %f\n", b.row_3[1]);
-	printf("b.row_3[2] = %f\n", b.row_3[2]);
-	printf("b.row_3[3] = %f\n", b.row_3[3]);
 	cr_assert_eq(532, _4x4determinant(a));
 	cr_assert_eq(-160, _4x4cofactor(a, 2, 3));
 	cr_assert_eq(TRUE, floats_eq(-160.0/532, b.row_3[2]));
