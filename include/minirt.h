@@ -35,6 +35,10 @@
 # define COL2 1
 # define COL3 2
 # define COL4 3
+# define ROW1 0
+# define ROW2 1
+# define ROW3 2
+# define ROW4 3
 
 typedef float			t_tuple[4];
 typedef float			t_3x3_row[3];
@@ -101,5 +105,6 @@ float		_4x4minor(t_matrix m, int row, int col);
 float		_3x3cofactor(t_3x3matrix m, int row, int col);
 float		_4x4cofactor(t_matrix m, int row, int col);
 t_bool		is_invertible(t_matrix m);
+t_matrix	invert_matrix(t_matrix m);
 
 #endif

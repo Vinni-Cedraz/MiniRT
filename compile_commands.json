@@ -238,5 +238,35 @@
    "build/minors.o"
   ],
   "file": "./src/matrices/minors.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrices/is_invertible.c",
+   "-o",
+   "build/is_invertible.o"
+  ],
+  "file": "./src/matrices/is_invertible.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrices/invert_matrix.c",
+   "-o",
+   "build/invert_matrix.o"
+  ],
+  "file": "./src/matrices/invert_matrix.c"
  }
 ]
