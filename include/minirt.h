@@ -18,7 +18,7 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 # include <stdio.h>
 
-# define EPSILON 1e-6
+# define EPSILON 1e-3
 # define X 0
 # define Y 1
 # define Z 2
