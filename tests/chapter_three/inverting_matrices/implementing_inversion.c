@@ -57,7 +57,7 @@ Test(inversion, testing_a_noninvertible_matrix_for_invertibility, .description =
 	cr_expect_eq(0, _4x4determinant(a));
 	cr_expect_eq(FALSE, is_invertible(a));
 }
-
+//
 // Scenario : Calculating the invert_matrix of a matrix
 #define scenario3 CYAN \
 "\nGiven the following 4x4 matrix A:\n"                               \
@@ -88,9 +88,9 @@ Test(inversion, calculating_the_inverse_of_a_matrix, .description = scenario3) {
 	t_matrix b = invert_matrix(a);
 	cr_assert_eq(532, _4x4determinant(a));
 	cr_assert_eq(-160, _4x4cofactor(a, 2, 3));
-	cr_assert_eq(TRUE, floats_eq(-160.0/532, b.row_3[2]));
+	cr_assert_eq(TRUE, floats_eq(-160.0/532, b.row_4[Z]));
 	cr_assert_eq(105, _4x4cofactor(a, 3, 2));
-	cr_assert_eq(TRUE, floats_eq(b.row_2[Z], 105.0/532));
+	cr_assert_eq(TRUE, floats_eq(b.row_3[W], 105.0/532));
 	t_matrix expected = {
 		{0.21805, 0.45113, 0.24060, -0.04511},
 		{-0.80827, -1.45677, -0.44361, 0.52068},                               
@@ -101,91 +101,91 @@ Test(inversion, calculating_the_inverse_of_a_matrix, .description = scenario3) {
 	cr_expect_eq(TRUE, matrices_eq(b, expected));
 }
 
-// // Scenario : Calculating the invert_matrix of another matrix
-// #define scenario4 CYAN "\nGiven the following 4x4 matrix A:\n" \
-// "| 8 | -5 | 9 | 2 |\n" \
-// "| 7 | 5 | 6 | 1 |\n" \
-// "| -6 | 0 | 9 | 6 |\n" \
-// "| -3 | 0 | -9 | -4 |\n" \
-// "Then invert_matrix(A) is the following 4x4 matrix:\n" \
-// "| -0.15385 | -0.15385 | -0.28205 | -0.53846 |\n" \
-// "| -0.07692 | 0.12308 | 0.02564 | 0.03077 |\n" \
-// "| 0.35897 | 0.35897 | 0.43590 | 0.92308 |\n" \
-// "| -0.69231 | -0.69231 | -0.76923 | -1.92308 |"
-//
-// Test(inversion, calculating_the_inverse_of_another_matrix, .description = scenario4) {
-// 	t_matrix a = {
-// 		{8,-5,9,2},
-// 		{7,5,6,1},
-// 		{-6,0,9,6},
-// 		{-3,0,-9,-4}
-// 	};
-// 	t_matrix expected = {
-// 		{-0.15385, -0.15385, -0.28205, -0.53846},
-// 		{-0.07692, 0.12308, 0.02564, 0.03077},
-// 		{0.35897, 0.35897, 0.43590, 0.92308},
-// 		{-0.69231, -0.69231, -0.76923, -1.92308}
-// 	};
-//
-// 	cr_assert_eq(TRUE, matrices_eq(invert_matrix(a), expected));
-// }
-// // Scenario : Calculating the invert_matrix of a third matrix
-// #define scenario5 CYAN "\nGiven the following 4x4 matrix A:\n" \
-// "| 9 | 3 | 0 | 9 |\n" \
-// "| -5 | -2 | -6 | -3 |\n" \
-// "| -4 | 9 | 6 | 4 |\n" \
-// "| -7 | 6 | 6 | 2 |\n" \
-// "Then invert_matrix(A) is the following 4x4 matrix:\n" \
-// "| -0.04074 | -0.07778 | 0.14444 | -0.22222 |\n" \
-// "| -0.07778 | 0.03333 | 0.36667 | -0.33333 |\n" \
-// "| -0.02901 | -0.14630 | -0.10926 | 0.12963 |\n" \
-// "| 0.17778 | 0.06667 | -0.26667 | 0.33333 |" \
-//
-// Test(inversion, calculating_the_inverse_of_a_third_matrix, .description = scenario5) {
-// 	t_matrix a = {
-// 		{9,3,0,9},
-// 		{-5,-2,-6,-3},
-// 		{-4,9,6,4},
-// 		{-7,6,6,2}
-// 	};
-// 	t_matrix expected = {
-// 		{-0.04074, -0.07778, 0.14444, -0.22222},
-// 		{-0.07778, 0.03333, 0.36667, -0.33333},
-// 		{-0.02901, -0.14630, -0.10926, 0.12963},
-// 		{0.17778, 0.06667, -0.26667, 0.33333}
-// 	};
-//
-// 	cr_assert_eq(TRUE, matrices_eq(invert_matrix(a), expected));
-// }
-//
-// // Scenario : Multiplying a product by its invert_matrix
-// #define scenario6 CYAN "\nGiven the following 4x4 matrix A:\n"  \
-// "| 3 | -9 | 7 | 3 |\n" \
-// "| 3 | -8 | 2 | -9 |\n" \
-// "| -4 | 4 | 4 | 1 |\n" \
-// "| -6 | 5 | -1 | 1 |\n" \
-// "And the following 4x4 matrix B:\n" \
-// "| 8 | 2 | 2 | 2 |\n" \
-// "| 3 | -1 | 7 | 0 |\n" \
-// "| 7 | 0 | 5 | 4 |\n" \
-// "| 6 | -2 | 0 | 5 |\n" \
-// "And C ← A * B\n" \
-// "Then C * invert_matrix(B) = A" \
-//
-// Test(inversion, multiplying_a_product_by_its_inverse, .description = scenario6) {
-// 	t_matrix a = {
-// 		{3,-9,7,3},
-// 		{3,-8,2,-9},
-// 		{-4,4,4,1},
-// 		{-6,5,-1,1}
-// 	};
-// 	t_matrix b = {
-// 		{8,2,2,2},
-// 		{3,-1,7,0},
-// 		{7,0,5,4},
-// 		{6,-2,0,5}
-// 	};
-// 	t_matrix c = mult_matrices(a, b);
-// 	t_matrix d = mult_matrices(c, invert_matrix(b));
-// 	cr_assert_eq(TRUE, matrices_eq(a, d));
-// }
+// Scenario : Calculating the invert_matrix of another matrix
+#define scenario4 CYAN "\nGiven the following 4x4 matrix A:\n" \
+"| 8 | -5 | 9 | 2 |\n" \
+"| 7 | 5 | 6 | 1 |\n" \
+"| -6 | 0 | 9 | 6 |\n" \
+"| -3 | 0 | -9 | -4 |\n" \
+"Then invert_matrix(A) is the following 4x4 matrix:\n" \
+"| -0.15385 | -0.15385 | -0.28205 | -0.53846 |\n" \
+"| -0.07692 | 0.12308 | 0.02564 | 0.03077 |\n" \
+"| 0.35897 | 0.35897 | 0.43590 | 0.92308 |\n" \
+"| -0.69231 | -0.69231 | -0.76923 | -1.92308 |"
+
+Test(inversion, calculating_the_inverse_of_another_matrix, .description = scenario4) {
+	t_matrix a = {
+		{8,-5,9,2},
+		{7,5,6,1},
+		{-6,0,9,6},
+		{-3,0,-9,-4}
+	};
+	t_matrix expected = {
+		{-0.15385, -0.15385, -0.28205, -0.53846},
+		{-0.07692, 0.12308, 0.02564, 0.03077},
+		{0.35897, 0.35897, 0.43590, 0.92308},
+		{-0.69231, -0.69231, -0.76923, -1.92308}
+	};
+
+	cr_assert_eq(TRUE, matrices_eq(invert_matrix(a), expected));
+}
+// Scenario : Calculating the invert_matrix of a third matrix
+#define scenario5 CYAN "\nGiven the following 4x4 matrix A:\n" \
+"| 9 | 3 | 0 | 9 |\n" \
+"| -5 | -2 | -6 | -3 |\n" \
+"| -4 | 9 | 6 | 4 |\n" \
+"| -7 | 6 | 6 | 2 |\n" \
+"Then invert_matrix(A) is the following 4x4 matrix:\n" \
+"| -0.04074 | -0.07778 | 0.14444 | -0.22222 |\n" \
+"| -0.07778 | 0.03333 | 0.36667 | -0.33333 |\n" \
+"| -0.02901 | -0.14630 | -0.10926 | 0.12963 |\n" \
+"| 0.17778 | 0.06667 | -0.26667 | 0.33333 |" \
+
+Test(inversion, calculating_the_inverse_of_a_third_matrix, .description = scenario5) {
+	t_matrix a = {
+		{9,3,0,9},
+		{-5,-2,-6,-3},
+		{-4,9,6,4},
+		{-7,6,6,2}
+	};
+	t_matrix expected = {
+		{-0.04074, -0.07778, 0.14444, -0.22222},
+		{-0.07778, 0.03333, 0.36667, -0.33333},
+		{-0.02901, -0.14630, -0.10926, 0.12963},
+		{0.17778, 0.06667, -0.26667, 0.33333}
+	};
+
+	cr_assert_eq(TRUE, matrices_eq(invert_matrix(a), expected));
+}
+
+// Scenario : Multiplying a product by its invert_matrix
+#define scenario6 CYAN "\nGiven the following 4x4 matrix A:\n"  \
+"| 3 | -9 | 7 | 3 |\n" \
+"| 3 | -8 | 2 | -9 |\n" \
+"| -4 | 4 | 4 | 1 |\n" \
+"| -6 | 5 | -1 | 1 |\n" \
+"And the following 4x4 matrix B:\n" \
+"| 8 | 2 | 2 | 2 |\n" \
+"| 3 | -1 | 7 | 0 |\n" \
+"| 7 | 0 | 5 | 4 |\n" \
+"| 6 | -2 | 0 | 5 |\n" \
+"And C ← A * B\n" \
+"Then C * invert_matrix(B) = A" \
+
+Test(inversion, multiplying_a_product_by_its_inverse, .description = scenario6) {
+	t_matrix a = {
+		{3,-9,7,3},
+		{3,-8,2,-9},
+		{-4,4,4,1},
+		{-6,5,-1,1}
+	};
+	t_matrix b = {
+		{8,2,2,2},
+		{3,-1,7,0},
+		{7,0,5,4},
+		{6,-2,0,5}
+	};
+	t_matrix c = mult_matrices(a, b);
+	t_matrix d = mult_matrices(c, invert_matrix(b));
+	cr_assert_eq(TRUE, matrices_eq(a, d));
+}

@@ -23,8 +23,7 @@ static inline void	print_tuple(const t_tuple a)
 	printf("X: %f, Y: %f, Z: %f, W: %f\n", a[X], a[Y], a[Z], a[W]);
 }
 
-static inline t_bool cr_expect_tuple_eq(const t_tuple result, const t_tuple expected) {
-	for (int i = 0; i < 4; i++) {
+static inline t_bool cr_expect_tuple_eq(const t_tuple result, const t_tuple expected) { for (int i = 0; i < 4; i++) {
 		cr_expect(floats_eq(result[i], expected[i]));
 		if (!floats_eq(result[i], expected[i]))
 			return (1);
