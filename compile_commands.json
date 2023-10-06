@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -15,7 +15,7 @@
   "file": "./src/minirt.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -30,7 +30,7 @@
   "file": "./src/ppm/canvas_to_ppm.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -45,7 +45,7 @@
   "file": "./src/ppm/canvas_to_ppm_aux.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -60,7 +60,7 @@
   "file": "./src/canvas/create_canvas.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -75,7 +75,7 @@
   "file": "./src/canvas/write_pixel.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -90,7 +90,7 @@
   "file": "./src/tuples/basic_tuple_operations.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -105,7 +105,7 @@
   "file": "./src/tuples/compare_floats.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -120,7 +120,7 @@
   "file": "./src/tuples/complex_tuple_operations.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -135,22 +135,7 @@
   "file": "./src/tuples/create_tuples.c"
  },
  {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/matrices/comparison.c",
-   "-o",
-   "build/comparison.o"
-  ],
-  "file": "./src/matrices/comparison.c"
- },
- {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -165,7 +150,22 @@
   "file": "./src/matrices/mult_matrices.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrices/comparison.c",
+   "-o",
+   "build/comparison.o"
+  ],
+  "file": "./src/matrices/comparison.c"
+ },
+ {
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -180,22 +180,7 @@
   "file": "./src/matrices/transpose_matrix.c"
  },
  {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/matrices/submatrices.c",
-   "-o",
-   "build/submatrices.o"
-  ],
-  "file": "./src/matrices/submatrices.c"
- },
- {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -210,7 +195,7 @@
   "file": "./src/matrices/2x2determinant.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -225,7 +210,7 @@
   "file": "./src/matrices/large_determinants.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -240,7 +225,22 @@
   "file": "./src/matrices/minors.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrices/submatrices.c",
+   "-o",
+   "build/submatrices.o"
+  ],
+  "file": "./src/matrices/submatrices.c"
+ },
+ {
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",
@@ -255,7 +255,7 @@
   "file": "./src/matrices/is_invertible.c"
  },
  {
-  "directory": "/root/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-I",

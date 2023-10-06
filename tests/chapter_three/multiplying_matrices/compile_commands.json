@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/chapter_three/multiplying_matrices",
+  "directory": "/home/myuser/MiniRT/tests/chapter_three/multiplying_matrices",
   "arguments": [
    "cc",
    "-O3",
