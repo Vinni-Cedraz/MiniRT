@@ -9,12 +9,12 @@ SHELL = /bin/zsh
 
 define compile_fn
 	if [[ ! -f $(1) ]] || [[ $(1).c -nt $(1) ]]; then \
-		$(CC) $(FLAGS) $(1).c $(INCS) $(LIBS) -o $(1) && sleep 0.1 && printf "$(CC) $(FLAGS) $(1).c $(INCS) $(LIBS) -o $(1)\n"; \
+		$(CC) $(FLAGS) $(1).c $(INCS) $(LIBS) -o $(1) && printf "$(CC) $(FLAGS) $(1).c $(INCS) $(LIBS) -o $(1)\n"; \
 	fi
 endef
 
 define run_fn
-	$(1) --verbose;
+	$(1) --verbose && sleep 0.1;
 endef
 
 all: makeminirt_as_lib

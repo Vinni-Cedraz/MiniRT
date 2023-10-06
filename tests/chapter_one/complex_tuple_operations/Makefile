@@ -16,7 +16,7 @@ define compile_fn
 endef
 
 define run_fn
-	$(1) --verbose;
+	$(1) --verbose && sleep 0.1;
 endef
 
 all: makeminirt_as_lib
