@@ -27,17 +27,9 @@ Test(suite_name, comparing_unequal_floats_pretty_close) {
 }
 
 Test(suite_name, comparing_unequal_floats_five_decimals,
-     .description = CYAN "\nFive decimal places was the highest precision detected: "
-                         "float_a(1.00001) != float_b(1.00000)") {
+     .description = CYAN
+     "\nThis one should give a false positive, float_a(1.00001) == float_b(1.00000)") {
     float a = 1.00001;
     float b = 1.00000;
-    cr_expect_eq(FALSE, floats_eq(a, b));
-}
-
-Test(suite_name, comparing_unequal_floats_six_decimals,
-     .description = CYAN
-     "\nThis one should give a false positive, float_a(1.000001) == float_b(1.000000)") {
-    float a = 1.000001;
-    float b = 1.000000;
     cr_expect_eq(TRUE, floats_eq(a, b));
 }

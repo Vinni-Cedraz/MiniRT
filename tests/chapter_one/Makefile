@@ -9,7 +9,7 @@ YELLOW = \033[38;5;226m
 RESET = \033[0m
 
 define MAKE_COMPILE
-	cd $(1) && compiledb make --no-print-directory && cd .. && \
+	cd $(1) && make --no-print-directory | compiledb && cd .. && \
 		printf "\r$(YELLOW)Compiling $(RESET)$(1)/ tests and creating its compile_commands.json$(RESET)        "
 endef
 
