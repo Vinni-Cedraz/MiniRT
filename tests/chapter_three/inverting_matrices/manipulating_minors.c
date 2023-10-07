@@ -24,11 +24,11 @@
 " And minor(A, 1, 0) = 25\n"                               \
 
 Test(manipulating_minors, calculating_a_minor_of_a_3x3_matrix, .description = scenario1) {
-	t_3x3matrix a = {
+	t_3x3matrix a = create_3x3_matrix(&(t_3x3matrix){
 		{3,5,0},
 		{2,-1,-7},
 		{6,-1,5}
-	};
+	});
 	t_2x2matrix b = _3x3submatrix(a, 1, 0);
 
 	cr_expect_eq(25, _2x2determinant(b));

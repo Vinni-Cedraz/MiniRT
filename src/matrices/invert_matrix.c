@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 t_matrix	create_matrix_of_cofactors(const t_matrix m);
-t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const float determinant);
+t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, float det);
 
 t_bool	is_invertible(t_matrix m)
 {
@@ -25,14 +25,14 @@ t_bool	is_invertible(t_matrix m)
 
 t_matrix	invert_matrix(t_matrix m)
 {
-	t_matrix	cofact_mat;
-	t_matrix	transposed_cofact_mat;
-	t_matrix	res;
-	const float determinant = _4x4determinant(m);
+	t_matrix		cofact_mat;
+	t_matrix		transposed_cofact_mat;
+	t_matrix		res;
+	const float		det = _4x4determinant(m);
 
 	cofact_mat = create_matrix_of_cofactors(m);
 	transposed_cofact_mat = transpose_matrix(cofact_mat);
-	res = divide_transposed_matrix_by_determinant(transposed_cofact_mat, determinant);
+	res = divide_transposed_matrix_by_determinant(transposed_cofact_mat, det);
 	return (res);
 }
 
@@ -52,18 +52,18 @@ t_matrix	create_matrix_of_cofactors(const t_matrix m)
 	return (res);
 }
 
-t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const float determinant)
+t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const float det)
 {
-	int i;
+	int			i;
 	t_matrix	res;
 
 	i = -1;
 	while (++i < 4)
 	{
-		res.row_1[i] = m.row_1[i] / determinant;
-		res.row_2[i] = m.row_2[i] / determinant;
-		res.row_3[i] = m.row_3[i] / determinant;
-		res.row_4[i] = m.row_4[i] / determinant;
+		res.row_1[i] = m.row_1[i] / det;
+		res.row_2[i] = m.row_2[i] / det;
+		res.row_3[i] = m.row_3[i] / det;
+		res.row_4[i] = m.row_4[i] / det;
 	}
 	return (res);
 }
@@ -112,10 +112,10 @@ t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const float determi
 // 		{-0.07895, -0.22368, -0.05263, 0.19737},                              
 // 		{-0.52256, -0.81391, -0.30075, 0.30639},                               
 // 	};
-// 	const float determinant = _4x4determinant(m);
+// 	const float det = _4x4determinant(m);
 // 	const t_matrix cofact = create_matrix_of_cofactors(m);
 // 	const t_matrix trans = transpose_matrix(cofact);
-// 	const t_matrix res = divide_transposed_matrix_by_determinant(trans , determinant);
+// 	const t_matrix res = divide_transposed_matrix_by_determinant(trans , det);
 // 	cr_expect_tuple_eq(res.row_1, expected.row_1);
 // 	cr_expect_tuple_eq(res.row_2, expected.row_2);
 // 	cr_expect_tuple_eq(res.row_3, expected.row_3);

@@ -253,5 +253,20 @@
    "build/invert_matrix.o"
   ],
   "file": "./src/matrices/invert_matrix.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrices/create_matrix.c",
+   "-o",
+   "build/create_matrix.o"
+  ],
+  "file": "./src/matrices/create_matrix.c"
  }
 ]

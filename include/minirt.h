@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/04 18:07:12 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/07 10:07:05 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,20 @@ typedef struct s_matrix {
 	t_tuple		row_2;
 	t_tuple		row_3;
 	t_tuple		row_4;
+	float		*rows[4];
 }				t_matrix;
 
 typedef struct s_2x2matrix {
 	t_2x2_row	row_1;
 	t_2x2_row	row_2;
+	float		*rows[2];
 }				t_2x2matrix;
 
 typedef struct s_3x3matrix {
 	t_3x3_row	row_1;
 	t_3x3_row	row_2;
 	t_3x3_row	row_3;
+	float		*rows[3];
 }				t_3x3matrix;
 
 void		create_point(t_tuple tuple);
@@ -106,5 +109,8 @@ float		_3x3cofactor(const t_3x3matrix m, int row, int col);
 float		_4x4cofactor(const t_matrix m, int row, int col);
 t_bool		is_invertible(const t_matrix m);
 t_matrix	invert_matrix(const t_matrix m);
+t_matrix	create_4x4_matrix(t_matrix *m);
+t_3x3matrix	create_3x3_matrix(t_3x3matrix *m);
+t_2x2matrix	create_2x2_matrix(t_2x2matrix *m);
 
 #endif

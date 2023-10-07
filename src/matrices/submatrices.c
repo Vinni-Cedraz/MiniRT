@@ -6,70 +6,61 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:22:41 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/04 11:23:52 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/07 10:08:46 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void	subrow(const t_tuple row, int col_to_delete, float subrow[], int len);
+static void	subrow(const t_tuple row, int col_to_delete, float subrow[],
+				int len);
 
-t_2x2matrix	_3x3submatrix(const t_3x3matrix m, int not_row, int col_to_delete)
+t_2x2matrix	_3x3submatrix(const t_3x3matrix m, int row_to_del, int col_to_del)
 {
-	t_2x2matrix				res;
-	const	float			(*m_row[]) = {
-		m.row_1, m.row_2, m.row_3,
-	};
-	const	float			(*res_row[]) = {
-		res.row_1, res.row_2,
-	};
-	int						m_idx;
-	int						res_idx;
+	t_2x2matrix	res;
+	int			m_idx;
+	int			res_idx;
 
 	m_idx = 0;
 	res_idx = 0;
+	res = create_2x2_matrix(&res);
 	while (m_idx != 3)
 	{
-		if (m_idx != not_row)
-			subrow((float *)m_row[m_idx++],
-				col_to_delete,
-				(float *)res_row[res_idx++], 3);
-		else
+		if (m_idx == row_to_del)
+		{
 			m_idx++;
+			continue ;
+		}
+		subrow(m.rows[m_idx++], col_to_del, res.rows[res_idx++], 3);
 	}
 	return (res);
 }
 
-t_3x3matrix	_4x4submatrix(const t_matrix m, int row_to_delete, int col_to_delete)
+t_3x3matrix	_4x4submatrix(const t_matrix m, int row_to_del, int col_to_delete)
 {
-	t_3x3matrix				res;
-	const	float			(*m_row[]) = {
-		m.row_1, m.row_2, m.row_3, m.row_4,
-	};
-	const	float			(*res_row[]) = {
-		res.row_1, res.row_2, res.row_3,
-	};
-	int						m_idx;
-	int						res_idx;
+	t_3x3matrix	res;
+	int			m_idx;
+	int			res_idx;
 
 	m_idx = 0;
 	res_idx = 0;
+	res = create_3x3_matrix(&res);
 	while (m_idx != 4)
 	{
-		if (m_idx != row_to_delete)
-			subrow((float *)m_row[m_idx++],
-				col_to_delete,
-				(float *)res_row[res_idx++], 4);
-		else
+		if (m_idx == row_to_del)
+		{
 			m_idx++;
+			continue ;
+		}
+		subrow(m.rows[m_idx++], col_to_delete, res.rows[res_idx++], 4);
 	}
 	return (res);
 }
 
 void	subrow(const t_tuple row, int col_to_delete, float subrow[], int len)
 {
-	int				i;
-	int				j;
+	int	i;
+	int	j;
 
 	j = 0;
 	i = 0;
