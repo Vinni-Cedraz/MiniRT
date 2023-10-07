@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/chapter_two/representing_colors",
+  "directory": "/root/MiniRT/tests/chapter_two/representing_colors",
   "arguments": [
    "cc",
    "-O3",

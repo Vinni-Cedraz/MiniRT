@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/chapter_three/creating_a_matrix",
+  "directory": "/root/MiniRT/tests/chapter_three/creating_a_matrix",
   "arguments": [
    "cc",
    "-O3",

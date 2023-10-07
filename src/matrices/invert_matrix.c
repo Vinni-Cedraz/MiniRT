@@ -16,6 +16,13 @@
 t_matrix	create_matrix_of_cofactors(const t_matrix m);
 t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const float determinant);
 
+t_bool	is_invertible(t_matrix m)
+{
+	if (_4x4determinant(m))
+		return (TRUE);
+	return (FALSE);
+}
+
 t_matrix	invert_matrix(t_matrix m)
 {
 	t_matrix	cofact_mat;

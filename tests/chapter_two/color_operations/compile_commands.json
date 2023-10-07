@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/chapter_two/color_operations",
+  "directory": "/root/MiniRT/tests/chapter_two/color_operations",
   "arguments": [
    "cc",
    "-O3",

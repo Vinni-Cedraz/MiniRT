@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/chapter_three/the_identity_matrix",
+  "directory": "/root/MiniRT/tests/chapter_three/the_identity_matrix",
   "arguments": [
    "cc",
    "-O3",

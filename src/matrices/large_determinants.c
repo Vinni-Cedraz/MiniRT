@@ -21,10 +21,10 @@ float	_3x3determinant(const t_3x3matrix m)
 
 float	_4x4determinant(const t_matrix m)
 {
-	return (m.row_1[COL1] * _4x4cofactor(m, 0, COL1)
-		+ m.row_2[COL1] * _4x4cofactor(m, 1, COL1)
-		+ m.row_3[COL1] * _4x4cofactor(m, 2, COL1)
-		+ m.row_4[COL1] * _4x4cofactor(m, 3, COL1));
+	return (m.row_1[COL1] * _4x4cofactor(m, ROW1, COL1)
+		+ m.row_2[COL1] * _4x4cofactor(m, ROW2, COL1)
+		+ m.row_3[COL1] * _4x4cofactor(m, ROW3, COL1)
+		+ m.row_4[COL1] * _4x4cofactor(m, ROW4, COL1));
 }
 
 float	_3x3cofactor(const t_3x3matrix m, int row, int col)

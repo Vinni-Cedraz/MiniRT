@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/chapter_one/tuples",
+  "directory": "/root/MiniRT/tests/chapter_one/tuples",
   "arguments": [
    "cc",
    "-O3",
