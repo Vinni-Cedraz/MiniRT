@@ -1,0 +1,21 @@
+[
+ {
+  "directory": "/root/MiniRT/tests/chapter_four/translation",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-w",
+   "translation.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "translation"
+  ],
+  "file": "translation.c"
+ }
+]
