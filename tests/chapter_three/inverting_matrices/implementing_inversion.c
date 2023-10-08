@@ -197,7 +197,7 @@ Test(inversion, multiplying_a_product_by_its_inverse, .description = scenario6) 
 "| 0 | 1 | 0 | 0 |\n"                      \
 "| 0 | 0 | 1 | 0 |\n"                      \
 "| 0 | 0 | 0 | 1 |\n"                      \
-"Then transpose(A) is the following matrix:\n"                      \
+"Then inverted(A) is the following matrix:\n"                      \
 "| 1 | 0 | 0 | 0 |\n"                      \
 "| 0 | 1 | 0 | 0 |\n"                      \
 "| 0 | 0 | 1 | 0 |\n"                      \
@@ -212,4 +212,32 @@ Test(inversion, identity_matrix_inversion, .description = Scenario7) {
 	});
 	t_matrix b = invert_matrix(a);
 	cr_assert_eq(TRUE, matrices_eq(a, b));
+}
+
+#define Scenario8 CYAN \
+"\nGiven the matrix A:\n" \
+"| 1 | 0 | 0 | 5 |\n"         \
+"| 0 | 1 | 0 | -3 |\n"      \
+"| 0 | 1 | 0 | 2 |\n"     \
+"| 0 | 1 | 0 | 1 |" \
+"Then inverted(A) is the following matrix:\n"                      \
+"| 1 | 0 | 0 | -5 |\n"                      \
+"| 0 | 1 | 0 | 3 |\n"                      \
+"| 0 | 0 | 1 | -2 |\n"                      \
+"| 0 | 0 | 0 | 1 |"                      RESET
+
+Test(inversion, inverse_of_translation_matrix, .description = Scenario8) {
+t_matrix		translation_matrix;
+t_matrix		inverse_of_translation_matrix;
+t_tuple			result; 
+t_tuple			p; 
+
+translation_matrix = translation((t_tuple){5, -3, 2, POINT});
+inverse_of_translation_matrix = invert_matrix(translation_matrix);
+p[X] = -3, p[Y] = 4, p[Z] = 5, p[W] = POINT;
+printf(CYAN"translation matrix: \n"RESET);
+print_4x4matrix(translation_matrix);
+printf(CYAN"inverse matrix: \n"RESET);
+print_4x4matrix(inverse_of_translation_matrix);
+cr_expect_tuple_eq(result, p);
 }

@@ -40,7 +40,7 @@ $(NAME): $(LIBMLX_TARGET) $(OBJS)
 
 $(BUILD_DIR_RT)%.o: %.c $(LIBFT)
 	@test -d $(BUILD_DIR_RT) || mkdir $(BUILD_DIR_RT)
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	$(CC) $(C_FLAGS) $(INCLUDE) -c $< -o $@
 
 $(LIBFT):
 	make --no-print-directory -C ./libs
