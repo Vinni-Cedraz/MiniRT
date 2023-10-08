@@ -1,4 +1,4 @@
-TESTDIRS =		\
+TESTS =		\
   rotation \
 
 INCS = -I../../ -I../../../include/ -I../../../libs/

@@ -1,4 +1,4 @@
-TESTDIRS =		\
+TESTS =		\
   putting_it_together \
 
 INCS = -I../../ -I../../../include/ -I../../../libs/

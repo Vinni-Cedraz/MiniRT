@@ -26,8 +26,8 @@ t_matrix	mult_matrices(t_matrix a, t_matrix b)
 
 void	multiply_tuple_by_matrix(t_tuple row, t_matrix m, t_tuple res)
 {
-	res[Y] = dot(row, m.row_2);
 	res[X] = dot(row, m.row_1);
+	res[Y] = dot(row, m.row_2);
 	res[Z] = dot(row, m.row_3);
 	res[W] = dot(row, m.row_4);
 }

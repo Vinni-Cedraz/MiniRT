@@ -1,4 +1,4 @@
-TESTDIRS =		\
+TESTS =		\
   scalling \
 
 INCS = -I../../ -I../../../include/ -I../../../libs/

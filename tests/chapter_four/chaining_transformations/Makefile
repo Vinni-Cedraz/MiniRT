@@ -1,4 +1,4 @@
-TESTDIRS =		\
+TESTS =		\
   chaining_transformations \
 
 INCS = -I../../ -I../../../include/ -I../../../libs/

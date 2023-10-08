@@ -1,4 +1,4 @@
-TESTDIRS =		\
+TESTS =		\
   shearing \
 
 INCS = -I../../ -I../../../include/ -I../../../libs/

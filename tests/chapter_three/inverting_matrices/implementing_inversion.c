@@ -189,3 +189,27 @@ Test(inversion, multiplying_a_product_by_its_inverse, .description = scenario6) 
 	t_matrix d = mult_matrices(c, invert_matrix(b));
 	cr_assert_eq(TRUE, matrices_eq(a, d));
 }
+ 
+#define Scenario7 CYAN \
+"\nGiven the following identity matrix A:"                      \
+"\n"  \
+"| 1 | 0 | 0 | 0 |\n"                      \
+"| 0 | 1 | 0 | 0 |\n"                      \
+"| 0 | 0 | 1 | 0 |\n"                      \
+"| 0 | 0 | 0 | 1 |\n"                      \
+"Then transpose(A) is the following matrix:\n"                      \
+"| 1 | 0 | 0 | 0 |\n"                      \
+"| 0 | 1 | 0 | 0 |\n"                      \
+"| 0 | 0 | 1 | 0 |\n"                      \
+"| 0 | 0 | 0 | 1 |"                      RESET
+
+Test(inversion, identity_matrix_inversion, .description = Scenario7) {
+	t_matrix a = create_4x4_matrix(&(t_matrix){
+		{1,0,0,0},
+		{0,1,0,0},
+		{0,0,1,0},
+		{0,0,0,1}
+	});
+	t_matrix b = invert_matrix(a);
+	cr_assert_eq(TRUE, matrices_eq(a, b));
+}

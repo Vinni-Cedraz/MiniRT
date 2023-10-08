@@ -1,7 +1,7 @@
 TESTDIRS = chapter_one \
 	  	   chapter_two \
 	       chapter_three \
-	     # chapter_four \
+	     chapter_four \
 	     # chapter_five \
 		   
 all:

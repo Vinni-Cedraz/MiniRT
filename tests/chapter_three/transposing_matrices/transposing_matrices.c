@@ -35,3 +35,35 @@ Test(transposing_matrices, transposing_a_matrix, .description = Scenario1) {
 	cr_expect_eq(TRUE, matrices_eq(result, expected));
 }
 
+#define Scenario2 CYAN \
+"\nGiven the following identity matrix A:"                      \
+"\n"  \
+"| 1 | 0 | 0 | 0 |\n"                      \
+"| 0 | 1 | 0 | 0 |\n"                      \
+"| 0 | 0 | 1 | 0 |\n"                      \
+"| 0 | 0 | 0 | 1 |\n"                      \
+"Then transpose(A) is the following matrix:\n"                      \
+"| 1 | 0 | 0 | 0 |\n"                      \
+"| 0 | 1 | 0 | 0 |\n"                      \
+"| 0 | 0 | 1 | 0 |\n"                      \
+"| 0 | 0 | 0 | 1 |"                      RESET
+
+Test(transposing_matrices, transposing_identity_matrix, .description = Scenario2) {
+	t_matrix a = {
+		{1,0,0,0},
+		{0,1,0,0},
+		{0,0,1,0},
+		{0,0,0,1}
+	};
+
+	t_matrix expected = {
+		{1,0,0,0},
+		{0,1,0,0},
+		{0,0,1,0},
+		{0,0,0,1}
+	};
+	t_matrix result;
+
+	result = transpose_matrix(a);
+	cr_expect_eq(TRUE, matrices_eq(result, expected));
+}

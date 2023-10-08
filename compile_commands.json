@@ -268,5 +268,20 @@
    "build/create_matrix.o"
   ],
   "file": "./src/matrices/create_matrix.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrix_transformations/translation.c",
+   "-o",
+   "build/translation.o"
+  ],
+  "file": "./src/matrix_transformations/translation.c"
  }
 ]
