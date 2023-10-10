@@ -58,14 +58,14 @@ typedef struct s_matrix
 	t_tuple				row_2;
 	t_tuple				row_3;
 	t_tuple				row_4;
-	float				*rows[4];
+	const float			*rows[4];
 }						t_matrix;
 
 typedef struct s_2x2matrix
 {
 	t_2x2_row			row_1;
 	t_2x2_row			row_2;
-	float				*rows[2];
+	const float			*rows[2];
 }						t_2x2matrix;
 
 typedef struct s_3x3matrix
@@ -73,7 +73,7 @@ typedef struct s_3x3matrix
 	t_3x3_row			row_1;
 	t_3x3_row			row_2;
 	t_3x3_row			row_3;
-	float				*rows[3];
+	const float			*rows[3];
 }						t_3x3matrix;
 
 void		create_point(t_tuple tuple);
@@ -118,5 +118,6 @@ t_matrix	create_4x4_matrix(t_matrix *m);
 t_3x3matrix	create_3x3_matrix(t_3x3matrix *m);
 t_2x2matrix	create_2x2_matrix(t_2x2matrix *m);
 t_matrix	translation(t_tuple point);
+t_matrix	create_matrix_of_cofactors(const t_matrix m);
 
 #endif

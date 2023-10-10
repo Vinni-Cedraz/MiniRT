@@ -39,7 +39,7 @@ void	concat_space(int *accumulator, t_buf *str)
 	strcat(str->buf, " ");
 }
 
-t_buf	color_to_string(const t_canvas *c, int i, int j, t_buf *str)
+t_buf	color_to_string(const t_canvas *c, int i, int j)
 {
 	const int	w = c->width;
 	const int	color[] = {

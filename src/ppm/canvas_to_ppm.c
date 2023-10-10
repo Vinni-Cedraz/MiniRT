@@ -14,7 +14,7 @@
 #include <string.h>
 
 static char		*pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *str);
-t_buf			color_to_string(const t_canvas *c, int i, int j, t_buf *t);
+t_buf			color_to_string(const t_canvas *c, int i, int j);
 void			concat_space(int *accumulator, t_buf *t);
 void			concat_linebreak(char *pxls_str, int *accum);
 
@@ -51,7 +51,7 @@ static char	*pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *str)
 		j = -1;
 		while (++j < 3)
 		{
-			*str = color_to_string(c, i, j, str);
+			*str = color_to_string(c, i, j);
 			accumulator += str->len + 1;
 			last_len = pxls_str_len;
 			pxls_str_len += strlen(pxls_str + pxls_str_len);
