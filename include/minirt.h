@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/08 11:14:35 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:31:24 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,10 +117,9 @@ t_matrix	invert_matrix(const t_matrix m);
 t_matrix	create_4x4_matrix(t_matrix *m);
 t_3x3matrix	create_3x3_matrix(t_3x3matrix *m);
 t_2x2matrix	create_2x2_matrix(t_2x2matrix *m);
-t_matrix	translation(t_tuple point);
+t_matrix	create_translation_matrix(t_tuple point);
 t_matrix	create_matrix_of_cofactors(const t_matrix m);
 t_matrix	create_x_rotation_matrix(float r);
 t_matrix	create_y_rotation_matrix(float r);
 t_matrix	create_z_rotation_matrix(float r);
-
 #endif

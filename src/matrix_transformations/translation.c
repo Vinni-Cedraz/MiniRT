@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_matrix	translation(t_tuple point)
+t_matrix	create_translation_matrix(t_tuple point)
 {
 	const t_matrix	res = (t_matrix){
 		.row_1 = {1, 0, 0, point[X]},
