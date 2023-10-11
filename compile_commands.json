@@ -359,5 +359,24 @@
    "build/translation.o"
   ],
   "file": "./src/matrix_transformations/translation.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrix_transformations/rotation.c",
+   "-o",
+   "build/rotation.o"
+  ],
+  "file": "./src/matrix_transformations/rotation.c"
  }
 ]

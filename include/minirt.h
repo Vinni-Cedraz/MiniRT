@@ -119,5 +119,6 @@ t_3x3matrix	create_3x3_matrix(t_3x3matrix *m);
 t_2x2matrix	create_2x2_matrix(t_2x2matrix *m);
 t_matrix	translation(t_tuple point);
 t_matrix	create_matrix_of_cofactors(const t_matrix m);
+t_matrix	create_x_rotation_matrix(float r);
 
 #endif
