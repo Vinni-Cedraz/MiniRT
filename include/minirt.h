@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/08 11:14:35 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:16:07 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,16 @@ typedef struct s_3x3matrix
 	const float			*rows[3];
 }						t_3x3matrix;
 
+typedef struct s_hearer
+{
+	float				x_to_y;
+	float				x_to_z;
+	float				y_to_x;
+	float				y_to_z;
+	float				z_to_x;
+	float				z_to_y;
+}						t_shearer;
+
 void		create_point(t_tuple tuple);
 void		create_vector(t_tuple tuple);
 t_bool		floats_eq(float a, float b);
@@ -121,6 +131,7 @@ t_matrix	translation(t_tuple point);
 t_matrix	create_matrix_of_cofactors(const t_matrix m);
 t_matrix	create_x_rotation_matrix(float r);
 t_matrix	create_y_rotation_matrix(float r);
-t_matrix	create_z_rotation_matrix(float r);
+t_matrix	create_x_rotation_matrix(float r);
+t_matrix	create_shearing_matrix(t_shearer shearer);
 
 #endif

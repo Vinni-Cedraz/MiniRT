@@ -378,5 +378,24 @@
    "build/rotation.o"
   ],
   "file": "./src/matrix_transformations/rotation.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrix_transformations/shearing.c",
+   "-o",
+   "build/shearing.o"
+  ],
+  "file": "./src/matrix_transformations/shearing.c"
  }
 ]

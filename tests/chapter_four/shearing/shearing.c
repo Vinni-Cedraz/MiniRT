@@ -28,10 +28,12 @@ Test(shearing, t_shearing_exists, .description = scenario0) {
 
 Test(shearing, shear_x_in_proportion_to_y, .description = scenario1) {
 	const t_shearer shearer = {1, 0, 0, 0, 0, 0};
-	const t_shearer transform = create_shearing_matrix(shearer);
+	const t_matrix transform = create_shearing_matrix(shearer);
 	const t_tuple p = {2, 3, 4, POINT};
 	const t_tuple expected = {5, 3, 4, POINT};
-	const t_tuple actual = transform * p;
+	const t_tuple actual;
+
+	multiply_tuple_by_matrix(p, transform, actual);
 	cr_expect_tuple_eq(actual, expected);
 }
 
@@ -43,10 +45,12 @@ Test(shearing, shear_x_in_proportion_to_y, .description = scenario1) {
 
 Test(shearing, shear_x_in_proportion_to_z, .description = scenario2) {
 	const t_shearer shearer = {0, 1, 0, 0, 0, 0};
-	const t_shearer transform = create_shearing_matrix(shearer);
-	const t_tuple p = {2, 3, 4, POINT};
-	const t_tuple expected = {6, 3, 4, POINT};
-	const t_tuple actual = transform * p;
+	const t_matrix	transform = create_shearing_matrix(shearer);
+	const t_tuple 	p = {2, 3, 4, POINT};
+	const t_tuple 	expected = {6, 3, 4, POINT};
+	const t_tuple 	actual;
+
+	multiply_tuple_by_matrix(p, transform, actual);
 	cr_expect_tuple_eq(actual, expected);
 }
 
@@ -58,10 +62,12 @@ Test(shearing, shear_x_in_proportion_to_z, .description = scenario2) {
 
 Test(shearing, shear_y_in_proportion_to_x, .description = scenario3) {
 	const t_shearer shearer = {0, 0, 1, 0, 0, 0};
-	const t_shearer transform = create_shearing_matrix(shearer);
-	const t_tuple p = {2, 3, 4, POINT};
-	const t_tuple expected = {2, 5, 4, POINT};
-	const t_tuple actual = transform * p;
+	const t_matrix	transform = create_shearing_matrix(shearer);
+	const t_tuple 	p = {2, 3, 4, POINT};
+	const t_tuple 	expected = {2, 5, 4, POINT};
+	const t_tuple 	actual;
+
+	multiply_tuple_by_matrix(p, transform, actual);
 	cr_expect_tuple_eq(actual, expected);
 }
 
@@ -73,10 +79,12 @@ Test(shearing, shear_y_in_proportion_to_x, .description = scenario3) {
 
 Test(shearing, shear_y_in_proportion_to_z, .description = scenario4) {
 	const t_shearer shearer = {0, 0, 0, 1, 0, 0};
-	const t_shearer transform = create_shearing_matrix(shearer);
-	const t_tuple p = {2, 3, 4, POINT};
-	const t_tuple expected = {2, 7, 4, POINT};
-	const t_tuple actual = transform * p;
+	const t_matrix	transform = create_shearing_matrix(shearer);
+	const t_tuple 	p = {2, 3, 4, POINT};
+	const t_tuple 	expected = {2, 7, 4, POINT};
+	const t_tuple 	actual;
+
+	multiply_tuple_by_matrix(p, transform, actual);
 	cr_expect_tuple_eq(actual, expected);
 }
 
@@ -88,10 +96,12 @@ Test(shearing, shear_y_in_proportion_to_z, .description = scenario4) {
 
 Test(shearing, shear_z_in_proportion_to_x, .description = scenario5) {
 	const t_shearer shearer = {0, 0, 0, 0, 1, 0};
-	const t_shearer transform = create_shearing_matrix(shearer);
-	const t_tuple p = {2, 3, 4, POINT};
-	const t_tuple expected = {2, 3, 6, POINT};
-	const t_tuple actual = transform * p;
+	const t_matrix	transform = create_shearing_matrix(shearer);
+	const t_tuple 	p = {2, 3, 4, POINT};
+	const t_tuple 	expected = {2, 3, 6, POINT};
+	const t_tuple 	actual;
+
+	multiply_tuple_by_matrix(p, transform, actual);
 	cr_expect_tuple_eq(actual, expected);
 }
 
@@ -103,9 +113,11 @@ Test(shearing, shear_z_in_proportion_to_x, .description = scenario5) {
 
 Test(shearing, shear_z_in_proportion_to_y, .description = scenario6) {
 	const t_shearer shearer = {0, 0, 0, 0, 0, 1};
-	const t_shearer transform = create_shearing_matrix(shearer);
-	const t_tuple p = {2, 3, 4, POINT};
-	const t_tuple expected = {2, 3, 7, POINT};
-	const t_tuple actual = transform * p;
+	const t_matrix	transform = create_shearing_matrix(shearer);
+	const t_tuple 	p = {2, 3, 4, POINT};
+	const t_tuple 	expected = {2, 3, 7, POINT};
+	const t_tuple 	actual;
+
+	multiply_tuple_by_matrix(p, transform, actual);
 	cr_expect_tuple_eq(actual, expected);
 }
