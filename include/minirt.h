@@ -120,5 +120,7 @@ t_2x2matrix	create_2x2_matrix(t_2x2matrix *m);
 t_matrix	translation(t_tuple point);
 t_matrix	create_matrix_of_cofactors(const t_matrix m);
 t_matrix	create_x_rotation_matrix(float r);
+t_matrix	create_y_rotation_matrix(float r);
+t_matrix	create_z_rotation_matrix(float r);
 
 #endif
