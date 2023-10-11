@@ -134,4 +134,5 @@ t_matrix	create_y_rotation_matrix(float r);
 t_matrix	create_z_rotation_matrix(float r);
 t_matrix	create_scaling_matrix(const float x, const float y, const float z);
 t_matrix	create_shearing_matrix(t_shearer shearer);
+t_matrix	mult_n_matrices(const t_matrix matrices[], int last_idx);
 #endif
