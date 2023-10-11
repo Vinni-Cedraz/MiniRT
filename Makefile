@@ -74,9 +74,9 @@ $(LIB): $(LIBMLX_TARGET) $(OBJS)
 	@printf "\n$(YELLOW)[ linking ] $(DEF_COLOR)objects into library $(YELLOW)$@ $(DEF_COLOR)\n"
 	@ar rcs $@ $^ $(LIB_OBJS)
 
-t:
-	@make --no-print-directory -C ./tests
-	@make run --no-print-directory -C ./tests
+# t:
+# 	@make --no-print-directory -C ./tests
+# 	@make run --no-print-directory -C ./tests
 
 as_lib: makelib $(LIB)
 re: fclean all
