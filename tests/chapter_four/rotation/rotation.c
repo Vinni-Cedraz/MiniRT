@@ -65,17 +65,13 @@ Test(rotation, rotating_around_y_axis, .description = scenario3) {
 				  "And full_quarter * p = point(-1, 0, 0)" RESET
 
 Test(rotation, rotating_around_z_axis, .description = scenario4) {
-	const t_tuple	p = {0, 0, 1, POINT};
+	const t_tuple	p = {0, 1, 0, POINT};
 	const t_matrix	half_quarter = create_z_rotation_matrix(M_PI / 4);
 	const t_matrix	full_quarter = create_z_rotation_matrix(M_PI / 2);
 	const t_tuple	expected1 = {-0.707107, 0.707107, 0, POINT};
 	const t_tuple	expected2 = {-1, 0, 0, POINT};
 	t_tuple 		res;
 	
-	printf(CYAN"half quarter rotation_matrix:\n"RESET);
-	print_4x4matrix(half_quarter);
-	printf(CYAN"full quarter rotation_matrix:\n"RESET);
-	print_4x4matrix(full_quarter);
 	multiply_tuple_by_matrix(p, half_quarter, res);
 	cr_expect_tuple_eq(expected1, res);
 	print_tuple(res);
