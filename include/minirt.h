@@ -76,6 +76,16 @@ typedef struct s_3x3matrix
 	const float			*rows[3];
 }						t_3x3matrix;
 
+typedef struct s_hearer
+{
+	float				x_to_y;
+	float				x_to_z;
+	float				y_to_x;
+	float				y_to_z;
+	float				z_to_x;
+	float				z_to_y;
+}						t_shearer;
+
 void		create_point(t_tuple tuple);
 void		create_vector(t_tuple tuple);
 t_bool		floats_eq(float a, float b);
@@ -123,4 +133,5 @@ t_matrix	create_x_rotation_matrix(float r);
 t_matrix	create_y_rotation_matrix(float r);
 t_matrix	create_z_rotation_matrix(float r);
 t_matrix	create_scaling_matrix(const float x, const float y, const float z);
+t_matrix	create_shearing_matrix(t_shearer shearer);
 #endif
