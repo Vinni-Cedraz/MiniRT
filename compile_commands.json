@@ -378,5 +378,24 @@
    "build/rotation.o"
   ],
   "file": "./src/matrix_transformations/rotation.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/matrix_transformations/scaling.c",
+   "-o",
+   "build/scaling.o"
+  ],
+  "file": "./src/matrix_transformations/scaling.c"
  }
 ]
