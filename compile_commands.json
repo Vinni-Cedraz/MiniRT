@@ -392,6 +392,11 @@
    "-I",
    "./libs/",
    "-c",
+   "./src/matrix_transformations/scaling.c",
+   "-o",
+   "build/scaling.o"
+  ],
+  "file": "./src/matrix_transformations/scaling.c"
    "./src/matrix_transformations/shearing.c",
    "-o",
    "build/shearing.o"

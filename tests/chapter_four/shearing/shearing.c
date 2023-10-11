@@ -1,7 +1,7 @@
 #include "tester.h"
 
 // scenario: a struct called t_shearer exists
-#define scenario0 "CYAN\n" \
+#define scenario0 CYAN \
 	"\nGiven t_shearer shearer = {1, 0, 4, 0, 0, 0}\n" \
 	"Then shearer.x_to_y == 1\n" \
 	"and shearer.x_to_z == 0\n"  \
@@ -21,7 +21,7 @@ Test(shearing, t_shearing_exists, .description = scenario0) {
 }
 
 // Scenario : A shearing transformation moves x in proportion to y
-#define scenario1 "CYAN\n" \
+#define scenario1 CYAN \
 						"\nGiven transform ← create_shearing_matrix(1, 0, 0, 0, 0, 0)\n"   \
 						"And p ← point(2, 3, 4)\n"  \
 						"Then transform * p = point(5, 3, 4)" RESET \
@@ -38,7 +38,7 @@ Test(shearing, shear_x_in_proportion_to_y, .description = scenario1) {
 }
 
 // Scenario : A shearing transformation moves x in proportion to z
-#define scenario2 "CYAN\n" \
+#define scenario2 CYAN \
 	"Given transform ← create_shearing_matrix(0, 1, 0, 0, 0, 0)\n" \
 	"And p ← point(2, 3, 4)\n" \
 	"Then transform * p = point(6, 3, 4)" RESET \
@@ -55,7 +55,7 @@ Test(shearing, shear_x_in_proportion_to_z, .description = scenario2) {
 }
 
 // Scenario : A shearing transformation moves y in proportion to x
-#define scenario3 "CYAN\n" \
+#define scenario3 CYAN \
 	"Given transform ← create_shearing_matrix(0, 0, 1, 0, 0, 0)\n" \
 	"And p ← point(2, 3, 4)\n" \
 	"Then transform * p = point(2, 5, 4)" RESET \
@@ -72,7 +72,7 @@ Test(shearing, shear_y_in_proportion_to_x, .description = scenario3) {
 }
 
 // Scenario : A shearing transformation moves y in proportion to z
-#define scenario4 "CYAN\n" \
+#define scenario4 CYAN \
 	"Given transform ← create_shearing_matrix(0, 0, 0, 1, 0, 0)\n" \
 	"And p ← point(2, 3, 4)\n" \
 	"Then transform * p = point(2, 7, 4)" RESET \
@@ -89,7 +89,7 @@ Test(shearing, shear_y_in_proportion_to_z, .description = scenario4) {
 }
 
 // Scenario : A shearing transformation moves z in proportion to x
-#define scenario5 "CYAN\n" \
+#define scenario5 CYAN \
 	"Given transform ← create_shearing_matrix(0, 0, 0, 0, 1, 0)\n" \
 	"And p ← point(2, 3, 4)\n" \
 	"Then transform * p = point(2, 3, 6)" RESET \
@@ -106,7 +106,7 @@ Test(shearing, shear_z_in_proportion_to_x, .description = scenario5) {
 }
 
 // Scenario : A shearing transformation moves z in proportion to y
-#define scenario6 "CYAN\n" \
+#define scenario6 CYAN \
 	"Given transform ← create_shearing_matrix(0, 0, 0, 0, 0, 1)\n" \
 	"And p ← point(2, 3, 4)\n" \
 	"Then transform * p = point(2, 3, 7)" RESET \

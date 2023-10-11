@@ -1,5 +1,5 @@
 TESTS =		\
-  scalling \
+  scaling \
 
 INCS = -I../../ -I../../../include/ -I../../../libs/
 FLAGS = -O3 -lcriterion -lm -w

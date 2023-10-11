@@ -1,6 +1,6 @@
 TESTDIRS = 		\
   translation \
-  scalling \
+  scaling \
   rotation \
   shearing \
   chaining_transformations \
