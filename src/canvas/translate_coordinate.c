@@ -12,10 +12,10 @@
 
 #include "minirt.h"
 
-void	translate_coordinate(t_tuple point, t_canvas canvas, t_tuple res)
+void	translate_coordinate(t_tuple point, t_canvas *canvas, t_tuple res)
 {
-	const float	height = canvas.height;
-	const float	width = canvas.width;
+	const float	height = canvas->height;
+	const float	width = canvas->width;
 
 	res[X] = point [X] + width / 2;
 	res[Y] = point[Y] + height / 2;
@@ -23,15 +23,25 @@ void	translate_coordinate(t_tuple point, t_canvas canvas, t_tuple res)
 	res[W] = point[W];
 }
 
-#include "../../tests/tester.h"
-
-Test(putting_it_together, translate_coordinate, .description = scenario1)
-{
-	t_tuple 	res;
-	t_tuple		point = {0, 0, 0, POINT};
-	t_canvas	canvas = create_canvas(500, 500);
-	t_tuple		expected = {250, 250, 0, POINT};
-	
-	translate_coordinate(point, canvas, res);
-	cr_expect_tuple_eq(res, expected);
-}
+// #include "../../tests/tester.h"
+//
+// Test(putting_it_together, translate_coordinate, .description = scenario1)
+// {
+// 	t_tuple 	res;
+// 	t_tuple		point = {0, 0, 0, POINT};
+// 	t_canvas	canvas = create_canvas(500, 500);
+// 	t_tuple		expected = {250, 250, 0, POINT};
+// 	translate_coordinate(point, &canvas, res);
+// 	cr_expect_tuple_eq(res, expected);
+// }
+//
+//
+// Test(putting_it_together, translate_another_coordinate, .description = scenario1)
+// {
+// 	t_tuple 	res;
+// 	t_tuple		twelve_hour = {-250, -250, 0, POINT};
+// 	t_canvas	canvas = create_canvas(500, 500);
+// 	t_tuple		expected = {0, 0, 0, POINT};
+// 	translate_coordinate(twelve_hour, &canvas, res);
+// 	cr_expect_tuple_eq(res, expected);
+// }

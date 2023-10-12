@@ -416,5 +416,24 @@
    "build/scaling.o"
   ],
   "file": "./src/matrix_transformations/scaling.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/canvas/translate_coordinate.c",
+   "-o",
+   "build/translate_coordinate.o"
+  ],
+  "file": "./src/canvas/translate_coordinate.c"
  }
 ]
