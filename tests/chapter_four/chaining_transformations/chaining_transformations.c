@@ -33,32 +33,31 @@
 
 Test(chaining_transformations, join, .description = scenario1)
 {
-	const t_tuple p = {1,0,1, POINT};
-	const t_matrix A = create_x_rotation_matrix(M_PI / 2);
-	const t_matrix b = create_scaling_matrix(5 , 5, 5);
-	const t_matrix c = create_translation_matrix((t_tuple) {10, 5, 7});
+	const t_tuple	p = {1,0,1, POINT};
+	const t_matrix	_A = create_x_rotation_matrix(M_PI / 2);
+	const t_matrix	_B = create_scaling_matrix(5, 5, 5);
+	const t_matrix	_C = create_translation_matrix((t_tuple) {10, 5, 7});
 
 //  rotation
 
 	t_tuple p2_result;
 	t_tuple expected_point = {1, -1, 0, POINT};
-	multiply_tuple_by_matrix(p, A, p2_result);
+	multiply_tuple_by_matrix(p, _A, p2_result);
 	cr_expect_tuple_eq(p2_result, expected_point);
 
 // scaling
 
 	t_tuple p3_result;
 	t_tuple expected_point3 = {5, -5, 0, POINT};
-	multiply_tuple_by_matrix(p2_result, b, p3_result);
+	multiply_tuple_by_matrix(p2_result, _B, p3_result);
 	cr_expect_tuple_eq(p3_result, expected_point3);
 	
 // transformation
 
 	t_tuple p4_result;
 	t_tuple expected_point4 = {15, 0, 7, POINT};
-	multiply_tuple_by_matrix(p3_result, c, p4_result);
+	multiply_tuple_by_matrix(p3_result, _C, p4_result);
 	cr_expect_tuple_eq(p4_result, expected_point4);
-
 }
 
 // Scenario : Chained transformations must be applied in reverse order
@@ -72,14 +71,16 @@ Test(chaining_transformations, join, .description = scenario1)
 
 Test(chaining_transformations, reverse_order, .description = scene2)
 {
-	const t_tuple p = {1, 0, 1, POINT};
-	const t_matrix A = create_x_rotation_matrix(M_PI / 2);
-	const t_matrix b = create_scaling_matrix(5, 5, 5);
-	const t_matrix c = create_translation_matrix((t_tuple){10,5,7});
+	t_tuple 		result;
+	const t_tuple	p = {1, 0, 1, POINT};
+	const t_matrix	A = create_x_rotation_matrix(M_PI / 2);
+	const t_matrix	B_ = create_scaling_matrix(5, 5, 5);
+	const t_matrix	C = create_translation_matrix((t_tuple){10, 5, 7});
+	const t_matrix	chain[] = {A, B_, C};
+	const short		last_idx = 2;
+	const t_matrix	T = mult_n_matrices(chain, last_idx);
+	const t_tuple	expected = {15, 0, 7, POINT};
 
-	t_matrix T = mult_n_matrices((t_matrix[]){c, b, A}, 3);
-	t_tuple result;
-	t_tuple expected = {15, 0, 7, POINT};
 	print_4x4matrix(T);
 	multiply_tuple_by_matrix(p, T, result);
 	print_tuple(result);
