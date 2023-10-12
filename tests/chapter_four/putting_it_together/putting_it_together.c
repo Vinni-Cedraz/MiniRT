@@ -1,6 +1,7 @@
 #include "tester.h"
+#include <criterion/internal/test.h>
 
-#define scenario CYAN "\n Draw a pixel for each hour in a clock" RESET
+#define scenario2 CYAN "\n Draw a pixel for each hour in a clock" RESET
 
 Test(putting_it_together, drawing_a_clock, .description = scenario) {
 
