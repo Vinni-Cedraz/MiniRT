@@ -51,4 +51,10 @@ static inline void create_ppm_file(t_constr ppm_string) {
 	close(fd);
 }
 
+#define scenario1 CYAN \
+"\nGiven point(0, 0, 0, POINT)\n"\
+"And canvas(500, 500)\n" \
+"And p ← translate_coordinate(point, canvas)\n " \
+"Then p = point(250, 250, 0, POINT)\n"RESET
+
 #endif

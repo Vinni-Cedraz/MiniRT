@@ -12,23 +12,26 @@
 
 #include "minirt.h"
 
+void	translate_coordinate(t_tuple point, t_canvas canvas, t_tuple res)
+{
+	const float	height = canvas.height;
+	const float	width = canvas.width;
 
+	res[X] = point [X] + width / 2;
+	res[Y] = point[Y] + height / 2;
+	res[Z] = point[Z];
+	res[W] = point[W];
+}
 
 #include "../../tests/tester.h"
 
-#define scenario1 CYAN \
-"\nGiven point(0, 0, 0, POINT)\n"\
-"And canvas(500, 500)\n" \
-"And p ← translate_coordinate(point, canvas)\n " \
-"Then p = point(250, 250, 0, POINT)\n"RESET
-
-
-Test(putting_it_together, translate_coordinate , .description = scenario1)
+Test(putting_it_together, translate_coordinate, .description = scenario1)
 {
-	t_tuple point = {0,0,0, POINT};
-	t_canvas canvas = {500,500};
-	t_tuple p = translate_coordinate(point, canvas);
-	t_tuple expected = {250,250,0, POINT};
+	t_tuple 	res;
+	t_tuple		point = {0, 0, 0, POINT};
+	t_canvas	canvas = create_canvas(500, 500);
+	t_tuple		expected = {250, 250, 0, POINT};
 	
-	cr_expect_tuple_eq(p, expected);
+	translate_coordinate(point, canvas, res);
+	cr_expect_tuple_eq(res, expected);
 }

@@ -19,8 +19,8 @@ t_matrix	create_translation_matrix(t_tuple point)
 		.row_2 = {0, 1, 0, point[Y]},
 		.row_3 = {0, 0, 1, point[Z]},
 		.row_4 = {0, 0, 0, 1},
-		.rows = {res.row_1, res.row_2, res.row_3, res.row_4
-	}};
+		.rows = {res.row_1, res.row_2, res.row_3, res.row_4}
+	};
 
 	return (res);
 }
