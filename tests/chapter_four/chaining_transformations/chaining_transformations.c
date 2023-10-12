@@ -76,9 +76,7 @@ Test(chaining_transformations, reverse_order, .description = scene2)
 	const t_matrix	A = create_x_rotation_matrix(M_PI / 2);
 	const t_matrix	B_ = create_scaling_matrix(5, 5, 5);
 	const t_matrix	C = create_translation_matrix((t_tuple){10, 5, 7});
-	const t_matrix	chain[] = {A, B_, C};
-	const short		last_idx = 2;
-	const t_matrix	T = mult_n_matrices(chain, last_idx);
+	const t_matrix	T = chain_transformations((t_matrix*[]){&A, &B_, &C, NULL});
 	const t_tuple	expected = {15, 0, 7, POINT};
 
 	print_4x4matrix(T);

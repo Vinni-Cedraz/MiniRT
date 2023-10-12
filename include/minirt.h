@@ -99,7 +99,7 @@ t_bool		floats_eq(float a, float b);
 float		magnitude(const t_tuple vec);
 short		normalize(const t_tuple vec, t_tuple result);
 short		cross(const t_tuple a, const t_tuple b, t_tuple cross_product);
-t_canvas	create_canvas(unsigned short width, unsigned short height);
+t_canvas	create_canvas(unsigned short height, unsigned short width);
 void		write_pixel(t_canvas *canvas, int x, int y, const t_tuple pixel);
 char		*canvas_to_ppm(const t_canvas *canvas);
 void		destroy_canvas(const t_canvas *canvas);
@@ -134,5 +134,6 @@ t_matrix	create_y_rotation_matrix(float r);
 t_matrix	create_z_rotation_matrix(float r);
 t_matrix	create_scaling_matrix(const float x, const float y, const float z);
 t_matrix	create_shearing_matrix(t_shearer shearer);
-t_matrix	mult_n_matrices(const t_matrix matrices[], int last_idx);
+t_matrix	chain_transformations(const t_matrix *matrices[]);
+
 #endif
