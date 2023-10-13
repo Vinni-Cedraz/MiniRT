@@ -7,15 +7,15 @@
    "-lcriterion",
    "-lm",
    "-w",
-   "creating_rays.c",
+   "identifying_hits.c",
    "-I../../",
    "-I../../../include/",
    "-I../../../libs/",
    "../../../libs/*.a",
    "../../../minirt.a",
    "-o",
-   "creating_rays"
+   "identifying_hits"
   ],
-  "file": "creating_rays.c"
+  "file": "identifying_hits.c"
  }
 ]

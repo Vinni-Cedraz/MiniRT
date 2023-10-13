@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/11 16:31:24 by johmatos         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:26:51 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,12 @@ typedef struct s_hearer
 	float				z_to_y;
 }						t_shearer;
 
+typedef struct s_ray
+{
+	t_tuple	direction;
+	t_tuple	origin;
+}			t_ray;
+
 void		create_point(t_tuple tuple);
 void		create_vector(t_tuple tuple);
 t_bool		floats_eq(float a, float b);
@@ -136,5 +142,5 @@ t_matrix	create_scaling_matrix(const float x, const float y, const float z);
 t_matrix	create_shearing_matrix(t_shearer shearer);
 t_matrix	chain_transformations(const t_matrix *matrices[]);
 void		translate_coordinate(t_tuple point, t_canvas *canvas, t_tuple res);
-
+t_ray		create_ray(t_tuple origin, t_tuple direction);
 #endif
