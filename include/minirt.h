@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/13 18:26:51 by johmatos         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:57:09 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,5 +142,6 @@ t_matrix	create_scaling_matrix(const float x, const float y, const float z);
 t_matrix	create_shearing_matrix(t_shearer shearer);
 t_matrix	chain_transformations(const t_matrix *matrices[]);
 void		translate_coordinate(t_tuple point, t_canvas *canvas, t_tuple res);
+void 		get_point_from_distance(t_ray ray, float distance, t_tuple _result);
 t_ray		create_ray(t_tuple origin, t_tuple direction);
 #endif

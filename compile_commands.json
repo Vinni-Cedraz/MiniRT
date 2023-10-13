@@ -454,5 +454,24 @@
    "build/rays.o"
   ],
   "file": "./src/rays/rays.c"
+ },
+ {
+  "directory": "/root/Minirt",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/rays/point.c",
+   "-o",
+   "build/point.o"
+  ],
+  "file": "./src/rays/point.c"
  }
 ]

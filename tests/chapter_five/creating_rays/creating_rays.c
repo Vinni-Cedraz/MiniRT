@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 17:47:50 by johmatos          #+#    #+#             */
-/*   Updated: 2023/10/13 18:26:37 by johmatos         ###   ########.fr       */
+/*   Updated: 2023/10/13 19:09:43 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,16 @@ Test(creating_rays, point_from_distance, .description = scenario2)
 			(t_tuple){2,3,4, POINT},
 			(t_tuple){1,0,0, VECTOR}
 			);
+	t_tuple	result;
 
 
-	const t_tuple pos1 = get_point_from_distance(r,0);
-	const t_tuple pos2 = get_point_from_distance(r,0);
-	const t_tuple pos3 = get_point_from_distance(r,0);
-	const t_tuple pos4 = get_point_from_distance(r,0);
-
+	get_point_from_distance(ray, 0, result);
+	cr_expect_tuple_eq(result, (t_tuple){2, 3, 4, POINT});
+	get_point_from_distance(ray, 1, result);
+	cr_expect_tuple_eq(result, (t_tuple){3, 3, 4, POINT});
+	get_point_from_distance(ray, -1, result);
+	cr_expect_tuple_eq(result, (t_tuple){1, 3, 4, POINT});
+	get_point_from_distance(ray, 2.5, result);
+	cr_expect_tuple_eq(result, (t_tuple){4.5, 3, 4, POINT});
 }
 
