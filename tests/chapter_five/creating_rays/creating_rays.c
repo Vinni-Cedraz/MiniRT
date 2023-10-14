@@ -20,7 +20,7 @@
 "And direction ← vector(4, 5, 6)\n" \
 "When r ← ray(origin, direction)\n" \
 "Then r.origin = origin\n"          \
-"And r.direction = direction\n"
+"And r.direction = direction" RESET
 
 Test(creating_rays, create_and_query_a_ray, .description = scenario1)
 {
@@ -28,7 +28,6 @@ Test(creating_rays, create_and_query_a_ray, .description = scenario1)
 	t_tuple direction = {4, 5, 6, VECTOR};
 	const t_ray r = create_ray(origin, direction);
 
-	print_tuple(r.origin);
 	cr_expect_tuple_eq(r.origin, origin);
 	cr_expect_tuple_eq(r.direction , direction);
 }
@@ -39,7 +38,7 @@ Test(creating_rays, create_and_query_a_ray, .description = scenario1)
 "Then position(r, 0) = point(2, 3, 4)\n"          \
 "And position(r, 1) = point(3, 3, 4)\n"          \
 "And position(r, -1) = point(1, 3, 4)\n"          \
-"And position(r, 2.5) = point(4.5, 3, 4)\n"
+"And position(r, 2.5) = point(4.5, 3, 4)" RESET
 
 Test(creating_rays, point_from_distance, .description = scenario2)
 {
