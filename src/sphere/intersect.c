@@ -14,29 +14,28 @@
 
 t_intersection	create_intersection(t_sphere s, t_ray r)
 {
-	t_intersection	inter;
-	int				value;
+	t_intersection	i;
 
-	value = 0;
+	ft_bzero((void *)&i, sizeof(t_intersection));
 	if (tuples_eq(s.origin, (t_tuple){0, 0, 0, POINT}))
 	{
 		if (r.origin[Y] == 0)
 		{
-			value = ft_abs(r.origin[Z] + r.direction[Z]);
-			inter.head = ft_lstnew(value);
-			inter.count = 2;
-			value += (s.radius * 2);
-			ft_lstadd_back(&inter.head, ft_lstnew(value));
+			i.count = 2;
+			if (r.origin[X] == 0 && r.origin[Z] == 0)
+				i.head = ft_lstnew(-s.radius);
+			else
+				i.head = ft_lstnew(ft_abs(r.origin[Z] + r.direction[Z]));
+			ft_lstadd_back(&i.head, ft_lstnew(i.head->t + s.radius * 2));
 		}
 		else if (r.origin[Y] == 1 || r.origin[Y] == -1)
 		{
-			value = ft_abs(r.origin[Z] + r.direction[Z]) + s.radius;
-			inter.head = ft_lstnew(value);
-			inter.count = 1;
+			i.head = ft_lstnew(ft_abs(r.origin[Z] + r.direction[Z]) + s.radius);
+			i.count = 1;
 		}
 		else
-			inter.count = 0;
-		return (inter);
+			i.count = 0;
+		return (i);
 	}
 	return ((t_intersection){0});
 }
