@@ -12,7 +12,8 @@
 
 ## SET-UP VARIABLES ##
 NAME = libft.a
-CFLAGS = -Wall -Werror -Wextra -g
+INC = -I./includes/
+CFLAGS = $(INC) -Wall -Werror -Wextra -g
 R = rm -f
 RD = rm -rf
 OBJS_PATH = ./objs/
@@ -100,8 +101,10 @@ ft_lst_circular \
 ft_lstcircular_free \
 ft_lstpop \
 ft_lstshift \
-ft_check_balanced \
+ft_check_balanced
 	
+VPATH = ./linked_list ./misc/ ./ctype_etc/ ./stdlib_etc/ ./string_etc/ ./strings_etc/
+
 OBJS = $(addprefix $(OBJS_PATH), $(addsuffix .o, $(SRCS)))
 OBJSB = $(addprefix $(OBJSB_PATH), $(addsuffix .o, $(BSRCS)))
 message = \nObjects are $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME)$(DEF_COLOR).\n
