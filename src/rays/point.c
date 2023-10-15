@@ -12,16 +12,15 @@
 
 #include "minirt.h"
 
-void get_point_from_distance(t_ray ray, float distance, t_tuple _result)
+void	get_point_from_distance(t_ray ray, float distance, t_tuple _result)
 {
-	t_tuple result;
-	t_tuple result2;
+	t_tuple	result;
+	t_tuple	result2;
 
 	multiply_tuple_by_scalar(ray.direction, distance, result);
 	add_tuples(ray.origin, result, result2);
-
-	_result [X] = result2[X];
-	_result [Y] = result2[Y];
-	_result [Z] = result2[Z];
-	_result [W] = result2[W];
+	_result[X] = result2[X];
+	_result[Y] = result2[Y];
+	_result[Z] = result2[Z];
+	_result[W] = result2[W];
 }

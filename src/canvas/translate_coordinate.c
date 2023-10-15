@@ -25,7 +25,8 @@ void	translate_coordinate(t_tuple point, t_canvas *canvas, t_tuple res)
 
 // #include "../../tests/tester.h"
 //
-// Test(putting_it_together, translate_coordinate, .description = scenario1)
+// Test(putting_it_together, translate_coordinate,
+// .description = scenario1)
 // {
 // 	t_tuple 	res;
 // 	t_tuple		point = {0, 0, 0, POINT};
@@ -36,7 +37,8 @@ void	translate_coordinate(t_tuple point, t_canvas *canvas, t_tuple res)
 // }
 //
 //
-// Test(putting_it_together, translate_another_coordinate, .description = scenario1)
+// Test(putting_it_together, translate_another_coordinate,
+// .description = scenario1)
 // {
 // 	t_tuple 	res;
 // 	t_tuple		twelve_hour = {-250, -250, 0, POINT};
