@@ -39,8 +39,9 @@ Test(intersecting_rays, tangent_intersection, .description = scenario2) {
 #define scenario3 CYAN \
 				 "Given r ← ray(point(0, 2, -5), vector(0, 0, 1))\n" \
 				 "And s ← sphere()\n" \
-				 "When xs ← intersect(s, r)\n" \
-				 "Then xs.count = 0" RESET
+				 "When i ← intersect(s, r)\n" \
+				 "Then i.count == 0\n" \
+				 "And i.head == NULL" RESET
 
 Test(intersecting_rays, intersects_nothing, .description = scenario3) {
 	const t_ray r = create_ray((t_tuple){0, 2, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
@@ -48,6 +49,7 @@ Test(intersecting_rays, intersects_nothing, .description = scenario3) {
 	const t_intersection intersect = create_intersection(s, r);
 
 	cr_expect_eq(intersect.count, 0);
+	cr_expect_eq(intersect.head, NULL);
 }
 
 // Scenario : A ray originates inside a sphere
@@ -65,30 +67,30 @@ Test(intersecting_rays, ray_starts_inside_of_a_sphere, .description = scenario4)
 	const t_intersection intersect = create_intersection(s, r);
 
 	cr_expect_eq(intersect.count, 2);
-	printf(CYAN"intersect.head->t %f\n", intersect.head->t);
-	printf(CYAN"intersect.head->next->t %f\n", intersect.head->next->t);
 	cr_expect_eq(TRUE, floats_eq(intersect.head->t, -1.0));
 	cr_expect_eq(TRUE, floats_eq(intersect.head->next->t, 1.0));
 }
 
-// // Scenario : A sphere is behind a ray
-// #define scenario5 CYAN \
-// 				"Given r ← ray(point(0, 0, 5), vector(0, 0, 1))And s ← sphere()\n" \
-// 				"When xs ← intersect(s, r)\n" \
-// 				"Then xs.count = 2\n" \
-// 				"And xs[0] = -6.0\n" \
-// 				"And xs[1] = -4.0\n" RESET
-//
-// Test(intersecting_rays, sphere_is_behind_the_ray, .description = scenario5) {
-// 	const t_ray r = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
-// 	const t_sphere s = create_sphere();
-// 	const t_intersection intersect = create_intersection(s, r);
-//
-// 	cr_expect_eq(intersect.count == 2);
-// 	cr_expect_eq(TRUE, floats_eq(intersect.list.value[Z] == -6.0));
-// 	cr_expect_eq(TRUE, floats_eq(intersect.list.next->value[Z] == -4.0));
-// }
-//
+// Scenario : A sphere is behind a ray
+#define scenario5 CYAN \
+				"Given r ← ray(point(0, 0, 5), vector(0, 0, 1))And s ← sphere()\n" \
+				"When i ← intersect(s, r)\n" \
+				"Then i.count == 2\n" \
+				"And i.head->t == -6.0\n" \
+				"And i.head->next->t == -4.0\n" RESET
+
+Test(intersecting_rays, sphere_is_behind_the_ray, .description = scenario5) {
+	const t_ray r = create_ray((t_tuple){0, 0, 5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	const t_sphere s = create_sphere();
+	const t_intersection intersect = create_intersection(s, r);
+
+	cr_expect_eq(intersect.count, 2);
+	printf(CYAN"intersect.head->t %f\n", intersect.head->t);
+	printf(CYAN"intersect.head->next->t %f\n", intersect.head->next->t);
+	cr_expect_eq(TRUE, floats_eq(intersect.head->t, -6.0));
+	cr_expect_eq(TRUE, floats_eq(intersect.head->next->t, -4.0));
+}
+
 // // Scenario: calculating the discriminant (intersection between ray and sphere)
 // #define scenario6 CYAN \
 // 			"sphere_to_ray ← ray.origin - point(0, 0, 0)\n" \
