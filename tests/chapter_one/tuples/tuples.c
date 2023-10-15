@@ -8,22 +8,22 @@
 
 Test(suite_name, tuple_is_a_valid_point, .description = test1_description)
 {
-	t_tuple tuple = {1, 2, 6};
+	t_tuple tuple;
 
 	create_point(tuple);
-	cr_expect_eq(1, tuple[X]);
-	cr_expect_eq(2, tuple[Y]);
-	cr_expect_eq(6, tuple[Z]);
+	cr_expect_eq(0, tuple[X]);
+	cr_expect_eq(0, tuple[Y]);
+	cr_expect_eq(0, tuple[Z]);
 	cr_expect_eq(POINT, tuple[W]);
 }
 
 Test(suite_name, tuple_is_a_valid_vector, .description = test2_description)
 {
-	t_tuple tuple = {2, 3, 4};
+	t_tuple tuple;
 
 	create_vector(tuple);
-	cr_expect_eq(2, tuple[X]);
-	cr_expect_eq(3, tuple[Y]);
-	cr_expect_eq(4, tuple[Z]);
+	cr_expect_eq(0, tuple[X]);
+	cr_expect_eq(0, tuple[Y]);
+	cr_expect_eq(0, tuple[Z]);
 	cr_expect_eq(VECTOR, tuple[W]);
 }

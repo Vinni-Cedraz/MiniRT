@@ -18,7 +18,11 @@ LIB := minirt.a
 ### MINIRT
 NAME = minirt
 SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c write_pixel.c basic_tuple_operations.c compare_floats.c \
-	  complex_tuple_operations.c create_tuples.c mult_matrices.c comparison.c transpose_matrix.c 2x2determinant.c large_determinants.c minors.c submatrices.c invert_matrix.c create_matrix.c translation.c rotation.c shearing.c scaling.c translate_coordinate.c rays.c point.c create.c intersect.c
+	  complex_tuple_operations.c create_tuples.c mult_matrices.c comparison.c \
+	  transpose_matrix.c 2x2determinant.c large_determinants.c minors.c submatrices.c \
+      invert_matrix.c create_matrix.c translation.c rotation.c shearing.c scaling.c \
+      translate_coordinate.c rays.c point.c create.c intersect.c
+
 VPATH= ./src ./src/canvas/ ./src/tuples/ ./src/ppm/ ./src/matrices ./src/matrix_transformations ./src/rays ./src/sphere
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/
@@ -44,7 +48,6 @@ $(BUILD_DIR_RT)%.o: %.c $(LIBFT)
 
 $(LIBFT):
 	make --no-print-directory -C ./libs
-	make bonus --no-print-directory -C ./libs
 
 $(LIBMLX_TARGET): $(MLXDIR)
 	cd $(MLXDIR) && cmake --build build -j4;
