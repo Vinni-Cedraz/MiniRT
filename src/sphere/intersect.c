@@ -37,3 +37,13 @@ t_intersection	create_intersection(t_sphere s, t_ray r)
 		i.count = 0;
 	return (i);
 }
+
+t_bool	discriminant(t_sphere s, t_ray r)
+{
+	const double a = dot(r.direction, r.direction);
+	const double b = 2 * dot(r.direction, s.origin);
+	const double c = dot(s.origin, s.origin) - 1;
+	const double discriminant = pow(b, 2) - 4 * a * c;
+
+	return (discriminant);
+}

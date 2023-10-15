@@ -176,5 +176,6 @@ t_ray					create_ray(t_tuple origin, t_tuple direction);
 t_sphere				create_sphere(void);
 t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
 t_intersection			create_intersection(t_sphere s, t_ray r);
+t_bool					discriminant(t_sphere s, t_ray r);
 
 #endif
