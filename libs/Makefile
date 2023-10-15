@@ -12,7 +12,7 @@
 
 ## SET-UP VARIABLES ##
 NAME = libft.a
-INC = -I./includes/
+INC = -I./
 CFLAGS = $(INC) -Wall -Werror -Wextra -g
 R = rm -f
 RD = rm -rf
@@ -101,7 +101,6 @@ ft_lst_circular \
 ft_lstcircular_free \
 ft_lstpop \
 ft_lstshift \
-ft_check_balanced
 	
 VPATH = ./linked_list ./misc/ ./ctype_etc/ ./stdlib_etc/ ./string_etc/ ./strings_etc/
 

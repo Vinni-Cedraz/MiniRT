@@ -22,7 +22,7 @@ int	ft_lstgetby_content(t_node *lst, void *content)
 		return (-1);
 	while (lst)
 	{
-		if (!ft_memcmp(lst->content, content, sizeof(content)))
+		if (!ft_memcmp(&lst->t, content, sizeof(content)))
 			return (index);
 		lst = lst->next;
 		index++;

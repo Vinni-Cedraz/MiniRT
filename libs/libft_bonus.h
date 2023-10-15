@@ -20,13 +20,13 @@ typedef unsigned int	t_ui;
 
 typedef struct s_nodes
 {
-	void				*content;
+	t_ui				t;
 	t_node				*next;
 }						t_node;
 
 // LINKED LISTS BASIC FUNCTIONS
 // ft_lstnew creates a new node
-t_node					*ft_lstnew(void *content);
+t_node					*ft_lstnew(int content);
 // ft_lstadd_back adds a new element at the end of a list
 void					ft_lstadd_back(t_node **head, t_node *new_node);
 // ft_lstadd_front adds a new element at the beginning of a list
@@ -57,7 +57,5 @@ t_node					*ft_lstpop(t_node **lst);
 void					ft_lst_circular(t_node **head);
 // frees a circular list
 void					ft_lstcircular_free(t_node **head);
-// checks if the parenthesis, braces and brackets are balanced in an expression
-int						ft_check_balanced(char expression[]);
 
 #endif

@@ -34,7 +34,7 @@ void	ft_lstprint(t_node **lst)
 		aux_putchar('-');
 		aux_putchar('>');
 		aux_putchar(' ');
-		aux_putstr((char *)tmp->content);
+		aux_putstr(ft_itoa(tmp->t));
 		aux_putchar('\n');
 		tmp = tmp->next;
 	}

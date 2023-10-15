@@ -12,12 +12,12 @@
 
 #include "libft_bonus.h"
 
-t_node	*ft_lstnew(void *content)
+t_node	*ft_lstnew(int content)
 {
 	t_node	*node;
 
 	node = (t_node *)malloc(sizeof(*node));
-	node->content = content;
+	node->t = content;
 	node->next = NULL;
 	return (node);
 }
