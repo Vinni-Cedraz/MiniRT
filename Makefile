@@ -11,13 +11,15 @@ CODAM_LIB_FLAGS = -L./MLX42/build/ -lmlx42 -ldl -lglfw -pthread -lm
 
 ### LIBFT
 LIBFT = ./libs/*.a
-SRCSLIB := $(wildcard ./src/*/*.c)
+SRCSLIB = $(wildcard ./src/*/*.c)
 LIB_OBJS = $(wildcard libs/objs/*.o)
+LIB_BOBJS = $(wildcard libs/objs_bonus/*.o)
 LIB := minirt.a
 
 ### MINIRT
 NAME = minirt
-SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c write_pixel.c basic_tuple_operations.c compare_floats.c \
+SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c \
+	  write_pixel.c basic_tuple_operations.c compare_floats.c \
 	  complex_tuple_operations.c create_tuples.c mult_matrices.c comparison.c \
 	  transpose_matrix.c 2x2determinant.c large_determinants.c minors.c submatrices.c \
       invert_matrix.c create_matrix.c translation.c rotation.c shearing.c scaling.c \
@@ -47,7 +49,7 @@ $(BUILD_DIR_RT)%.o: %.c $(LIBFT)
 	$(CC) $(C_FLAGS) $(INCLUDE) -c $< -o $@
 
 $(LIBFT):
-	make --no-print-directory -C ./libs
+	make --no-print-directory -C ./libs && make bonus --no-print-directory -C ./libs
 
 $(LIBMLX_TARGET): $(MLXDIR)
 	cd $(MLXDIR) && cmake --build build -j4;
@@ -76,11 +78,7 @@ makelib:
 
 $(LIB): $(LIBMLX_TARGET) $(OBJS)
 	@printf "\n$(YELLOW)[ linking ] $(DEF_COLOR)objects into library $(YELLOW)$@ $(DEF_COLOR)\n"
-	@ar rcs $@ $^ $(LIB_OBJS)
-
-# t:
-# 	@make --no-print-directory -C ./tests
-# 	@make run --no-print-directory -C ./tests
+	@ar rcs $@ $^ $(LIB_OBJS) $(LIB_BOBJS)
 
 as_lib: makelib $(LIB)
 re: fclean all
