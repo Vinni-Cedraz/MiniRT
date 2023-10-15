@@ -30,7 +30,7 @@ t_intersection	create_intersection(t_sphere s, t_ray r)
 		}
 		else if (r.origin[Y] == 1 || r.origin[Y] == -1)
 		{
-			value = ft_abs(r.origin[Z] + r.direction[Z]);
+			value = ft_abs(r.origin[Z] + r.direction[Z]) + s.radius;
 			inter.head = ft_lstnew(value);
 			inter.count = 1;
 		}

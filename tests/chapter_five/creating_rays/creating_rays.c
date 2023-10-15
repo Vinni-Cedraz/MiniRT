@@ -14,7 +14,6 @@
 #include <criterion/internal/test.h>
 
 // Scenario: Creating and querying a ray
-
 # define scenario1 CYAN \
 "\nGiven origin ← point(1, 2, 3)\n" \
 "And direction ← vector(4, 5, 6)\n" \
@@ -45,9 +44,8 @@ Test(creating_rays, point_from_distance, .description = scenario2)
 	const t_ray ray = create_ray(
 			(t_tuple){2,3,4, POINT},
 			(t_tuple){1,0,0, VECTOR}
-			);
+	);
 	t_tuple	result;
-
 
 	get_point_from_distance(ray, 0, result);
 	cr_expect_tuple_eq(result, (t_tuple){2, 3, 4, POINT});
@@ -58,4 +56,3 @@ Test(creating_rays, point_from_distance, .description = scenario2)
 	get_point_from_distance(ray, 2.5, result);
 	cr_expect_tuple_eq(result, (t_tuple){4.5, 3, 4, POINT});
 }
-
