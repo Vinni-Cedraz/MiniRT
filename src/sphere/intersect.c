@@ -22,16 +22,16 @@ t_intersection	create_intersection(t_sphere s, t_ray r)
 	{
 		if (r.origin[Y] == 0)
 		{
-			value = s.origin[Z] + r.origin[Z];
-			inter.head = ft_lstnew(&value);
+			value = ft_abs(r.origin[Z] + r.direction[Z]);
+			inter.head = ft_lstnew(value);
 			inter.count = 2;
-			value = value + (s.radius * 2);
-			ft_lstadd_back(&inter.head, ft_lstnew(&value));
+			value += (s.radius * 2);
+			ft_lstadd_back(&inter.head, ft_lstnew(value));
 		}
 		else if (r.origin[Y] == 1 || r.origin[Y] == -1)
 		{
-			value = s.origin[Z] + r.origin[Z];
-			inter.head = ft_lstnew(&value);
+			value = ft_abs(r.origin[Z] + r.direction[Z]);
+			inter.head = ft_lstnew(value);
 			inter.count = 1;
 		}
 		else

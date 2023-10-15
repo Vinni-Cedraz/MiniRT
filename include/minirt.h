@@ -44,7 +44,7 @@
 typedef float			t_tuple[4];
 typedef float			t_3x3_row[3];
 typedef float			t_2x2_row[2];
-typedef char			t_bool;
+typedef _Bool			t_bool;
 typedef unsigned short	t_short;
 
 typedef struct s_canvas
