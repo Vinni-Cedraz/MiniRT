@@ -20,13 +20,13 @@ typedef unsigned int	t_ui;
 
 typedef struct s_nodes
 {
-	t_ui				t;
+	float				t;
 	t_node				*next;
 }						t_node;
 
 // LINKED LISTS BASIC FUNCTIONS
 // ft_lstnew creates a new node
-t_node					*ft_lstnew(int content);
+t_node					*ft_lstnew(float content);
 // ft_lstadd_back adds a new element at the end of a list
 void					ft_lstadd_back(t_node **head, t_node *new_node);
 // ft_lstadd_front adds a new element at the beginning of a list
