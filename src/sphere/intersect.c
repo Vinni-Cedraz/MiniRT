@@ -38,12 +38,12 @@ t_intersection	create_intersection(t_sphere s, t_ray r)
 	return (i);
 }
 
-t_bool	discriminant(t_sphere s, t_ray r)
+float discriminant(t_tuple sphere_to_ray, t_ray ray)
 {
-	const double a = dot(r.direction, r.direction);
-	const double b = 2 * dot(r.direction, s.origin);
-	const double c = dot(s.origin, s.origin) - 1;
-	const double discriminant = pow(b, 2) - 4 * a * c;
+	const float a = dot(ray.direction, ray.direction);
+	const float b = 2 * dot(ray.direction, sphere_to_ray);
+	const float c = dot(sphere_to_ray, sphere_to_ray) - 1;
+	const float discriminant = pow(b, 2) - 4 * a * c;
 
 	return (discriminant);
 }

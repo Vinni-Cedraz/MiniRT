@@ -1,5 +1,6 @@
 TESTS =		\
   intersecting_rays \
+  discriminant \
 
 INCS = -I../../ -I../../../include/ -I../../../libs/
 FLAGS = -O3 -lcriterion -lm -w
@@ -10,7 +11,7 @@ SHELL = /bin/zsh
 define compile_fn
 	if [[ ! -f $(1) ]] || [[ $(1).c -nt $(1) ]]; then \
 		$(CC) $(FLAGS) $(1).c $(INCS) $(LIBS) -o $(1) && printf "$(CC) $(FLAGS) $(1).c $(INCS) $(LIBS) -o $(1)\n"; \
-	fi
+	fi;
 endef
 
 define run_fn

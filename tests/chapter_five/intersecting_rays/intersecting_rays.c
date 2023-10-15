@@ -37,7 +37,7 @@ Test(intersecting_rays, tangent_intersection, .description = scenario2) {
 
 // Scenario : A ray misses a sphere
 #define scenario3 CYAN \
-				 "Given r ← ray(point(0, 2, -5), vector(0, 0, 1))\n" \
+				 "\nGiven r ← ray(point(0, 2, -5), vector(0, 0, 1))\n" \
 				 "And s ← sphere()\n" \
 				 "When i ← intersect(s, r)\n" \
 				 "Then i.count == 0\n" \
@@ -54,7 +54,7 @@ Test(intersecting_rays, intersects_nothing, .description = scenario3) {
 
 // Scenario : A ray originates inside a sphere
 #define scenario4 CYAN \
-					"Given r ← ray(point(0, 0, 0), vector(0, 0, 1))\n" \
+					"\nGiven r ← ray(point(0, 0, 0), vector(0, 0, 1))\n" \
 					"And s ← sphere()\n" \
 					"When i ← intersect(s, r)\n" \
 					"Then i.count = 2\n" \
@@ -73,7 +73,7 @@ Test(intersecting_rays, ray_starts_inside_of_a_sphere, .description = scenario4)
 
 // Scenario : A sphere is behind a ray
 #define scenario5 CYAN \
-				"Given r ← ray(point(0, 0, 5), vector(0, 0, 1))And s ← sphere()\n" \
+				"\nGiven r ← ray(point(0, 0, 5), vector(0, 0, 1))And s ← sphere()\n" \
 				"When i ← intersect(s, r)\n" \
 				"Then i.count == 2\n" \
 				"And i.head->t == -6.0\n" \
@@ -91,25 +91,4 @@ Test(intersecting_rays, sphere_is_behind_the_ray, .description = scenario5) {
 		printf(RED"intersect.head->next->t %f\n"RESET, intersect.head->next->t);
 	cr_expect_eq(TRUE, floats_eq(intersect.head->t, -6.0));
 	cr_expect_eq(TRUE, floats_eq(intersect.head->next->t, -4.0));
-}
-
-// Scenario: calculating the discriminant when there is no intersection
-#define scenario6 CYAN \
-			"Given ray.origin(0, 2, -5)\n" \
-			"And ray.direction(0, 0, 1)\n" \
-			"And sphere <- sphere()\n" \
-			"And point distance_sphere_to_ray <- subtract_vecs(ray.origin - sphere.origin)\n" \
-			"When discriminant ← discriminant(ray, distance_sphere_to_ray)\n" \
-			"Then discriminant should be a negative value" RESET
-
-// Copilot, you should calculate the discriminant, take a look at scenario6 description!
-Test(intersecting_rays, discriminant, .description = scenario6) {
-	const t_ray r = create_ray((t_tuple){0, 2, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_sphere s = create_sphere();
-	
-	cr_expect_eq(discriminant(s, r) < 0, TRUE);
-	printf(RED"discriminant: %f\n"RESET, discriminant(s, r));
-	// cr_expect_eq(TRUE, floats_eq(discriminant == 4.0));
-	// cr_expect_eq(TRUE, floats_eq(intersect.list.value[Z] == -1.0));
-	// cr_expect_eq(TRUE, floats_eq(intersect.list.next->value[Z] == 1.0));
 }
