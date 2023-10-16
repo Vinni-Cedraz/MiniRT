@@ -17,5 +17,24 @@
    "intersecting_rays"
   ],
   "file": "intersecting_rays.c"
+ },
+ {
+  "directory": "/root/MiniRT/tests/chapter_five/intersecting_rays",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-w",
+   "discriminant.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "discriminant"
+  ],
+  "file": "discriminant.c"
  }
 ]
