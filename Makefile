@@ -67,7 +67,7 @@ clean:
 	@make clean --no-print-directory -C libs/
 	rm -rf $(BUILD_DIR_RT)
 
-fclean: mlxclean clean
+fclean: clean
 	@echo "Fully Cleaning..."
 	@make fclean --no-print-directory -C ./libs/
 	@make clean --no-print-directory -C ./tests
@@ -80,7 +80,7 @@ $(LIB): $(LIBMLX_TARGET) $(OBJS)
 	@printf "\n$(YELLOW)[ linking ] $(DEF_COLOR)objects into library $(YELLOW)$@ $(DEF_COLOR)\n"
 	@ar rcs $@ $^ $(LIB_OBJS) $(LIB_BOBJS)
 
-as_lib: makelib $(LIB)
+as_lib: $(NAME) $(LIB)
 re: fclean all
 
 # COLORS
