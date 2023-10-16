@@ -80,7 +80,7 @@ $(LIB): $(LIBMLX_TARGET) $(OBJS)
 	@printf "\n$(YELLOW)[ linking ] $(DEF_COLOR)objects into library $(YELLOW)$@ $(DEF_COLOR)\n"
 	@ar rcs $@ $^ $(LIB_OBJS) $(LIB_BOBJS)
 
-as_lib: $(NAME) $(LIB)
+as_lib: all makelib
 re: fclean all
 
 # COLORS
