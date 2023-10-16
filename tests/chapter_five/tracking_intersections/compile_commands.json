@@ -14,7 +14,7 @@
    "../../../libs/*.a",
    "../../../minirt.a",
    "-o",
-   "tracking_intersections"
+   "tracking_intersections.c"
   ],
   "file": "tracking_intersections.c"
  }

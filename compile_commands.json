@@ -511,5 +511,24 @@
    "build/intersect.o"
   ],
   "file": "./src/sphere/intersect.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/abstract/intersection.c",
+   "-o",
+   "build/intersection.o"
+  ],
+  "file": "./src/abstract/intersection.c"
  }
 ]

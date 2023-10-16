@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/14 17:36:01 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/16 16:41:51 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ typedef float			t_3x3_row[3];
 typedef float			t_2x2_row[2];
 typedef _Bool			t_bool;
 typedef unsigned short	t_short;
+
+typedef enum e_num {
+	SPHERE,
+} t_enum;
 
 typedef struct s_canvas
 {
@@ -97,6 +101,7 @@ typedef struct s_ray
 typedef struct s_phere
 {
 	unsigned short		id;
+	int					type;
 	t_tuple				origin;
 	t_short				radius;
 }						t_sphere;
@@ -177,5 +182,7 @@ t_sphere				create_sphere(void);
 t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
 t_intersection			create_intersection(t_sphere s, t_ray r);
 float					discriminant(t_tuple sphere_to_ray, t_ray r);
+t_node 					*intersection(float point, void *obj);
+t_intersection			create_intersections(t_node *x, t_node *y);
 
 #endif
