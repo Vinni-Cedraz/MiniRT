@@ -16,4 +16,4 @@ jobs:
     - name: Build project
       run: make
     - name: Make test
-      run: make t
+      run: make -C tests && make run -C tests
