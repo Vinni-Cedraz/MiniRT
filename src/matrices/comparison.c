@@ -42,7 +42,7 @@ t_bool	_2x2matrices_eq(t_2x2matrix a, t_2x2matrix b)
 	return (!res);
 }
 
-t_bool	tuples_neq(const t_tuple result, const t_tuple expected, int len)
+t_bool	tuples_neq(const float *result, const float *expected, int len)
 {
 	int	i;
 

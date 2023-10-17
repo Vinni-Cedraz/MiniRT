@@ -145,7 +145,7 @@ t_matrix				transpose_matrix(t_matrix a);
 float					_2x2determinant(const t_2x2matrix m);
 t_2x2matrix				_3x3submatrix(const t_3x3matrix m, int not_row,
 							int col_to_delete);
-t_bool					tuples_neq(const t_tuple result, const t_tuple expected,
+t_bool					tuples_neq(const float *result, const float *expected,
 							int len);
 t_bool					_3x3matrices_eq(t_3x3matrix a, t_3x3matrix b);
 t_bool					_2x2matrices_eq(t_2x2matrix a, t_2x2matrix b);
