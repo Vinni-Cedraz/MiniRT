@@ -57,7 +57,7 @@ Test(intersection, aggregation_intersections, .description = scenario2)
 	const t_node *i1 = intersection(1, (void*)&s);
 	const t_node *i2 = intersection(2, (void*)&s);
 
-	const t_intersection xs = create_intersections(i1, i2);
+	const t_intersection xs = link_intersection_nodes(i1, i2);
 
 	cr_expect_eq(xs.count, 2);
 	cr_expect_eq(xs.head->t, 1);
