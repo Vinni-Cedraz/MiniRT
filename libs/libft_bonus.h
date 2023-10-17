@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:07:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/16 16:14:40 by johmatos         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:44:17 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 typedef struct s_nodes	t_node;
 typedef unsigned int	t_ui;
 
+typedef struct s_obj t_object;
+
 typedef struct s_nodes
 {
 	float				t;
-	void				*object;
+	t_object			*object;
 	t_node				*next;
 }						t_node;
 

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/16 16:41:51 by johmatos         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:42:19 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,17 @@ typedef struct s_intersect
 	t_node				*head;
 	t_short				count;
 }						t_intersection;
+
+union u_obj {
+	t_sphere *sphere;
+};
+
+typedef struct s_obj
+{
+	t_enum tag;
+	union u_obj obj;
+} t_object;
+
 
 void					create_point(t_tuple tuple);
 void					create_vector(t_tuple tuple);
