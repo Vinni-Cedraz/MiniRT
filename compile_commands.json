@@ -511,5 +511,24 @@
    "build/abstract.o"
   ],
   "file": "./src/intersections/abstract.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/intersections/get_hit.c",
+   "-o",
+   "build/get_hit.o"
+  ],
+  "file": "./src/intersections/get_hit.c"
  }
 ]

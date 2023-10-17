@@ -36,6 +36,7 @@ t_intersection	link_intersection_nodes(t_node *arr[])
 			ft_lstadd_back(&i.head, arr[idx]);
 		idx++;
 	}
+	i.count = idx;
 	return (i);
 }
 

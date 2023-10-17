@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/17 16:42:19 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:13:11 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,5 +195,6 @@ t_intersection			create_intersection(t_sphere s, t_ray r);
 float					discriminant(t_tuple sphere_to_ray, t_ray r);
 t_node 					*intersection(float point, void *obj);
 t_intersection			link_intersection_nodes(t_node *arr[]);
+t_node					*get_hit(t_intersection i);
 
 #endif
