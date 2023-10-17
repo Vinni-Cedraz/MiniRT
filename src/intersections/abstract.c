@@ -22,13 +22,20 @@ t_node *intersection(float point, void *obj)
 	return (lst);
 }
 
-t_intersection	link_intersection_nodes(t_node *x, t_node *y)
+t_intersection	link_intersection_nodes(t_node *arr[])
 {
 	t_intersection	i;
+	int idx;
 
-	i.head = intersection(x->t, x->object);
-	ft_lstadd_back(&i.head, intersection(y->t, y->object));
-	i.count = 2;
+	idx = 0;
+	while (arr[idx] != NULL)
+	{
+		if (idx == 0)
+			i.head = arr[idx];
+		else
+			ft_lstadd_back(&i.head, arr[idx]);
+		idx++;
+	}
 	return (i);
 }
 

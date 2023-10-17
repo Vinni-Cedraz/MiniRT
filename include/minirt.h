@@ -194,6 +194,6 @@ t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
 t_intersection			create_intersection(t_sphere s, t_ray r);
 float					discriminant(t_tuple sphere_to_ray, t_ray r);
 t_node 					*intersection(float point, void *obj);
-t_intersection			link_intersection_nodes(t_node *x, t_node *y);
+t_intersection			link_intersection_nodes(t_node *arr[]);
 
 #endif
