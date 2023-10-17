@@ -22,7 +22,7 @@ t_node *intersection(float point, void *obj)
 	return (lst);
 }
 
-t_intersection	create_intersections(t_node *x, t_node *y)
+t_intersection	link_intersection_nodes(t_node *x, t_node *y)
 {
 	t_intersection	i;
 

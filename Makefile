@@ -23,9 +23,9 @@ SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c \
 	  complex_tuple_operations.c create_tuples.c mult_matrices.c comparison.c \
 	  transpose_matrix.c 2x2determinant.c large_determinants.c minors.c submatrices.c \
       invert_matrix.c create_matrix.c translation.c rotation.c shearing.c scaling.c \
-      translate_coordinate.c rays.c point.c create.c intersect.c intersection.c
+      translate_coordinate.c rays.c point.c create.c abstract.c
 
-VPATH= ./src ./src/canvas/ ./src/tuples/ ./src/ppm/ ./src/matrices ./src/matrix_transformations ./src/rays ./src/sphere ./src/abstract
+VPATH = ./src ./src/canvas/ ./src/tuples/ ./src/ppm/ ./src/matrices ./src/matrix_transformations ./src/rays ./src/sphere ./src/intersections
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/
 C_FLAGS = -Wall -Werror -Wextra -g 
