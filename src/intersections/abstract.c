@@ -43,35 +43,30 @@ t_intersection	link_intersection_nodes(t_node *arr[])
 t_intersection	create_intersection(t_sphere s, t_ray r)
 {
 	t_intersection	i;
+	float 			dis;
+	t_tuple			sphere_to_ray;
+	t_baskara		bask;
 
-	ft_bzero((void *)&i, sizeof(t_intersection));
-	if (r.origin[Y] == 0)
+	r = transform_ray(r, s.inverse_t);
+	subtract_tuples(r.origin, s.origin, sphere_to_ray);
+	dis = discriminant(sphere_to_ray, r, &bask);
+	if (dis < 0)
 	{
-		i.count = 2;
-		if (r.origin[X] == 0 && r.origin[Z] == 0)
-			i.head = intersection(-s.radius, &s);
-		else if (r.origin[Z] < 0)
-			i.head = intersection(ft_abs(r.origin[Z] + r.direction[Z]), &s);
-		else if (r.origin[Z] > 0)
-			i.head = intersection(-1 * (r.origin[Z] + r.direction[Z]), &s);
-		ft_lstadd_back(&i.head, intersection(i.head->t + s.radius * 2, &s));
-	}
-	else if (r.origin[Y] == 1 || r.origin[Y] == -1)
-	{
-		i.head = intersection(ft_abs(r.origin[Z] + r.direction[Z]) + s.radius, &s);
-		i.count = 1;
-	}
-	else
 		i.count = 0;
+		i.head = NULL;
+		return i;
+	}
+	i.head = intersection((((bask.b * -1) - sqrt(dis)) / (2 * bask.a)), &s);
+	i.head->next = intersection((((bask.b * -1) + sqrt(dis)) / (2 * bask.a)), &s);
 	return (i);
 }
 
-float discriminant(t_tuple sphere_to_ray, t_ray ray)
+float discriminant(t_tuple sphere_to_ray, t_ray ray, t_baskara *bask)
 {
-	const float a = dot(ray.direction, ray.direction);
-	const float b = 2 * dot(ray.direction, sphere_to_ray);
-	const float c = dot(sphere_to_ray, sphere_to_ray) - 1;
-	const float discriminant = pow(b, 2) - 4 * a * c;
+	bask->a = dot(ray.direction, ray.direction);
+	bask->b = 2 * dot(ray.direction, sphere_to_ray);
+	bask->c = dot(sphere_to_ray, sphere_to_ray) - 1;
+	const float discriminant = pow(bask->b, 2) - 4 * bask->a * bask->c;
 
 	return (discriminant);
 }

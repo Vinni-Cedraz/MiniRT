@@ -126,6 +126,13 @@ typedef struct s_obj
 	union u_obj			obj;
 }						t_object;
 
+typedef struct s_baskara
+{
+	float a;
+	float b;
+	float c;
+}						t_baskara;
+
 void					create_point(t_tuple tuple);
 void					create_vector(t_tuple tuple);
 t_bool					floats_eq(float a, float b);
@@ -195,7 +202,7 @@ t_ray					create_ray(t_tuple origin, t_tuple direction);
 t_sphere				create_sphere(void);
 t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
 t_intersection			create_intersection(t_sphere s, t_ray r);
-float					discriminant(t_tuple sphere_to_ray, t_ray r);
+float					discriminant(t_tuple sphere_to_ray, t_ray ray, t_baskara *bask);
 t_node					*intersection(float point, void *obj);
 t_intersection			link_intersection_nodes(t_node *arr[]);
 t_node					*get_hit(t_intersection i);
