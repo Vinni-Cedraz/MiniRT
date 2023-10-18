@@ -104,6 +104,7 @@ typedef struct s_phere
 	int					type;
 	t_tuple				origin;
 	t_short				radius;
+	t_matrix			transform;
 }						t_sphere;
 
 typedef struct s_intersect

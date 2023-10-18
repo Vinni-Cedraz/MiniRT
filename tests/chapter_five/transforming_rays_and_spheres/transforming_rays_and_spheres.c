@@ -35,18 +35,18 @@ Test(suite, scaling_a_ray, .description = scenario2) {
 	cr_expect_tuple_eq(r2.origin, expected.origin);
 	cr_expect_tuple_eq(r2.direction, expected.direction);
 }
-// 	
-// // Scenario : A sphere's default transformation
-// #define scenario3 CYAN "\nGiven s ← sphere()\n"                              \
-// "\nThen s.transform = identity_matrix" RESET
-//
-// Test(suite, default_sphere_transformation, .description = scenario3) {
-// 	const t_sphere s = create_sphere();
-// 	const t_matrix expected = create_identity_matrix();
-//
-// 	cr_expect_tuple_eq(s.transform, expected);
-// }
-//
+ 	
+// Scenario : A sphere's default transformation
+#define scenario3 CYAN "\nGiven s ← sphere()\n"                              \
+"\nThen s.transform = identity_matrix" RESET
+
+Test(suite, default_sphere_transformation, .description = scenario3) {
+	const t_sphere s = create_sphere();
+	const t_matrix expected = create_identity_matrix();
+
+	cr_expect_matrices_eq(s.transform, expected);
+}
+
 // // Scenario : Changing a sphere's transformation
 // #define scenario4 CYAN "\nGiven s ← sphere()\n"                              \
 // "And T ← translation(2, 3, 4)\n"                                             \

@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -19,7 +19,7 @@
   "file": "./src/minirt.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -38,7 +38,7 @@
   "file": "./src/ppm/canvas_to_ppm.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -57,7 +57,7 @@
   "file": "./src/ppm/canvas_to_ppm_aux.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -76,7 +76,7 @@
   "file": "./src/canvas/create_canvas.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -95,7 +95,7 @@
   "file": "./src/canvas/write_pixel.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -114,7 +114,7 @@
   "file": "./src/tuples/basic_tuple_operations.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -133,7 +133,7 @@
   "file": "./src/tuples/compare_floats.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -152,7 +152,7 @@
   "file": "./src/tuples/complex_tuple_operations.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -171,7 +171,7 @@
   "file": "./src/tuples/create_tuples.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -190,7 +190,7 @@
   "file": "./src/matrices/mult_matrices.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -209,7 +209,7 @@
   "file": "./src/matrices/comparison.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -228,7 +228,7 @@
   "file": "./src/matrices/transpose_matrix.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -247,7 +247,7 @@
   "file": "./src/matrices/2x2determinant.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -266,7 +266,7 @@
   "file": "./src/matrices/large_determinants.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -285,7 +285,7 @@
   "file": "./src/matrices/minors.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -304,7 +304,7 @@
   "file": "./src/matrices/submatrices.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -323,7 +323,7 @@
   "file": "./src/matrices/invert_matrix.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -342,7 +342,7 @@
   "file": "./src/matrices/create_matrix.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -361,7 +361,7 @@
   "file": "./src/matrix_transformations/translation.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -380,7 +380,7 @@
   "file": "./src/matrix_transformations/rotation.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -399,7 +399,7 @@
   "file": "./src/matrix_transformations/shearing.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -418,7 +418,7 @@
   "file": "./src/matrix_transformations/scaling.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -437,7 +437,7 @@
   "file": "./src/canvas/translate_coordinate.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -456,7 +456,7 @@
   "file": "./src/rays/rays.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -475,7 +475,7 @@
   "file": "./src/rays/point.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -494,7 +494,7 @@
   "file": "./src/sphere/create.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -513,7 +513,7 @@
   "file": "./src/intersections/abstract.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -532,7 +532,7 @@
   "file": "./src/intersections/get_hit.c"
  },
  {
-  "directory": "/root/minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",

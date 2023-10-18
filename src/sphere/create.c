@@ -19,7 +19,8 @@ t_sphere	create_sphere(void)
 		.origin = {0, 0, 0, POINT},
 		.id = call_counter++,
 		.radius = 1,
-		.type = SPHERE
+		.type = SPHERE,
+		.transform = create_identity_matrix(),
 	};
 
 	return (sphere);
