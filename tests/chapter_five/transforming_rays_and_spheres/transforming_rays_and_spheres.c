@@ -1,4 +1,5 @@
 #include "../../tester.h"
+#include <criterion/internal/assert.h>
 
 #define suite transforming_rays_and_spheres
 // Scenario : Translating a ray
@@ -82,9 +83,19 @@ Test(suite, intersecting_scaled_sphere_with_a_ray, .description = scenario5) {
 
 
 // Scenario : Intersecting a translated sphere with a ray
-#define scenario6 CYAN\n  \
+#define scenario6 CYAN  \
 "\nGiven r ← ray(point(0, 0, -5), vector(0, 0, 1))\n" \
 "And s ← sphere()\n"                                                         \
 "When s.transform = translation(5, 0, 0)\n"                                  \
 "And xs ← intersect(s, r)\n"                                                 \
 "Then xs.count = 0" RESET
+
+Test(suite, intersecting_a_translated_sphere, .description = scenario6)
+{
+	const t_ray	r = create_ray((t_tuple){0,0, -5}, (t_tuple){0,0,1});
+	const t_sphere s = create_sphere();
+	const t_intersection xs = create_intersection(s, r);
+	s.transform = create_translation_matrix((t_tuple){5, 0, 0, POINT});
+
+	cr_expect_eq(xs.count, 0);
+}
