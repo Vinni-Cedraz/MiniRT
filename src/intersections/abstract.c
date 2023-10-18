@@ -13,9 +13,9 @@
 #include "libft_bonus.h"
 #include "minirt.h"
 
-t_node *intersection(float point, void *obj)
+t_node	*intersection(float point, void *obj)
 {
-	t_node *lst;
+	t_node	*lst;
 
 	lst = ft_lstnew(point);
 	lst->object = obj;
@@ -25,7 +25,7 @@ t_node *intersection(float point, void *obj)
 t_intersection	link_intersection_nodes(t_node *arr[])
 {
 	t_intersection	i;
-	int idx;
+	int				idx;
 
 	idx = 0;
 	while (arr[idx] != NULL)
@@ -43,7 +43,7 @@ t_intersection	link_intersection_nodes(t_node *arr[])
 t_intersection	create_intersection(t_sphere s, t_ray r)
 {
 	t_intersection	i;
-	float 			dis;
+	float			dis;
 	t_tuple			sphere_to_ray;
 	t_baskara		bask;
 
@@ -54,19 +54,19 @@ t_intersection	create_intersection(t_sphere s, t_ray r)
 	{
 		i.count = 0;
 		i.head = NULL;
-		return i;
+		return (i);
 	}
-	i.head = intersection((((bask.b * -1) - sqrt(dis)) / (2 * bask.a)), &s);
-	i.head->next = intersection((((bask.b * -1) + sqrt(dis)) / (2 * bask.a)), &s);
+	i = link_intersection_nodes((t_node *[]){
+			intersection(((bask.b * -1 - sqrt(dis)) / (2 * bask.a)), &s),
+			intersection(((bask.b * -1 + sqrt(dis)) / (2 * bask.a)), &s),
+		});
 	return (i);
 }
 
-float discriminant(t_tuple sphere_to_ray, t_ray ray, t_baskara *bask)
+float	discriminant(t_tuple sphere_to_ray, t_ray ray, t_baskara *bask)
 {
 	bask->a = dot(ray.direction, ray.direction);
 	bask->b = 2 * dot(ray.direction, sphere_to_ray);
 	bask->c = dot(sphere_to_ray, sphere_to_ray) - 1;
-	const float discriminant = pow(bask->b, 2) - 4 * bask->a * bask->c;
-
-	return (discriminant);
+	return (pow(bask->b, 2) - 4 * bask->a * bask->c);
 }
