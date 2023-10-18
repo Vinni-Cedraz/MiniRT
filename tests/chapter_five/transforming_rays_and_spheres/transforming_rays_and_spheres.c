@@ -47,19 +47,19 @@ Test(suite, default_sphere_transformation, .description = scenario3) {
 	cr_expect_matrices_eq(s.transform, expected);
 }
 
-// // Scenario : Changing a sphere's transformation
-// #define scenario4 CYAN "\nGiven s ← sphere()\n"                              \
-// "And T ← translation(2, 3, 4)\n"                                             \
-// "When s.transform = T\n"                                                 \
-// "Then s.transform == T" RESET
-//
-// Test(suite, changing_sphere_transformation, .description = scenario4) {
-// 	const t_sphere s = create_sphere();
-// 	s.transform = create_translation_matrix((t_tuple){2, 3, 4, POINT});
-//
-// 	cr_expect_tuple_eq(s.transform, create_translation_matrix((t_tuple){2, 3, 4, POINT}));
-// }
-//
+// Scenario : Changing a sphere's transformation
+ #define scenario4 CYAN "\nGiven s ← sphere()\n"                         \
+ "And T ← translation(2, 3, 4)\n"                                        \
+ "When s.transform = T\n"                                                \
+ "Then s.transform == T" RESET
+
+ Test(suite, changing_sphere_transformation, .description = scenario4) {
+ 	t_sphere s = create_sphere();
+ 	s.transform = create_translation_matrix((t_tuple){2, 3, 4, POINT});
+
+ 	cr_expect_matrices_eq(s.transform, create_translation_matrix((t_tuple){2, 3, 4, POINT}));
+}
+
 // // Scenario : Intersecting a scaled sphere with a ray
 // #define scenario5 CYAN \
 // "\nGiven r ← ray(point(0, 0, -5), vector(0, 0, 1))\n" \
