@@ -196,5 +196,6 @@ float					discriminant(t_tuple sphere_to_ray, t_ray r);
 t_node 					*intersection(float point, void *obj);
 t_intersection			link_intersection_nodes(t_node *arr[]);
 t_node					*get_hit(t_intersection i);
+t_matrix				create_identity_matrix(void);
 
 #endif
