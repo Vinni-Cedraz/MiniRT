@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create.c                                           :+:      :+:    :+:   */
+/*   set_sphere_matrices_T.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 17:17:20 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/16 16:29:31 by johmatos         ###   ########.fr       */
+/*   Created: 2023/10/18 17:41:26 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/10/18 17:42:09 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_sphere	create_sphere(void)
+void	set_sphere_matrices_t(t_sphere *s, t_matrix t)
 {
-	static t_short	call_counter;
-	const t_sphere	sphere = {
-		.origin = {0, 0, 0, POINT},
-		.id = call_counter++,
-		.radius = 1,
-		.type = SPHERE,
-		._t = create_identity_matrix(),
-		.inverse_t = create_identity_matrix(),
-	};
-
-	return (sphere);
+	s->_t = t;
+	s->inverse_t = invert_matrix(t);
 }

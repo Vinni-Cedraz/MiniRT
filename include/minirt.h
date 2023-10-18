@@ -47,9 +47,10 @@ typedef float			t_2x2_row[2];
 typedef _Bool			t_bool;
 typedef unsigned short	t_short;
 
-typedef enum e_num {
+typedef enum e_num
+{
 	SPHERE,
-} t_enum;
+}						t_enum;
 
 typedef struct s_canvas
 {
@@ -104,7 +105,8 @@ typedef struct s_phere
 	int					type;
 	t_tuple				origin;
 	t_short				radius;
-	t_matrix			transform;
+	t_matrix			_t;
+	t_matrix			inverse_t;
 }						t_sphere;
 
 typedef struct s_intersect
@@ -113,16 +115,16 @@ typedef struct s_intersect
 	t_short				count;
 }						t_intersection;
 
-union u_obj {
-	t_sphere *sphere;
+union					u_obj
+{
+	t_sphere			*sphere;
 };
 
 typedef struct s_obj
 {
-	t_enum tag;
-	union u_obj obj;
-} t_object;
-
+	t_enum				tag;
+	union u_obj			obj;
+}						t_object;
 
 void					create_point(t_tuple tuple);
 void					create_vector(t_tuple tuple);
@@ -194,10 +196,11 @@ t_sphere				create_sphere(void);
 t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
 t_intersection			create_intersection(t_sphere s, t_ray r);
 float					discriminant(t_tuple sphere_to_ray, t_ray r);
-t_node 					*intersection(float point, void *obj);
+t_node					*intersection(float point, void *obj);
 t_intersection			link_intersection_nodes(t_node *arr[]);
 t_node					*get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
-t_ray 					transform_ray(t_ray ray, t_matrix matrix);
+t_ray					transform_ray(t_ray ray, t_matrix matrix);
+void					set_sphere_matrices_t(t_sphere *s, t_matrix t);
 
 #endif
