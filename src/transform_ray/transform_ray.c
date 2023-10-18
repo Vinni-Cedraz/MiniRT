@@ -15,5 +15,6 @@
 t_ray transform_ray(t_ray ray, t_matrix matrix)
 {
 	multiply_tuple_by_matrix(ray.origin, matrix, ray.origin);
+	multiply_tuple_by_matrix(ray.direction, matrix, ray.direction);
 	return (ray);
 }
