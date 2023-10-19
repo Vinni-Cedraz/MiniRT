@@ -62,6 +62,11 @@ static inline t_bool	cr_expect_matrices_eq(t_matrix a, t_matrix b)
 	return (!res);
 }
 
+static inline int invert_axis(int size, float axis)
+{
+	return ((int)size - axis);
+}
+
 #define scenario1 CYAN \
 "\nGiven point(0, 0, 0, POINT)\n"\
 "And canvas(500, 500)\n" \

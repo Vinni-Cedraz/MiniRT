@@ -21,10 +21,9 @@ Test(suite_name, projectile_goes_up_and_down) {
     const t_environment e = {.gravity = {0, -0.1, 0}, .wind = {-0.01, 0, 0}};
     t_canvas c = create_canvas(550, 900);
 
-    while ((p.position[Y] >= 0) && (p.position[Y] < c.height) &&
-           (p.position[X] < c.width)) {
-        y = (int)c.height - p.position[Y];
-        x = (int)p.position[X];
+    while ((p.position[Y] >= 0) && (p.position[Y] < c.height) && (p.position[X] < c.width)) {
+        y = invert_axis(c.height, p.position[Y]);
+        x = invert_axis(c.width, p.position[X]);
         write_pixel(&c, y, x, (t_tuple){1, 0, 0, COLOR});
         p = tick(e, p);
     }

@@ -2,7 +2,7 @@ TESTS =		\
   putting_it_together \
 
 INCS = -I../../ -I../../../include/ -I../../../libs/
-FLAGS = -O3 -lcriterion -lm -w
+FLAGS = -g -lcriterion -lm -w
 LIBS = ../../../libs/*.a ../../../minirt.a
 RM = rm -f
 SHELL = /bin/zsh
