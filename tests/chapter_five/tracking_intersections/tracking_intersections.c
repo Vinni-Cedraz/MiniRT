@@ -56,7 +56,7 @@ Test(intersection, aggregation_intersections, .description = scenario2)
 	const t_sphere s = create_sphere();
 	const t_node *i1 = intersection(1, (void*)&s);
 	const t_node *i2 = intersection(2, (void*)&s);
-	const t_node *arr[] = {i1, i2};
+	const t_node *arr[] = {i1, i2, NULL};
 	const t_intersection xs = link_intersection_nodes(arr);
 
 	cr_expect_eq(xs.count, 2);

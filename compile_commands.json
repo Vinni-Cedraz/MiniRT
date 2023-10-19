@@ -530,5 +530,43 @@
    "build/get_hit.o"
   ],
   "file": "./src/intersections/get_hit.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/transform_ray/transform_ray.c",
+   "-o",
+   "build/transform_ray.o"
+  ],
+  "file": "./src/transform_ray/transform_ray.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/set_sphere_matrices_T.c",
+   "-o",
+   "build/set_sphere_matrices_T.o"
+  ],
+  "file": "./src/sphere/set_sphere_matrices_T.c"
  }
 ]

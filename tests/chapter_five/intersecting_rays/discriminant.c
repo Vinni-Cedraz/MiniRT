@@ -15,9 +15,9 @@ Test(discriminant, negative_discriminant_no_intersections, .description = scenar
 	t_tuple distance_sphere_to_ray;
 
 	subtract_tuples(ray.origin, s.origin, distance_sphere_to_ray);
-	if (discriminant(distance_sphere_to_ray, ray) >= 0)
-		printf(RED"discriminant: %f\n"RESET, discriminant(distance_sphere_to_ray, ray));
-	cr_expect_eq(discriminant(distance_sphere_to_ray, ray) < 0, TRUE);
+	if (discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) >= 0)
+		printf(RED"discriminant: %f\n"RESET, discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}));
+	cr_expect_eq(discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) < 0, TRUE);
 }
 
 // Scenario: calculating the discriminant when there are two intersections:
@@ -35,9 +35,9 @@ Test(discriminant, positive_discriminant_two_intersections, .description = scena
 	t_tuple distance_sphere_to_ray;
 
 	subtract_tuples(ray.origin, s.origin, distance_sphere_to_ray);
-	if (discriminant(distance_sphere_to_ray, ray) < 0)
-		printf(RED"discriminant: %f\n"RESET, discriminant(distance_sphere_to_ray, ray));
-	cr_expect_eq(discriminant(distance_sphere_to_ray, ray) >= 0, TRUE);
+	if (discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) < 0)
+		printf(RED"discriminant: %f\n"RESET, discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}));
+	cr_expect_eq(discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) >= 0, TRUE);
 }
 
 // Scenario: calculating the discriminant when the ray is inside the sphere
@@ -55,9 +55,9 @@ Test(discriminant, inside_sphere_positive_discriminant, .description = scenario3
 	t_tuple distance_sphere_to_ray;
 
 	subtract_tuples(ray.origin, s.origin, distance_sphere_to_ray);
-	if (discriminant(distance_sphere_to_ray, ray) < 0)
-		printf(RED"discriminant: %f\n"RESET, discriminant(distance_sphere_to_ray, ray));
-	cr_expect_eq(discriminant(distance_sphere_to_ray, ray) >= 0, TRUE);
+	if (discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) < 0)
+		printf(RED"discriminant: %f\n"RESET, discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}));
+	cr_expect_eq(discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) >= 0, TRUE);
 }
 
 // Scenario: calculatin the discriminant when there is a single intersection (at the tangent of the sphere)
@@ -76,7 +76,7 @@ Test(discriminant, single_intersection_discriminant_is_zero, .description = scen
 	t_tuple distance_sphere_to_ray;
 	
 	subtract_tuples(ray.origin, s.origin, distance_sphere_to_ray);
-	if (discriminant(distance_sphere_to_ray, ray) < 0)
-		printf(RED"discriminant: %f\n"RESET, discriminant(distance_sphere_to_ray, ray));
-	cr_expect_eq(discriminant(distance_sphere_to_ray, ray) >= 0, TRUE);
+	if (discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) < 0)
+		printf(RED"discriminant: %f\n"RESET, discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}));
+	cr_expect_eq(discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) >= 0, TRUE);
 }

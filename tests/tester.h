@@ -51,6 +51,17 @@ static inline void create_ppm_file(t_constr ppm_string) {
 	close(fd);
 }
 
+static inline t_bool	cr_expect_matrices_eq(t_matrix a, t_matrix b)
+{
+	int	res;
+
+	res = cr_expect_tuple_eq(a.row_1, b.row_1);
+	res = cr_expect_tuple_eq(a.row_2, b.row_2);
+	res = cr_expect_tuple_eq(a.row_3, b.row_3);
+	res = cr_expect_tuple_eq(a.row_4, b.row_4);
+	return (!res);
+}
+
 #define scenario1 CYAN \
 "\nGiven point(0, 0, 0, POINT)\n"\
 "And canvas(500, 500)\n" \

@@ -35,3 +35,16 @@ t_2x2matrix	create_2x2_matrix(t_2x2matrix *m)
 	m->rows[ROW2] = (float *)m->row_2;
 	return (*m);
 }
+
+t_matrix	create_identity_matrix(void)
+{
+	const t_matrix	identity = {
+		.row_1 = {1, 0, 0, 0},
+		.row_2 = {0, 1, 0, 0},
+		.row_3 = {0, 0, 1, 0},
+		.row_4 = {0, 0, 0, 1},
+		.rows = {identity.row_1, identity.row_2, identity.row_3, identity.row_4
+	}};
+
+	return (identity);
+}
