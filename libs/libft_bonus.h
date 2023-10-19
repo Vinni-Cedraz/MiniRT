@@ -18,7 +18,7 @@
 typedef struct s_nodes	t_node;
 typedef unsigned int	t_ui;
 
-typedef struct s_obj t_object;
+typedef struct s_obj	t_object;
 
 typedef struct s_nodes
 {

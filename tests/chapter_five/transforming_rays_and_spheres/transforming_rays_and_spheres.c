@@ -2,8 +2,9 @@
 #include <criterion/internal/assert.h>
 
 #define suite transforming_rays_and_spheres
+
 // Scenario : Translating a ray
-#define scenario1 CYAN "\nGiven r ← ray(point(1, 2, 3), vector(0, 1, 0))\n" \
+ #define scenario1 CYAN "\nGiven r ← ray(point(1, 2, 3), vector(0, 1, 0))\n" \
 "And T ← translation(3, 4, 5)\n"                                  \
 "When r2 ←  transform_ray(r, T) \n"                                     \
 "Then r2.origin = point(4, 6, 8)\n"                               \
@@ -98,7 +99,7 @@ Test(suite, intersecting_a_translated_sphere, .description = scenario6)
 {
 	t_sphere s;
 	t_intersection xs;
-	const t_ray	r = create_ray((t_tuple){0,0, -5}, (t_tuple){0,0,1});
+	const t_ray	r = create_ray((t_tuple){0,0, -5, POINT}, (t_tuple){0,0,1, VECTOR});
 	const t_matrix t = create_translation_matrix((t_tuple){5, 0, 0, POINT});
 
  	s = create_sphere();
