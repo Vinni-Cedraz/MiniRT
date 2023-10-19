@@ -10,11 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
 #include "minirt.h"
 #include "tester.h"
-#include <criterion/internal/assert.h>
-#include <criterion/internal/test.h>
+#include <stdio.h>
 
 // Scenario : The hit, when all intersections have positive t
 #define scenario1 CYAN \
@@ -25,13 +23,12 @@
 "When hit ← get_hit(xs)\n" \
 "Then hit = i1\n" RESET
 
-Test(identifying_hits, positive_t, .description = scenario1)
-{
+Test(identifying_hits, positive_t, .description = scenario1) {
 	const t_sphere s = create_sphere();
 	const t_node *i1 = intersection(1, (void *)&s);
 	const t_node *i2 = intersection(2, (void *)&s);
 	const t_node *arr[] = {
-		i1, i2
+		i1, i2, NULL
 	};
 	const t_intersection xs = link_intersection_nodes(arr);
 
@@ -54,14 +51,14 @@ Test(identifying_hits, negative_t, .description = scenario2)
 	const t_sphere s = create_sphere();
 	const t_node *i1 = intersection(-1, (void *)&s);
 	const t_node *i2 = intersection(1, (void *)&s);
-	const t_node *arr[] = { i1, i2 };
+	const t_node *arr[] = { i1, i2, NULL };
 	const t_intersection xs = link_intersection_nodes(arr);
 	const t_node *hit = get_hit(xs);
 
-	cr_expect_eq(i2, xs.head->next);
+	cr_expect_eq(i2, arr[1]);
 	cr_expect_eq(hit, i2);
 }
-
+//
 // Scenario : The hit, when all intersections have negative t
 #define scenario3 CYAN \
 "Given s ← sphere()\n" \
@@ -76,7 +73,7 @@ Test(identifying_hits, all_negatives, .description = scenario3)
 	const t_sphere s = create_sphere();
 	const t_node *i1 = intersection(-2, (void *)&s);
 	const t_node *i2 = intersection(-1, (void *)&s);
-	const t_node *arr[] = { i1, i2 };
+	const t_node *arr[] = { i1, i2, NULL};
 	const t_intersection xs = link_intersection_nodes(arr);
 	const t_node *hit = get_hit(xs);
 
