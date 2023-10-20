@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/18 16:35:29 by johmatos         ###   ########.fr       */
+/*   Updated: 2023/10/20 15:30:50 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct s_phere
 	t_short				radius;
 	t_matrix			_t;
 	t_matrix			inverse_t;
+	t_matrix			transposed_inverse_t;
 }						t_sphere;
 
 typedef struct s_intersect
@@ -143,7 +144,7 @@ void					subtract_tuples(const t_tuple a, const t_tuple b,
 void					negate_tuple(const t_tuple a, t_tuple result);
 void					multiply_tuple_by_scalar(const t_tuple a, const float s,
 							t_tuple r);
-void					multiply_tuple_by_matrix(t_tuple row, t_matrix m,
+void					multiply_tuple_by_matrix(const t_tuple row, t_matrix m,
 							t_tuple res);
 void					multiply_colors(const t_tuple c1, const t_tuple c2,
 							t_tuple result);
@@ -209,7 +210,8 @@ t_intersection			link_intersection_nodes(t_node *arr[]);
 t_node					*get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
-void					set_sphere_matrices_t(t_sphere *s, t_matrix t);
-void					normal_at(t_sphere *sphere, t_tuple p, t_tuple res);
+void					set_transform(t_sphere *s, t_matrix t);
+void					normal_at(const t_sphere *sphere, const t_tuple p,
+							t_tuple res);
 
 #endif

@@ -59,7 +59,7 @@ Test(suite, default_sphere_transformation, .description = scenario3) {
  	t_sphere s = create_sphere();
 
 	t_matrix T = create_translation_matrix((t_tuple){2, 3, 4, POINT});
- 	set_sphere_matrices_t(&s, T);
+ 	set_transform(&s, T);
  	cr_expect_matrices_eq(s._t, create_translation_matrix((t_tuple){2, 3, 4, POINT}));
  	cr_expect_matrices_eq(s.inverse_t, invert_matrix(create_translation_matrix((t_tuple){2, 3, 4, POINT})));
 }
@@ -80,7 +80,7 @@ Test(suite, intersecting_scaled_sphere_with_a_ray, .description = scenario5) {
 	const t_matrix _t = create_scaling_matrix(2, 2, 2);
 	t_intersection xs;
 
-	set_sphere_matrices_t(&s, _t);
+	set_transform(&s, _t);
 	xs = create_intersection(s, r);
 	cr_expect_eq(xs.count, 2);
 	cr_expect_eq(xs.head->t, 3);
@@ -103,7 +103,7 @@ Test(suite, intersecting_a_translated_sphere, .description = scenario6)
 	const t_matrix t = create_translation_matrix((t_tuple){5, 0, 0, POINT});
 
  	s = create_sphere();
-	set_sphere_matrices_t(&s, t);
+	set_transform(&s, t);
  	xs = create_intersection(s, r);
 	cr_expect_eq(xs.count, 0);
 }

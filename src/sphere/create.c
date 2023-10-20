@@ -15,13 +15,14 @@
 t_sphere	create_sphere(void)
 {
 	static t_short	call_counter;
-	const t_sphere	sphere = {
+	const t_sphere sphere = {
 		.origin = {0, 0, 0, POINT},
 		.id = call_counter++,
 		.radius = 1,
 		.type = SPHERE,
 		._t = create_identity_matrix(),
 		.inverse_t = create_identity_matrix(),
+		.transposed_inverse_t = create_identity_matrix(),
 	};
 
 	return (sphere);

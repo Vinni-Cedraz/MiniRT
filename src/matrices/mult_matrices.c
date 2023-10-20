@@ -26,7 +26,7 @@ t_matrix	mult_matrices(t_matrix a, t_matrix b)
 	return (result);
 }
 
-void	multiply_tuple_by_matrix(t_tuple row, t_matrix m, t_tuple res)
+void	multiply_tuple_by_matrix(const t_tuple row, t_matrix m, t_tuple res)
 {
 	res[X] = dot(row, m.row_1);
 	res[Y] = dot(row, m.row_2);

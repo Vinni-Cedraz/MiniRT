@@ -52,7 +52,6 @@ minirt
 # Kernel Module Compile Results
 *.mod*
 *.cmd
-*.json
 .tmp_versions/
 modules.order
 Module.symvers
