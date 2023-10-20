@@ -210,5 +210,6 @@ t_node					*get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
 void					set_sphere_matrices_t(t_sphere *s, t_matrix t);
+void					normal_at(t_sphere *sphere, t_tuple p, t_tuple res);
 
 #endif
