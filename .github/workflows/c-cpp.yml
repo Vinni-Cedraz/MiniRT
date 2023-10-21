@@ -11,9 +11,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: install deps
-      run: sudo apt install libglfw3 libglfw3-dev  && sudo apt install libcriterion-dev && sudo apt install zsh && pip install compiledb && sudo apt install clang
+      run: sudo apt install libglfw3 libglfw3-dev  && sudo apt install libcriterion-dev && sudo apt install zsh && pip install compiledb && sudo apt install clang && pip install norminette==3.3.51
     - uses: actions/checkout@v3
     - name: Build project
       run: make
     - name: Make test
       run: make -C tests && make run -C tests
+    - name: Norm
+      run: norminette
