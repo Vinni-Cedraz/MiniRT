@@ -213,6 +213,7 @@ t_ray					transform_ray(t_ray ray, t_matrix matrix);
 void					set_transform(t_sphere *s, t_matrix t);
 void					normal_at(const t_sphere *sphere, const t_tuple p,
 							t_tuple res);
-void 					reflect(t_tuple vector, t_tuple normal, t_tuple _return);
+void					reflect(t_tuple vector, t_tuple normal,
+							t_tuple _return);
 
 #endif
