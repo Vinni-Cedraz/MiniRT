@@ -24,6 +24,7 @@ t_matrix	mult_matrices(t_matrix a, t_matrix b)
 	multiply_tuple_by_matrix(a.row_2, mat, result.row_2);
 	multiply_tuple_by_matrix(a.row_3, mat, result.row_3);
 	multiply_tuple_by_matrix(a.row_4, mat, result.row_4);
+	create_4x4_matrix(&result);
 	return (result);
 }
 

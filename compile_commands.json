@@ -587,5 +587,24 @@
    "build/set_transform.o"
   ],
   "file": "./src/sphere/set_transform.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/light_and_shading/reflect.c",
+   "-o",
+   "build/reflect.o"
+  ],
+  "file": "./src/light_and_shading/reflect.c"
  }
 ]
