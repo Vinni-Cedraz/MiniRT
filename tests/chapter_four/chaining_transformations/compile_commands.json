@@ -1,0 +1,21 @@
+[
+ {
+  "directory": "/root/MiniRT/tests/chapter_four/chaining_transformations",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-w",
+   "chaining_transformations.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "chaining_transformations"
+  ],
+  "file": "chaining_transformations.c"
+ }
+]

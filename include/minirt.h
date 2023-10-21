@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/18 16:35:29 by johmatos         ###   ########.fr       */
+/*   Updated: 2023/10/20 15:30:50 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <math.h>
 # include <stdio.h>
 
+# define CYAN "\033[36m"
 # define EPSILON 1e-3
 # define X 0
 # define Y 1
@@ -65,14 +66,14 @@ typedef struct s_matrix
 	t_tuple				row_2;
 	t_tuple				row_3;
 	t_tuple				row_4;
-	const float			*rows[4];
+	float				*rows[4];
 }						t_matrix;
 
 typedef struct s_2x2matrix
 {
 	t_2x2_row			row_1;
 	t_2x2_row			row_2;
-	const float			*rows[2];
+	float				*rows[2];
 }						t_2x2matrix;
 
 typedef struct s_3x3matrix
@@ -80,7 +81,7 @@ typedef struct s_3x3matrix
 	t_3x3_row			row_1;
 	t_3x3_row			row_2;
 	t_3x3_row			row_3;
-	const float			*rows[3];
+	float				*rows[3];
 }						t_3x3matrix;
 
 typedef struct s_hearer
@@ -107,6 +108,7 @@ typedef struct s_phere
 	t_short				radius;
 	t_matrix			_t;
 	t_matrix			inverse_t;
+	t_matrix			transposed_inverse_t;
 }						t_sphere;
 
 typedef struct s_intersect
@@ -143,7 +145,7 @@ void					subtract_tuples(const t_tuple a, const t_tuple b,
 void					negate_tuple(const t_tuple a, t_tuple result);
 void					multiply_tuple_by_scalar(const t_tuple a, const float s,
 							t_tuple r);
-void					multiply_tuple_by_matrix(t_tuple row, t_matrix m,
+void					multiply_tuple_by_matrix(const t_tuple row, t_matrix m,
 							t_tuple res);
 void					multiply_colors(const t_tuple c1, const t_tuple c2,
 							t_tuple result);
@@ -209,6 +211,8 @@ t_intersection			link_intersection_nodes(t_node *arr[]);
 t_node					*get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
-void					set_sphere_matrices_t(t_sphere *s, t_matrix t);
+void					set_transform(t_sphere *s, t_matrix t);
+void					normal_at(const t_sphere *sphere, const t_tuple p,
+							t_tuple res);
 
 #endif

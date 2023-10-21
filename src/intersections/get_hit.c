@@ -13,23 +13,22 @@
 #include "minirt.h"
 #include <stdio.h>
 
-t_node *get_hit(t_intersection intersection)
+t_node	*get_hit(t_intersection intersection)
 {
+	t_node	*smallest;
+	t_node	*node;
 
-  t_node *smallest;
-  t_node *node;
-
-  smallest = NULL;
-  node = intersection.head;
-  if (node == NULL)
-    return NULL;
-  while (node != NULL)
-  {
-    if (node->t >= 0 && (smallest == NULL || node->t < smallest->t))
-      smallest = node;
-    node = node->next;
-  }
-  if (smallest == NULL || smallest->t < 0)
-    return NULL;
-  return (smallest);
+	smallest = NULL;
+	node = intersection.head;
+	if (node == NULL)
+		return (NULL);
+	while (node != NULL)
+	{
+		if (node->t >= 0 && (smallest == NULL || node->t < smallest->t))
+			smallest = node;
+		node = node->next;
+	}
+	if (smallest == NULL || smallest->t < 0)
+		return (NULL);
+	return (smallest);
 }

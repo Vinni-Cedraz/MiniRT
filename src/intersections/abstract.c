@@ -47,7 +47,6 @@ t_intersection	create_intersection(t_sphere s, t_ray r)
 	t_tuple			sphere_to_ray;
 	t_baskara		bask;
 
-	ft_bzero((void *)&i, sizeof(t_intersection));
 	r = transform_ray(r, s.inverse_t);
 	subtract_tuples(r.origin, s.origin, sphere_to_ray);
 	dis = discriminant(sphere_to_ray, r, &bask);

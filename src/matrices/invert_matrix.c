@@ -13,8 +13,8 @@
 #include "minirt.h"
 #include <stdio.h>
 
-t_matrix		create_matrix_of_cofactors(const t_matrix m);
-t_matrix		divide_transposed_matrix_by_determinant(t_matrix m, float det);
+t_matrix	create_matrix_of_cofactors(const t_matrix m);
+t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, float det);
 
 t_bool	is_invertible(t_matrix m)
 {
@@ -25,11 +25,13 @@ t_bool	is_invertible(t_matrix m)
 
 t_matrix	invert_matrix(t_matrix m)
 {
-	t_matrix		cofact_mat;
-	t_matrix		transposed_cofact_mat;
-	t_matrix		res;
-	float			det;
+	t_matrix	cofact_mat;
+	t_matrix	transposed_cofact_mat;
+	t_matrix	res;
+	float		det;
 
+	if (is_invertible(m) == FALSE)
+		return (m);
 	det = _4x4determinant(m);
 	cofact_mat = create_matrix_of_cofactors(m);
 	transposed_cofact_mat = transpose_matrix(cofact_mat);
@@ -126,9 +128,9 @@ t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const float det)
 // 	});
 // 	const t_matrix expected = create_4x4_matrix(&(t_matrix){
 // 		{0.21805, 0.45113, 0.24060, -0.04511},
-// 		{-0.80827, -1.45677, -0.44361, 0.52068},                               
-// 		{-0.07895, -0.22368, -0.05263, 0.19737},                              
-// 		{-0.52256, -0.81391, -0.30075, 0.30639},                               
+// 		{-0.80827, -1.45677, -0.44361, 0.52068},
+// 		{-0.07895, -0.22368, -0.05263, 0.19737},
+// 		{-0.52256, -0.81391, -0.30075, 0.30639},
 // 		{NULL}
 // 	});
 // 	const float det = _4x4determinant(m);
@@ -164,7 +166,7 @@ t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const float det)
 // 	t_tuple			p;
 // 	t_matrix		translation_matrix;
 // 	t_matrix		inverse_of_translation_matrix;
-// 	t_tuple			result; 
+// 	t_tuple			result;
 //
 // 	translation_matrix = translation((t_tuple){5, -3, 2, POINT});
 // 	inverse_of_translation_matrix = invert_matrix(translation_matrix);

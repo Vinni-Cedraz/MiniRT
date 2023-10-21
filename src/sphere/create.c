@@ -22,6 +22,7 @@ t_sphere	create_sphere(void)
 		.type = SPHERE,
 		._t = create_identity_matrix(),
 		.inverse_t = create_identity_matrix(),
+		.transposed_inverse_t = create_identity_matrix(),
 	};
 
 	return (sphere);

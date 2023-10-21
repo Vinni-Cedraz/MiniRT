@@ -563,10 +563,29 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/sphere/set_sphere_matrices_T.c",
+   "./src/light_and_shading/surface_normals.c",
    "-o",
-   "build/set_sphere_matrices_T.o"
+   "build/surface_normals.o"
   ],
-  "file": "./src/sphere/set_sphere_matrices_T.c"
+  "file": "./src/light_and_shading/surface_normals.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/set_transform.c",
+   "-o",
+   "build/set_transform.o"
+  ],
+  "file": "./src/sphere/set_transform.c"
  }
 ]

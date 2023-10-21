@@ -3,6 +3,7 @@ TESTDIRS = chapter_one \
 	       chapter_three \
 	       chapter_four \
 	       chapter_five \
+		   chapter_six \
 		   
 all:
 	@$(foreach file,$(TESTDIRS),$(MAKE) --no-print-directory -C $(file);)

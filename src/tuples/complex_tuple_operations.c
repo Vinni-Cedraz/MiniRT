@@ -28,6 +28,7 @@ short	normalize(const t_tuple vec, t_tuple result)
 	result[X] = vec[X] / mag;
 	result[Y] = vec[Y] / mag;
 	result[Z] = vec[Z] / mag;
+	result[W] = VECTOR;
 	return (0);
 }
 

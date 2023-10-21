@@ -54,7 +54,6 @@ Test(putting_it_together, drawing_a_circle) {
 			t_tuple normalized_vector;
 			subtract_tuples(&position, &ray_origin, &sphere_to_ray);
 			normalize(&sphere_to_ray, &normalized_vector);
-			print_tuple(normalized_vector);
             t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, normalized_vector);
             t_intersection xs = create_intersection(ball, r);
         }

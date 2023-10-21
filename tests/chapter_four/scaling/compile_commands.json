@@ -1,0 +1,21 @@
+[
+ {
+  "directory": "/root/MiniRT/tests/chapter_four/scaling",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-w",
+   "scaling.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "scaling"
+  ],
+  "file": "scaling.c"
+ }
+]

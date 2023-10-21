@@ -57,14 +57,7 @@ t_bool	tuples_neq(const float *result, const float *expected, int len)
 
 t_matrix	mult_by_identity(t_matrix a)
 {
-	const t_matrix	identity = {
-		.row_1 = {1, 0, 0, 0},
-		.row_2 = {0, 1, 0, 0},
-		.row_3 = {0, 0, 1, 0},
-		.row_4 = {0, 0, 0, 1},
-	};
-
-	return (mult_matrices(a, identity));
+	return (mult_matrices(a, create_identity_matrix()));
 }
 
 // #include "../../tests/tester.h"
