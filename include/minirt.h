@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/20 15:30:50 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/21 13:03:39 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,5 +213,6 @@ t_ray					transform_ray(t_ray ray, t_matrix matrix);
 void					set_transform(t_sphere *s, t_matrix t);
 void					normal_at(const t_sphere *sphere, const t_tuple p,
 							t_tuple res);
+void 					reflect(t_tuple vector, t_tuple normal, t_tuple _return);
 
 #endif
