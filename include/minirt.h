@@ -19,6 +19,7 @@
 # include <math.h>
 # include <stdio.h>
 
+# define CYAN "\033[36m"
 # define EPSILON 1e-3
 # define X 0
 # define Y 1
@@ -65,14 +66,14 @@ typedef struct s_matrix
 	t_tuple				row_2;
 	t_tuple				row_3;
 	t_tuple				row_4;
-	const float			*rows[4];
+	float				*rows[4];
 }						t_matrix;
 
 typedef struct s_2x2matrix
 {
 	t_2x2_row			row_1;
 	t_2x2_row			row_2;
-	const float			*rows[2];
+	float				*rows[2];
 }						t_2x2matrix;
 
 typedef struct s_3x3matrix
@@ -80,7 +81,7 @@ typedef struct s_3x3matrix
 	t_3x3_row			row_1;
 	t_3x3_row			row_2;
 	t_3x3_row			row_3;
-	const float			*rows[3];
+	float				*rows[3];
 }						t_3x3matrix;
 
 typedef struct s_hearer

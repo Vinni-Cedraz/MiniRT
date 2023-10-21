@@ -20,6 +20,7 @@ t_matrix	transpose_matrix(t_matrix m)
 	t_matrix	res;
 	t_tuple		col;
 
+	create_4x4_matrix(&res);
 	init_col(m, COL1, col);
 	turn_col_into_row(col, res.row_1);
 	init_col(m, COL2, col);

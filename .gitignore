@@ -3,6 +3,7 @@
 MLX42
 .cache
 minirt
+vgcore*
 
 # Prerequisites
 *.d
