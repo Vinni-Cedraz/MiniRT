@@ -606,5 +606,24 @@
    "build/reflect.o"
   ],
   "file": "./src/light_and_shading/reflect.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/light_and_shading/create_material.c",
+   "-o",
+   "build/create_material.o"
+  ],
+  "file": "./src/light_and_shading/create_material.c"
  }
 ]

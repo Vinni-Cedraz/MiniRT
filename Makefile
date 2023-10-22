@@ -24,7 +24,7 @@ SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c \
 	  transpose_matrix.c 2x2determinant.c large_determinants.c minors.c submatrices.c \
       invert_matrix.c create_matrix.c translation.c rotation.c shearing.c scaling.c \
       translate_coordinate.c rays.c point.c create.c abstract.c get_hit.c transform_ray.c \
-	  set_transform.c surface_normals.c reflect.c
+	  set_transform.c surface_normals.c reflect.c create_material.c
 
 
 VPATH = ./src ./src/canvas/ ./src/tuples/ ./src/ppm/ ./src/matrices \

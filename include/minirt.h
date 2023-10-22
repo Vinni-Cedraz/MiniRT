@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/21 13:03:39 by johmatos         ###   ########.fr       */
+/*   Updated: 2023/10/22 11:29:09 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,30 @@ typedef struct s_ray
 	t_tuple				origin;
 }						t_ray;
 
+typedef struct s_point_light
+{
+	t_tuple				intensity;
+	t_tuple				position;
+}						t_point_light;
+
+typedef struct s_material
+{
+	float				ambient;
+	float				diffuse;
+	float				specular;
+	float				shininess;
+	t_tuple				color;
+}						t_material;
+
+typedef struct s_lighting
+{
+	t_material			material;
+	t_tuple				position;
+	t_tuple				eye_vec;
+	t_tuple				normal_vec;
+	t_point_light		light;
+}						t_lighting;
+
 typedef struct s_phere
 {
 	unsigned short		id;
@@ -109,6 +133,7 @@ typedef struct s_phere
 	t_matrix			_t;
 	t_matrix			inverse_t;
 	t_matrix			transposed_inverse_t;
+	t_material			material;
 }						t_sphere;
 
 typedef struct s_intersect
@@ -216,5 +241,6 @@ void					normal_at(const t_sphere *sphere, const t_tuple p,
 							t_tuple res);
 void					reflect(t_tuple vector, t_tuple normal,
 							t_tuple _return);
+t_material				create_material(void);
 
 #endif
