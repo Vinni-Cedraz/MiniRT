@@ -23,6 +23,7 @@ t_sphere	create_sphere(void)
 		._t = create_identity_matrix(),
 		.inverse_t = create_identity_matrix(),
 		.transposed_inverse_t = create_identity_matrix(),
+		.material = create_material(),
 	};
 
 	return (sphere);

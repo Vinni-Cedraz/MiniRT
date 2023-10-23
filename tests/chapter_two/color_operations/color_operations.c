@@ -14,7 +14,7 @@ const t_tuple expected[] = { {1.6, 0.7, 1.0,  COLOR}, {0.2, 0.5, 0.5,  COLOR}, {
        " Then c1 + c2 = color(1.6, 0.7, 1.0)" RESET
 Test(suite_name, adding_colors, .description = scenario1) {
 	add_tuples(*c_1, *c_2, result);
-   	cr_expect_tuple_eq(result, expected[0]);
+   	cr_expect_tuples_eq(result, expected[0]);
 }
 
 // Scenario: Subtracting colors
@@ -24,7 +24,7 @@ Test(suite_name, adding_colors, .description = scenario1) {
        " Then c1 - c2 = color(0.2, 0.5, 0.5)" RESET
 Test(suite_name, subtracting_colors, .description = scenario2) {
 	subtract_tuples(*c_1, *c_2, result);
-	cr_expect_tuple_eq(result, expected[1]);
+	cr_expect_tuples_eq(result, expected[1]);
 }
 
 // Scenario: Multiplying a color by a scalar
@@ -33,7 +33,7 @@ Test(suite_name, subtracting_colors, .description = scenario2) {
        "Then c * 2 = color(0.4, 0.6, 0.8)" RESET
 Test(suite_name, multipying_color_by_scalar, .description = scenario3) {
 	multiply_tuple_by_scalar(c_1[1], 2.0, result);
-	cr_expect_tuple_eq(result, expected[2]);
+	cr_expect_tuples_eq(result, expected[2]);
 }
 
 //Scenario: Multiplying colors
@@ -43,5 +43,5 @@ Test(suite_name, multipying_color_by_scalar, .description = scenario3) {
   " Then c1 * c2 = color(0.9, 0.2, 0.04)" RESET
 Test(suite_name, multipying_color_by_color, .description = scenario4) {
 	multiply_colors(c_1[2], c_2[1], result);
-   	cr_expect_tuple_eq(result, expected[3]);
+   	cr_expect_tuples_eq(result, expected[3]);
 }

@@ -17,9 +17,9 @@ Test(rotation, rotating_around_x_axis, .description = scenario2) {
 	const t_tuple expected1 = {0, 0.707107, 0.707107, POINT};
 	const t_tuple expected2 = {0, 0, 1, POINT};
 	multiply_tuple_by_matrix(p, half_quarter, res);
-	cr_expect_tuple_eq(res, expected1);
+	cr_expect_tuples_eq(res, expected1);
 	multiply_tuple_by_matrix(p, full_quarter, res);
-	cr_expect_tuple_eq(res, expected2);
+	cr_expect_tuples_eq(res, expected2);
 }
 
 //Scenario : The inverse of an x-rotation rotates in the opposite direction
@@ -34,7 +34,7 @@ Test(rotation, the_inverse_of_the_rotation_matrix_rotates_in_the_opposite_direct
 	const t_tuple expected = {0, 0.70710, -0.70710, POINT};
 	const t_matrix inverse_rotation = invert_matrix(half_quarter);
 	multiply_tuple_by_matrix(p, inverse_rotation, res);
-	cr_expect_tuple_eq(res, expected);
+	cr_expect_tuples_eq(res, expected);
 }
 
 // Scenario : Rotating a point around the y axis
@@ -52,9 +52,9 @@ Test(rotation, rotating_around_y_axis, .description = scenario3) {
 	const t_tuple	expected1 = {0.707107, 0, 0.707107, POINT};
 	const t_tuple	expected2 = {1, 0, 0, POINT};
 	multiply_tuple_by_matrix(p, half_quarter, res);
-	cr_expect_tuple_eq(expected1, res);
+	cr_expect_tuples_eq(expected1, res);
 	multiply_tuple_by_matrix(p, full_quarter, res);
-	cr_expect_tuple_eq(expected2, res);
+	cr_expect_tuples_eq(expected2, res);
 }
 
 // Scenario : Rotating a point around the z axis
@@ -73,9 +73,9 @@ Test(rotation, rotating_around_z_axis, .description = scenario4) {
 	t_tuple 		res;
 	
 	multiply_tuple_by_matrix(p, half_quarter, res);
-	cr_expect_tuple_eq(expected1, res);
+	cr_expect_tuples_eq(expected1, res);
 	print_tuple(res);
 	multiply_tuple_by_matrix(p, full_quarter, res);
-	cr_expect_tuple_eq(expected2, res);
+	cr_expect_tuples_eq(expected2, res);
 	print_tuple(res);
 }

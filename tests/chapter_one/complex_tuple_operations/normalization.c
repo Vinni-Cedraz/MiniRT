@@ -15,7 +15,7 @@ Test(normalization, normalizing_vector_4_0_0) {
 
 Test(normalization, normalizing_vector_1_2_3) {
     normalize(vecs[1], res);
-	cr_expect_tuple_eq(res, expected[1]);
+	cr_expect_tuples_eq(res, expected[1]);
 }
 
 Test(normalization, magnitude_of_normalized_vector_1_2_3) {

@@ -24,14 +24,14 @@ Test(creating_a_matrix, 4x4matrix, .description = scenario1) {
 		.row_4 = {13.5, 14.5, 15.5, 16.5},
 	});
 
-	cr_expect_tuple_eq(matrix.row_1, (t_tuple){1, 2, 3, 4});
-	cr_expect_tuple_eq(matrix.rows[ROW1], (t_tuple){1, 2, 3, 4});
-	cr_expect_tuple_eq(matrix.row_2, (t_tuple){5.5, 6.5, 7.5, 8.5});
-	cr_expect_tuple_eq(matrix.rows[ROW2], (t_tuple){5.5, 6.5, 7.5, 8.5});
-	cr_expect_tuple_eq(matrix.row_3, (t_tuple){9, 10, 11, 12});
-	cr_expect_tuple_eq(matrix.rows[ROW3], (t_tuple){9, 10, 11, 12});
-	cr_expect_tuple_eq(matrix.row_4, (t_tuple){13.5, 14.5, 15.5, 16.5});
-	cr_expect_tuple_eq(matrix.rows[ROW4], (t_tuple){13.5, 14.5, 15.5, 16.5});
+	cr_expect_tuples_eq(matrix.row_1, (t_tuple){1, 2, 3, 4});
+	cr_expect_tuples_eq(matrix.rows[ROW1], (t_tuple){1, 2, 3, 4});
+	cr_expect_tuples_eq(matrix.row_2, (t_tuple){5.5, 6.5, 7.5, 8.5});
+	cr_expect_tuples_eq(matrix.rows[ROW2], (t_tuple){5.5, 6.5, 7.5, 8.5});
+	cr_expect_tuples_eq(matrix.row_3, (t_tuple){9, 10, 11, 12});
+	cr_expect_tuples_eq(matrix.rows[ROW3], (t_tuple){9, 10, 11, 12});
+	cr_expect_tuples_eq(matrix.row_4, (t_tuple){13.5, 14.5, 15.5, 16.5});
+	cr_expect_tuples_eq(matrix.rows[ROW4], (t_tuple){13.5, 14.5, 15.5, 16.5});
 }
 
  // Scenario : Constructing and inspecting a 4x4 matrix

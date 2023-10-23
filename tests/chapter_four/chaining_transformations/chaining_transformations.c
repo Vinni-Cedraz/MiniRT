@@ -43,21 +43,21 @@ Test(chaining_transformations, join, .description = scenario1)
 	t_tuple p2_result;
 	t_tuple expected_point = {1, -1, 0, POINT};
 	multiply_tuple_by_matrix(p, _A, p2_result);
-	cr_expect_tuple_eq(p2_result, expected_point);
+	cr_expect_tuples_eq(p2_result, expected_point);
 
 // scaling
 
 	t_tuple p3_result;
 	t_tuple expected_point3 = {5, -5, 0, POINT};
 	multiply_tuple_by_matrix(p2_result, _B, p3_result);
-	cr_expect_tuple_eq(p3_result, expected_point3);
+	cr_expect_tuples_eq(p3_result, expected_point3);
 	
 // transformation
 
 	t_tuple p4_result;
 	t_tuple expected_point4 = {15, 0, 7, POINT};
 	multiply_tuple_by_matrix(p3_result, _C, p4_result);
-	cr_expect_tuple_eq(p4_result, expected_point4);
+	cr_expect_tuples_eq(p4_result, expected_point4);
 }
 
 // Scenario : Chained transformations must be applied in reverse order
@@ -82,5 +82,5 @@ Test(chaining_transformations, reverse_order, .description = scene2)
 	print_4x4matrix(T);
 	multiply_tuple_by_matrix(p, T, result);
 	print_tuple(result);
-	cr_expect_tuple_eq(result, expected);
+	cr_expect_tuples_eq(result, expected);
 }

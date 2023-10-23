@@ -34,7 +34,7 @@ Test(shearing, shear_x_in_proportion_to_y, .description = scenario1) {
 	const t_tuple actual;
 
 	multiply_tuple_by_matrix(p, transform, actual);
-	cr_expect_tuple_eq(actual, expected);
+	cr_expect_tuples_eq(actual, expected);
 }
 
 // Scenario : A shearing transformation moves x in proportion to z
@@ -51,7 +51,7 @@ Test(shearing, shear_x_in_proportion_to_z, .description = scenario2) {
 	const t_tuple 	actual;
 
 	multiply_tuple_by_matrix(p, transform, actual);
-	cr_expect_tuple_eq(actual, expected);
+	cr_expect_tuples_eq(actual, expected);
 }
 
 // Scenario : A shearing transformation moves y in proportion to x
@@ -68,7 +68,7 @@ Test(shearing, shear_y_in_proportion_to_x, .description = scenario3) {
 	const t_tuple 	actual;
 
 	multiply_tuple_by_matrix(p, transform, actual);
-	cr_expect_tuple_eq(actual, expected);
+	cr_expect_tuples_eq(actual, expected);
 }
 
 // Scenario : A shearing transformation moves y in proportion to z
@@ -85,7 +85,7 @@ Test(shearing, shear_y_in_proportion_to_z, .description = scenario4) {
 	const t_tuple 	actual;
 
 	multiply_tuple_by_matrix(p, transform, actual);
-	cr_expect_tuple_eq(actual, expected);
+	cr_expect_tuples_eq(actual, expected);
 }
 
 // Scenario : A shearing transformation moves z in proportion to x
@@ -102,7 +102,7 @@ Test(shearing, shear_z_in_proportion_to_x, .description = scenario5) {
 	const t_tuple 	actual;
 
 	multiply_tuple_by_matrix(p, transform, actual);
-	cr_expect_tuple_eq(actual, expected);
+	cr_expect_tuples_eq(actual, expected);
 }
 
 // Scenario : A shearing transformation moves z in proportion to y
@@ -119,5 +119,5 @@ Test(shearing, shear_z_in_proportion_to_y, .description = scenario6) {
 	const t_tuple 	actual;
 
 	multiply_tuple_by_matrix(p, transform, actual);
-	cr_expect_tuple_eq(actual, expected);
+	cr_expect_tuples_eq(actual, expected);
 }

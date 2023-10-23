@@ -1,23 +1,4 @@
-// canvas ← canvas(canvas_pixels, canvas_pixels)
-// color ← color(1, 0, 0) # red
-// shape ← sphere()
-// # for each row of pixels in the canvas
-// for y ← 0 to canvas_pixels - 1
-// »
-// »
-// # compute the world y coordinate (top = +half, bottom = -half)
-// world_y ← half - pixel_size * y
-// # for each pixel in the row
-// for x ← 0 to canvas_pixels - 1
-// # compute the world x coordinate (left = -half, right = half)
-// world_x ← -half + pixel_size * x# describe the point on the wall that the ray will
-// target position ← point(world_x, world_y, wall_z) r ← ray(ray_origin,
-// normalize(position - ray_origin)) xs ← intersect(shape, r) if hit(xs) is defined
-// write_pixel(canvas, x, y, color)
-// end if
-// end for
-// end for
-
+#include "minirt.h"
 #include "tester.h"
 
 static void normalize_rgb(t_tuple raw_rgb) {
@@ -28,38 +9,53 @@ static void normalize_rgb(t_tuple raw_rgb) {
 
 
 Test(putting_it_together, drawing_a_circle) {
-    int y;
-    int x;
-    t_tuple color = {161, 201, 247, COLOR};
-    t_canvas c = create_canvas(10, 10);
-	int canvas_size = c.width * c.height;
-	int wall_z = 10;
-    t_sphere ball = create_sphere();
-    normalize_rgb(color);
-	float pixel_size = 7.0 / canvas_size;
-	const t_tuple ray_origin = {0, 0, -5, POINT};
+	t_canvas c;
+	t_ray r;
+	t_intersection xs;
+	t_sphere s;
+	float wall_z = 10;
+	int x;
+	int y;
+	int world_x;
+	int world_y;
+	t_tuple sphere_to_ray;
+	t_tuple direction;
 
-    // do what the comment at the beginning of the file says:
-    // for each row of pixels in the canvas
-    for (y = 0; y < c.height; y++) {
-        // compute the world y coordinate (top = +half, bottom = -half)
-        double world_y = c.height / 2.0 - pixel_size * y;
-        // for each pixel in the row
-        for (x = 0; x < c.width; x++) {
-            // compute the world x coordinate (left = -half, right = half)
-            double world_x = -1 * (c.width / 2.0 + pixel_size * x);
-            // describe the point on the wall that the ray will target
-            t_tuple position = {world_x, world_y, wall_z, POINT};
-			t_tuple sphere_to_ray;
-			t_tuple normalized_vector;
-			subtract_tuples(&position, &ray_origin, &sphere_to_ray);
-			normalize(&sphere_to_ray, &normalized_vector);
-            t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, normalized_vector);
-            t_intersection xs = create_intersection(ball, r);
-        }
-    }
 
-    t_constr ppm_string = canvas_to_ppm(&c);
-    create_ppm_file(ppm_string);
-    destroy_canvas(&c);
+	x = -1;
+	y = -1;
+	c = create_canvas(1080, 1920);
+	s = create_sphere();
+	set_transform(&s, create_scaling_matrix(5, 5, 5));
+	write_pixel(&c, c.height/2, c.width/2, (t_tuple){1, 0, 0, COLOR});
+	while (++y <= c.height)
+	{
+		x = -1;
+		while(++x <= c.width)
+		{
+			t_tuple position = {x, y, wall_z, POINT};
+			subtract_tuples(position, r.origin, sphere_to_ray);
+			normalize(sphere_to_ray, direction);
+			r = create_ray((t_tuple){0, 0, -6, POINT}, direction);
+			xs = create_intersection(s, r);
+			if (get_hit(xs) != NULL) 
+			{
+				world_x = invert_axis(c.width, (c.width/2.0) + x);
+				world_y = invert_axis(c.height, (c.height/2.0) + y);
+				write_pixel(&c, world_y, world_x, (t_tuple){1, 0, 0, COLOR});
+				world_x = invert_axis(c.width, (c.width/2.0) - x);
+				world_y = invert_axis(c.height, (c.height/2.0) - y);
+				write_pixel(&c, world_y, world_x, (t_tuple){1, 0, 0, COLOR});
+				world_x = invert_axis(c.width, (c.width/2.0) - x);
+				world_y = invert_axis(c.height, (c.height/2.0) + y);
+				write_pixel(&c, world_y, world_x, (t_tuple){1, 0, 0, COLOR});
+				world_x = invert_axis(c.width, (c.width/2.0) + x);
+				world_y = invert_axis(c.height, (c.height/2.0) - y);
+				write_pixel(&c, world_y, world_x, (t_tuple){1, 0, 0, COLOR});
+			}
+		}
+	}
+	t_constr *str = canvas_to_ppm(&c);
+	create_ppm_file(str);
+	destroy_canvas(&c);
 }

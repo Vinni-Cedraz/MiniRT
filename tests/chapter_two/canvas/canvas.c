@@ -16,7 +16,7 @@ Test(suite_name, creating_a_canvas, .description = scenario1) {
     cr_expect_eq(c.width, 900);
     cr_expect_eq(c.height, 550);
     for (int i = 0; i < c.width * c.height; i++) {
-        cr_expect_tuple_eq(c.pixels[i / c.width][i % c.width], (t_tuple){0, 0, 0, COLOR});
+        cr_expect_tuples_eq(c.pixels[i / c.width][i % c.width], (t_tuple){0, 0, 0, COLOR});
     }
 }
 
@@ -32,7 +32,7 @@ Test(suite_name, creating_a_canvas, .description = scenario1) {
 Test(suite_name, writing_a_pixel_in_a_canvas, .description = scenario2) {
     t_canvas c = create_canvas(20, 10);
     write_pixel(&c, 3, 2, (t_tuple){1, 0, 0, COLOR});
-    cr_expect_tuple_eq(c.pixels[3][2], (t_tuple){1, 0, 0, COLOR});
+    cr_expect_tuples_eq(c.pixels[3][2], (t_tuple){1, 0, 0, COLOR});
 }
 
 //  =======================================================================  //

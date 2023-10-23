@@ -35,7 +35,7 @@ Test(translation, multiplying_by_translation_matrix, .description = scenario1) {
 	t_tuple				result;
 
 	multiply_tuple_by_matrix(p, translation_matrix, result);
-	cr_expect_tuple_eq(result, expected);
+	cr_expect_tuples_eq(result, expected);
 }
 
 Test(translation, multiplying_by_inverse_of_translation, .description = scenario2) {
@@ -49,7 +49,7 @@ Test(translation, multiplying_by_inverse_of_translation, .description = scenario
  	p[X] = -3, p[Y] = 4, p[Z] = 5, p[W] = POINT;
 	multiply_tuple_by_matrix(p, inverse_of_translation_matrix, result);
 	const t_tuple	expected = {-8, 7, 3, POINT};
-	cr_expect_tuple_eq(result, expected);
+	cr_expect_tuples_eq(result, expected);
 }
 
 Test(translation, translation_shouldnt_affect_vectors, .description = scenario3) {
@@ -59,5 +59,5 @@ Test(translation, translation_shouldnt_affect_vectors, .description = scenario3)
 	t_tuple			result;
 
 	multiply_tuple_by_matrix(v, translation_matrix, result);
-	cr_expect_tuple_eq(result, expected);
+	cr_expect_tuples_eq(result, expected);
 }
