@@ -31,7 +31,7 @@ static inline void print_4x4matrix(const t_matrix a)
 	print_tuple(a.row_4);
 }
 
-static inline t_bool cr_expect_tuple_eq(const t_tuple result, const t_tuple expected) { for (int i = 0; i < 4; i++) {
+static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple expected) { for (int i = 0; i < 4; i++) {
 		cr_expect(floats_eq(result[i], expected[i]));
 		if (!floats_eq(result[i], expected[i]))
 			return (1);
@@ -55,10 +55,10 @@ static inline t_bool	cr_expect_matrices_eq(t_matrix a, t_matrix b)
 {
 	int	res;
 
-	res = cr_expect_tuple_eq(a.row_1, b.row_1);
-	res = cr_expect_tuple_eq(a.row_2, b.row_2);
-	res = cr_expect_tuple_eq(a.row_3, b.row_3);
-	res = cr_expect_tuple_eq(a.row_4, b.row_4);
+	res = cr_expect_tuples_eq(a.row_1, b.row_1);
+	res = cr_expect_tuples_eq(a.row_2, b.row_2);
+	res = cr_expect_tuples_eq(a.row_3, b.row_3);
+	res = cr_expect_tuples_eq(a.row_4, b.row_4);
 	return (!res);
 }
 

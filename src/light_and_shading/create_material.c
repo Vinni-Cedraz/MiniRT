@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create.c                                           :+:      :+:    :+:   */
+/*   create_material.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 17:17:20 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/16 16:29:31 by johmatos         ###   ########.fr       */
+/*   Created: 2023/10/22 11:26:35 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/10/22 11:32:10 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_sphere	create_sphere(void)
+t_material	create_material(void)
 {
-	static t_short	call_counter;
-	const t_sphere	sphere = {
-		.origin = {0, 0, 0, POINT},
-		.id = call_counter++,
-		.radius = 1,
-		.type = SPHERE,
-		._t = create_identity_matrix(),
-		.inverse_t = create_identity_matrix(),
-		.transposed_inverse_t = create_identity_matrix(),
-		.material = create_material(),
-	};
-
-	return (sphere);
+	return ((t_material){
+		.color = {1, 1, 1, COLOR},
+		.ambient = 0.1,
+		.diffuse = 0.9,
+		.specular = 0.9,
+		.shininess = 200.0,
+	});
 }
