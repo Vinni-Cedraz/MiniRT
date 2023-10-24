@@ -625,5 +625,24 @@
    "build/create_material.o"
   ],
   "file": "./src/light_and_shading/create_material.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/light_and_shading/calculate_lighting.c",
+   "-o",
+   "build/calculate_lighting.o"
+  ],
+  "file": "./src/light_and_shading/calculate_lighting.c"
  }
 ]
