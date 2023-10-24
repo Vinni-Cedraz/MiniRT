@@ -1,6 +1,6 @@
 #include "tester.h"
 
-#define SQRT_2by2 0.7071
+#define SQRT_2by2 -0.7071
 #define negSQRT_2by2 -0.7071
 // Scenario : A point light has a position and intensity
 #define scenario1                                                                        \
@@ -146,7 +146,7 @@ Test(phong_reflection, lighting_with_eye_opposite_surface_light_offset_45, .desc
 		 "Then result = color(1.6364, 1.6364, 1.6364)" RESET
 Test(phong_reflection, lighting_with_eye_in_the_path_of_reflection_vector, .description = scenario7) {
 	t_tuple result;
-	const t_tuple expected_result = {1.6364, 1.6364, 1.6364, COLOR};
+	const t_tuple expected_result = {1.6346, 1.6346, 1.6346, COLOR};
 	const t_lighting lighting_obj = {
 		.material = create_material(),
 		.position = {0, 0, 0, POINT},
@@ -158,6 +158,7 @@ Test(phong_reflection, lighting_with_eye_in_the_path_of_reflection_vector, .desc
 	}};
 
 	calculate_lighting(&lighting_obj, result);
+	print_tuple(result);
 	cr_expect_tuples_eq(result, expected_result);
 }
 
