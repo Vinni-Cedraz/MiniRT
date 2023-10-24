@@ -12,18 +12,42 @@
 
 #include "minirt.h"
 
-static inline void	multiply_tuples(t_tuple one, t_tuple two, t_tuple res)
+static void	combine_surface_and_light(t_lighting *o, t_tuple c, t_tuple l);
+static void	set_colors_to_black(t_tuple colr1, t_tuple colr2);
+static void	add_three_tuples(t_tuple a, t_tuple d, t_tuple s, t_tuple r);
+static void	set_reflect_v(t_colors *c, t_lighting *obj);
+
+void	calculate_lighting(t_lighting *obj, t_tuple result)
 {
-	res[X] = dot(one, two);
-	res[Y] = dot(one, two);
-	res[Z] = dot(one, two);
-	res[W] = COLOR;
+	t_colors	c;
+	float		light_dot_normal;
+	float		reflectv_dot_eye;
+
+	combine_surface_and_light(obj, c.true_colr, c.lightv);
+	multiply_tuple_by_scalar(c.true_colr, obj->material.ambient, c.ambient);
+	light_dot_normal = dot(c.lightv, obj->normal_vec);
+	if (light_dot_normal < 0)
+		set_colors_to_black((&c)->diffuse, (&c)->specular);
+	else
+	{
+		multiply_tuple_by_scalar(c.true_colr, \
+		light_dot_normal * obj->material.diffuse, c.diffuse);
+		set_reflect_v(&c, obj);
+		reflectv_dot_eye = dot(c.reflectv, obj->eye_vec);
+		if (reflectv_dot_eye <= 0)
+			set_colors_to_black(c.specular, NULL);
+		else
+			multiply_tuple_by_scalar(obj->light.intensity, \
+			obj->material.specular * pow(reflectv_dot_eye, \
+			obj->material.shininess), c.specular);
+	}
+	add_three_tuples(c.ambient, c.diffuse, c.specular, result);
 }
 
-static inline void	combine_surface_color_with_light_intensity(t_lighting *obj,
+static inline void	combine_surface_and_light(t_lighting *obj,
 		t_tuple true_colr, t_tuple lightv)
 {
-	multiply_tuples(obj->material.color, obj->light.intensity, true_colr);
+	multiply_colors(obj->material.color, obj->light.intensity, true_colr);
 	subtract_tuples(obj->light.position, obj->position, lightv);
 	normalize(lightv, lightv);
 }
@@ -43,6 +67,12 @@ static inline void	set_colors_to_black(t_tuple colr1, t_tuple colr2)
 	}
 }
 
+static void	set_reflect_v(t_colors *c, t_lighting *obj)
+{
+	negate_tuple(c->lightv, c->lightv);
+	reflect(c->lightv, obj->normal_vec, c->reflectv);
+}
+
 static inline void	add_three_tuples(t_tuple ambient, t_tuple diffuse,
 		t_tuple specular, t_tuple result)
 {
@@ -50,35 +80,4 @@ static inline void	add_three_tuples(t_tuple ambient, t_tuple diffuse,
 
 	add_tuples(ambient, diffuse, tmp_tuple);
 	add_tuples(tmp_tuple, specular, result);
-}
-
-void	calculate_lighting(t_lighting *obj, t_tuple result)
-{
-	t_colors	c;
-	float		tmp;
-	float		light_dot_normal;
-	double		reflect_dot_eye;
-
-	combine_surface_color_with_light_intensity(obj, c.true_colr, c.lightv);
-	multiply_tuple_by_scalar(c.true_colr, obj->material.ambient, c.ambient);
-	light_dot_normal = dot(c.lightv, obj->normal_vec);
-	if (light_dot_normal < 0)
-		set_colors_to_black((&c)->diffuse, (&c)->specular);
-	else
-	{
-		tmp = light_dot_normal * obj->material.diffuse;
-		multiply_tuple_by_scalar(c.true_colr, tmp, c.diffuse);
-		negate_tuple(c.lightv, c.lightv);
-		reflect(c.lightv, obj->normal_vec, c.reflectv);
-		reflect_dot_eye = dot(c.reflectv, obj->eye_vec);
-		if (reflect_dot_eye <= 0)
-			set_colors_to_black(c.specular, NULL);
-		else
-		{
-			tmp = obj->material.specular * pow(reflect_dot_eye,
-					obj->material.shininess);
-			multiply_tuple_by_scalar(obj->light.intensity, tmp, c.specular);
-		}
-	}
-	add_three_tuples(c.ambient, c.diffuse, c.specular, result);
 }

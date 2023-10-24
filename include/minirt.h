@@ -102,8 +102,8 @@ typedef struct s_ray
 
 typedef struct s_point_light
 {
-	t_tuple				intensity;
 	t_tuple				position;
+	t_tuple				intensity;
 }						t_point_light;
 
 typedef struct s_material
