@@ -15,7 +15,7 @@ Test(surface_normals, normal_at_x_axial_point, .description = scenario1) {
 
 	normal_at(&s, p, normal);
 	print_tuple(normal);
-	cr_expect_tuple_eq(normal, (t_tuple){1, 0, 0, VECTOR});
+	cr_expect_tuples_eq(normal, (t_tuple){1, 0, 0, VECTOR});
 }
 
 // Scenario : The normal on a sphere at a point on the y axis
@@ -30,7 +30,7 @@ Test(surface_normals, normal_at_y_axial_point, .description = scenario2) {
 	const t_tuple p = {0, 1, 0, POINT};
 
 	normal_at(&s, p, normal);
-	cr_expect_tuple_eq(normal, (t_tuple){0, 1, 0, VECTOR});
+	cr_expect_tuples_eq(normal, (t_tuple){0, 1, 0, VECTOR});
 }
 
 //Scenario : The normal on a sphere at a point on the z axis
@@ -45,7 +45,7 @@ Test(surface_normals, normal_at_z_axial_point, .description = scenario3) {
 	const t_tuple p = {0, 0, 1, POINT};
 
 	normal_at(&s, p, normal);
-	cr_expect_tuple_eq(normal, (t_tuple){0, 0, 1, VECTOR});
+	cr_expect_tuples_eq(normal, (t_tuple){0, 0, 1, VECTOR});
 }
 
 // Scenario : The normal on a sphere at a nonaxial point
@@ -61,7 +61,7 @@ Test(surface_normals, normal_at_nonaxial_point, .description = scenario4) {
 	t_tuple			normal;
 
 	normal_at(&s, _p1, normal);
-	cr_expect_tuple_eq(normal, (t_tuple){SQRT_OF_3 / 3, SQRT_OF_3 / 3, SQRT_OF_3 / 3, VECTOR});
+	cr_expect_tuples_eq(normal, (t_tuple){SQRT_OF_3 / 3, SQRT_OF_3 / 3, SQRT_OF_3 / 3, VECTOR});
 }
 
 // Scenario : The normal is a normalized vector
@@ -77,7 +77,7 @@ Test(surface_normals, the_normal_is_normalized, .description = scenario5) {
 
 	normal_at(&s, _p1, actual_normal);
 	normalize(actual_normal, expected_normal);
-	cr_expect_tuple_eq(actual_normal, expected_normal);
+	cr_expect_tuples_eq(actual_normal, expected_normal);
 }
 
 // Scenario : Computing the normal on a translated sphere
@@ -97,7 +97,7 @@ Test(surface_normals, normal_on_a_translated_sphere, .description = scenario6) {
 	set_transform(&s, create_translation_matrix((t_tuple) {0, 1, 0, POINT}));
 	normal_at(&s, p, actual_normal);
 	normalize(actual_normal, expected_normal);
-	cr_expect_tuple_eq(actual_normal, expected_normal);
+	cr_expect_tuples_eq(actual_normal, expected_normal);
 }
 
 // Scenario : Computing the normal on a transformed sphere
@@ -121,5 +121,5 @@ Test(surface_normals, normal_on_a_transformed_sphere, .description = scenario7) 
 	set_transform(&s, t);
 	normal_at(&s, p, actual_normal);
 	normalize(actual_normal, expected_normal);
-	cr_expect_tuple_eq(actual_normal, expected_normal);
+	cr_expect_tuples_eq(actual_normal, expected_normal);
 }

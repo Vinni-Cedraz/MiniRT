@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/22 11:29:09 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/10/24 11:30:38 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,16 @@ typedef struct s_material
 	float				shininess;
 	t_tuple				color;
 }						t_material;
+
+typedef struct s_colors
+{
+	t_tuple				diffuse;
+	t_tuple				reflectv;
+	t_tuple				true_colr;
+	t_tuple				lightv;
+	t_tuple				ambient;
+	t_tuple				specular;
+}						t_colors;
 
 typedef struct s_lighting
 {
@@ -242,5 +252,6 @@ void					normal_at(const t_sphere *sphere, const t_tuple p,
 void					reflect(t_tuple vector, t_tuple normal,
 							t_tuple _return);
 t_material				create_material(void);
+void					calculate_lighting(t_lighting *obj, t_tuple result);
 
 #endif

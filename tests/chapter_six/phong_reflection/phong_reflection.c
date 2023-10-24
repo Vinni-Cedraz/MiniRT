@@ -56,32 +56,32 @@ Test(phong_reflection, a_sphere_is_created_with_a_default_material_in_it,
     cr_expect_tuples_eq(s.material.color, default_color);
 }
 
-// // Scenario : Lighting with the eye between the light and the surface
-// #define scenario4                                                                        \
-//     CYAN "\n"                                                                            \
-//          "Given m ← material()\n"                                                      \
-//          "And position ← point(0, 0, 0)\n"                                             \
-//          "Given eye_vec ← vector(0, 0, -1)\n"                                          \
-//          "And normal_vec ← vector(0, 0, -1)\n"                                         \
-//          "And light ← point_light(point(0, 0, -10), color(1, 1, 1))\n"                 \
-//          "When result ← lighting(m, light, position, eye_vec, normal_vec)\n"           \
-//          "Then result = color(1.9, 1.9, 1.9)" RESET
-// Test(phong_reflection, lighting_with_eye_between_light_and_surface, .description = scenario4) {
-// 	t_tuple				result;
-//     const t_tuple 		expected_result = {1.9, 1.9, 1.9, COLOR};
-//     const t_lighting 	lighting_obj = {
-//         .material = create_material(),
-//         .position = {0, 0, 0, POINT},
-//         .eye_vec = {0, 0, -1, VECTOR},
-//         .normal_vec = {0, 0, -1, VECTOR},
-//         .light = (t_point_light) {
-// 			.position = {0, 0, -10, POINT},
-//             .intensity = {1, 1, 1, COLOR},
-//     }};
-//
-//     calculate_lighting(&lighting_obj, result);
-//     cr_expect_tuples_eq(result, expected_result);
-// }
+// Scenario : Lighting with the eye between the light and the surface
+#define scenario4                                                                        \
+    CYAN "\n"                                                                            \
+         "Given m ← material()\n"                                                      \
+         "And position ← point(0, 0, 0)\n"                                             \
+         "Given eye_vec ← vector(0, 0, -1)\n"                                          \
+         "And normal_vec ← vector(0, 0, -1)\n"                                         \
+         "And light ← point_light(point(0, 0, -10), color(1, 1, 1))\n"                 \
+         "When result ← lighting(m, light, position, eye_vec, normal_vec)\n"           \
+         "Then result = color(1.9, 1.9, 1.9)" RESET
+Test(phong_reflection, lighting_with_eye_between_light_and_surface, .description = scenario4) {
+	t_tuple				result;
+    const t_tuple 		expected_result = {1.9, 1.9, 1.9, COLOR};
+    const t_lighting 	lighting_obj = {
+        .material = create_material(),
+        .position = {0, 0, 0, POINT},
+        .eye_vec = {0, 0, -1, VECTOR},
+        .normal_vec = {0, 0, -1, VECTOR},
+        .light = (t_point_light) {
+			.position = {0, 0, -10, POINT},
+            .intensity = {1, 1, 1, COLOR},
+    }};
+
+    calculate_lighting(&lighting_obj, result);
+    cr_expect_tuples_eq(result, expected_result);
+}
 
 // // Scenario : Lighting with the eye between light and surface, eye offset 45°
 // #define scenario5 \

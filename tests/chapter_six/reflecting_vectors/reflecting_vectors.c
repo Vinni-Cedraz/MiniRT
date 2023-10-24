@@ -27,7 +27,7 @@ Test(reflecting, approaching_at_45, .description = scenario1)
 	t_tuple res;
 	
 	reflect(v, n, res);
-	cr_expect_tuple_eq(res, (t_tuple){1, 1, 0});
+	cr_expect_tuples_eq(res, (t_tuple){1, 1, 0});
 }
 
 // Scenario : Reflecting a vector off a slanted surface
@@ -45,5 +45,5 @@ Test(reflecting, reflecting_a_vector, .description = scenario1)
 	t_tuple res;
 
 	reflect(v, n, res);
-	cr_expect_tuple_eq(res, (t_tuple){1, 0, 0, VECTOR});
+	cr_expect_tuples_eq(res, (t_tuple){1, 0, 0, VECTOR});
 }
