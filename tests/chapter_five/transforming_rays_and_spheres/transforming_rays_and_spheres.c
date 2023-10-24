@@ -16,8 +16,8 @@ Test(suite, translating_a_ray, .description = scenario1) {
 	const t_ray r2 = transform_ray(r, T);
 	const t_ray expected = create_ray((t_tuple){4, 6, 8, POINT}, (t_tuple){0, 1, 0, VECTOR});
 
-	cr_expect_tuple_eq(r2.origin, expected.origin);
-	cr_expect_tuple_eq(r2.direction, expected.direction);
+	cr_expect_tuples_eq(r2.origin, expected.origin);
+	cr_expect_tuples_eq(r2.direction, expected.direction);
 }
 
 // Scenario : Scaling a ray
@@ -33,8 +33,8 @@ Test(suite, scaling_a_ray, .description = scenario2) {
 	const t_ray r2 = transform_ray(r, m);
 	const t_ray expected = create_ray((t_tuple){2, 6, 12, POINT}, (t_tuple){0, 3, 0, VECTOR});
 
-	cr_expect_tuple_eq(r2.origin, expected.origin);
-	cr_expect_tuple_eq(r2.direction, expected.direction);
+	cr_expect_tuples_eq(r2.origin, expected.origin);
+	cr_expect_tuples_eq(r2.direction, expected.direction);
 }
  
 // Scenario : A sphere's default transformation

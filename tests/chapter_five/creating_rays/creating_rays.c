@@ -27,8 +27,8 @@ Test(creating_rays, create_and_query_a_ray, .description = scenario1)
 	t_tuple direction = {4, 5, 6, VECTOR};
 	const t_ray r = create_ray(origin, direction);
 
-	cr_expect_tuple_eq(r.origin, origin);
-	cr_expect_tuple_eq(r.direction , direction);
+	cr_expect_tuples_eq(r.origin, origin);
+	cr_expect_tuples_eq(r.direction , direction);
 }
 
 // Scenario: Computing a point from a distance
@@ -48,11 +48,11 @@ Test(creating_rays, point_from_distance, .description = scenario2)
 	t_tuple	result;
 
 	get_point_from_distance(ray, 0, result);
-	cr_expect_tuple_eq(result, (t_tuple){2, 3, 4, POINT});
+	cr_expect_tuples_eq(result, (t_tuple){2, 3, 4, POINT});
 	get_point_from_distance(ray, 1, result);
-	cr_expect_tuple_eq(result, (t_tuple){3, 3, 4, POINT});
+	cr_expect_tuples_eq(result, (t_tuple){3, 3, 4, POINT});
 	get_point_from_distance(ray, -1, result);
-	cr_expect_tuple_eq(result, (t_tuple){1, 3, 4, POINT});
+	cr_expect_tuples_eq(result, (t_tuple){1, 3, 4, POINT});
 	get_point_from_distance(ray, 2.5, result);
-	cr_expect_tuple_eq(result, (t_tuple){4.5, 3, 4, POINT});
+	cr_expect_tuples_eq(result, (t_tuple){4.5, 3, 4, POINT});
 }
