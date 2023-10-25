@@ -24,6 +24,7 @@ MAKE_FCLEAN = make fclean --no-print-directory -C
 
 all:
 	@printf "\n$(ORANGE)=== CHAPTER FOUR ===$(RESET)\n"
+	@make --no-print-directory clean
 	@$(foreach dir,$(TESTDIRS),$(call MAKE_COMPILE, $(dir));)
 
 run:

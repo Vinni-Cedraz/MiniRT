@@ -79,9 +79,9 @@ fclean: clean
 makelib:
 	@make --no-print-directory -C libs/
 
-$(LIB): $(LIBMLX_TARGET) $(OBJS)
+$(LIB): $(OBJS) $(LIB_OBJS) $(LIB_BOBJS)
 	@printf "\n$(YELLOW)[ linking ] $(DEF_COLOR)objects into library $(YELLOW)$@ $(DEF_COLOR)\n"
-	@ar rcs $@ $^ $(LIB_OBJS) $(LIB_BOBJS)
+	@ar rcs $@ $^
 
 as_lib: all makelib $(LIB)
 re: fclean all

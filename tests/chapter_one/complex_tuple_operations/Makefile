@@ -20,6 +20,7 @@ define run_fn
 endef
 
 all: makeminirt_as_lib
+	@make --no-print-directory clean
 	@$(foreach name, $(TESTS), $(call compile_fn, $(name)))
 
 run:

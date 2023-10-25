@@ -9,7 +9,7 @@ SHELL = /bin/zsh
 define compile_fn
 	if [[ ! -f $(1) ]] || [[ $(1).c -nt $(1) ]]; then \
 		$(CC) $(FLAGS) $(1).c $(INCS) $(LIBS) -o $(1) && printf "$(CC) $(FLAGS) $(1).c $(INCS) $(LIBS) -o $(1)\n"; \
-	fi
+	fi;
 endef
 
 define run_fn
@@ -17,6 +17,7 @@ define run_fn
 endef
 
 all: makeminirt_as_lib
+	@make --no-print-directory clean
 	@$(foreach name, $(TESTS), $(call compile_fn, $(name)))
 
 run:

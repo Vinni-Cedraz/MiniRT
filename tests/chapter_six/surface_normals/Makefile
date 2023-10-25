@@ -20,6 +20,7 @@ endef
 
 ## RULES
 all: makeminirt_as_lib
+	@make --no-print-directory clean
 	@$(foreach name, $(TESTS), $(call compile_fn, $(name));)
 run:
 	@$(foreach name, $(TESTS), $(call run_fn, ./$(name));)

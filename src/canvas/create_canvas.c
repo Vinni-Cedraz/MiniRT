@@ -20,6 +20,7 @@ t_canvas	create_canvas(unsigned short height, unsigned short width)
 
 	canvas.width = width;
 	canvas.height = height;
+	canvas.size = width * height;
 	canvas.pixels = malloc(sizeof(t_tuple *) * height);
 	while (height)
 	{
