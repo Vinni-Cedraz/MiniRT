@@ -23,6 +23,7 @@ endef
 ## RULES
 all:
 	@printf "\n$(ORANGE)=== CHAPTER SIX ===$(RESET)\n"
+	@make --no-print-directory clean
 	@$(foreach dir,$(TESTDIRS),$(call MAKE_COMPILE, $(dir));)
 run:
 	@printf "\n$(ORANGE)=== CHAPTER SIX ===$(RESET)\n"

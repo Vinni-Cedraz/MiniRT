@@ -253,5 +253,6 @@ void					reflect(t_tuple vector, t_tuple normal,
 							t_tuple _return);
 t_material				create_material(void);
 void					calculate_lighting(t_lighting *obj, t_tuple result);
+t_constr				make_aslib_test(void);
 
 #endif

@@ -14,14 +14,15 @@ define compile_fn
 endef
 
 define run_fn
-	$(1) --verbose && sleep 0.1;
+	$(1) --verbose && sleep 0.1
 endef
 
 all: makeminirt_as_lib
-	@$(foreach name, $(TESTS), $(call compile_fn, $(name)))
+	@make --no-print-directory clean
+	@$(foreach name, $(TESTS), $(call compile_fn, $(name));)
 
 run:
-	@$(foreach name, $(TESTS), $(call run_fn, ./$(name)))
+	@$(foreach name, $(TESTS), $(call run_fn, ./$(name));)
 
 makeminirt_as_lib:
 	@make as_lib --no-print-directory -C ../../../
