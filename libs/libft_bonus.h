@@ -18,12 +18,10 @@
 typedef struct s_nodes	t_node;
 typedef unsigned int	t_ui;
 
-typedef struct s_obj	t_object;
-
 typedef struct s_nodes
 {
 	float				t;
-	t_object			*object;
+	void				*object;
 	t_node				*next;
 }						t_node;
 

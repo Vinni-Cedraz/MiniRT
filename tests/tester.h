@@ -67,6 +67,21 @@ static inline int invert_axis(int size, float axis)
 	return ((int)size - axis);
 }
 
+static inline void create_a_vector(float x, float y, float z, t_tuple res)
+{
+	res[X] = x;
+	res[Y] = y;
+	res[Z] = z;
+	res[W] = VECTOR;
+}
+static inline void create_a_point(float x, float y, float z, t_tuple res)
+{
+	res[X] = x;
+	res[Y] = y;
+	res[Z] = z;
+	res[W] = POINT;
+}
+
 #define scenario1 CYAN \
 "\nGiven point(0, 0, 0, POINT)\n"\
 "And canvas(500, 500)\n" \
