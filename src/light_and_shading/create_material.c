@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_material	create_material(void)
+t_material	create_material()
 {
 	return ((t_material){
 		.color = {1, 1, 1, COLOR},

@@ -1,24 +1,44 @@
 #include "tester.h"
 
 // Scenario : Creating a world
-#define scenario1 CYAN \
-"\nGiven w ← world()\n" \
-"Then w contains no objects\n"    \
+#define scenario1 CYAN                                               \
+"\nGiven w ← create_world()\n"                                              \
+"Then w contains no objects\n"                                       \
 "And w has no light source"RESET
+Test(building_world, creating_world, .description = scenario1) {
+	const t_world w = create_world();
+	cr_expect_eq(w.objs, NULL);
+	cr_expect_eq(w.light, NULL);
+}
 
 // Scenario : The default world
 #define scenario2 CYAN \
 "\nGiven light ← point_light(point(-10, 10, -10), color(1, 1, 1))\n" \
-"And s1 ← sphere() with:\n"                                          \
-"material.color == (0.8, 1.0, 0.6)\n"                               \
-"material.diffuse == 0.7\n"                                         \
-"material.specular == 0.2\n"                                        \
-"And s2 ← sphere() with:\n"                                          \
-"transform <- scaling(0.5, 0.5, 0.5) |\n"                           \
+"And s1 ← create_sphere() with:\n"                                   \
+"material.color == (0.8, 1.0, 0.6)\n"                                \
+"material.diffuse == 0.7\n"                                          \
+"material.specular == 0.2\n"                                         \
+"set_transform(s, scaling(0.5, 0.5, 0.5)) \n"                        \
 "When w ← default_world()\n"                                         \
 "Then w.light = light\n"                                         	 \
 "And w contains s1\n"                                         		 \
 "And w contains s2"RESET
+Test(building_world, the_default_world, .description = scenario2) {
+	const t_point_light expected_light = {
+		.position = {-10, 10, -10, POINT},
+		.intensity = {1, 1, 1, COLOR}
+	};
+	t_material m = create_material();
+	m.color[R] = 0.8, m.color[G] = 1.0, m.color[B] = 0.6;
+	m.diffuse = 0.7;
+	m.specular = 0.2;
+	t_world world = default_world();
+
+	cr_expect_tuples_eq(world.light->position, expected_light.position);
+	cr_expect_tuples_eq(world.light->intensity, expected_light.intensity);
+	cr_expect_eq(floats_eq(world.s1.radius, 1.0), TRUE);
+	cr_expect_eq(floats_eq(world.s2.radius, 0.5), TRUE);
+}
 
 // Scenario : Intersect a world with a ray
 #define scenario3 CYAN \
@@ -31,10 +51,13 @@
 "And xs[2].t = 5.5\n"                                      			 \
 "And xs[3].t = 6"RESET
 
+Test(building_world, intersect_world_with_ray, .description = scenario3) {
+}
+
 // Scenario : Precomputing the state of an intersection
 #define scenario4 CYAN\
 "\nGiven r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                \
-"And shape ← sphere()\n"                							 \
+"And shape ← create_sphere()\n"                							 \
 "And i ← intersection(4, shape)\n"                					 \
 "When comps ← prepare_computations(i, r)\n"                			 \
 "Then comps.t = i.t\n"                								 \
@@ -46,21 +69,21 @@
 // Scenario : The hit, when an intersection occurs on the outside
 #define scenario5 CYAN\
 "\nGiven r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                \
-"And shape ← sphere()\n"                							 \
+"And shape ← create_sphere()\n"                							 \
 "And i ← intersection(4, shape)\n"                					 \
 "When comps ← prepare_computations(i, r)\n"                			 \
 "Then comps.inside = false"RESET
 
 // Scenario : The hit, when an intersection occurs on the inside
 #define scenario6 CYAN\
-"\nGiven r ← ray(point(0, 0, 0), vector(0, 0, 1))\n"                  \
-"And shape ← sphere()\n"                  							  \
-"And i ← intersection(1, shape)\n"                  				  \
-"When comps ← prepare_computations(i, r)\n"                  		  \
-"Then comps.point = point(0, 0, 1)\n"                  				  \
-"And comps.eyev = vector(0, 0, -1)\n"                  				  \
-"And comps.inside = true\n"                  						  \
-"// normal would have been (0, 0, 1), but is inverted!\n"             \
+"And shape ← create_sphere()\n"                  							 \
+"\nGiven r ← ray(point(0, 0, 0), vector(0, 0, 1))\n"                 \
+"And i ← intersection(1, shape)\n"                  				 \
+"When comps ← prepare_computations(i, r)\n"                  		 \
+"Then comps.point = point(0, 0, 1)\n"                  				 \
+"And comps.eyev = vector(0, 0, -1)\n"                  				 \
+"And comps.inside = true\n"                  						 \
+"// normal would have been (0, 0, 1), but is inverted!\n"            \
 "And comps.normalv = vector(0, 0, -1)"RESET
 
 // Scenario : Shading an intersection
@@ -105,5 +128,5 @@
 "And inner ← the second object in w\n"                               \
 "And inner.material.ambient ← 1\n"                                   \
 "And r ← ray(point(0, 0, 0.75), vector(0, 0, -1))\n"                 \
-"When c ← color_at(w, r)\n"                                           \
+"When c ← color_at(w, r)\n"                                          \
 "Then c = inner.material.color"RESET
