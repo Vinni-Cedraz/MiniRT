@@ -12,7 +12,7 @@ static void ray_casting(const float half, const float pixel_size, t_ray r, t_int
 
 t_canvas c;
 t_sphere s;
-const t_tuple ray_origin = {0, 0, -10.0, POINT};
+const t_tuple ray_origin = {0, 0, -5.0, POINT};
 
 Test(putting_it_together, drawing_a_circle) {
     t_ray r;
@@ -24,7 +24,7 @@ Test(putting_it_together, drawing_a_circle) {
     s = create_sphere();
     s.material = create_material();
     s.material.color[R] = 1, s.material.color[G] = 0.2, s.material.color[B] = 1;
-    set_transform(&s, create_scaling_matrix(9.980, 9.980, 9.980));
+    set_transform(&s, create_scaling_matrix(4.8,4.8,4.8));
     ray_casting(half, pixel_size, r, xs);
     t_constr *str = canvas_to_ppm(&c);
     create_ppm_file(str);
