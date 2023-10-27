@@ -59,8 +59,8 @@ t_intersection	create_intersection(t_sphere s, t_ray r)
 	i = link_intersection_nodes((t_node *[]){
 			intersection(((bask.b * -1 - sqrt(dis)) / (2 * bask.a)), &s),
 			intersection(((bask.b * -1 + sqrt(dis)) / (2 * bask.a)), &s),
-			NULL
-		});
+			NULL \
+	});
 	if (floats_eq(0, dis))
 		i.count = 1;
 	return (i);
