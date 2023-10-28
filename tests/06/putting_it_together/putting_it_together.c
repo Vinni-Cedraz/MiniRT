@@ -1,8 +1,8 @@
 #include "tester.h"
 
-#define wall_z 7
-#define wall_size 1000.0
-#define canvas_size 1000
+#define wall_z 30
+#define wall_size 2000.0
+#define canvas_size 800
 
 static void normalize_rgb(t_tuple raw_rgb);
 static void get_ray_direction(const t_tuple position, const t_tuple ray_origin, t_tuple direction);
@@ -12,39 +12,20 @@ static void ray_casting(const float half, const float pixel_size, t_ray r, t_int
 
 t_canvas c;
 t_sphere s;
-const t_tuple ray_origin = {0, 0, -10.0, POINT};
-
-static void print_sphere(t_sphere *s)
-{
-	printf("Sphere:\n");
-	printf("Origin: %f, %f, %f\n", s->origin[X], s->origin[Y], s->origin[Z]);
-	printf("Material:\n");
-	printf("Color: %f, %f, %f\n", s->material.color[R], s->material.color[G], s->material.color[B]);
-	printf("Ambient: %f\n", s->material.ambient);
-	printf("Diffuse: %f\n", s->material.diffuse);
-	printf("Specular: %f\n", s->material.specular);
-	printf("Shininess: %f\n", s->material.shininess);
-	printf("Transform:\n");
-	print_4x4matrix(s->_t);
-	printf("Inverse Transform:\n");
-	print_4x4matrix(s->inverse_t);
-	printf("\n");
-}
+const t_tuple ray_origin = {0, 0, -10.79, POINT};
+t_sphere s;
 
 Test(putting_it_together, drawing_a_circle) {
     t_ray r;
     t_intersection xs;
     const float half = wall_size / 2;
     const float pixel_size = wall_size / canvas_size;
-
+ 	s = create_sphere();
     c = create_canvas(canvas_size, canvas_size);
-    s = create_sphere();
-    s.material.color[R] = 1;
-	s.material.color[G] = 0;
-	s.material.color[B] = 0;
 	print_sphere(&s);
-    set_transform(&s, create_scaling_matrix(4.980, 4.980, 4.980));
+    set_transform(&s, create_scaling_matrix(9.980, 9.980, 9.980));
     ray_casting(half, pixel_size, r, xs);
+
     t_constr *str = canvas_to_ppm(&c);
     create_ppm_file(str);
     destroy_canvas(&c);
@@ -87,12 +68,20 @@ static void get_ray_direction(const t_tuple position, const t_tuple ray_origin, 
     normalize(sphere_to_ray, direction);
 }
 
+static void set_material_color(t_material *m, t_tuple color) {
+	m->color[R] = color[R];
+	m->color[G] = color[G];
+	m->color[B] = color[B];
+}
+
 static void paint_a_pixel(t_canvas *c, int y, int x, t_lighting *lighting, t_ray *r) {
-    t_tuple color = {1, 0, 0, COLOR};
-    lighting->material = create_material();
+    t_tuple color;
+
+    lighting->material = s.material;
+	set_material_color(&lighting->material, (t_tuple){1,0,0});
     negate_tuple(r->direction, lighting->eye_vec);
     lighting->light = (t_point_light){
-			.position = {0, 0, -5, POINT},
+			.position = {0, 5, -11, POINT},
 			.intensity = {1, 1, 1, COLOR},
 	};
 
