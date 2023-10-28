@@ -2,7 +2,7 @@
 
 #define wall_z 7
 #define wall_size 1000.0
-#define canvas_pixels 1000
+#define canvas_size 1000
 
 static void normalize_rgb(t_tuple raw_rgb);
 static void get_ray_direction(const t_tuple position, const t_tuple ray_origin, t_tuple direction);
@@ -12,19 +12,38 @@ static void ray_casting(const float half, const float pixel_size, t_ray r, t_int
 
 t_canvas c;
 t_sphere s;
-const t_tuple ray_origin = {0, 0, -5.0, POINT};
+const t_tuple ray_origin = {0, 0, -10.0, POINT};
+
+static void print_sphere(t_sphere *s)
+{
+	printf("Sphere:\n");
+	printf("Origin: %f, %f, %f\n", s->origin[X], s->origin[Y], s->origin[Z]);
+	printf("Material:\n");
+	printf("Color: %f, %f, %f\n", s->material.color[R], s->material.color[G], s->material.color[B]);
+	printf("Ambient: %f\n", s->material.ambient);
+	printf("Diffuse: %f\n", s->material.diffuse);
+	printf("Specular: %f\n", s->material.specular);
+	printf("Shininess: %f\n", s->material.shininess);
+	printf("Transform:\n");
+	print_4x4matrix(s->_t);
+	printf("Inverse Transform:\n");
+	print_4x4matrix(s->inverse_t);
+	printf("\n");
+}
 
 Test(putting_it_together, drawing_a_circle) {
     t_ray r;
     t_intersection xs;
     const float half = wall_size / 2;
-    const float pixel_size = wall_size / canvas_pixels;
+    const float pixel_size = wall_size / canvas_size;
 
-    c = create_canvas(canvas_pixels, canvas_pixels);
+    c = create_canvas(canvas_size, canvas_size);
     s = create_sphere();
-    s.material = create_material();
-    s.material.color[R] = 1, s.material.color[G] = 0.2, s.material.color[B] = 1;
-    set_transform(&s, create_scaling_matrix(4.8,4.8,4.8));
+    s.material.color[R] = 1;
+	s.material.color[G] = 0;
+	s.material.color[B] = 0;
+	print_sphere(&s);
+    set_transform(&s, create_scaling_matrix(4.980, 4.980, 4.980));
     ray_casting(half, pixel_size, r, xs);
     t_constr *str = canvas_to_ppm(&c);
     create_ppm_file(str);
@@ -73,7 +92,7 @@ static void paint_a_pixel(t_canvas *c, int y, int x, t_lighting *lighting, t_ray
     lighting->material = create_material();
     negate_tuple(r->direction, lighting->eye_vec);
     lighting->light = (t_point_light){
-			.position = {-10, 10, -10, POINT},
+			.position = {0, 0, -5, POINT},
 			.intensity = {1, 1, 1, COLOR},
 	};
 
