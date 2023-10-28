@@ -22,7 +22,6 @@ Test(putting_it_together, drawing_a_circle) {
     const float pixel_size = wall_size / canvas_size;
  	s = create_sphere();
     c = create_canvas(canvas_size, canvas_size);
-	print_sphere(&s);
     set_transform(&s, create_scaling_matrix(9.980, 9.980, 9.980));
     ray_casting(half, pixel_size, r, xs);
 
@@ -78,7 +77,7 @@ static void paint_a_pixel(t_canvas *c, int y, int x, t_lighting *lighting, t_ray
     t_tuple color;
 
     lighting->material = s.material;
-	set_material_color(&lighting->material, (t_tuple){1,0,0});
+	set_material_color(&lighting->material, (t_tuple){1,0.2,1});
     negate_tuple(r->direction, lighting->eye_vec);
     lighting->light = (t_point_light){
 			.position = {0, 5, -11, POINT},
