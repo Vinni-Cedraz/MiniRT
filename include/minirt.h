@@ -234,7 +234,7 @@ t_matrix				create_shearing_matrix(t_shearer shearer);
 t_matrix				chain_transformations(const t_matrix *matrices[]);
 void					translate_coordinate(t_tuple point, t_canvas *canvas,
 							t_tuple res);
-void					get_point_from_distance(t_ray ray, float distance,
+void					get_position(t_ray ray, float distance,
 							t_tuple _result);
 t_ray					create_ray(t_tuple origin, t_tuple direction);
 t_sphere				create_sphere(void);
