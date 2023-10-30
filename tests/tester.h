@@ -82,6 +82,25 @@ static inline void create_a_point(float x, float y, float z, t_tuple res)
 	res[W] = POINT;
 }
 
+void print_sphere(const t_sphere *sphere) {
+    printf("Sphere ID: %u\n", sphere->id);
+    printf("Sphere Type: %d\n", sphere->type);
+    printf("Sphere Origin: (%f, %f, %f, %f)\n", sphere->origin[X], sphere->origin[Y], sphere->origin[Z], sphere->origin[W]);
+    printf("Sphere Radius: %hu\n", sphere->radius);
+    printf("Sphere _t Matrix:\n");
+    for (int i = 0; i < 4; i++) {
+        printf("[%f, %f, %f, %f]\n", sphere->_t.rows[i][X], sphere->_t.rows[i][Y], sphere->_t.rows[i][Z], sphere->_t.rows[i][W]);
+    }
+    // Repeat for other matrices and material
+    // ...
+    printf("Sphere Material:\n");
+    printf("Ambient: %f\n", sphere->material.ambient);
+    printf("Diffuse: %f\n", sphere->material.diffuse);
+    printf("Specular: %f\n", sphere->material.specular);
+    printf("Shininess: %f\n", sphere->material.shininess);
+    printf("Color: (%f, %f, %f, %f)\n", sphere->material.color[X], sphere->material.color[Y], sphere->material.color[Z], sphere->material.color[W]);
+}
+
 #define scenario1 CYAN \
 "\nGiven point(0, 0, 0, POINT)\n"\
 "And canvas(500, 500)\n" \

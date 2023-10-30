@@ -644,5 +644,24 @@
    "build/calculate_lighting.o"
   ],
   "file": "./src/light_and_shading/calculate_lighting.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/making_scene/create_world.c",
+   "-o",
+   "build/create_world.o"
+  ],
+  "file": "./src/making_scene/create_world.c"
  }
 ]

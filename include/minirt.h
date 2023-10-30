@@ -147,6 +147,12 @@ typedef struct s_phere
 	t_material			material;
 }						t_sphere;
 
+typedef struct s_world
+{
+	t_sphere			*objs;
+	t_point_light		*light;
+}						t_world;
+
 typedef struct s_intersect
 {
 	t_node				*head;
@@ -255,5 +261,7 @@ void					reflect(t_tuple vector, t_tuple normal,
 t_material				create_material(void);
 void					calculate_lighting(t_lighting *obj, t_tuple result);
 t_constr				make_aslib_test(void);
+t_world 				create_world(void);
+t_world					default_world(void);
 
 #endif
