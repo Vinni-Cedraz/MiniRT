@@ -33,10 +33,17 @@
 # define COLOR 2
 # define FALSE 0
 # define TRUE 1
+
 # define COL1 0
 # define COL2 1
 # define COL3 2
 # define COL4 3
+
+# define AMBIENT 0
+# define DIFFUSE 1
+# define SPECULAR 2 
+# define SHININESS 3
+
 # define ROW1 0
 # define ROW2 1
 # define ROW3 2
@@ -261,7 +268,9 @@ void					reflect(t_tuple vector, t_tuple normal,
 t_material				create_material(void);
 void					calculate_lighting(t_lighting *obj, t_tuple result);
 t_constr				make_aslib_test(void);
-t_world 				create_world(void);
+t_world					create_world(void);
 t_world					default_world(void);
+void					set_material(t_tuple reflections, t_tuple color,
+							t_material *m);
 
 #endif

@@ -88,9 +88,13 @@ void print_sphere(const t_sphere *sphere) {
     printf("Sphere Origin: (%f, %f, %f, %f)\n", sphere->origin[X], sphere->origin[Y], sphere->origin[Z], sphere->origin[W]);
     printf("Sphere Radius: %hu\n", sphere->radius);
     printf("Sphere _t Matrix:\n");
-    for (int i = 0; i < 4; i++) {
-        printf("[%f, %f, %f, %f]\n", sphere->_t.rows[i][X], sphere->_t.rows[i][Y], sphere->_t.rows[i][Z], sphere->_t.rows[i][W]);
-    }
+    // for (int i = 0; i < 4; i++) {
+    //     printf("[%f, %f, %f, %f]\n", sphere->_t.rows[i][X], sphere->_t.rows[i][Y], sphere->_t.rows[i][Z], sphere->_t.rows[i][W]);
+    // }
+    printf("[%f, %f, %f, %f]\n", sphere->_t.row_1[X], sphere->_t.row_1[Y], sphere->_t.row_1[Z], sphere->_t.row_1[W]);
+    printf("[%f, %f, %f, %f]\n", sphere->_t.row_2[X], sphere->_t.row_2[Y], sphere->_t.row_2[Z], sphere->_t.row_1[W]);
+    printf("[%f, %f, %f, %f]\n", sphere->_t.row_3[X], sphere->_t.row_3[Y], sphere->_t.row_3[Z], sphere->_t.row_3[W]);
+    printf("[%f, %f, %f, %f]\n", sphere->_t.row_4[X], sphere->_t.row_4[Y], sphere->_t.row_4[Z], sphere->_t.row_4[W]);
     // Repeat for other matrices and material
     // ...
     printf("Sphere Material:\n");

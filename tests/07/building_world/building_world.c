@@ -31,24 +31,21 @@ Test(building_world, the_default_world, .description = scenario2) {
 		.position = {-10, 10, -10, POINT},
 		.intensity = {1, 1, 1, COLOR}
 	};
-	t_material m = create_material();
-	m.color[R] = 0.8;
-	m.color[G] = 1.0;
-	m.color[B] = 0.6;
+	t_material expected = create_material();
+	expected.color[R] = 0.8;
+	expected.color[G] = 1.0;
+	expected.color[B] = 0.6;
 	t_world world = default_world();
 
+	const t_matrix scaling_matrix = create_scaling_matrix(0.5, 0.5, 0.5);
+	const t_matrix inverse_scaling_matrix = invert_matrix(scaling_matrix);
 	cr_expect_tuples_eq(world.light->position, expected_light.position);
 	cr_expect_tuples_eq(world.light->intensity, expected_light.intensity);
-	cr_expect_eq(floats_eq(world.objs[1].radius, 0.5), TRUE);
-	printf("RADIUS: %f\n", world.objs[1].radius);
-	printf("sphere1: \n");
-	print_sphere(&world.objs[0]);
-	printf("sphere2: \n");
-	print_sphere(&world.objs[1]);
-	// cr_expect_eq(floats_eq(world.objs[0].radius, 1.0), TRUE);
-	// cr_expect_eq(floats_eq(world.objs[0].material.diffuse, 0.7), TRUE);
-	// cr_expect_eq(floats_eq(world.objs[0].material.specular, 0.2), TRUE);
-	// cr_expect_tuples_eq(world.objs[0].material.color, m.color);
+	cr_expect_eq(floats_eq(world.objs[0].material.diffuse, 0.7), TRUE);
+	cr_expect_eq(floats_eq(world.objs[0].material.specular, 0.2), TRUE);
+	cr_expect_tuples_eq(world.objs[0].material.color, expected.color);
+	cr_expect_matrices_eq(scaling_matrix, world.objs[1]._t);
+	cr_expect_matrices_eq(inverse_scaling_matrix, world.objs[1].inverse_t);
 }
 
 // Scenario : Intersect a world with a ray
