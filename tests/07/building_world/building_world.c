@@ -5,6 +5,7 @@
 "\nGiven w ← create_world()\n"                                              \
 "Then w contains no objects\n"                                       \
 "And w has no light source"RESET
+
 Test(building_world, creating_world, .description = scenario1) {
 	const t_world w = create_world();
 	cr_expect_eq(w.objs, NULL);

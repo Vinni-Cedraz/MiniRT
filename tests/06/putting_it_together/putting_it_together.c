@@ -71,7 +71,7 @@ static void ray_casting(const float half, const float pixel_size, t_ray r, t_int
         	hit = get_hit(xs);
 			if (hit)
 			{
-				get_point_from_distance(r, hit->t, ligthing_obj.position);
+				get_position(r, hit->t, ligthing_obj.position);
 				normal_at(hit->object, ligthing_obj.position, ligthing_obj.normal_vec);
                 paint_a_pixel(&c, y, x, &ligthing_obj, &r);
 			}
