@@ -663,5 +663,24 @@
    "build/create_world.o"
   ],
   "file": "./src/making_scene/create_world.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/light_and_shading/set_material.c",
+   "-o",
+   "build/set_material.o"
+  ],
+  "file": "./src/light_and_shading/set_material.c"
  }
 ]
