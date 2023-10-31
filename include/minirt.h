@@ -39,6 +39,7 @@
 # define COL3 2
 # define COL4 3
 
+# define DEFAULT -1
 # define AMBIENT 0
 # define DIFFUSE 1
 # define SPECULAR 2 
