@@ -26,6 +26,7 @@ Test(building_world, create_world, .description = scenario1) {
 "Then w.light = light\n"                                         	 \
 "And w contains s1\n"                                         		 \
 "And w contains s2"RESET
+
 Test(building_world, the_default_world, .description = scenario2) {
 	const t_point_light expected_light = {
 		.position = {-10, 10, -10, POINT},
@@ -80,21 +81,26 @@ Test(building_world, intersect_world_with_ray, .description = scenario3) {
 "\nGiven r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                \
 "And shape ← create_sphere()\n"                						 \
 "And i ← intersection(4, shape)\n"                					 \
-"When comps ← prepare_computations(i, r)\n"                			 \
-"Then comps.t = i.t\n"                								 \
-"And comps.object = i.object\n"                						 \
-"And comps.point = point(0, 0, -1)\n"                				 \
-"And comps.eyev = vector(0, 0, -1)\n"                				 \
-"And comps.normalv = vector(0, 0, -1)"RESET
+"When prep_comps ← prepare_computations(i, r)\n"                			 \
+"Then prep_comps.t = i.t\n"                								 \
+"And prep_comps.object = i.object\n"                						 \
+"And prep_comps.point = point(0, 0, -1)\n"                				 \
+"And prep_comps.eyev = vector(0, 0, -1)\n"                				 \
+"And prep_comps.normalv = vector(0, 0, -1)"RESET
 Test(building_world, precomputing_the_state_of_an_intersection, .description = scenario4) {
 	t_ray 					r = create_ray(
 			(t_tuple){0, 0, -5, POINT},
 			(t_tuple){0, 0, 1, VECTOR}
 	);
 	t_sphere				s = create_sphere();
-	const t_intersection	*i = intersection(4, &s);
-	t_comps					comps = prepare_computations(i, r);
+	const t_node			*i = intersection(4, &s);
+	t_comps					prep_comps = prepare_computations(i, r);
 
+	cr_expect_eq(floats_eq(prep_comps.t, i->t));
+	cr_expect_eq(prep_comps.object, i->object); // must be the address of the same sphere
+	cr_expect_tuples_eq(prep_comps.point, (t_tuple){0, 0, -1, POINT});
+	cr_expect_tuples_eq(prep_comps.eyev, (t_tuple){0, 0, -1, VECTOR});
+	cr_expect_tuples_eq(prep_comps.normalv, (t_tuple){0, 0, -1, VECTOR});
 }
 
 // Scenario : The hit, when an intersection occurs on the outside
@@ -102,28 +108,28 @@ Test(building_world, precomputing_the_state_of_an_intersection, .description = s
 "\nGiven r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                \
 "And shape ← create_sphere()\n"                						 \
 "And i ← intersection(4, shape)\n"                					 \
-"When comps ← prepare_computations(i, r)\n"                			 \
-"Then comps.inside = false"RESET
+"When prep_comps ← prepare_computations(i, r)\n"                			 \
+"Then prep_comps.inside = false"RESET
 
 // Scenario : The hit, when an intersection occurs on the inside
 #define scenario6 CYAN\
 "And shape ← create_sphere()\n"                  					 \
 "\nGiven r ← ray(point(0, 0, 0), vector(0, 0, 1))\n"                 \
 "And i ← intersection(1, shape)\n"                  				 \
-"When comps ← prepare_computations(i, r)\n"                  		 \
-"Then comps.point = point(0, 0, 1)\n"                  				 \
-"And comps.eyev = vector(0, 0, -1)\n"                  				 \
-"And comps.inside = true\n"                  						 \
+"When prep_comps ← prepare_computations(i, r)\n"                  		 \
+"Then prep_comps.point = point(0, 0, 1)\n"                  				 \
+"And prep_comps.eyev = vector(0, 0, -1)\n"                  				 \
+"And prep_comps.inside = true\n"                  						 \
 "// normal would have been (0, 0, 1), but is inverted!\n"            \
-"And comps.normalv = vector(0, 0, -1)"RESET
+"And prep_comps.normalv = vector(0, 0, -1)"RESET
 
 // Scenario : Shading an intersection
 #define scenario7 CYAN\
 "\nGiven w ← default_world()\n                                        \
 "And r ← ray(point(0, 0, -5), vector(0, 0, 1))\n                      \
 "And shape ← the first object in wAnd i ← intersection(4, shape)\n    \
-"When comps ← prepare_computations(i, r)\n                            \
-"And c ← shade_hit(w, comps)\n                                        \
+"When prep_comps ← prepare_computations(i, r)\n                            \
+"And c ← shade_hit(w, prep_comps)\n                                        \
 "Then c = color(0.38066, 0.47583, 0.2855)"RESET
 
 // Scenario : Shading an intersection from the inside
@@ -133,8 +139,8 @@ Test(building_world, precomputing_the_state_of_an_intersection, .description = s
 "And r ← ray(point(0, 0, 0), vector(0, 0, 1))\n"                      \
 "And shape ← the second object in w\n"                                \
 "And i ← intersection(0.5, shape)\n"                                  \
-"When comps ← prepare_computations(i, r)\n"                           \
-"And c ← shade_hit(w, comps)\n"                                       \
+"When prep_comps ← prepare_computations(i, r)\n"                           \
+"And c ← shade_hit(w, prep_comps)\n"                                       \
 "Then c = color(0.90498, 0.90498, 0.90498)"RESET
 
 // Scenario : The color when a ray misses
