@@ -94,7 +94,7 @@ Test(building_world, precomputing_the_state_of_an_intersection, .description = s
 	);
 	t_sphere				s = create_sphere();
 	const t_node			*i = intersection(4, &s);
-	t_comps					prep_comps = prepare_computations(i, r);
+	t_prep_comps			prep_comps = prepare_computations(i, r);
 
 	cr_expect_eq(floats_eq(prep_comps.t, i->t));
 	cr_expect_eq(prep_comps.object, i->object); // must be the address of the same sphere
@@ -110,6 +110,14 @@ Test(building_world, precomputing_the_state_of_an_intersection, .description = s
 "And i ← intersection(4, shape)\n"                					 \
 "When prep_comps ← prepare_computations(i, r)\n"                			 \
 "Then prep_comps.inside = false"RESET
+Test(building_world, hit_when_intersection_is_outside, .description = scenario5) {
+	t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){VECTOR});
+	const t_sphere s = create_sphere();
+	const t_node *i = intersection(4, &s);
+	const t_prep_comps prep_comps = prepare_computations(i, r);
+
+	cr_expect_eq(prep_comps.inside, FALSE);
+}
 
 // Scenario : The hit, when an intersection occurs on the inside
 #define scenario6 CYAN\
