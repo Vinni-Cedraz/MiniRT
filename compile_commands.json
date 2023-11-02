@@ -506,25 +506,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/intersections/abstract.c",
-   "-o",
-   "build/abstract.o"
-  ],
-  "file": "./src/intersections/abstract.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/intersections/get_hit.c",
    "-o",
    "build/get_hit.o"
@@ -682,5 +663,24 @@
    "build/set_material.o"
   ],
   "file": "./src/light_and_shading/set_material.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/intersections/create_intersection.c",
+   "-o",
+   "build/create_intersection.o"
+  ],
+  "file": "./src/intersections/create_intersection.c"
  }
 ]

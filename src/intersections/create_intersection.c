@@ -13,33 +13,6 @@
 #include "libft_bonus.h"
 #include "minirt.h"
 
-t_node	*intersection(float point, void *obj)
-{
-	t_node	*lst;
-
-	lst = ft_lstnew(point);
-	lst->object = obj;
-	return (lst);
-}
-
-t_intersection	link_intersection_nodes(t_node *arr[])
-{
-	t_intersection	i;
-	int				idx;
-
-	idx = 0;
-	while (arr[idx] != NULL)
-	{
-		if (idx == 0)
-			i.head = arr[idx];
-		else
-			ft_lstadd_back(&i.head, arr[idx]);
-		idx++;
-	}
-	i.count = idx;
-	return (i);
-}
-
 t_intersection	create_intersection(t_sphere *s, t_ray r)
 {
 	t_intersection	i;
@@ -72,4 +45,31 @@ float	discriminant(t_tuple sphere_to_ray, t_ray ray, t_baskara *bask)
 	bask->b = 2 * dot(ray.direction, sphere_to_ray);
 	bask->c = dot(sphere_to_ray, sphere_to_ray) - 1;
 	return (pow(bask->b, 2) - 4 * bask->a * bask->c);
+}
+
+t_intersection	link_intersection_nodes(t_node *arr[])
+{
+	t_intersection	i;
+	int				idx;
+
+	idx = 0;
+	while (arr[idx] != NULL)
+	{
+		if (idx == 0)
+			i.head = arr[idx];
+		else
+			ft_lstadd_back(&i.head, arr[idx]);
+		idx++;
+	}
+	i.count = idx;
+	return (i);
+}
+
+t_node	*intersection(float point, void *obj)
+{
+	t_node	*lst;
+
+	lst = ft_lstnew(point);
+	lst->object = obj;
+	return (lst);
 }

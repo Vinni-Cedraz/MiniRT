@@ -25,7 +25,6 @@ Test(putting_it_together, drawing_a_circle) {
     s.material.color[R] = 1;
 	s.material.color[G] = 0;
 	s.material.color[B] = 0;
-	print_sphere(&s);
     set_transform(&s, create_scaling_matrix(4.980, 4.980, 4.980));
     ray_casting(half, pixel_size, r, xs);
     t_constr *str = canvas_to_ppm(&c);
