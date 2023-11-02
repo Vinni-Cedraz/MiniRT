@@ -86,6 +86,11 @@ Test(building_world, intersect_world_with_ray, .description = scenario3) {
 "And comps.point = point(0, 0, -1)\n"                				 \
 "And comps.eyev = vector(0, 0, -1)\n"                				 \
 "And comps.normalv = vector(0, 0, -1)"RESET
+Test(building_world, precomputing_the_state_of_an_intersection, .description = scenario4) {
+	t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_sphere s = create_sphere();
+	t_intersection i = create_intersection(&s, r);
+}
 
 // Scenario : The hit, when an intersection occurs on the outside
 #define scenario5 CYAN\

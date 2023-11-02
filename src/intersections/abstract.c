@@ -40,15 +40,15 @@ t_intersection	link_intersection_nodes(t_node *arr[])
 	return (i);
 }
 
-t_intersection	create_intersection(t_sphere s, t_ray r)
+t_intersection	create_intersection(t_sphere *s, t_ray r)
 {
 	t_intersection	i;
 	float			dis;
 	t_tuple			sphere_to_ray;
 	t_baskara		bask;
 
-	r = transform_ray(r, s.inverse_t);
-	subtract_tuples(r.origin, s.origin, sphere_to_ray);
+	r = transform_ray(r, s->inverse_t);
+	subtract_tuples(r.origin, s->origin, sphere_to_ray);
 	dis = discriminant(sphere_to_ray, r, &bask);
 	if (dis < 0)
 	{

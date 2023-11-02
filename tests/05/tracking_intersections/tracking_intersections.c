@@ -68,7 +68,7 @@ Test(intersection, sets_the_object, .description = scenario3)
 {
 	const t_sphere s = create_sphere();
 	const t_ray r = create_ray((t_tuple){0,0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_intersection xs = create_intersection(s, r);
+	const t_intersection xs = create_intersection(&s, r);
 
 	cr_expect_eq(xs.count, 2);
 	cr_expect_eq(((t_sphere *)(xs.head->object))->type, SPHERE);

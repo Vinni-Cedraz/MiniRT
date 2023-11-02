@@ -14,23 +14,6 @@ t_canvas c;
 t_sphere s;
 const t_tuple ray_origin = {0, 0, -10.0, POINT};
 
-static void print_sphere(t_sphere *s)
-{
-	printf("Sphere:\n");
-	printf("Origin: %f, %f, %f\n", s->origin[X], s->origin[Y], s->origin[Z]);
-	printf("Material:\n");
-	printf("Color: %f, %f, %f\n", s->material.color[R], s->material.color[G], s->material.color[B]);
-	printf("Ambient: %f\n", s->material.ambient);
-	printf("Diffuse: %f\n", s->material.diffuse);
-	printf("Specular: %f\n", s->material.specular);
-	printf("Shininess: %f\n", s->material.shininess);
-	printf("Transform:\n");
-	print_4x4matrix(s->_t);
-	printf("Inverse Transform:\n");
-	print_4x4matrix(s->inverse_t);
-	printf("\n");
-}
-
 Test(putting_it_together, drawing_a_circle) {
     t_ray r;
     t_intersection xs;
@@ -67,7 +50,7 @@ static void ray_casting(const float half, const float pixel_size, t_ray r, t_int
             world_x = -half + pixel_size * x;
             get_ray_direction((t_tuple){world_x, world_y, wall_z, POINT}, ray_origin, direction);
             r = create_ray(ray_origin, direction);
-            xs = create_intersection(s, r);
+            xs = create_intersection(&s, r);
         	hit = get_hit(xs);
 			if (hit)
 			{

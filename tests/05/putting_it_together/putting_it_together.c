@@ -45,7 +45,7 @@ static void ray_casting(const float half, const float pixel_size, t_ray r, t_int
             world_x = -half + pixel_size * x;
             get_ray_direction((t_tuple){world_x, world_y, wall_z, POINT}, ray_origin, direction);
             r = create_ray(ray_origin, direction);
-            xs = create_intersection(s, r);
+            xs = create_intersection(&s, r);
             if (get_hit(xs) != NULL)
                 paint_a_pixel(&c, y, x);
         }
