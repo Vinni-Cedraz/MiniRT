@@ -682,5 +682,24 @@
    "build/create_intersection.o"
   ],
   "file": "./src/intersections/create_intersection.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/intersections/world_with_ray.c",
+   "-o",
+   "build/world_with_ray.o"
+  ],
+  "file": "./src/intersections/world_with_ray.c"
  }
 ]
