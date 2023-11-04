@@ -253,10 +253,9 @@ void			get_position(t_ray ray, float distance,
 t_ray			create_ray(t_tuple origin, t_tuple direction);
 t_sphere		create_sphere(void);
 t_bool			tuples_eq(const t_tuple result, const t_tuple expected);
-t_intersection	create_intersection(t_sphere *s, t_ray r);
+t_intersection	create_intersection(const t_sphere *s, t_ray r);
 float			discriminant(t_tuple sphere_to_ray, t_ray ray,
 					t_baskara *bask);
-t_node			*intersection(float point, void *obj);
 t_intersection	link_intersection_nodes(t_node *arr[]);
 t_node			*get_hit(t_intersection i);
 t_matrix		create_identity_matrix(void);
@@ -273,5 +272,6 @@ t_world			create_world(void);
 t_world			default_world(void);
 void			set_material(t_tuple reflections, t_tuple color, t_material *m);
 t_intersection	intersect_world_with_ray(t_world *w, t_ray *r);
+t_node			*intersection(float point, const void *obj);
 
 #endif

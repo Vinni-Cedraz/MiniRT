@@ -13,7 +13,7 @@
 #include "libft_bonus.h"
 #include "minirt.h"
 
-t_intersection	create_intersection(t_sphere *s, t_ray r)
+t_intersection	create_intersection(const t_sphere *s, t_ray r)
 {
 	t_intersection	i;
 	float			dis;
@@ -65,11 +65,11 @@ t_intersection	link_intersection_nodes(t_node *arr[])
 	return (i);
 }
 
-t_node	*intersection(float point, void *obj)
+t_node	*intersection(float point, const void *obj)
 {
 	t_node	*lst;
 
 	lst = ft_lstnew(point);
-	lst->object = obj;
+	lst->object = (t_sphere *)obj;
 	return (lst);
 }

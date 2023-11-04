@@ -72,10 +72,11 @@ Test(building_world, intersect_world_with_ray, .description = scenario3) {
 	cr_expect_eq(xs.count, 4);
 	cr_expect_eq(xs.head->t, 4);
 	cr_expect_eq(xs.head->next->t, 4.5);
-	cr_expect_eq(xs.head->next->t, 5.5);
-	cr_expect_eq(xs.head->next->t, 6);
+	cr_expect_eq(xs.head->next->next->t, 5.5);
+	cr_expect_eq(xs.head->next->next->next->t, 6);
+	cr_expect_eq(xs.head->next->next->next->next, NULL);
 }
-//
+
 // // Scenario : Precomputing the state of an intersection
 // #define scenario4 CYAN\
 // "\nGiven r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                \

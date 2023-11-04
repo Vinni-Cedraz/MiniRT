@@ -14,16 +14,19 @@
 
 t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 {
-	t_intersection	obj1_intersects;
-	t_intersection	obj2_intersects;
+	t_intersection		obj1_intersects;
+	t_intersection		obj2_intersects;
+	const t_sphere		*s1 = &w->objs[0];
+	const t_sphere		*s2 = &w->objs[1];
 
-	obj1_intersects = create_intersection(&w->objs[0], *r);
-	obj2_intersects = create_intersection(&w->objs[1], *r);
-	link_intersection_nodes((t_node *[]){
-		obj1_intersects.head,
-		obj1_intersects.head->next,
-		obj2_intersects.head,
-		obj2_intersects.head->next, \
+	obj1_intersects = create_intersection(s1, *r);
+	obj2_intersects = create_intersection(s2, *r);
+	obj1_intersects = link_intersection_nodes((t_node *[]){
+			intersection(obj1_intersects.head->t, s1),
+			intersection(obj2_intersects.head->t, s2),
+			intersection(obj2_intersects.head->next->t, s2),
+			intersection(obj1_intersects.head->next->t, s1),
+			NULL \
 	});
 	return (obj1_intersects);
 }
