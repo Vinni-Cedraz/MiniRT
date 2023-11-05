@@ -193,6 +193,7 @@ typedef struct s_comp
 	t_tuple			point;
 	t_tuple			eyev;
 	t_tuple			normalv;
+	t_bool			inside;
 }					t_prep_comps;
 
 void			create_point(t_tuple tuple);
