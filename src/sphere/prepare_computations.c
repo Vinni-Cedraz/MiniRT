@@ -12,3 +12,16 @@
 
 #include "minirt.h"
 
+t_prep_comps	prepare_computations(t_node *intersection, t_ray ray)
+{
+	t_prep_comps 	comp;
+
+	comp = (t_prep_comps){
+		.t = intersection->t,
+		.object = (t_sphere*)intersection->object,
+	};
+	get_position(ray, comp.t, comp.point);
+	normal_at(comp.object, comp.point, comp.normalv);
+	negate_tuple(ray.direction, comp.eyev);
+	return (comp);
+}

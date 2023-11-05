@@ -56,6 +56,7 @@ typedef float			t_2x2_row[2];
 typedef _Bool			t_bool;
 typedef unsigned short	t_short;
 
+
 typedef enum e_num
 {
 	SPHERE,
@@ -185,6 +186,15 @@ typedef struct s_baskara
 	float				c;
 }						t_baskara;
 
+typedef struct s_comp 
+{
+	float 			t;
+	t_sphere		*object;
+	t_tuple			point;
+	t_tuple			eyev;
+	t_tuple			normalv;
+}					t_prep_comps;
+
 void			create_point(t_tuple tuple);
 void			create_vector(t_tuple tuple);
 t_bool			floats_eq(float a, float b);
@@ -273,5 +283,6 @@ t_world			default_world(void);
 void			set_material(t_tuple reflections, t_tuple color, t_material *m);
 t_intersection	intersect_world_with_ray(t_world *w, t_ray *r);
 t_node			*intersection(float point, const void *obj);
+t_prep_comps	prepare_computations(t_node *intersection, t_ray ray);
 
 #endif

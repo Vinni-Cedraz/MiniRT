@@ -97,7 +97,7 @@ Test(building_world, precomputing_the_state_of_an_intersection, .description = s
 	const t_node			*i = intersection(4, &s);
 	t_prep_comps			prep_comps = prepare_computations(i, r);
 
-	cr_expect_eq(floats_eq(prep_comps.t, i->t));
+	cr_expect_eq(floats_eq(prep_comps.t, i->t), TRUE);
 	cr_expect_eq(prep_comps.object, i->object); // must be the address of the same sphere
 	cr_expect_tuples_eq(prep_comps.point, (t_tuple){0, 0, -1, POINT});
 	cr_expect_tuples_eq(prep_comps.eyev, (t_tuple){0, 0, -1, VECTOR});
