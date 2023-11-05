@@ -506,25 +506,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/intersections/get_hit.c",
-   "-o",
-   "build/get_hit.o"
-  ],
-  "file": "./src/intersections/get_hit.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/transform_ray/transform_ray.c",
    "-o",
    "build/transform_ray.o"
@@ -677,11 +658,11 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/intersections/create_intersection.c",
+   "./src/sphere/create_intersection.c",
    "-o",
    "build/create_intersection.o"
   ],
-  "file": "./src/intersections/create_intersection.c"
+  "file": "./src/sphere/create_intersection.c"
  },
  {
   "directory": "/root/MiniRT",
@@ -696,10 +677,48 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/intersections/world_with_ray.c",
+   "./src/sphere/get_hit.c",
+   "-o",
+   "build/get_hit.o"
+  ],
+  "file": "./src/sphere/get_hit.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/world_with_ray.c",
    "-o",
    "build/world_with_ray.o"
   ],
-  "file": "./src/intersections/world_with_ray.c"
+  "file": "./src/sphere/world_with_ray.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/prepare_computations.c",
+   "-o",
+   "build/prepare_computations.o"
+  ],
+  "file": "./src/sphere/prepare_computations.c"
  }
 ]

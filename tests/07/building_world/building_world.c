@@ -77,32 +77,32 @@ Test(building_world, intersect_world_with_ray, .description = scenario3) {
 	cr_expect_eq(xs.head->next->next->next->next, NULL);
 }
 
-// // Scenario : Precomputing the state of an intersection
-// #define scenario4 CYAN\
-// "\nGiven r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                \
-// "And shape ← create_sphere()\n"                						 \
-// "And i ← intersection(4, shape)\n"                					 \
-// "When prep_comps ← prepare_computations(i, r)\n"                			 \
-// "Then prep_comps.t = i.t\n"                								 \
-// "And prep_comps.object = i.object\n"                						 \
-// "And prep_comps.point = point(0, 0, -1)\n"                				 \
-// "And prep_comps.eyev = vector(0, 0, -1)\n"                				 \
-// "And prep_comps.normalv = vector(0, 0, -1)"RESET
-// Test(building_world, precomputing_the_state_of_an_intersection, .description = scenario4) {
-// 	t_ray 					r = create_ray(
-// 			(t_tuple){0, 0, -5, POINT},
-// 			(t_tuple){0, 0, 1, VECTOR}
-// 	);
-// 	t_sphere				s = create_sphere();
-// 	const t_node			*i = intersection(4, &s);
-// 	t_prep_comps			prep_comps = prepare_computations(i, r);
-//
-// 	cr_expect_eq(floats_eq(prep_comps.t, i->t));
-// 	cr_expect_eq(prep_comps.object, i->object); // must be the address of the same sphere
-// 	cr_expect_tuples_eq(prep_comps.point, (t_tuple){0, 0, -1, POINT});
-// 	cr_expect_tuples_eq(prep_comps.eyev, (t_tuple){0, 0, -1, VECTOR});
-// 	cr_expect_tuples_eq(prep_comps.normalv, (t_tuple){0, 0, -1, VECTOR});
-// }
+// Scenario : Precomputing the state of an intersection
+#define scenario4 CYAN\
+"\nGiven r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                \
+"And shape ← create_sphere()\n"                						 \
+"And i ← intersection(4, shape)\n"                					 \
+"When prep_comps ← prepare_computations(i, r)\n"                	 \
+"Then prep_comps.t = i.t\n"                						 	 \
+"And prep_comps.object = i.object\n"                				 \
+"And prep_comps.point = point(0, 0, -1)\n"                			 \
+"And prep_comps.eyev = vector(0, 0, -1)\n"                			 \
+"And prep_comps.normalv = vector(0, 0, -1)"RESET
+Test(building_world, precomputing_the_state_of_an_intersection, .description = scenario4) {
+	t_ray 					r = create_ray(
+			(t_tuple){0, 0, -5, POINT},
+			(t_tuple){0, 0, 1, VECTOR}
+	);
+	t_sphere				s = create_sphere();
+	const t_node			*i = intersection(4, &s);
+	t_prep_comps			prep_comps = prepare_computations(i, r);
+
+	cr_expect_eq(floats_eq(prep_comps.t, i->t));
+	cr_expect_eq(prep_comps.object, i->object); // must be the address of the same sphere
+	cr_expect_tuples_eq(prep_comps.point, (t_tuple){0, 0, -1, POINT});
+	cr_expect_tuples_eq(prep_comps.eyev, (t_tuple){0, 0, -1, VECTOR});
+	cr_expect_tuples_eq(prep_comps.normalv, (t_tuple){0, 0, -1, VECTOR});
+}
 //
 // // Scenario : The hit, when an intersection occurs on the outside
 // #define scenario5 CYAN\
