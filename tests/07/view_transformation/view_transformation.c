@@ -7,7 +7,12 @@
 "When t ← view_transform(from, to, up) \n" \
 "Then t = identity_matrix RESET\n"
 Test(view_transformation, default_orientation, .description = scenario1) {
+	const t_tuple from = {0, 0, 0, POINT};
+	const t_tuple to = {0, 0, -1, POINT};
+	const t_tuple up = {0, 1, 0, VECTOR};
 
+	t_matrix t = view_transform(from, to, up);
+	cr_expect_matrices_eq(t, create_identity_matrix());
 }
 
 // Scenario : A view transformation matrix looking in positive z direction
