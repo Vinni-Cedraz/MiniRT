@@ -17,8 +17,8 @@ t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 	t_intersection		obj1_intersects;
 	t_intersection		obj2_intersects;
 	t_intersection		res;
-	const t_sphere		*s1 = &w->objs[0];
-	const t_sphere		*s2 = &w->objs[1];
+	const void			*s1 = &w->objs[0];
+	const void			*s2 = &w->objs[1];
 
 	res = (t_intersection){0};
 	obj1_intersects = create_intersection(s1, *r);
@@ -26,10 +26,10 @@ t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 	if (obj1_intersects.count != 0 && obj2_intersects.count != 0)
 	{
 		res = link_intersection_nodes((t_node *[]){
-				intersection(obj1_intersects.head->t, s1),
-				intersection(obj2_intersects.head->t, s2),
-				intersection(obj2_intersects.head->next->t, s2),
-				intersection(obj1_intersects.head->next->t, s1),
+				intersection(obj1_intersects.head->t, &s1),
+				intersection(obj2_intersects.head->t, &s2),
+				intersection(obj2_intersects.head->next->t, &s2),
+				intersection(obj1_intersects.head->next->t, &s1),
 				NULL \
 		});
 	}

@@ -94,7 +94,8 @@ Test(building_world, precomputing_the_state_of_an_intersection, .description = s
 			(t_tuple){0, 0, 1, VECTOR}
 	);
 	t_sphere				s = create_sphere();
-	const t_node			*i = intersection(4, &s);
+	const void 				*s_ptr = &s;
+	const t_node			*i = intersection(4, &s_ptr);
 	t_prep_comps			prep_comps = prepare_computations(i, r);
 
 	cr_expect_eq(floats_eq(prep_comps.t, i->t), TRUE);
@@ -114,7 +115,8 @@ Test(building_world, precomputing_the_state_of_an_intersection, .description = s
 Test(building_world, hit_when_intersection_is_outside, .description = scenario5) {
 	t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){VECTOR});
 	const t_sphere s = create_sphere();
-	const t_node *i = intersection(4, &s);
+	const void *s_ptr = &s;
+	const t_node *i = intersection(4, &s_ptr);
 	const t_prep_comps prep_comps = prepare_computations(i, r);
 
 	cr_expect_eq(prep_comps.inside, FALSE);
@@ -133,6 +135,7 @@ Test(building_world, hit_when_intersection_is_outside, .description = scenario5)
 "And prep_comps.normalv = vector(0, 0, -1)"RESET
 Test(building_world, hit_when_intersection_is_inside, .description = scenario6) {
 	t_sphere s;
+	const void *s_ptr = &s;
 	t_ray r;
 	t_node *i;
 	t_prep_comps prep_comps;
@@ -140,7 +143,7 @@ Test(building_world, hit_when_intersection_is_inside, .description = scenario6) 
 
 	s = create_sphere();
 	r = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	i = intersection(1, &s);
+	i = intersection(1, &s_ptr);
 	prep_comps = prepare_computations(i, r);
 	cr_expect_tuples_eq(prep_comps.point, (t_tuple){0, 0, 1, POINT});
 	cr_expect_tuples_eq(prep_comps.eyev, (t_tuple){0, 0, -1, VECTOR});
@@ -161,6 +164,7 @@ Test(building_world, shading_intersection, .description = scenario7) {
 	t_world w;
 	t_ray r;
 	t_sphere s;
+	const void *s_ptr = &s;
 	t_node *i;
 	t_tuple color;
 	t_prep_comps prep_comps;
@@ -169,7 +173,7 @@ Test(building_world, shading_intersection, .description = scenario7) {
 	w = default_world();
 	r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
 	s = *(t_sphere *)w.objs;
-	i = intersection(4, &s);
+	i = intersection(4, &s_ptr);
 	prep_comps = prepare_computations(i, r);
 
 	shade_hit(&w, &prep_comps, color);
@@ -194,7 +198,8 @@ Test(building_world, shading_intersection_from_inside, .description = scenario8)
 	};
 	t_ray 			r = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
 	t_sphere 		*s = &w.objs[1];
-	t_node	 		*i = intersection(0.5, s);
+	const void 		**shape = &s;
+	t_node	 		*i = intersection(0.5, shape);
 	t_prep_comps 	prep_comps = prepare_computations(i, r);
 	t_tuple 		color;
 	shade_hit(&w, &prep_comps, color);
