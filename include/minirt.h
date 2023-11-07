@@ -283,7 +283,7 @@ t_world					default_world(void);
 void					set_material(t_tuple reflections, t_tuple color,
 							t_material *m);
 t_intersection			intersect_world_with_ray(t_world *w, t_ray *r);
-t_node					*intersection(float point, const void *obj);
+t_node					*intersection(float point, const void **obj);
 t_prep_comps			prepare_computations(t_node *intersection, t_ray ray);
 void					shade_hit(t_world *world, t_prep_comps *comps,
 							t_tuple result);
