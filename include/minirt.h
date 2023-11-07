@@ -56,7 +56,6 @@ typedef float			t_2x2_row[2];
 typedef _Bool			t_bool;
 typedef unsigned short	t_short;
 
-
 typedef enum e_num
 {
 	SPHERE,
@@ -286,5 +285,6 @@ t_intersection	intersect_world_with_ray(t_world *w, t_ray *r);
 t_node			*intersection(float point, const void *obj);
 t_prep_comps	prepare_computations(t_node *intersection, t_ray ray);
 void			shade_hit(t_world *world, t_prep_comps *comps, t_tuple result);
+void			init_tuple(const t_tuple tuple, t_tuple res);
 
 #endif

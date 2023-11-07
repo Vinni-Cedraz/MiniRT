@@ -198,6 +198,7 @@ Test(building_world, shading_intersection_from_inside, .description = scenario8)
 	t_prep_comps 	prep_comps = prepare_computations(i, r);
 	t_tuple 		color;
 	shade_hit(&w, &prep_comps, color);
+	print_tuple(color);
 	cr_expect_tuples_eq(color, (t_tuple){0.90498, 0.90498, 0.90498, COLOR});
 }
 

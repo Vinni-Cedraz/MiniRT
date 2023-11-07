@@ -12,23 +12,28 @@
 
 #include "minirt.h"
 
-static	void	set_tuple(t_tuple tuple, t_tuple setter)
-{
-	setter[X] = tuple[X];
-	setter[Y] = tuple[Y];
-	setter[Z] = tuple[Z];
-	setter[W] = tuple[W];
-}
+static void	init_light(t_world *world, t_lighting *lighting_object);
+static void	init_position_and_vectors(t_prep_comps *comps, t_lighting *obj);
 
 void	shade_hit(t_world *world, t_prep_comps *comps, t_tuple result)
 {
-	t_lighting	light;
+	t_lighting	lighting_object;
 
-	light.material = world->objs->material;
-	set_tuple(comps->eyev, light.eye_vec);
-	set_tuple(comps->point, light.position);
-	set_tuple(world->light->intensity, light.light.intensity);
-	set_tuple(world->light->position, light.light.position);
-	set_tuple(comps->normalv, light.normal_vec);
-	calculate_lighting(&light, result);
+	lighting_object.material = comps->object->material;
+	init_light(world, &lighting_object);
+	init_position_and_vectors(comps, &lighting_object);
+	calculate_lighting(&lighting_object, result);
+}
+
+static void	init_light(t_world *world, t_lighting *lighting_object)
+{
+	init_tuple(world->light->intensity, lighting_object->light.intensity);
+	init_tuple(world->light->position, lighting_object->light.position);
+}
+
+static void	init_position_and_vectors(t_prep_comps *comps, t_lighting *obj)
+{
+	init_tuple(comps->eyev, obj->eye_vec);
+	init_tuple(comps->point, obj->position);
+	init_tuple(comps->normalv, obj->normal_vec);
 }
