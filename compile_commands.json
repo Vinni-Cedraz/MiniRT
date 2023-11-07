@@ -696,25 +696,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/sphere/world_with_ray.c",
-   "-o",
-   "build/world_with_ray.o"
-  ],
-  "file": "./src/sphere/world_with_ray.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/sphere/prepare_computations.c",
    "-o",
    "build/prepare_computations.o"
@@ -739,5 +720,43 @@
    "build/shade_hit.o"
   ],
   "file": "./src/sphere/shade_hit.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/intersect_world_with_ray.c",
+   "-o",
+   "build/intersect_world_with_ray.o"
+  ],
+  "file": "./src/sphere/intersect_world_with_ray.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/color_at.c",
+   "-o",
+   "build/color_at.o"
+  ],
+  "file": "./src/sphere/color_at.c"
  }
 ]
