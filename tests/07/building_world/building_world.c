@@ -148,33 +148,33 @@ Test(building_world, hit_when_intersection_is_inside, .description = scenario6) 
 	cr_expect_tuples_eq(prep_comps.normalv, (t_tuple){0, 0, -1, VECTOR});
 }
 
-// // Scenario : Shading an intersection
-// #define scenario7 CYAN \
-// "\nGiven w ← default_world()\n"                                        \
-// "And r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                      \
-// "And shape ← the first object in w\n"								   \
-// "And i ← intersection(4, shape)\n"    								   \
-// "When prep_comps ← prepare_computations(i, r)\n"                       \
-// "And c ← shade_hit(w, prep_comps)\n"                                   \
-// "Then c = color(0.38066, 0.47583, 0.2855)"RESET
-// Test(building_world, shading_intersection, .description = scenario7) {
-// 	t_world w;
-// 	t_ray r;
-// 	t_sphere s;
-// 	t_node *i;
-// 	t_tuple color;
-// 	t_prep_comps prep_comps;
-// 	const t_tuple expected_color = {0.38066, 0.47583, 0.2855, COLOR};
-//
-// 	w = default_world();
-// 	r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-// 	s = *(t_sphere *)w.objs[0];
-// 	i = intersection(4, &s);
-// 	prep_comps = prepare_computations(i, r);
-//
-// 	shade_hit(&w, &prep_compsm, color);
-// 	cr_expect_tuples_eq(color, expected_color);
-// }
+// Scenario : Shading an intersection
+#define scenario7 CYAN \
+"\nGiven w ← default_world()\n"                                        \
+"And r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                      \
+"And shape ← the first object in w\n"								   \
+"And i ← intersection(4, shape)\n"    								   \
+"When prep_comps ← prepare_computations(i, r)\n"                       \
+"And c ← shade_hit(w, prep_comps)\n"                                   \
+"Then c = color(0.38066, 0.47583, 0.2855)"RESET
+Test(building_world, shading_intersection, .description = scenario7) {
+	t_world w;
+	t_ray r;
+	t_sphere s;
+	t_node *i;
+	t_tuple color;
+	t_prep_comps prep_comps;
+	const t_tuple expected_color = {0.38066, 0.47583, 0.2855, COLOR};
+
+	w = default_world();
+	r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	s = *(t_sphere *)w.objs;
+	i = intersection(4, &s);
+	prep_comps = prepare_computations(i, r);
+
+	shade_hit(&w, &prep_comps, color);
+	cr_expect_tuples_eq(color, expected_color);
+}
 //
 // // Scenario : Shading an intersection from the inside
 // #define scenario8 CYAN\

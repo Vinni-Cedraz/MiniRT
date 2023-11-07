@@ -720,5 +720,24 @@
    "build/prepare_computations.o"
   ],
   "file": "./src/sphere/prepare_computations.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/shade_hit.c",
+   "-o",
+   "build/shade_hit.o"
+  ],
+  "file": "./src/sphere/shade_hit.c"
  }
 ]

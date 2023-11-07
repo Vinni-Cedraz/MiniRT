@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/03 15:40:41 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/07 06:39:54 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,9 +186,9 @@ typedef struct s_baskara
 	float				c;
 }						t_baskara;
 
-typedef struct s_comp 
+typedef struct s_comp
 {
-	float 			t;
+	float			t;
 	t_sphere		*object;
 	t_tuple			point;
 	t_tuple			eyev;
@@ -285,5 +285,6 @@ void			set_material(t_tuple reflections, t_tuple color, t_material *m);
 t_intersection	intersect_world_with_ray(t_world *w, t_ray *r);
 t_node			*intersection(float point, const void *obj);
 t_prep_comps	prepare_computations(t_node *intersection, t_ray ray);
+void			shade_hit(t_world *world, t_prep_comps *comps, t_tuple result);
 
 #endif
