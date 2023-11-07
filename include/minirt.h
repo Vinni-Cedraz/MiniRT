@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/24 11:30:38 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/07 13:41:43 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,18 @@
 # define COLOR 2
 # define FALSE 0
 # define TRUE 1
+
 # define COL1 0
 # define COL2 1
 # define COL3 2
 # define COL4 3
+
+# define DEFAULT -1
+# define AMBIENT 0
+# define DIFFUSE 1
+# define SPECULAR 2
+# define SHININESS 3
+
 # define ROW1 0
 # define ROW2 1
 # define ROW3 2
@@ -147,6 +155,12 @@ typedef struct s_phere
 	t_material			material;
 }						t_sphere;
 
+typedef struct s_world
+{
+	t_sphere			*objs;
+	t_point_light		*light;
+}						t_world;
+
 typedef struct s_intersect
 {
 	t_node				*head;
@@ -170,6 +184,16 @@ typedef struct s_baskara
 	float				b;
 	float				c;
 }						t_baskara;
+
+typedef struct s_comp
+{
+	float				t;
+	t_sphere			*object;
+	t_tuple				point;
+	t_tuple				eyev;
+	t_tuple				normalv;
+	t_bool				inside;
+}						t_prep_comps;
 
 void					create_point(t_tuple tuple);
 void					create_vector(t_tuple tuple);
@@ -234,15 +258,14 @@ t_matrix				create_shearing_matrix(t_shearer shearer);
 t_matrix				chain_transformations(const t_matrix *matrices[]);
 void					translate_coordinate(t_tuple point, t_canvas *canvas,
 							t_tuple res);
-void					get_point_from_distance(t_ray ray, float distance,
+void					get_position(t_ray ray, float distance,
 							t_tuple _result);
 t_ray					create_ray(t_tuple origin, t_tuple direction);
 t_sphere				create_sphere(void);
 t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
-t_intersection			create_intersection(t_sphere s, t_ray r);
+t_intersection			create_intersection(const t_sphere *s, t_ray r);
 float					discriminant(t_tuple sphere_to_ray, t_ray ray,
 							t_baskara *bask);
-t_node					*intersection(float point, void *obj);
 t_intersection			link_intersection_nodes(t_node *arr[]);
 t_node					*get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
@@ -255,5 +278,16 @@ void					reflect(t_tuple vector, t_tuple normal,
 t_material				create_material(void);
 void					calculate_lighting(t_lighting *obj, t_tuple result);
 t_constr				make_aslib_test(void);
+t_world					create_world(void);
+t_world					default_world(void);
+void					set_material(t_tuple reflections, t_tuple color,
+							t_material *m);
+t_intersection			intersect_world_with_ray(t_world *w, t_ray *r);
+t_node					*intersection(float point, const void **obj);
+t_prep_comps			prepare_computations(t_node *intersection, t_ray ray);
+void					shade_hit(t_world *world, t_prep_comps *comps,
+							t_tuple result);
+void					init_tuple(const t_tuple tuple, t_tuple res);
+void					color_at(t_world *world, t_ray *ray, t_tuple color);
 
 #endif

@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void	get_point_from_distance(t_ray ray, float t, t_tuple result)
+void	get_position(t_ray ray, float t, t_tuple result)
 {
 	t_tuple	distance;
 

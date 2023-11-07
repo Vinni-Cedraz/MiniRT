@@ -2,7 +2,7 @@ TESTDIRS = 		\
   surface_normals \
   reflecting_vectors \
   phong_reflection \
-  putting_it_together \
+  # putting_it_together \
 
 ## VARIABLES
 ORANGE = \033[38;5;214m

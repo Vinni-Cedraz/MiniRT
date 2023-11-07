@@ -27,3 +27,11 @@ void	create_vector(t_tuple tuple)
 	tuple[Z] = 0;
 	tuple[W] = VECTOR;
 }
+
+void	init_tuple(const t_tuple tuple, t_tuple res)
+{
+	res[X] = tuple[X];
+	res[Y] = tuple[Y];
+	res[Z] = tuple[Z];
+	res[W] = tuple[W];
+}

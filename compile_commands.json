@@ -506,11 +506,11 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/intersections/abstract.c",
+   "./src/sphere/create_intersection.c",
    "-o",
-   "build/abstract.o"
+   "build/create_intersection.o"
   ],
-  "file": "./src/intersections/abstract.c"
+  "file": "./src/sphere/create_intersection.c"
  },
  {
   "directory": "/root/MiniRT",
@@ -525,11 +525,11 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/intersections/get_hit.c",
+   "./src/sphere/get_hit.c",
    "-o",
    "build/get_hit.o"
   ],
-  "file": "./src/intersections/get_hit.c"
+  "file": "./src/sphere/get_hit.c"
  },
  {
   "directory": "/root/MiniRT",
@@ -563,11 +563,11 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/light_and_shading/surface_normals.c",
+   "./src/sphere/set_transform.c",
    "-o",
-   "build/surface_normals.o"
+   "build/set_transform.o"
   ],
-  "file": "./src/light_and_shading/surface_normals.c"
+  "file": "./src/sphere/set_transform.c"
  },
  {
   "directory": "/root/MiniRT",
@@ -582,11 +582,11 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/sphere/set_transform.c",
+   "./src/light_and_shading/surface_normals.c",
    "-o",
-   "build/set_transform.o"
+   "build/surface_normals.o"
   ],
-  "file": "./src/sphere/set_transform.c"
+  "file": "./src/light_and_shading/surface_normals.c"
  },
  {
   "directory": "/root/MiniRT",
@@ -644,5 +644,119 @@
    "build/calculate_lighting.o"
   ],
   "file": "./src/light_and_shading/calculate_lighting.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/making_scene/create_world.c",
+   "-o",
+   "build/create_world.o"
+  ],
+  "file": "./src/making_scene/create_world.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/light_and_shading/set_material.c",
+   "-o",
+   "build/set_material.o"
+  ],
+  "file": "./src/light_and_shading/set_material.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/prepare_computations.c",
+   "-o",
+   "build/prepare_computations.o"
+  ],
+  "file": "./src/sphere/prepare_computations.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/shade_hit.c",
+   "-o",
+   "build/shade_hit.o"
+  ],
+  "file": "./src/sphere/shade_hit.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/intersect_world_with_ray.c",
+   "-o",
+   "build/intersect_world_with_ray.o"
+  ],
+  "file": "./src/sphere/intersect_world_with_ray.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/color_at.c",
+   "-o",
+   "build/color_at.o"
+  ],
+  "file": "./src/sphere/color_at.c"
  }
 ]

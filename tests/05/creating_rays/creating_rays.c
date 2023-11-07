@@ -47,12 +47,12 @@ Test(creating_rays, point_from_distance, .description = scenario2)
 	);
 	t_tuple	result;
 
-	get_point_from_distance(ray, 0, result);
+	get_position(ray, 0, result);
 	cr_expect_tuples_eq(result, (t_tuple){2, 3, 4, POINT});
-	get_point_from_distance(ray, 1, result);
+	get_position(ray, 1, result);
 	cr_expect_tuples_eq(result, (t_tuple){3, 3, 4, POINT});
-	get_point_from_distance(ray, -1, result);
+	get_position(ray, -1, result);
 	cr_expect_tuples_eq(result, (t_tuple){1, 3, 4, POINT});
-	get_point_from_distance(ray, 2.5, result);
+	get_position(ray, 2.5, result);
 	cr_expect_tuples_eq(result, (t_tuple){4.5, 3, 4, POINT});
 }

@@ -81,7 +81,7 @@ Test(suite, intersecting_scaled_sphere_with_a_ray, .description = scenario5) {
 	t_intersection xs;
 
 	set_transform(&s, _t);
-	xs = create_intersection(s, r);
+	xs = create_intersection(&s, r);
 	cr_expect_eq(xs.count, 2);
 	cr_expect_eq(xs.head->t, 3);
 	cr_expect_eq(xs.head->next->t, 7);
@@ -104,6 +104,6 @@ Test(suite, intersecting_a_translated_sphere, .description = scenario6)
 
  	s = create_sphere();
 	set_transform(&s, t);
- 	xs = create_intersection(s, r);
+ 	xs = create_intersection(&s, r);
 	cr_expect_eq(xs.count, 0);
 }
