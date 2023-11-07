@@ -4,7 +4,6 @@ TESTDIRS = 01 \
 	       04 \
 	       05 \
 	       06 \
-		   07 \
 		   
 all:
 	@$(foreach file,$(TESTDIRS),$(MAKE) --no-print-directory -C $(file);)

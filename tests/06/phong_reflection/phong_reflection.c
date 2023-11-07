@@ -23,7 +23,7 @@ Test(phong_reflection, t_point_light_exists, .description = scenario1) {
 // Scenario : The default material
 #define scenario2                                                                        \
     CYAN "\n"                                                                            \
-         "Given m ← material()\n"                                                      \
+         "Given m ← create_material()\n"                                                      \
          "Then m.color = color(1, 1, 1)\n"                                               \
          "And m.ambient = 0.1\n"                                                         \
          "And m.diffuse = 0.9\n"                                                         \

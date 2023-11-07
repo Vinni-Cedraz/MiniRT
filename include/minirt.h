@@ -129,10 +129,10 @@ typedef struct s_colors
 typedef struct s_lighting
 {
 	t_material			material;
+	t_point_light		light;
 	t_tuple				position;
 	t_tuple				eye_vec;
 	t_tuple				normal_vec;
-	t_point_light		light;
 }						t_lighting;
 
 typedef struct s_phere
