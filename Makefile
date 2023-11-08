@@ -26,11 +26,13 @@ SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c \
       translate_coordinate.c rays.c point.c create.c create_intersection.c get_hit.c transform_ray.c \
 	  set_transform.c surface_normals.c reflect.c create_material.c calculate_lighting.c \
 	  create_world.c set_material.c intersect_world_with_ray.c prepare_computations.c shade_hit.c \
-	  color_at.c
+	  color_at.c view_transformation.c
 
 VPATH = ./src ./src/canvas/ ./src/tuples/ ./src/ppm/ ./src/matrices \
 		./src/matrix_transformations ./src/rays ./src/sphere \
-		./src/transform_ray ./src/light_and_shading/ ./src/making_scene/
+		./src/transform_ray ./src/light_and_shading/ ./src/making_scene/ \
+		./src/camera/
+
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/
 C_FLAGS = -Wall -Werror -Wextra -g 

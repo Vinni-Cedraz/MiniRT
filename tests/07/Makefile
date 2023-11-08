@@ -1,6 +1,6 @@
 TESTDIRS = 		\
   building_world \
-  # view_transformation \
+  view_transformation \
   # implementing_camera \
   # putting_it_together \
 

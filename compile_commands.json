@@ -758,5 +758,24 @@
    "build/color_at.o"
   ],
   "file": "./src/sphere/color_at.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/camera/view_transformation.c",
+   "-o",
+   "build/view_transformation.o"
+  ],
+  "file": "./src/camera/view_transformation.c"
  }
 ]
