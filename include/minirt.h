@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/07 13:41:43 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/08 11:06:38 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -289,5 +289,6 @@ void					shade_hit(t_world *world, t_prep_comps *comps,
 							t_tuple result);
 void					init_tuple(const t_tuple tuple, t_tuple res);
 void					color_at(t_world *world, t_ray *ray, t_tuple color);
+t_matrix				view_transform(t_tuple from, t_tuple up, t_tuple to);
 
 #endif
