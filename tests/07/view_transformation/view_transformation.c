@@ -93,19 +93,3 @@ Test(view_transformation, arbitrary_transformation, .description = scenario4) {
 	t = view_transform(from, forward, up);
 	cr_expect_matrices_eq(t, expected_t);
 }
-
-// Scenario: to and up have the same value
-#define scenario5 CYAN \
-"Given from <- point(0, 0, 0)\n" \
-"And to <- point(0, 1, 0)\n" \
-"And up <- point(0, 1, 0)\n" \
-"When t <- view_transform(from, forward, up)\n" \
-"Then t is the following 4x4 matrix:\n" \
-
-// Scenario: to and up have the same value
-#define scenario6 CYAN \
-"Given from <- point(0, 0, 0)\n" \
-"And to <- point(0, 1, 0)\n" \
-"And up <- point(0, 1, 0)\n" \
-"When t <- view_transform(from, forward, up)\n" \
-"Then t is the following 4x4 matrix:\n" \

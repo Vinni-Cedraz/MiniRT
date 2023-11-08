@@ -20,7 +20,12 @@ t_matrix	view_transform(t_tuple from, t_tuple forward, t_tuple up)
 	t_tuple		left;
 	t_tuple		true_up;
 	t_matrix	orientation;
+	const float	dot_product = dot(forward, up);
 
+	if (floats_eq(dot_product, 1))
+		init_tuple(up, (t_tuple){0, 0, -1, VECTOR});
+	else if (floats_eq(dot_product, -1))
+		init_tuple(up, (t_tuple){0, 0, 1, VECTOR});
 	cross(forward, up, left);
 	cross(left, forward, true_up);
 	orientation = orientation_matrix(left, true_up, forward);
