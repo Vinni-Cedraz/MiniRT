@@ -4,7 +4,7 @@
 "Given from ← point(0, 0, 0) \n" \
 "And to ← point(0, 0, -1) \n" \
 "And up ← vector(0, 1, 0) \n" \
-"When t ← view_transform(from, to, up) \n" \
+"When t ← view_transform(from, forward, up) \n" \
 "Then t = identity_matrix RESET\n"
 
 Test(view_transformation, default_orientation, .description = scenario1) {
@@ -26,7 +26,7 @@ Test(view_transformation, default_orientation, .description = scenario1) {
 "Given from ← point(0, 0, 0)\n"           \
 "And to ← point(0, 0, 1)\n"               \
 "And up ← vector(0, 1, 0)\n"              \
-"When t ← view_transform(from, to, up)\n" \
+"When t ← view_transform(from, forward, up)\n" \
 "Then t = scaling(-1, 1, -1)\n"RESET
 Test(view_transformation, positive_z_direction, .description = scenario2) {
 	t_tuple from = {0, 0, 0, POINT};
@@ -47,7 +47,7 @@ Test(view_transformation, positive_z_direction, .description = scenario2) {
 "Given from ← point(0, 0, 8)\n"                \
 "And to ← point(0, 0, 0)\n"                    \
 "And up ← vector(0, 1, 0)\n"                   \
-"When t ← view_transform(from, to, up)\n"      \
+"When t ← view_transform(from, forward, up)\n"      \
 "Then t = translation(0, 0, -8)\n"RESET
 Test(view_transformation, moves_the_world, .description = scenario3) {
 	t_tuple from = {0, 0, 8, POINT};
@@ -68,7 +68,7 @@ Test(view_transformation, moves_the_world, .description = scenario3) {
 "Given from ← point(1, 3, 2)\n"                              \
 "And to ← point(4, -2, 8)\n"                                 \
 "And up ← vector(1, 1, 0)\n"                                 \
-"When t ← view_transform(from, to, up)\n"                    \
+"When t ← view_transform(from, forward, up)\n"                    \
 "Then t is the following 4x4 matrix:\n"                      \
 "| -0.50709 | 0.50709 | 0.67612  | -2.36643 |\n"             \
 "| 0.76772  | 0.60609 | 0.12122  | -2.82843 |\n"			 \
@@ -93,3 +93,19 @@ Test(view_transformation, arbitrary_transformation, .description = scenario4) {
 	t = view_transform(from, forward, up);
 	cr_expect_matrices_eq(t, expected_t);
 }
+
+// Scenario: to and up have the same value
+#define scenario5 CYAN \
+"Given from <- point(0, 0, 0)\n" \
+"And to <- point(0, 1, 0)\n" \
+"And up <- point(0, 1, 0)\n" \
+"When t <- view_transform(from, forward, up)\n" \
+"Then t is the following 4x4 matrix:\n" \
+
+// Scenario: to and up have the same value
+#define scenario6 CYAN \
+"Given from <- point(0, 0, 0)\n" \
+"And to <- point(0, 1, 0)\n" \
+"And up <- point(0, 1, 0)\n" \
+"When t <- view_transform(from, forward, up)\n" \
+"Then t is the following 4x4 matrix:\n" \
