@@ -289,6 +289,7 @@ void					shade_hit(t_world *world, t_prep_comps *comps,
 							t_tuple result);
 void					init_tuple(const t_tuple tuple, t_tuple res);
 void					color_at(t_world *world, t_ray *ray, t_tuple color);
-t_matrix				view_transform(t_tuple from, t_tuple up, t_tuple to);
+t_matrix				view_transform(t_tuple from, t_tuple forward,
+							t_tuple up);
 
 #endif

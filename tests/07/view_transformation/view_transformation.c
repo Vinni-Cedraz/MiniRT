@@ -8,10 +8,16 @@
 "Then t = identity_matrix RESET\n"
 
 Test(view_transformation, default_orientation, .description = scenario1) {
-	t_tuple from = {0, 0, 0, POINT}; t_tuple to = {0, 0, -1, POINT};
+	t_tuple from = {0, 0, 0, POINT};
+	t_tuple to = {0, 0, -1, POINT};
 	t_tuple up = {0, 1, 0, VECTOR};
-	t_matrix t = view_transform(from, to, up);
+	t_tuple forward;
+	t_matrix t;
 
+	subtract_tuples(to, from, forward);
+	normalize(forward, forward);
+	normalize(up, up);
+	t = view_transform(from, forward, up);
 	cr_expect_matrices_eq(t, create_identity_matrix());
 }
 
@@ -26,8 +32,13 @@ Test(view_transformation, positive_z_direction, .description = scenario2) {
 	t_tuple from = {0, 0, 0, POINT};
 	t_tuple to = {0, 0, 1, POINT};
 	t_tuple up = {0, 1, 0, VECTOR};
+	t_tuple forward;
+	t_matrix t;
 
-	t_matrix t = view_transform(from, to, up);
+	subtract_tuples(to, from, forward);
+	normalize(forward, forward);
+	normalize(up, up);
+	t = view_transform(from, forward, up);
 	cr_expect_matrices_eq(t, create_scaling_matrix(-1, 1, -1));
 }
 
@@ -42,8 +53,13 @@ Test(view_transformation, moves_the_world, .description = scenario3) {
 	t_tuple from = {0, 0, 8, POINT};
 	t_tuple to = {0, 0, 0, POINT};
 	t_tuple up = {0, 1, 0, VECTOR};
+	t_tuple forward;
+	t_matrix t;
 
-	t_matrix t = view_transform(from, to, up);
+	subtract_tuples(to, from, forward);
+	normalize(forward, forward);
+	normalize(up, up);
+	t = view_transform(from, forward, up);
 	cr_expect_matrices_eq(t, create_translation_matrix((t_tuple){0, 0, -8, POINT}));
 }
 
@@ -68,7 +84,12 @@ Test(view_transformation, arbitrary_transformation, .description = scenario4) {
 		-0.35857, 0.59761, -0.71714, 0.00000,
 		0, 0, 0, 1
 	};
+	t_tuple forward;
+	t_matrix t;
 
-	t_matrix t = view_transform(from, to, up);
+	subtract_tuples(to, from, forward);
+	normalize(forward, forward);
+	normalize(up, up);
+	t = view_transform(from, forward, up);
 	cr_expect_matrices_eq(t, expected_t);
 }
