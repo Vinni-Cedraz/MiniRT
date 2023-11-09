@@ -20,7 +20,7 @@
 # include <stdio.h>
 
 # define CYAN "\033[36m"
-# define EPSILON 10e-3
+# define EPSILON 1e-3
 # define X 0
 # define Y 1
 # define Z 2
@@ -308,6 +308,6 @@ t_matrix				view_transform(t_tuple from, t_tuple forward,
 							t_tuple up);
 t_camera				create_camera(int hsize, int vsize,
 							float field_of_view);
-t_ray 					ray_for_pixel(t_camera c, int x, int y);
+t_ray					ray_for_pixel(t_camera c, int x, int y);
 
 #endif
