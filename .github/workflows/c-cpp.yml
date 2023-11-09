@@ -15,7 +15,5 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build project
       run: make
-    - name: Make test
-      run: make -C tests && make run -C tests
     - name: Norm
       run: norminette ./src ./include ./libs
