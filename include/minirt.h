@@ -199,6 +199,8 @@ typedef struct s_camera
 {
 	int					hsize;
 	int					vsize;
+	float				half_width;
+	float				half_height;
 	float				field_of_view;
 	t_matrix			transform;
 	float				pixel_size;
