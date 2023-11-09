@@ -91,3 +91,27 @@ Test(camera, ray_when_camera_transformed, .description = scenario6) {
     cr_expect_eq(tuples_eq(r.origin, (t_tuple){0, 2, -5, POINT}), TRUE);
     cr_expect_eq(tuples_eq(r.direction, (t_tuple){sqrt(2) / 2, 0, -sqrt(2) / 2, VECTOR}), TRUE);
 }
+
+// Scenario: Rendering a world with a camera
+# define scenario6 CYAN \
+"Given w ← default_world()\n"         \
+"And c ← camera(11, 11, π/2)\n"         \
+"And from ← point(0, 0, -5)\n"         \
+"And to ← point(0, 0, 0)\n"         \
+"And up ← vector(0, 1, 0)\n"         \
+"And c.transform ← view_transform(from, to, up)\n"         \
+"When image ← render(c, w)\n"         \
+"Then pixel_at(image, 5, 5) = color(0.38066, 0.47583, 0.2855)" RESET 
+
+Test(camera, rendering_a_world, .description = scenario6)
+{
+	const t_world w = default_world();
+
+	t_camera c = create_camera(11, 11, M_PI / 2);
+	t_tuple from = (t_tuple){0, 0, -5, POINT};
+	t_tuple to = (t_tuple){0, 0, 0, POINT};
+	t_tuple up = (t_tuple){0, 1, 0, VECTOR};
+	c.transform - view_transform(from, to, up);
+	t_image image = image = render(c, w);
+	cr_expect_eq(tuples_eq(pixel_at(image, 5, 5), (t_tuple){0.38066, 0.47583, 0.2855, COLOR}), TRUE);
+}
