@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -19,7 +19,7 @@
   "file": "./src/minirt.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -38,7 +38,7 @@
   "file": "./src/ppm/canvas_to_ppm.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -57,7 +57,7 @@
   "file": "./src/ppm/canvas_to_ppm_aux.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -76,7 +76,7 @@
   "file": "./src/canvas/create_canvas.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -95,7 +95,7 @@
   "file": "./src/canvas/write_pixel.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -114,7 +114,7 @@
   "file": "./src/tuples/basic_tuple_operations.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -133,7 +133,7 @@
   "file": "./src/tuples/compare_floats.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -152,7 +152,7 @@
   "file": "./src/tuples/complex_tuple_operations.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -171,7 +171,7 @@
   "file": "./src/tuples/create_tuples.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -190,7 +190,7 @@
   "file": "./src/matrices/mult_matrices.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -209,7 +209,7 @@
   "file": "./src/matrices/comparison.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -228,7 +228,7 @@
   "file": "./src/matrices/transpose_matrix.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -247,7 +247,7 @@
   "file": "./src/matrices/2x2determinant.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -266,7 +266,7 @@
   "file": "./src/matrices/large_determinants.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -285,7 +285,7 @@
   "file": "./src/matrices/minors.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -304,7 +304,7 @@
   "file": "./src/matrices/submatrices.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -323,7 +323,7 @@
   "file": "./src/matrices/invert_matrix.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -342,7 +342,7 @@
   "file": "./src/matrices/create_matrix.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -361,7 +361,7 @@
   "file": "./src/matrix_transformations/translation.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -380,7 +380,7 @@
   "file": "./src/matrix_transformations/rotation.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -399,7 +399,7 @@
   "file": "./src/matrix_transformations/shearing.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -418,7 +418,7 @@
   "file": "./src/matrix_transformations/scaling.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -437,7 +437,7 @@
   "file": "./src/canvas/translate_coordinate.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -456,7 +456,7 @@
   "file": "./src/rays/rays.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -475,7 +475,7 @@
   "file": "./src/rays/point.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -494,7 +494,7 @@
   "file": "./src/sphere/create.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -513,7 +513,7 @@
   "file": "./src/sphere/create_intersection.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -532,7 +532,7 @@
   "file": "./src/sphere/get_hit.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -551,7 +551,7 @@
   "file": "./src/transform_ray/transform_ray.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -570,7 +570,7 @@
   "file": "./src/sphere/set_transform.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -589,7 +589,7 @@
   "file": "./src/light_and_shading/surface_normals.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -608,7 +608,7 @@
   "file": "./src/light_and_shading/reflect.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -627,7 +627,7 @@
   "file": "./src/light_and_shading/create_material.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -646,7 +646,7 @@
   "file": "./src/light_and_shading/calculate_lighting.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -665,7 +665,7 @@
   "file": "./src/making_scene/create_world.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -684,7 +684,7 @@
   "file": "./src/light_and_shading/set_material.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -703,7 +703,7 @@
   "file": "./src/sphere/intersect_world_with_ray.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -722,7 +722,7 @@
   "file": "./src/sphere/prepare_computations.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -741,7 +741,7 @@
   "file": "./src/sphere/shade_hit.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -760,7 +760,7 @@
   "file": "./src/sphere/color_at.c"
  },
  {
-  "directory": "/root/Minirt",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -777,5 +777,43 @@
    "build/view_transformation.o"
   ],
   "file": "./src/camera/view_transformation.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/camera/create_camera.c",
+   "-o",
+   "build/create_camera.o"
+  ],
+  "file": "./src/camera/create_camera.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/camera/ray_for_pixel.c",
+   "-o",
+   "build/ray_for_pixel.o"
+  ],
+  "file": "./src/camera/ray_for_pixel.c"
  }
 ]
