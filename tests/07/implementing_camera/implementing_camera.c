@@ -19,7 +19,8 @@ Test(camera, implementing_a_camera, .description = scenario1) {
 	const t_camera c = create_camera(hsize, vsize, field_of_view);
 	cr_expect_eq(c.hsize, 160);
 	cr_expect_eq(c.vsize, 160);
-	cr_expect_eq(floats_eq(field_of_view, M_PI/2), TRUE);
+	cr_expect_eq(floats_eq(c.field_of_view, M_PI/2), TRUE);
+	cr_expect_matrices_eq(c.transform, create_identity_matrix());
 }
 
 // Scenario: The pixel size for a horizontal canvas

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/08 11:06:38 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:18:03 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,6 +195,15 @@ typedef struct s_comp
 	t_bool				inside;
 }						t_prep_comps;
 
+typedef struct s_camera
+{
+	int					hsize;
+	int					vsize;
+	float				field_of_view;
+	t_matrix			transform;
+	float				pixel_size;
+}						t_camera;
+
 void					create_point(t_tuple tuple);
 void					create_vector(t_tuple tuple);
 t_bool					floats_eq(float a, float b);
@@ -291,5 +300,7 @@ void					init_tuple(const t_tuple tuple, t_tuple res);
 void					color_at(t_world *world, t_ray *ray, t_tuple color);
 t_matrix				view_transform(t_tuple from, t_tuple forward,
 							t_tuple up);
+t_camera				create_camera(int hsize, int vsize,
+							float field_of_view);
 
 #endif
