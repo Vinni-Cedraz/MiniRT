@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/09 11:18:03 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/09 14:13:39 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdio.h>
 
 # define CYAN "\033[36m"
-# define EPSILON 1e-3
+# define EPSILON 10e-3
 # define X 0
 # define Y 1
 # define Z 2
@@ -197,13 +197,17 @@ typedef struct s_comp
 
 typedef struct s_camera
 {
-	int					hsize;
-	int					vsize;
+	float				hsize;
+	float				vsize;
 	float				half_width;
 	float				half_height;
 	float				field_of_view;
 	t_matrix			transform;
 	float				pixel_size;
+	float				xoffset;
+	float				yoffset;
+	float				world_x;
+	float				world_y;
 }						t_camera;
 
 void					create_point(t_tuple tuple);
@@ -304,5 +308,6 @@ t_matrix				view_transform(t_tuple from, t_tuple forward,
 							t_tuple up);
 t_camera				create_camera(int hsize, int vsize,
 							float field_of_view);
+t_ray 					ray_for_pixel(t_camera c, int x, int y);
 
 #endif
