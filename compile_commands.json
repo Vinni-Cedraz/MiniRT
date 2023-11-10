@@ -815,5 +815,24 @@
    "build/ray_for_pixel.o"
   ],
   "file": "./src/camera/ray_for_pixel.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/camera/render.c",
+   "-o",
+   "build/render.o"
+  ],
+  "file": "./src/camera/render.c"
  }
 ]
