@@ -309,6 +309,6 @@ t_matrix				view_transform(t_tuple from, t_tuple forward,
 t_camera				create_camera(int hsize, int vsize,
 							float field_of_view);
 t_ray					ray_for_pixel(t_camera c, int x, int y);
-t_canvas 				render(t_camera camera, t_world world);
+t_canvas				render(t_camera camera, t_world world);
 
 #endif

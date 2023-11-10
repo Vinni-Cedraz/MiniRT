@@ -12,18 +12,17 @@
 
 #include "minirt.h"
 
-t_canvas render(t_camera camera, t_world world)
+t_canvas	render(t_camera camera, t_world world)
 {
-	t_canvas image;
-	t_ray ray;
-	t_tuple color;
-	int x;
-	int y;
+	t_canvas	image;
+	t_ray		ray;
+	t_tuple		color;
+	int			x;
+	int			y;
 
 	x = 0;
 	y = 0;
 	image = create_canvas(camera.hsize, camera.vsize);
-	printf("camera.hsize: %f\n", camera.hsize);
 	while (y < camera.vsize)
 	{
 		while (x < camera.hsize)
