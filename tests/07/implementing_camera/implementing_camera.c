@@ -114,7 +114,6 @@ Test(camera, rendering_a_world, .description = scenario6)
 
 	subtract_tuples(to, from, forward);
 	normalize(forward, forward);
-	normalize(up, up);
 	c.transform = view_transform(from, forward, up);
 	image = render(c, w);
 	cr_expect_eq(tuples_eq(image.pixels[5][5], (t_tuple){0.3806, 0.4758, 0.2855, COLOR}), TRUE);
