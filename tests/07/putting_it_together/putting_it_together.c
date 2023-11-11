@@ -16,42 +16,41 @@ Test(putting_it_together, three_spheres)
 	init_tuple((t_tuple){1, 0.9, 0.9, COLOR}, floor.material.color);
 	floor.material.specular = 0;
 	left_wall = create_sphere();
-
 	t_matrix translation = create_translation_matrix((t_tuple){0, 0, 5, POINT});
  	t_matrix y_rotation = create_y_rotation_matrix(-M_PI / 4);
  	t_matrix x_rotation = create_x_rotation_matrix(M_PI / 2);
  	t_matrix scaling = create_scaling_matrix(10, 0.01, 10);
 
 	// WALLS
-	left_wall._t = chain_transformations((t_matrix *[]){&translation, &y_rotation, &x_rotation, &scaling, NULL});
+	set_transform(&left_wall._t, chain_transformations((t_matrix *[]){&translation, &y_rotation, &x_rotation, &scaling, NULL}));
 	left_wall.material = floor.material;
 	right_wall = create_sphere();
 
  	y_rotation = create_y_rotation_matrix(M_PI / 4);
-	right_wall._t = chain_transformations((t_matrix *[]){&translation, &y_rotation, &x_rotation, &scaling, NULL});
+	set_transform(&right_wall._t, chain_transformations((t_matrix *[]){&translation, &y_rotation, &x_rotation, &scaling, NULL}));
 	right_wall.material = floor.material;
 
 	//  MIDDLE SPHERE
 	middle_sphere = create_sphere();
-	middle_sphere._t = create_translation_matrix((t_tuple){-0.5, 1, 0.5, POINT});
+	set_transform(&middle_sphere._t, create_translation_matrix((t_tuple){-0.5, 1, 0.5, POINT}));
 	middle_sphere.material = create_material();
 	set_material((t_tuple){-1, 0.7, 0.3, -1}, (t_tuple){0.1, 1, 0.5, COLOR}, &middle_sphere.material);
 
 	// RIGHT SPHERE
 	right_sphere = create_sphere();
 	t_matrix result;
-	right_sphere._t = mult_matrices(
+	set_transform(&right_sphere, mult_matrices(
 			create_translation_matrix((t_tuple){1.5, 0.5, -0.5}),
 			create_scaling_matrix(0.5, 0.5, 0.5)
-	);
+	));
 	right_sphere.material = create_material();
 	set_material((t_tuple){-1, 0.7, 0.3, -1}, (t_tuple){0.5, 1, 0.1, COLOR}, &right_sphere.material);
 
 	// LEFT SPHERE
 	left_sphere = create_sphere();
-	left_sphere._t = mult_matrices(
+	set_transform(&left_sphere, mult_matrices(
 			create_translation_matrix((t_tuple){-1.5, 0.33, -0.75}),
-			create_scaling_matrix(0.33, 0.33, 0.33)
+			create_scaling_matrix(0.33, 0.33, 0.33))
 	);
 	left_sphere.material = create_material();
 	set_material((t_tuple){-1, 0.7, 0.3, -1}, (t_tuple){1, 0.8, 0.1, COLOR}, &left_sphere.material);
