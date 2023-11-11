@@ -59,10 +59,10 @@ Test(putting_it_together, three_spheres)
 	t_world world;
 
 	world.objs = malloc(sizeof(t_sphere) * 6);
-	world.objs[0] = floor;
-	world.objs[1] = left_wall;
-	world.objs[2] = right_wall;
-	world.objs[3] = left_sphere;
+	// world.objs[0] = floor;
+	// world.objs[1] = left_wall;
+	// world.objs[2] = right_wall;
+	// world.objs[3] = left_sphere;
 	world.objs[4] = middle_sphere;
 	world.objs[5] = right_sphere;
 	world.light = &(t_point_light){
@@ -70,8 +70,8 @@ Test(putting_it_together, three_spheres)
 		{1, 1, 1, COLOR},
 	};
 
-	t_camera camera = create_camera(100, 50, M_PI / 3);
-	t_tuple from = (t_tuple){0, 1.5, -5, POINT};
+	t_camera camera = create_camera(1920, 1080, M_PI / 3);
+	t_tuple from = (t_tuple){0, 6, -5, POINT};
 	t_tuple to = (t_tuple){0, 1, 0, POINT};
 	t_tuple up = (t_tuple){0, 1, 0, VECTOR};
 	t_tuple forward;

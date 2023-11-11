@@ -14,24 +14,23 @@
 
 t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 {
-	t_intersection		obj1_intersects;
-	t_intersection		obj2_intersects;
-	t_intersection		res;
-	const void			*s1 = &w->objs[0];
-	const void			*s2 = &w->objs[1];
+	int 			count;
+	t_intersection 	obj_intersec;
+	t_intersection 	res;
+	void			*obj;
 
+	count = 0;
 	res = (t_intersection){0};
-	obj1_intersects = create_intersection(s1, *r);
-	obj2_intersects = create_intersection(s2, *r);
-	if (obj1_intersects.count != 0 && obj2_intersects.count != 0)
+	while (count != w->count)
 	{
-		res = link_intersection_nodes((t_node *[]){
-				intersection(obj1_intersects.head->t, &s1),
-				intersection(obj2_intersects.head->t, &s2),
-				intersection(obj2_intersects.head->next->t, &s2),
-				intersection(obj1_intersects.head->next->t, &s1),
-				NULL \
-		});
+		obj_intersec = create_intersection(&w->objs[count], *r);
+		if (obj_intersec.head)
+		{
+			obj = &w->objs[count];
+			ft_lstadd_back(&res.head, intersection(obj_intersec.head->t, (void **)&obj));
+			ft_lstadd_back(&res.head, intersection(obj_intersec.head->next->t, (void **)&obj));
+		}
+		count++;
 	}
 	return (res);
 }

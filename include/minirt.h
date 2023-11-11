@@ -159,6 +159,7 @@ typedef struct s_world
 {
 	t_sphere			*objs;
 	t_point_light		*light;
+	int					count;
 }						t_world;
 
 typedef struct s_intersect
@@ -270,7 +271,7 @@ t_matrix				create_z_rotation_matrix(float r);
 t_matrix				create_scaling_matrix(const float x, const float y,
 							const float z);
 t_matrix				create_shearing_matrix(t_shearer shearer);
-t_matrix				chain_transformations(const t_matrix *matrices[]);
+t_matrix				chain_transformations(t_matrix *matrices[]);
 void					translate_coordinate(t_tuple point, t_canvas *canvas,
 							t_tuple res);
 void					get_position(t_ray ray, float distance,
@@ -298,7 +299,7 @@ t_world					default_world(void);
 void					set_material(t_tuple reflections, t_tuple color,
 							t_material *m);
 t_intersection			intersect_world_with_ray(t_world *w, t_ray *r);
-t_node					*intersection(float point, const void **obj);
+t_node					*intersection(float point, void **obj);
 t_prep_comps			prepare_computations(t_node *intersection, t_ray ray);
 void					shade_hit(t_world *world, t_prep_comps *comps,
 							t_tuple result);
