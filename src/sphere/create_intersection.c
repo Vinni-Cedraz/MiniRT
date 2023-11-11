@@ -31,9 +31,9 @@ t_intersection	create_intersection(const t_sphere *s, t_ray r)
 	}
 	i = link_intersection_nodes((t_node *[]){
 			intersection(\
-				((bask.b * -1 - sqrt(dis)) / (2 * bask.a)), (const void **)&s),
+				((bask.b * -1 - sqrt(dis)) / (2 * bask.a)), (void **)&s),
 			intersection(\
-				((bask.b * -1 + sqrt(dis)) / (2 * bask.a)), (const void **)&s),
+				((bask.b * -1 + sqrt(dis)) / (2 * bask.a)), (void **)&s),
 			NULL \
 	});
 	if (floats_eq(0, dis))
@@ -67,7 +67,7 @@ t_intersection	link_intersection_nodes(t_node *arr[])
 	return (i);
 }
 
-t_node	*intersection(float point, const void **obj)
+t_node	*intersection(float point, void **obj)
 {
 	t_node	*lst;
 

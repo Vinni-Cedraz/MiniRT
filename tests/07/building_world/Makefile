@@ -1,5 +1,6 @@
 TESTS =		\
   building_world \
+  color_at \
 
 ## VARIABLES
 INCS = -I../../ -I../../../include/ -I../../../libs/

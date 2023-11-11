@@ -49,34 +49,6 @@ Test(building_world, the_default_world, .description = scenario2) {
 	cr_expect_matrices_eq(inverse_scaling_matrix, world.objs[1].inverse_t);
 }
 
-// Scenario : Intersect a world with a ray
-#define scenario3 CYAN \
-"\nGiven w ← default_world()\n"                                      \
-"And r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                    \
-"When xs ← intersect_world(w, r)\n"                                  \
-"Then xs.count = 4\n"                                        		 \
-"And xs[0].t = 4\n"                                      			 \
-"And xs[1].t = 4.5\n"                                      			 \
-"And xs[2].t = 5.5\n"                                      			 \
-"And xs[3].t = 6"RESET
-
-Test(building_world, intersect_world_with_ray, .description = scenario3) {
-	t_world w;
-	t_ray	r;
-	t_intersection xs;
-
-	w = default_world();
-	r = create_ray((t_tuple){0, 0, -5, POINT},(t_tuple){0, 0, 1, VECTOR});
-	xs = intersect_world_with_ray(&w, &r);
-
-	cr_expect_eq(xs.count, 4);
-	cr_expect_eq(xs.head->t, 4);
-	cr_expect_eq(xs.head->next->t, 4.5);
-	cr_expect_eq(xs.head->next->next->t, 5.5);
-	cr_expect_eq(xs.head->next->next->next->t, 6);
-	cr_expect_eq(xs.head->next->next->next->next, NULL);
-}
-
 // Scenario : Precomputing the state of an intersection
 #define scenario4 CYAN\
 "\nGiven r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                \

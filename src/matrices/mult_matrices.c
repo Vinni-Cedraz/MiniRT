@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-static t_matrix	last_result(const t_matrix *matrices[], const int idx);
+static t_matrix	last_result(t_matrix *matrices[], const int idx);
 
 t_matrix	mult_matrices(t_matrix a, t_matrix b)
 {
@@ -37,12 +37,12 @@ void	multiply_tuple_by_matrix(const t_tuple row, t_matrix m, t_tuple res)
 }
 
 // mult_n_matrices
-t_matrix	chain_transformations(const t_matrix *matrices[])
+t_matrix	chain_transformations(t_matrix *matrices[])
 {
 	return (last_result(matrices, 0));
 }
 
-static t_matrix	last_result(const t_matrix *matrices[], const int idx)
+static t_matrix	last_result(t_matrix *matrices[], const int idx)
 {
 	if (matrices[idx + 1] == NULL)
 		return (*matrices[idx]);
