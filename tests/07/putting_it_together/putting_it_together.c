@@ -22,23 +22,22 @@ Test(putting_it_together, three_spheres)
  	t_matrix scaling = create_scaling_matrix(10, 0.01, 10);
 
 	// WALLS
-	set_transform(&left_wall._t, chain_transformations((t_matrix *[]){&translation, &y_rotation, &x_rotation, &scaling, NULL}));
+	set_transform(&left_wall, chain_transformations((t_matrix *[]){&translation, &y_rotation, &x_rotation, &scaling, NULL}));
 	left_wall.material = floor.material;
 	right_wall = create_sphere();
 
  	y_rotation = create_y_rotation_matrix(M_PI / 4);
-	set_transform(&right_wall._t, chain_transformations((t_matrix *[]){&translation, &y_rotation, &x_rotation, &scaling, NULL}));
+	set_transform(&right_wall, chain_transformations((t_matrix *[]){&translation, &y_rotation, &x_rotation, &scaling, NULL}));
 	right_wall.material = floor.material;
 
 	//  MIDDLE SPHERE
 	middle_sphere = create_sphere();
-	set_transform(&middle_sphere._t, create_translation_matrix((t_tuple){-0.5, 1, 0.5, POINT}));
+	set_transform(&middle_sphere, create_translation_matrix((t_tuple){-0.5, 1, 0.5, POINT}));
 	middle_sphere.material = create_material();
 	set_material((t_tuple){-1, 0.7, 0.3, -1}, (t_tuple){0.1, 1, 0.5, COLOR}, &middle_sphere.material);
 
 	// RIGHT SPHERE
 	right_sphere = create_sphere();
-	t_matrix result;
 	set_transform(&right_sphere, mult_matrices(
 			create_translation_matrix((t_tuple){1.5, 0.5, -0.5}),
 			create_scaling_matrix(0.5, 0.5, 0.5)
@@ -58,10 +57,10 @@ Test(putting_it_together, three_spheres)
 	t_world world;
 
 	world.objs = malloc(sizeof(t_sphere) * 6);
-	// world.objs[0] = floor;
-	// world.objs[1] = left_wall;
-	// world.objs[2] = right_wall;
-	// world.objs[3] = left_sphere;
+	world.objs[0] = floor;
+	world.objs[1] = left_wall;
+	world.objs[2] = right_wall;
+	world.objs[3] = left_sphere;
 	world.objs[4] = middle_sphere;
 	world.objs[5] = right_sphere;
 	world.light = &(t_point_light){
@@ -69,7 +68,7 @@ Test(putting_it_together, three_spheres)
 		{1, 1, 1, COLOR},
 	};
 
-	t_camera camera = create_camera(1920, 1080, M_PI / 3);
+	t_camera camera = create_camera(100, 50, M_PI / 3);
 	t_tuple from = (t_tuple){0, 6, -5, POINT};
 	t_tuple to = (t_tuple){0, 1, 0, POINT};
 	t_tuple up = (t_tuple){0, 1, 0, VECTOR};
@@ -81,7 +80,7 @@ Test(putting_it_together, three_spheres)
 
 	t_canvas canvas = render(camera, world);
 
-    t_constr *str = canvas_to_ppm(&canvas);
+    char *str = canvas_to_ppm(&canvas);
     create_ppm_file(str);
     destroy_canvas(&canvas);
 	free(world.objs);

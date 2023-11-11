@@ -6,7 +6,7 @@
    "-O3",
    "-lcriterion",
    "-lm",
-   "-w",
+   "-Wall -Wextra -Werror -pedantic",
    "putting_it_together.c",
    "-I../../",
    "-I../../../include/",
