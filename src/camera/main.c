@@ -24,7 +24,7 @@ int main(void) {
 
 	// BALLS
 	set_transform(&rigth_ball, mult_matrices(
-				create_translation_matrix((t_tuple){1, 0.5, 0.5}),
+				create_translation_matrix((t_tuple){0.8, 0.5, 0.5}),
 				create_scaling_matrix(0.5, 0.5, 0.5)));
     set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.5, 1, 0.1}, &rigth_ball.material);
 
@@ -35,7 +35,7 @@ int main(void) {
 
 	set_transform(&left_ball, mult_matrices(
 				create_translation_matrix((t_tuple){-1.5, 0.33, 0.75}),
-				create_scaling_matrix(0.33, 0.33, 0.5)));
+				create_scaling_matrix(0.33, 0.33, 0.33)));
     set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){1, 0.8, 0.1}, &left_ball.material);
 
 	// LEFT_WALL
