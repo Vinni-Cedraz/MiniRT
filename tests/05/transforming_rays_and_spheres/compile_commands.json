@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/05/transforming_rays_and_spheres",
+  "directory": "/home/myuser/MiniRT/tests/05/transforming_rays_and_spheres",
   "arguments": [
    "cc",
    "-O3",

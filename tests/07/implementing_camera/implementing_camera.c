@@ -53,7 +53,7 @@ Test(camera, vertical_pixel_size, .description = scenario3) {
 // ERROR
 Test(camera, ray_for_pixel_center, .description = scenario4) {
     const t_camera c = create_camera(201, 101, M_PI / 2);
-    const t_ray r = ray_for_pixel(c, 50, 100);
+    const t_ray r = ray_for_pixel(c, 100, 50);
     cr_expect_eq(tuples_eq(r.origin, (t_tuple){0, 0, 0, POINT}), TRUE);
     cr_expect_eq(tuples_eq(r.direction, (t_tuple){0, 0, -1, VECTOR}), TRUE);
 }
@@ -85,7 +85,7 @@ Test(camera, ray_when_camera_transformed, .description = scenario6) {
 			create_y_rotation_matrix(M_PI / 4),
 			create_translation_matrix((t_tuple){0, -2, 5, POINT})\
 	);
-    const t_ray r = ray_for_pixel(c, 50, 100);
+    const t_ray r = ray_for_pixel(c, 100, 50);
     cr_expect_eq(tuples_eq(r.origin, (t_tuple){0, 2, -5, POINT}), TRUE);
     cr_expect_eq(tuples_eq(r.direction, (t_tuple){sqrt(2) / 2, 0, -sqrt(2) / 2, VECTOR}), TRUE);
 }

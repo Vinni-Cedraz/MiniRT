@@ -22,14 +22,14 @@ t_canvas	render(t_camera camera, t_world world)
 
 	x = 0;
 	y = 0;
-	image = create_canvas(camera.hsize, camera.vsize);
+	image = create_canvas(camera.vsize, camera.hsize);
 	while (y < camera.vsize)
 	{
 		while (x < camera.hsize)
 		{
 			ray = ray_for_pixel(camera, x, y);
 			color_at(&world, &ray, color);
-			write_pixel(&image, x, y, color);
+			write_pixel(&image, y, x, color);
 			x++;
 		}
 		x = 0;

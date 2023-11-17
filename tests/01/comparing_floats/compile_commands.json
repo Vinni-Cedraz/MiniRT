@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/01/comparing_floats",
+  "directory": "/home/myuser/MiniRT/tests/01/comparing_floats",
   "arguments": [
    "cc",
    "-O3",

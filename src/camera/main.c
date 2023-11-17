@@ -24,17 +24,17 @@ int main(void) {
 
 	// BALLS
 	set_transform(&rigth_ball, mult_matrices(
-				create_translation_matrix((t_tuple){0.8, 0.5, 0.5}),
+				create_translation_matrix((t_tuple){1.2, 0.7, 0.5}),
 				create_scaling_matrix(0.5, 0.5, 0.5)));
     set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.5, 1, 0.1}, &rigth_ball.material);
 
 	set_transform(&middle_ball, mult_matrices(
-				create_translation_matrix((t_tuple){-0.5, 0.8, 0.5}),
+				create_translation_matrix((t_tuple){0, 0.8, 0.1}),
 				create_scaling_matrix(0.7, 0.7, 0.7)));
     set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.1, 1, 0.1}, &middle_ball.material);
 
 	set_transform(&left_ball, mult_matrices(
-				create_translation_matrix((t_tuple){-1.5, 0.33, 0.75}),
+				create_translation_matrix((t_tuple){-1, 0.33, 0.4}),
 				create_scaling_matrix(0.33, 0.33, 0.33)));
     set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){1, 0.8, 0.1}, &left_ball.material);
 
@@ -58,14 +58,14 @@ int main(void) {
     world.objs[4] = rigth_ball;
     world.objs[5] = middle_ball;
     world.light = &(t_point_light) {
-        {10, 10, 10, POINT},
+        {10, 25, 10, POINT},
         {1, 1, 1, COLOR},
     };
 
-    t_camera camera = create_camera(540, 960, M_PI / 3);
-    t_tuple from = (t_tuple){0, 1.5, 5, POINT};
-    t_tuple to = (t_tuple){0, 0, -1, POINT};
-    t_tuple up = (t_tuple){-1, 0, 0, VECTOR};
+    t_camera camera = create_camera(480, 280, M_PI / 3);
+    t_tuple from = (t_tuple){0, 3.5, 3, POINT};
+    t_tuple to = (t_tuple){0, 1, 0, POINT};
+    t_tuple up = (t_tuple){0, 1, 0, VECTOR};
     t_tuple forward;
 
     subtract_tuples(to, from, forward);
