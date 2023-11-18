@@ -12,26 +12,35 @@
 
 #include "minirt.h"
 
+static void	lst_add_intrscs(t_intersection *r, t_intersection *i, void **o);
+
 t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 {
-	t_intersection		obj1_intersects;
-	t_intersection		obj2_intersects;
-	t_intersection		res;
-	const void			*s1 = &w->objs[0];
-	const void			*s2 = &w->objs[1];
+	int				count;
+	t_intersection	intrsct;
+	t_intersection	lst;
+	void			*obj;
+	void			**obj_ptr;
 
-	res = (t_intersection){0};
-	obj1_intersects = create_intersection(s1, *r);
-	obj2_intersects = create_intersection(s2, *r);
-	if (obj1_intersects.count != 0 && obj2_intersects.count != 0)
+	count = 0;
+	lst = (t_intersection){0};
+	while (count != w->count)
 	{
-		res = link_intersection_nodes((t_node *[]){
-				intersection(obj1_intersects.head->t, &s1),
-				intersection(obj2_intersects.head->t, &s2),
-				intersection(obj2_intersects.head->next->t, &s2),
-				intersection(obj1_intersects.head->next->t, &s1),
-				NULL \
-		});
+		intrsct = create_intersection(&w->objs[count], *r);
+		if (intrsct.head)
+		{
+			obj = &w->objs[count];
+			obj_ptr = (void **)&obj;
+			lst_add_intrscs(&lst, &intrsct, obj_ptr);
+		}
+		count++;
 	}
-	return (res);
+	return (lst);
+}
+
+static inline void	lst_add_intrscs( \
+		t_intersection *lst, t_intersection *intrsct, void **obj_ptr)
+{
+	ft_lstadd_back(&lst->head, intersection(intrsct->head->t, obj_ptr));
+	ft_lstadd_back(&lst->head, intersection(intrsct->head->next->t, obj_ptr));
 }

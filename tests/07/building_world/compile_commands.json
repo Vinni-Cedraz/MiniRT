@@ -17,5 +17,24 @@
    "building_world"
   ],
   "file": "building_world.c"
+ },
+ {
+  "directory": "/root/MiniRT/tests/07/building_world",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-w",
+   "color_at.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "color_at"
+  ],
+  "file": "color_at.c"
  }
 ]

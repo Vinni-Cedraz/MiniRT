@@ -3,7 +3,7 @@ TESTS =		\
 
 ## VARIABLES
 INCS = -I../../ -I../../../include/ -I../../../libs/
-FLAGS = -O3 -lcriterion -lm -w
+FLAGS = -O3 -lcriterion -lm -Wall -Wextra -Werror
 LIBS = ../../../libs/*.a ../../../minirt.a
 RM = rm -f
 SHELL = /bin/zsh

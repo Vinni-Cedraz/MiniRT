@@ -25,6 +25,7 @@ t_world	default_world(void)
 {
 	t_world	w;
 
+	w.count = 2;
 	w.light = malloc(sizeof(t_point_light));
 	*(w.light) = (t_point_light){.position = {-10, 10, -10, POINT},
 		.intensity = {1, 1, 1, COLOR}};

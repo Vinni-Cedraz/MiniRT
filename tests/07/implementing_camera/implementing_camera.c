@@ -47,13 +47,13 @@ Test(camera, vertical_pixel_size, .description = scenario3) {
 // Scenario: Constructing a ray through the center of the canvas
 #define scenario4                                                                                                      \
     CYAN "Given c ← camera(201, 101, π/2)\n"                                                                        \
-         "When r ← ray_for_pixel(c, 100, 50)\n"                                                                      \
+         "When r ← ray_for_pixel(c, 50, 100)\n"                                                                      \
          "Then r.origin = point(0, 0, 0)\n"                                                                            \
          "And r.direction = vector(0, 0, -1)" RESET
 // ERROR
 Test(camera, ray_for_pixel_center, .description = scenario4) {
     const t_camera c = create_camera(201, 101, M_PI / 2);
-    const t_ray r = ray_for_pixel(c, 100, 50);
+    const t_ray r = ray_for_pixel(c, 50, 100);
     cr_expect_eq(tuples_eq(r.origin, (t_tuple){0, 0, 0, POINT}), TRUE);
     cr_expect_eq(tuples_eq(r.direction, (t_tuple){0, 0, -1, VECTOR}), TRUE);
 }
@@ -75,7 +75,7 @@ Test(camera, ray_through_a_corner, .description = scenario4) {
 #define scenario6                                                                                                      \
     CYAN "Given c ← camera(201, 101, π/2)\n"                                                                        \
          "When c.transform ← rotation_y(π/4) * translation(0, -2, 5)\n"                                             \
-         "And r ← ray_for_pixel(c, 100, 50)\n"                                                                       \
+         "And r ← ray_for_pixel(c, 50, 100)\n"                                                                       \
          "Then r.origin = point(0, 2, -5)\n"                                                                           \
          "And r.direction = vector(√2/2, 0, -√2/2)" RESET
 
@@ -85,7 +85,7 @@ Test(camera, ray_when_camera_transformed, .description = scenario6) {
 			create_y_rotation_matrix(M_PI / 4),
 			create_translation_matrix((t_tuple){0, -2, 5, POINT})\
 	);
-    const t_ray r = ray_for_pixel(c, 100, 50);
+    const t_ray r = ray_for_pixel(c, 50, 100);
     cr_expect_eq(tuples_eq(r.origin, (t_tuple){0, 2, -5, POINT}), TRUE);
     cr_expect_eq(tuples_eq(r.direction, (t_tuple){sqrt(2) / 2, 0, -sqrt(2) / 2, VECTOR}), TRUE);
 }
@@ -114,7 +114,6 @@ Test(camera, rendering_a_world, .description = scenario6)
 
 	subtract_tuples(to, from, forward);
 	normalize(forward, forward);
-	normalize(up, up);
 	c.transform = view_transform(from, forward, up);
 	image = render(c, w);
 	cr_expect_eq(tuples_eq(image.pixels[5][5], (t_tuple){0.3806, 0.4758, 0.2855, COLOR}), TRUE);
