@@ -12,25 +12,35 @@
 
 #include "minirt.h"
 
+static void	lst_add_intrscs(t_intersection *r, t_intersection *i, void **o);
+
 t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 {
-	int 			count;
-	t_intersection 	obj_intersec;
-	t_intersection 	res;
+	int				count;
+	t_intersection	intrsct;
+	t_intersection	lst;
 	void			*obj;
+	void			**obj_ptr;
 
 	count = 0;
-	res = (t_intersection){0};
+	lst = (t_intersection){0};
 	while (count != w->count)
 	{
-		obj_intersec = create_intersection(&w->objs[count], *r);
-		if (obj_intersec.head)
+		intrsct = create_intersection(&w->objs[count], *r);
+		if (intrsct.head)
 		{
 			obj = &w->objs[count];
-			ft_lstadd_back(&res.head, intersection(obj_intersec.head->t, (void **)&obj));
-			ft_lstadd_back(&res.head, intersection(obj_intersec.head->next->t, (void **)&obj));
+			obj_ptr = (void **)&obj;
+			lst_add_intrscs(&lst, &intrsct, obj_ptr);
 		}
 		count++;
 	}
-	return (res);
+	return (lst);
+}
+
+static inline void	lst_add_intrscs( \
+		t_intersection *lst, t_intersection *intrsct, void **obj_ptr)
+{
+	ft_lstadd_back(&lst->head, intersection(intrsct->head->t, obj_ptr));
+	ft_lstadd_back(&lst->head, intersection(intrsct->head->next->t, obj_ptr));
 }

@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/06/reflecting_vectors",
+  "directory": "/root/MiniRT/tests/06/reflecting_vectors",
   "arguments": [
    "cc",
    "-O3",

@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/04/shearing",
+  "directory": "/root/MiniRT/tests/04/shearing",
   "arguments": [
    "cc",
    "-O3",

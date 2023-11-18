@@ -18,8 +18,6 @@ void	normal_at(const t_sphere *sphere, const t_tuple wrld_p, t_tuple normal)
 	t_tuple	obj_nrml;
 	t_tuple	wlrd_nrml;
 
-#include <assert.h>
-	assert(sphere != NULL);
 	multiply_tuple_by_matrix(wrld_p, sphere->inverse_t, obj_point);
 	subtract_tuples(obj_point, (t_tuple){0, 0, 0, POINT}, obj_nrml);
 	multiply_tuple_by_matrix(obj_nrml, sphere->transposed_inverse_t, wlrd_nrml);

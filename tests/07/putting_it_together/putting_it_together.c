@@ -23,7 +23,7 @@ Test(putting_it_together, three_spheres)
 	// BALLS
     set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.5, 1, 0.1}, &rigth_ball.material);
 	set_transform(&rigth_ball, mult_matrices(
-				create_translation_matrix((t_tuple){1.2, 0.7, 0.5}),
+				create_translation_matrix((t_tuple){1.15, 0.7, 0.5}),
 				create_scaling_matrix(0.5, 0.5, 0.5))
 	);
 
@@ -35,7 +35,7 @@ Test(putting_it_together, three_spheres)
 
 	set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){1, 0.8, 0.1}, &left_ball.material);
 	set_transform(&left_ball, mult_matrices(
-				create_translation_matrix((t_tuple){-1, 0.33, 0.4}),
+				create_translation_matrix((t_tuple){-0.95, 0.33, 0.4}),
 				create_scaling_matrix(0.33, 0.33, 0.33))
 	);
 

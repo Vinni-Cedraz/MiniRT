@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/05/creating_rays",
+  "directory": "/root/MiniRT/tests/05/creating_rays",
   "arguments": [
    "cc",
    "-O3",

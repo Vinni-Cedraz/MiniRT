@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/04/scaling",
+  "directory": "/root/MiniRT/tests/04/scaling",
   "arguments": [
    "cc",
    "-O3",

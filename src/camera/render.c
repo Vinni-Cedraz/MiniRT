@@ -29,7 +29,7 @@ t_canvas	render(t_camera camera, t_world world)
 		{
 			ray = ray_for_pixel(camera, y, x);
 			color_at(&world, &ray, color);
-			write_pixel(&image, y, x, color);
+			write_pixel(&image, y, camera.hsize - x - 1, color);
 			x++;
 		}
 		x = 0;
