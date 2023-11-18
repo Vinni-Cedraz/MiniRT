@@ -21,20 +21,23 @@ Test(putting_it_together, three_spheres)
 	set_transform(&floor, create_scaling_matrix(10, 0.01, 10));
 
 	// BALLS
+    set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.5, 1, 0.1}, &rigth_ball.material);
 	set_transform(&rigth_ball, mult_matrices(
 				create_translation_matrix((t_tuple){1.2, 0.7, 0.5}),
-				create_scaling_matrix(0.5, 0.5, 0.5)));
-    set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.5, 1, 0.1}, &rigth_ball.material);
+				create_scaling_matrix(0.5, 0.5, 0.5))
+	);
 
+    set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.1, 1, 0.1}, &middle_ball.material);
 	set_transform(&middle_ball, mult_matrices(
 				create_translation_matrix((t_tuple){0, 0.8, 0.1}),
-				create_scaling_matrix(0.7, 0.7, 0.7)));
-    set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.1, 1, 0.1}, &middle_ball.material);
+				create_scaling_matrix(0.7, 0.7, 0.7))
+	);
 
+	set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){1, 0.8, 0.1}, &left_ball.material);
 	set_transform(&left_ball, mult_matrices(
 				create_translation_matrix((t_tuple){-1, 0.33, 0.4}),
-				create_scaling_matrix(0.33, 0.33, 0.33)));
-    set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){1, 0.8, 0.1}, &left_ball.material);
+				create_scaling_matrix(0.33, 0.33, 0.33))
+	);
 
 	// LEFT_WALL
  	t_matrix y_rotation = create_y_rotation_matrix(-M_PI / 4);
