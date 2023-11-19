@@ -14,26 +14,24 @@
 
 t_prep_comps	prepare_computations(t_node *intersection, t_ray ray)
 {
-	t_prep_comps	computations;
-
-	computations = (t_prep_comps){
-		.t = intersection->t,
-		.object = (t_shape*)intersection->object,
+	t_prep_comps				cmp;
+	const t_normal_at_function	normal_at[3] = {
+		sphere_normal_at, plane_normal_at, cylinder_normal_at
 	};
-	get_position(ray, computations.t, computations.point);
-	if (computations.object->type == SPHERE)
-		sphere_normal_at(
-			(t_sphere *)intersection->object,
-			computations.point,
-			computations.normalv \
-	);
-	negate_tuple(ray.direction, computations.eyev);
-	if (dot(computations.normalv, computations.eyev) < 0)
+
+	cmp = (t_prep_comps){
+		.t = intersection->t,
+		.object = (t_shape *)intersection->object,
+	};
+	get_position(ray, cmp.t, cmp.point);
+	normal_at[cmp.object->type](intersection->object, cmp.point, cmp.normalv);
+	negate_tuple(ray.direction, cmp.eyev);
+	if (dot(cmp.normalv, cmp.eyev) < 0)
 	{
-		computations.inside = TRUE;
-		negate_tuple(computations.normalv, computations.normalv);
+		cmp.inside = TRUE;
+		negate_tuple(cmp.normalv, cmp.normalv);
 	}
 	else
-		computations.inside = FALSE;
-	return (computations);
+		cmp.inside = FALSE;
+	return (cmp);
 }

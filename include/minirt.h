@@ -235,6 +235,8 @@ typedef struct s_camera
 }						t_camera;
 
 typedef t_intersection	(*t_intersect_function)(void **, t_tuple, t_ray);
+typedef void			(*t_normal_at_function)(const t_shape *, const t_tuple,
+				t_tuple);
 
 void					create_point(t_tuple tuple);
 void					create_vector(t_tuple tuple);
@@ -312,7 +314,11 @@ t_node					*get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
 void					set_transform(t_shape *s, t_matrix t);
-void					sphere_normal_at(const t_sphere *sphere,
+void					sphere_normal_at(const t_shape *sphere, const t_tuple p,
+							t_tuple res);
+void					plane_normal_at(const t_shape *sphere, const t_tuple p,
+							t_tuple res);
+void					cylinder_normal_at(const t_shape *sphere,
 							const t_tuple p, t_tuple res);
 void					reflect(t_tuple vector, t_tuple normal,
 							t_tuple _return);
