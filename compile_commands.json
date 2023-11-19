@@ -834,5 +834,62 @@
    "build/render.o"
   ],
   "file": "./src/camera/render.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/intersect_sphere.c",
+   "-o",
+   "build/intersect_sphere.o"
+  ],
+  "file": "./src/sphere/intersect_sphere.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/intersect_plane.c",
+   "-o",
+   "build/intersect_plane.o"
+  ],
+  "file": "./src/sphere/intersect_plane.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/intersect_cylinder.c",
+   "-o",
+   "build/intersect_cylinder.o"
+  ],
+  "file": "./src/sphere/intersect_cylinder.c"
  }
 ]

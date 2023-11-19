@@ -1,0 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   intersect_sphere.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/19 04:30:58 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/11/19 04:31:09 by vcedraz-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minirt.h"
+
+t_intersection	intersect_sphere(void **obj, t_tuple obj_dist_to_ray, t_ray r)
+{
+	float			dis;
+	t_baskara		bask;
+	t_intersection	i;
+
+	dis = discriminant(obj_dist_to_ray, r, &bask);
+	if (dis < 0)
+	{
+		i.count = 0;
+		i.head = NULL;
+		return (i);
+	}
+	i = link_intersection_nodes((t_node *[]){
+			intersection(\
+				((bask.b * -1 - sqrt(dis)) / (2 * bask.a)), obj),
+			intersection(\
+				((bask.b * -1 + sqrt(dis)) / (2 * bask.a)), obj),
+			NULL \
+	});
+	if (floats_eq(0, dis))
+		i.count = 1;
+	return (i);
+}
+
+float	discriminant(t_tuple obj_dist_to_ray, t_ray ray, t_baskara *bask)
+{
+	bask->a = dot(ray.direction, ray.direction);
+	bask->b = 2 * dot(ray.direction, obj_dist_to_ray);
+	bask->c = dot(obj_dist_to_ray, obj_dist_to_ray) - 1;
+	return (pow(bask->b, 2) - 4 * bask->a * bask->c);
+}

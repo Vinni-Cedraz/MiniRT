@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void	normal_at(const t_sphere *sphere, const t_tuple wrld_p, t_tuple normal)
+void	sphere_normal_at(const t_sphere *sphere, const t_tuple wrld_p, t_tuple normal)
 {
 	t_tuple	obj_point;
 	t_tuple	obj_nrml;

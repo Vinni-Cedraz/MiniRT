@@ -13,40 +13,18 @@
 #include "libft_bonus.h"
 #include "minirt.h"
 
-t_intersection	create_intersection(const t_sphere *s, t_ray r)
+t_intersection	create_intersection(void *obj, t_ray r)
 {
-	t_intersection	i;
-	float			dis;
-	t_tuple			sphere_to_ray;
-	t_baskara		bask;
+	t_tuple						obj_dist_to_ray;
+	const t_object				*shape = (t_object *)obj;
+	const t_intersect_function	intersect_shape[3] = {
+		intersect_sphere, intersect_plane, intersect_cylinder
+	};
 
-	r = transform_ray(r, s->inverse_t);
-	subtract_tuples(r.origin, s->origin, sphere_to_ray);
-	dis = discriminant(sphere_to_ray, r, &bask);
-	if (dis < 0)
-	{
-		i.count = 0;
-		i.head = NULL;
-		return (i);
-	}
-	i = link_intersection_nodes((t_node *[]){
-			intersection(\
-				((bask.b * -1 - sqrt(dis)) / (2 * bask.a)), (void **)&s),
-			intersection(\
-				((bask.b * -1 + sqrt(dis)) / (2 * bask.a)), (void **)&s),
-			NULL \
-	});
-	if (floats_eq(0, dis))
-		i.count = 1;
-	return (i);
-}
-
-float	discriminant(t_tuple sphere_to_ray, t_ray ray, t_baskara *bask)
-{
-	bask->a = dot(ray.direction, ray.direction);
-	bask->b = 2 * dot(ray.direction, sphere_to_ray);
-	bask->c = dot(sphere_to_ray, sphere_to_ray) - 1;
-	return (pow(bask->b, 2) - 4 * bask->a * bask->c);
+	printf("shape->type => %d\n", shape->type);
+	r = transform_ray(r, shape->inverse_t);
+	subtract_tuples(r.origin, shape->origin, obj_dist_to_ray);
+	return (intersect_shape[shape->type]((void **)&shape, obj_dist_to_ray, r));
 }
 
 t_intersection	link_intersection_nodes(t_node *arr[])

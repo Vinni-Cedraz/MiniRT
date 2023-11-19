@@ -18,7 +18,6 @@ t_sphere	create_sphere(void)
 	const t_sphere	sphere = {
 		.origin = {0, 0, 0, POINT},
 		.id = call_counter++,
-		.radius = 1,
 		.type = SPHERE,
 		._t = create_identity_matrix(),
 		.inverse_t = create_identity_matrix(),

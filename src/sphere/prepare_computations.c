@@ -18,10 +18,15 @@ t_prep_comps	prepare_computations(t_node *intersection, t_ray ray)
 
 	computations = (t_prep_comps){
 		.t = intersection->t,
-		.object = (t_sphere*)intersection->object,
+		.object = (t_object*)intersection->object,
 	};
 	get_position(ray, computations.t, computations.point);
-	normal_at(computations.object, computations.point, computations.normalv);
+	if (computations.object->type == SPHERE)
+		sphere_normal_at(
+			(t_sphere *)intersection->object,
+			computations.point,
+			computations.normalv \
+	);
 	negate_tuple(ray.direction, computations.eyev);
 	if (dot(computations.normalv, computations.eyev) < 0)
 	{
