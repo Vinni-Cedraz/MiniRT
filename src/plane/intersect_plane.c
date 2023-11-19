@@ -17,5 +17,5 @@ t_intersection	intersect_plane(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 	(void)obj;
 	(void)obj_dist_to_ray;
 	(void)r;
-	return (t_intersection){};
+	return ((t_intersection){});
 }

@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_transform.c                                    :+:      :+:    :+:   */
+/*   intersect_cylinder.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 15:30:45 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/20 15:30:46 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/11/19 04:33:58 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/11/19 04:34:05 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	set_transform(t_sphere *s, t_matrix t)
+t_intersection	intersect_cylinder(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 {
-	s->_t = t;
-	s->inverse_t = invert_matrix(t);
-	s->transposed_inverse_t = transpose_matrix(s->inverse_t);
+	(void)obj;
+	(void)obj_dist_to_ray;
+	(void)r;
+	return ((t_intersection){});
 }

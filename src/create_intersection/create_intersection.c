@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_intersection.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: johmatos <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 16:06:25 by johmatos          #+#    #+#             */
-/*   Updated: 2023/10/16 16:55:58 by johmatos         ###   ########.fr       */
+/*   Created: 2023/11/19 17:22:57 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/11/19 17:23:16 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@
 t_intersection	create_intersection(void *obj, t_ray r)
 {
 	t_tuple						obj_dist_to_ray;
-	const t_object				*shape = (t_object *)obj;
+	const t_shape				*shape = (t_shape *)obj;
 	const t_intersect_function	intersect_shape[3] = {
 		intersect_sphere, intersect_plane, intersect_cylinder
 	};
 
-	printf("shape->type => %d\n", shape->type);
 	r = transform_ray(r, shape->inverse_t);
 	subtract_tuples(r.origin, shape->origin, obj_dist_to_ray);
 	return (intersect_shape[shape->type]((void **)&shape, obj_dist_to_ray, r));

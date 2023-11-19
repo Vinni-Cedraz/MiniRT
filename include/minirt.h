@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/09 19:54:58 by johmatos         ###   ########.fr       */
+/*   Updated: 2023/11/19 17:29:08 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,23 @@ typedef struct s_lighting
 	t_tuple				normal_vec;
 }						t_lighting;
 
+typedef struct s_intersect
+{
+	t_node				*head;
+	t_short				count;
+}						t_intersection;
+
+typedef struct s_shape
+{
+	unsigned short		id;
+	int					type;
+	t_tuple				origin;
+	t_matrix			_t;
+	t_matrix			inverse_t;
+	t_matrix			transposed_inverse_t;
+	t_material			material;
+}						t_shape;
+
 typedef struct s_phere
 {
 	unsigned short		id;
@@ -155,19 +172,6 @@ typedef struct s_phere
 	t_matrix			transposed_inverse_t;
 	t_material			material;
 }						t_sphere;
-
-typedef struct s_world
-{
-	t_sphere			*objs;
-	t_point_light		*light;
-	int					count;
-}						t_world;
-
-typedef struct s_intersect
-{
-	t_node				*head;
-	t_short				count;
-}						t_intersection;
 
 typedef struct s_plane
 {
@@ -180,7 +184,7 @@ typedef struct s_plane
 	t_material			material;
 }						t_plane;
 
-typedef union s_obj
+typedef struct s_cylinder
 {
 	unsigned short		id;
 	int					type;
@@ -189,7 +193,14 @@ typedef union s_obj
 	t_matrix			inverse_t;
 	t_matrix			transposed_inverse_t;
 	t_material			material;
-}						t_object;
+}						t_cylinder;
+
+typedef struct s_world
+{
+	t_shape				*objs;
+	t_point_light		*light;
+	int					count;
+}						t_world;
 
 typedef struct s_baskara
 {
@@ -201,7 +212,7 @@ typedef struct s_baskara
 typedef struct s_comp
 {
 	float				t;
-	t_object			*object;
+	t_shape				*object;
 	t_tuple				point;
 	t_tuple				eyev;
 	t_tuple				normalv;
@@ -300,9 +311,9 @@ t_intersection			link_intersection_nodes(t_node *arr[]);
 t_node					*get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
-void					set_transform(t_sphere *s, t_matrix t);
-void					sphere_normal_at(const t_sphere *sphere, const t_tuple p,
-							t_tuple res);
+void					set_transform(t_shape *s, t_matrix t);
+void					sphere_normal_at(const t_sphere *sphere,
+							const t_tuple p, t_tuple res);
 void					reflect(t_tuple vector, t_tuple normal,
 							t_tuple _return);
 t_material				create_material(void);
@@ -328,6 +339,5 @@ t_canvas				render(t_camera camera, t_world world);
 t_intersection			intersect_sphere(void **obj, t_tuple dist, t_ray r);
 t_intersection			intersect_plane(void **obj, t_tuple dist, t_ray r);
 t_intersection			intersect_cylinder(void **obj, t_tuple dist, t_ray r);
-
 
 #endif

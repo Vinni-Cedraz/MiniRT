@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 15:21:18 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/05 15:21:52 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/11/19 17:24:54 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/11/19 17:24:57 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_prep_comps	prepare_computations(t_node *intersection, t_ray ray)
 
 	computations = (t_prep_comps){
 		.t = intersection->t,
-		.object = (t_object*)intersection->object,
+		.object = (t_shape*)intersection->object,
 	};
 	get_position(ray, computations.t, computations.point);
 	if (computations.object->type == SPHERE)
