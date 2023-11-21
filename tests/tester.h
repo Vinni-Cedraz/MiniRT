@@ -82,10 +82,10 @@ static inline void create_a_point(float x, float y, float z, t_tuple res)
 	res[W] = POINT;
 }
 
-#define scenario1 CYAN \
-"\nGiven point(0, 0, 0, POINT)\n"\
-"And canvas(500, 500)\n" \
-"And p ← translate_coordinate(point, canvas)\n " \
-"Then p = point(250, 250, 0, POINT)\n"RESET
-
+// #define scenario1 CYAN \
+// "\nGiven point(0, 0, 0, POINT)\n"\
+// "And canvas(500, 500)\n" \
+// "And p ← translate_coordinate(point, canvas)\n " \
+// "Then p = point(250, 250, 0, POINT)\n"RESET
+//
 #endif

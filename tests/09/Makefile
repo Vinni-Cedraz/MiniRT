@@ -21,11 +21,11 @@ endef
 
 ## RULES
 all:
-	@printf "\n$(ORANGE)=== CHAPTER ONE ===$(RESET)\n"
+	@printf "\n$(ORANGE)=== CHAPTER NINE ===$(RESET)\n"
 	@make --no-print-directory clean
 	@$(foreach dir,$(TESTDIRS),$(call MAKE_COMPILE, $(dir));)
 run:
-	@printf "\n$(ORANGE)=== CHAPTER ONE ===$(RESET)\n"
+	@printf "\n$(ORANGE)=== CHAPTER NINE ===$(RESET)\n"
 	@$(foreach dir,$(TESTDIRS),$(call MAKE_RUN, $(dir));)
 makeminirt_as_lib:
 	@make as_lib --no-print-directory -C ../../
