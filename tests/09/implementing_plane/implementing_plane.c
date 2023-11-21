@@ -4,8 +4,8 @@
 #define scenario1 CYAN \
 	   "Given plane ← create_plane()\n"                                                 \
        "When n1 ← plane_normal_at(plane, point(0, 0, 0))\n"                      \
-       "And  n2 ←  plane_normal_at(plane, point(10, 0, -10))\n"                    \
-       "And  n3 ←  plane_normal_at(plane, point(-5, 0, 150))\n"                    \
+       "And n2 ← plane_normal_at(plane, point(10, 0, -10))\n"                    \
+       "And n3 ← plane_normal_at(plane, point(-5, 0, 150))\n"                    \
        "Then n1 = vector(0, 1, 0)\n"                                           \
        "And n2 = vector(0, 1, 0)\n"                                            \
        "And n3 = vector(0, 1, 0)\n" RESET
@@ -80,26 +80,27 @@ Test(implementing_plane, ray_from_above_intersects_plane, .description = scenari
 	};
 	t_intersection xs = create_intersection((t_shape *)&plane, ray);
 	cr_assert_eq(xs.count, 1);
-	cr_assert_eq(((t_shape*)(xs.head->object))->type, PLANE);
-	cr_assert_eq((t_plane*)xs.head->object, &plane);
+	cr_assert_eq(xs.head->object->type, PLANE);
+	cr_assert_eq(xs.head->object, (t_shape *)&plane);
 }
-// // Scenario : A ray intersecting a plane from below
-// #define scenario5 CYAN \
-// "Given p ← plane()\n"       						   	     \
-// "And r ← ray(point(0, -1, 0), vector(0, 1, 0))\n"            \
-// "When xs ← create_intersection(p, r)\n"                          \
-// "Then xs.count = 1\n"                                        \
-// "And xs[0].t = 1\n"                                          \
-// "And xs[0].object = p\n"   RESET
-//
-// Test(implementing_plane, ray_from_below_intersects_plane, .description = scenario5) {
-// 	const t_plane plane = create_plane();
-// 	const t_ray ray = {
-// 		.origin = {0, -1, 0, POINT},
-// 		.direction = {0, 1, 0, VECTOR},
-// 	};
-// 	const t_intersection xs = create_intersection(&plane, ray);
-// 	cr_expect_eq(1, xs.count);
-// 	cr_assert_eq(((t_shape*)(xs.head->object))->type, PLANE);
-// 	cr_expect_eq(&plane, xs.head->object);
-// }
+
+// Scenario : A ray intersecting a plane from below
+#define scenario5 CYAN \
+"Given p ← plane()\n"       						   	     \
+"And r ← ray(point(0, -1, 0), vector(0, 1, 0))\n"            \
+"When xs ← create_intersection(p, r)\n"                          \
+"Then xs.count = 1\n"                                        \
+"And xs[0].t = 1\n"                                          \
+"And xs[0].object = p\n"   RESET
+
+Test(implementing_plane, ray_from_below_intersects_plane, .description = scenario5) {
+	const t_plane plane = create_plane();
+	const t_ray ray = {
+		.origin = {0, -1, 0, POINT},
+		.direction = {0, 1, 0, VECTOR},
+	};
+	const t_intersection xs = create_intersection((t_shape *)&plane, ray);
+	cr_expect_eq(1, xs.count);
+	cr_assert_eq(xs.head->object->type, PLANE);
+	cr_expect_eq(xs.head->object, (t_shape *)&plane);
+}
