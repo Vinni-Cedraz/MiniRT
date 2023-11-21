@@ -506,68 +506,11 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/sphere/create_intersection.c",
-   "-o",
-   "build/create_intersection.o"
-  ],
-  "file": "./src/sphere/create_intersection.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/sphere/get_hit.c",
-   "-o",
-   "build/get_hit.o"
-  ],
-  "file": "./src/sphere/get_hit.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/transform_ray/transform_ray.c",
    "-o",
    "build/transform_ray.o"
   ],
   "file": "./src/transform_ray/transform_ray.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/sphere/set_transform.c",
-   "-o",
-   "build/set_transform.o"
-  ],
-  "file": "./src/sphere/set_transform.c"
  },
  {
   "directory": "/root/MiniRT",
@@ -696,82 +639,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/sphere/intersect_world_with_ray.c",
-   "-o",
-   "build/intersect_world_with_ray.o"
-  ],
-  "file": "./src/sphere/intersect_world_with_ray.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/sphere/prepare_computations.c",
-   "-o",
-   "build/prepare_computations.o"
-  ],
-  "file": "./src/sphere/prepare_computations.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/sphere/shade_hit.c",
-   "-o",
-   "build/shade_hit.o"
-  ],
-  "file": "./src/sphere/shade_hit.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/sphere/color_at.c",
-   "-o",
-   "build/color_at.o"
-  ],
-  "file": "./src/sphere/color_at.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/camera/view_transformation.c",
    "-o",
    "build/view_transformation.o"
@@ -834,5 +701,214 @@
    "build/render.o"
   ],
   "file": "./src/camera/render.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/sphere/intersect_sphere.c",
+   "-o",
+   "build/intersect_sphere.o"
+  ],
+  "file": "./src/sphere/intersect_sphere.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/plane/intersect_plane.c",
+   "-o",
+   "build/intersect_plane.o"
+  ],
+  "file": "./src/plane/intersect_plane.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/cylinder/intersect_cylinder.c",
+   "-o",
+   "build/intersect_cylinder.o"
+  ],
+  "file": "./src/cylinder/intersect_cylinder.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/create_intersection/create_intersection.c",
+   "-o",
+   "build/create_intersection.o"
+  ],
+  "file": "./src/create_intersection/create_intersection.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/create_intersection/get_hit.c",
+   "-o",
+   "build/get_hit.o"
+  ],
+  "file": "./src/create_intersection/get_hit.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/create_intersection/set_transform.c",
+   "-o",
+   "build/set_transform.o"
+  ],
+  "file": "./src/create_intersection/set_transform.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/create_intersection/intersect_world_with_ray.c",
+   "-o",
+   "build/intersect_world_with_ray.o"
+  ],
+  "file": "./src/create_intersection/intersect_world_with_ray.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/create_intersection/prepare_computations.c",
+   "-o",
+   "build/prepare_computations.o"
+  ],
+  "file": "./src/create_intersection/prepare_computations.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/create_intersection/shade_hit.c",
+   "-o",
+   "build/shade_hit.o"
+  ],
+  "file": "./src/create_intersection/shade_hit.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/create_intersection/color_at.c",
+   "-o",
+   "build/color_at.o"
+  ],
+  "file": "./src/create_intersection/color_at.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/plane/create_plane.c",
+   "-o",
+   "build/create_plane.o"
+  ],
+  "file": "./src/plane/create_plane.c"
  }
 ]

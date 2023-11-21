@@ -53,7 +53,7 @@ static void ray_casting(const float half, const float pixel_size, t_ray r, t_int
 			if (hit)
 			{
 				get_position(r, hit->t, ligthing_obj.position);
-				normal_at(hit->object, ligthing_obj.position, ligthing_obj.normal_vec);
+				sphere_normal_at(hit->object, ligthing_obj.position, ligthing_obj.normal_vec);
                 paint_a_pixel(&c, y, x, &ligthing_obj, &r);
 			}
         }
