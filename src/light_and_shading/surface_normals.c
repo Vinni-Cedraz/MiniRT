@@ -31,7 +31,7 @@ void	plane_normal_at( \
 {
 	(void)wrld_p;
 	(void)plane->inverse_t;
-	(void)normal;
+	init_tuple(normal, (t_tuple){0, 1, 0, VECTOR});
 }
 
 void	cylinder_normal_at( \

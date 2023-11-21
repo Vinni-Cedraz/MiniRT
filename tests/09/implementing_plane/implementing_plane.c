@@ -4,25 +4,24 @@
 #define scenario1 CYAN \
 	   "Given plane ← create_plane()\n"                                                 \
        "When n1 ← plane_normal_at(plane, point(0, 0, 0))\n"                      \
-       "And n2 ← plane_normal_at(plane, point(10, 0, -10))\n"                    \
-       "And n3 ← plane_normal_at(plane, point(-5, 0, 150))\n"                    \
+       "And  n2 ←  plane_normal_at(plane, point(10, 0, -10))\n"                    \
+       "And  n3 ←  plane_normal_at(plane, point(-5, 0, 150))\n"                    \
        "Then n1 = vector(0, 1, 0)\n"                                           \
        "And n2 = vector(0, 1, 0)\n"                                            \
        "And n3 = vector(0, 1, 0)\n" RESET
-
-const t_plane plane = create_plane();
 
 Test(implementing_plane, the_normal_of_a_plane, .description = scenario1) {
   t_tuple n1;
   t_tuple n2;
   t_tuple n3;
   const t_tuple expected_vector = {0, 1, 0, VECTOR};
+  const t_plane plane = create_plane();
 
-  plane_normal_at(&plane, (t_tuple){0, 0, 0, POINT},n1);
+  plane_normal_at((t_shape *)&plane, (t_tuple){0, 0, 0, POINT},n1);
   cr_expect_tuples_eq(n1, expected_vector);
-  plane_normal_at(&plane, (t_tuple){0, 0, 0, POINT},n2);
+  plane_normal_at((t_shape *)&plane, (t_tuple){10, 0, -10, POINT},n2);
   cr_expect_tuples_eq(n2, expected_vector);
-  plane_normal_at(&plane, (t_tuple){0, 0, 0, POINT},n3);
+  plane_normal_at((t_shape *)&plane, (t_tuple){-5, 0, 150, POINT},n3);
   cr_expect_tuples_eq(n3, expected_vector);
 }
 
@@ -30,10 +29,11 @@ Test(implementing_plane, the_normal_of_a_plane, .description = scenario1) {
 "Scenario : Intersect with a ray parallel to the plane\n"        \
 "Given plane ← plane()\n"        								     \
 "And r ← ray(point(0, 10, 0), vector(0, 0, 1))\n"                \
-"When xs ← local_intersect(plane, r)\n"                              \
+"When xs ← create_intersection(plane, r)\n"                              \
 "Then xs is empty\n"RESET
 
 Test(implementing_plane, parallel_ray_intersects_plane, .description = scenario2) {
+	const t_plane plane = create_plane();
 	const t_ray ray = {
 		.origin = {0, 0, 0, POINT},
 		.direction = {0, 0, 0, VECTOR},
@@ -48,10 +48,11 @@ Test(implementing_plane, parallel_ray_intersects_plane, .description = scenario2
 #define scenario3 CYAN \
 "Given p ← plane()\n"           \
 "And r ← ray(point(0, 0, 0), vector(0, 0, 1))\n"           \
-"When xs ← local_intersect(p, r)\n"           \
+"When xs ← create_intersection(p, r)\n"           \
 "Then xs is empty\n"RESET
 
 Test(implementing_plane, coplanar_ray_intersects_plane, .description = scenario3) {
+	const t_plane plane = create_plane();
 	const t_ray ray = {
 		.origin = {0, 0, 0, POINT},
 		.direction = {0, 0, 0, VECTOR},
@@ -71,6 +72,7 @@ Test(implementing_plane, coplanar_ray_intersects_plane, .description = scenario3
 "And xs[0].object = plane \n" RESET
 
 Test(implementing_plane, ray_from_above_intersects_plane, .description = scenario4) {
+	const t_plane plane = create_plane();
 	const t_ray ray = {
 		.origin = {0, 1, 0, POINT},
 		.direction = {0, -1, 0, VECTOR},
@@ -84,12 +86,13 @@ Test(implementing_plane, ray_from_above_intersects_plane, .description = scenari
 #define scenario5 CYAN \
 "Given p ← plane()\n"       						   	     \
 "And r ← ray(point(0, -1, 0), vector(0, 1, 0))\n"            \
-"When xs ← local_intersect(p, r)\n"                          \
+"When xs ← create_intersection(p, r)\n"                          \
 "Then xs.count = 1\n"                                        \
 "And xs[0].t = 1\n"                                          \
 "And xs[0].object = p\n"   RESET
 
 Test(implementing_plane, ray_from_below_intersects_plane, .description = scenario5) {
+	const t_plane plane = create_plane();
 	const t_ray ray = {
 		.origin = {0, -1, 0, POINT},
 		.direction = {0, 1, 0, VECTOR},

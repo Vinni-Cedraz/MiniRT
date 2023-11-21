@@ -345,5 +345,6 @@ t_canvas				render(t_camera camera, t_world world);
 t_intersection			intersect_sphere(void **obj, t_tuple dist, t_ray r);
 t_intersection			intersect_plane(void **obj, t_tuple dist, t_ray r);
 t_intersection			intersect_cylinder(void **obj, t_tuple dist, t_ray r);
+t_plane					create_plane(void);
 
 #endif

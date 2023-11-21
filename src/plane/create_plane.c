@@ -11,3 +11,11 @@
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+t_plane	create_plane(void)
+{
+	t_plane	plane;
+
+	ft_bzero((void *)&plane, sizeof(plane));
+	return (plane);
+}
