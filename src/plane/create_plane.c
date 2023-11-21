@@ -14,8 +14,16 @@
 
 t_plane	create_plane(void)
 {
-	t_plane	plane;
+	static t_short	call_counter;
+	const t_plane	plane = {
+		.origin = {0, 0, 0, POINT},
+		.id = call_counter++,
+		.type = PLANE,
+		._t = create_identity_matrix(),
+		.inverse_t = create_identity_matrix(),
+		.transposed_inverse_t = create_identity_matrix(),
+		.material = create_material(),
+	};
 
-	ft_bzero((void *)&plane, sizeof(plane));
 	return (plane);
 }

@@ -34,6 +34,7 @@ t_intersection	intersect_sphere(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 	});
 	if (floats_eq(0, dis))
 		i.count = 1;
+	printf("ALOU MAMAE\n");
 	return (i);
 }
 
