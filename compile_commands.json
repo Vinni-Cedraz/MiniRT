@@ -891,5 +891,24 @@
    "build/color_at.o"
   ],
   "file": "./src/create_intersection/color_at.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/plane/create_plane.c",
+   "-o",
+   "build/create_plane.o"
+  ],
+  "file": "./src/plane/create_plane.c"
  }
 ]
