@@ -19,10 +19,7 @@ t_intersection	intersect_plane(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 	(void)obj_dist_to_ray;
 	ft_bzero((void *)&xs, sizeof(t_intersection));
 	if (fabsf(r.direction[Y]) < EPSILON)
-	{
-		printf("alou titio\n");
 		return (xs);
-	}
 	xs.head = intersection((-r.origin[Y] / r.direction[Y]), obj);
 	xs.count = 1;
 	return (xs);
