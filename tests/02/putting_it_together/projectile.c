@@ -28,5 +28,5 @@ Test(suite_name, projectile_goes_up_and_down) {
         p = tick(e, p);
     }
     t_constr ppm_string = canvas_to_ppm(&c);
-    create_ppm_file(ppm_string);
+    create_ppm_file(ppm_string, "projectile.ppm");
 }

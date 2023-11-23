@@ -82,6 +82,6 @@ Test(putting_it_together, three_spheres)
     t_canvas c = render(camera, world);
 
     char *str = canvas_to_ppm(&c);
-    create_ppm_file(str);
+    create_ppm_file(str, "three_spheres_in_a_rooms_corner.ppm");
     destroy_canvas(&c);
 }
