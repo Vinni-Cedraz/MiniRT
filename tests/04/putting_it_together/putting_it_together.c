@@ -73,5 +73,5 @@ Test(putting_it_together, drawing_whole_clock, .description = scenario3) {
 		write_pixel(&canvas, next_hour[Y], next_hour[X], WHITE);
 	}
 	t_constr str = canvas_to_ppm(&canvas);
-    create_ppm_file(str);
+    create_ppm_file(str, "clock.ppm");
 }

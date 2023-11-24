@@ -86,7 +86,7 @@ Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scen
     write_pixel(&c, 2, 4, (t_tuple){0, -0.5, 1, COLOR});
     t_constr res = canvas_to_ppm(&c);
     cr_expect_str_eq(res, expected);
-	create_ppm_file(res);
+	create_ppm_file(res, "writing_the_whole_canvas_on_the_ppm_string.ppm");
     destroy_canvas(&c);
 }
 
@@ -119,8 +119,8 @@ Test(suite_name, lines_longer_than_70_must_break, .description = scenario5) {
     c = create_canvas(2, 10);
 	set_all_pixels_to_one_color(&c, (t_tuple){1, 0.8, 0.6});
 	t_constr ppm_string = canvas_to_ppm(&c);
-	create_ppm_file(ppm_string);
-	int fd = open("output_scenario5.ppm", O_RDONLY);
+	create_ppm_file(ppm_string, "lines_longer_than_70_must_break.ppm");
+	int fd = open("lines_longer_than_70_must_break.ppm", O_RDONLY);
 	for (int i = 0; i < LINES; i++)
 	{
 		line = ft_gnl(fd);
