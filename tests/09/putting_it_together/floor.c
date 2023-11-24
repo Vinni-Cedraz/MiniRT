@@ -6,5 +6,4 @@ void init_floor(t_shape *floor) {
 			(t_tuple){1, 0.9, 0.9, COLOR},
 			&floor->material
 	);
-    set_transform(floor, create_x_rotation_matrix(2500));
 }
