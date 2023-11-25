@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "minirt.h"
+#include <assert.h>
 
 static float	discriminant(t_ray ray, t_baskara *bask);
 
@@ -26,7 +27,6 @@ t_intersection	intersect_cylinder(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 	bask.a = (pow(r.direction[X], 2) + pow(r.direction[Z], 2));
 	if (floats_eq(0, bask.a))
 		return (xs);
-	printf("É FORA: %f\n", bask.a);
 	dis = discriminant(r, &bask);
 	if (dis < 0)
 		return (xs);
@@ -42,9 +42,11 @@ t_intersection	intersect_cylinder(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 
 static float	discriminant(t_ray ray, t_baskara *bask)
 {
-	printf("É DENTRO: %f\n", bask->a);
-	bask->b = 2 * ray.origin[X] * ray.direction[X] + 2 * ray.origin[Z]
-		* ray.direction[Z];
-	bask->c = (pow(ray.origin[X], 2) + pow(ray.origin[Z], 2)) - 1;
-	return (pow(bask->b, 2) - 4 * bask->a * bask->c);
+	float	dis;
+
+	bask->b = 2 * ray.origin[X] * ray.direction[X] + 2 * ray.origin[Z] \
+	* ray.direction[Z];
+	bask->c = pow(ray.origin[X], 2) + pow(ray.origin[Z], 2) - 1;
+	dis = pow(bask->b, 2) - 4 * bask->a * bask->c;
+	return (dis);
 }

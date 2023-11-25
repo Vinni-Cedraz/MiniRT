@@ -30,14 +30,13 @@ void	plane_normal_at( \
 		const t_shape *plane, const t_tuple wrld_p, t_tuple normal)
 {
 	(void)wrld_p;
-	(void)plane->inverse_t;
+	(void)plane;
 	init_tuple((t_tuple){0, 1, 0, VECTOR}, normal);
 }
 
 void	cylinder_normal_at( \
 		const t_shape *cylinder, const t_tuple wrld_p, t_tuple normal)
 {
-	(void)wrld_p;
-	(void)cylinder->inverse_t;
-	(void)normal;
+	(void)cylinder;
+	init_tuple((t_tuple){wrld_p[X], 0, wrld_p[Z], VECTOR}, normal);
 }
