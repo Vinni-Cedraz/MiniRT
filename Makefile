@@ -27,12 +27,13 @@ SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c \
 	  set_transform.c surface_normals.c reflect.c create_material.c calculate_lighting.c \
 	  create_world.c set_material.c intersect_world_with_ray.c prepare_computations.c shade_hit.c \
 	  color_at.c view_transformation.c create_camera.c ray_for_pixel.c render.c intersect_sphere.c \
-	  intersect_plane.c intersect_cylinder.c create_plane.c
+	  intersect_plane.c intersect_cylinder.c create_plane.c argument.c
 
 VPATH = ./src ./src/canvas/ ./src/tuples/ ./src/ppm/ ./src/matrices \
 		./src/matrix_transformations ./src/rays ./src/sphere \
 		./src/transform_ray ./src/light_and_shading/ ./src/making_scene/ \
-		./src/camera/ ./src/cylinder/ ./src/plane/ ./src/create_intersection/
+		./src/camera/ ./src/cylinder/ ./src/plane/ ./src/create_intersection/ \
+		./src/parse/
 
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/

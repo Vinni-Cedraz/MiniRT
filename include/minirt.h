@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/19 17:29:08 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:01:07 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -340,6 +340,7 @@ t_matrix				view_transform(t_tuple from, t_tuple forward,
 							t_tuple up);
 t_camera				create_camera(int hsize, int vsize,
 							float field_of_view);
+int						validate_argument(char *argv);
 t_ray					ray_for_pixel(t_camera c, int x, int y);
 t_canvas				render(t_camera camera, t_world world);
 t_intersection			intersect_sphere(void **obj, t_tuple dist, t_ray r);
