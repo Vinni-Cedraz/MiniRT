@@ -12,13 +12,15 @@
 
 #include "minirt.h"
 
-t_intersection	intersect_sphere(void **obj, t_tuple obj_dist_to_ray, t_ray r)
+static float	discriminant(t_tuple obj_dist_ray, t_ray ray, t_baskara *b);
+
+t_intersection	intersect_sphere(void **obj, t_tuple obj_dist_ray, t_ray r)
 {
 	float			dis;
 	t_baskara		bask;
 	t_intersection	i;
 
-	dis = discriminant(obj_dist_to_ray, r, &bask);
+	dis = discriminant(obj_dist_ray, r, &bask);
 	if (dis < 0)
 	{
 		i.count = 0;
@@ -37,10 +39,10 @@ t_intersection	intersect_sphere(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 	return (i);
 }
 
-float	discriminant(t_tuple obj_dist_to_ray, t_ray ray, t_baskara *bask)
+static float	discriminant(t_tuple obj_dist_ray, t_ray ray, t_baskara *bask)
 {
 	bask->a = dot(ray.direction, ray.direction);
-	bask->b = 2 * dot(ray.direction, obj_dist_to_ray);
-	bask->c = dot(obj_dist_to_ray, obj_dist_to_ray) - 1;
+	bask->b = 2 * dot(ray.direction, obj_dist_ray);
+	bask->c = dot(obj_dist_ray, obj_dist_ray) - 1;
 	return (pow(bask->b, 2) - 4 * bask->a * bask->c);
 }

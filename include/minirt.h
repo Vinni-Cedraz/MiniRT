@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/19 17:29:08 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/24 19:32:04 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,8 @@ typedef struct s_hearer
 
 typedef struct s_ray
 {
-	t_tuple				direction;
 	t_tuple				origin;
+	t_tuple				direction;
 }						t_ray;
 
 typedef struct s_point_light
@@ -307,8 +307,6 @@ t_ray					create_ray(t_tuple origin, t_tuple direction);
 t_sphere				create_sphere(void);
 t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
 t_intersection			create_intersection(void *obj, t_ray r);
-float					discriminant(t_tuple sphere_to_ray, t_ray ray,
-							t_baskara *bask);
 t_intersection			link_intersection_nodes(t_node *arr[]);
 t_node					*get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
@@ -346,5 +344,6 @@ t_intersection			intersect_sphere(void **obj, t_tuple dist, t_ray r);
 t_intersection			intersect_plane(void **obj, t_tuple dist, t_ray r);
 t_intersection			intersect_cylinder(void **obj, t_tuple dist, t_ray r);
 t_plane					create_plane(void);
+t_cylinder				create_cylinder(void);
 
 #endif

@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersect_cylinder.c                               :+:      :+:    :+:   */
+/*   create_cylinder.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 04:33:58 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/19 04:34:05 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/11/24 19:31:11 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/11/24 19:31:45 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_intersection	intersect_cylinder(void **obj, t_tuple obj_dist_to_ray, t_ray r)
+t_cylinder	create_cylinder(void)
 {
-	t_intersection	xs;
-	float			a;
+	static t_short		call_counter;
+	const t_cylinder	cylinder = {
+		.origin = {0, 0, 0, POINT},
+		.id = call_counter++,
+		.type = CYLINDER,
+		._t = create_identity_matrix(),
+		.inverse_t = create_identity_matrix(),
+		.transposed_inverse_t = create_identity_matrix(),
+		.material = create_material(),
+	};
 
-	(void)obj, (void)obj_dist_to_ray;
-	ft_bzero((void *)&xs, sizeof(t_intersection));
-	a = (pow(r.direction[X], 2) + pow(r.direction[Z], 2));
-	if (floats_eq(0, a))
-		return (xs);
-	else
-		xs.count = 42;
-	return (xs);
+	return (cylinder);
 }
