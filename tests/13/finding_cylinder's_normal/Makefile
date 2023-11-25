@@ -1,5 +1,5 @@
 TESTS =		\
-  finding_cylinder's_normal \
+  finding_cylinder\'s_normal \
 
 ## VARIABLES
 INCS = -I../../ -I../../../include/ -I../../../libs/
