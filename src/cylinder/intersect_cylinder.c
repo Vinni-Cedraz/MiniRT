@@ -12,17 +12,37 @@
 
 #include "minirt.h"
 
+static float	discriminant(t_ray ray, t_baskara *bask);
+
 t_intersection	intersect_cylinder(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 {
 	t_intersection	xs;
-	float			a;
+	float			dis;
+	t_baskara		bask;
 
-	(void)obj, (void)obj_dist_to_ray;
+	xs.count = 42;
+	(void)obj_dist_to_ray;
 	ft_bzero((void *)&xs, sizeof(t_intersection));
-	a = (pow(r.direction[X], 2) + pow(r.direction[Z], 2));
-	if (floats_eq(0, a))
+	bask.a = (pow(r.direction[X], 2) + pow(r.direction[Z], 2));
+	if (floats_eq(0, bask.a))
 		return (xs);
-	else
-		xs.count = 42;
+	dis = discriminant(r, &bask);
+	if (dis < 0)
+		return (xs);
+	xs = link_intersection_nodes((t_node *[]){
+			intersection(\
+				((bask.b * -1 - sqrt(dis)) / (2 * bask.a)), obj),
+			intersection(\
+				((bask.b * -1 + sqrt(dis)) / (2 * bask.a)), obj),
+			NULL \
+	});
 	return (xs);
+}
+
+static float	discriminant(t_ray ray, t_baskara *bask)
+{
+	bask->b = 2 * ray.origin[X] * ray.direction[X] + 2 * ray.origin[Z]
+		* ray.direction[Z];
+	bask->c = pow(ray.origin[X], 2) + pow(ray.origin[Z], 2) - 1;
+	return (pow(bask->b, 2) - 4 * bask->a * bask->c);
 }
