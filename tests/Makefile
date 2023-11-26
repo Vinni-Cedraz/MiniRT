@@ -6,6 +6,7 @@ TESTDIRS = 01 \
 	       06 \
 		   07 \
 		   09 \
+		   13
 		   
 all:
 	@$(foreach file,$(TESTDIRS),$(MAKE) --no-print-directory -C $(file);)

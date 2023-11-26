@@ -193,6 +193,8 @@ typedef struct s_cylinder
 	t_matrix			inverse_t;
 	t_matrix			transposed_inverse_t;
 	t_material			material;
+	float				min;
+	float				max;
 }						t_cylinder;
 
 typedef struct s_world
@@ -345,5 +347,7 @@ t_intersection			intersect_plane(void **obj, t_tuple dist, t_ray r);
 t_intersection			intersect_cylinder(void **obj, t_tuple dist, t_ray r);
 t_plane					create_plane(void);
 t_cylinder				create_cylinder(void);
+float					discriminant(t_tuple obj_dist_ray, t_ray ray,
+							t_baskara *bask);
 
 #endif

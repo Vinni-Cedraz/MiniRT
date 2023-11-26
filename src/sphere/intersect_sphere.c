@@ -12,8 +12,6 @@
 
 #include "minirt.h"
 
-static float	discriminant(t_tuple obj_dist_ray, t_ray ray, t_baskara *b);
-
 t_intersection	intersect_sphere(void **obj, t_tuple obj_dist_ray, t_ray r)
 {
 	float			dis;
@@ -39,7 +37,7 @@ t_intersection	intersect_sphere(void **obj, t_tuple obj_dist_ray, t_ray r)
 	return (i);
 }
 
-static float	discriminant(t_tuple obj_dist_ray, t_ray ray, t_baskara *bask)
+float	discriminant(t_tuple obj_dist_ray, t_ray ray, t_baskara *bask)
 {
 	bask->a = dot(ray.direction, ray.direction);
 	bask->b = 2 * dot(ray.direction, obj_dist_ray);

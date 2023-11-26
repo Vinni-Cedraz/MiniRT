@@ -23,6 +23,8 @@ t_cylinder	create_cylinder(void)
 		.inverse_t = create_identity_matrix(),
 		.transposed_inverse_t = create_identity_matrix(),
 		.material = create_material(),
+		.min = -INFINITY,
+		.max = INFINITY,
 	};
 
 	return (cylinder);

@@ -1,5 +1,6 @@
 TESTS =		\
-  truncating_cylinders \
+	min_max_bounds \
+	truncating_cylinders \
 
 ## VARIABLES
 INCS = -I../../ -I../../../include/ -I../../../libs/

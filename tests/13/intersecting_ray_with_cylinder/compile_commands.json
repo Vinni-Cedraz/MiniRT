@@ -19,5 +19,26 @@
    "intersecting_ray_with_cylinder"
   ],
   "file": "intersecting_ray_with_cylinder.c"
+ },
+ {
+  "directory": "/root/MiniRT/tests/13/intersecting_ray_with_cylinder",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "two_balls_and_a_cylinder.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "two_balls_and_a_cylinder"
+  ],
+  "file": "two_balls_and_a_cylinder.c"
  }
 ]

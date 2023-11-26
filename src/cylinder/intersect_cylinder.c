@@ -13,7 +13,7 @@
 #include "minirt.h"
 #include <assert.h>
 
-static float	discriminant(t_ray ray, t_baskara *bask);
+static float	cyl_discriminant(t_ray ray, t_baskara *bask);
 
 t_intersection	intersect_cylinder(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 {
@@ -26,7 +26,7 @@ t_intersection	intersect_cylinder(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 	bask.a = (pow(r.direction[X], 2) + pow(r.direction[Z], 2));
 	if (floats_eq(0, bask.a))
 		return (xs);
-	dis = discriminant(r, &bask);
+	dis = cyl_discriminant(r, &bask);
 	if (dis < 0)
 		return (xs);
 	xs = link_intersection_nodes((t_node *[]){
@@ -39,7 +39,7 @@ t_intersection	intersect_cylinder(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 	return (xs);
 }
 
-static float	discriminant(t_ray ray, t_baskara *bask)
+static float	cyl_discriminant(t_ray ray, t_baskara *bask)
 {
 	float	dis;
 
