@@ -21,7 +21,6 @@ t_intersection	intersect_cylinder(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 	float			dis;
 	t_baskara		bask;
 
-	xs.count = 42;
 	(void)obj_dist_to_ray;
 	ft_bzero((void *)&xs, sizeof(t_intersection));
 	bask.a = (pow(r.direction[X], 2) + pow(r.direction[Z], 2));
