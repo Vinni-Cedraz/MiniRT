@@ -49,6 +49,6 @@ t_node	*intersection(float point, void **obj)
 	t_node	*lst;
 
 	lst = ft_lstnew(point);
-	lst->object = (void *)*obj;
+	lst->object = *obj;
 	return (lst);
 }

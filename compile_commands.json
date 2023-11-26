@@ -929,5 +929,24 @@
    "build/create_plane.o"
   ],
   "file": "./src/plane/create_plane.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/cylinder/cylinder_setters.c",
+   "-o",
+   "build/cylinder_setters.o"
+  ],
+  "file": "./src/cylinder/cylinder_setters.c"
  }
 ]

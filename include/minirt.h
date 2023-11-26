@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/24 19:32:04 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/26 15:07:40 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,6 +209,8 @@ typedef struct s_baskara
 	float				a;
 	float				b;
 	float				c;
+	float				t0;
+	float				t1;
 }						t_baskara;
 
 typedef struct s_comp
@@ -349,5 +351,6 @@ t_plane					create_plane(void);
 t_cylinder				create_cylinder(void);
 float					discriminant(t_tuple obj_dist_ray, t_ray ray,
 							t_baskara *bask);
+void					set_cyl_min_max(t_cylinder *cyl, float min, float max);
 
 #endif
