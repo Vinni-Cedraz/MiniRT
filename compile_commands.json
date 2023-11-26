@@ -910,5 +910,24 @@
    "build/create_plane.o"
   ],
   "file": "./src/plane/create_plane.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/cylinder/create_cylinder.c",
+   "-o",
+   "build/create_cylinder.o"
+  ],
+  "file": "./src/cylinder/create_cylinder.c"
  }
 ]
