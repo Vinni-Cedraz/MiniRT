@@ -27,7 +27,7 @@ Test(putting_it_together, drawing_a_circle) {
     ray_casting(half, pixel_size, r, xs);
 
     t_constr *str = canvas_to_ppm(&c);
-    create_ppm_file(str);
+    create_ppm_file(str, "drawing_a_circle.ppm");
     destroy_canvas(&c);
 }
 

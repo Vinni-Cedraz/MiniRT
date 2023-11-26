@@ -26,6 +26,6 @@ Test(suite_name, projectile_goes_up_and_down) {
 		write_pixel(&canvas, p.position[Y], p.position[X], (t_tuple){1,0,0});
         p = tick(e, p);
     } while ((p.position[Y] >= 0)); 
-	// t_constr str = canvas_to_ppm(&canvas);
-	// create_ppm_file(str, "projectile.ppm");
+	t_constr str = canvas_to_ppm(&canvas);
+	create_ppm_file(str, "projectile.ppm");
 }
