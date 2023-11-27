@@ -42,7 +42,7 @@ static inline void	lst_add_intrscs( \
 		t_intersection *lst, t_intersection *intrsct, void **obj_ptr)
 {
 	ft_lstadd_back(&lst->head, intersection(intrsct->head->t, obj_ptr));
-	if (intrsct->head->object->type != PLANE)
+	if (intrsct->count == 2)
 	{
 		ft_lstadd_back(
 			&lst->head,

@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/06/phong_reflection",
+  "directory": "/home/myuser/MiniRT/tests/06/phong_reflection",
   "arguments": [
    "cc",
    "-O3",
