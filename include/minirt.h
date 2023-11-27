@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/25 18:01:07 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/26 15:00:40 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -347,5 +347,7 @@ t_intersection			intersect_sphere(void **obj, t_tuple dist, t_ray r);
 t_intersection			intersect_plane(void **obj, t_tuple dist, t_ray r);
 t_intersection			intersect_cylinder(void **obj, t_tuple dist, t_ray r);
 t_plane					create_plane(void);
-
+char 					**get_error();
+void					init_render(char *str);
+void					set_error(char *str);;
 #endif

@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   argument.c                                         :+:      :+:    :+:   */
+/*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 17:54:30 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/26 11:23:17 by johmatos         ###   ########.fr       */
+/*   Created: 2023/11/26 14:54:14 by johmatos          #+#    #+#             */
+/*   Updated: 2023/11/26 15:03:12 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	validate_argument(char *argv)
+int	parsing_file(char *str)
 {
-	while (*argv != '.')
-		argv++;
-	argv++;
-	if (*argv != 'r')
-		return (FALSE);
-	argv++;
-	if (*argv != 't')
-		return (FALSE);
-	argv++;
-	if (*argv != '\0')
-		return (FALSE);
-	return (TRUE);
 }

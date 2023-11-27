@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 15:16:58 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/25 18:03:19 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/26 15:07:02 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int	main(int argc, char * argv[])
 		return (printf(STR1));
 	if (validate_argument(argv[1]) != TRUE)
 		return(printf("Incorrect file format\n"));
-	(void)argv;
+	init_render(argv[1]);
 }
