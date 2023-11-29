@@ -14,8 +14,8 @@
 # define MINIRT_H
 
 # include "../MLX42/include/MLX42/MLX42.h"
-# include "libft.h"
-# include "libft_bonus.h"
+# include "../libs/libft.h"
+# include "../libs/libft_bonus.h"
 # include <math.h>
 # include <stdio.h>
 
