@@ -37,9 +37,12 @@ void	calculate_lighting(t_lighting *obj, t_tuple result)
 		if (reflectv_dot_eye <= 0)
 			set_colors_to_black(c.specular, NULL);
 		else
+		{
 			multiply_tuple_by_scalar(obj->light.intensity, \
 			obj->material.specular * pow(reflectv_dot_eye, \
 			obj->material.shininess), c.specular);
+			normalize(c.specular, c.specular);
+		}
 	}
 	add_three_tuples(c.ambient, c.diffuse, c.specular, result);
 }

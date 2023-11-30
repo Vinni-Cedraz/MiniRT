@@ -12,12 +12,20 @@
 
 #include "minirt.h"
 
-int	normalized_color_to_int(t_tuple color)
+#define multi 255
+//TODO: fix the value 255 break the especular 
+uint32_t	normalized_color_to_int(t_tuple color)
 {
-	return ((int)(color[X]) << 24 |
-			(int)(color[Y]) << 16 |
-			(int)(color[Z]) << 8 |
-			0xFF);
+	if (color[X] > 1)
+		color[X] = 1;
+	if (color[Y] > 1)
+		color[Y] = 1;
+	if (color[Z] > 1)
+		color[Z] = 1;
+	return (((uint32_t)(color[X] * multi) << 24) |
+        ((uint32_t)(color[Y] * multi) << 16) |
+        ((uint32_t)(color[Z] * multi) << 8) |
+        0xff);
 }
 
 void	load_objs_into_world(mlx_image_t *image, t_camera camera, t_world *world)

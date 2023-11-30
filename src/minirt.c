@@ -17,7 +17,7 @@ int	main(void)
 {
 	mlx_t *mlx;
 
-	if (!(mlx = mlx_init(1280, 720, "MLX42", true)))
+	if (!(mlx = mlx_init(1920, 1080, "MLX42", true)))
 	{
 		puts(mlx_strerror(mlx_errno));
 		return(EXIT_FAILURE);

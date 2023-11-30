@@ -14,8 +14,8 @@
 # define MINIRT_H
 
 # include "../MLX42/include/MLX42/MLX42.h"
-# include "libft.h"
-# include "libft_bonus.h"
+# include "../libs/libft.h"
+# include "../libs/libft_bonus.h"
 # include <math.h>
 # include <stdio.h>
 
@@ -49,6 +49,9 @@
 # define ROW2 1
 # define ROW3 2
 # define ROW4 3
+
+#define sizeh 720 
+#define sizew 1280
 
 typedef float			t_tuple[4];
 typedef float			t_3x3_row[3];
