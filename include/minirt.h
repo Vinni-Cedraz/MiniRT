@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/26 15:07:40 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/30 09:42:35 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define MINIRT_H
 
 # include "../MLX42/include/MLX42/MLX42.h"
-# include "libft.h"
-# include "libft_bonus.h"
+# include "../libs/libft.h"
+# include "../libs/libft_bonus.h"
 # include <math.h>
 # include <stdio.h>
 
@@ -49,6 +49,9 @@
 # define ROW2 1
 # define ROW3 2
 # define ROW4 3
+
+# define sizeh 1920
+# define sizew 1080
 
 typedef float			t_tuple[4];
 typedef float			t_3x3_row[3];
@@ -352,5 +355,8 @@ t_cylinder				create_cylinder(void);
 float					discriminant(t_tuple obj_dist_ray, t_ray ray,
 							t_baskara *bask);
 void					set_cyl_min_max(t_cylinder *cyl, float min, float max);
-
+void					load_objs_into_world(mlx_image_t *image,
+							t_camera camera, t_world *world);
+mlx_image_t				**get_image_to_render(mlx_t *mlx);
+void					render_a_default_world(mlx_t *mlx);
 #endif

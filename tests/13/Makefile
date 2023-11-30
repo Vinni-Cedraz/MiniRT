@@ -1,7 +1,7 @@
 TESTDIRS = 		\
   intersecting_ray_with_cylinder \
   # finding_cylinder's_normal \
-  # truncating_cylinders \
+# truncating_cylinders \
   # cones \
   # putting_it_together \
 

@@ -6,16 +6,18 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 10:26:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/24 11:30:48 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/30 09:43:07 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void	combine_surface_and_light(t_lighting *o, t_tuple c, t_tuple l);
-static void	set_colors_to_black(t_tuple colr1, t_tuple colr2);
-static void	add_three_tuples(t_tuple a, t_tuple d, t_tuple s, t_tuple r);
-static void	set_reflect_v(t_colors *c, t_lighting *obj);
+static void			combine_surface_and_light(t_lighting *o, t_tuple c,
+						t_tuple l);
+static void			set_colors_to_black(t_tuple colr1, t_tuple colr2);
+static void			add_three_tuples(t_tuple a, t_tuple d, t_tuple s,
+						t_tuple r);
+static void			set_reflect_v(t_colors *c, t_lighting *obj);
 
 void	calculate_lighting(t_lighting *obj, t_tuple result)
 {
