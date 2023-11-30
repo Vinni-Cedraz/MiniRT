@@ -58,4 +58,4 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-compile_commands.json
+*compile_commands.json
