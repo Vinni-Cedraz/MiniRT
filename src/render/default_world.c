@@ -82,7 +82,7 @@ void render_a_default_world(mlx_t *mlx)
       {1, 1, 1, COLOR},
     };
 
-    t_camera camera = create_camera(1920, 1080, M_PI / 3);
+    t_camera camera = create_camera(sizeh, sizew, M_PI / 3);
     t_tuple from = (t_tuple){0, 3.5, 3, POINT};
     t_tuple to = (t_tuple){0, 0, 1, POINT};
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};

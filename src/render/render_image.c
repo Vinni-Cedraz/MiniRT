@@ -56,7 +56,7 @@ mlx_image_t	**get_image_to_render(mlx_t *mlx)
 	static mlx_image_t *image = NULL; 
 
 	if (image == NULL)
-		image = mlx_new_image(mlx, 1920, 1080);
+		image = mlx_new_image(mlx, sizeh, sizew);
 
 	return (&image);
 }
