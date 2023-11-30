@@ -1,7 +1,7 @@
 #ifndef TEST_H
 #define TEST_H
 
-// #include <criterion/criterion.h>
+#include <criterion/criterion.h>
 #include "minirt.h"
 #include <stdio.h>
 #define CYAN "\033[36m"
