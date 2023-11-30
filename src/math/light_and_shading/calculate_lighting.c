@@ -32,19 +32,16 @@ void	calculate_lighting(t_lighting *obj, t_tuple result)
 		set_colors_to_black((&c)->diffuse, (&c)->specular);
 	else
 	{
-		multiply_tuple_by_scalar(c.true_colr, light_dot_normal
-			* obj->material.diffuse, c.diffuse);
+		multiply_tuple_by_scalar(c.true_colr, \
+		light_dot_normal * obj->material.diffuse, c.diffuse);
 		set_reflect_v(&c, obj);
 		reflectv_dot_eye = dot(c.reflectv, obj->eye_vec);
 		if (reflectv_dot_eye <= 0)
 			set_colors_to_black(c.specular, NULL);
 		else
-		{
-			multiply_tuple_by_scalar(obj->light.intensity,
-				obj->material.specular * pow(reflectv_dot_eye,
-					obj->material.shininess), c.specular);
-			normalize(c.specular, c.specular);
-		}
+			multiply_tuple_by_scalar(obj->light.intensity, \
+			obj->material.specular * pow(reflectv_dot_eye, \
+			obj->material.shininess), c.specular);
 	}
 	add_three_tuples(c.ambient, c.diffuse, c.specular, result);
 }

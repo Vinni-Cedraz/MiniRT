@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "minirt.h"
 
 int	main(void)
 {
-	mlx_t *mlx;
+	mlx_t	*mlx;
 
-	if (!(mlx = mlx_init(sizeh, sizeh, "MLX42", true)))
+	mlx = mlx_init(sizeh, sizew, "MLX42", true);
+	if (!mlx)
 	{
 		puts(mlx_strerror(mlx_errno));
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 	render_a_default_world(mlx);
 	mlx_image_to_window(mlx, *get_image_to_render(mlx), 0, 0);
