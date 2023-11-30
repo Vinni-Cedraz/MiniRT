@@ -6,12 +6,12 @@ Test(render_cylinder, two_balls_and_a_cylinder) {
 	t_sphere	left_ball = create_sphere();
 
 	set_transform((t_shape *)&right_ball, mult_matrices(
-				create_translation_matrix((t_tuple){2.25, -2.5, 0}),
+				create_translation_matrix((t_tuple){3, -2.5, 0}),
 				create_scaling_matrix(1.5, 1.5, 1.5))
 	);
 
 	set_transform((t_shape *)&left_ball, mult_matrices(
-				create_translation_matrix((t_tuple){-2.25, -2.5, 0}),
+				create_translation_matrix((t_tuple){-3, -2.5, 0}),
 				create_scaling_matrix(1.5, 1.5, 1.5))
 	);
 
@@ -28,8 +28,8 @@ Test(render_cylinder, two_balls_and_a_cylinder) {
     };
 
     t_camera camera = create_camera(480, 280, M_PI / 3);
-    t_tuple from = (t_tuple){0, 1, 15, POINT};
-    t_tuple to = (t_tuple){0, 1, 0, POINT};
+    t_tuple from = (t_tuple){0, 3, 15, POINT};
+    t_tuple to = (t_tuple){0, 0, 0, POINT};
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
     t_tuple forward;
 

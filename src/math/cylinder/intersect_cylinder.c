@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "minirt.h"
-#include <assert.h>
 
 static float			cyl_discriminant(t_ray ray, t_baskara *bask);
 static float			_y0(t_ray *r, t_baskara *b);
@@ -34,8 +33,6 @@ t_intersection	intersect_cylinder(void **obj, t_tuple obj_dist_to_ray, t_ray r)
 	dis = cyl_discriminant(r, &bask);
 	if (dis < 0)
 		return (xs);
-	if (bask.t0 > bask.t1)
-		ft_swap(&bask.t0, &bask.t1, sizeof(float));
 	xs = create_cylinder_intersections(obj, &bask, &r, cyl);
 	return (xs);
 }
@@ -44,12 +41,14 @@ static t_intersection	create_cylinder_intersections(void **o, t_baskara \
 	*bask, t_ray *r, const t_cylinder *cyl)
 {
 	t_node	*arr[3];
+	int		counter;
 
+	counter = 0;
 	ft_bzero((void *)arr, sizeof(t_node *) * 3);
 	if (_y0(r, bask) > cyl->min && _y0(r, bask) < cyl->max)
-		arr[0] = intersection(bask->t0, o);
+		arr[counter++] = intersection(bask->t0, o);
 	if (_y1(r, bask) > cyl->min && _y1(r, bask) < cyl->max)
-		arr[1] = intersection(bask->t1, o);
+		arr[counter++] = intersection(bask->t1, o);
 	return (link_intersection_nodes(arr));
 }
 
