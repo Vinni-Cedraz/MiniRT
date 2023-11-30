@@ -6,16 +6,18 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 10:26:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/24 11:30:48 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/11/30 09:43:07 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void	combine_surface_and_light(t_lighting *o, t_tuple c, t_tuple l);
-static void	set_colors_to_black(t_tuple colr1, t_tuple colr2);
-static void	add_three_tuples(t_tuple a, t_tuple d, t_tuple s, t_tuple r);
-static void	set_reflect_v(t_colors *c, t_lighting *obj);
+static void			combine_surface_and_light(t_lighting *o, t_tuple c,
+						t_tuple l);
+static void			set_colors_to_black(t_tuple colr1, t_tuple colr2);
+static void			add_three_tuples(t_tuple a, t_tuple d, t_tuple s,
+						t_tuple r);
+static void			set_reflect_v(t_colors *c, t_lighting *obj);
 
 void	calculate_lighting(t_lighting *obj, t_tuple result)
 {
@@ -30,17 +32,17 @@ void	calculate_lighting(t_lighting *obj, t_tuple result)
 		set_colors_to_black((&c)->diffuse, (&c)->specular);
 	else
 	{
-		multiply_tuple_by_scalar(c.true_colr, \
-		light_dot_normal * obj->material.diffuse, c.diffuse);
+		multiply_tuple_by_scalar(c.true_colr, light_dot_normal
+			* obj->material.diffuse, c.diffuse);
 		set_reflect_v(&c, obj);
 		reflectv_dot_eye = dot(c.reflectv, obj->eye_vec);
 		if (reflectv_dot_eye <= 0)
 			set_colors_to_black(c.specular, NULL);
 		else
 		{
-			multiply_tuple_by_scalar(obj->light.intensity, \
-			obj->material.specular * pow(reflectv_dot_eye, \
-			obj->material.shininess), c.specular);
+			multiply_tuple_by_scalar(obj->light.intensity,
+				obj->material.specular * pow(reflectv_dot_eye,
+					obj->material.shininess), c.specular);
 			normalize(c.specular, c.specular);
 		}
 	}
