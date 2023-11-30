@@ -13,85 +13,91 @@
 #include "minirt.h"
 #include <stdio.h>
 
+t_world init_world(t_shape *floor, t_sphere *balls[], t_plane *walls[6]) {
+	t_world world;
+
+    world.objs = malloc(sizeof(t_sphere) * (walls?10:4));
+    world.count = (walls?10:4);
+    world.objs[0] = *floor;
+    world.objs[1] = *(t_shape *)balls[0];
+    world.objs[2] = *(t_shape *)balls[1];
+    world.objs[3] = *(t_shape *)balls[2];
+	if (walls) {
+		world.objs[4] = *(t_shape *)walls[0];
+		world.objs[5] = *(t_shape *)walls[1];
+		world.objs[6] = *(t_shape *)walls[2];
+		world.objs[7] = *(t_shape *)walls[3];
+		world.objs[8] = *(t_shape *)walls[4];
+		world.objs[9] = *(t_shape *)walls[5];
+	}
+	world.light = malloc(sizeof(t_point_light));
+    world.light[0] = (t_point_light){
+        {10, 100, 30, POINT},
+        {1, 1, 1, COLOR},
+    };
+	return (world);
+}
+
+void init_test2_balls(t_sphere *balls[]) {
+    set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.5, 0.8, 0.1}, &balls[0]->material);
+	set_transform((t_shape *)balls[0], mult_matrices(
+				create_translation_matrix((t_tuple){1.10, 1.2, 0.7}),
+				create_scaling_matrix(0.5, 0.5, 0.5))
+	);
+    set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.1, 1, 0.1}, &balls[1]->material);
+	set_transform((t_shape *)balls[1], mult_matrices(
+				create_translation_matrix((t_tuple){0, 1, 0.1}),
+				create_scaling_matrix(0.7, 0.7, 0.7))
+	);
+	set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){1, 0.8, 0.1}, &balls[2]->material);
+	set_transform((t_shape *)balls[2], mult_matrices(
+				create_translation_matrix((t_tuple){-0.95, 0.89, 0.55}),
+				create_scaling_matrix(0.33, 0.33, 0.33))
+	);
+}
+
+void init_floor(t_shape *floor) {
+    set_material(
+			(t_tuple){DEFAULT, DEFAULT, 0, DEFAULT},
+			(t_tuple){1, 0.9, 0.9, COLOR},
+			&floor->material
+	);
+}
+
 void	render_a_default_world(mlx_t *mlx)
 {
-	t_sphere	left_ball;
-	t_sphere	right_ball;
-	t_sphere	middle_ball;
-	t_sphere	floor;
-	t_sphere	left_wall;
-	t_sphere	right_wall;
-	t_world		world;
-	t_matrix	translation;
-	t_matrix	scaling;
-	t_matrix	y_rotation;
-	t_matrix	x_rotation;
-	t_camera	camera;
-	t_tuple		from;
-	t_tuple		to;
-	t_tuple		up;
-	t_tuple		forward;
+	t_sphere right_ball = create_sphere();
+	t_sphere middle_ball = create_sphere();
+	t_sphere left_ball = create_sphere();
 
-	left_ball = create_sphere();
-	right_ball = create_sphere();
-	middle_ball = create_sphere();
-	floor = create_sphere();
-	left_wall = create_sphere();
-	right_wall = create_sphere();
-	translation = create_translation_matrix((t_tuple){0, 0, -1, POINT});
-	scaling = create_scaling_matrix(10, 0.01, 10);
-	// FLOOR
-	floor.material = create_material();
-	init_tuple((t_tuple){1, 0.9, 0.9, COLOR}, floor.material.color);
-	floor.material.specular = 0;
-	set_transform((t_shape *)&floor, create_scaling_matrix(10, 0.01, 10));
-	// BALLS
-	set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.5, 1, 0.1},
-		&right_ball.material);
-	set_transform((t_shape *)&right_ball,
-		mult_matrices(create_translation_matrix((t_tuple){1.15, 0.7, 0.5}),
-			create_scaling_matrix(0.5, 0.5, 0.5)));
-	set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.1, 1, 0.1},
-		&middle_ball.material);
-	set_transform((t_shape *)&middle_ball,
-		mult_matrices(create_translation_matrix((t_tuple){0, 0.8, 0.1}),
-			create_scaling_matrix(0.7, 0.7, 0.7)));
-	set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){1, 0.8, 0.1},
-		&left_ball.material);
-	set_transform((t_shape *)&left_ball,
-		mult_matrices(create_translation_matrix((t_tuple){-0.95, 0.33, 0.4}),
-			create_scaling_matrix(0.33, 0.33, 0.33)));
-	// LEFT_WALL
-	y_rotation = create_y_rotation_matrix(-M_PI / 4);
-	x_rotation = create_x_rotation_matrix(M_PI / 2);
-	set_transform((t_shape *)&left_wall,
-		chain_transformations((t_matrix *[]){&scaling, &x_rotation, &y_rotation,
-			&translation, NULL}));
-	left_wall.material = floor.material;
-	// RIGHT_WALL
-	y_rotation = create_y_rotation_matrix(M_PI / 4);
-	set_transform((t_shape *)&right_wall,
-		chain_transformations((t_matrix *[]){&scaling, &x_rotation, &y_rotation,
-			&translation, NULL}));
-	right_wall.material = floor.material;
-	world.objs = malloc(sizeof(t_sphere) * 6);
-	world.count = 6;
-	world.objs[0] = *(t_shape *)&floor;
-	world.objs[1] = *(t_shape *)&left_wall;
-	world.objs[2] = *(t_shape *)&right_wall;
-	world.objs[3] = *(t_shape *)&middle_ball;
-	world.objs[4] = *(t_shape *)&right_ball;
-	world.objs[5] = *(t_shape *)&left_ball;
-	world.light = &(t_point_light){
-		{10, 25, 10, POINT},
-		{1, 1, 1, COLOR},
-	};
-	camera = create_camera(sizeh, sizew, M_PI / 3);
-	init_tuple((t_tuple){0, 3.5, 3, POINT}, from);
-	init_tuple((t_tuple){0, 0, 1, POINT}, to);
-	init_tuple((t_tuple){0, 1, 0, VECTOR}, up);
-	subtract_tuples(to, from, forward);
-	normalize(forward, forward);
-	camera.transform = view_transform(from, forward, up);
+	t_plane floor = create_plane();
+    t_world world;
+
+	// CREATE SHAPES
+	init_floor((t_shape *)&floor);
+	init_test2_balls((t_sphere *[]){
+			&right_ball, &left_ball, &middle_ball
+	});
+
+	// init_walls(walls);
+	t_plane **walls = NULL;
+	world = init_world(
+			(t_shape *)&floor,
+			(t_sphere *[]){&right_ball, &left_ball, &middle_ball},
+			walls
+	);
+
+    t_camera camera = create_camera(sizeh, sizew, M_PI / 3);
+    t_tuple from = (t_tuple){0, 5, 0, POINT};
+    t_tuple to = (t_tuple){0, 0, 1, POINT};
+    t_tuple up = (t_tuple){0, 1, 0, VECTOR};
+    t_tuple forward;
+
+    subtract_tuples(to, from, forward);
+    normalize(forward, forward);
+    camera.transform = view_transform(from, forward, up);
+
 	load_objs_into_world(*get_image_to_render(mlx), camera, &world);
 }
+
+
