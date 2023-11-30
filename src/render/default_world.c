@@ -83,11 +83,14 @@ void render_a_default_world(mlx_t *mlx)
     };
 
     t_camera camera = create_camera(sizeh, sizew, M_PI / 3);
-    t_tuple from = (t_tuple){0, 3.5, 3, POINT};
-    t_tuple to = (t_tuple){0, 0, 1, POINT};
-    t_tuple up = (t_tuple){0, 1, 0, VECTOR};
+    t_tuple from;
+    t_tuple to;
+    t_tuple up;
     t_tuple forward;
 
+	init_tuple((t_tuple){0, 3.5, 3, POINT}, from);
+	init_tuple((t_tuple){0, 0, 1, POINT}, to);
+	init_tuple((t_tuple){0, 1, 0, VECTOR}, up);
     subtract_tuples(to, from, forward);
     normalize(forward, forward);
     camera.transform = view_transform(from, forward, up);
