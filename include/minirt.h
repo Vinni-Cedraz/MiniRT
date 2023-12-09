@@ -329,7 +329,7 @@ void					sphere_normal_at(const t_shape *sphere, const t_tuple p,
 							t_tuple res);
 void					plane_normal_at(const t_shape *sphere, const t_tuple p,
 							t_tuple res);
-void					cylinder_normal_at(const t_shape *sphere,
+void					cylinder_normal_at(const t_shape *cyl,
 							const t_tuple p, t_tuple res);
 void					reflect(t_tuple vector, t_tuple normal,
 							t_tuple _return);
