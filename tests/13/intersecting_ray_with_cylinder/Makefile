@@ -1,6 +1,5 @@
 TESTS =		\
   intersecting_ray_with_cylinder \
-  two_balls_and_a_cylinder \
 
 ## VARIABLES
 INCS = -I../../ -I../../../include/ -I../../../libs/

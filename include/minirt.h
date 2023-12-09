@@ -163,6 +163,8 @@ typedef struct s_shape
 	t_matrix			inverse_t;
 	t_matrix			transposed_inverse_t;
 	t_material			material;
+	float				min;
+	float				max;
 }						t_shape;
 
 typedef struct s_phere
@@ -174,6 +176,8 @@ typedef struct s_phere
 	t_matrix			inverse_t;
 	t_matrix			transposed_inverse_t;
 	t_material			material;
+	float				min;
+	float				max;
 }						t_sphere;
 
 typedef struct s_plane
@@ -185,6 +189,8 @@ typedef struct s_plane
 	t_matrix			inverse_t;
 	t_matrix			transposed_inverse_t;
 	t_material			material;
+	float				min;
+	float				max;
 }						t_plane;
 
 typedef struct s_cylinder

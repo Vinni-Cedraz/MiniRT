@@ -1,6 +1,6 @@
 #include "tester.h"
 
-Test(render_cylinder, two_balls_and_a_cylinder) {
+Test(two_balls_and_a_cylinder, two_balls_and_a_cylinder) {
 	t_cylinder	cyl = create_cylinder();
 	t_sphere	right_ball = create_sphere();
 	t_sphere	left_ball = create_sphere();
