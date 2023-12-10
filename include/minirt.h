@@ -165,6 +165,7 @@ typedef struct s_shape
 	t_material			material;
 	float				min;
 	float				max;
+	t_bool				closed;
 }						t_shape;
 
 typedef struct s_phere
@@ -178,6 +179,7 @@ typedef struct s_phere
 	t_material			material;
 	float				min;
 	float				max;
+	t_bool				closed;
 }						t_sphere;
 
 typedef struct s_plane
@@ -191,6 +193,7 @@ typedef struct s_plane
 	t_material			material;
 	float				min;
 	float				max;
+	t_bool				closed;
 }						t_plane;
 
 typedef struct s_cylinder
@@ -204,6 +207,7 @@ typedef struct s_cylinder
 	t_material			material;
 	float				min;
 	float				max;
+	t_bool				closed;
 }						t_cylinder;
 
 typedef struct s_world
@@ -329,8 +333,8 @@ void					sphere_normal_at(const t_shape *sphere, const t_tuple p,
 							t_tuple res);
 void					plane_normal_at(const t_shape *sphere, const t_tuple p,
 							t_tuple res);
-void					cylinder_normal_at(const t_shape *cyl,
-							const t_tuple p, t_tuple res);
+void					cylinder_normal_at(const t_shape *cyl, const t_tuple p,
+							t_tuple res);
 void					reflect(t_tuple vector, t_tuple normal,
 							t_tuple _return);
 t_material				create_material(void);
@@ -365,4 +369,6 @@ void					load_objs_into_world(mlx_image_t *image,
 							t_camera camera, t_world *world);
 mlx_image_t				**get_image_to_render(mlx_t *mlx);
 void					render_a_default_world(mlx_t *mlx);
+void					intersect_caps(const t_cylinder *cyl, const t_ray r,
+							t_intersection *xs);
 #endif

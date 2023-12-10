@@ -16,7 +16,7 @@
 t_intersection	create_intersection(void *obj, t_ray r)
 {
 	t_tuple						obj_dist_to_ray;
-	const t_shape				*shape = (t_shape *)obj;
+	const t_shape				*shape = obj;
 	const t_intersect_function	intersect_shape[3] = {
 		intersect_sphere, intersect_plane, intersect_cylinder
 	};

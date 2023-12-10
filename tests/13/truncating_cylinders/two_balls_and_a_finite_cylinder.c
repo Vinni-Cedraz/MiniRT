@@ -5,7 +5,7 @@ Test(two_balls_and_a_cylinder, two_balls_and_a_cylinder) {
 	t_sphere	right_ball = create_sphere();
 	t_sphere	left_ball = create_sphere();
 
-	set_cyl_min_max(&cyl, -240, 240);
+	set_cyl_min_max(&cyl, -10, 5);
 	set_transform((t_shape *)&right_ball, mult_matrices(
 				create_translation_matrix((t_tuple){2.75, 0, 0}),
 				create_scaling_matrix(1.5, 1.5, 1.5))
@@ -17,7 +17,7 @@ Test(two_balls_and_a_cylinder, two_balls_and_a_cylinder) {
 	);
 
 	t_world world;
-    world.objs = malloc(sizeof(t_sphere) * 3);
+    world.objs = malloc(sizeof(t_shape) * 3);
 	world.objs[0] = *(t_shape *)&cyl;
 	world.objs[1] = *(t_shape *)&right_ball;
 	world.objs[2] = *(t_shape *)&left_ball;
@@ -29,7 +29,7 @@ Test(two_balls_and_a_cylinder, two_balls_and_a_cylinder) {
     };
 
     t_camera camera = create_camera(480, 280, M_PI / 3);
-    t_tuple from = (t_tuple){0, 0.5, 9, POINT};
+    t_tuple from = (t_tuple){0, -15, 5, POINT};
     t_tuple to = (t_tuple){0, 0, 0, POINT};
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
     t_tuple forward;

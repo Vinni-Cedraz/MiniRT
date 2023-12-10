@@ -12,22 +12,22 @@
 
 #include "minirt.h"
 
-void	add_cap_intersection(const float t, const void **p, t_intersection *xs);
-t_bool	check_cap(const t_ray ray, const float t);
+static void		add_cap_intersection(const float t, const void **p,
+					t_intersection *xs);
+static t_bool	check_cap(const t_ray ray, const float t);
 
 void	intersect_caps(const t_cylinder *cyl, const t_ray r, t_intersection *xs)
 {
 	const float	lower_t = (cyl->min - r.origin[Y]) / r.direction[Y];
 	const float	upper_t = (cyl->min - r.origin[Y]) / r.direction[Y];
-	const void	*obj = &cyl;
-	const void	**ptr = &obj;
+	const void	**obj = (const void **)&cyl;
 
 	if (cyl->closed == FALSE || fabs(r.direction[Y]) < EPSILON)
 		return ;
 	if (check_cap(r, lower_t))
-		add_cap_intersection(lower_t, ptr, xs);
+		add_cap_intersection(lower_t, obj, xs);
 	if (check_cap(r, upper_t))
-		add_cap_intersection(upper_t, ptr, xs);
+		add_cap_intersection(upper_t, obj, xs);
 }
 
 t_bool	check_cap(const t_ray ray, const float t)
@@ -43,7 +43,7 @@ void	add_cap_intersection(const float t, const void **p, t_intersection *xs)
 {
 	*xs = link_intersection_nodes((t_node *[]){
 			xs->head,
-			intersection(t, p),
+			intersection(t, (void **)p),
 			NULL
 		});
 }
