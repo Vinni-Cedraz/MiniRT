@@ -50,8 +50,8 @@
 # define ROW3 2
 # define ROW4 3
 
-# define sizeh 1920
-# define sizew 1080
+# define SIZEH 1920
+# define SIZEW 1080
 
 typedef float			t_tuple[4];
 typedef float			t_3x3_row[3];

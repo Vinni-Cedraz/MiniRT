@@ -10,21 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "libft_bonus.h"
+#include "../libft_bonus.h"
 
 void	ft_lstfree(t_node **list)
 {
-	t_node	*tmp;
-
-	tmp = *list;
-	if (list == NULL)
+	if (!list || !*list)
 		return ;
-	while (tmp)
-	{
-		*list = tmp->next;
-		free(tmp);
-		tmp = *list;
-	}
-	free(list);
+	ft_lstfree(&((*list)->next));
+	free(*list);
+	*list = NULL;
 }

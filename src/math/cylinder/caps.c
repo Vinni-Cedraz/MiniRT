@@ -19,7 +19,7 @@ static t_bool	check_cap(const t_ray ray, const float t);
 void	intersect_caps(const t_cylinder *cyl, const t_ray r, t_intersection *xs)
 {
 	const float	lower_t = (cyl->min - r.origin[Y]) / r.direction[Y];
-	const float	upper_t = (cyl->min - r.origin[Y]) / r.direction[Y];
+	const float	upper_t = (cyl->max - r.origin[Y]) / r.direction[Y];
 	const void	**obj = (const void **)&cyl;
 
 	if (cyl->closed == FALSE || fabs(r.direction[Y]) < EPSILON)
@@ -41,9 +41,19 @@ t_bool	check_cap(const t_ray ray, const float t)
 
 void	add_cap_intersection(const float t, const void **p, t_intersection *xs)
 {
-	*xs = link_intersection_nodes((t_node *[]){
-			xs->head,
-			intersection(t, (void **)p),
-			NULL
-		});
+	t_intersection	res;
+
+	if (xs->head != NULL)
+		res = link_intersection_nodes((t_node *[]){
+				xs->head,
+				intersection(t, (void **)p),
+				NULL
+			});
+	else
+		res = link_intersection_nodes((t_node *[]){
+				intersection(t, (void **)p),
+				NULL
+			});
+	ft_lstfree(&xs->head);
+	*xs = res;
 }

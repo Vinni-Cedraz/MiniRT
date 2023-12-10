@@ -32,6 +32,7 @@ t_intersection	link_intersection_nodes(t_node *arr[])
 	int				idx;
 
 	idx = 0;
+	ft_bzero((void *)&i, sizeof(t_intersection));
 	while (arr[idx] != NULL)
 	{
 		if (idx == 0)

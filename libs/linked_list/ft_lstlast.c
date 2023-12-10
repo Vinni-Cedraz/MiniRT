@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_bonus.h"
 
 t_node	*ft_lstlast(t_node *lst)
