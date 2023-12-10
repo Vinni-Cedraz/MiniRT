@@ -32,7 +32,7 @@ Test(capped_cylinders, open_closed, .description = scenario1)
 
 // | 1 | point(0, 3, 0)   | vector(0, -1, 0) | 2 
 Test(capped_cylinders, intersecting_caps, .description = scenario2) {
-	t_cylinder cyl = create_cylinder();
+	t_cylinder	cyl = create_cylinder();
 	const t_ray r = {
 		.origin = {0, 3, 0, POINT},
 		.direction = {0, -1, 0, VECTOR}
