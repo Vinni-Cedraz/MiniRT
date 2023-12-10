@@ -1,0 +1,21 @@
+[
+ {
+  "directory": "/home/myuser/MiniRT/tests/03/the_identity_matrix",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-w",
+   "the_identity_matrix.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "the_identity_matrix"
+  ],
+  "file": "the_identity_matrix.c"
+ }
+]

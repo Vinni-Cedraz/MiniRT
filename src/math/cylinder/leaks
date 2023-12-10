@@ -1,0 +1,24 @@
+==25295== 309,984 bytes in 12,916 blocks are indirectly lost in loss record 1 of 2
+==25295==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25295==    by 0x4067A6: ft_lstnew (ft_lstnew.c:19)
+==25295==    by 0x40562A: intersection (create_intersection.c:52)
+==25295==    by 0x40643B: create_cylinder_intersections (intersect_cylinder.c:55)
+==25295==    by 0x40613E: intersect_cylinder (intersect_cylinder.c:39)
+==25295==    by 0x405565: create_intersection (create_intersection.c:26)
+==25295==    by 0x4048A0: intersect_world_with_ray (intersect_world_with_ray.c:29)
+==25295==    by 0x403D03: color_at (color_at.c:20)
+==25295==    by 0x4028BA: render (render.c:31)
+==25295==    by 0x40141F: main (main.c:29)
+==25295== 
+==25295== 698,304 (388,320 direct, 309,984 indirect) bytes in 16,180 blocks are definitely lost in loss record 2 of 2
+==25295==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25295==    by 0x4067A6: ft_lstnew (ft_lstnew.c:19)
+==25295==    by 0x40562A: intersection (create_intersection.c:52)
+==25295==    by 0x4063D1: create_cylinder_intersections (intersect_cylinder.c:53)
+==25295==    by 0x40613E: intersect_cylinder (intersect_cylinder.c:39)
+==25295==    by 0x405565: create_intersection (create_intersection.c:26)
+==25295==    by 0x4048A0: intersect_world_with_ray (intersect_world_with_ray.c:29)
+==25295==    by 0x403D03: color_at (color_at.c:20)
+==25295==    by 0x4028BA: render (render.c:31)
+==25295==    by 0x40141F: main (main.c:29)
+==25295== 

@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_prep_comps	prepare_computations(t_node *intersection, t_ray ray)
+t_prep_comps	prepare_computations(t_node *hit, t_ray ray)
 {
 	t_prep_comps				cmp;
 	const t_normal_at_function	normal_at[3] = {
@@ -20,11 +20,11 @@ t_prep_comps	prepare_computations(t_node *intersection, t_ray ray)
 	};
 
 	cmp = (t_prep_comps){
-		.t = intersection->t,
-		.object = (t_shape *)intersection->object,
+		.t = hit->t,
+		.object = (t_shape *)hit->object,
 	};
 	get_position(ray, cmp.t, cmp.point);
-	normal_at[cmp.object->type](intersection->object, cmp.point, cmp.normalv);
+	normal_at[cmp.object->type](hit->object, cmp.point, cmp.normalv);
 	negate_tuple(ray.direction, cmp.eyev);
 	if (dot(cmp.normalv, cmp.eyev) < 0)
 	{
