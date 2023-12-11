@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-static void	lst_add_intrscs(t_intersection *r, t_intersection *i, void **o);
+static void	lst_add_intrscs(t_intersection *r, t_node *head, void **o);
 
 t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 {
@@ -31,7 +31,7 @@ t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 		{
 			obj = &w->objs[count];
 			obj_ptr = (void **)&obj;
-			lst_add_intrscs(&lst, &intrsct, obj_ptr);
+			lst_add_intrscs(&lst, intrsct.head, obj_ptr);
 		}
 		count++;
 	}
@@ -39,14 +39,18 @@ t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 }
 
 static inline void	lst_add_intrscs( \
-		t_intersection *lst, t_intersection *intrsct, void **obj_ptr)
+		t_intersection *lst, t_node *head, void **obj_ptr)
 {
-	ft_lstadd_back(&lst->head, intersection(intrsct->head->t, obj_ptr));
-	if (intrsct->count == 2)
+	ft_lstadd_back(&lst->head, intersection(head->t, obj_ptr));
+	printf("head->t -> %f\n", head->t);
+	if (head->next)
 	{
+		if (floats_eq(head->next->t, 0))
+			return ;
+		printf("head->next->t -> %f\n", head->next->t);
 		ft_lstadd_back(
 			&lst->head,
-			intersection(intrsct->head->next->t, obj_ptr) \
+			intersection(head->next->t, obj_ptr) \
 		);
 	}
 }

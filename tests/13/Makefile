@@ -2,7 +2,7 @@ TESTDIRS = 		\
   intersecting_ray_with_cylinder \
   finding_cylinder\'s_normal \
   truncating_cylinders \
-  # capped_cylinders \
+  capped_cylinders \
   # putting_it_together \
 
 ## VARIABLES

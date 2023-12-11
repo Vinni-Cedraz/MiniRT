@@ -371,4 +371,5 @@ mlx_image_t				**get_image_to_render(mlx_t *mlx);
 void					render_a_default_world(mlx_t *mlx);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
 							t_intersection *xs);
+void 					quick_render(t_world *w);
 #endif
