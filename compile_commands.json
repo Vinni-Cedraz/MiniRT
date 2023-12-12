@@ -967,5 +967,24 @@
    "build/caps.o"
   ],
   "file": "./src/math/cylinder/caps.c"
+ },
+ {
+  "directory": "/home/myuser/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/light_and_shading/shadows.c",
+   "-o",
+   "build/shadows.o"
+  ],
+  "file": "./src/math/light_and_shading/shadows.c"
  }
 ]
