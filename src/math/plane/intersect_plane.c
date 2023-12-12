@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_intersection	intersect_plane(void **obj, t_tuple obj_dist_to_ray, t_ray r)
+t_intersection	intersect_plane(t_shape **obj, t_tuple obj_dist_to_ray, t_ray r)
 {
 	t_intersection	xs;
 

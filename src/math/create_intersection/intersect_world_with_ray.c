@@ -12,15 +12,15 @@
 
 #include "minirt.h"
 
-static void	lst_add_intrscs(t_intersection *r, t_node *head, void **o);
+static void	lst_add_intrscs(t_intersection *r, t_node *head, t_shape **o);
 
 t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 {
 	int				count;
 	t_intersection	intrsct;
 	t_intersection	lst;
-	void			*obj;
-	void			**obj_ptr;
+	t_shape			*obj;
+	t_shape			**obj_ptr;
 
 	count = 0;
 	lst = (t_intersection){0};
@@ -30,7 +30,7 @@ t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 		if (intrsct.head)
 		{
 			obj = &w->objs[count];
-			obj_ptr = (void **)&obj;
+			obj_ptr = &obj;
 			lst_add_intrscs(&lst, intrsct.head, obj_ptr);
 		}
 		count++;
@@ -40,7 +40,7 @@ t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 }
 
 static inline void	lst_add_intrscs( \
-		t_intersection *lst, t_node *head, void **obj_ptr)
+		t_intersection *lst, t_node *head, t_shape **obj_ptr)
 {
 	ft_lstadd_back(&lst->head, intersection(head->t, obj_ptr));
 	if (head->next)

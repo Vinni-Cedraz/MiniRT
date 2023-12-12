@@ -12,16 +12,16 @@
 
 #include "minirt.h"
 
-static void		add_cap_intersection(const float t, const void **p,
-					t_node *node);
+static void		add_cap_intersection(const float t, t_shape **p, t_node **node);
 static t_bool	check_cap(const t_ray ray, const float t);
 
-void	intersect_caps(const t_cylinder *cyl, const t_ray r, t_node *head)
+void	intersect_caps(const t_cylinder *cyl, const t_ray r, t_node **head)
 {
+	t_shape		**obj;
 	const float	lower_t = (cyl->min - r.origin[Y]) / r.direction[Y];
 	const float	upper_t = (cyl->max - r.origin[Y]) / r.direction[Y];
-	const void	**obj = (const void **)&cyl;
 
+	obj = (t_shape **)&cyl;
 	if (cyl->closed == FALSE || fabs(r.direction[Y]) < EPSILON)
 		return ;
 	if (check_cap(r, lower_t))
@@ -39,10 +39,10 @@ t_bool	check_cap(const t_ray ray, const float t)
 	return (within_radius);
 }
 
-void	add_cap_intersection(const float t, const void **p, t_node *head)
+void	add_cap_intersection(const float t, t_shape **p, t_node **head)
 {
-	if (ft_lstsize(head) == 0)
-		head = intersection(t, (void **)p);
-	else if (ft_lstsize(head) == 1)
-		head->next = intersection(t, (void **)p);
+	if (ft_lstsize(*head) == 0)
+		*head = intersection(t, p);
+	else if (ft_lstsize(*head) == 1)
+		(*head)->next = intersection(t, p);
 }
