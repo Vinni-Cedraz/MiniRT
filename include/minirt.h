@@ -146,6 +146,7 @@ typedef struct s_lighting
 	t_tuple				position;
 	t_tuple				eye_vec;
 	t_tuple				normal_vec;
+	t_bool				in_shadow;
 }						t_lighting;
 
 typedef struct s_intersect
@@ -373,4 +374,6 @@ void					intersect_caps(const t_cylinder *cyl, const t_ray r,
 							t_node **head);
 void					quick_render(t_world *w);
 t_node					*intersection(float point, t_shape **obj);
+void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
+							t_tuple specular, t_tuple result);
 #endif

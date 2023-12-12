@@ -35,3 +35,12 @@ void	init_tuple(const t_tuple tuple, t_tuple res)
 	res[Z] = tuple[Z];
 	res[W] = tuple[W];
 }
+
+void	add_three_tuples(t_tuple ambient, t_tuple diffuse,
+		t_tuple specular, t_tuple result)
+{
+	t_tuple	tmp_tuple;
+
+	add_tuples(ambient, diffuse, tmp_tuple);
+	add_tuples(tmp_tuple, specular, result);
+}
