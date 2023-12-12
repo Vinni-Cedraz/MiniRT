@@ -5,6 +5,9 @@ Test(two_balls_and_a_cylinder, two_balls_and_a_cylinder) {
 	t_sphere	right_ball = create_sphere();
 	t_sphere	left_ball = create_sphere();
 
+	init_tuple((t_tuple){1, 0, 0, COLOR}, cyl.material.color);
+	init_tuple((t_tuple){1, 0, 0, COLOR}, right_ball.material.color);
+	init_tuple((t_tuple){1, 0, 0, COLOR}, left_ball.material.color);
 	set_cyl_min_max(&cyl, -10, 5);
 	set_transform((t_shape *)&right_ball, mult_matrices(
 				create_translation_matrix((t_tuple){2.75, 0, 0}),
@@ -25,7 +28,7 @@ Test(two_balls_and_a_cylinder, two_balls_and_a_cylinder) {
 
     world.light = &(t_point_light) {
         {10, 25, 10, POINT},
-        {1, 0, 0, COLOR},
+        {1, 1, 1, COLOR},
     };
 
     t_camera camera = create_camera(480, 280, M_PI / 3);

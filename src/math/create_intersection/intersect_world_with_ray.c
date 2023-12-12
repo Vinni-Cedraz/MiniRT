@@ -35,6 +35,7 @@ t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 		}
 		count++;
 	}
+	lst.count = ft_lstsize(lst.head);
 	return (lst);
 }
 
@@ -42,12 +43,10 @@ static inline void	lst_add_intrscs( \
 		t_intersection *lst, t_node *head, void **obj_ptr)
 {
 	ft_lstadd_back(&lst->head, intersection(head->t, obj_ptr));
-	printf("head->t -> %f\n", head->t);
 	if (head->next)
 	{
 		if (floats_eq(head->next->t, 0))
 			return ;
-		printf("head->next->t -> %f\n", head->next->t);
 		ft_lstadd_back(
 			&lst->head,
 			intersection(head->next->t, obj_ptr) \
