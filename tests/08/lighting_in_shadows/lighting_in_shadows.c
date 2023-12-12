@@ -26,8 +26,6 @@ Test(lighting, surface_in_shadow, .description = scenario1) {
 	};
 
 	calculate_lighting(&lighting, res);
-	printf("res =>");
-	print_tuple(res);
 	cr_assert(tuples_eq(res, (t_tuple){0.1, 0.1, 0.1, COLOR}));
 }
 
