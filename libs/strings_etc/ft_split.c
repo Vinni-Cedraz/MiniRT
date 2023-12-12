@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-typedef unsigned int	t_uint;
-
 static size_t			aux_strlen(const char *str);
 static void				*aux_calloc(size_t nmemb, size_t size);
 static void				*aux_memcpy(void *dst, const void *src, size_t n);

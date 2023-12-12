@@ -50,8 +50,8 @@
 # define ROW3 2
 # define ROW4 3
 
-# define sizeh 1920
-# define sizew 1080
+# define SIZEH 1920
+# define SIZEW 1080
 
 typedef float			t_tuple[4];
 typedef float			t_3x3_row[3];
@@ -163,6 +163,9 @@ typedef struct s_shape
 	t_matrix			inverse_t;
 	t_matrix			transposed_inverse_t;
 	t_material			material;
+	float				min;
+	float				max;
+	t_bool				closed;
 }						t_shape;
 
 typedef struct s_phere
@@ -174,6 +177,9 @@ typedef struct s_phere
 	t_matrix			inverse_t;
 	t_matrix			transposed_inverse_t;
 	t_material			material;
+	float				min;
+	float				max;
+	t_bool				closed;
 }						t_sphere;
 
 typedef struct s_plane
@@ -185,6 +191,9 @@ typedef struct s_plane
 	t_matrix			inverse_t;
 	t_matrix			transposed_inverse_t;
 	t_material			material;
+	float				min;
+	float				max;
+	t_bool				closed;
 }						t_plane;
 
 typedef struct s_cylinder
@@ -198,6 +207,7 @@ typedef struct s_cylinder
 	t_material			material;
 	float				min;
 	float				max;
+	t_bool				closed;
 }						t_cylinder;
 
 typedef struct s_world
@@ -241,7 +251,7 @@ typedef struct s_camera
 	float				world_y;
 }						t_camera;
 
-typedef t_intersection	(*t_intersect_function)(void **, t_tuple, t_ray);
+typedef t_intersection	(*t_intersect_function)(t_shape **, t_tuple, t_ray);
 typedef void			(*t_normal_at_function)(const t_shape *, const t_tuple,
 				t_tuple);
 
@@ -313,9 +323,9 @@ void					get_position(t_ray ray, float distance,
 t_ray					create_ray(t_tuple origin, t_tuple direction);
 t_sphere				create_sphere(void);
 t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
-t_intersection			create_intersection(void *obj, t_ray r);
+t_intersection			create_intersection(void *shape, t_ray r);
 t_intersection			link_intersection_nodes(t_node *arr[]);
-t_node					*get_hit(t_intersection i);
+t_node					get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
 void					set_transform(t_shape *s, t_matrix t);
@@ -323,8 +333,8 @@ void					sphere_normal_at(const t_shape *sphere, const t_tuple p,
 							t_tuple res);
 void					plane_normal_at(const t_shape *sphere, const t_tuple p,
 							t_tuple res);
-void					cylinder_normal_at(const t_shape *sphere,
-							const t_tuple p, t_tuple res);
+void					cylinder_normal_at(const t_shape *cyl, const t_tuple p,
+							t_tuple res);
 void					reflect(t_tuple vector, t_tuple normal,
 							t_tuple _return);
 t_material				create_material(void);
@@ -335,7 +345,6 @@ t_world					default_world(void);
 void					set_material(t_tuple reflections, t_tuple color,
 							t_material *m);
 t_intersection			intersect_world_with_ray(t_world *w, t_ray *r);
-t_node					*intersection(float point, void **obj);
 t_prep_comps			prepare_computations(t_node *intersection, t_ray ray);
 void					shade_hit(t_world *world, t_prep_comps *comps,
 							t_tuple result);
@@ -347,9 +356,10 @@ t_camera				create_camera(int hsize, int vsize,
 							float field_of_view);
 t_ray					ray_for_pixel(t_camera c, int x, int y);
 t_canvas				render(t_camera camera, t_world world);
-t_intersection			intersect_sphere(void **obj, t_tuple dist, t_ray r);
-t_intersection			intersect_plane(void **obj, t_tuple dist, t_ray r);
-t_intersection			intersect_cylinder(void **obj, t_tuple dist, t_ray r);
+t_intersection			intersect_sphere(t_shape **obj, t_tuple dist, t_ray r);
+t_intersection			intersect_plane(t_shape **obj, t_tuple dist, t_ray r);
+t_intersection			intersect_cylinder(t_shape **obj,
+							t_tuple obj_dist_to_ray, t_ray r);
 t_plane					create_plane(void);
 t_cylinder				create_cylinder(void);
 float					discriminant(t_tuple obj_dist_ray, t_ray ray,
@@ -359,4 +369,8 @@ void					load_objs_into_world(mlx_image_t *image,
 							t_camera camera, t_world *world);
 mlx_image_t				**get_image_to_render(mlx_t *mlx);
 void					render_a_default_world(mlx_t *mlx);
+void					intersect_caps(const t_cylinder *cyl, const t_ray r,
+							t_node **head);
+void					quick_render(t_world *w);
+t_node					*intersection(float point, t_shape **obj);
 #endif

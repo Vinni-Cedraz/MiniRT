@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-typedef unsigned char	t_uc;
-
 static inline void		*aux_memcpy(void *dst, const void *src, size_t n);
 static inline void		aux_swap(void *a, void *b, size_t size);
 

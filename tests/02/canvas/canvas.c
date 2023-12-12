@@ -120,7 +120,7 @@ Test(suite_name, lines_longer_than_70_must_break, .description = scenario5) {
 	set_all_pixels_to_one_color(&c, (t_tuple){1, 0.8, 0.6});
 	t_constr ppm_string = canvas_to_ppm(&c);
 	create_ppm_file(ppm_string, "lines_longer_than_70_must_break.ppm");
-	int fd = open("lines_longer_than_70_must_break.ppm", O_RDONLY);
+	int fd = open("lines_longer_than_70_must_break.ppm", O_RDWR);
 	for (int i = 0; i < LINES; i++)
 	{
 		line = ft_gnl(fd);
