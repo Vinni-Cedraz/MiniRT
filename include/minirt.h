@@ -377,4 +377,6 @@ t_node					*intersection(float point, t_shape **obj);
 void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
 							t_tuple specular, t_tuple result);
 t_bool					is_shadowed(t_world *w, t_tuple p);
+void					add_object(t_world *w, t_shape *new_obj, int index);
+
 #endif
