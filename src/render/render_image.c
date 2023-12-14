@@ -14,7 +14,6 @@
 
 #define MULTI 255
 
-// TODO: fix the value 255 break the especular
 uint32_t	normalized_color_to_int(t_tuple color)
 {
 	if (color[X] > 1)
@@ -23,8 +22,11 @@ uint32_t	normalized_color_to_int(t_tuple color)
 		color[Y] = 1;
 	if (color[Z] > 1)
 		color[Z] = 1;
-	return (((uint32_t)(color[X] * MULTI) << 24) | ((uint32_t)(color[Y]
-				* MULTI) << 16) | ((uint32_t)(color[Z] * MULTI) << 8) | 0xff);
+	return (
+			  ((uint32_t)(color[X] * MULTI) << 24)
+			| ((uint32_t)(color[Y] * MULTI) << 16)
+			| ((uint32_t)(color[Z] * MULTI) << 8)
+			| 0xff);
 }
 
 void	load_objs_into_world(mlx_image_t *image, t_camera camera,

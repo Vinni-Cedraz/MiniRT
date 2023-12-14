@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "minirt.h"
-#include <stdio.h>
 
 t_world init_world(t_shape *floor, t_sphere *balls[], t_plane *walls[6]) {
 	t_world world;
@@ -88,7 +87,7 @@ void	render_a_default_world(mlx_t *mlx)
 	);
 
     t_camera camera = create_camera(sizeh, sizew, M_PI / 3);
-    t_tuple from = (t_tuple){0, 5, 0, POINT};
+    t_tuple from = (t_tuple){0, 5, 5, POINT};
     t_tuple to = (t_tuple){0, 0, 1, POINT};
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
     t_tuple forward;
@@ -96,7 +95,6 @@ void	render_a_default_world(mlx_t *mlx)
     subtract_tuples(to, from, forward);
     normalize(forward, forward);
     camera.transform = view_transform(from, forward, up);
-
 	load_objs_into_world(*get_image_to_render(mlx), camera, &world);
 }
 
