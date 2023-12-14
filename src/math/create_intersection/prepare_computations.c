@@ -12,6 +12,8 @@
 
 #include "minirt.h"
 
+static void		calculate_over_point(t_prep_comps *comps);
+
 t_prep_comps	prepare_computations(t_node *hit, t_ray ray)
 {
 	t_prep_comps				cmp;
@@ -33,5 +35,14 @@ t_prep_comps	prepare_computations(t_node *hit, t_ray ray)
 	}
 	else
 		cmp.inside = FALSE;
+	calculate_over_point(&cmp);
 	return (cmp);
+}
+
+static void	calculate_over_point(t_prep_comps *comps)
+{
+	t_tuple		normalv;
+
+	multiply_tuple_by_scalar(comps->normalv, EPSILON, normalv);
+	add_tuples(comps->point, normalv, comps->over_point);
 }

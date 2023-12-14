@@ -48,10 +48,10 @@ void	add_object(t_world *w, t_shape *new_obj,
 	int		i;
 
 	i = -1;
-	new_objs = malloc(sizeof(t_shape) * (total_nb_of_objects_in_the_world));
+	new_objs = malloc(sizeof(t_shape) * (total_nb_of_objects_in_the_world + 1));
 	while (++i < total_nb_of_objects_in_the_world)
 		new_objs[i] = w->objs[i];
-	new_objs[total_nb_of_objects_in_the_world] = *new_obj;
+	new_objs[i] = *new_obj;
 	free(w->objs);
 	w->objs = new_objs;
 	w->count = total_nb_of_objects_in_the_world;

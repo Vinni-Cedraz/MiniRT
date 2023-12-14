@@ -231,6 +231,7 @@ typedef struct s_comp
 {
 	float				t;
 	t_shape				*object;
+	t_tuple				over_point;
 	t_tuple				point;
 	t_tuple				eyev;
 	t_tuple				normalv;
