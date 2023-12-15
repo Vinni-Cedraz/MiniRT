@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_intersection	intersect_sphere(void **obj, t_tuple obj_dist_ray, t_ray r)
+t_intersection	intersect_sphere(t_shape **obj, t_tuple obj_dist_ray, t_ray r)
 {
 	float			dis;
 	t_baskara		bask;

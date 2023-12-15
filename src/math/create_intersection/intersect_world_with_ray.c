@@ -12,15 +12,15 @@
 
 #include "minirt.h"
 
-static void	lst_add_intrscs(t_intersection *r, t_intersection *i, void **o);
+static void	lst_add_intrscs(t_intersection *r, t_node *head, t_shape **o);
 
 t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 {
 	int				count;
 	t_intersection	intrsct;
 	t_intersection	lst;
-	void			*obj;
-	void			**obj_ptr;
+	t_shape			*obj;
+	t_shape			**obj_ptr;
 
 	count = 0;
 	lst = (t_intersection){0};
@@ -30,23 +30,26 @@ t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 		if (intrsct.head)
 		{
 			obj = &w->objs[count];
-			obj_ptr = (void **)&obj;
-			lst_add_intrscs(&lst, &intrsct, obj_ptr);
+			obj_ptr = &obj;
+			lst_add_intrscs(&lst, intrsct.head, obj_ptr);
 		}
 		count++;
 	}
+	lst.count = ft_lstsize(lst.head);
 	return (lst);
 }
 
 static inline void	lst_add_intrscs( \
-		t_intersection *lst, t_intersection *intrsct, void **obj_ptr)
+		t_intersection *lst, t_node *head, t_shape **obj_ptr)
 {
-	ft_lstadd_back(&lst->head, intersection(intrsct->head->t, obj_ptr));
-	if (intrsct->count == 2)
+	ft_lstadd_back(&lst->head, intersection(head->t, obj_ptr));
+	if (head->next)
 	{
+		if (floats_eq(head->next->t, 0))
+			return ;
 		ft_lstadd_back(
 			&lst->head,
-			intersection(intrsct->head->next->t, obj_ptr) \
+			intersection(head->next->t, obj_ptr) \
 		);
 	}
 }

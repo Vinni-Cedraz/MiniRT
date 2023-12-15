@@ -37,6 +37,12 @@ void	plane_normal_at( \
 void	cylinder_normal_at( \
 		const t_shape *cylinder, const t_tuple wrld_p, t_tuple normal)
 {
-	(void)cylinder;
-	init_tuple((t_tuple){wrld_p[X], 0, wrld_p[Z], VECTOR}, normal);
+	const float	dist = pow(wrld_p[X], 2) + pow(wrld_p[Z], 2);
+
+	if (dist < 1 && wrld_p[Y] >= cylinder->max - EPSILON)
+		init_tuple((t_tuple){0, 1, 0, VECTOR}, normal);
+	else if (dist < 1 && wrld_p[Y] <= cylinder->min + EPSILON)
+		init_tuple((t_tuple){0, -1, 0, VECTOR}, normal);
+	else
+		init_tuple((t_tuple){wrld_p[X], 0, wrld_p[Z], VECTOR}, normal);
 }

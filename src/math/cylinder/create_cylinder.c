@@ -18,6 +18,7 @@ t_cylinder	create_cylinder(void)
 	const t_cylinder	cylinder = {
 		.origin = {0, 0, 0, POINT},
 		.id = call_counter++,
+		.closed = FALSE,
 		.type = CYLINDER,
 		._t = create_identity_matrix(),
 		.inverse_t = create_identity_matrix(),

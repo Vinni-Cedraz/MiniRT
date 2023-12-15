@@ -17,7 +17,7 @@
          " point(0, 2, -5)   | vector(0, 0, 1)    | 0\n"                                                               \
          " point(0, 1, -5)   | vector(0, 0, 1)    | 0\n"                                                               \
          " point(0, 1.5, -2) | vector(0, 0, 1)    | 2\n"                                                               \
-         "\n" RESET
+         RESET
 
 Test(truncating_cylinders, intersecting_constrained_cylinder, .description = scenario) {
 	t_intersection xs;
@@ -30,8 +30,6 @@ Test(truncating_cylinders, intersecting_constrained_cylinder, .description = sce
     t_ray r6 = {.origin = {0, 1.5, -2, POINT}, .direction = {0, 0, 1}};
 
     set_cyl_min_max(&cyl, 1, 2);
-	printf("cyl.min: %f\n", cyl.min);
-	printf("cyl.max: %f\n", cyl.max);
 	normalize(r1.direction, r1.direction);
 
 	xs = create_intersection(&cyl, r1);
@@ -46,6 +44,4 @@ Test(truncating_cylinders, intersecting_constrained_cylinder, .description = sce
 	cr_expect_eq(xs.count, 0);
 	xs = create_intersection(&cyl, r6);
 	cr_expect_eq(xs.count, 2);
-	printf("t0 -> %f\n", xs.head->t);
-	printf("t1 -> %f\n", xs.head->next->t);
 }
