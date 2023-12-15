@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-typedef unsigned char	t_uc;
-
 static void				*aux_memchr(const void *s, int c, size_t n);
 static size_t			aux_strlen(const char *str);
 

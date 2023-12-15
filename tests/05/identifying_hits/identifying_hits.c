@@ -1,4 +1,3 @@
-#include "minirt.h"
 #include "tester.h"
 #include <stdio.h>
 
@@ -13,16 +12,14 @@
 
 Test(identifying_hits, positive_t, .description = scenario1) {
 	const t_sphere s = create_sphere();
-	const t_node *i1 = intersection(1, (void *)&s);
-	const t_node *i2 = intersection(2, (void *)&s);
 	const t_node *arr[] = {
-		i1, i2, NULL
+		intersection(1, (void *)&s),
+		intersection(2, (void *)&s),
+		NULL
 	};
 	const t_intersection xs = link_intersection_nodes(arr);
-
-	const t_node *hit = get_hit(xs);
-	cr_expect_eq(i1, xs.head);
-	cr_expect_eq(hit, xs.head);
+	const t_node hit = get_hit(xs);
+	cr_expect_eq(hit.t, 1);
 }
 
 // Scenario : The hit, when some intersections have negative t
@@ -37,14 +34,14 @@ Test(identifying_hits, positive_t, .description = scenario1) {
 Test(identifying_hits, negative_t, .description = scenario2)
 {
 	const t_sphere s = create_sphere();
-	const t_node *i1 = intersection(-1, (void *)&s);
-	const t_node *i2 = intersection(1, (void *)&s);
-	const t_node *arr[] = { i1, i2, NULL };
+	const t_node *arr[] = {
+		intersection(-1, (void *)&s),
+		intersection(1, (void *)&s),
+		NULL
+	};
 	const t_intersection xs = link_intersection_nodes(arr);
-	const t_node *hit = get_hit(xs);
-
-	cr_expect_eq(i2, arr[1]);
-	cr_expect_eq(hit, i2);
+	const t_node hit = get_hit(xs);
+	cr_expect_eq(hit.t, 1);
 }
 //
 // Scenario : The hit, when all intersections have negative t
@@ -59,13 +56,14 @@ Test(identifying_hits, negative_t, .description = scenario2)
 Test(identifying_hits, all_negatives, .description = scenario3)
 {
 	const t_sphere s = create_sphere();
-	const t_node *i1 = intersection(-2, (void *)&s);
-	const t_node *i2 = intersection(-1, (void *)&s);
-	const t_node *arr[] = { i1, i2, NULL};
+	const t_node *arr[] = { 
+		intersection(-2, (void *)&s),
+		intersection(-1, (void *)&s),
+		NULL
+	};
 	const t_intersection xs = link_intersection_nodes(arr);
-	const t_node *hit = get_hit(xs);
-
-	cr_expect_eq(hit, NULL);
+	const t_node hit = get_hit(xs);
+	cr_expect_eq(hit.object, NULL);
 }
 // Scenario : The hit is always the lowest nonnegative intersection
 #define scenario4 CYAN \
@@ -89,7 +87,6 @@ Test(identifying_hits, hit_is_alway_lowest_nonnegative_intersection, .descriptio
 		NULL
 	};
 	const t_intersection xs = link_intersection_nodes(arr);
-	const t_node *hit = get_hit(xs);
-
-	cr_expect_eq(hit, arr[3]);
+	const t_node hit = get_hit(xs);
+	cr_expect_eq(hit.t, 2);
 }
