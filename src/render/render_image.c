@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:23:22 by johmatos          #+#    #+#             */
-/*   Updated: 2023/11/28 12:16:49 by johmatos         ###   ########.fr       */
+/*   Updated: 2023/12/19 19:21:02 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ mlx_image_t	**get_image_to_render(mlx_t *mlx)
 	static mlx_image_t	*image = NULL;
 
 	if (image == NULL)
-		image = mlx_new_image(mlx, sizeh, sizew);
+		image = mlx_new_image(mlx, SIZEH, SIZEW);
 	return (&image);
 }

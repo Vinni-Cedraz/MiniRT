@@ -12,16 +12,15 @@
 
 #include "minirt.h"
 
-t_parse_table	**get_parser_table(void)
+const t_idtable *get_parser_table(void)
 {
-	static t_parse_table	*table[10] = {
-		&parse_light,
-		&parse_plane,
-		&parse_sphere,
-		&parse_cylinder,
-		&parse_ambient_lightning,
-		&parse_camera,
-		NULL,
+	const static t_idtable table[TOTAL_OBJS] = {
+		{"A", parse_ambient_lightning},
+		{"C", parse_camera},
+		{"L", parse_light},
+		{"pl", parse_plane},
+		{"sp", parse_sphere},
+		{"cy", parse_cylinder}
 	};
 
 	return (table);

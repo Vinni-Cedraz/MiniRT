@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:35:37 by johmatos          #+#    #+#             */
-/*   Updated: 2023/11/30 09:42:51 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/12/19 19:20:37 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ void	render_a_default_world(mlx_t *mlx)
 			walls
 	);
 
-    t_camera camera = create_camera(sizeh, sizew, M_PI / 3);
-    t_tuple from = (t_tuple){0, 40, 10, POINT};
+    t_camera camera = create_camera(SIZEH, SIZEW, M_PI / 3);
+    t_tuple from = (t_tuple){0, 5, 5, POINT};
     t_tuple to = (t_tuple){0, 0, 1, POINT};
     t_tuple up = (t_tuple){1, 0, 0, VECTOR};
     t_tuple forward;
