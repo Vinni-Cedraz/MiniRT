@@ -27,22 +27,34 @@ void	sphere_normal_at( \
 }
 
 void	plane_normal_at( \
-		const t_shape *plane, const t_tuple wrld_p, t_tuple normal)
+		const t_shape *plane, const t_tuple wrld_p, t_tuple res)
 {
+	t_tuple	obj_nrml;
+	t_tuple	wlrd_nrml;
+
 	(void)wrld_p;
-	(void)plane;
-	init_tuple((t_tuple){0, 1, 0, VECTOR}, normal);
+	init_tuple((t_tuple){0, 1, 0, VECTOR}, obj_nrml);
+	multiply_tuple_by_matrix(obj_nrml, plane->transposed_inverse_t, wlrd_nrml);
+	wlrd_nrml[W] = VECTOR;
+	normalize(wlrd_nrml, res);
 }
 
 void	cylinder_normal_at( \
-		const t_shape *cylinder, const t_tuple wrld_p, t_tuple normal)
+		const t_shape *cyl, const t_tuple wrld_p, t_tuple res)
 {
-	const float	dist = pow(wrld_p[X], 2) + pow(wrld_p[Z], 2);
+	t_tuple		obj_point;
+	t_tuple		obj_nrml;
+	t_tuple		wlrd_nrml;
+	const float	dist = pow(obj_point[X], 2) + pow(obj_point[Z], 2);
 
-	if (dist < 1 && wrld_p[Y] >= cylinder->max - EPSILON)
-		init_tuple((t_tuple){0, 1, 0, VECTOR}, normal);
-	else if (dist < 1 && wrld_p[Y] <= cylinder->min + EPSILON)
-		init_tuple((t_tuple){0, -1, 0, VECTOR}, normal);
+	multiply_tuple_by_matrix(wrld_p, cyl->inverse_t, obj_point);
+	if (dist < 1 && obj_point[Y] >= cyl->max - EPSILON)
+		init_tuple((t_tuple){0, 1, 0, VECTOR}, obj_nrml);
+	else if (dist < 1 && obj_point[Y] <= cyl->min + EPSILON)
+		init_tuple((t_tuple){0, -1, 0, VECTOR}, obj_nrml);
 	else
-		init_tuple((t_tuple){wrld_p[X], 0, wrld_p[Z], VECTOR}, normal);
+		init_tuple((t_tuple){obj_point[X], 0, obj_point[Z], VECTOR}, obj_nrml);
+	multiply_tuple_by_matrix(obj_nrml, cyl->transposed_inverse_t, wlrd_nrml);
+	wlrd_nrml[W] = VECTOR;
+	normalize(wlrd_nrml, res);
 }

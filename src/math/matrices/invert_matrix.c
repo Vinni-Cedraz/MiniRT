@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "minirt.h"
-#include <stdio.h>
 
 t_matrix	create_matrix_of_cofactors(const t_matrix m);
 t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, float det);
