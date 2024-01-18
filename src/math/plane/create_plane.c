@@ -22,7 +22,7 @@ t_plane	create_plane(void)
 		._t = create_identity_matrix(),
 		.inverse_t = create_identity_matrix(),
 		.transposed_inverse_t = create_identity_matrix(),
-		.material = create_material(),
+		.material = create_plane_material(),
 	};
 
 	return (plane);
