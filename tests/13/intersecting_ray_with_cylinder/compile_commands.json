@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/13/intersecting_ray_with_cylinder",
+  "directory": "/root/MiniRT/tests/13/intersecting_ray_with_cylinder",
   "arguments": [
    "cc",
    "-O3",

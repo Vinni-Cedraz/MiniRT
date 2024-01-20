@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/05/tracking_intersections",
+  "directory": "/root/MiniRT/tests/05/tracking_intersections",
   "arguments": [
    "cc",
    "-O3",

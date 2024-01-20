@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/07/view_transformation",
+  "directory": "/root/MiniRT/tests/07/view_transformation",
   "arguments": [
    "cc",
    "-O3",

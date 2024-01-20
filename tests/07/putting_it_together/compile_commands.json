@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/07/putting_it_together",
+  "directory": "/root/MiniRT/tests/07/putting_it_together",
   "arguments": [
    "cc",
    "-O3",
