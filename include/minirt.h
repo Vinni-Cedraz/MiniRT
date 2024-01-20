@@ -373,7 +373,6 @@ mlx_image_t				**get_image_to_render(mlx_t *mlx);
 void					render_a_default_world(mlx_t *mlx);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
 							t_node **head);
-void					quick_render(t_world *w);
 t_node					*intersection(float point, t_shape **obj);
 void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
 							t_tuple specular, t_tuple result);

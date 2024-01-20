@@ -89,10 +89,9 @@ static inline void create_a_point(float x, float y, float z, t_tuple res)
 // "Then p = point(250, 250, 0, POINT)\n"RESET
 //
 
-void quick_render(t_world *w) {
+void quick_render(t_world *w, t_tuple from) {
 
     t_camera camera = create_camera(480, 280, M_PI / 4);
-    t_tuple from = (t_tuple){0, 1, 20, POINT};
     t_tuple to = (t_tuple){0, 0, 0, POINT};
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
     t_tuple forward;
