@@ -61,3 +61,46 @@ Test(intersect_cylinder, ray_strikes_cylinder, .description = scenario2) {
     cr_expect_eq(floats_eq(xs.head->t, third_t1), TRUE);
     cr_expect_eq(floats_eq(xs.head->next->t, third_t2), TRUE);
 }
+
+#define scenario3                                                                                                      \
+    CYAN "\nGiven cyl ←  cylinder()\n"                                                                                 \
+         "And direction ←  normalize(<direction>)\n"                                                                 \
+         "And r ←  ray(<origin>, direction)\n"                                                                       \
+         "When xs ←  local_intersect(cyl, r)\n"                                                                      \
+         "Then t1 = 9 and t2 = 11" RESET
+
+Test(intersect_cylinder, intersection_at_origin, .description = scenario3) {
+	t_intersection xs;
+	t_cylinder cyl = create_cylinder();
+	t_ray ray = {{0, 0, 10, POINT}, {0, 0, -1, VECTOR}};
+	normalize(ray.direction, ray.direction);
+
+	const float t1 = 9;
+	const float t2 = 11;
+    xs = create_intersection(&cyl, ray);
+	cr_assert_neq(xs.head, NULL);
+    cr_expect_eq(xs.head->t, t1);
+    cr_expect_eq(xs.head->next->t, t2);
+}
+
+#define scenario4                                                                                                      \
+    CYAN "\nGiven cyl ←  cylinder()\n"                                                                                 \
+		 "And rotate cylinder on x axis" 																			   \
+		 "And ray = {0, 0, 10, POINT}, {0, 0, -1, VECTOR}"                                                             \
+         "When xs ←  local_intersect(cyl, r)\n"                                                                        \
+         "Then t1 != 9 and t2 != 11" RESET
+
+Test(intersect_cylinder, intersect_rotated_x_cylinder_at_origin, .description = scenario4) {
+	t_intersection xs;
+	t_cylinder cyl = create_cylinder();
+	set_transform((t_shape *)&cyl, create_x_rotation_matrix(M_PI/8));
+	t_ray ray = {{0, 0, 10, POINT}, {0, 0, -1, VECTOR}};
+	normalize(ray.direction, ray.direction);
+
+	const float t1 = 9;
+	const float t2 = 11;
+    xs = create_intersection(&cyl, ray);
+	cr_assert_neq(xs.head, NULL);
+    cr_expect_neq(xs.head->t, t1);
+    cr_expect_neq(xs.head->next->t, t2);
+}
