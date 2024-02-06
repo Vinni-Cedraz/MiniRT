@@ -148,6 +148,7 @@ typedef struct s_lighting
 	t_tuple				position;
 	t_tuple				eye_vec;
 	t_tuple				normal_vec;
+	t_bool				in_shadow;
 }						t_lighting;
 
 typedef struct s_intersect
@@ -232,6 +233,7 @@ typedef struct s_comp
 {
 	float				t;
 	t_shape				*object;
+	t_tuple				over_point;
 	t_tuple				point;
 	t_tuple				eyev;
 	t_tuple				normalv;
@@ -382,6 +384,11 @@ void					parse_camera(char *str, t_node *head);
 int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
 							t_node **head);
-void					quick_render(t_world *w);
 t_node					*intersection(float point, t_shape **obj);
+void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
+							t_tuple specular, t_tuple result);
+t_bool					is_shadowed(t_world *w, t_tuple p);
+void					add_object(t_world *w, t_shape *new_obj, int index);
+t_material				create_plane_material(void);
+
 #endif

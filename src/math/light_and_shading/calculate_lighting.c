@@ -12,12 +12,10 @@
 
 #include "minirt.h"
 
-static void			combine_surface_and_light(t_lighting *o, t_tuple c,
-						t_tuple l);
-static void			set_colors_to_black(t_tuple colr1, t_tuple colr2);
-static void			add_three_tuples(t_tuple a, t_tuple d, t_tuple s,
-						t_tuple r);
-static void			set_reflect_v(t_colors *c, t_lighting *obj);
+static void	combine_surface_and_light(t_lighting *o, t_tuple c, t_tuple l);
+static void	set_colors_to_black(t_tuple colr1, t_tuple colr2);
+static void	set_reflect_v(t_colors *c, t_lighting *obj);
+static void	point_in_shadow(t_tuple ambient, t_tuple res);
 
 void	calculate_lighting(t_lighting *obj, t_tuple result)
 {
@@ -27,6 +25,8 @@ void	calculate_lighting(t_lighting *obj, t_tuple result)
 
 	combine_surface_and_light(obj, c.true_colr, c.lightv);
 	multiply_tuple_by_scalar(c.true_colr, obj->material.ambient, c.ambient);
+	if (obj->in_shadow)
+		return (point_in_shadow(c.ambient, result));
 	light_dot_normal = dot(c.lightv, obj->normal_vec);
 	if (light_dot_normal < 0)
 		set_colors_to_black((&c)->diffuse, (&c)->specular);
@@ -44,6 +44,11 @@ void	calculate_lighting(t_lighting *obj, t_tuple result)
 			obj->material.shininess), c.specular);
 	}
 	add_three_tuples(c.ambient, c.diffuse, c.specular, result);
+}
+
+static inline void	point_in_shadow(t_tuple ambient, t_tuple res)
+{
+	init_tuple(ambient, res);
 }
 
 static inline void	combine_surface_and_light(t_lighting *obj,
@@ -73,13 +78,4 @@ static void	set_reflect_v(t_colors *c, t_lighting *obj)
 {
 	negate_tuple(c->lightv, c->lightv);
 	reflect(c->lightv, obj->normal_vec, c->reflectv);
-}
-
-static inline void	add_three_tuples(t_tuple ambient, t_tuple diffuse,
-		t_tuple specular, t_tuple result)
-{
-	t_tuple	tmp_tuple;
-
-	add_tuples(ambient, diffuse, tmp_tuple);
-	add_tuples(tmp_tuple, specular, result);
 }

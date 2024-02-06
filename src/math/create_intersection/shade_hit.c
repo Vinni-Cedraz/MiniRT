@@ -13,15 +13,16 @@
 #include "minirt.h"
 
 static void	init_light(t_world *world, t_lighting *lighting_object);
-static void	init_position_and_vectors(t_prep_comps *comps, t_lighting *obj);
+static void	init_position_and_vectors(t_prep_comps *comps, t_lighting *lght);
 
 void	shade_hit(t_world *world, t_prep_comps *comps, t_tuple result)
 {
-	t_lighting	lighting_object;
+	t_lighting		lighting_object;
 
 	lighting_object.material = comps->object->material;
 	init_light(world, &lighting_object);
 	init_position_and_vectors(comps, &lighting_object);
+	lighting_object.in_shadow = is_shadowed(world, comps->over_point);
 	calculate_lighting(&lighting_object, result);
 }
 
@@ -31,9 +32,9 @@ static void	init_light(t_world *world, t_lighting *lighting_object)
 	init_tuple(world->light->position, lighting_object->light.position);
 }
 
-static void	init_position_and_vectors(t_prep_comps *comps, t_lighting *obj)
+static void	init_position_and_vectors(t_prep_comps *comps, t_lighting *lght)
 {
-	init_tuple(comps->eyev, obj->eye_vec);
-	init_tuple(comps->point, obj->position);
-	init_tuple(comps->normalv, obj->normal_vec);
+	init_tuple(comps->eyev, lght->eye_vec);
+	init_tuple(comps->over_point, lght->position);
+	init_tuple(comps->normalv, lght->normal_vec);
 }

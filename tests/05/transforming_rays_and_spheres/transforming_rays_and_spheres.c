@@ -1,5 +1,4 @@
 #include "tester.h"
-#include <criterion/internal/assert.h>
 
 #define suite transforming_rays_and_spheres
 

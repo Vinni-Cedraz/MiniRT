@@ -52,8 +52,8 @@ Test(camera, vertical_pixel_size, .description = scenario3) {
          "And r.direction = vector(0, 0, -1)" RESET
 // ERROR
 Test(camera, ray_for_pixel_center, .description = scenario4) {
-    const t_camera c = create_camera(201, 101, M_PI / 2);
-    const t_ray r = ray_for_pixel(c, 50, 100);
+    const t_camera camera = create_camera(201, 101, M_PI / 2);
+    const t_ray r = ray_for_pixel(camera, 50, 100);
     cr_expect_eq(tuples_eq(r.origin, (t_tuple){0, 0, 0, POINT}), TRUE);
     cr_expect_eq(tuples_eq(r.direction, (t_tuple){0, 0, -1, VECTOR}), TRUE);
 }
@@ -71,6 +71,7 @@ Test(camera, ray_through_a_corner, .description = scenario4) {
     cr_expect_eq(tuples_eq(r.origin, (t_tuple){0, 0, 0, POINT}), TRUE);
     cr_expect_eq(tuples_eq(r.direction, (t_tuple){0.6651, 0.3325, -0.6685, VECTOR}), TRUE);
 }
+
 // Scenario: Constructing a ray when the camera is transformed
 #define scenario6                                                                                                      \
     CYAN "Given c ← camera(201, 101, π/2)\n"                                                                        \
