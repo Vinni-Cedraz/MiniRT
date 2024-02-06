@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/30 09:42:35 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:26:13 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../libs/libft.h"
 # include "../libs/libft_bonus.h"
 # include <math.h>
+#include <stdint.h>
 # include <stdio.h>
 
 # define CYAN "\033[36m"
@@ -50,14 +51,15 @@
 # define ROW3 2
 # define ROW4 3
 
-# define SIZEH 1920
-# define SIZEW 1080
+# define sizeh 500
+# define sizew 500
 
 typedef float			t_tuple[4];
 typedef float			t_3x3_row[3];
 typedef float			t_2x2_row[2];
 typedef _Bool			t_bool;
 typedef unsigned short	t_short;
+typedef void (t_parse_table)(char *, t_node*);
 
 typedef enum e_num
 {
@@ -371,6 +373,15 @@ void					load_objs_into_world(mlx_image_t *image,
 							t_camera camera, t_world *world);
 mlx_image_t				**get_image_to_render(mlx_t *mlx);
 void					render_a_default_world(mlx_t *mlx);
+int						endwith(char *str, char *end);
+void					parse_sphere(char *str, t_node *head);
+void					parse_plane(char *str, t_node *head);
+void					parse_light(char *str, t_node *head);
+void					parse_cylinder(char *str, t_node *head);
+t_parse_table			**get_parser_table(void);
+void					parse_ambient_lightning(char *str, t_node *head);
+void					parse_camera(char *str, t_node *head);
+int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
 							t_node **head);
 t_node					*intersection(float point, t_shape **obj);
