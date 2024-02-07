@@ -11,7 +11,7 @@ const t_tuple vectors[] = {
 		{0, 0, 1, POINT}
 };
 
-const float expected_results[] = {
+const double expected_results[] = {
 		SQRT_OF_14,
 		SQRT_OF_14,
 		1,

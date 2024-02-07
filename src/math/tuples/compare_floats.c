@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compare_floats.c                                   :+:      :+:    :+:   */
+/*   compare_doubles.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_bool	floats_eq(float a, float b)
+t_bool	doubles_eq(double a, double b)
 {
 	return (fabs(a - b) < EPSILON);
 }
@@ -24,7 +24,7 @@ t_bool	tuples_eq(const t_tuple result, const t_tuple expected)
 	i = -1;
 	while (++i < 4)
 	{
-		if (!floats_eq(result[i], expected[i]))
+		if (!doubles_eq(result[i], expected[i]))
 			return (FALSE);
 	}
 	return (TRUE);

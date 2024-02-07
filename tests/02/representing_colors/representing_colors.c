@@ -10,7 +10,7 @@
 Test(suite_name, colors_are_rgb_tuples, .description = scenario) {
 	t_tuple color = {-0.5, 0.4, 1.7};
 
-	cr_expect_eq(floats_eq(color[R], -0.5), TRUE);
-	cr_expect_eq(floats_eq(color[G], 0.4), TRUE);
-	cr_expect_eq(floats_eq(color[B], 1.7), TRUE);
+	cr_expect_eq(doubles_eq(color[R], -0.5), TRUE);
+	cr_expect_eq(doubles_eq(color[G], 0.4), TRUE);
+	cr_expect_eq(doubles_eq(color[B], 1.7), TRUE);
 }

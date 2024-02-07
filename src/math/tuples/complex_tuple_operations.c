@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-float	magnitude(const t_tuple vec)
+double	magnitude(const t_tuple vec)
 {
 	if (vec[W] != VECTOR)
 		return (-1);
@@ -21,7 +21,7 @@ float	magnitude(const t_tuple vec)
 
 short	normalize(const t_tuple vec, t_tuple result)
 {
-	const float	mag = magnitude(vec);
+	const double	mag = magnitude(vec);
 
 	if (mag == 0 || vec[W] != VECTOR)
 		return (-1);
@@ -32,7 +32,7 @@ short	normalize(const t_tuple vec, t_tuple result)
 	return (0);
 }
 
-float	dot(const t_tuple a, const t_tuple b)
+double	dot(const t_tuple a, const t_tuple b)
 {
 	return (a[X] * b[X] + a[Y] * b[Y] + a[Z] * b[Z] + a[W] * b[W]);
 }

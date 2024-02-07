@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-static void	subrow(t_tuple row, int col_to_delete, float subrow[], int n);
+static void	subrow(t_tuple row, int col_to_delete, double subrow[], int n);
 
 t_2x2matrix	_3x3submatrix(const t_3x3matrix m, int row_to_del, int col_to_del)
 {
@@ -56,7 +56,7 @@ t_3x3matrix	_4x4submatrix(const t_matrix m, int row_to_del, int col_to_delete)
 	return (res);
 }
 
-void	subrow(t_tuple row, int col_to_delete, float subrow[], int len)
+void	subrow(t_tuple row, int col_to_delete, double subrow[], int len)
 {
 	int	i;
 	int	j;

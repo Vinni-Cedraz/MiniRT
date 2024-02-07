@@ -47,7 +47,7 @@ Test(determinant_large_matrices, calculating_the_determinant_of_a_3x3_matrix, .d
 	cr_expect_eq(56, _3x3cofactor(a, 0, 0));
 	cr_expect_eq(12, _3x3cofactor(a, 0, 1));
 	cr_expect_eq(-46, _3x3cofactor(a, 0, 2));
-	cr_expect_eq(floats_eq(-196, _3x3determinant(a)), TRUE);
+	cr_expect_eq(doubles_eq(-196, _3x3determinant(a)), TRUE);
 }
 
 Test(determinant_large_matrices, calculating_the_determinant_of_a_4x4_matrix, .description = scenario2) {
@@ -62,7 +62,7 @@ Test(determinant_large_matrices, calculating_the_determinant_of_a_4x4_matrix, .d
 	cr_expect_eq(447, _4x4cofactor(a, 0, 1));
 	cr_expect_eq(210, _4x4cofactor(a, 0, 2));
 	cr_expect_eq(51, _4x4cofactor(a, 0, 3));
-	cr_expect_eq(floats_eq(-4071, _4x4determinant(a)), TRUE);
+	cr_expect_eq(doubles_eq(-4071, _4x4determinant(a)), TRUE);
 }
 
 Test(cofactor, a_1_1) {

@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-float	_2x2determinant(t_2x2matrix m)
+double	_2x2determinant(t_2x2matrix m)
 {
 	return (m.row_1[X] * m.row_2[Y] - m.row_2[X] * m.row_1[Y]);
 }

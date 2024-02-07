@@ -14,8 +14,8 @@ Test(intersecting_rays, intersects_at_two_points, .description = scenario1) {
 	const t_intersection intersect = create_intersection((void *)&s, r);
 
 	cr_expect_eq(intersect.count, 2);
-	cr_expect_eq(TRUE, floats_eq(intersect.head->t, 4.0));
-	cr_expect_eq(TRUE, floats_eq(intersect.head->next->t, 6.0));
+	cr_expect_eq(TRUE, doubles_eq(intersect.head->t, 4.0));
+	cr_expect_eq(TRUE, doubles_eq(intersect.head->next->t, 6.0));
 }
 
 // Scenario : A ray intersects a sphere at a tangent
@@ -32,7 +32,7 @@ Test(intersecting_rays, tangent_intersection, .description = scenario2) {
 	const t_intersection intersect = create_intersection((void *)&s, r);
 
 	cr_expect_eq(intersect.count, 1);
-	cr_expect_eq(TRUE, floats_eq(intersect.head->t, 5.0));
+	cr_expect_eq(TRUE, doubles_eq(intersect.head->t, 5.0));
 }
 
 // Scenario : A ray misses a sphere
@@ -67,8 +67,8 @@ Test(intersecting_rays, ray_starts_inside_of_a_sphere, .description = scenario4)
 	const t_intersection intersect = create_intersection((void *)&s, r);
 
 	cr_expect_eq(intersect.count, 2);
-	cr_expect_eq(TRUE, floats_eq(intersect.head->t, -1.0));
-	cr_expect_eq(TRUE, floats_eq(intersect.head->next->t, 1.0));
+	cr_expect_eq(TRUE, doubles_eq(intersect.head->t, -1.0));
+	cr_expect_eq(TRUE, doubles_eq(intersect.head->next->t, 1.0));
 }
 
 // Scenario : A sphere is behind a ray
@@ -85,10 +85,10 @@ Test(intersecting_rays, sphere_is_behind_the_ray, .description = scenario5) {
 	const t_intersection intersect = create_intersection((void *)&s, r);
 
 	cr_expect_eq(intersect.count, 2);
-	if (floats_eq(intersect.head->t, -6.0) == FALSE)
+	if (doubles_eq(intersect.head->t, -6.0) == FALSE)
 		printf(RED"intersect.head->t %f\n", intersect.head->t);
-	if (floats_eq(intersect.head->next->t, -4.0) == FALSE)
+	if (doubles_eq(intersect.head->next->t, -4.0) == FALSE)
 		printf(RED"intersect.head->next->t %f\n"RESET, intersect.head->next->t);
-	cr_expect_eq(TRUE, floats_eq(intersect.head->t, -6.0));
-	cr_expect_eq(TRUE, floats_eq(intersect.head->next->t, -4.0));
+	cr_expect_eq(TRUE, doubles_eq(intersect.head->t, -6.0));
+	cr_expect_eq(TRUE, doubles_eq(intersect.head->next->t, -4.0));
 }

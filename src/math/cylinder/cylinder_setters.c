@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void	set_cyl_min_max(t_cylinder *cyl, float min, float max)
+void	set_cyl_min_max(t_cylinder *cyl, double min, double max)
 {
 	cyl->min = min;
 	cyl->max = max;

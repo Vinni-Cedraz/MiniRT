@@ -16,7 +16,7 @@ t_bool	is_shadowed(t_world *w, t_tuple p)
 {
 	t_tuple			vec;
 	t_ray			ray;
-	float			distance;
+	double			distance;
 	t_node			hit;
 
 	subtract_tuples(w->light->position, p, vec);

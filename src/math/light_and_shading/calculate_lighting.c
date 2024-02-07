@@ -20,8 +20,8 @@ static void	point_in_shadow(t_tuple ambient, t_tuple res);
 void	calculate_lighting(t_lighting *obj, t_tuple result)
 {
 	t_colors	c;
-	float		light_dot_normal;
-	float		reflectv_dot_eye;
+	double		light_dot_normal;
+	double		reflectv_dot_eye;
 
 	combine_surface_and_light(obj, c.true_colr, c.lightv);
 	multiply_tuple_by_scalar(c.true_colr, obj->material.ambient, c.ambient);

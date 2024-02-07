@@ -14,7 +14,7 @@
 
 void	reflect(t_tuple vector, t_tuple normal, t_tuple _return)
 {
-	const float	dres = dot(vector, normal) * 2;
+	const double	dres = dot(vector, normal) * 2;
 	t_tuple		result;
 
 	multiply_tuple_by_scalar(normal, dres, result);

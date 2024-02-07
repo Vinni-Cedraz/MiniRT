@@ -14,8 +14,8 @@
 
 void	translate_coordinate(t_tuple point, t_canvas *canvas, t_tuple res)
 {
-	const float	height = canvas->height;
-	const float	width = canvas->width;
+	const double	height = canvas->height;
+	const double	width = canvas->width;
 
 	res[X] = point [X] + width / 2;
 	res[Y] = point[Y] + height / 2;

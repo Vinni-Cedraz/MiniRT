@@ -12,7 +12,7 @@
 
 #include "libft_bonus.h"
 
-t_node	*ft_lstnew(float content)
+t_node	*ft_lstnew(double content)
 {
 	t_node	*node;
 

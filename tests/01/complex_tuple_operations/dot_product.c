@@ -24,18 +24,18 @@
 
 Test(dot_product, dot_product_of_two_tuples, .description = scenario1) {
 
-    float result = dot((t_tuple){1, 2, 3}, (t_tuple){2, 3, 4});
-    cr_expect_eq(floats_eq(result, 20.0), TRUE);
+    double result = dot((t_tuple){1, 2, 3}, (t_tuple){2, 3, 4});
+    cr_expect_eq(doubles_eq(result, 20.0), TRUE);
 }
 
 Test(dot_product, dot_product_of_identical_unit_vectors, .description = scenario2) {
 
-    float result = dot((t_tuple){1, 0, 0}, (t_tuple){1, 0, 0});
-    cr_expect_eq(floats_eq(result , 1), TRUE);
+    double result = dot((t_tuple){1, 0, 0}, (t_tuple){1, 0, 0});
+    cr_expect_eq(doubles_eq(result , 1), TRUE);
 }
 
 Test(dot_product, dot_product_of_opposite_unit_vectors, .description = scenario3) {
 
-    float result = dot((t_tuple){1, 0, 0}, (t_tuple){-1, 0, 0});
-    cr_expect_eq(floats_eq(result, -1), TRUE);
+    double result = dot((t_tuple){1, 0, 0}, (t_tuple){-1, 0, 0});
+    cr_expect_eq(doubles_eq(result, -1), TRUE);
 }

@@ -14,12 +14,12 @@
 Test(camera, implementing_a_camera, .description = scenario1) {
     int hsize = 160;
     int vsize = 120;
-    float field_of_view = M_PI / 2;
+    double field_of_view = M_PI / 2;
     const t_camera c = create_camera(hsize, vsize, field_of_view);
 
     cr_expect_eq(c.hsize, 160);
     cr_expect_eq(c.vsize, 120);
-    cr_expect_eq(floats_eq(c.field_of_view, M_PI / 2), TRUE);
+    cr_expect_eq(doubles_eq(c.field_of_view, M_PI / 2), TRUE);
     cr_expect_matrices_eq(c.transform, create_identity_matrix());
 }
 
@@ -30,7 +30,7 @@ Test(camera, implementing_a_camera, .description = scenario1) {
 
 Test(camera, horizontal_pixel_size, .description = scenario2) {
     const t_camera c = create_camera(200, 125, M_PI / 2);
-    cr_expect_eq(floats_eq(c.pixel_size, 0.01), TRUE);
+    cr_expect_eq(doubles_eq(c.pixel_size, 0.01), TRUE);
 }
 
 // Scenario: The pixel size for a vertical canvas
@@ -41,7 +41,7 @@ Test(camera, horizontal_pixel_size, .description = scenario2) {
 
 Test(camera, vertical_pixel_size, .description = scenario3) {
     const t_camera c = create_camera(200, 125, M_PI / 2);
-    cr_expect_eq(floats_eq(c.pixel_size, 0.01), TRUE);
+    cr_expect_eq(doubles_eq(c.pixel_size, 0.01), TRUE);
 }
 
 // Scenario: Constructing a ray through the center of the canvas

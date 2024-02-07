@@ -42,8 +42,8 @@ Test(building_world, the_default_world, .description = scenario2) {
 	const t_matrix inverse_scaling_matrix = invert_matrix(scaling_matrix);
 	cr_expect_tuples_eq(world.light->position, expected_light.position);
 	cr_expect_tuples_eq(world.light->intensity, expected_light.intensity);
-	cr_expect_eq(floats_eq(world.objs[0].material.diffuse, 0.7), TRUE);
-	cr_expect_eq(floats_eq(world.objs[0].material.specular, 0.2), TRUE);
+	cr_expect_eq(doubles_eq(world.objs[0].material.diffuse, 0.7), TRUE);
+	cr_expect_eq(doubles_eq(world.objs[0].material.specular, 0.2), TRUE);
 	cr_expect_tuples_eq(world.objs[0].material.color, expected.color);
 	cr_expect_matrices_eq(scaling_matrix, world.objs[1]._t);
 	cr_expect_matrices_eq(inverse_scaling_matrix, world.objs[1].inverse_t);
@@ -70,7 +70,7 @@ Test(building_world, precomputing_the_state_of_an_intersection, .description = s
 	const t_node			*i = intersection(4, &s_ptr);
 	t_prep_comps			prep_comps = prepare_computations(i, r);
 
-	cr_expect_eq(floats_eq(prep_comps.t, i->t), TRUE);
+	cr_expect_eq(doubles_eq(prep_comps.t, i->t), TRUE);
 	cr_expect_eq(prep_comps.object, i->object); // must be the address of the same sphere
 	cr_expect_tuples_eq(prep_comps.point, (t_tuple){0, 0, -1, POINT});
 	cr_expect_tuples_eq(prep_comps.eyev, (t_tuple){0, 0, -1, VECTOR});

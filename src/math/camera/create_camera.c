@@ -14,7 +14,7 @@
 
 static void	set_pixel_size(t_camera *c);
 
-t_camera	create_camera(int hsize, int vsize, float field_of_view)
+t_camera	create_camera(int hsize, int vsize, double field_of_view)
 {
 	t_camera	c;
 
@@ -31,11 +31,11 @@ t_camera	create_camera(int hsize, int vsize, float field_of_view)
 
 static void	set_pixel_size(t_camera *c)
 {
-	float	half_view;
-	float	aspect;
+	double	half_view;
+	double	aspect;
 
 	half_view = tan(c->field_of_view / 2);
-	aspect = (float)c->hsize / c->vsize;
+	aspect = (double)c->hsize / c->vsize;
 	if (aspect >= 1)
 	{
 		c->half_width = half_view;

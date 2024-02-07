@@ -29,8 +29,8 @@ static inline void print_4x4matrix(const t_matrix a) {
 
 static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple expected) {
     for (int i = 0; i < 4; i++) {
-        cr_expect(floats_eq(result[i], expected[i]));
-        if (!floats_eq(result[i], expected[i]))
+        cr_expect(doubles_eq(result[i], expected[i]));
+        if (!doubles_eq(result[i], expected[i]))
             return (1);
     }
     return (0);
@@ -58,15 +58,15 @@ static inline t_bool cr_expect_matrices_eq(t_matrix a, t_matrix b) {
     return (!res);
 }
 
-static inline int invert_axis(int size, float axis) { return ((int)size - axis); }
+static inline int invert_axis(int size, double axis) { return ((int)size - axis); }
 
-static inline void create_a_vector(float x, float y, float z, t_tuple res) {
+static inline void create_a_vector(double x, double y, double z, t_tuple res) {
     res[X] = x;
     res[Y] = y;
     res[Z] = z;
     res[W] = VECTOR;
 }
-static inline void create_a_point(float x, float y, float z, t_tuple res) {
+static inline void create_a_point(double x, double y, double z, t_tuple res) {
     res[X] = x;
     res[Y] = y;
     res[Z] = z;
@@ -82,14 +82,14 @@ static inline void create_a_point(float x, float y, float z, t_tuple res) {
 
 void quick_render(t_world *w, const t_tuple from) {
 
-    t_camera camera = create_camera(480, 280, M_PI / 4);
+    t_camera camera = create_camera(1920, 1080, M_PI / 4);
     t_tuple to = (t_tuple){0, 0, 0, POINT};
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
     t_tuple forward;
 
     subtract_tuples(to, from, forward);
     normalize(forward, forward);
-    camera.transform = view_transform((float *)from, forward, up);
+    camera.transform = view_transform((double *)from, forward, up);
 
     t_canvas c = render(camera, *w);
 

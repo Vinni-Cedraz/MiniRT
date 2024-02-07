@@ -88,9 +88,9 @@ Test(inversion, calculating_the_inverse_of_a_matrix, .description = scenario3) {
 	t_matrix b = invert_matrix(a);
 	cr_assert_eq(532, _4x4determinant(a));
 	cr_assert_eq(-160, _4x4cofactor(a, 2, 3));
-	cr_assert_eq(TRUE, floats_eq(-160.0/532, b.row_4[Z]));
+	cr_assert_eq(TRUE, doubles_eq(-160.0/532, b.row_4[Z]));
 	cr_assert_eq(105, _4x4cofactor(a, 3, 2));
-	cr_assert_eq(TRUE, floats_eq(b.row_3[W], 105.0/532));
+	cr_assert_eq(TRUE, doubles_eq(b.row_3[W], 105.0/532));
 	t_matrix expected = {
 		{0.21805, 0.45113, 0.24060, -0.04511},
 		{-0.80827, -1.45677, -0.44361, 0.52068},                               

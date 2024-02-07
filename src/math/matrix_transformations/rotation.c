@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_matrix	create_x_rotation_matrix(float r)
+t_matrix	create_x_rotation_matrix(double r)
 {
 	return (create_4x4_matrix(&(t_matrix){
 			.row_1 = {1, 0, 0, 0},
@@ -22,7 +22,7 @@ t_matrix	create_x_rotation_matrix(float r)
 		}));
 }
 
-t_matrix	create_y_rotation_matrix(float r)
+t_matrix	create_y_rotation_matrix(double r)
 {
 	return (create_4x4_matrix(&(t_matrix){
 			.row_1 = {cos(r), 0, sin(r), 0},
@@ -32,7 +32,7 @@ t_matrix	create_y_rotation_matrix(float r)
 		}));
 }
 
-t_matrix	create_z_rotation_matrix(float r)
+t_matrix	create_z_rotation_matrix(double r)
 {
 	return (create_4x4_matrix(&(t_matrix){
 			.row_1 = {cos(r), -sin(r), 0, 0},

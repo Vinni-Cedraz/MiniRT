@@ -45,7 +45,7 @@ static inline void	lst_add_intrscs( \
 	ft_lstadd_back(&lst->head, intersection(head->t, obj_ptr));
 	if (head->next)
 	{
-		if (floats_eq(head->next->t, 0))
+		if (doubles_eq(head->next->t, 0))
 			return ;
 		ft_lstadd_back(
 			&lst->head,

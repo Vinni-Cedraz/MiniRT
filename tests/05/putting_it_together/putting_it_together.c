@@ -9,7 +9,7 @@ static void normalize_rgb(t_tuple raw_rgb);
 static void get_ray_direction(const t_tuple position, const t_tuple ray_origin, t_tuple direction);
 static void paint_a_pixel(t_canvas *c, int y, int x);
 static void randomize_color(t_tuple color);
-static void ray_casting(const float half, const float pixel_size, t_ray r, t_intersection xs);
+static void ray_casting(const double half, const double pixel_size, t_ray r, t_intersection xs);
 
 t_canvas c;
 t_sphere s;
@@ -18,8 +18,8 @@ const t_tuple ray_origin = {0, 0, -10.0, POINT};
 Test(putting_it_together, drawing_a_circle) {
     t_ray r;
     t_intersection xs;
-    const float half = wall_size / 2;
-    const float pixel_size = wall_size / canvas_pixels;
+    const double half = wall_size / 2;
+    const double pixel_size = wall_size / canvas_pixels;
 
     c = create_canvas(canvas_pixels, canvas_pixels);
     s = create_sphere();
@@ -30,7 +30,7 @@ Test(putting_it_together, drawing_a_circle) {
     destroy_canvas(&c);
 }
 
-static void ray_casting(const float half, const float pixel_size, t_ray r, t_intersection xs) {
+static void ray_casting(const double half, const double pixel_size, t_ray r, t_intersection xs) {
     int x;
     int y;
     int world_x;

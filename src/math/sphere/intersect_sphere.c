@@ -14,7 +14,7 @@
 
 t_intersection	intersect_sphere(t_shape **obj, t_tuple obj_dist_ray, t_ray r)
 {
-	float			dis;
+	double			dis;
 	t_baskara		bask;
 	t_intersection	i;
 
@@ -32,12 +32,12 @@ t_intersection	intersect_sphere(t_shape **obj, t_tuple obj_dist_ray, t_ray r)
 				((bask.b * -1 + sqrt(dis)) / (2 * bask.a)), obj),
 			NULL \
 	});
-	if (floats_eq(0, dis))
+	if (doubles_eq(0, dis))
 		i.count = 1;
 	return (i);
 }
 
-float	discriminant(t_tuple obj_dist_ray, t_ray ray, t_baskara *bask)
+double	discriminant(t_tuple obj_dist_ray, t_ray ray, t_baskara *bask)
 {
 	bask->a = dot(ray.direction, ray.direction);
 	bask->b = 2 * dot(ray.direction, obj_dist_ray);

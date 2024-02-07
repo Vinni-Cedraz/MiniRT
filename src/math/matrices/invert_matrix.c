@@ -13,7 +13,7 @@
 #include "minirt.h"
 
 t_matrix	create_matrix_of_cofactors(const t_matrix m);
-t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, float det);
+t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, double det);
 
 t_bool	is_invertible(t_matrix m)
 {
@@ -27,7 +27,7 @@ t_matrix	invert_matrix(t_matrix m)
 	t_matrix	cofact_mat;
 	t_matrix	transposed_cofact_mat;
 	t_matrix	res;
-	float		det;
+	double		det;
 
 	if (is_invertible(m) == FALSE)
 		return (m);
@@ -54,7 +54,7 @@ t_matrix	create_matrix_of_cofactors(const t_matrix m)
 	return (res);
 }
 
-t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const float det)
+t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const double det)
 {
 	int			i;
 	t_matrix	res;
@@ -132,7 +132,7 @@ t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const float det)
 // 		{-0.52256, -0.81391, -0.30075, 0.30639},
 // 		{NULL}
 // 	});
-// 	const float det = _4x4determinant(m);
+// 	const double det = _4x4determinant(m);
 // 	const t_matrix cofact = create_matrix_of_cofactors(m);
 // 	const t_matrix trans = transpose_matrix(cofact);
 // 	const t_matrix res = divide_transposed_matrix_by_determinant(trans , det);

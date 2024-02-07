@@ -41,7 +41,7 @@ void	negate_tuple(const t_tuple a, t_tuple result)
 }
 
 void	multiply_tuple_by_scalar(
-		const t_tuple a, const float scalar, t_tuple re)
+		const t_tuple a, const double scalar, t_tuple re)
 {
 	re[X] = a[X] * scalar;
 	re[Y] = a[Y] * scalar;

@@ -45,13 +45,13 @@ void	cylinder_normal_at( \
 	t_tuple		obj_point;
 	t_tuple		obj_nrml;
 	t_tuple		wlrd_nrml;
-	float		dist;
+	double		dist;
 
 	multiply_tuple_by_matrix(wrld_p, cyl->inverse_t, obj_point);
 	dist = pow(obj_point[X], 2) + pow(obj_point[Z], 2);
-	if (dist < 1 && obj_point[Y] >= cyl->max - EPSILON)
+	if (dist < 1 && obj_point[Y] == cyl->max - EPSILON)
 		init_tuple((t_tuple){0, 1, 0, VECTOR}, obj_nrml);
-	else if (dist < 1 && obj_point[Y] <= cyl->min + EPSILON)
+	else if (dist < 1 && obj_point[Y] == cyl->min + EPSILON)
 		init_tuple((t_tuple){0, -1, 0, VECTOR}, obj_nrml);
 	else
 		init_tuple((t_tuple){obj_point[X], 0, obj_point[Z], VECTOR}, obj_nrml);

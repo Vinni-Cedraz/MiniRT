@@ -46,7 +46,7 @@ t_intersection	link_intersection_nodes(t_node *arr[])
 	return (i);
 }
 
-t_node	*intersection(float point, t_shape **obj)
+t_node	*intersection(double point, t_shape **obj)
 {
 	t_node	*lst;
 
