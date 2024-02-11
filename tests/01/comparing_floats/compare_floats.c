@@ -28,8 +28,8 @@ Test(suite_name, comparing_unequal_doubles_pretty_close) {
 
 Test(suite_name, comparing_unequal_doubles_five_decimals,
      .description = CYAN
-     "\nThis one should give a false positive, double_a(1.00001) == double_b(1.00000)") {
-    double a = 1.00001;
-    double b = 1.00000;
+     "\nThis one should give a false positive, double_a(1.000001) == double_b(1.000000)") {
+    double a = 1.000001;
+    double b = 1.000000;
     cr_expect_eq(TRUE, doubles_eq(a, b));
 }
