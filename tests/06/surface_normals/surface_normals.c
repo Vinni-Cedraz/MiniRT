@@ -1,7 +1,5 @@
 #include "tester.h"
 
-#define SQRT_OF_3 1.7320
-
 // Scenario : The normal on a sphere at a point on the x axis
 #define scenario1 CYAN                 		          \
 "\nGiven s ← create_sphere()\n"						  \
@@ -54,14 +52,13 @@ Test(surface_normals, sphere_normal_at_z_axial_point, .description = scenario3) 
 "When n ← sphere_normal_at(s, point(√3/3, √3/3, √3/3))\n"    \
 "Then n = vector(√3/3, √3/3, √3/3)\n"
 
-const t_tuple	_p1 = {(SQRT_OF_3/3), (SQRT_OF_3/3), (SQRT_OF_3/3), POINT};
-
 Test(surface_normals, sphere_normal_at_nonaxial_point, .description = scenario4) {
+	const t_tuple	_p1 = {(sqrt(3)/3), (sqrt(3)/3), (sqrt(3)/3), POINT};
 	const t_sphere	s = create_sphere();
 	t_tuple			normal;
 
 	sphere_normal_at(&s, _p1, normal);
-	cr_expect_tuples_eq(normal, (t_tuple){SQRT_OF_3 / 3, SQRT_OF_3 / 3, SQRT_OF_3 / 3, VECTOR});
+	cr_expect_tuples_eq(normal, (t_tuple){sqrt(3)/3, sqrt(3)/3, sqrt(3)/3, VECTOR});
 }
 
 // Scenario : The normal is a normalized vector
@@ -71,6 +68,7 @@ Test(surface_normals, sphere_normal_at_nonaxial_point, .description = scenario4)
 "Then n = normalize(n)" RESET
 
 Test(surface_normals, the_normal_is_normalized, .description = scenario5) {
+	const t_tuple	_p1 = {(sqrt(3)/3), (sqrt(3)/3), (sqrt(3)/3), POINT};
 	const t_sphere	s = create_sphere();
 	t_tuple			actual_normal;
 	t_tuple			expected_normal;
@@ -91,7 +89,7 @@ Test(surface_normals, normal_on_a_translated_sphere, .description = scenario6) {
 	t_sphere		s;
 	t_tuple			actual_normal;
 	t_tuple			expected_normal;
-	const t_tuple 	p = {0, 1.70711, -0.70711, POINT};
+	const t_tuple 	p = {0, 1.707107, -0.707107, POINT};
 
  	s = create_sphere();
 	set_transform(&s, create_translation_matrix((t_tuple) {0, 1, 0, POINT}));

@@ -30,10 +30,11 @@ Test(rotation, rotating_around_x_axis, .description = scenario2) {
 				  "Then inv * p = point(0, 0.707107, -0.707107)"RESET
 
 Test(rotation, the_inverse_of_the_rotation_matrix_rotates_in_the_opposite_direction, .description = scenario3) {
-	const t_matrix half_quarter = create_x_rotation_matrix(M_PI / 4);
-	const t_tuple expected = {0, 0.70710, -0.70710, POINT};
+	const t_matrix half_quarter = create_x_rotation_matrix(M_PI/4);
 	const t_matrix inverse_rotation = invert_matrix(half_quarter);
+	const t_tuple expected = {0, (sqrt(2)/2), -(sqrt(2)/2), POINT};
 	multiply_tuple_by_matrix(p, inverse_rotation, res);
+	print_tuple(res);
 	cr_expect_tuples_eq(res, expected);
 }
 
@@ -65,7 +66,6 @@ Test(rotation, rotating_around_y_axis, .description = scenario3) {
 				  "And full_quarter * p = point(-1, 0, 0)" RESET
 
 Test(rotation, rotating_around_z_axis, .description = scenario4) {
-	const t_tuple	p = {0, 1, 0, POINT};
 	const t_matrix	half_quarter = create_z_rotation_matrix(M_PI / 4);
 	const t_matrix	full_quarter = create_z_rotation_matrix(M_PI / 2);
 	const t_tuple	expected1 = {-0.707107, 0.707107, 0, POINT};
@@ -74,8 +74,6 @@ Test(rotation, rotating_around_z_axis, .description = scenario4) {
 	
 	multiply_tuple_by_matrix(p, half_quarter, res);
 	cr_expect_tuples_eq(expected1, res);
-	print_tuple(res);
 	multiply_tuple_by_matrix(p, full_quarter, res);
 	cr_expect_tuples_eq(expected2, res);
-	print_tuple(res);
 }

@@ -8,7 +8,7 @@ int main(void) {
     t_cylinder cyl;
 
     cyl = create_cylinder();
-    cyl.closed = FALSE;
+    cyl.closed = TRUE;
     set_cyl_min_max(&cyl, -1, 1);
 
     t_matrix rotation_z = create_z_rotation_matrix(M_PI / 6);

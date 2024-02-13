@@ -12,9 +12,10 @@
 
 Test(identifying_hits, positive_t, .description = scenario1) {
 	const t_sphere s = create_sphere();
+	const t_sphere *s_ptr = &s;
 	const t_node *arr[] = {
-		intersection(1, (void *)&s),
-		intersection(2, (void *)&s),
+		intersection(1, (t_shape **)&s_ptr),
+		intersection(2, (t_shape **)&s_ptr),
 		NULL
 	};
 	const t_intersection xs = link_intersection_nodes(arr);
@@ -34,16 +35,18 @@ Test(identifying_hits, positive_t, .description = scenario1) {
 Test(identifying_hits, negative_t, .description = scenario2)
 {
 	const t_sphere s = create_sphere();
+	const t_sphere *s_ptr = &s;
 	const t_node *arr[] = {
-		intersection(-1, (void *)&s),
-		intersection(1, (void *)&s),
+		intersection(-1, (t_shape **)&s_ptr),
+		intersection(1, (t_shape **)&s_ptr),
 		NULL
 	};
 	const t_intersection xs = link_intersection_nodes(arr);
 	const t_node hit = get_hit(xs);
+	printf("%f\n", hit.t);
 	cr_expect_eq(hit.t, 1);
 }
-//
+
 // Scenario : The hit, when all intersections have negative t
 #define scenario3 CYAN \
 "Given s ← sphere()\n" \
@@ -56,15 +59,17 @@ Test(identifying_hits, negative_t, .description = scenario2)
 Test(identifying_hits, all_negatives, .description = scenario3)
 {
 	const t_sphere s = create_sphere();
+	const t_sphere *s_ptr = &s;
 	const t_node *arr[] = { 
-		intersection(-2, (void *)&s),
-		intersection(-1, (void *)&s),
+		intersection(-2, (t_shape **)&s_ptr),
+		intersection(-1, (t_shape **)&s_ptr),
 		NULL
 	};
 	const t_intersection xs = link_intersection_nodes(arr);
 	const t_node hit = get_hit(xs);
 	cr_expect_eq(hit.object, NULL);
 }
+
 // Scenario : The hit is always the lowest nonnegative intersection
 #define scenario4 CYAN \
 "Given s ← sphere()\n" \
@@ -79,11 +84,12 @@ Test(identifying_hits, all_negatives, .description = scenario3)
 Test(identifying_hits, hit_is_alway_lowest_nonnegative_intersection, .description = scenario4)
 {
 	const t_sphere s = create_sphere();
+	const t_sphere *s_ptr = &s;
 	const t_node *arr[] = {
-		intersection(5, (void *)&s),
-		intersection(7, (void *)&s),
-		intersection(-3, (void *)&s),
-		intersection(2, (void *)&s),
+		intersection(5, (void *)&s_ptr),
+		intersection(7, (void *)&s_ptr),
+		intersection(-3, (void *)&s_ptr),
+		intersection(2, (void *)&s_ptr),
 		NULL
 	};
 	const t_intersection xs = link_intersection_nodes(arr);

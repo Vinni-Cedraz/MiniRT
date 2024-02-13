@@ -73,6 +73,9 @@ Test(scaling, multiply_by_inverse_scaling_matrix, .description=scenario3)
 	transform = create_scaling_matrix(2, 3, 4);
 	inv = invert_matrix(transform);
 	multiply_tuple_by_matrix(vector, inv, result);
+	printf(RED"DEBUG:\n"RESET);
+	print_tuple(result);
+	print_tuple(expected);
 	cr_expect_tuples_eq(result, expected);
 }
 

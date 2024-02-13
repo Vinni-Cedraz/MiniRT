@@ -69,7 +69,7 @@ Test(camera, ray_through_a_corner, .description = scenario4) {
     const t_camera c = create_camera(201, 101, M_PI / 2);
     const t_ray r = ray_for_pixel(c, 0, 0);
     cr_expect_eq(tuples_eq(r.origin, (t_tuple){0, 0, 0, POINT}), TRUE);
-    cr_expect_eq(tuples_eq(r.direction, (t_tuple){0.6651, 0.3325, -0.6685, VECTOR}), TRUE);
+    cr_expect_eq(tuples_eq(r.direction, (t_tuple){0.66519, 0.33259, -0.66851, VECTOR}), TRUE);
 }
 
 // Scenario: Constructing a ray when the camera is transformed
@@ -117,5 +117,5 @@ Test(camera, rendering_a_world, .description = scenario6)
 	normalize(forward, forward);
 	c.transform = view_transform(from, forward, up);
 	image = render(c, w);
-	cr_expect_eq(tuples_eq(image.pixels[5][5], (t_tuple){0.3806, 0.4758, 0.2855, COLOR}), TRUE);
+	cr_expect_eq(tuples_eq(image.pixels[5][5], (t_tuple){0.38066, 0.47583, 0.28550, COLOR}), TRUE);
 }
