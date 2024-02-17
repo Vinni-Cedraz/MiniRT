@@ -49,7 +49,6 @@ Test(translation, multiplying_by_inverse_of_translation, .description = scenario
  	p[X] = -3, p[Y] = 4, p[Z] = 5, p[W] = POINT;
 	multiply_tuple_by_matrix(p, inverse_of_translation_matrix, result);
 	const t_tuple	expected = {-8, 7, 3, POINT};
-	printf(RED"DEBUG:\n"RESET);
 	print_tuple(result);
 	print_tuple(expected);
 	cr_expect_tuples_eq(result, expected);
