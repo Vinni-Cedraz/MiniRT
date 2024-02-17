@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/07/building_world",
+  "directory": "/root/MiniRT/tests/07/building_world",
   "arguments": [
    "cc",
    "-O3",
@@ -19,7 +19,7 @@
   "file": "building_world.c"
  },
  {
-  "directory": "/home/myuser/MiniRT/tests/07/building_world",
+  "directory": "/root/MiniRT/tests/07/building_world",
   "arguments": [
    "cc",
    "-O3",

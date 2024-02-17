@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/07/implementing_camera",
+  "directory": "/root/MiniRT/tests/07/implementing_camera",
   "arguments": [
    "cc",
    "-O3",
