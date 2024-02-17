@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/09/refactoring_shapes",
+  "directory": "/root/MiniRT/tests/09/refactoring_shapes",
   "arguments": [
    "cc",
    "-O3",

@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/08/testing_for_shadows",
+  "directory": "/root/MiniRT/tests/08/testing_for_shadows",
   "arguments": [
    "cc",
    "-O3",

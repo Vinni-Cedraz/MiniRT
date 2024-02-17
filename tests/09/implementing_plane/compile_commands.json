@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/09/implementing_plane",
+  "directory": "/root/MiniRT/tests/09/implementing_plane",
   "arguments": [
    "cc",
    "-O3",

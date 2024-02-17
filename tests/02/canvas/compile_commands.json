@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/02/canvas",
+  "directory": "/root/MiniRT/tests/02/canvas",
   "arguments": [
    "cc",
    "-O3",

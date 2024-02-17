@@ -1,12 +1,11 @@
 [
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -19,13 +18,12 @@
   "file": "./src/minirt.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -38,13 +36,12 @@
   "file": "./src/math/ppm/canvas_to_ppm.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -57,13 +54,12 @@
   "file": "./src/math/ppm/canvas_to_ppm_aux.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -76,13 +72,12 @@
   "file": "./src/math/canvas/create_canvas.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -95,13 +90,12 @@
   "file": "./src/math/canvas/write_pixel.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -114,13 +108,12 @@
   "file": "./src/math/tuples/basic_tuple_operations.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -133,13 +126,12 @@
   "file": "./src/math/tuples/compare_floats.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -152,13 +144,12 @@
   "file": "./src/math/tuples/complex_tuple_operations.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -171,13 +162,12 @@
   "file": "./src/math/tuples/create_tuples.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -190,13 +180,12 @@
   "file": "./src/math/matrices/mult_matrices.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -209,13 +198,12 @@
   "file": "./src/math/matrices/comparison.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -228,13 +216,12 @@
   "file": "./src/math/matrices/transpose_matrix.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -247,13 +234,12 @@
   "file": "./src/math/matrices/2x2determinant.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -266,13 +252,12 @@
   "file": "./src/math/matrices/large_determinants.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -285,13 +270,12 @@
   "file": "./src/math/matrices/minors.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -304,13 +288,12 @@
   "file": "./src/math/matrices/submatrices.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -323,13 +306,12 @@
   "file": "./src/math/matrices/invert_matrix.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -342,13 +324,12 @@
   "file": "./src/math/matrices/create_matrix.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -361,13 +342,12 @@
   "file": "./src/math/matrix_transformations/translation.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -380,13 +360,12 @@
   "file": "./src/math/matrix_transformations/rotation.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -399,13 +378,12 @@
   "file": "./src/math/matrix_transformations/shearing.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -418,13 +396,12 @@
   "file": "./src/math/matrix_transformations/scaling.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -437,13 +414,12 @@
   "file": "./src/math/canvas/translate_coordinate.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -456,13 +432,12 @@
   "file": "./src/math/rays/rays.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -475,13 +450,12 @@
   "file": "./src/math/rays/point.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -494,13 +468,12 @@
   "file": "./src/math/sphere/create.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -513,13 +486,12 @@
   "file": "./src/math/create_intersection/create_intersection.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -532,13 +504,12 @@
   "file": "./src/math/create_intersection/get_hit.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -551,13 +522,12 @@
   "file": "./src/math/transform_ray/transform_ray.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -570,13 +540,12 @@
   "file": "./src/math/create_intersection/set_transform.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -589,13 +558,12 @@
   "file": "./src/math/light_and_shading/surface_normals.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -608,13 +576,12 @@
   "file": "./src/math/light_and_shading/reflect.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -627,13 +594,12 @@
   "file": "./src/math/light_and_shading/create_material.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -646,13 +612,12 @@
   "file": "./src/math/light_and_shading/calculate_lighting.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -665,13 +630,12 @@
   "file": "./src/math/making_scene/create_world.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -684,13 +648,12 @@
   "file": "./src/math/light_and_shading/set_material.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -703,13 +666,12 @@
   "file": "./src/math/create_intersection/intersect_world_with_ray.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -722,13 +684,12 @@
   "file": "./src/math/create_intersection/prepare_computations.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -741,13 +702,12 @@
   "file": "./src/math/create_intersection/shade_hit.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -760,13 +720,12 @@
   "file": "./src/math/create_intersection/color_at.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -779,13 +738,12 @@
   "file": "./src/math/camera/view_transformation.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -798,13 +756,12 @@
   "file": "./src/math/camera/create_camera.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -817,13 +774,12 @@
   "file": "./src/math/camera/ray_for_pixel.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -836,13 +792,12 @@
   "file": "./src/math/camera/render.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -855,13 +810,12 @@
   "file": "./src/math/sphere/intersect_sphere.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -874,13 +828,12 @@
   "file": "./src/math/plane/intersect_plane.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -893,13 +846,12 @@
   "file": "./src/math/cylinder/intersect_cylinder.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -912,13 +864,12 @@
   "file": "./src/math/plane/create_plane.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -931,13 +882,12 @@
   "file": "./src/math/cylinder/create_cylinder.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -950,13 +900,12 @@
   "file": "./src/math/cylinder/cylinder_setters.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -969,13 +918,12 @@
   "file": "./src/math/light_and_shading/shadows.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -988,13 +936,12 @@
   "file": "./src/render/default_world.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -1007,13 +954,12 @@
   "file": "./src/render/render_image.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -1026,13 +972,12 @@
   "file": "./src/utils/endwith.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -1045,13 +990,12 @@
   "file": "./src/parser/load_file.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -1064,13 +1008,12 @@
   "file": "./src/parser/ambiente_lightning.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -1083,13 +1026,12 @@
   "file": "./src/parser/camera.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -1102,13 +1044,12 @@
   "file": "./src/parser/cylinder_parse.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -1121,13 +1062,12 @@
   "file": "./src/parser/light_parse.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -1140,13 +1080,12 @@
   "file": "./src/parser/plane_parse.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -1159,13 +1098,12 @@
   "file": "./src/parser/sphere_parse.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",
@@ -1178,13 +1116,12 @@
   "file": "./src/parser/parse_functions_table.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-O3",
    "-I",
    "./include",
    "-I",

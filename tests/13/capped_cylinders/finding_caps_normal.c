@@ -52,42 +52,42 @@ Test(capped_cylinders, finding_caps_normal3) {
   cylinder_normal_at((t_shape *)&cyl, point, normal);
   cr_expect_tuples_eq(normal, expected_normal);
 }
-//
-// // 4 | point(0, 2, 0)		| vector(0, 1, 0)  |
-// Test(capped_cylinders, finding_caps_normal4) {
-//   t_cylinder cyl = create_cylinder();
-//   const t_tuple point = {0, 2, 0, POINT};
-//   const t_tuple expected_normal = {0, 1, 0, VECTOR};
-//   t_tuple normal;
-//
-//   cyl.closed = TRUE;
-//   set_cyl_min_max(&cyl, 1, 2);
-//   cylinder_normal_at((t_shape *)&cyl, point, normal);
-//   cr_expect_tuples_eq(normal, expected_normal);
-// }
-//
-// // 5 | point(0.5, 2, 0)	| vector(0, 1, 0)  |
-// Test(capped_cylinders, finding_caps_normal5) {
-//   t_cylinder cyl = create_cylinder();
-//   const t_tuple point = {0.5, 2, 0, POINT};
-//   const t_tuple expected_normal = {0, 1, 0, VECTOR};
-//   t_tuple normal;
-//
-//   cyl.closed = TRUE;
-//   set_cyl_min_max(&cyl, 1, 2);
-//   cylinder_normal_at((t_shape *)&cyl, point, normal);
-//   cr_expect_tuples_eq(normal, expected_normal);
-// }
-//
-// // 6 | point(0, 2, 0.5)	| vector(0, 1, 0)  |
-// Test(capped_cylinders, finding_caps_normal6) {
-//   t_cylinder cyl = create_cylinder();
-//   const t_tuple point = {0, 2, 0.5, POINT};
-//   const t_tuple expected_normal = {0, 1, 0, VECTOR};
-//   t_tuple normal;
-//
-//   cyl.closed = TRUE;
-//   set_cyl_min_max(&cyl, 1, 2);
-//   cylinder_normal_at((t_shape *)&cyl, point, normal);
-//   cr_expect_tuples_eq(normal, expected_normal);
-// }
+
+// 4 | point(0, 2, 0)		| vector(0, 1, 0)  |
+Test(capped_cylinders, finding_caps_normal4) {
+  t_cylinder cyl = create_cylinder();
+  const t_tuple point = {0, 2, 0, POINT};
+  const t_tuple expected_normal = {0, 1, 0, VECTOR};
+  t_tuple normal;
+
+  cyl.closed = TRUE;
+  set_cyl_min_max(&cyl, 1, 2);
+  cylinder_normal_at((t_shape *)&cyl, point, normal);
+  cr_expect_tuples_eq(normal, expected_normal);
+}
+
+// 5 | point(0.5, 2, 0)	| vector(0, 1, 0)  |
+Test(capped_cylinders, finding_caps_normal5) {
+  t_cylinder cyl = create_cylinder();
+  const t_tuple point = {0.5, 2, 0, POINT};
+  const t_tuple expected_normal = {0, 1, 0, VECTOR};
+  t_tuple normal;
+
+  cyl.closed = TRUE;
+  set_cyl_min_max(&cyl, 1, 2);
+  cylinder_normal_at((t_shape *)&cyl, point, normal);
+  cr_expect_tuples_eq(normal, expected_normal);
+}
+
+// 6 | point(0, 2, 0.5)	| vector(0, 1, 0)  |
+Test(capped_cylinders, finding_caps_normal6) {
+  t_cylinder cyl = create_cylinder();
+  const t_tuple point = {0, 2, 0.5, POINT};
+  const t_tuple expected_normal = {0, 1, 0, VECTOR};
+  t_tuple normal;
+
+  cyl.closed = TRUE;
+  set_cyl_min_max(&cyl, 1, 2);
+  cylinder_normal_at((t_shape *)&cyl, point, normal);
+  cr_expect_tuples_eq(normal, expected_normal);
+}
