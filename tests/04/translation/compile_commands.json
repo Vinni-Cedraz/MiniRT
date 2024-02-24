@@ -1,21 +1,21 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/01/comparing_floats",
+  "directory": "/home/myuser/MiniRT/tests/04/translation",
   "arguments": [
    "cc",
    "-O3",
    "-lcriterion",
    "-lm",
    "-w",
-   "compare_floats.c",
+   "translation.c",
    "-I../../",
    "-I../../../include/",
    "-I../../../libs/",
    "../../../libs/*.a",
    "../../../minirt.a",
    "-o",
-   "compare_floats"
+   "translation"
   ],
-  "file": "compare_floats.c"
+  "file": "translation.c"
  }
 ]

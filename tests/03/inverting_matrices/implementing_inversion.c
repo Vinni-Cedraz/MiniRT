@@ -57,7 +57,7 @@ Test(inversion, testing_a_noninvertible_matrix_for_invertibility, .description =
 	cr_expect_eq(0, _4x4determinant(a));
 	cr_expect_eq(FALSE, is_invertible(a));
 }
-//
+
 // Scenario : Calculating the invert_matrix of a matrix
 #define scenario3 CYAN \
 "\nGiven the following 4x4 matrix A:\n"                               \
@@ -88,7 +88,7 @@ Test(inversion, calculating_the_inverse_of_a_matrix, .description = scenario3) {
 	t_matrix b = invert_matrix(a);
 	cr_assert_eq(532, _4x4determinant(a));
 	cr_assert_eq(-160, _4x4cofactor(a, 2, 3));
-	cr_assert_eq(TRUE, doubles_eq(-160.0/532, b.row_4[Z]));
+	cr_assert_eq(TRUE, doubles_eq(-160.0/532, b.row_4[2]));
 	cr_assert_eq(105, _4x4cofactor(a, 3, 2));
 	cr_assert_eq(TRUE, doubles_eq(b.row_3[W], 105.0/532));
 	t_matrix expected = {
@@ -186,8 +186,7 @@ Test(inversion, multiplying_a_product_by_its_inverse, .description = scenario6) 
 		{6,-2,0,5}
 	});
 	t_matrix c = mult_matrices(a, b);
-	t_matrix d = mult_matrices(c, invert_matrix(b));
-	cr_assert_eq(TRUE, matrices_eq(a, d));
+	cr_assert_eq(TRUE, matrices_eq(a, mult_matrices(c, invert_matrix(b))));
 }
  
 #define Scenario7 CYAN \
@@ -212,4 +211,27 @@ Test(inversion, identity_matrix_inversion, .description = Scenario7) {
 	});
 	t_matrix b = invert_matrix(a);
 	cr_assert_eq(TRUE, matrices_eq(a, b));
+}
+
+// THIS TEST CRASHES IF I PRINT THE CONTENT OF THE ROWS!!!
+// Scenario : inverting the inverse matrix
+#define Scenario8 CYAN \
+	"\nGiven matrix A\n" \
+	"And matrix B = invert(A)\n" \
+	"Then A == invert(B)"RESET
+
+Test(inversion, inverse_by_the_inverse, .description = Scenario8) {
+t_matrix a = create_4x4_matrix(&(t_matrix){
+	{3,-9,7,3},
+	{3,-8,2,-9},
+	{-4,4,4,1},
+	{-6,5,-1,1}
+});
+t_matrix b = invert_matrix(a);
+// print_tuple(b.row_1);
+// print_tuple(b.rows[ROW1]);
+t_matrix c = invert_matrix(b);
+// print_tuple(c.row_1);
+// print_tuple(c.rows[ROW1]);
+cr_assert_eq(TRUE, matrices_eq(a, c));
 }

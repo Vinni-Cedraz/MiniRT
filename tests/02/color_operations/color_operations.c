@@ -13,7 +13,7 @@ const t_tuple expected[] = { {1.6, 0.7, 1.0,  COLOR}, {0.2, 0.5, 0.5,  COLOR}, {
   	   " And  c2 ← color(0.7, 0.1, 0.25)\n"                                 \
        " Then c1 + c2 = color(1.6, 0.7, 1.0)" RESET
 Test(suite_name, adding_colors, .description = scenario1) {
-	add_tuples(*c_1, *c_2, result);
+	add_tuples(c_1[0], c_2[0], result);
    	cr_expect_tuples_eq(result, expected[0]);
 }
 
@@ -23,7 +23,7 @@ Test(suite_name, adding_colors, .description = scenario1) {
        " And  c2 ← color(0.7, 0.1, 0.25)\n"                                  \
        " Then c1 - c2 = color(0.2, 0.5, 0.5)" RESET
 Test(suite_name, subtracting_colors, .description = scenario2) {
-	subtract_tuples(*c_1, *c_2, result);
+	subtract_tuples(c_1[0], c_2[0], result);
 	cr_expect_tuples_eq(result, expected[1]);
 }
 

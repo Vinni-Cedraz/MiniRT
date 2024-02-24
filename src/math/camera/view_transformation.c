@@ -17,9 +17,9 @@ static t_matrix	move_scene_into_place(t_matrix *orientation, t_tuple from);
 
 t_matrix	view_transform(t_tuple from, t_tuple forward, t_tuple up)
 {
-	t_tuple		left;
-	t_tuple		true_up;
-	t_matrix	orientation;
+	t_tuple			left;
+	t_tuple			true_up;
+	t_matrix		orientation;
 	const double	dot_product = dot(forward, up);
 
 	if (doubles_eq(dot_product, 1))

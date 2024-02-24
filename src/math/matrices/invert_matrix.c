@@ -12,6 +12,8 @@
 
 #include "minirt.h"
 
+// #include "../../../tests/tester.h"
+
 t_matrix	create_matrix_of_cofactors(const t_matrix m);
 t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, double det);
 
@@ -51,10 +53,12 @@ t_matrix	create_matrix_of_cofactors(const t_matrix m)
 		res.row_3[col] = _4x4cofactor(m, ROW3, col);
 		res.row_4[col] = _4x4cofactor(m, ROW4, col);
 	}
+	res = create_4x4_matrix(&res);
 	return (res);
 }
 
-t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const double det)
+t_matrix	divide_transposed_matrix_by_determinant(t_matrix m,
+		const double det)
 {
 	int			i;
 	t_matrix	res;
@@ -67,10 +71,10 @@ t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const double det)
 		res.row_3[i] = m.row_3[i] / det;
 		res.row_4[i] = m.row_4[i] / det;
 	}
+	res = create_4x4_matrix(&res);
 	return (res);
 }
 
-// #include "../../tests/tester.h"
 // // check the cofactor matrix is correct
 // Test(invert, cofactor_matrix) {
 // 	const t_matrix m = create_4x4_matrix(&(t_matrix){
@@ -88,10 +92,10 @@ t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const double det)
 // 		{NULL}
 // 	});
 // 	const t_matrix res = create_matrix_of_cofactors(m);
-// 	cr_expect_tuple_eq(res.row_1, expected.row_1);
-// 	cr_expect_tuple_eq(res.row_2, expected.row_2);
-// 	cr_expect_tuple_eq(res.row_3, expected.row_3);
-// 	cr_expect_tuple_eq(res.row_4, expected.row_4);
+// 	cr_expect_tuples_eq(res.row_1, expected.row_1);
+// 	cr_expect_tuples_eq(res.row_2, expected.row_2);
+// 	cr_expect_tuples_eq(res.row_3, expected.row_3);
+// 	cr_expect_tuples_eq(res.row_4, expected.row_4);
 // }
 //
 // Test(invert, transpose_of_cofactor) {
@@ -111,10 +115,10 @@ t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const double det)
 // 	});
 // 	const t_matrix cofact = create_matrix_of_cofactors(m);
 // 	const t_matrix res = transpose_matrix(cofact);
-// 	cr_expect_tuple_eq(res.row_1, expected.row_1);
-// 	cr_expect_tuple_eq(res.row_2, expected.row_2);
-// 	cr_expect_tuple_eq(res.row_3, expected.row_3);
-// 	cr_expect_tuple_eq(res.row_4, expected.row_4);
+// 	cr_expect_tuples_eq(res.row_1, expected.row_1);
+// 	cr_expect_tuples_eq(res.row_2, expected.row_2);
+// 	cr_expect_tuples_eq(res.row_3, expected.row_3);
+// 	cr_expect_tuples_eq(res.row_4, expected.row_4);
 // }
 //
 // Test(invert, divide_transposed_matrix) {
@@ -136,10 +140,10 @@ t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const double det)
 // 	const t_matrix cofact = create_matrix_of_cofactors(m);
 // 	const t_matrix trans = transpose_matrix(cofact);
 // 	const t_matrix res = divide_transposed_matrix_by_determinant(trans , det);
-// 	cr_expect_tuple_eq(res.row_1, expected.row_1);
-// 	cr_expect_tuple_eq(res.row_2, expected.row_2);
-// 	cr_expect_tuple_eq(res.row_3, expected.row_3);
-// 	cr_expect_tuple_eq(res.row_4, expected.row_4);
+// 	cr_expect_tuples_eq(res.row_1, expected.row_1);
+// 	cr_expect_tuples_eq(res.row_2, expected.row_2);
+// 	cr_expect_tuples_eq(res.row_3, expected.row_3);
+// 	cr_expect_tuples_eq(res.row_4, expected.row_4);
 // }
 //
 // Test(invert, cofactor_matrix_of_identity_matrix) {
@@ -167,20 +171,20 @@ t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, const double det)
 // 	t_matrix		inverse_of_translation_matrix;
 // 	t_tuple			result;
 //
-// 	translation_matrix = translation((t_tuple){5, -3, 2, POINT});
+// 	translation_matrix = create_translation_matrix((t_tuple){5, -3, 2, POINT});
 // 	inverse_of_translation_matrix = invert_matrix(translation_matrix);
 //  	p[X] = -3, p[Y] = 4, p[Z] = 5, p[W] = POINT;
 // 	printf(CYAN"translation matrix: \n"RESET);
 // 	print_4x4matrix(translation_matrix);
 // 	printf(CYAN"inverse matrix: \n"RESET);
 // 	print_4x4matrix(inverse_of_translation_matrix);
-// 	// multiply_tuple_by_matrix(p, inverse_of_translation_matrix, result);
-// 	// printf(CYAN"result point: \n"RESET);
-// 	// print_tuple(result);
-// 	// printf(CYAN"expected , TRUEpoint: \n"RESET);
+// 	multiply_tuple_by_matrix(p, inverse_of_translation_matrix, result);
+// 	printf(CYAN"result point: \n"RESET);
+// 	print_tuple(result);
+// 	printf(CYAN"expected point: \n"RESET);
 // 	const t_tuple	expected = {-8, 7, 3, POINT};
-// 	// print_tuple(expected);
-// 	cr_expect_tuple_eq(result, expected);
+// 	print_tuple(expected);
+// 	cr_expect_tuples_eq(result, expected);
 // }
 //
 // Test(invert, matrix_of_divisions_of_everything_by_original_det) {

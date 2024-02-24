@@ -2,25 +2,25 @@
 
 // fun fact: the dot product of two unit vectors is the cosine of the angle between them
 
-#define scenario1                                                                      \
-    CYAN "\nGiven a ← vector(1, 2, 3)\n"                                               \
-         "And b ← vector(2, 3, 4)\n"                                                   \
-         "And dot(a, b, )\n" 											   \
-		 "Then  == 20"	RESET																			
+#define scenario1                                                                       \
+    CYAN "\nGiven a ← vector(1, 2, 3)\n"                                                \
+         "And b ← vector(2, 3, 4)\n"                                                    \
+         "And dot(a, b)\n" 											   					\
+		 "Then dot(a, b) == 20\n"RESET
 #define scenario2                                                                       \
     CYAN "\nGiven a <-vector(1, 0, 0)\n"                                                \
-         "And b <- vector(1, 0, 0)\n"                                                    \
-         "And dot(a, b, ) = 1\n" 											 \
+         "And b <- vector(1, 0, 0)\n"                                                   \
+         "And dot(a, b, ) = 1\n" 											            \
 		 "Then  == 1" RESET
 #define scenario3                                                                        \
     CYAN "\nGiven a <-vector(-1, 0, 0)\n"                                                \
          "And b <- vector(1, 0, 0)\n"                                                    \
-         "And dot(a, b, ) = -1\n"                                             \
+         "And dot(a, b, ) = -1\n"                                                        \
 		 "Then  == -1" RESET
 #define scenario4                                                                        \
     CYAN "\nGiven a <-vector(1, 0, 0, 5)\n"                                              \
          "And b <- vector(-1, 0, 0, 1)\n"                                                \
-         "Then dot(a, b, ) returns an error" RESET
+         "Then dot(a, b) returns an error" RESET
 
 Test(dot_product, dot_product_of_two_tuples, .description = scenario1) {
 

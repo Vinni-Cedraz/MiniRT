@@ -4,7 +4,7 @@
 
 const t_tuple vectors[] = {
 		{1, 2, 3, VECTOR},
-		{1, -2, -3, VECTOR},
+		{-1, -2, -3, VECTOR},
 		{1, 0, 0, VECTOR},
 		{0, 1, 0, VECTOR},
 		{0, 0, 1, VECTOR},

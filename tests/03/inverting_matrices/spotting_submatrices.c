@@ -59,7 +59,7 @@ Test(spotting_submatrices, _3x3_submatrix, .description = scenario1) {
 Test(spotting_submatrices, submatrix_of_4x4_matrix, .description = scenario2) {
 	const t_matrix a = create_4x4_matrix(
 	&(t_matrix){
-		{-6,40,1,6},
+		{-6,1,1,6},
 		{-8,5,8,6},
 		{-1,0,8,2},
 		{-7,1,-1,1}});
@@ -70,6 +70,6 @@ Test(spotting_submatrices, submatrix_of_4x4_matrix, .description = scenario2) {
 		{-7,-1,1}});
 	t_3x3matrix result;
 
-	result = _4x4submatrix(a, 2, 1);
+	result = _4x4submatrix(a, ROW3, COL2);
 	cr_expect_eq(TRUE, _3x3matrices_eq(expected, result));
 }

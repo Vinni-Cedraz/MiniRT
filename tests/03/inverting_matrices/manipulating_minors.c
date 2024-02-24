@@ -29,8 +29,8 @@ Test(manipulating_minors, calculating_a_minor_of_a_3x3_matrix, .description = sc
 		{2,-1,-7},
 		{6,-1,5}
 	});
-	t_2x2matrix b = _3x3submatrix(a, 1, 0);
+	t_2x2matrix b = _3x3submatrix(a, ROW2, COL1);
 
 	cr_expect_eq(25, _2x2determinant(b));
-	cr_expect_eq(25, _3x3minor(a, 1, 0));
+	cr_expect_eq(25, _3x3minor(a, ROW2, COL1));
 }

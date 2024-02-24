@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/05/identifying_hits",
+  "directory": "/home/myuser/MiniRT/tests/05/identifying_hits",
   "arguments": [
    "cc",
    "-O3",

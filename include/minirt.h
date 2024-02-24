@@ -290,7 +290,7 @@ double					dot(const t_tuple a, const t_tuple b);
 t_matrix				mult_by_identity(t_matrix a);
 t_matrix				transpose_matrix(t_matrix a);
 double					_2x2determinant(const t_2x2matrix m);
-t_2x2matrix				_3x3submatrix(const t_3x3matrix m, int not_row,
+t_2x2matrix				_3x3submatrix(const t_3x3matrix m, int row_to_delete,
 							int col_to_delete);
 t_bool					tuples_neq(const double *result, const double *expected,
 							int len);

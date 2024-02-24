@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/05/intersecting_rays",
+  "directory": "/home/myuser/MiniRT/tests/05/intersecting_rays",
   "arguments": [
    "cc",
    "-O3",
@@ -19,7 +19,7 @@
   "file": "intersecting_rays.c"
  },
  {
-  "directory": "/root/MiniRT/tests/05/intersecting_rays",
+  "directory": "/home/myuser/MiniRT/tests/05/intersecting_rays",
   "arguments": [
    "cc",
    "-O3",
