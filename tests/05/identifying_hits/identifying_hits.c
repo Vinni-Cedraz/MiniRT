@@ -14,8 +14,8 @@ Test(identifying_hits, positive_t, .description = scenario1) {
 	const t_sphere s = create_sphere();
 	const t_sphere *s_ptr = &s;
 	const t_node *arr[] = {
-		intersection(1, (t_shape **)&s_ptr),
 		intersection(2, (t_shape **)&s_ptr),
+		intersection(1, (t_shape **)&s_ptr),
 		NULL
 	};
 	const t_intersection xs = link_intersection_nodes(arr);
@@ -37,8 +37,8 @@ Test(identifying_hits, negative_t, .description = scenario2)
 	const t_sphere s = create_sphere();
 	const t_sphere *s_ptr = &s;
 	const t_node *arr[] = {
-		intersection(-1, (t_shape **)&s_ptr),
 		intersection(1, (t_shape **)&s_ptr),
+		intersection(-1, (t_shape **)&s_ptr),
 		NULL
 	};
 	const t_intersection xs = link_intersection_nodes(arr);
@@ -61,8 +61,8 @@ Test(identifying_hits, all_negatives, .description = scenario3)
 	const t_sphere s = create_sphere();
 	const t_sphere *s_ptr = &s;
 	const t_node *arr[] = { 
-		intersection(-2, (t_shape **)&s_ptr),
 		intersection(-1, (t_shape **)&s_ptr),
+		intersection(-2, (t_shape **)&s_ptr),
 		NULL
 	};
 	const t_intersection xs = link_intersection_nodes(arr);
