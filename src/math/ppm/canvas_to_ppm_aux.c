@@ -15,8 +15,8 @@
 
 t_buf	normalize_rgb_string(int rgb)
 {
-	const int	normalized_rgbs[] = {rgb, 255, 0};
-	const int	idx = (rgb > 255) | ((rgb < 0) << 1);
+	int	normalized_rgbs[] = {rgb, 255, 0};
+	int	idx = (rgb > 255) | ((rgb < 0) << 1);
 
 	return (ft_simple_itoa(normalized_rgbs[idx]));
 }
@@ -39,10 +39,10 @@ void	concat_space(int *accumulator, t_buf *str)
 	strcat(str->buf, " ");
 }
 
-t_buf	color_to_string(const t_canvas *c, int i, int j)
+t_buf	color_to_string(t_canvas *c, int i, int j)
 {
-	const int	w = c->width;
-	const int	color[] = {
+	int	w = c->width;
+	int	color[] = {
 		(int)ceil(c->pixels[i / w][i % w][R] * 255),
 		(int)ceil(c->pixels[i / w][i % w][G] * 255),
 		(int)ceil(c->pixels[i / w][i % w][B] * 255),

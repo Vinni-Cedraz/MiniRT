@@ -25,7 +25,7 @@ t_world	default_world(void)
 {
 	t_world			w;
 	t_shape			*default_shape;
-	const t_sphere	default_sphere = create_sphere();
+	t_sphere	default_sphere = create_sphere();
 
 	w.count = 2;
 	default_shape = (t_shape *)&default_sphere;

@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_matrix	create_shearing_matrix(t_shearer s)
+t_matrix	*create_shearing_matrix(t_shearer s)
 {
 	return (create_4x4_matrix(&(t_matrix){
 			.row_1 = {1, s.x_to_y, s.x_to_z, 0},

@@ -13,7 +13,7 @@
 #include "minirt.h"
 
 void	sphere_normal_at( \
-		const t_shape *sphere, const t_tuple wrld_p, t_tuple normal)
+		t_shape *sphere, t_tuple wrld_p, t_tuple normal)
 {
 	t_tuple	obj_point;
 	t_tuple	obj_nrml;
@@ -27,7 +27,7 @@ void	sphere_normal_at( \
 }
 
 void	plane_normal_at( \
-		const t_shape *plane, const t_tuple wrld_p, t_tuple res)
+		t_shape *plane, t_tuple wrld_p, t_tuple res)
 {
 	t_tuple	obj_nrml;
 	t_tuple	wlrd_nrml;
@@ -40,7 +40,7 @@ void	plane_normal_at( \
 }
 
 void	cylinder_normal_at( \
-		const t_shape *cyl, const t_tuple wrld_p, t_tuple res)
+		t_shape *cyl, t_tuple wrld_p, t_tuple res)
 {
 	t_tuple		obj_point;
 	t_tuple		obj_nrml;

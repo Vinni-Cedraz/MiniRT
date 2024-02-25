@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-static inline size_t	aux_strlen(const char *str);
+static inline size_t	aux_strlen( char *str);
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr( char *s, int c)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ char	*ft_strrchr(const char *s, int c)
 	return (NULL);
 }
 
-static inline size_t	aux_strlen(const char *str)
+static inline size_t	aux_strlen( char *str)
 {
 	size_t	i;
 

@@ -25,7 +25,7 @@ Test(creating_rays, create_and_query_a_ray, .description = scenario1)
 {
 	t_tuple origin = {1, 2, 3, POINT};
 	t_tuple direction = {4, 5, 6, VECTOR};
-	const t_ray r = create_ray(origin, direction);
+	t_ray r = create_ray(origin, direction);
 
 	cr_expect_tuples_eq(r.origin, origin);
 	cr_expect_tuples_eq(r.direction , direction);
@@ -41,7 +41,7 @@ Test(creating_rays, create_and_query_a_ray, .description = scenario1)
 
 Test(creating_rays, point_from_distance, .description = scenario2)
 {
-	const t_ray ray = create_ray(
+	t_ray ray = create_ray(
 			(t_tuple){2,3,4, POINT},
 			(t_tuple){1,0,0, VECTOR}
 	);

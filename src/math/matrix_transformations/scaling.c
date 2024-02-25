@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_matrix	create_scaling_matrix(const double x, const double y, const double z)
+t_matrix	*create_scaling_matrix(double x, double y, double z)
 {
 	return (create_4x4_matrix(&(t_matrix){
 			.row_1 = {x, 0, 0, 0},

@@ -5,8 +5,8 @@
 // "You normalize a vector by dividing each of its components by its magnitude"
 
 t_tuple res;
-const t_tuple vecs[] = 	   {{4, 0, 0, VECTOR}, {1, 2, 3, VECTOR}};
-const t_tuple expected[] = {{1, 0, 0, VECTOR}, {1 / SQRT_14, 2 / SQRT_14, 3 / SQRT_14, VECTOR}};
+ t_tuple vecs[] = 	   {{4, 0, 0, VECTOR}, {1, 2, 3, VECTOR}};
+ t_tuple expected[] = {{1, 0, 0, VECTOR}, {1 / SQRT_14, 2 / SQRT_14, 3 / SQRT_14, VECTOR}};
 
 Test(normalization, normalizing_vector_4_0_0) {
     normalize(vecs[0], res);

@@ -17,7 +17,7 @@ static void		calculate_over_point(t_prep_comps *comps);
 t_prep_comps	prepare_computations(t_node *hit, t_ray ray)
 {
 	t_prep_comps				cmp;
-	const t_normal_at_function	normal_at[3] = {
+	t_normal_at_function	normal_at[3] = {
 		sphere_normal_at, plane_normal_at, cylinder_normal_at
 	};
 

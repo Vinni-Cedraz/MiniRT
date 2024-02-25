@@ -6,31 +6,31 @@
 #define canvas_pixels 1000
 
 static void normalize_rgb(t_tuple raw_rgb);
-static void get_ray_direction(const t_tuple position, const t_tuple ray_origin, t_tuple direction);
+static void get_ray_direction( t_tuple position,  t_tuple ray_origin, t_tuple direction);
 static void paint_a_pixel(t_canvas *c, int y, int x);
 static void randomize_color(t_tuple color);
-static void ray_casting(const double half, const double pixel_size, t_ray r, t_intersection xs);
+static void ray_casting( double half,  double pixel_size, t_ray r, t_intersection xs);
 
 t_canvas c;
 t_sphere s;
-const t_tuple ray_origin = {0, 0, -10.0, POINT};
+ t_tuple ray_origin = {0, 0, -10.0, POINT};
 
 Test(putting_it_together, drawing_a_circle) {
-    t_ray r;
-    t_intersection xs;
-    const double half = wall_size / 2;
-    const double pixel_size = wall_size / canvas_pixels;
+	t_ray r;
+	t_intersection xs;
+	double half = wall_size / 2;
+	double pixel_size = wall_size / canvas_pixels;
 
     c = create_canvas(canvas_pixels, canvas_pixels);
     s = create_sphere();
     set_transform(&s, create_scaling_matrix(9.980, 9.980, 9.980));
     ray_casting(half, pixel_size, r, xs);
-    t_constr *str = canvas_to_ppm(&c);
+    char * *str = canvas_to_ppm(&c);
     create_ppm_file(str, "drawing_a_circle.ppm");
     destroy_canvas(&c);
 }
 
-static void ray_casting(const double half, const double pixel_size, t_ray r, t_intersection xs) {
+static void ray_casting(double half, double pixel_size, t_ray r, t_intersection xs) {
     int x;
     int y;
     int world_x;
@@ -52,7 +52,7 @@ static void ray_casting(const double half, const double pixel_size, t_ray r, t_i
     }
 }
 
-static void get_ray_direction(const t_tuple position, const t_tuple ray_origin, t_tuple direction) {
+static void get_ray_direction( t_tuple position,  t_tuple ray_origin, t_tuple direction) {
     t_tuple sphere_to_ray;
 
     create_vector(sphere_to_ray);

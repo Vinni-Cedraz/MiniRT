@@ -21,6 +21,10 @@ t_bool	matrices_eq(t_matrix a, t_matrix b)
 	res += tuples_neq(a.row_2, b.row_2, 4);
 	res += tuples_neq(a.row_3, b.row_3, 4);
 	res += tuples_neq(a.row_4, b.row_4, 4);
+	res += tuples_neq(a.rows[ROW1], b.rows[ROW1], 4);
+	res += tuples_neq(a.rows[ROW2], b.rows[ROW2], 4);
+	res += tuples_neq(a.rows[ROW3], b.rows[ROW3], 4);
+	res += tuples_neq(a.rows[ROW4], b.rows[ROW4], 4);
 	return (!res);
 }
 
@@ -32,6 +36,9 @@ t_bool	_3x3matrices_eq(t_3x3matrix a, t_3x3matrix b)
 	res += tuples_neq(a.row_1, b.row_1, 3);
 	res += tuples_neq(a.row_2, b.row_2, 3);
 	res += tuples_neq(a.row_3, b.row_3, 3);
+	res += tuples_neq(a.rows[ROW1], b.rows[ROW1], 3);
+	res += tuples_neq(a.rows[ROW2], b.rows[ROW2], 3);
+	res += tuples_neq(a.rows[ROW3], b.rows[ROW3], 3);
 	return (!res);
 }
 
@@ -42,10 +49,12 @@ t_bool	_2x2matrices_eq(t_2x2matrix a, t_2x2matrix b)
 	res = 0;
 	res += tuples_neq(a.row_1, b.row_1, 2);
 	res += tuples_neq(a.row_2, b.row_2, 2);
+	res += tuples_neq(a.rows[ROW1], b.rows[ROW1], 2);
+	res += tuples_neq(a.rows[ROW2], b.rows[ROW2], 2);
 	return (!res);
 }
 
-t_bool	tuples_neq(const double *result, const double *expected, int len)
+t_bool	tuples_neq(double *result, double *expected, int len)
 {
 	int	i;
 
@@ -58,20 +67,15 @@ t_bool	tuples_neq(const double *result, const double *expected, int len)
 	return (FALSE);
 }
 
-t_matrix	mult_by_identity(t_matrix a)
-{
-	return (mult_matrices(a, create_identity_matrix()));
-}
-
 // #include "../../tests/tester.h"
 //
 // Test(matrices_eq, _3x3_matrices_eq) {
-// 	const t_3x3matrix a = {
+// 	t_3x3matrix a = {
 // 		{1, 2, 3},
 // 		{3, 2, 1},
 // 		{0, 2, 0},
 // 	};
-// 	const t_3x3matrix b = {
+// 	t_3x3matrix b = {
 // 		{1, 2, 3},
 // 		{3, 2, 1},
 // 		{0, 2, 0},
@@ -80,11 +84,11 @@ t_matrix	mult_by_identity(t_matrix a)
 // }
 //
 // Test(matrices_eq, _2x2matrices_eq) {
-// 	const t_2x2matrix c = {
+// 	t_2x2matrix c = {
 // 		{1, 2},
 // 		{2, 3},
 // 	};
-// 	const t_2x2matrix d = {
+// 	t_2x2matrix d = {
 // 		{1, 2},
 // 		{2, 3},
 // 	};

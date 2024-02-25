@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-static size_t			aux_strlen(const char *str);
+static size_t			aux_strlen( char *str);
 static void				*aux_calloc(size_t nmemb, size_t size);
-static void				*aux_memcpy(void *dst, const void *src, size_t n);
-static char				*aux_substr(char const *s, t_uint start, size_t len);
+static void				*aux_memcpy(void *dst,  void *src, size_t n);
+static char				*aux_substr(char  *s, t_uint start, size_t len);
 
-t_split	*ft_split(char const *s, char c)
+t_split	*ft_split(char  *s, char c)
 {
 	t_split	*tool;
 	size_t	i;
@@ -43,7 +43,7 @@ t_split	*ft_split(char const *s, char c)
 	return (tool);
 }
 
-static size_t	aux_strlen(const char *str)
+static size_t	aux_strlen( char *str)
 {
 	size_t	i;
 
@@ -53,7 +53,7 @@ static size_t	aux_strlen(const char *str)
 	return (i);
 }
 
-static void	*aux_memcpy(void *dst, const void *src, size_t n)
+static void	*aux_memcpy(void *dst,  void *src, size_t n)
 {
 	size_t			i;
 	unsigned char	*dest;
@@ -67,7 +67,7 @@ static void	*aux_memcpy(void *dst, const void *src, size_t n)
 	return (dest);
 }
 
-static char	*aux_substr(char const *s, t_uint start, size_t len)
+static char	*aux_substr(char  *s, t_uint start, size_t len)
 {
 	char	*substr;
 	t_uint	s_len;

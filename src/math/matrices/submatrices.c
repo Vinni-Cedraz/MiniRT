@@ -14,15 +14,15 @@
 
 static void	subrow(t_tuple row, int col_to_delete, double subrow[], int n);
 
-t_2x2matrix	_3x3submatrix(const t_3x3matrix m, int row_to_del, int col_to_del)
+t_2x2matrix	*_3x3submatrix(t_3x3matrix m, int row_to_del, int col_to_del)
 {
-	t_2x2matrix	res;
+	t_2x2matrix	*res;
 	int			m_idx;
 	int			res_idx;
 
 	m_idx = 0;
 	res_idx = 0;
-	res = create_2x2_matrix(&res);
+	res = create_2x2_matrix(&(t_2x2matrix){0});
 	while (m_idx != 3)
 	{
 		if (m_idx == row_to_del)
@@ -30,20 +30,20 @@ t_2x2matrix	_3x3submatrix(const t_3x3matrix m, int row_to_del, int col_to_del)
 			m_idx++;
 			continue ;
 		}
-		subrow(m.rows[m_idx++], col_to_del, res.rows[res_idx++], 3);
+		subrow(m.rows[m_idx++], col_to_del, res->rows[res_idx++], 3);
 	}
 	return (res);
 }
 
-t_3x3matrix	_4x4submatrix(const t_matrix m, int row_to_del, int col_to_delete)
+t_3x3matrix	*_4x4submatrix(t_matrix m, int row_to_del, int col_to_delete)
 {
-	t_3x3matrix	res;
+	t_3x3matrix	*res;
 	int			m_idx;
 	int			res_idx;
 
 	m_idx = 0;
 	res_idx = 0;
-	res = create_3x3_matrix(&res);
+	res = create_3x3_matrix(&(t_3x3matrix){0});
 	while (m_idx != 4)
 	{
 		if (m_idx == row_to_del)
@@ -51,7 +51,7 @@ t_3x3matrix	_4x4submatrix(const t_matrix m, int row_to_del, int col_to_delete)
 			m_idx++;
 			continue ;
 		}
-		subrow(m.rows[m_idx++], col_to_delete, res.rows[res_idx++], 4);
+		subrow(m.rows[m_idx++], col_to_delete, res->rows[res_idx++], 4);
 	}
 	return (res);
 }

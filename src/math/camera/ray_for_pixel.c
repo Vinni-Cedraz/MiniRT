@@ -40,7 +40,7 @@ static t_ray	compute_ray_direction(t_camera *c)
 	t_tuple			pixel;
 	t_tuple			tmp;
 	t_ray			ray;
-	const t_matrix	t = invert_matrix(c->transform);
+	t_matrix		*t = invert_matrix(*c->transform);
 
 	multiply_tuple_by_matrix((t_tuple){
 		c->world_x,

@@ -3,9 +3,9 @@
 #define suite_name color_operations
 
 t_tuple result;
-const t_tuple c_1[] = {{0.9, 0.6, 0.75, COLOR},  {0.2, 0.3, 0.4, COLOR}, {1, 0.2, 0.4, COLOR}};
-const t_tuple c_2[] = {{0.7, 0.1, 0.25, COLOR}, {0.9, 1, 0.1, COLOR}};
-const t_tuple expected[] = { {1.6, 0.7, 1.0,  COLOR}, {0.2, 0.5, 0.5,  COLOR}, {0.4, 0.6, 0.8,  COLOR}, {0.9, 0.2, 0.04, COLOR} };
+ t_tuple c_1[] = {{0.9, 0.6, 0.75, COLOR},  {0.2, 0.3, 0.4, COLOR}, {1, 0.2, 0.4, COLOR}};
+ t_tuple c_2[] = {{0.7, 0.1, 0.25, COLOR}, {0.9, 1, 0.1, COLOR}};
+ t_tuple expected[] = { {1.6, 0.7, 1.0,  COLOR}, {0.2, 0.5, 0.5,  COLOR}, {0.4, 0.6, 0.8,  COLOR}, {0.9, 0.2, 0.04, COLOR} };
 
 // Scenario: Adding colors
 #define scenario1        													\

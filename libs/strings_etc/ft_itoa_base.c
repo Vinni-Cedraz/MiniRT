@@ -14,7 +14,7 @@
 
 static size_t			converted_len(size_t n, char *base);
 static void				*aux_calloc(size_t nmemb, size_t size);
-static size_t			aux_strlen(const char *str);
+static size_t			aux_strlen( char *str);
 
 char	*ft_itoa_base(size_t n, char *base)
 {
@@ -49,7 +49,7 @@ static size_t	converted_len(size_t n, char *base)
 	return (nb.len);
 }
 
-static inline size_t	aux_strlen(const char *str)
+static inline size_t	aux_strlen( char *str)
 {
 	size_t	i;
 

@@ -9,9 +9,9 @@
 						"And inters.head->next->t = 6.0\n" RESET
 
 Test(intersecting_rays, intersects_at_two_points, .description = scenario1) {
-	const t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_sphere s = create_sphere();
-	const t_intersection intersect = create_intersection((void *)&s, r);
+	t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_sphere s = create_sphere();
+	t_intersection intersect = create_intersection((void *)&s, r);
 
 	cr_expect_eq(intersect.count, 2);
 	cr_expect_eq(TRUE, doubles_eq(intersect.head->t, 4.0));
@@ -27,9 +27,9 @@ Test(intersecting_rays, intersects_at_two_points, .description = scenario1) {
 				  "And inter.head->t = 5.0\n"                                 \
 
 Test(intersecting_rays, tangent_intersection, .description = scenario2) {
-	const t_ray r = create_ray((t_tuple){0, 1, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_sphere s = create_sphere();
-	const t_intersection intersect = create_intersection((void *)&s, r);
+	t_ray r = create_ray((t_tuple){0, 1, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_sphere s = create_sphere();
+	t_intersection intersect = create_intersection((void *)&s, r);
 
 	cr_expect_eq(intersect.count, 1);
 	cr_expect_eq(TRUE, doubles_eq(intersect.head->t, 5.0));
@@ -44,9 +44,9 @@ Test(intersecting_rays, tangent_intersection, .description = scenario2) {
 				 "And i.head == NULL" RESET
 
 Test(intersecting_rays, intersects_nothing, .description = scenario3) {
-	const t_ray r = create_ray((t_tuple){0, 2, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_sphere s = create_sphere();
-	const t_intersection intersect = create_intersection((void *)&s, r);
+	t_ray r = create_ray((t_tuple){0, 2, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_sphere s = create_sphere();
+	t_intersection intersect = create_intersection((void *)&s, r);
 
 	cr_expect_eq(intersect.count, 0);
 	cr_expect_eq(intersect.head, NULL);
@@ -62,9 +62,9 @@ Test(intersecting_rays, intersects_nothing, .description = scenario3) {
 					"And i.head->next->t = 1.0" RESET
 
 Test(intersecting_rays, ray_starts_inside_of_a_sphere, .description = scenario4) {
-	const t_ray r = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_sphere s = create_sphere();
-	const t_intersection intersect = create_intersection((void *)&s, r);
+	t_ray r = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_sphere s = create_sphere();
+	t_intersection intersect = create_intersection((void *)&s, r);
 
 	cr_expect_eq(intersect.count, 2);
 	cr_expect_eq(TRUE, doubles_eq(intersect.head->t, -1.0));
@@ -80,9 +80,9 @@ Test(intersecting_rays, ray_starts_inside_of_a_sphere, .description = scenario4)
 				"And i.head->next->t == -4.0\n" RESET
 
 Test(intersecting_rays, sphere_is_behind_the_ray, .description = scenario5) {
-	const t_ray r = create_ray((t_tuple){0, 0, 5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_sphere s = create_sphere();
-	const t_intersection intersect = create_intersection((void *)&s, r);
+	t_ray r = create_ray((t_tuple){0, 0, 5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_sphere s = create_sphere();
+	t_intersection intersect = create_intersection((void *)&s, r);
 
 	cr_expect_eq(intersect.count, 2);
 	if (doubles_eq(intersect.head->t, -6.0) == FALSE)

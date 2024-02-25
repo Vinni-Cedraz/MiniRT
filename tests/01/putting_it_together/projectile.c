@@ -12,7 +12,7 @@ t_projectile tick(t_environment env, t_projectile projectile) {
 }
 
 Test(suite_name, projectile_goes_up_and_down) {
-    const t_environment e = {.gravity = {0, -0.1, 0}, .wind = {-0.01, 0, 0}};
+     t_environment e = {.gravity = {0, -0.1, 0}, .wind = {-0.01, 0, 0}};
 	t_tuple vector = {1,1.8, 0, VECTOR};
 	t_projectile p;
 	t_tuple unit_vector;
@@ -26,6 +26,6 @@ Test(suite_name, projectile_goes_up_and_down) {
 		write_pixel(&canvas, p.position[Y], p.position[X], (t_tuple){1,0,0});
         p = tick(e, p);
     } while ((p.position[Y] >= 0)); 
-	t_constr str = canvas_to_ppm(&canvas);
+	char * str = canvas_to_ppm(&canvas);
 	create_ppm_file(str, "projectile.ppm");
 }

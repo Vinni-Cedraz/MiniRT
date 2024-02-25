@@ -14,14 +14,15 @@
 
 Test(the_identity_matrix, Multiplying_by_identity, .description = scenario1) {
 
-	t_matrix a = {
+	t_matrix *a = create_4x4_matrix(&(t_matrix){
 		{0, 1, 2, 4},
 		{1, 2, 4, 8},
 		{2, 4, 8, 16},
 		{4, 8, 16, 32},
-	};
+	});
+	t_matrix *identity_matrix = create_identity_matrix();
 
-	t_matrix res = mult_by_identity(a);
-	cr_expect_eq(TRUE, matrices_eq(a, res));
+	t_matrix *res = mult_matrices(a, identity_matrix);
+	cr_expect_eq(TRUE, matrices_eq(*a, *res));
 }
 

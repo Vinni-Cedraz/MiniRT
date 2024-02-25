@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-static inline void	*aux_memcpy(void *dst, const void *src, size_t n);
-static inline size_t	aux_strlen(const char *str);
+static inline void	*aux_memcpy(void *dst,  void *src, size_t n);
+static inline size_t	aux_strlen( char *str);
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst,  char *src, size_t size)
 {
 	if (aux_strlen(src) + 1 < size)
 		return (aux_strlen(aux_memcpy(dst, src, aux_strlen(src) + 1)));
@@ -25,7 +25,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (aux_strlen(src));
 }
 
-static inline void	*aux_memcpy(void *dst, const void *src, size_t n)
+static inline void	*aux_memcpy(void *dst,  void *src, size_t n)
 {
 	unsigned char	*dest;
 	unsigned char	*source;
@@ -39,7 +39,7 @@ static inline void	*aux_memcpy(void *dst, const void *src, size_t n)
 	return (dest);
 }
 
-static inline size_t	aux_strlen(const char *str)
+static inline size_t	aux_strlen( char *str)
 {
 	size_t	i;
 

@@ -33,10 +33,10 @@
 
 Test(chaining_transformations, join, .description = scenario1)
 {
-	const t_tuple	p = {1,0,1, POINT};
-	const t_matrix	_A = create_x_rotation_matrix(M_PI / 2);
-	const t_matrix	_B = create_scaling_matrix(5, 5, 5);
-	const t_matrix	_C = create_translation_matrix((t_tuple) {10, 5, 7});
+	 t_tuple	p = {1,0,1, POINT};
+	 t_matrix	*_A = create_x_rotation_matrix(M_PI / 2);
+	 t_matrix	*_B = create_scaling_matrix(5, 5, 5);
+	 t_matrix	*_C = create_translation_matrix((t_tuple) {10, 5, 7});
 
 //  rotation
 
@@ -72,14 +72,14 @@ Test(chaining_transformations, join, .description = scenario1)
 Test(chaining_transformations, reverse_order, .description = scene2)
 {
 	t_tuple 		result;
-	const t_tuple	p = {1, 0, 1, POINT};
-	const t_matrix	A = create_x_rotation_matrix(M_PI / 2);
-	const t_matrix	B_ = create_scaling_matrix(5, 5, 5);
-	const t_matrix	C = create_translation_matrix((t_tuple){10, 5, 7});
-	const t_matrix	T = chain_transformations((t_matrix*[]){&A, &B_, &C, NULL});
-	const t_tuple	expected = {15, 0, 7, POINT};
+	t_tuple		p = {1, 0, 1, POINT};
+	t_matrix	*A = create_x_rotation_matrix(M_PI / 2);
+	t_matrix	*B_ = create_scaling_matrix(5, 5, 5);
+	t_matrix	*C = create_translation_matrix((t_tuple){10, 5, 7});
+	t_matrix	*T = chain_transformations((t_matrix*[]){A, B_, C, NULL});
+	t_tuple		expected = {15, 0, 7, POINT};
 
-	print_4x4matrix(T);
+	print_4x4matrix(*T);
 	multiply_tuple_by_matrix(p, T, result);
 	print_tuple(result);
 	cr_expect_tuples_eq(result, expected);

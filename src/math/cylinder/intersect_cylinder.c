@@ -16,7 +16,7 @@ static double			cyl_discriminant(t_ray ray, t_baskara *bask);
 static double			_y0(t_ray *r, t_baskara *b);
 static double			_y1(t_ray *r, t_baskara *b);
 static t_intersection	create_cylinder_intersections(t_shape **obj, \
-							t_baskara *bask, t_ray *r, const t_cylinder *cyl);
+							t_baskara *bask, t_ray *r, t_cylinder *cyl);
 
 t_intersection	intersect_cylinder(t_shape **obj, t_tuple obj_dist_to_ray,
 		t_ray r)
@@ -24,7 +24,7 @@ t_intersection	intersect_cylinder(t_shape **obj, t_tuple obj_dist_to_ray,
 	t_intersection		xs;
 	double				dis;
 	t_baskara			bask;
-	const t_cylinder	*cyl = (t_cylinder *)*obj;
+	t_cylinder	*cyl = (t_cylinder *)*obj;
 
 	(void)obj_dist_to_ray;
 	ft_bzero((void *)&xs, sizeof(t_intersection));
@@ -43,12 +43,12 @@ t_intersection	intersect_cylinder(t_shape **obj, t_tuple obj_dist_to_ray,
 }
 
 static t_intersection	create_cylinder_intersections(t_shape **obj,
-		t_baskara *bask, t_ray *r, const t_cylinder *cyl)
+		t_baskara *bask, t_ray *r, t_cylinder *cyl)
 {
 	t_node		*arr[3];
 	int			counter;
-	const double	y0 = _y0(r, bask);
-	const double	y1 = _y1(r, bask);
+	double	y0 = _y0(r, bask);
+	double	y1 = _y1(r, bask);
 
 	counter = 0;
 	ft_bzero((void *)arr, sizeof(t_node *) * 3);

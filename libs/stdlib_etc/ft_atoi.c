@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-static int	convert_recursively(const char *a, unsigned int toi);
-static int	local_is_whitespace(const char c);
-static int	is_digit(const char c);
+static int	convert_recursively( char *a, unsigned int toi);
+static int	local_is_whitespace( char c);
+static int	is_digit( char c);
 
-int	ft_atoi(const char *str)
+int	ft_atoi( char *str)
 {
 	int	sign;
 
@@ -30,17 +30,17 @@ int	ft_atoi(const char *str)
 	return (convert_recursively(str, 0) * sign);
 }
 
-static int	local_is_whitespace(const char c)
+static int	local_is_whitespace( char c)
 {
 	return (c == ' ' || ('\t' <= c && c <= '\r'));
 }
 
-static int	is_digit(const char c)
+static int	is_digit( char c)
 {
 	return ((c >= '0' && c <= '9'));
 }
 
-static int	convert_recursively(const char *a, unsigned int toi)
+static int	convert_recursively( char *a, unsigned int toi)
 {
 	int	single_digit;
 

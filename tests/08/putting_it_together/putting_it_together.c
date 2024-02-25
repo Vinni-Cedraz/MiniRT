@@ -5,14 +5,14 @@ Test(putting, it_together) {
     t_sphere right_ball = create_sphere();
     t_sphere middle_ball = create_sphere();
     t_sphere floor = create_sphere();
-    t_sphere left_wall = create_sphere();
-    t_sphere right_wall = create_sphere();
+    // t_sphere left_wall = create_sphere();
+    // t_sphere right_wall = create_sphere();
 	t_cylinder cyl = create_cylinder();
 	t_cylinder right_cyl = create_cylinder();
     t_world world;
 
-    t_matrix translation = create_translation_matrix((t_tuple){0, 0, -1, POINT});
-    t_matrix scaling = create_scaling_matrix(10, 0.01, 10);
+    // t_matrix *translation = create_translation_matrix((t_tuple){0, 0, -1, POINT});
+    // t_matrix *scaling = create_scaling_matrix(10, 0.01, 10);
 	cyl.closed = TRUE;
 	set_cyl_min_max(&cyl, -2, 1);
 
@@ -41,29 +41,29 @@ Test(putting, it_together) {
     set_transform((t_shape *)&left_ball, mult_matrices(create_translation_matrix((t_tuple){-1.95, 0.33, 0.4}),
                                                        create_scaling_matrix(0.33, 0.33, 0.33)));
 
-    // LEFT_WALL
-    t_matrix y_rotation = create_y_rotation_matrix(-M_PI / 4);
-    t_matrix x_rotation = create_x_rotation_matrix(M_PI / 2);
-    set_transform((t_shape *)&left_wall,
-                  chain_transformations((t_matrix *[]){&scaling, &x_rotation, &y_rotation, &translation, NULL}));
-    left_wall.material = floor.material;
+    // // LEFT_WALL
+    // t_matrix *y_rotation = create_y_rotation_matrix(-M_PI / 4);
+    // t_matrix *x_rotation = create_x_rotation_matrix(M_PI / 2);
+    // set_transform((t_shape *)&left_wall,
+    //               chain_transformations((t_matrix *[]){scaling, x_rotation, y_rotation, translation, NULL}));
+    // left_wall.material = floor.material;
+    //
+    // // RIGHT_WALL
+    // y_rotation = create_y_rotation_matrix(M_PI / 4);
+    // set_transform((t_shape *)&right_wall,
+    //               chain_transformations((t_matrix *[]){scaling, x_rotation, y_rotation, translation, NULL}));
+    // right_wall.material = floor.material;
 
-    // RIGHT_WALL
-    y_rotation = create_y_rotation_matrix(M_PI / 4);
-    set_transform((t_shape *)&right_wall,
-                  chain_transformations((t_matrix *[]){&scaling, &x_rotation, &y_rotation, &translation, NULL}));
-    right_wall.material = floor.material;
-
-    world.count = 8;
+    world.count = 6;
     world.objs = malloc(sizeof(t_sphere) * world.count);
     world.objs[0] = *(t_shape *)&floor;
-    world.objs[1] = *(t_shape *)&left_wall;
-    world.objs[2] = *(t_shape *)&right_wall;
-    world.objs[3] = *(t_shape *)&middle_ball;
-    world.objs[4] = *(t_shape *)&right_ball;
-    world.objs[5] = *(t_shape *)&left_ball;
-    world.objs[6] = *(t_shape *)&cyl;
-    world.objs[7] = *(t_shape *)&right_cyl;
+    // world.objs[1] = *(t_shape *)&left_wall;
+    // world.objs[2] = *(t_shape *)&right_wall;
+    world.objs[1] = *(t_shape *)&middle_ball;
+    world.objs[2] = *(t_shape *)&right_ball;
+    world.objs[3] = *(t_shape *)&left_ball;
+    world.objs[4] = *(t_shape *)&cyl;
+    world.objs[5] = *(t_shape *)&right_cyl;
 
     world.light = &(t_point_light){
         {0, 5, 120, POINT},
@@ -83,6 +83,6 @@ Test(putting, it_together) {
     t_canvas c = render(camera, world);
 
     char *str = canvas_to_ppm(&c);
-    create_ppm_file(str, "three_spheres_in_a_rooms_corner.ppm");
+    create_ppm_file(str, "three_shapes_with_shadows_in_a_disk.ppm");
     destroy_canvas(&c);
 }

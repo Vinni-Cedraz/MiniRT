@@ -2,7 +2,7 @@
 
 #define SQRT_OF_14 3.7416573867739413
 
-const t_tuple vectors[] = {
+ t_tuple vectors[] = {
 		{1, 2, 3, VECTOR},
 		{-1, -2, -3, VECTOR},
 		{1, 0, 0, VECTOR},
@@ -11,7 +11,7 @@ const t_tuple vectors[] = {
 		{0, 0, 1, POINT}
 };
 
-const double expected_results[] = {
+ double expected_results[] = {
 		SQRT_OF_14,
 		SQRT_OF_14,
 		1,

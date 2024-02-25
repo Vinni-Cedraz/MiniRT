@@ -12,7 +12,7 @@
          "And every pixel of c is color(0, 0, 0)" RESET
 
 Test(suite_name, creating_a_canvas, .description = scenario1) {
-    const t_canvas c = create_canvas(550, 900);
+     t_canvas c = create_canvas(550, 900);
     cr_expect_eq(c.height, 550);
     cr_expect_eq(c.width, 900);
     for (int i = 0; i < c.width * c.height; i++) {
@@ -31,7 +31,7 @@ Test(suite_name, creating_a_canvas, .description = scenario1) {
 
 Test(suite_name, writing_a_pixel_in_a_canvas, .description = scenario2) {
     t_canvas c = create_canvas(20, 10);
-	const t_tuple red = {1, 0, 0, COLOR};
+	 t_tuple red = {1, 0, 0, COLOR};
     write_pixel(&c, 3, 2, red);
     cr_expect_tuples_eq(c.pixels[3][2], red);
 }
@@ -48,11 +48,11 @@ Test(suite_name, writing_a_pixel_in_a_canvas, .description = scenario2) {
          "5 3\n"                                                                         \
          "255" RESET
 
-Test(suite_name, constructing_the_ppm_header, .description = scenario3) {
-    const char expected[] = "P3\n5 3\n255\n"; // "P3\n" and "255\n" are fixed for all ppm
+Test(suite_name, ructing_the_ppm_header, .description = scenario3) {
+     char expected[] = "P3\n5 3\n255\n"; // "P3\n" and "255\n" are fixed for all ppm
                                               // files in this project
-    const t_canvas c = create_canvas(3, 5);
-    const char *ppm_canvas_full = canvas_to_ppm(&c);
+     t_canvas c = create_canvas(3, 5);
+     char *ppm_canvas_full = canvas_to_ppm(&c);
     char ppm_header[12];
     ft_strlcpy(ppm_header, ppm_canvas_full, 12);
     cr_expect_str_eq(ppm_header, expected);
@@ -77,7 +77,7 @@ Test(suite_name, constructing_the_ppm_header, .description = scenario3) {
 
 Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scenario4) {
     t_canvas c = create_canvas(3, 5);
-    const char expected[] = "P3\n5 3\n255\n"
+     char expected[] = "P3\n5 3\n255\n"
                             "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n"
                             "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0\n"
                             "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255\n";
@@ -85,7 +85,7 @@ Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scen
     write_pixel(&c, 0, 0, (t_tuple){1.5, 0, 0, COLOR});
     write_pixel(&c, 1, 2, (t_tuple){0, 0.5, 0, COLOR});
     write_pixel(&c, 2, 4, (t_tuple){0, -0.5, 1, COLOR});
-    t_constr res = canvas_to_ppm(&c);
+    char * res = canvas_to_ppm(&c);
     cr_expect_str_eq(res, expected);
 	create_ppm_file(res, "writing_the_whole_canvas_on_the_ppm_string.ppm");
     destroy_canvas(&c);
@@ -103,7 +103,7 @@ Test(suite_name, writing_the_whole_canvas_on_the_ppm_string, .description = scen
          "153 255 204 153 255 204 153 255 204 153 255 204 153" RESET                     \
 
 #define LINES 7
-t_constr lines_to_assert[LINES] = {
+char * lines_to_assert[LINES] = {
             "P3\n",
 			"10 2\n",
 			"255\n",
@@ -119,7 +119,7 @@ Test(suite_name, lines_longer_than_70_must_break, .description = scenario5) {
    
     c = create_canvas(2, 10);
 	set_all_pixels_to_one_color(&c, (t_tuple){1, 0.8, 0.6});
-	t_constr ppm_string = canvas_to_ppm(&c);
+	char * ppm_string = canvas_to_ppm(&c);
 	create_ppm_file(ppm_string, "lines_longer_than_70_must_break.ppm");
 	int fd = open("lines_longer_than_70_must_break.ppm", O_RDWR);
 	for (int i = 0; i < LINES; i++)

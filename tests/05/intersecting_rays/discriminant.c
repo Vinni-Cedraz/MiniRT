@@ -10,8 +10,8 @@
 			"Then discriminant should be a negative value" RESET
 
 Test(discriminant, negative_discriminant_no_intersections, .description = scenario1) {
-	const t_ray ray = create_ray((t_tuple){0, 2, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_sphere s = create_sphere();
+	t_ray ray = create_ray((t_tuple){0, 2, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_sphere s = create_sphere();
 	t_tuple distance_sphere_to_ray;
 
 	subtract_tuples(ray.origin, s.origin, distance_sphere_to_ray);
@@ -30,8 +30,8 @@ Test(discriminant, negative_discriminant_no_intersections, .description = scenar
 			"Then discriminant should be a negative value" RESET
 
 Test(discriminant, positive_discriminant_two_intersections, .description = scenario2) {
-	const t_ray ray = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_sphere s = create_sphere();
+	t_ray ray = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_sphere s = create_sphere();
 	t_tuple distance_sphere_to_ray;
 
 	subtract_tuples(ray.origin, s.origin, distance_sphere_to_ray);
@@ -50,8 +50,8 @@ Test(discriminant, positive_discriminant_two_intersections, .description = scena
 			"Then discriminant should be a positive value" RESET
 
 Test(discriminant, inside_sphere_positive_discriminant, .description = scenario3) {
-	const t_ray ray = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_sphere s = create_sphere();
+	t_ray ray = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_sphere s = create_sphere();
 	t_tuple distance_sphere_to_ray;
 
 	subtract_tuples(ray.origin, s.origin, distance_sphere_to_ray);
@@ -71,8 +71,8 @@ Test(discriminant, inside_sphere_positive_discriminant, .description = scenario3
 	"The discriminant should be a positive value" RESET
 
 Test(discriminant, single_intersection_discriminant_is_zero, .description = scenario4) {
-	const t_ray ray = create_ray((t_tuple){0, 1, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_sphere s = create_sphere();
+	t_ray ray = create_ray((t_tuple){0, 1, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_sphere s = create_sphere();
 	t_tuple distance_sphere_to_ray;
 	
 	subtract_tuples(ray.origin, s.origin, distance_sphere_to_ray);

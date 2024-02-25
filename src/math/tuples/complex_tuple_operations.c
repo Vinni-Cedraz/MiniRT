@@ -12,16 +12,16 @@
 
 #include "minirt.h"
 
-double	magnitude(const t_tuple vec)
+double	magnitude(t_tuple vec)
 {
 	if (vec[W] != VECTOR)
 		return (-1);
 	return (hypot(hypot(vec[X], vec[Y]), vec[Z]));
 }
 
-short	normalize(const t_tuple vec, t_tuple result)
+short	normalize(t_tuple vec, t_tuple result)
 {
-	const double	mag = magnitude(vec);
+	double	mag = magnitude(vec);
 
 	if (mag == 0 || vec[W] != VECTOR)
 		return (-1);
@@ -32,12 +32,12 @@ short	normalize(const t_tuple vec, t_tuple result)
 	return (0);
 }
 
-double	dot(const t_tuple a, const t_tuple b)
+double	dot(t_tuple a, t_tuple b)
 {
 	return (a[X] * b[X] + a[Y] * b[Y] + a[Z] * b[Z] + a[W] * b[W]);
 }
 
-short	cross(const t_tuple a, const t_tuple b, t_tuple cross_product)
+short	cross(t_tuple a, t_tuple b, t_tuple cross_product)
 {
 	if (a[W] != VECTOR || b[W] != VECTOR)
 		return (-1);

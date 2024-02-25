@@ -6,7 +6,7 @@
 #include "floor.c"
 #include "render.c"
 
-Test(plane, spheres_on_a_plane_floor) {
+Test(plane, three_floating_spheres_above_plane) {
     t_sphere left_ball = create_sphere();
     t_sphere right_ball = create_sphere();
     t_sphere middle_ball = create_sphere();
@@ -31,7 +31,7 @@ Test(plane, spheres_on_a_plane_floor) {
 	t_canvas canvas = render_world01(&world);
 
     char *str = canvas_to_ppm(&canvas);
-    create_ppm_file(str, "spheres_floor_plane.ppm");
+    create_ppm_file(str, "three_floating_spheres_above_plane.ppm");
     destroy_canvas(&canvas);
 }
 

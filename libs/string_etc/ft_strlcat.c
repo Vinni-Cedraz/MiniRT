@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-static inline size_t	aux_strlen(const char *str);
-static inline void	*aux_memcpy(void *dst, const void *src, size_t n);
-static inline size_t	aux_strlcpy(char *dst, const char *src, size_t size);
+static inline size_t	aux_strlen( char *str);
+static inline void	*aux_memcpy(void *dst,  void *src, size_t n);
+static inline size_t	aux_strlcpy(char *dst,  char *src, size_t size);
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst,  char *src, size_t size)
 {
 	size_t	dst_sz;
 
@@ -28,7 +28,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (dst_sz + aux_strlen(src));
 }
 
-static inline size_t	aux_strlen(const char *str)
+static inline size_t	aux_strlen( char *str)
 {
 	size_t	i;
 
@@ -38,7 +38,7 @@ static inline size_t	aux_strlen(const char *str)
 	return (i);
 }
 
-static inline void	*aux_memcpy(void *dst, const void *src, size_t n)
+static inline void	*aux_memcpy(void *dst,  void *src, size_t n)
 {
 	size_t			i;
 	unsigned char	*dest;
@@ -52,7 +52,7 @@ static inline void	*aux_memcpy(void *dst, const void *src, size_t n)
 	return (dest);
 }
 
-static inline size_t	aux_strlcpy(char *dst, const char *src, size_t size)
+static inline size_t	aux_strlcpy(char *dst,  char *src, size_t size)
 {
 	if (aux_strlen(src) + 1 < size)
 		return (aux_strlen(aux_memcpy(dst, src, aux_strlen(src) + 1)));

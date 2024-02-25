@@ -44,9 +44,9 @@
 
 Test(intersection, encapsulates_t_and_object, .description = scenario1)
 {
-	const t_sphere s = create_sphere();
-	const t_sphere *s_ptr = &s;
-	const t_node *n = intersection(3.5, (const void**)&s_ptr);
+	t_sphere s = create_sphere();
+	t_sphere *s_ptr = &s;
+	t_node *n = intersection(3.5, ( void**)&s_ptr);
 
 	cr_expect_eq(n->t, 3.5);
 	cr_expect_eq(((t_sphere *)(n->object))->type, SPHERE);
@@ -54,12 +54,12 @@ Test(intersection, encapsulates_t_and_object, .description = scenario1)
 
 Test(intersection, aggregation_intersections, .description = scenario2)
 {
-	const t_sphere s = create_sphere();
-	const t_sphere *s_ptr = &s;
-	const t_node *i1 = intersection(1, (const void**)&s_ptr);
-	const t_node *i2 = intersection(2, (const void**)&s_ptr);
-	const t_node *arr[] = {i1, i2, NULL};
-	const t_intersection xs = link_intersection_nodes(arr);
+	t_sphere s = create_sphere();
+	t_sphere *s_ptr = &s;
+	t_node *i1 = intersection(1, ( void**)&s_ptr);
+	t_node *i2 = intersection(2, ( void**)&s_ptr);
+	t_node *arr[] = {i1, i2, NULL};
+	t_intersection xs = link_intersection_nodes(arr);
 
 	cr_expect_eq(xs.count, 2);
 	cr_expect_eq(xs.head->t, 1);
@@ -68,13 +68,13 @@ Test(intersection, aggregation_intersections, .description = scenario2)
 
 Test(intersection, sets_the_object, .description = scenario3)
 {
-	const t_sphere s = create_sphere();
-	const t_ray r = create_ray((t_tuple){0,0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_intersection xs = create_intersection(&s, r);
+	t_sphere s = create_sphere();
+	t_ray r = create_ray((t_tuple){0,0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_intersection xs = create_intersection(&s, r);
 
 	cr_expect_eq(xs.count, 2);
-	const t_sphere *s1 = (t_sphere*)xs.head->object;
-	const t_sphere *s2 = (t_sphere*)xs.head->next->object;
+	t_sphere *s1 = (t_sphere*)xs.head->object;
+	t_sphere *s2 = (t_sphere*)xs.head->next->object;
 	cr_expect_eq(((t_sphere *)(xs.head->object))->type, SPHERE);
 	cr_expect_eq(((t_sphere *)(xs.head->next->object))->type, SPHERE);
 }

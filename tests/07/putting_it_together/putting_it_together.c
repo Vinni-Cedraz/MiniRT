@@ -10,8 +10,8 @@ Test(putting_it_together, three_spheres) {
     t_sphere right_wall = create_sphere();
     t_world world;
 
-    t_matrix translation = create_translation_matrix((t_tuple){0, 0, -1, POINT});
-    t_matrix scaling = create_scaling_matrix(10, 0.01, 10);
+    t_matrix *translation = create_translation_matrix((t_tuple){0, 0, -1, POINT});
+    t_matrix *scaling = create_scaling_matrix(10, 0.01, 10);
 
     // FLOOR
     floor.material = create_material();
@@ -33,16 +33,16 @@ Test(putting_it_together, three_spheres) {
                                                        create_scaling_matrix(0.33, 0.33, 0.33)));
 
     // LEFT_WALL
-    t_matrix y_rotation = create_y_rotation_matrix(-M_PI / 4);
-    t_matrix x_rotation = create_x_rotation_matrix(M_PI / 2);
+    t_matrix *y_rotation = create_y_rotation_matrix(-M_PI / 4);
+    t_matrix *x_rotation = create_x_rotation_matrix(M_PI / 2);
     set_transform((t_shape *)&left_wall,
-                  chain_transformations((t_matrix *[]){&scaling, &x_rotation, &y_rotation, &translation, NULL}));
+                  chain_transformations((t_matrix *[]){scaling, x_rotation, y_rotation, translation, NULL}));
     left_wall.material = floor.material;
 
     // RIGHT_WALL
     y_rotation = create_y_rotation_matrix(M_PI / 4);
     set_transform((t_shape *)&right_wall,
-                  chain_transformations((t_matrix *[]){&scaling, &x_rotation, &y_rotation, &translation, NULL}));
+                  chain_transformations((t_matrix *[]){scaling, x_rotation, y_rotation, translation, NULL}));
     right_wall.material = floor.material;
 
     world.objs = malloc(sizeof(t_sphere) * 6);

@@ -12,14 +12,14 @@
 
 #include "minirt.h"
 
-double	_3x3determinant(const t_3x3matrix m)
+double	_3x3determinant(t_3x3matrix m)
 {
 	return (m.row_1[COL1] * _3x3cofactor(m, ROW1, COL1)
 		+ m.row_2[COL1] * _3x3cofactor(m, ROW2, COL1)
 		+ m.row_3[COL1] * _3x3cofactor(m, ROW3, COL1));
 }
 
-double	_4x4determinant(const t_matrix m)
+double	_4x4determinant(t_matrix m)
 {
 	return (m.row_1[COL1] * _4x4cofactor(m, ROW1, COL1)
 		+ m.row_2[COL1] * _4x4cofactor(m, ROW2, COL1)
@@ -27,7 +27,7 @@ double	_4x4determinant(const t_matrix m)
 		+ m.row_4[COL1] * _4x4cofactor(m, ROW4, COL1));
 }
 
-double	_3x3cofactor(const t_3x3matrix m, int row, int col)
+double	_3x3cofactor(t_3x3matrix m, int row, int col)
 {
 	double	_minor;
 	double	_cofactor;
@@ -39,7 +39,7 @@ double	_3x3cofactor(const t_3x3matrix m, int row, int col)
 	return (_cofactor);
 }
 
-double	_4x4cofactor(const t_matrix m, int row, int col)
+double	_4x4cofactor(t_matrix m, int row, int col)
 {
 	double	_minor;
 	double	_cofactor;

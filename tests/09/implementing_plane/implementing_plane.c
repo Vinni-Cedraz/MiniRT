@@ -1,6 +1,6 @@
 #include "tester.h"
 
-// Scenario : The normal of a plane is constant everywhere
+// Scenario : The normal of a plane is ant everywhere
 #define scenario1 CYAN \
 	   "Given plane ← create_plane()\n"                                                 \
        "When n1 ← plane_normal_at(plane, point(0, 0, 0))\n"                      \
@@ -14,8 +14,8 @@ Test(implementing_plane, the_normal_of_a_plane, .description = scenario1) {
   t_tuple n1;
   t_tuple n2;
   t_tuple n3;
-  const t_tuple expected_vector = {0, 1, 0, VECTOR};
-  const t_plane plane = create_plane();
+   t_tuple expected_vector = {0, 1, 0, VECTOR};
+   t_plane plane = create_plane();
 
   plane_normal_at((t_shape *)&plane, (t_tuple){0, 0, 0, POINT},n1);
   cr_expect_tuples_eq(n1, expected_vector);
@@ -33,13 +33,13 @@ Test(implementing_plane, the_normal_of_a_plane, .description = scenario1) {
 "Then xs is empty\n"RESET
 
 Test(implementing_plane, parallel_ray_intersects_plane, .description = scenario2) {
-	const t_plane plane = create_plane();
-	const t_ray ray = {
+	t_plane plane = create_plane();
+	t_ray ray = {
 		.origin = {0, 0, 0, POINT},
 		.direction = {0, 0, 0, VECTOR},
 	};
 
-	const t_intersection xs = create_intersection((t_shape *)&plane, ray);
+	t_intersection xs = create_intersection((t_shape *)&plane, ray);
 	printf("%p %d\n", xs.head, xs.count);
 	cr_assert_eq(xs.count, 0);
 	cr_assert_eq(xs.head, NULL);
@@ -53,8 +53,8 @@ Test(implementing_plane, parallel_ray_intersects_plane, .description = scenario2
 "Then xs is empty\n"RESET
 
 Test(implementing_plane, coplanar_ray_intersects_plane, .description = scenario3) {
-	const t_plane plane = create_plane();
-	const t_ray ray = {
+	t_plane plane = create_plane();
+	t_ray ray = {
 		.origin = {0, 0, 0, POINT},
 		.direction = {0, 0, 0, VECTOR},
 	};
@@ -73,8 +73,8 @@ Test(implementing_plane, coplanar_ray_intersects_plane, .description = scenario3
 "And xs[0].object = plane \n" RESET
 
 Test(implementing_plane, ray_from_above_intersects_plane, .description = scenario4) {
-	const t_plane plane = create_plane();
-	const t_ray ray = {
+	t_plane plane = create_plane();
+	t_ray ray = {
 		.origin = {0, 1, 0, POINT},
 		.direction = {0, -1, 0, VECTOR},
 	};
@@ -94,12 +94,12 @@ Test(implementing_plane, ray_from_above_intersects_plane, .description = scenari
 "And xs[0].object = p\n"   RESET
 
 Test(implementing_plane, ray_from_below_intersects_plane, .description = scenario5) {
-	const t_plane plane = create_plane();
-	const t_ray ray = {
+	t_plane plane = create_plane();
+	t_ray 	ray = {
 		.origin = {0, -1, 0, POINT},
 		.direction = {0, 1, 0, VECTOR},
 	};
-	const t_intersection xs = create_intersection((t_shape *)&plane, ray);
+	t_intersection xs = create_intersection((t_shape *)&plane, ray);
 	cr_expect_eq(1, xs.count);
 	cr_assert_eq(xs.head->object->type, PLANE);
 	cr_expect_eq(xs.head->object, (t_shape *)&plane);

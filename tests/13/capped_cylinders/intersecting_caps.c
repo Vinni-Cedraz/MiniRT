@@ -33,7 +33,7 @@ Test(capped_cylinders, open_closed, .description = scenario1)
 // | 1 | point(0, 3, 0)   | vector(0, -1, 0) | 2 
 Test(capped_cylinders, intersecting_caps, .description = scenario2) {
 	t_cylinder cyl = create_cylinder();
-	const t_ray r = {
+	t_ray r = {
 		.origin = {0, 3, 0, POINT},
 		.direction = {0, -1, 0, VECTOR}
 	};
@@ -47,7 +47,7 @@ Test(capped_cylinders, intersecting_caps, .description = scenario2) {
 // | 2 | point(0, 3, -2)  | vector(0, -1, 2) | 2
 Test(capped_cylinders, intersecting_caps2) {
 	t_cylinder cyl = create_cylinder();
-	const t_ray r = {
+	t_ray r = {
 		.origin = {0, 3, -2, POINT},
 		.direction = {0, -1, 2, VECTOR}
 	};
@@ -61,7 +61,7 @@ Test(capped_cylinders, intersecting_caps2) {
 // | 3 | point(0, 4, -2)  | vector(0, -1, 1) | 2
 Test(capped_cylinders, intersecting_caps3) {
 	t_cylinder cyl = create_cylinder();
-	const t_ray r = {
+	t_ray r = {
 		.origin = {0, 4, -2, POINT},
 		.direction = {0, -1, 1, VECTOR}
 	};
@@ -75,7 +75,7 @@ Test(capped_cylinders, intersecting_caps3) {
 // | 4 | point(0, 0, -2)  | vector(0, 1, 2)  | 2
 Test(capped_cylinders, intersecting_caps4) {
 	t_cylinder cyl = create_cylinder();
-	const t_ray r = {
+	t_ray r = {
 		.origin = {0, 0, -2, POINT},
 		.direction = {0, 1, 2, VECTOR}
 	};
@@ -89,7 +89,7 @@ Test(capped_cylinders, intersecting_caps4) {
 // | 5 | point(0, -1, -2) | vector(0, 1, 1)  | 2 
 Test(capped_cylinders, intersecting_caps5) {
 	t_cylinder cyl = create_cylinder();
-	const t_ray r = {
+	t_ray r = {
 		.origin = {0, -1, -2, POINT},
 		.direction = {0, 1, 1, VECTOR}
 	};

@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-static void				*aux_memchr(const void *s, int c, size_t n);
-static char				*aux_strrchr(const char *s, int c);
-static size_t			aux_strlen(const char *str);
+static void				*aux_memchr( void *s, int c, size_t n);
+static char				*aux_strrchr( char *s, int c);
+static size_t			aux_strlen( char *str);
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char  *s1, char  *set)
 {
 	int	i;
 	int	j;
@@ -34,7 +34,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (ft_substr(s1, i, j - i));
 }
 
-static inline size_t	aux_strlen(const char *str)
+static inline size_t	aux_strlen( char *str)
 {
 	size_t	i;
 
@@ -44,7 +44,7 @@ static inline size_t	aux_strlen(const char *str)
 	return (i);
 }
 
-static inline char	*aux_strrchr(const char *s, int c)
+static inline char	*aux_strrchr( char *s, int c)
 {
 	int	i;
 
@@ -55,7 +55,7 @@ static inline char	*aux_strrchr(const char *s, int c)
 	return (NULL);
 }
 
-static inline void	*aux_memchr(const void *s, int c, size_t n)
+static inline void	*aux_memchr( void *s, int c, size_t n)
 {
 	unsigned char	chr;
 	unsigned char	*str;

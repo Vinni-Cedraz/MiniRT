@@ -1,6 +1,6 @@
 #include "tester.h"
 
-// Scenario Outline : Intersecting a constrained cylinder
+// Scenario Outline : Intersecting a rained cylinder
 #define scenario                                                                                                       \
     CYAN "\nGiven cyl ← cylinder()\n"                                                                                \
          "And cyl.minimum ← 1\n"                                                                                     \
@@ -19,7 +19,7 @@
          " point(0, 1.5, -2) | vector(0, 0, 1)    | 2\n"                                                               \
          RESET
 
-Test(truncating_cylinders, intersecting_constrained_cylinder, .description = scenario) {
+Test(truncating_cylinders, intersecting_rained_cylinder, .description = scenario) {
 	t_intersection xs;
     t_cylinder cyl = create_cylinder();
     t_ray r1 = {.origin = {0, 1.5, 0, POINT}, .direction = {0.1, 1, 0}};

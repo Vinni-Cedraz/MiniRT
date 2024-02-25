@@ -15,7 +15,7 @@
 t_cylinder	create_cylinder(void)
 {
 	static t_short		call_counter;
-	const t_cylinder	cylinder = {
+	t_cylinder	cylinder = {
 		.origin = {0, 0, 0, POINT},
 		.id = call_counter++,
 		.closed = FALSE,

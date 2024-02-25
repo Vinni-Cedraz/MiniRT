@@ -18,7 +18,7 @@ Test(suite_name, projectile_goes_up_and_down) {
 
     normalize(vec, p.velocity);
     multiply_tuple_by_scalar(p.velocity, 11.25, p.velocity);
-    const t_environment e = {.gravity = {0, -0.1, 0}, .wind = {-0.01, 0, 0}};
+     t_environment e = {.gravity = {0, -0.1, 0}, .wind = {-0.01, 0, 0}};
     t_canvas c = create_canvas(550, 900);
 
     while ((p.position[Y] >= 0) && (p.position[Y] < c.height) && (p.position[X] < c.width)) {
@@ -27,6 +27,6 @@ Test(suite_name, projectile_goes_up_and_down) {
         write_pixel(&c, y, x, (t_tuple){1, 0, 0, COLOR});
         p = tick(e, p);
     }
-    t_constr ppm_string = canvas_to_ppm(&c);
+    char * ppm_string = canvas_to_ppm(&c);
     create_ppm_file(ppm_string, "projectile.ppm");
 }

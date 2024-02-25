@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void	add_tuples(const t_tuple a, const t_tuple b, t_tuple result)
+void	add_tuples(t_tuple a, t_tuple b, t_tuple result)
 {
 	result[X] = a[X] + b[X];
 	result[Y] = a[Y] + b[Y];
@@ -22,7 +22,7 @@ void	add_tuples(const t_tuple a, const t_tuple b, t_tuple result)
 		result[W] = COLOR;
 }
 
-void	subtract_tuples(const t_tuple a, const t_tuple b, t_tuple result)
+void	subtract_tuples(t_tuple a, t_tuple b, t_tuple result)
 {
 	result[X] = a[X] - b[X];
 	result[Y] = a[Y] - b[Y];
@@ -32,7 +32,7 @@ void	subtract_tuples(const t_tuple a, const t_tuple b, t_tuple result)
 		result[W] = COLOR;
 }
 
-void	negate_tuple(const t_tuple a, t_tuple result)
+void	negate_tuple(t_tuple a, t_tuple result)
 {
 	result[X] = -a[X];
 	result[Y] = -a[Y];
@@ -41,7 +41,7 @@ void	negate_tuple(const t_tuple a, t_tuple result)
 }
 
 void	multiply_tuple_by_scalar(
-		const t_tuple a, const double scalar, t_tuple re)
+		t_tuple a, double scalar, t_tuple re)
 {
 	re[X] = a[X] * scalar;
 	re[Y] = a[Y] * scalar;
@@ -51,7 +51,7 @@ void	multiply_tuple_by_scalar(
 		re[W] = COLOR;
 }
 
-void	multiply_colors(const t_tuple c1, const t_tuple c2, t_tuple result)
+void	multiply_colors(t_tuple c1, t_tuple c2, t_tuple result)
 {
 	if (c1[W] != COLOR && c2[W] != COLOR)
 		return ;

@@ -18,16 +18,7 @@ typedef struct s_environment {
     t_tuple wind;
 } t_environment;
 
-static inline void print_tuple(const t_tuple a) { printf("X: %f, Y: %f, Z: %f, W: %f\n", a[X], a[Y], a[Z], a[W]); }
-
-static inline void print_4x4matrix(const t_matrix a) {
-    print_tuple(a.row_1);
-    print_tuple(a.row_2);
-    print_tuple(a.row_3);
-    print_tuple(a.row_4);
-}
-
-static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple expected) {
+static inline t_bool cr_expect_tuples_eq( t_tuple result,  t_tuple expected) {
     for (int i = 0; i < 4; i++) {
         cr_expect(doubles_eq(result[i], expected[i]));
         if (!doubles_eq(result[i], expected[i]))
@@ -36,13 +27,13 @@ static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple exp
     return (0);
 }
 
-static inline void set_all_pixels_to_one_color(const t_canvas *c, t_tuple color) {
+static inline void set_all_pixels_to_one_color( t_canvas *c, t_tuple color) {
     for (int y = 0; y < c->height; y++)
         for (int x = 0; x < c->width; x++)
             write_pixel((t_canvas *)c, y, x, color);
 }
 
-static inline void create_ppm_file(t_constr ppm_string, t_constr filename) {
+static inline void create_ppm_file(char * ppm_string, char * filename) {
     int fd = open(filename, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
     write(fd, ppm_string, strlen(ppm_string));
     close(fd);
@@ -80,9 +71,9 @@ static inline void create_a_point(double x, double y, double z, t_tuple res) {
 // "Then p = point(250, 250, 0, POINT)\n"RESET
 //
 
-void quick_render(t_world *w, const t_tuple from) {
+void quick_render(t_world *w,  t_tuple from) {
 
-    t_camera camera = create_camera(1920, 1080, M_PI / 4);
+    t_camera camera = create_camera(600, 400, M_PI / 4);
     t_tuple to = (t_tuple){0, 0, 0, POINT};
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
     t_tuple forward;
@@ -100,7 +91,7 @@ void quick_render(t_world *w, const t_tuple from) {
     free(w->objs);
 }
 
-void create_test_world(t_world *world, const t_tuple from, int num_shapes, ...) {
+void create_test_world(t_world *world,  t_tuple from, int num_shapes, ...) {
     va_list shapes;
     va_start(shapes, num_shapes);
 

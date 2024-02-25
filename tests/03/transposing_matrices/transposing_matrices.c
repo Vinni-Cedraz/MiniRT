@@ -16,23 +16,23 @@
 "| 0 | 8 | 3 | 8 |"                      RESET
 
 Test(transposing_matrices, transposing_a_matrix, .description = Scenario1) {
-	t_matrix a = {
+	t_matrix *a = create_4x4_matrix(&(t_matrix){
 		{0,9,3,0},
 		{9,8,0,8},
 		{1,8,5,3},
 		{0,0,5,8}
-	};
+	});
 
-	t_matrix expected = {
+	t_matrix *expected = create_4x4_matrix(&(t_matrix){
 		{0,9,1,0},
 		{9,8,8,0},
 		{3,0,5,5},
 		{0,8,3,8}
-	};
-	t_matrix result;
+	});
+	t_matrix *result;
 
-	result = transpose_matrix(a);
-	cr_expect_eq(TRUE, matrices_eq(result, expected));
+	result = transpose_matrix(*a);
+	cr_expect_eq(TRUE, matrices_eq(*result, *expected));
 }
 
 #define Scenario2 CYAN \
@@ -49,21 +49,21 @@ Test(transposing_matrices, transposing_a_matrix, .description = Scenario1) {
 "| 0 | 0 | 0 | 1 |"                      RESET
 
 Test(transposing_matrices, transposing_identity_matrix, .description = Scenario2) {
-	t_matrix a = {
+	t_matrix *a = create_4x4_matrix(&(t_matrix){
 		{1,0,0,0},
 		{0,1,0,0},
 		{0,0,1,0},
 		{0,0,0,1}
-	};
+	});
 
-	t_matrix expected = {
+	t_matrix *expected = create_4x4_matrix(&(t_matrix){
 		{1,0,0,0},
 		{0,1,0,0},
 		{0,0,1,0},
 		{0,0,0,1}
-	};
-	t_matrix result;
+	});
+	t_matrix *result;
 
-	result = transpose_matrix(a);
-	cr_expect_eq(TRUE, matrices_eq(result, expected));
+	result = transpose_matrix(*a);
+	cr_expect_eq(TRUE, matrices_eq(*result, *expected));
 }

@@ -12,8 +12,8 @@
 // 1 | point(0, 1, 0) 	| vector(0, -1, 0) |
 Test(capped_cylinders, finding_caps_normal1, .description = scenario1) {
   t_cylinder cyl = create_cylinder();
-  const t_tuple point = {0, 1, 0, POINT};
-  const t_tuple expected_normal = {0, -1, 0, VECTOR};
+   t_tuple point = {0, 1, 0, POINT};
+   t_tuple expected_normal = {0, -1, 0, VECTOR};
   t_tuple normal;
 
   cyl.closed = TRUE;
@@ -27,8 +27,8 @@ Test(capped_cylinders, finding_caps_normal1, .description = scenario1) {
 // 2 | point(0.5, 1, 0)	| vector(0, -1, 0) |
 Test(capped_cylinders, finding_caps_normal2) {
   t_cylinder cyl = create_cylinder();
-  const t_tuple point = {0.5, 1, 0, POINT};
-  const t_tuple expected_normal = {0, -1, 0, VECTOR};
+   t_tuple point = {0.5, 1, 0, POINT};
+   t_tuple expected_normal = {0, -1, 0, VECTOR};
   t_tuple normal;
 
   cyl.closed = TRUE;
@@ -43,8 +43,8 @@ Test(capped_cylinders, finding_caps_normal2) {
 // 3 | point(0, 1, 0.5)	| vector(0, -1, 0) |
 Test(capped_cylinders, finding_caps_normal3) {
   t_cylinder cyl = create_cylinder();
-  const t_tuple point = {0, 1, 0.5, POINT};
-  const t_tuple expected_normal = {0, -1, 0, VECTOR};
+   t_tuple point = {0, 1, 0.5, POINT};
+   t_tuple expected_normal = {0, -1, 0, VECTOR};
   t_tuple normal;
 
   cyl.closed = TRUE;
@@ -56,8 +56,8 @@ Test(capped_cylinders, finding_caps_normal3) {
 // 4 | point(0, 2, 0)		| vector(0, 1, 0)  |
 Test(capped_cylinders, finding_caps_normal4) {
   t_cylinder cyl = create_cylinder();
-  const t_tuple point = {0, 2, 0, POINT};
-  const t_tuple expected_normal = {0, 1, 0, VECTOR};
+   t_tuple point = {0, 2, 0, POINT};
+   t_tuple expected_normal = {0, 1, 0, VECTOR};
   t_tuple normal;
 
   cyl.closed = TRUE;
@@ -69,8 +69,8 @@ Test(capped_cylinders, finding_caps_normal4) {
 // 5 | point(0.5, 2, 0)	| vector(0, 1, 0)  |
 Test(capped_cylinders, finding_caps_normal5) {
   t_cylinder cyl = create_cylinder();
-  const t_tuple point = {0.5, 2, 0, POINT};
-  const t_tuple expected_normal = {0, 1, 0, VECTOR};
+   t_tuple point = {0.5, 2, 0, POINT};
+   t_tuple expected_normal = {0, 1, 0, VECTOR};
   t_tuple normal;
 
   cyl.closed = TRUE;
@@ -82,8 +82,8 @@ Test(capped_cylinders, finding_caps_normal5) {
 // 6 | point(0, 2, 0.5)	| vector(0, 1, 0)  |
 Test(capped_cylinders, finding_caps_normal6) {
   t_cylinder cyl = create_cylinder();
-  const t_tuple point = {0, 2, 0.5, POINT};
-  const t_tuple expected_normal = {0, 1, 0, VECTOR};
+   t_tuple point = {0, 2, 0.5, POINT};
+   t_tuple expected_normal = {0, 1, 0, VECTOR};
   t_tuple normal;
 
   cyl.closed = TRUE;

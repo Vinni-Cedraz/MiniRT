@@ -15,20 +15,20 @@
 static void			turn_col_into_row(t_tuple col, t_tuple row);
 static void			init_col(t_matrix b, int col_idx, t_tuple col);
 
-t_matrix	transpose_matrix(t_matrix m)
+t_matrix	*transpose_matrix(t_matrix m)
 {
-	t_matrix	res;
+	t_matrix	*res;
 	t_tuple		col;
 
+	res = create_4x4_matrix(&(t_matrix){0});
 	init_col(m, COL1, col);
-	turn_col_into_row(col, res.row_1);
+	turn_col_into_row(col, res->row_1);
 	init_col(m, COL2, col);
-	turn_col_into_row(col, res.row_2);
+	turn_col_into_row(col, res->row_2);
 	init_col(m, COL3, col);
-	turn_col_into_row(col, res.row_3);
+	turn_col_into_row(col, res->row_3);
 	init_col(m, COL4, col);
-	turn_col_into_row(col, res.row_4);
-	create_4x4_matrix(&res);
+	turn_col_into_row(col, res->row_4);
 	return (res);
 }
 
@@ -78,23 +78,23 @@ static inline void	init_col(t_matrix b, int col_idx, t_tuple col)
 //
 // 	init_col(m, 0, col);
 // 	turn_col_into_row(col, result.row_1);
-// 	t_tuple expect_row = {1, 4, 9, 6};
-// 	cr_expect_tuple_eq(result.row_1, expect_row);
+// 	t_tuple expecchar *ow = {1, 4, 9, 6};
+// 	cr_expect_tuple_eq(result.row_1, expecchar *ow);
 //
 // 	init_col(m, 1, col);
 // 	turn_col_into_row(col, result.row_2);
-// 	t_tuple expect_row2 = {2, 3, 8, 7};
-// 	cr_expect_tuple_eq(result.row_2, expect_row2);
+// 	t_tuple expecchar *ow2 = {2, 3, 8, 7};
+// 	cr_expect_tuple_eq(result.row_2, expecchar *ow2);
 //
 // 	init_col(m, 2, col);
 // 	turn_col_into_row(col, result.row_3);
-// 	t_tuple expect_row3 = {3, 2, 7, 8};
-// 	cr_expect_tuple_eq(result.row_3, expect_row3);
+// 	t_tuple expecchar *ow3 = {3, 2, 7, 8};
+// 	cr_expect_tuple_eq(result.row_3, expecchar *ow3);
 //
 // 	init_col(m, 3, col);
 // 	turn_col_into_row(col, result.row_4);
-// 	t_tuple expect_row4 = {4, 1, 6, 9};
-// 	cr_expect_tuple_eq(result.row_4, expect_row4);
+// 	t_tuple expecchar *ow4 = {4, 1, 6, 9};
+// 	cr_expect_tuple_eq(result.row_4, expecchar *ow4);
 //
 // 	t_matrix expected = {
 // 		{1,4,9,6},

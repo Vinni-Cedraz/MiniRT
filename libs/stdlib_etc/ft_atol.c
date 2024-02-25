@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static long	is_valid_number(const char *str);
+static long	is_valid_number( char *str);
 static long	convert_recursively(char *a, unsigned long toi);
 
 long	ft_atol(char *str)
@@ -31,7 +31,7 @@ long	ft_atol(char *str)
 	return (convert_recursively(str, 0) * sign);
 }
 
-static long	is_valid_number(const char *str)
+static long	is_valid_number( char *str)
 {
 	while (*str && !is_whitespace(*str))
 	{

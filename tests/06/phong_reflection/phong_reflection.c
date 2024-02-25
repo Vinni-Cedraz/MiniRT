@@ -12,7 +12,7 @@
          "And light.intensity = intensity" RESET
 
 Test(phong_reflection, t_point_light_exists, .description = scenario1) {
-    const t_point_light light = {
+     t_point_light light = {
         .intensity = {1, 1, 1, COLOR},
         .position = {0, 0, 0, POINT},
     };
@@ -47,8 +47,8 @@ Test(phong_reflection, the_default_material, .description = scenario2) {
          "Then m = material()" RESET
 Test(phong_reflection, a_sphere_is_created_with_a_default_material_in_it,
      .description = scenario3) {
-    const t_sphere s = create_sphere();
-    const t_tuple default_color = {1, 1, 1, COLOR};
+     t_sphere s = create_sphere();
+     t_tuple default_color = {1, 1, 1, COLOR};
     cr_expect_eq(doubles_eq(s.material.ambient, 0.1), TRUE);
     cr_expect_eq(doubles_eq(s.material.diffuse, 0.9), TRUE);
     cr_expect_eq(doubles_eq(s.material.specular, 0.9), TRUE);
@@ -68,8 +68,8 @@ Test(phong_reflection, a_sphere_is_created_with_a_default_material_in_it,
          "Then result = color(1.9, 1.9, 1.9)" RESET
 Test(phong_reflection, lighting_with_eye_between_light_and_surface, .description = scenario4) {
 	t_tuple				result;
-    const t_tuple 		expected_result = {1.9, 1.9, 1.9, COLOR};
-    const t_lighting 	lighting_obj = {
+     t_tuple 		expected_result = {1.9, 1.9, 1.9, COLOR};
+     t_lighting 	lighting_obj = {
         .material = create_material(),
         .position = {0, 0, 0, POINT},
         .eye_vec = {0, 0, -1, VECTOR},
@@ -94,8 +94,8 @@ Test(phong_reflection, lighting_with_eye_between_light_and_surface, .description
 		 "Then result = color(1.0, 1.0, 1.0)" RESET
 Test(phong_reflection, lighting_with_eye_between_light_and_surface_offset_45, .description = scenario5) {
 	t_tuple result;
-	const t_tuple expected_result = {1.0, 1.0, 1.0, COLOR};
-	const t_lighting lighting_obj = {
+	 t_tuple expected_result = {1.0, 1.0, 1.0, COLOR};
+	 t_lighting lighting_obj = {
 		.material = create_material(),
 		.position = {0, 0, 0, POINT},
 		.eye_vec = {0, SQRT_2by2, negSQRT_2by2, VECTOR},
@@ -119,10 +119,10 @@ Test(phong_reflection, lighting_with_eye_between_light_and_surface_offset_45, .d
 		 "Then result = color(0.7364, 0.7364, 0.7364)" RESET
 Test(phong_reflection, lighting_with_eye_opposite_surface_light_offset_45, .description = scenario6) {
 	t_tuple 			result;
-	const t_tuple 		expected_result = {
+	 t_tuple 		expected_result = {
 		0.7364, 0.7364, 0.7364, COLOR
 	};
-	const t_lighting 	lighting_obj = {
+	 t_lighting 	lighting_obj = {
 		.material = create_material(),
 		.position = {0, 0, 0, POINT},
 		.eye_vec = {0, 0, -1, VECTOR},
@@ -147,8 +147,8 @@ Test(phong_reflection, lighting_with_eye_opposite_surface_light_offset_45, .desc
 		 "Then result = color(1.6364, 1.6364, 1.6364)" RESET
 Test(phong_reflection, lighting_with_eye_in_the_path_of_reflection_vector, .description = scenario7) {
 	t_tuple result;
-	const t_tuple expected_result = {1.634672, 1.634672, 1.634672, COLOR};
-	const t_lighting lighting_obj = {
+	 t_tuple expected_result = {1.634672, 1.634672, 1.634672, COLOR};
+	 t_lighting lighting_obj = {
 		.material = create_material(),
 		.position = {0, 0, 0, POINT},
 		.eye_vec = {0, negSQRT_2by2, negSQRT_2by2, VECTOR},
@@ -173,7 +173,7 @@ Test(phong_reflection, lighting_with_eye_in_the_path_of_reflection_vector, .desc
 		 "Then result = color(0.1, 0.1, 0.1)" RESET
 Test(phong_reflection, lighting_with_light_behind_surface, .description = scenario8) {
 	t_tuple result;
-	const t_tuple expected_result = {
+	 t_tuple expected_result = {
 		0.1, 0.1, 0.1, COLOR
 	};
 	t_lighting lighting_obj = {

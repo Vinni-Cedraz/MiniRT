@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static inline void		*aux_memcpy(void *dst, const void *src, size_t n);
+static inline void		*aux_memcpy(void *dst,  void *src, size_t n);
 static inline void		aux_swap(void *a, void *b, size_t size);
 
 char	*ft_strrev(char *str, size_t strlen)
@@ -37,7 +37,7 @@ static inline void	aux_swap(void *a, void *b, size_t size)
 	free(tmp);
 }
 
-static inline void	*aux_memcpy(void *dst, const void *src, size_t n)
+static inline void	*aux_memcpy(void *dst,  void *src, size_t n)
 {
 	size_t			i;
 	unsigned char	*dest;

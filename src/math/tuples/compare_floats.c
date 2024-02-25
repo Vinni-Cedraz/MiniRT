@@ -17,7 +17,7 @@ t_bool	doubles_eq(double a, double b)
 	return (fabs(a - b) < EPSILON);
 }
 
-t_bool	tuples_eq(const t_tuple result, const t_tuple expected)
+t_bool	tuples_eq(t_tuple result, t_tuple expected)
 {
 	int	i;
 

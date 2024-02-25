@@ -15,7 +15,7 @@
 t_plane	create_plane(void)
 {
 	static t_short	call_counter;
-	const t_plane	plane = {
+	t_plane	plane = {
 		.origin = {0, 0, 0, POINT},
 		.id = call_counter++,
 		.type = PLANE,

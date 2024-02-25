@@ -16,11 +16,11 @@
 					    "And b ← point(2, 3, 4)\n"                  \
 					    "Then cross(b, a) == -1\n" RESET            \
 
-const t_tuple a = {1, 2, 3, VECTOR};
-const t_tuple b = {2, 3, 4, VECTOR};
+ t_tuple a = {1, 2, 3, VECTOR};
+ t_tuple b = {2, 3, 4, VECTOR};
 
 Test(cross_product, cross_product_of_a_b, .description = scenario1) {
-	const t_tuple expected = {-1, 2, -1, VECTOR};
+	 t_tuple expected = {-1, 2, -1, VECTOR};
 	t_tuple result;
 	cross(a, b, result);
 	cr_expect_eq(result[W], VECTOR);
@@ -28,7 +28,7 @@ Test(cross_product, cross_product_of_a_b, .description = scenario1) {
 }
 
 Test(cross_product, cross_product_of_b_a, .description = scenario2) {
-	const t_tuple expected = {1, -2, 1, VECTOR};
+	 t_tuple expected = {1, -2, 1, VECTOR};
 	t_tuple result;
 	cross(b, a, result);
 	cr_expect_eq(result[W], VECTOR);
@@ -36,8 +36,8 @@ Test(cross_product, cross_product_of_b_a, .description = scenario2) {
 }
 
 Test(cross_product, cross_product_of_points_should_fail, .description = scenario3) {
-	const t_tuple a = {1, 2, 3, POINT};
-	const t_tuple b = {2, 3, 4, POINT};
+	 t_tuple a = {1, 2, 3, POINT};
+	 t_tuple b = {2, 3, 4, POINT};
 	int err = cross(a, b, (t_tuple){0});
 	cr_assert_eq(err, -1);
 }

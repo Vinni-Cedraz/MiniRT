@@ -13,17 +13,17 @@
 #include "minirt.h"
 #include <string.h>
 
-static char		*pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *str);
-t_buf			color_to_string(const t_canvas *c, int i, int j);
+static char		*pixels_to_str(t_canvas *c, char *pxls_str, t_buf *str);
+t_buf			color_to_string(t_canvas *c, int i, int j);
 void			concat_space(int *accumulator, t_buf *t);
 void			concat_linebreak(char *pxls_str, int *accum);
 
-char	*canvas_to_ppm(const t_canvas *canvas)
+char	*canvas_to_ppm(t_canvas *canvas)
 {
 	char		*header;
 	char		*pxls_str;
 	t_buf		str;
-	const char	ppm_header_fmt_str[35] = "P3\n%s %s\n255\n";
+	char	ppm_header_fmt_str[35] = "P3\n%s %s\n255\n";
 
 	pxls_str = calloc(canvas->width * canvas->height * 12, sizeof(char) + 2);
 	pxls_str = pixels_to_str(canvas, pxls_str, &str);
@@ -35,7 +35,7 @@ char	*canvas_to_ppm(const t_canvas *canvas)
 	return (ft_strjoin(header, pxls_str));
 }
 
-static char	*pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *str)
+static char	*pixels_to_str(t_canvas *c, char *pxls_str, t_buf *str)
 {
 	int	i;
 	int	j;
@@ -98,7 +98,7 @@ static char	*pixels_to_str(const t_canvas *c, char *pxls_str, t_buf *str)
 // 	creating_outfile,
 // 			.description = CYAN"\ncanvas_to_ppm speed test"RESET)
 // {
-// 	const t_canvas 				c = create_canvas(1080, 1920);
+// 	t_canvas 				c = create_canvas(1080, 1920);
 //
 // 	set_all_pixels_to_one_color(&c, (t_tuple){1.0, 0.8, 0.6});
 // 	t_constr pxls_str = canvas_to_ppm(&c);

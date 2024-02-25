@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-static inline void		*aux_memcpy(void *dst, const void *src, size_t n);
+static inline void		*aux_memcpy(void *dst,  void *src, size_t n);
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dst,  void *src, size_t n)
 {
 	if (!dst || !src || n == 0)
 		return (dst);
@@ -26,7 +26,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-static inline void	*aux_memcpy(void *dst, const void *src, size_t n)
+static inline void	*aux_memcpy(void *dst,  void *src, size_t n)
 {
 	size_t			i;
 	unsigned char	*dest;

@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-static inline size_t	aux_strlen(const char *str);
-static inline int		aux_strncmp(const char *s1, const char *s2, size_t n);
+static inline size_t	aux_strlen( char *str);
+static inline int		aux_strncmp( char *s1,  char *s2, size_t n);
 static inline int		within_limits(size_t i, size_t nstr_sz, size_t len);
 
-char	*ft_strnstr(const char *str, const char *inner_str, size_t len)
+char	*ft_strnstr( char *str,  char *inner_str, size_t len)
 {
 	size_t	i;
 	size_t	inner_str_sz;
@@ -48,7 +48,7 @@ static inline int	within_limits(size_t i, size_t nlen, size_t len)
 	return (0);
 }
 
-static inline size_t	aux_strlen(const char *str)
+static inline size_t	aux_strlen( char *str)
 {
 	size_t	i;
 
@@ -58,7 +58,7 @@ static inline size_t	aux_strlen(const char *str)
 	return (i);
 }
 
-static inline int	aux_strncmp(const char *s1, const char *s2, size_t n)
+static inline int	aux_strncmp( char *s1,  char *s2, size_t n)
 {
 	size_t	i;
 	int		difference;

@@ -22,7 +22,7 @@ Test(rendering_shadows, shade_hit_receives_a_hit_in_shadow, .description = scena
     t_world     	w;
     t_sphere		*s1 = malloc(sizeof(t_sphere));
     t_sphere		*s2 = malloc(sizeof(t_sphere));
-    t_ray       	r;
+	t_ray			r;
     t_node			*head;
     t_prep_comps	comps;
     t_tuple			color;
@@ -61,7 +61,7 @@ Test(rendering_shadows, hit_should_offset_the_point, .description = scenario2) {
 	t_prep_comps		comps;
 	t_sphere			*s;
 	t_node				*i;
-	const t_ray			r = {
+	t_ray				r = {
 		.origin = {0, 0, -5, POINT},
 		.direction = {0, 0, 1, VECTOR}
 	};
