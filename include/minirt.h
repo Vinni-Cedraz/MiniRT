@@ -169,6 +169,7 @@ typedef struct s_shape
 	double				min;
 	double				max;
 	t_bool				closed;
+	t_ray				r;
 }						t_shape;
 
 typedef struct s_phere
@@ -183,6 +184,7 @@ typedef struct s_phere
 	double				min;
 	double				max;
 	t_bool				closed;
+	t_ray				r;
 }						t_sphere;
 
 typedef struct s_plane
@@ -197,6 +199,7 @@ typedef struct s_plane
 	double				min;
 	double				max;
 	t_bool				closed;
+	t_ray				r;
 }						t_plane;
 
 typedef struct s_cylinder
@@ -211,6 +214,7 @@ typedef struct s_cylinder
 	double				min;
 	double				max;
 	t_bool				closed;
+	t_ray				r;
 }						t_cylinder;
 
 typedef struct s_world
@@ -255,7 +259,7 @@ typedef struct s_camera
 	double				world_y;
 }						t_camera;
 
-typedef t_intersection	(*t_intersect_function)(t_shape **, t_tuple, t_ray);
+typedef t_intersection	(*t_intersect_function)(t_shape **, t_tuple);
 typedef void			(*t_normal_at_function)(const t_shape *, const t_tuple,
 				t_tuple);
 
@@ -360,10 +364,9 @@ t_camera				create_camera(int hsize, int vsize,
 							double field_of_view);
 t_ray					ray_for_pixel(t_camera c, int x, int y);
 t_canvas				render(t_camera camera, t_world world);
-t_intersection			intersect_sphere(t_shape **obj, t_tuple dist, t_ray r);
-t_intersection			intersect_plane(t_shape **obj, t_tuple dist, t_ray r);
-t_intersection			intersect_cylinder(t_shape **obj,
-							t_tuple obj_dist_to_ray, t_ray r);
+t_intersection			intersect_sphere(t_shape **obj, t_tuple dist);
+t_intersection			intersect_plane(t_shape **obj, t_tuple dist);
+t_intersection			intersect_cylinder(t_shape **obj, t_tuple obj_dist_to_ray);
 t_plane					create_plane(void);
 t_cylinder				create_cylinder(void);
 double					discriminant(t_tuple obj_dist_ray, t_ray ray,
@@ -390,5 +393,14 @@ void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
 t_bool					is_shadowed(t_world *w, t_tuple p);
 void					add_object(t_world *w, t_shape *new_obj, int index);
 t_material				create_plane_material(void);
+static inline void print_tuple(const t_tuple a) { printf("X: %f, Y: %f, Z: %f, W: %f\n", a[X], a[Y], a[Z], a[W]); }
+
+static inline void print_4x4matrix(const t_matrix a) {
+    print_tuple(a.row_1);
+    print_tuple(a.row_2);
+    print_tuple(a.row_3);
+    print_tuple(a.row_4);
+}
+
 
 #endif

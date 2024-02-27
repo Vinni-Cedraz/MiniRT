@@ -18,15 +18,6 @@ typedef struct s_environment {
     t_tuple wind;
 } t_environment;
 
-static inline void print_tuple(const t_tuple a) { printf("X: %f, Y: %f, Z: %f, W: %f\n", a[X], a[Y], a[Z], a[W]); }
-
-static inline void print_4x4matrix(const t_matrix a) {
-    print_tuple(a.row_1);
-    print_tuple(a.row_2);
-    print_tuple(a.row_3);
-    print_tuple(a.row_4);
-}
-
 static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple expected) {
     for (int i = 0; i < 4; i++) {
         cr_expect(doubles_eq(result[i], expected[i]));
@@ -82,7 +73,7 @@ static inline void create_a_point(double x, double y, double z, t_tuple res) {
 
 void quick_render(t_world *w, const t_tuple from) {
 
-    t_camera camera = create_camera(1920, 1080, M_PI / 4);
+    t_camera camera = create_camera(800, 600, M_PI / 4);
     t_tuple to = (t_tuple){0, 0, 0, POINT};
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
     t_tuple forward;

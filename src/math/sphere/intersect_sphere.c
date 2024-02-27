@@ -12,13 +12,13 @@
 
 #include "minirt.h"
 
-t_intersection	intersect_sphere(t_shape **obj, t_tuple obj_dist_ray, t_ray r)
+t_intersection	intersect_sphere(t_shape **obj, t_tuple obj_dist_ray)
 {
 	double			dis;
 	t_baskara		bask;
 	t_intersection	i;
 
-	dis = discriminant(obj_dist_ray, r, &bask);
+	dis = discriminant(obj_dist_ray, (*obj)->r, &bask);
 	if (dis < 0)
 	{
 		i.count = 0;

@@ -21,7 +21,6 @@ Test(rotation, rotating_around_x_axis, .description = scenario2) {
 	multiply_tuple_by_matrix(p, full_quarter, res);
 	cr_expect_tuples_eq(res, expected2);
 }
-
 //Scenario : The inverse of an x-rotation rotates in the opposite direction
 #define scenario3 "CYAN\n"                                           \
 				   "Given p ← point(0, 1, 0)\n"                      \
