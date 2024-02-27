@@ -88,13 +88,12 @@ Test(surface_normals, the_normal_is_normalized, .description = scenario5) {
 Test(surface_normals, normal_on_a_translated_sphere, .description = scenario6) {
 	t_sphere		s;
 	t_tuple			actual_normal;
-	t_tuple			expected_normal;
+	const t_tuple	expected_normal = {0, 0.70711, -0.70711, VECTOR};
 	const t_tuple 	p = {0, 1.707107, -0.707107, POINT};
 
  	s = create_sphere();
 	set_transform(&s, create_translation_matrix((t_tuple) {0, 1, 0, POINT}));
 	sphere_normal_at(&s, p, actual_normal);
-	normalize(actual_normal, expected_normal);
 	cr_expect_tuples_eq(actual_normal, expected_normal);
 }
 
@@ -111,13 +110,12 @@ Test(surface_normals, normal_on_a_translated_sphere, .description = scenario6) {
 Test(surface_normals, normal_on_a_transformed_sphere, .description = scenario7) {
 	t_sphere		s;
 	t_tuple			actual_normal;
-	t_tuple			expected_normal;
 	const t_matrix	t = mult_matrices(create_scaling_matrix(1, 0.5, 1), create_z_rotation_matrix(M_PI/5));
 	const t_tuple	p = {0, (SQRT_OF_2/2), (-SQRT_OF_2/2), POINT};
+	const t_tuple	expected_normal = {0, 0.97014, -0.24254, VECTOR};
 
  	s = create_sphere();
 	set_transform(&s, t);
 	sphere_normal_at(&s, p, actual_normal);
-	normalize(actual_normal, expected_normal);
 	cr_expect_tuples_eq(actual_normal, expected_normal);
 }
