@@ -14,8 +14,4 @@
 
 void	get_position(t_ray ray, double t, t_tuple result)
 {
-	t_tuple	distance;
-
-	multiply_tuple_by_scalar(ray.direction, t, distance);
-	add_tuples(ray.origin, distance, result);
 }

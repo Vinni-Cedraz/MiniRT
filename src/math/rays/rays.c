@@ -14,10 +14,4 @@
 
 t_ray	create_ray(t_tuple origin, t_tuple vector)
 {
-	const t_ray	ray = (t_ray){
-		.origin = {origin[X], origin[Y], origin[Z], origin[W]},
-		.direction = {vector[X], vector[Y], vector[Z], vector[W]},
-	};
-
-	return (ray);
 }

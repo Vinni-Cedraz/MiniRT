@@ -14,14 +14,4 @@
 
 t_intersection	intersect_plane(t_shape **obj, t_tuple obj_dist_to_ray)
 {
-	const t_ray		r = (*obj)->r;
-	t_intersection	xs;
-
-	(void)obj_dist_to_ray;
-	ft_bzero((void *)&xs, sizeof(t_intersection));
-	if (fabs(r.direction[Y]) < EPSILON)
-		return (xs);
-	xs.head = intersection((-r.origin[Y] / r.direction[Y]), obj);
-	xs.count = 1;
-	return (xs);
 }

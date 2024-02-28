@@ -14,10 +14,8 @@
 
 double	_3x3minor(const t_3x3matrix m, int row, int col)
 {
-	return (_2x2determinant(_3x3submatrix(m, row, col)));
 }
 
 double	_4x4minor(const t_matrix m, int row, int col)
 {
-	return (_3x3determinant(_4x4submatrix(m, row, col)));
 }

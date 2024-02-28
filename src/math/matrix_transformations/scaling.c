@@ -14,10 +14,4 @@
 
 t_matrix	create_scaling_matrix(const double x, const double y, const double z)
 {
-	return (create_4x4_matrix(&(t_matrix){
-			.row_1 = {x, 0, 0, 0},
-			.row_2 = {0, y, 0, 0},
-			.row_3 = {0, 0, z, 0},
-			.row_4 = {0, 0, 0, 1},
-		}));
 }

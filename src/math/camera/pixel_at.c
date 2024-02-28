@@ -14,5 +14,4 @@
 
 void	pixel_at(t_canvas image, int x, int y, t_tuple res)
 {
-	init_tuple(image.pixels[y][x], res);
 }

@@ -19,50 +19,22 @@ static void		init_color_values(t_material *m, t_tuple new_color);
 
 void	set_material(t_tuple new_phong, t_tuple new_color, t_material *m)
 {
-	double	*phong_values[4];
-
-	init_phong_pointers(phong_values, m);
-	init_phong_values(phong_values, new_phong);
-	init_color_values(m, new_color);
 }
 
 static void	init_phong_pointers(double *phong_values[4], t_material *m)
 {
-	phong_values[0] = &m->ambient;
-	phong_values[1] = &m->diffuse;
-	phong_values[2] = &m->specular;
-	phong_values[3] = &m->shininess;
 }
 
 static void	init_phong_values(double *phong_values[4], t_tuple new_phong)
 {
-	int	counter;
-
-	counter = -1;
-	while (++counter < 4)
-	{
-		if (is_not_default(new_phong[counter]))
-			*phong_values[counter] = new_phong[counter];
-	}
 }
 
 static void	init_color_values(t_material *m, t_tuple new_color)
 {
-	int	counter;
-
-	counter = -1;
-	while (++counter < 4)
-	{
-		if (is_not_default(new_color[counter]))
-			m->color[counter] = new_color[counter];
-	}
 }
 
 static t_bool	is_not_default(double a)
 {
-	if (a != DEFAULT)
-		return (TRUE);
-	return (FALSE);
 }
 
 // #include "../../tests/tester.h"

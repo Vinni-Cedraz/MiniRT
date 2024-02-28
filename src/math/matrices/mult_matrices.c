@@ -16,40 +16,19 @@ static t_matrix	last_result(t_matrix *matrices[], const int idx);
 
 t_matrix	mult_matrices(t_matrix a, t_matrix b)
 {
-	t_matrix		result;
-	const t_matrix	mat = transpose_matrix(b);
-
-	multiply_tuple_by_matrix(a.row_1, mat, result.row_1);
-	multiply_tuple_by_matrix(a.row_2, mat, result.row_2);
-	multiply_tuple_by_matrix(a.row_3, mat, result.row_3);
-	multiply_tuple_by_matrix(a.row_4, mat, result.row_4);
-	create_4x4_matrix(&result);
-	return (result);
 }
 
 void	multiply_tuple_by_matrix(const t_tuple row, t_matrix m, t_tuple res)
 {
-	res[X] = dot(row, m.row_1);
-	res[Y] = dot(row, m.row_2);
-	res[Z] = dot(row, m.row_3);
-	res[W] = dot(row, m.row_4);
 }
 
 // mult_n_matrices
 t_matrix	chain_transformations(t_matrix *matrices[])
 {
-	return (last_result(matrices, 0));
 }
 
 static t_matrix	last_result(t_matrix *matrices[], const int idx)
 {
-	if (matrices[idx + 1] == NULL)
-		return (*matrices[idx]);
-	else
-		return (mult_matrices(
-				last_result(matrices, idx + 1),
-				*matrices[idx])
-		);
 }
 
 // #include "../../tests/tester.h"

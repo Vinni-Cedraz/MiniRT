@@ -14,30 +14,12 @@
 
 t_matrix	create_x_rotation_matrix(double r)
 {
-	return (create_4x4_matrix(&(t_matrix){
-			.row_1 = {1, 0, 0, 0},
-			.row_2 = {0, cos(r), -sin(r), 0},
-			.row_3 = {0, sin(r), cos(r), 0},
-			.row_4 = {0, 0, 0, 1},
-		}));
 }
 
 t_matrix	create_y_rotation_matrix(double r)
 {
-	return (create_4x4_matrix(&(t_matrix){
-			.row_1 = {cos(r), 0, sin(r), 0},
-			.row_2 = {0, 1, 0, 0},
-			.row_3 = {-sin(r), 0, cos(r), 0},
-			.row_4 = {0, 0, 0, 1},
-		}));
 }
 
 t_matrix	create_z_rotation_matrix(double r)
 {
-	return (create_4x4_matrix(&(t_matrix){
-			.row_1 = {cos(r), -sin(r), 0, 0},
-			.row_2 = {sin(r), cos(r), 0, 0},
-			.row_3 = {0, 0, 1, 0},
-			.row_4 = {0, 0, 0, 1},
-		}));
 }

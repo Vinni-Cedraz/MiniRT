@@ -17,35 +17,14 @@ static void			init_col(t_matrix b, int col_idx, t_tuple col);
 
 t_matrix	transpose_matrix(t_matrix m)
 {
-	t_matrix	res;
-	t_tuple		col;
-
-	init_col(m, COL1, col);
-	turn_col_into_row(col, res.row_1);
-	init_col(m, COL2, col);
-	turn_col_into_row(col, res.row_2);
-	init_col(m, COL3, col);
-	turn_col_into_row(col, res.row_3);
-	init_col(m, COL4, col);
-	turn_col_into_row(col, res.row_4);
-	create_4x4_matrix(&res);
-	return (res);
 }
 
 static inline void	turn_col_into_row(t_tuple col, t_tuple row)
 {
-	row[X] = col[X];
-	row[Y] = col[Y];
-	row[Z] = col[Z];
-	row[W] = col[W];
 }
 
 static inline void	init_col(t_matrix b, int col_idx, t_tuple col)
 {
-	col[X] = b.row_1[col_idx];
-	col[Y] = b.row_2[col_idx];
-	col[Z] = b.row_3[col_idx];
-	col[W] = b.row_4[col_idx];
 }
 
 // #include "../../tests/tester.h"

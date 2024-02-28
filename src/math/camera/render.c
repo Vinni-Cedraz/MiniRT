@@ -14,26 +14,4 @@
 
 t_canvas	render(t_camera camera, t_world world)
 {
-	t_canvas	image;
-	t_ray		ray;
-	t_tuple		color;
-	int			x;
-	int			y;
-
-	x = 0;
-	y = 0;
-	image = create_canvas(camera.vsize, camera.hsize);
-	while (y < camera.vsize)
-	{
-		while (x < camera.hsize)
-		{
-			ray = ray_for_pixel(camera, y, x);
-			color_at(&world, &ray, color);
-			write_pixel(&image, y, camera.hsize - x - 1, color);
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-	return (image);
 }

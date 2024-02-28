@@ -14,19 +14,4 @@
 
 t_cylinder	create_cylinder(void)
 {
-	static t_short		call_counter;
-	const t_cylinder	cylinder = {
-		.origin = {0, 0, 0, POINT},
-		.id = call_counter++,
-		.closed = FALSE,
-		.type = CYLINDER,
-		._t = create_identity_matrix(),
-		.inverse_t = create_identity_matrix(),
-		.transposed_inverse_t = create_identity_matrix(),
-		.material = create_material(),
-		.min = -INFINITY,
-		.max = INFINITY,
-	};
-
-	return (cylinder);
 }

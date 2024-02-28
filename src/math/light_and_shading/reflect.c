@@ -14,9 +14,4 @@
 
 void	reflect(t_tuple vector, t_tuple normal, t_tuple _return)
 {
-	const double	dres = dot(vector, normal) * 2;
-	t_tuple		result;
-
-	multiply_tuple_by_scalar(normal, dres, result);
-	subtract_tuples(vector, result, _return);
 }

@@ -19,60 +19,19 @@ t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, double det);
 
 t_bool	is_invertible(t_matrix m)
 {
-	if (_4x4determinant(m))
-		return (TRUE);
-	return (FALSE);
 }
 
 t_matrix	invert_matrix(t_matrix m)
 {
-	t_matrix	cofact_mat;
-	t_matrix	transposed_cofact_mat;
-	t_matrix	res;
-	double		det;
-
-	if (is_invertible(m) == FALSE)
-		return (m);
-	det = _4x4determinant(m);
-	cofact_mat = create_matrix_of_cofactors(m);
-	transposed_cofact_mat = transpose_matrix(cofact_mat);
-	res = divide_transposed_matrix_by_determinant(transposed_cofact_mat, det);
-	return (res);
 }
 
 t_matrix	create_matrix_of_cofactors(const t_matrix m)
 {
-	int			col;
-	t_matrix	res;
-
-	col = -1;
-	while (++col < 4)
-	{
-		res.row_1[col] = _4x4cofactor(m, ROW1, col);
-		res.row_2[col] = _4x4cofactor(m, ROW2, col);
-		res.row_3[col] = _4x4cofactor(m, ROW3, col);
-		res.row_4[col] = _4x4cofactor(m, ROW4, col);
-	}
-	res = create_4x4_matrix(&res);
-	return (res);
 }
 
 t_matrix	divide_transposed_matrix_by_determinant(t_matrix m,
 		const double det)
 {
-	int			i;
-	t_matrix	res;
-
-	i = -1;
-	while (++i < 4)
-	{
-		res.row_1[i] = m.row_1[i] / det;
-		res.row_2[i] = m.row_2[i] / det;
-		res.row_3[i] = m.row_3[i] / det;
-		res.row_4[i] = m.row_4[i] / det;
-	}
-	res = create_4x4_matrix(&res);
-	return (res);
 }
 
 // // check the cofactor matrix is correct

@@ -16,47 +16,14 @@ static t_tuple	*create_row_of_pixels(unsigned short width);
 
 t_canvas	create_canvas(unsigned short height, unsigned short width)
 {
-	t_canvas	canvas;
-
-	canvas.width = width;
-	canvas.height = height;
-	canvas.size = width * height;
-	canvas.pixels = malloc(sizeof(t_tuple *) * height);
-	while (height)
-	{
-		canvas.pixels[height - 1] = create_row_of_pixels(width);
-		height--;
-	}
-	return (canvas);
 }
 
 static t_tuple	*create_row_of_pixels(unsigned short width)
 {
-	t_tuple	*pixels;
-
-	pixels = malloc(sizeof(t_tuple) * width);
-	while (width)
-	{
-		pixels[width - 1][R] = 0;
-		pixels[width - 1][G] = 0;
-		pixels[width - 1][B] = 0;
-		pixels[width - 1][W] = COLOR;
-		width--;
-	}
-	return (pixels);
 }
 
 void	destroy_canvas(const t_canvas *canvas)
 {
-	unsigned short	height;
-
-	height = canvas->height;
-	while (height)
-	{
-		free(canvas->pixels[height - 1]);
-		height--;
-	}
-	free(canvas->pixels);
 }
 
 // #include "../../tests/tester.h"
