@@ -88,7 +88,7 @@ Test(camera, ray_when_camera_transformed, .description = scenario6) {
 	);
     const t_ray r = ray_for_pixel(c, 50, 100);
     cr_expect_eq(tuples_eq(r.origin, (t_tuple){0, 2, -5, POINT}), TRUE);
-    cr_expect_eq(tuples_eq(r.direction, (t_tuple){sqrt(2) / 2, 0, -sqrt(2) / 2, VECTOR}), TRUE);
+    cr_expect_eq(tuples_eq(r.direction, (t_tuple){sqrt(2)/2, 0, -sqrt(2)/2, VECTOR}), TRUE);
 }
 
 // Scenario: Rendering a world with a camera

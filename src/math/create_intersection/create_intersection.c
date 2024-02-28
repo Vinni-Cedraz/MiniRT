@@ -23,7 +23,7 @@ t_intersection	create_intersection(void *obj, t_ray r)
 
 	shape = (t_shape *)obj;
 	shape->r= transform_ray(r, shape->inverse_t);
-	subtract_tuples(r.origin, shape->origin, obj_dist_to_ray);
+	subtract_tuples(shape->r.origin, shape->origin, obj_dist_to_ray);
 	return (intersect_shape[shape->type](&shape, obj_dist_to_ray));
 }
 
