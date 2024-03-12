@@ -14,4 +14,7 @@
 
 t_ray	create_ray(t_tuple origin, t_tuple vector)
 {
+	(void)origin;
+	(void)vector;
+	return (t_ray){0};
 }

@@ -12,20 +12,27 @@
 
 #include "minirt.h"
 
-static void			turn_col_into_row(t_tuple col, t_tuple row);
-static void			init_col(t_matrix b, int col_idx, t_tuple col);
+// static void			turn_col_into_row(t_tuple col, t_tuple row);
+// static void			init_col(t_matrix b, int col_idx, t_tuple col);
 
 t_matrix	transpose_matrix(t_matrix m)
 {
+	(void)m;
+	return (t_matrix){0};
 }
 
-static inline void	turn_col_into_row(t_tuple col, t_tuple row)
-{
-}
-
-static inline void	init_col(t_matrix b, int col_idx, t_tuple col)
-{
-}
+// static inline void	turn_col_into_row(t_tuple col, t_tuple row)
+// {
+// 	(void)col;
+// 	(void)row;
+// }
+//
+// static inline void	init_col(t_matrix b, int col_idx, t_tuple col)
+// {
+// 	(void)b;
+// 	(void)col_idx;
+// 	(void)col;
+// }
 
 // #include "../../tests/tester.h"
 //

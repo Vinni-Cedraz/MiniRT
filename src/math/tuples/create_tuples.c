@@ -14,17 +14,25 @@
 
 void	create_point(t_tuple tuple)
 {
+	(void)tuple;
 }
 
 void	create_vector(t_tuple tuple)
 {
+	(void)tuple;
 }
 
 void	init_tuple(const t_tuple tuple, t_tuple res)
 {
+	(void)tuple;
+	(void)res;
 }
 
 void	add_three_tuples(t_tuple ambient, t_tuple diffuse,
 		t_tuple specular, t_tuple result)
 {
+	(void)ambient;
+	(void)diffuse;
+	(void)specular;
+	(void)result;
 }

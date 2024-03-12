@@ -12,30 +12,33 @@
 
 #include "minirt.h"
 
-static t_bool	is_not_default(double a);
-static void		init_phong_pointers(double *phong_values[4], t_material *m);
-static void		init_phong_values(double *phong_values[4], t_tuple new_phong);
-static void		init_color_values(t_material *m, t_tuple new_color);
+// static t_bool	is_not_default(double a);
+// static void		init_phong_pointers(double *phong_values[4], t_material *m);
+// static void		init_phong_values(double *phong_values[4], t_tuple new_phong);
+// static void		init_color_values(t_material *m, t_tuple new_color);
 
 void	set_material(t_tuple new_phong, t_tuple new_color, t_material *m)
 {
+	(void)new_phong;
+	(void)new_color;
+	(void)m;
 }
 
-static void	init_phong_pointers(double *phong_values[4], t_material *m)
-{
-}
-
-static void	init_phong_values(double *phong_values[4], t_tuple new_phong)
-{
-}
-
-static void	init_color_values(t_material *m, t_tuple new_color)
-{
-}
-
-static t_bool	is_not_default(double a)
-{
-}
+// static void	init_phong_pointers(double *phong_values[4], t_material *m)
+// {
+// }
+//
+// static void	init_phong_values(double *phong_values[4], t_tuple new_phong)
+// {
+// }
+//
+// static void	init_color_values(t_material *m, t_tuple new_color)
+// {
+// }
+//
+// static t_bool	is_not_default(double a)
+// {
+// }
 
 // #include "../../tests/tester.h"
 //

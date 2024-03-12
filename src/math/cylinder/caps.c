@@ -12,17 +12,26 @@
 
 #include "minirt.h"
 
-static void		add_cap_intersection(const double t, t_shape **p, t_node **node);
-static t_bool	check_cap(const t_ray ray, const double t);
+// static void		add_cap_intersection(const double t, t_shape **p, t_node **node);
+// static t_bool	check_cap(const t_ray ray, const double t);
 
 void	intersect_caps(const t_cylinder *cyl, const t_ray r, t_node **head)
 {
+	(void)cyl;
+	(void)r;
+	(void)head;
 }
 
-t_bool	check_cap(const t_ray ray, const double t)
-{
-}
-
-void	add_cap_intersection(const double t, t_shape **p, t_node **head)
-{
-}
+// static t_bool	check_cap(const t_ray ray, const double t)
+// {
+// 	(void)ray;
+// 	(void)t;
+// 	return (FALSE);
+// }
+//
+// static void	add_cap_intersection(const double t, t_shape **p, t_node **head)
+// {
+// 	(void)t;
+// 	(void)p;
+// 	(void)head;
+// }

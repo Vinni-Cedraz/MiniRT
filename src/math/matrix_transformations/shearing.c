@@ -14,4 +14,6 @@
 
 t_matrix	create_shearing_matrix(t_shearer s)
 {
+	(void)s;
+	return (t_matrix){0};
 }

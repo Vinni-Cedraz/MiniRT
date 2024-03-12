@@ -14,4 +14,7 @@
 
 t_bool	is_shadowed(t_world *w, t_tuple p)
 {
+	(void)w;
+	(void)p;
+	return (FALSE);
 }

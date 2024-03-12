@@ -12,19 +12,27 @@
 
 #include "minirt.h"
 
-static void	subrow(t_tuple row, int col_to_delete, double subrow[], int n);
+// static void	subrow(t_tuple row, int col_to_delete, double subrow[], int n);
 
 t_2x2matrix	_3x3submatrix(const t_3x3matrix m, int row_to_del, int col_to_del)
 {
+	(void)m;
+	(void)row_to_del;
+	(void)col_to_del;
+	return (t_2x2matrix){0};
 }
 
 t_3x3matrix	_4x4submatrix(const t_matrix m, int row_to_del, int col_to_delete)
 {
+	(void)m;
+	(void)row_to_del;
+	(void)col_to_delete;
+	return (t_3x3matrix){0};
 }
 
-void	subrow(t_tuple row, int col_to_delete, double subrow[], int len)
-{
-}
+// static void	subrow(t_tuple row, int col_to_delete, double subrow[], int len)
+// {
+// }
 
 // #include "../../tests/tester.h"
 // Test(submatrix, subrow) {

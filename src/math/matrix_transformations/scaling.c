@@ -14,4 +14,8 @@
 
 t_matrix	create_scaling_matrix(const double x, const double y, const double z)
 {
+	(void)x;
+	(void)y;
+	(void)z;
+	return (t_matrix){0};
 }

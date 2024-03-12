@@ -14,4 +14,7 @@
 
 void	set_cyl_min_max(t_cylinder *cyl, double min, double max)
 {
+	(void)cyl;
+	(void)min;
+	(void)max;
 }

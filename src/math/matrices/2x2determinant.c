@@ -14,4 +14,6 @@
 
 double	_2x2determinant(t_2x2matrix m)
 {
+	(void)m;
+	return (0);
 }

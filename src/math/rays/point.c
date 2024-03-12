@@ -14,4 +14,7 @@
 
 void	get_position(t_ray ray, double t, t_tuple result)
 {
+	(void)ray;
+	(void)t;
+	(void)result;
 }

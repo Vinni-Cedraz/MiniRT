@@ -14,4 +14,5 @@
 
 t_plane	create_plane(void)
 {
+	return (t_plane){0};
 }

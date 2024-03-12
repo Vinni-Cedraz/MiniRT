@@ -14,16 +14,28 @@
 
 double	_3x3determinant(const t_3x3matrix m)
 {
+	(void)m;
+	return 0;
 }
 
 double	_4x4determinant(const t_matrix m)
 {
+	(void)m;
+	return 0;
 }
 
 double	_3x3cofactor(const t_3x3matrix m, int row, int col)
 {
+	(void)m;
+	(void)row;
+	(void)col;
+	return 0;
 }
 
 double	_4x4cofactor(const t_matrix m, int row, int col)
 {
+	(void)m;
+	(void)row;
+	(void)col;
+	return 0;
 }

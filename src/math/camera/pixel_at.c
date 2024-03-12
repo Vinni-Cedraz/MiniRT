@@ -14,4 +14,8 @@
 
 void	pixel_at(t_canvas image, int x, int y, t_tuple res)
 {
+	(void)image;
+	(void)x;
+	(void)y;
+	(void)res;
 }

@@ -14,4 +14,7 @@
 
 void	reflect(t_tuple vector, t_tuple normal, t_tuple _return)
 {
+	(void)vector;
+	(void)normal;
+	(void)_return;
 }

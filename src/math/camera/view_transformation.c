@@ -12,19 +12,28 @@
 
 #include "minirt.h"
 
-static t_matrix	orientation_matrix(t_tuple lft, t_tuple up, t_tuple frwd);
-static t_matrix	move_scene_into_place(t_matrix *orientation, t_tuple from);
+// static t_matrix	orientation_matrix(t_tuple lft, t_tuple up, t_tuple frwd);
+// static t_matrix	move_scene_into_place(t_matrix *orientation, t_tuple from);
 
 t_matrix	view_transform(t_tuple from, t_tuple forward, t_tuple up)
 {
+	(void)from;
+	(void)forward;
+	(void)up;
+	return (t_matrix){0};
 }
 
-static t_matrix	orientation_matrix(t_tuple left, t_tuple truup, t_tuple forward)
-{
-	return (create_4x4_matrix(&(t_matrix){
-	}));
-}
-
-static t_matrix	move_scene_into_place(t_matrix *orientation, t_tuple from)
-{
-}
+// static t_matrix	orientation_matrix(t_tuple left, t_tuple truup, t_tuple forward)
+// {
+// 	(void)left;
+// 	(void)truup;
+// 	(void)forward;
+// 	return (t_matrix){0};
+// }
+//
+// static t_matrix	move_scene_into_place(t_matrix *orientation, t_tuple from)
+// {
+// 	(void)orientation;
+// 	(void)from;
+// 	return (t_matrix){0};
+// }

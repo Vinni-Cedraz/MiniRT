@@ -14,25 +14,29 @@
 
 // #include "../../../tests/tester.h"
 
-t_matrix	create_matrix_of_cofactors(const t_matrix m);
-t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, double det);
+// t_matrix	create_matrix_of_cofactors(const t_matrix m);
+// t_matrix	divide_transposed_matrix_by_determinant(t_matrix m, double det);
 
 t_bool	is_invertible(t_matrix m)
 {
+	(void)m;
+	return (TRUE);
 }
 
 t_matrix	invert_matrix(t_matrix m)
 {
+	(void)m;
+	return (m);
 }
 
-t_matrix	create_matrix_of_cofactors(const t_matrix m)
-{
-}
-
-t_matrix	divide_transposed_matrix_by_determinant(t_matrix m,
-		const double det)
-{
-}
+// static t_matrix	create_matrix_of_cofactors(const t_matrix m)
+// {
+// }
+//
+// static t_matrix	divide_transposed_matrix_by_determinant(t_matrix m,
+// 		const double det)
+// {
+// }
 
 // // check the cofactor matrix is correct
 // Test(invert, cofactor_matrix) {

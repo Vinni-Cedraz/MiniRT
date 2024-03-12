@@ -14,4 +14,8 @@
 
 void	color_at(t_world *w, t_ray *r, t_tuple color)
 {
+	//void all variables of this function;
+	(void)w;
+	(void)r;
+	(void)color;
 }

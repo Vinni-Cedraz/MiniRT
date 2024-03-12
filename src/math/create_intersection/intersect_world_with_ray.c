@@ -12,13 +12,16 @@
 
 #include "minirt.h"
 
-static void	lst_add_intrscs(t_intersection *r, t_node *head, t_shape **o);
+// static void	lst_add_intrscs(t_intersection *r, t_node *head, t_shape **o);
 
 t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
 {
+	(void)w;
+	(void)r;
+	return (t_intersection){0};
 }
 
-static inline void	lst_add_intrscs( \
-		t_intersection *lst, t_node *head, t_shape **obj_ptr)
-{
-}
+// static inline void	lst_add_intrscs( \
+// 		t_intersection *lst, t_node *head, t_shape **obj_ptr)
+// {
+// }

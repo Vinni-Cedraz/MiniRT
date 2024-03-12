@@ -14,4 +14,6 @@
 
 void	set_transform(t_shape *s, t_matrix t)
 {
+	(void)s;
+	(void)t;
 }

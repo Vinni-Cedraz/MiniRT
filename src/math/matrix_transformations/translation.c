@@ -14,6 +14,8 @@
 
 t_matrix	create_translation_matrix(t_tuple point)
 {
+	(void)point;
+	return (t_matrix){0};
 }
 
 // #include "../../tests/tester.h"

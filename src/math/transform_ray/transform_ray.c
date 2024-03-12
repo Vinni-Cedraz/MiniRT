@@ -14,4 +14,7 @@
 
 t_ray	transform_ray(t_ray ray, t_matrix matrix)
 {
+	(void)ray;
+	(void)matrix;
+	return (ray);
 }
