@@ -96,6 +96,6 @@ void	render_a_default_world(mlx_t *mlx)
     normalize(forward, forward);
     camera.transform = view_transform(from, forward, up);
 	load_objs_into_world(*get_image_to_render(mlx), camera, &world);
+	mlx_image_to_window(mlx, *get_image_to_render(mlx), 0, 0);
+	mlx_loop(mlx);
 }
-
-

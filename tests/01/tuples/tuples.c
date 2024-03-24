@@ -1,5 +1,5 @@
-#include <criterion/criterion.h>
-#include "tester.h"
+# include <criterion/criterion.h>
+# include "tester.h"
 
 #define suite_name tuples
 #define test1_description CYAN"shows that a tuple is a point when w is 1, and its xyz are correct"RESET

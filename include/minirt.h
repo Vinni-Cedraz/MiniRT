@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/12/05 11:26:13 by johmatos         ###   ########.fr       */
+/*   Updated: 2024/03/24 20:23:13 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "../libs/libft.h"
 # include "../libs/libft_bonus.h"
 # include <math.h>
-#include <stdint.h>
+# include <stdint.h>
 # include <stdio.h>
 
 # define CYAN "\033[36m"
@@ -59,7 +59,7 @@ typedef double			t_3x3_row[3];
 typedef double			t_2x2_row[2];
 typedef _Bool			t_bool;
 typedef unsigned short	t_short;
-typedef void (t_parse_table)(char *, t_node*);
+typedef					void(t_parse_table)(char *, t_node *);
 
 typedef enum e_num
 {
@@ -271,8 +271,8 @@ void					add_tuples(const t_tuple a, const t_tuple b,
 void					subtract_tuples(const t_tuple a, const t_tuple b,
 							t_tuple result);
 void					negate_tuple(const t_tuple a, t_tuple result);
-void					multiply_tuple_by_scalar(const t_tuple a, const double s,
-							t_tuple r);
+void					multiply_tuple_by_scalar(const t_tuple a,
+							const double s, t_tuple r);
 void					multiply_tuple_by_matrix(const t_tuple row, t_matrix m,
 							t_tuple res);
 void					multiply_colors(const t_tuple c1, const t_tuple c2,
@@ -366,12 +366,14 @@ t_ray					ray_for_pixel(t_camera c, int x, int y);
 t_canvas				render(t_camera camera, t_world world);
 t_intersection			intersect_sphere(t_shape **obj, t_tuple dist);
 t_intersection			intersect_plane(t_shape **obj, t_tuple dist);
-t_intersection			intersect_cylinder(t_shape **obj, t_tuple obj_dist_to_ray);
+t_intersection			intersect_cylinder(t_shape **obj,
+							t_tuple obj_dist_to_ray);
 t_plane					create_plane(void);
 t_cylinder				create_cylinder(void);
 double					discriminant(t_tuple obj_dist_ray, t_ray ray,
 							t_baskara *bask);
-void					set_cyl_min_max(t_cylinder *cyl, double min, double max);
+void					set_cyl_min_max(t_cylinder *cyl, double min,
+							double max);
 void					load_objs_into_world(mlx_image_t *image,
 							t_camera camera, t_world *world);
 mlx_image_t				**get_image_to_render(mlx_t *mlx);
@@ -393,14 +395,21 @@ void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
 t_bool					is_shadowed(t_world *w, t_tuple p);
 void					add_object(t_world *w, t_shape *new_obj, int index);
 t_material				create_plane_material(void);
-static inline void print_tuple(const t_tuple a) { printf("X: %f, Y: %f, Z: %f, W: %f\n", a[X], a[Y], a[Z], a[W]); }
+void					create_test_world(t_world *world, const t_tuple from,
+							int num_shapes, ...);
+void					quick_render(t_world *w, const t_tuple from);
 
-static inline void print_4x4matrix(const t_matrix a) {
-    print_tuple(a.row_1);
-    print_tuple(a.row_2);
-    print_tuple(a.row_3);
-    print_tuple(a.row_4);
+static inline void	print_tuple(const t_tuple a)
+{
+	printf("X: %f, Y: %f, Z: %f, W: %f\n", a[X], a[Y], a[Z], a[W]);
 }
 
+static inline void	print_4x4matrix(const t_matrix a)
+{
+	print_tuple(a.row_1);
+	print_tuple(a.row_2);
+	print_tuple(a.row_3);
+	print_tuple(a.row_4);
+}
 
 #endif

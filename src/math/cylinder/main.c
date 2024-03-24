@@ -1,4 +1,4 @@
-#include "../../../tests/tester.h"
+#include "minirt.h"
 
 const t_tuple FROM = {0, 4, 25, POINT};
 const int NUMBER_OF_OBJECTS = 1;
@@ -24,5 +24,3 @@ int main(void) {
     set_transform((t_shape *)&cyl, chain_transformations((t_matrix *[]){&rotation_y, &rotation_z, NULL}));
     create_test_world(&world, FROM, NUMBER_OF_OBJECTS, cyl);
 }
-
-
