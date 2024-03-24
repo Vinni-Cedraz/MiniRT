@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/04/chaining_transformations",
+  "directory": "/root/MiniRT/tests/04/chaining_transformations",
   "arguments": [
    "cc",
    "-O3",

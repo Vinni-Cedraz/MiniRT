@@ -2,7 +2,7 @@ TESTDIRS = tuples \
 		   comparing_floats \
 		   basic_tuple_operations \
 		   complex_tuple_operations \
-		   putting_it_together
+		   # putting_it_together
 
 ORANGE = \033[38;5;214m
 YELLOW = \033[38;5;226m

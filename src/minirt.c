@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	mlx_t* mlx;
 
-	if (!(mlx = mlx_init(sizew, sizeh, "MLX42", true)))
+	if (!(mlx = mlx_init(SIZEW, SIZEH, "MLX42", true)))
 	{
 		puts(mlx_strerror(mlx_errno));
 		return(EXIT_FAILURE);

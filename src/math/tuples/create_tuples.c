@@ -14,7 +14,7 @@
 
 t_tuple	create_point(float x, float y, float z)
 {
-	t_tuple tuple;
+	t_tuple	tuple;
 
 	tuple.x = x;
 	tuple.y = y;
@@ -25,7 +25,7 @@ t_tuple	create_point(float x, float y, float z)
 
 t_tuple	create_vector(float x, float y, float z)
 {
-	t_tuple tuple;
+	t_tuple	tuple;
 
 	tuple.x = x;
 	tuple.y = y;
@@ -34,9 +34,9 @@ t_tuple	create_vector(float x, float y, float z)
 	return (tuple);
 }
 
-t_tuple	create_tuple(float x, float y, float z, float w)
+t_tuple	create_tuple(float x, float y, float z, short w)
 {
-	t_tuple tuple;
+	t_tuple	tuple;
 
 	tuple.x = x;
 	tuple.y = y;
@@ -45,13 +45,11 @@ t_tuple	create_tuple(float x, float y, float z, float w)
 	return (tuple);
 }
 
-void	add_three_tuples(t_tuple ambient, t_tuple diffuse,
-		t_tuple specular, t_tuple result)
+void	add_three_tuples(t_tuple ambient, t_tuple diffuse, t_tuple specular,
+		t_tuple result)
 {
 	(void)ambient;
 	(void)diffuse;
 	(void)specular;
 	(void)result;
 }
-
-

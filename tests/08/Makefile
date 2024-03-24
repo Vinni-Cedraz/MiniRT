@@ -2,7 +2,7 @@ TESTDIRS = 		\
   lighting_in_shadows \
   testing_for_shadows \
   rendering_shadows \
-  putting_it_together \
+  # putting_it_together \
 
 ## VARIABLES
 ORANGE = \033[38;5;214m

@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/03/inverting_matrices",
+  "directory": "/root/MiniRT/tests/03/inverting_matrices",
   "arguments": [
    "cc",
    "-O3",
@@ -19,7 +19,7 @@
   "file": "2x2_determinant.c"
  },
  {
-  "directory": "/home/myuser/MiniRT/tests/03/inverting_matrices",
+  "directory": "/root/MiniRT/tests/03/inverting_matrices",
   "arguments": [
    "cc",
    "-O3",
@@ -38,7 +38,7 @@
   "file": "spotting_submatrices.c"
  },
  {
-  "directory": "/home/myuser/MiniRT/tests/03/inverting_matrices",
+  "directory": "/root/MiniRT/tests/03/inverting_matrices",
   "arguments": [
    "cc",
    "-O3",
@@ -57,7 +57,7 @@
   "file": "manipulating_minors.c"
  },
  {
-  "directory": "/home/myuser/MiniRT/tests/03/inverting_matrices",
+  "directory": "/root/MiniRT/tests/03/inverting_matrices",
   "arguments": [
    "cc",
    "-O3",
@@ -76,7 +76,7 @@
   "file": "computing_cofactors.c"
  },
  {
-  "directory": "/home/myuser/MiniRT/tests/03/inverting_matrices",
+  "directory": "/root/MiniRT/tests/03/inverting_matrices",
   "arguments": [
    "cc",
    "-O3",
@@ -93,24 +93,5 @@
    "4x4_determinant"
   ],
   "file": "4x4_determinant.c"
- },
- {
-  "directory": "/home/myuser/MiniRT/tests/03/inverting_matrices",
-  "arguments": [
-   "cc",
-   "-O3",
-   "-lcriterion",
-   "-lm",
-   "-w",
-   "implementing_inversion.c",
-   "-I../../",
-   "-I../../../include/",
-   "-I../../../libs/",
-   "../../../libs/*.a",
-   "../../../minirt.a",
-   "-o",
-   "implementing_inversion"
-  ],
-  "file": "implementing_inversion.c"
  }
 ]

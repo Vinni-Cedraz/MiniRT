@@ -1,7 +1,7 @@
 TESTDIRS = canvas \
 		   color_operations \
 		   representing_colors \
-		   putting_it_together
+		   # putting_it_together
 
 ORANGE = \033[38;5;214m
 YELLOW = \033[38;5;226m

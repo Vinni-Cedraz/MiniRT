@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-static t_tuple	*create_row_of_pixels(unsigned short width);
+static t_four_doubles	*create_row_of_pixels(unsigned short width);
 
 t_canvas	create_canvas(unsigned short height, unsigned short width)
 {
@@ -30,9 +30,9 @@ t_canvas	create_canvas(unsigned short height, unsigned short width)
 	return (canvas);
 }
 
-static t_tuple	*create_row_of_pixels(unsigned short width)
+static t_four_doubles	*create_row_of_pixels(unsigned short width)
 {
-	t_tuple	*pixels;
+	t_four_doubles	*pixels;
 
 	pixels = malloc(sizeof(t_tuple) * width);
 	while (width)

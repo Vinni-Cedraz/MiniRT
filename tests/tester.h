@@ -19,18 +19,26 @@ typedef struct s_environment {
 } t_environment;
 
 static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple expected) {
-    for (int i = 0; i < 4; i++) {
-        cr_expect(doubles_eq(result[i], expected[i]));
-        if (!doubles_eq(result[i], expected[i]))
-            return (1);
-    }
-    return (0);
+
+    cr_expect(doubles_eq(result.x, expected.x));
+    if (!doubles_eq(result.x, expected.x))
+        return (FALSE);
+    cr_expect(doubles_eq(result.y, expected.y));
+	if (!doubles_eq(result.y, expected.y))
+		return (FALSE);
+    cr_expect(doubles_eq(result.z, expected.z));
+	if (!doubles_eq(result.z, expected.z))
+		return (FALSE);
+    cr_expect(doubles_eq(result.w, expected.w));
+	if (!doubles_eq(result.w, expected.w))
+		return (FALSE);
+    return (TRUE);
 }
 
 static inline void set_all_pixels_to_one_color(const t_canvas *c, t_tuple color) {
     for (int y = 0; y < c->height; y++)
         for (int x = 0; x < c->width; x++)
-            write_pixel((t_canvas *)c, y, x, color);
+            write_pixel((t_canvas *)c, y, x, (t_four_doubles){color.x, color.y, color.z, color.w});
 }
 
 static inline void create_ppm_file(t_constr ppm_string, t_constr filename) {
@@ -51,36 +59,16 @@ static inline t_bool cr_expect_matrices_eq(t_matrix a, t_matrix b) {
 
 static inline int invert_axis(int size, double axis) { return ((int)size - axis); }
 
-static inline void create_a_vector(double x, double y, double z, t_tuple res) {
-    res[X] = x;
-    res[Y] = y;
-    res[Z] = z;
-    res[W] = VECTOR;
-}
-static inline void create_a_point(double x, double y, double z, t_tuple res) {
-    res[X] = x;
-    res[Y] = y;
-    res[Z] = z;
-    res[W] = POINT;
-}
-
-// #define scenario1 CYAN \
-// "\nGiven point(0, 0, 0, POINT)\n"\
-// "And canvas(500, 500)\n" \
-// "And p ← translate_coordinate(point, canvas)\n " \
-// "Then p = point(250, 250, 0, POINT)\n"RESET
-//
-
 void quick_render(t_world *w, const t_tuple from) {
 
     t_camera camera = create_camera(800, 600, M_PI / 4);
     t_tuple to = (t_tuple){0, 0, 0, POINT};
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
-    t_tuple forward;
+    t_tuple forward = (t_tuple){0};
 
     subtract_tuples(to, from, forward);
     normalize(forward, forward);
-    camera.transform = view_transform((double *)from, forward, up);
+    camera.transform = view_transform(from, forward, up);
 
     t_canvas c = render(camera, *w);
 

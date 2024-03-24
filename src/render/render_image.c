@@ -14,7 +14,7 @@
 
 #define MULTI 255
 
-uint32_t	normalized_color_to_int(t_tuple color)
+uint32_t	normalized_color_to_int(t_four_doubles color)
 {
 	if (color[X] > 1)
 		color[X] = 1;
@@ -22,20 +22,17 @@ uint32_t	normalized_color_to_int(t_tuple color)
 		color[Y] = 1;
 	if (color[Z] > 1)
 		color[Z] = 1;
-	return (
-			  ((uint32_t)(color[X] * MULTI) << 24)
-			| ((uint32_t)(color[Y] * MULTI) << 16)
-			| ((uint32_t)(color[Z] * MULTI) << 8)
-			| 0xff);
+	return (((uint32_t)(color[X] * MULTI) << 24) | ((uint32_t)(color[Y]
+				* MULTI) << 16) | ((uint32_t)(color[Z] * MULTI) << 8) | 0xff);
 }
 
 void	load_objs_into_world(mlx_image_t *image, t_camera camera,
 		t_world *world)
 {
-	t_ray	ray;
-	t_tuple	color;
-	int		x;
-	int		y;
+	t_ray			ray;
+	t_four_doubles	color;
+	int				x;
+	int				y;
 
 	x = 0;
 	y = 0;
@@ -44,7 +41,7 @@ void	load_objs_into_world(mlx_image_t *image, t_camera camera,
 		while (x < camera.hsize)
 		{
 			ray = ray_for_pixel(camera, y, x);
-			color_at(world, &ray, color);
+			color_at(world, &ray, (t_tuple){color[X], color[Y], color[Z], color[W]});
 			mlx_put_pixel(image, x, y, normalized_color_to_int(color));
 			x++;
 		}
@@ -58,6 +55,6 @@ mlx_image_t	**get_image_to_render(mlx_t *mlx)
 	static mlx_image_t	*image = NULL;
 
 	if (image == NULL)
-		image = mlx_new_image(mlx, sizeh, sizew);
+		image = mlx_new_image(mlx, SIZEH, SIZEW);
 	return (&image);
 }

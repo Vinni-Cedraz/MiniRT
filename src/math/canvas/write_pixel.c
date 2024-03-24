@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void	write_pixel(t_canvas *canvas, int y, int x, const t_tuple pixel)
+void	write_pixel(t_canvas *canvas, int y, int x, const t_four_doubles pixel)
 {
 	canvas->pixels[y][x][R] = pixel[R];
 	canvas->pixels[y][x][G] = pixel[G];

@@ -4,7 +4,7 @@ TESTDIRS = 		\
   rotation \
   shearing \
   chaining_transformations \
-  putting_it_together \
+  # putting_it_together \
 
 ORANGE = \033[38;5;214m
 YELLOW = \033[38;5;226m

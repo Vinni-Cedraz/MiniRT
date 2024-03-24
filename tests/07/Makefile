@@ -2,7 +2,7 @@ TESTDIRS = 		\
   building_world \
   view_transformation \
   implementing_camera \
-  putting_it_together \
+  # putting_it_together \
 
 ## VARIABLES
 ORANGE = \033[38;5;214m

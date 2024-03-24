@@ -37,24 +37,6 @@ t_world init_world(t_shape *floor, t_sphere *balls[], t_plane *walls[6]) {
 	return (world);
 }
 
-void init_test2_balls(t_sphere *balls[]) {
-    set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.5, 0.8, 0.1}, &balls[0]->material);
-	set_transform((t_shape *)balls[0], mult_matrices(
-				create_translation_matrix((t_tuple){1.10, 1.2, 0.7}),
-				create_scaling_matrix(0.5, 0.5, 0.5))
-	);
-    set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.1, 1, 0.1}, &balls[1]->material);
-	set_transform((t_shape *)balls[1], mult_matrices(
-				create_translation_matrix((t_tuple){0, 1, 0.1}),
-				create_scaling_matrix(0.7, 0.7, 0.7))
-	);
-	set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){1, 0.8, 0.1}, &balls[2]->material);
-	set_transform((t_shape *)balls[2], mult_matrices(
-				create_translation_matrix((t_tuple){-0.95, 0.89, 0.55}),
-				create_scaling_matrix(0.33, 0.33, 0.33))
-	);
-}
-
 void init_floor(t_shape *floor) {
     set_material(
 			(t_tuple){DEFAULT, DEFAULT, 0, DEFAULT},
@@ -65,37 +47,15 @@ void init_floor(t_shape *floor) {
 
 void	render_a_default_world(mlx_t *mlx)
 {
-	t_sphere right_ball = create_sphere();
-	t_sphere middle_ball = create_sphere();
-	t_sphere left_ball = create_sphere();
-
-	t_plane floor = create_plane();
-    t_world world;
-
-	// CREATE SHAPES
-	init_floor((t_shape *)&floor);
-	init_test2_balls((t_sphere *[]){
-			&right_ball, &left_ball, &middle_ball
-	});
-
-	// init_walls(walls);
-	t_plane **walls = NULL;
-	world = init_world(
-			(t_shape *)&floor,
-			(t_sphere *[]){&right_ball, &left_ball, &middle_ball},
-			walls
-	);
-
-    t_camera camera = create_camera(sizeh, sizew, M_PI / 3);
+    t_camera camera = create_camera(SIZEH, SIZEW, M_PI / 3);
     t_tuple from = (t_tuple){0, 40, 10, POINT};
     t_tuple to = (t_tuple){0, 0, 1, POINT};
     t_tuple up = (t_tuple){1, 0, 0, VECTOR};
-    t_tuple forward;
+    t_tuple forward = (t_tuple){0};
 
+	t_world world = create_world();
     subtract_tuples(to, from, forward);
     normalize(forward, forward);
     camera.transform = view_transform(from, forward, up);
 	load_objs_into_world(*get_image_to_render(mlx), camera, &world);
 }
-
-

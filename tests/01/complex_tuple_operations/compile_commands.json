@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/01/complex_tuple_operations",
+  "directory": "/root/MiniRT/tests/01/complex_tuple_operations",
   "arguments": [
    "cc",
    "-O3",
@@ -19,26 +19,7 @@
   "file": "magnitude.c"
  },
  {
-  "directory": "/home/myuser/MiniRT/tests/01/complex_tuple_operations",
-  "arguments": [
-   "cc",
-   "-O3",
-   "-lcriterion",
-   "-lm",
-   "-w",
-   "normalization.c",
-   "-I../../",
-   "-I../../../include/",
-   "-I../../../libs/",
-   "../../../libs/*.a",
-   "../../../minirt.a",
-   "-o",
-   "normalization"
-  ],
-  "file": "normalization.c"
- },
- {
-  "directory": "/home/myuser/MiniRT/tests/01/complex_tuple_operations",
+  "directory": "/root/MiniRT/tests/01/complex_tuple_operations",
   "arguments": [
    "cc",
    "-O3",
@@ -55,24 +36,5 @@
    "dot_product"
   ],
   "file": "dot_product.c"
- },
- {
-  "directory": "/home/myuser/MiniRT/tests/01/complex_tuple_operations",
-  "arguments": [
-   "cc",
-   "-O3",
-   "-lcriterion",
-   "-lm",
-   "-w",
-   "cross_product.c",
-   "-I../../",
-   "-I../../../include/",
-   "-I../../../libs/",
-   "../../../libs/*.a",
-   "../../../minirt.a",
-   "-o",
-   "cross_product"
-  ],
-  "file": "cross_product.c"
  }
 ]

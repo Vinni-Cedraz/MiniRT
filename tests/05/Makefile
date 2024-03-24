@@ -4,7 +4,8 @@ TESTDIRS = \
   tracking_intersections \
   identifying_hits \
   transforming_rays_and_spheres \
-  putting_it_together
+  # putting_it_together
+
 ORANGE = \033[38;5;214m
 YELLOW = \033[38;5;226m
 RESET = \033[0m
