@@ -8,11 +8,11 @@
 
 Test(suite_name, tuple_is_a_valid_tuple, .description = test3_description)
 {
-	const t_tuple a = create_tuple(4.3, -4.2, 3.1, 1);
+	const t_tuple a = create_tuple(4, -4, 3, 1);
 
-	cr_expect_eq(a.x, 4.3);
-	cr_expect_eq(a.y, -4.2);
-	cr_expect_eq(a.z, 3.1);
+	cr_expect_eq(a.x, 4);
+	cr_expect_eq(a.y, -4);
+	cr_expect_eq(a.z, 3);
 	cr_expect_eq(a.w, 1);
 }
 
