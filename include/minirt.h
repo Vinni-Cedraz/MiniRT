@@ -54,7 +54,6 @@
 # define sizeh 500
 # define sizew 500
 
-typedef double			t_tuple[4];
 typedef double			t_3x3_row[3];
 typedef double			t_2x2_row[2];
 typedef _Bool			t_bool;
@@ -68,6 +67,13 @@ typedef enum e_num
 	CYLINDER,
 }						t_enum;
 
+typedef struct s_tuple
+{
+	float	x;
+	float	y;
+	float	z;
+	int		w;
+}			t_tuple;
 typedef struct s_canvas
 {
 	unsigned short		width;
@@ -263,6 +269,7 @@ typedef t_intersection	(*t_intersect_function)(t_shape **, t_tuple);
 typedef void			(*t_normal_at_function)(const t_shape *, const t_tuple,
 				t_tuple);
 
+t_tuple					create_tuple(float x, float y, float z, float w);
 void					create_point(t_tuple tuple);
 void					create_vector(t_tuple tuple);
 t_bool					doubles_eq(double a, double b);
