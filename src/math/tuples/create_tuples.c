@@ -12,20 +12,37 @@
 
 #include "minirt.h"
 
-void	create_point(t_tuple tuple)
+t_tuple	create_point(float x, float y, float z)
 {
-	(void)tuple;
+	t_tuple tuple;
+
+	tuple.x = x;
+	tuple.y = y;
+	tuple.z = z;
+	tuple.w = 1;
+	return (tuple);
 }
 
-void	create_vector(t_tuple tuple)
+t_tuple	create_vector(float x, float y, float z)
 {
-	(void)tuple;
+	t_tuple tuple;
+
+	tuple.x = x;
+	tuple.y = y;
+	tuple.z = z;
+	tuple.w = 0;
+	return (tuple);
 }
 
-void	init_tuple(const t_tuple tuple, t_tuple res)
+t_tuple	create_tuple(float x, float y, float z, float w)
 {
-	(void)tuple;
-	(void)res;
+	t_tuple tuple;
+
+	tuple.x = x;
+	tuple.y = y;
+	tuple.z = z;
+	tuple.w = w;
+	return (tuple);
 }
 
 void	add_three_tuples(t_tuple ambient, t_tuple diffuse,
@@ -36,3 +53,5 @@ void	add_three_tuples(t_tuple ambient, t_tuple diffuse,
 	(void)specular;
 	(void)result;
 }
+
+
