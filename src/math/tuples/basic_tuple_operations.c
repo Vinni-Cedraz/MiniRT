@@ -12,24 +12,22 @@
 
 #include "minirt.h"
 
-void	add_tuples(const t_tuple a, const t_tuple b, t_tuple result)
+t_tuple	add_tuples(const t_tuple a, const t_tuple b)
 {
-	(void)a;
-	(void)b;
-	(void)result;
+	const t_tuple result = {a.x + b.x, a.y + b.y, a.z + b.z, (short)(a.w + b.w)};
+	return (result);
 }
 
-void	subtract_tuples(const t_tuple a, const t_tuple b, t_tuple result)
+t_tuple	subtract_tuples(const t_tuple a, const t_tuple b)
 {
-	(void)a;
-	(void)b;
-	(void)result;
+	const t_tuple result = {a.x - b.x, a.y - b.y, a.z - b.z, (short)(a.w - b.w)};
+	return (result);
 }
 
-void	negate_tuple(const t_tuple a, t_tuple result)
+t_tuple	negate_tuple(const t_tuple a)
 {
-	(void)a;
-	(void)result;
+	const t_tuple result = {-a.x, -a.y, -a.z};
+	return (result);
 }
 
 void	multiply_tuple_by_scalar(
