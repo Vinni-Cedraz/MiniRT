@@ -275,11 +275,9 @@ t_tuple					create_point(float x, float y, float z);
 t_tuple					create_vector(float x, float y, float z);
 t_tuple					create_tuple(float x, float y, float z, short w);
 t_bool					doubles_eq(double a, double b);
-void					add_tuples(const t_tuple a, const t_tuple b,
-							t_tuple result);
-void					subtract_tuples(const t_tuple a, const t_tuple b,
-							t_tuple result);
-void					negate_tuple(const t_tuple a, t_tuple result);
+t_tuple					add_tuples(const t_tuple a, const t_tuple b);
+t_tuple					subtract_tuples(const t_tuple a, const t_tuple b);
+t_tuple					negate_tuple(const t_tuple a);
 void					multiply_tuple_by_scalar(const t_tuple a,
 							const double s, t_tuple r);
 void					multiply_tuple_by_matrix(const t_tuple row, t_matrix m,
