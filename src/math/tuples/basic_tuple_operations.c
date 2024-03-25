@@ -26,7 +26,7 @@ t_tuple	subtract_tuples(const t_tuple a, const t_tuple b)
 
 t_tuple	negate_tuple(const t_tuple a)
 {
-	const t_tuple result = {-a.x, -a.y, -a.z};
+	const t_tuple result = {-a.x, -a.y, -a.z, a.w};
 	return (result);
 }
 
