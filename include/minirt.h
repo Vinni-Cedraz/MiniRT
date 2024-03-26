@@ -278,10 +278,8 @@ t_bool					doubles_eq(double a, double b);
 t_tuple					add_tuples(const t_tuple a, const t_tuple b);
 t_tuple					subtract_tuples(const t_tuple a, const t_tuple b);
 t_tuple					negate_tuple(const t_tuple a);
-void					multiply_tuple_by_scalar(const t_tuple a,
-							const double s, t_tuple r);
-void					multiply_tuple_by_matrix(const t_tuple row, t_matrix m,
-							t_tuple res);
+t_tuple					multiply_tuple_by_scalar(const t_tuple a, const double scalar);
+void					multiply_tuple_by_matrix(const t_tuple row, t_matrix m, t_tuple res);
 void					multiply_colors(const t_tuple c1, const t_tuple c2,
 							t_tuple result);
 t_bool					doubles_eq(double a, double b);

@@ -34,12 +34,12 @@ Test(suite_name, negating_a_tuple) {
 	tuples_eq(result, expected[4]);
 }
 
-// Test(suite_name, multiplying_a_tuple_by_a_scalar) {
-// 	const t_tuple result = multiply_tuple_by_scalar(tuples_a[5], 3.5);
-// 	tuples_eq(result, expected[5]);
-// }
-//
-// Test(suite_name, multiplying_a_tuple_by_a_fraction) {
-// 	const t_tuple result = multiply_tuple_by_scalar(tuples_a[6], 0.5);
-// 	tuples_eq(result, expected[6]);
-// }
+Test(suite_name, multiplying_a_tuple_by_a_scalar) {
+	const t_tuple result = multiply_tuple_by_scalar(tuples_a[5], 3.5);
+	tuples_eq(result, expected[5]);
+}
+
+Test(suite_name, multiplying_a_tuple_by_a_fraction) {
+	const t_tuple result = multiply_tuple_by_scalar(tuples_a[6], 0.5);
+	tuples_eq(result, expected[6]);
+}
