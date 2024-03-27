@@ -14,15 +14,25 @@
 
 double	magnitude(const t_tuple vec)
 {
-	(void)vec;
-	return 0;
+	t_tuple v;
+	double result;
+	v.x = vec.x * vec.x;
+	v.y = vec.y * vec.y;
+	v.z = vec.z * vec.z;
+	result = sqrt(v.x + v.y + v.z);
+	return (result);
 }
-
-short	normalize(const t_tuple vec, t_tuple result)
+const t_tuple	normalize(const t_tuple vec)
 {
-	(void)vec;
-	(void)result;
-	return 0;
+	double mag;
+	t_tuple result;
+
+	mag = magnitude(vec);
+	result.x = vec.x/mag;
+	result.y = vec.y/mag;
+	result.z = vec.z/mag;
+	result.w = 0;
+	return (result);
 }
 
 double	dot(const t_tuple a, const t_tuple b)

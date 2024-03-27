@@ -70,9 +70,9 @@ typedef enum e_num
 
 typedef struct s_tuple
 {
-	float				x;
-	float				y;
-	float				z;
+	double 				x;
+	double 				y;
+	double 				z;
 	short				w;
 }						t_tuple;
 
