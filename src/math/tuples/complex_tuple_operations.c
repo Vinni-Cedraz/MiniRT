@@ -36,15 +36,18 @@ t_tuple	normalize(const t_tuple vec)
 
 double	dot(const t_tuple a, const t_tuple b)
 {
-	(void)a;
-	(void)b;
-	return 0;
+	return ((a.x * b.x) +
+			(a.y * b.y) +
+			(a.z * b.z));
 }
 
-short	cross(const t_tuple a, const t_tuple b, t_tuple cross_product)
+t_tuple	cross(const t_tuple a, const t_tuple b)
 {
-	(void)a;
-	(void)b;
-	(void)cross_product;
-	return 0;
+	const t_tuple	cross_product = {
+			a.y * b.z - a.z * b.y,
+			a.z * b.x - a.x * b.z,
+			a.x * b.y - a.y * b.x,
+			.w = 0
+	};
+	return (cross_product);
 }

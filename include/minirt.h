@@ -285,8 +285,7 @@ void					multiply_colors(const t_tuple c1, const t_tuple c2,
 t_bool					doubles_eq(double a, double b);
 double					magnitude(const t_tuple vec);
 t_tuple					normalize(const t_tuple vec);
-short					cross(const t_tuple a, const t_tuple b,
-							t_tuple cross_product);
+t_tuple					cross(const t_tuple a, const t_tuple b);
 t_canvas				create_canvas(unsigned short height,
 							unsigned short width);
 void					write_pixel(t_canvas *canvas, int y, int x,
