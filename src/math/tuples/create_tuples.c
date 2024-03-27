@@ -14,34 +14,34 @@
 
 t_tuple	create_point(float x, float y, float z)
 {
-	t_tuple	tuple;
-
-	tuple.x = x;
-	tuple.y = y;
-	tuple.z = z;
-	tuple.w = 1;
+	const t_tuple	tuple = {
+			.x = x,
+			.y = y,
+			.z = z,
+			.w = 1,
+	};
 	return (tuple);
 }
 
 t_tuple	create_vector(float x, float y, float z)
 {
-	t_tuple	tuple;
-
-	tuple.x = x;
-	tuple.y = y;
-	tuple.z = z;
-	tuple.w = 0;
+	const t_tuple	tuple = {
+			.x = x,
+			.y = y,
+			.z = z,
+			.w = 0,
+	};
 	return (tuple);
 }
 
 t_tuple	create_tuple(float x, float y, float z, short w)
 {
-	t_tuple	tuple;
-
-	tuple.x = x;
-	tuple.y = y;
-	tuple.z = z;
-	tuple.w = w;
+	 const t_tuple	tuple = {
+			 .x = x,
+			 .y = y,
+			 .z = z,
+			 .w = w,
+	 };
 	return (tuple);
 }
 

@@ -22,16 +22,15 @@ double	magnitude(const t_tuple vec)
 	result = sqrt(v.x + v.y + v.z);
 	return (result);
 }
-const t_tuple	normalize(const t_tuple vec)
+t_tuple	normalize(const t_tuple vec)
 {
-	double mag;
-	t_tuple result;
-
-	mag = magnitude(vec);
-	result.x = vec.x/mag;
-	result.y = vec.y/mag;
-	result.z = vec.z/mag;
-	result.w = 0;
+	const double mag = magnitude(vec);;
+	const t_tuple result = {
+			.x = vec.x/mag,
+			.y = vec.y/mag,
+			.z = vec.z/mag,
+			.w = 0
+	};
 	return (result);
 }
 
