@@ -56,6 +56,6 @@ void	render_a_default_world(mlx_t *mlx)
 	t_world world = create_world();
     forward = subtract_tuples(to, from);
     const t_tuple normalized_forward = normalize(forward);
-    camera.transform = view_transform(from, forward, up);
+    camera.transform = view_transform(from, normalized_forward, up);
 	load_objs_into_world(*get_image_to_render(mlx), camera, &world);
 }
