@@ -9,21 +9,12 @@ const t_tuple vecs[] = 	   {{4, 0, 0, VECTOR}, {1, 2, 3, VECTOR}};
 const t_tuple expected[] = {{1, 0, 0, VECTOR}, {1 / SQRT_14, 2 / SQRT_14, 3 / SQRT_14, VECTOR}};
 
 Test(normalization, normalizing_vector_4_0_0) {
-<<<<<<< Updated upstream
     const t_tuple res = normalize(vecs[0]);
     cr_expect_tuples_eq(res, expected[0]);
 }
 
 Test(normalization, normalizing_vector_1_2_3) {
     const t_tuple res = normalize(vecs[1]);
-=======
-    res = normalize(vecs[0]);
-    cr_expect_arr_eq(res, expected[0], sizeof(t_tuple));
-}
-
-Test(normalization, normalizing_vector_1_2_3) {
-    res = normalize(vecs[1]);
->>>>>>> Stashed changes
 	cr_expect_tuples_eq(res, expected[1]);
 }
 
