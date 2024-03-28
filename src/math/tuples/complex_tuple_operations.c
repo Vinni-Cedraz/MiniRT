@@ -16,6 +16,9 @@ double	magnitude(const t_tuple vec)
 {
 	t_tuple v;
 	double result;
+
+	if(vec.w)
+		return (-42);
 	v.x = vec.x * vec.x;
 	v.y = vec.y * vec.y;
 	v.z = vec.z * vec.z;
@@ -24,12 +27,12 @@ double	magnitude(const t_tuple vec)
 }
 t_tuple	normalize(const t_tuple vec)
 {
-	const double mag = magnitude(vec);;
+	const double mag = magnitude(vec);
 	const t_tuple result = {
 			.x = vec.x/mag,
 			.y = vec.y/mag,
 			.z = vec.z/mag,
-			.w = 0
+			.w = vec.w == POINT ? -42 : VECTOR
 	};
 	return (result);
 }
@@ -43,11 +46,18 @@ double	dot(const t_tuple a, const t_tuple b)
 
 t_tuple	cross(const t_tuple a, const t_tuple b)
 {
-	const t_tuple	cross_product = {
+	const t_tuple cross_product = {
 			a.y * b.z - a.z * b.y,
 			a.z * b.x - a.x * b.z,
 			a.x * b.y - a.y * b.x,
-			.w = 0
+			.w = is_point((short)(a.w + b.w))
 	};
 	return (cross_product);
+}
+
+short is_point(short w)
+{
+	if(w > 0)
+		return(-42);
+	return (w);
 }
