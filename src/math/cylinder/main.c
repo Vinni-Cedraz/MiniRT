@@ -13,6 +13,8 @@ int main(void) {
     cyl.closed = TRUE;
     set_cyl_min_max(&cyl, -1, 1);
 
+	// t_matrix rotation_x = create_x_rotation_matrix(-M_PI / 10);
+
     world.light = &(t_point_light){
         .position = {-8, 7, 25, POINT},
         .intensity = {1, 1, 1, POINT},
