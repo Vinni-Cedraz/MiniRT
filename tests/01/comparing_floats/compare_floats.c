@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 
 #define suite_name double_tests
 
@@ -6,6 +6,20 @@ Test(suite_name, comparing_equal_doubles) {
     double a = 1.872;
     double b = 1.872;
     cr_expect_eq(TRUE, doubles_eq(a, b));
+}
+
+Test(suite_name, comparing_equal_negative_doubles) {
+	double a = -1.879;
+	double b = -1.872;
+
+	cr_expect_eq(TRUE, doubles_eq(a, b));
+}
+
+Test(suite_name, comparing_unequal_negative_doubles) {
+	double a = -1.872;
+	double b = -0.872;
+
+	cr_expect_eq(FALSE, doubles_eq(a, b), RED"-1.872 should not be equal to -0.543"RESET);
 }
 
 Test(suite_name, comparing_unequal_doubles) {
