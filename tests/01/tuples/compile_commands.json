@@ -1,21 +1,21 @@
 [
  {
-  "directory": "/home/myuser/MiniRT/tests/01/comparing_floats",
+  "directory": "/home/myuser/MiniRT/tests/01/tuples",
   "arguments": [
    "cc",
    "-O3",
    "-lcriterion",
    "-lm",
    "-w",
-   "compare_floats.c",
+   "tuples.c",
    "-I../../",
    "-I../../../include/",
    "-I../../../libs/",
    "../../../libs/*.a",
    "../../../minirt.a",
    "-o",
-   "compare_floats"
+   "tuples"
   ],
-  "file": "compare_floats.c"
+  "file": "tuples.c"
  }
 ]

@@ -20,16 +20,16 @@ typedef struct s_environment {
 
 static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple expected) {
 
-    cr_expect(doubles_eq(result.x, expected.x));
+    cr_expect(doubles_eq(result.x, expected.x), RED".x value of the tuples are different"RESET);
     if (!doubles_eq(result.x, expected.x))
         return (FALSE);
-    cr_expect(doubles_eq(result.y, expected.y));
+    cr_expect(doubles_eq(result.y, expected.y), RED".y value of the tuples are different"RESET);
 	if (!doubles_eq(result.y, expected.y))
 		return (FALSE);
-    cr_expect(doubles_eq(result.z, expected.z));
+    cr_expect(doubles_eq(result.z, expected.z), RED".z value of the tuples are different"RESET);
 	if (!doubles_eq(result.z, expected.z))
 		return (FALSE);
-    cr_expect(doubles_eq(result.w, expected.w));
+    cr_expect(doubles_eq(result.w, expected.w), RED".w value of the tuples are different"RESET);
 	if (!doubles_eq(result.w, expected.w))
 		return (FALSE);
     return (TRUE);
@@ -64,14 +64,12 @@ void quick_render(t_world *w, const t_tuple from) {
     t_camera camera = create_camera(800, 600, M_PI / 4);
     t_tuple to = (t_tuple){0, 0, 0, POINT};
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
-    t_tuple forward = (t_tuple){0};
+    const t_tuple forward = subtract_tuples(to, from);
 
-    subtract_tuples(to, from, forward);
-    normalize(forward, forward);
-    camera.transform = view_transform(from, forward, up);
+    const t_tuple normalized_forward = normalize(forward);
+    camera.transform = view_transform(from, normalized_forward, up);
 
     t_canvas c = render(camera, *w);
-
     char *str = canvas_to_ppm(&c);
     create_ppm_file(str, "main.ppm");
     destroy_canvas(&c);
