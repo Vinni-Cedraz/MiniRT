@@ -1,4 +1,4 @@
-#include "../../../include/minirt.h"
+#include "../../../tests/tester.h"
 
 const t_tuple FROM = {0, 4, 25, POINT};
 const int NUMBER_OF_OBJECTS = 1;
@@ -7,6 +7,7 @@ int main(void) {
     t_world world;
 	// t_sphere s = create_sphere();
     t_cylinder cyl;
+	t_shape s;
 
     cyl = create_cylinder();
     cyl.closed = TRUE;
