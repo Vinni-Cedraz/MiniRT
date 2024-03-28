@@ -66,8 +66,8 @@ void quick_render(t_world *w, const t_tuple from) {
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
     const t_tuple forward = subtract_tuples(to, from);
 
-    normalize(forward, forward);
-    camera.transform = view_transform(from, forward, up);
+    const t_tuple normalized_forward = normalize(forward);
+    camera.transform = view_transform(from, normalized_forward, up);
 
     t_canvas c = render(camera, *w);
     char *str = canvas_to_ppm(&c);
