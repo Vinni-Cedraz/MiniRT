@@ -20,16 +20,16 @@ typedef struct s_environment {
 
 static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple expected) {
 
-    cr_expect(doubles_eq(result.x, expected.x));
+    cr_expect(doubles_eq(result.x, expected.x), RED".x value of the tuples are different"RESET);
     if (!doubles_eq(result.x, expected.x))
         return (FALSE);
-    cr_expect(doubles_eq(result.y, expected.y));
+    cr_expect(doubles_eq(result.y, expected.y), RED".y value of the tuples are different"RESET);
 	if (!doubles_eq(result.y, expected.y))
 		return (FALSE);
-    cr_expect(doubles_eq(result.z, expected.z));
+    cr_expect(doubles_eq(result.z, expected.z), RED".z value of the tuples are different"RESET);
 	if (!doubles_eq(result.z, expected.z))
 		return (FALSE);
-    cr_expect(doubles_eq(result.w, expected.w));
+    cr_expect(doubles_eq(result.w, expected.w), RED".w value of the tuples are different"RESET);
 	if (!doubles_eq(result.w, expected.w))
 		return (FALSE);
     return (TRUE);
