@@ -54,7 +54,7 @@ t_tuple	multiply_tuple_by_scalar(const t_tuple a, const double scalar)
 		.x = a.x * scalar,
 		.y = a.y * scalar,
 		.z = a.z * scalar,
-		.w = a.w
+		.w = is_point(a.w)
 	};
 
 	return (res);

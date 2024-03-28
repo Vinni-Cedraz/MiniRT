@@ -32,13 +32,15 @@ t_tuple	normalize(const t_tuple vec)
 			.x = vec.x/mag,
 			.y = vec.y/mag,
 			.z = vec.z/mag,
-			.w = vec.w == POINT ? -42 : VECTOR
+			.w = is_point(vec.w)
 	};
 	return (result);
 }
 
 double	dot(const t_tuple a, const t_tuple b)
 {
+	if (a.w && b.w)
+		return (-42);
 	return ((a.x * b.x) +
 			(a.y * b.y) +
 			(a.z * b.z));
