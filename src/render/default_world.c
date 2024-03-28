@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../../include/minirt.h"
 
 t_world init_world(t_shape *floor, t_sphere *balls[], t_plane *walls[6]) {
 	t_world world;
@@ -55,7 +55,7 @@ void	render_a_default_world(mlx_t *mlx)
 
 	t_world world = create_world();
     forward = subtract_tuples(to, from);
-    normalize(forward, forward);
+    const t_tuple normalized_forward = normalize(forward);
     camera.transform = view_transform(from, forward, up);
 	load_objs_into_world(*get_image_to_render(mlx), camera, &world);
 }
