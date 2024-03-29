@@ -14,7 +14,7 @@
 
 t_bool	doubles_eq(double a, double b)
 {
-	if ((a - b) > EPSILON)
+	if (fabs(a - b) > EPSILON)
 		return (FALSE);
 	else
 		return (TRUE);

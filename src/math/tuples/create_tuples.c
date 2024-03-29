@@ -15,33 +15,36 @@
 t_tuple	create_point(float x, float y, float z)
 {
 	const t_tuple	tuple = {
-			.x = x,
-			.y = y,
-			.z = z,
-			.w = 1,
+		.x = x,
+		.y = y,
+		.z = z,
+		.w = 1,
 	};
+
 	return (tuple);
 }
 
 t_tuple	create_vector(float x, float y, float z)
 {
 	const t_tuple	tuple = {
-			.x = x,
-			.y = y,
-			.z = z,
-			.w = 0,
+		.x = x,
+		.y = y,
+		.z = z,
+		.w = 0,
 	};
+
 	return (tuple);
 }
 
 t_tuple	create_tuple(float x, float y, float z, short w)
 {
-	 const t_tuple	tuple = {
-			 .x = x,
-			 .y = y,
-			 .z = z,
-			 .w = w,
-	 };
+	const t_tuple	tuple = {
+		.x = x,
+		.y = y,
+		.z = z,
+		.w = w,
+	};
+
 	return (tuple);
 }
 
