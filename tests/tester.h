@@ -8,11 +8,6 @@
 #define RED "\033[31m"
 #define RESET "\033[0m"
 
-typedef struct s_environment {
-    t_tuple gravity;
-    t_tuple wind;
-} t_environment;
-
 static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple expected) {
 
     cr_expect(doubles_eq(result.x, expected.x), RED".x value of the tuples are different"RESET);
