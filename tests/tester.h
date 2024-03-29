@@ -8,11 +8,6 @@
 #define RED "\033[31m"
 #define RESET "\033[0m"
 
-typedef struct s_projectile {
-    t_tuple position;
-    t_tuple velocity;
-} t_projectile;
-
 typedef struct s_environment {
     t_tuple gravity;
     t_tuple wind;
