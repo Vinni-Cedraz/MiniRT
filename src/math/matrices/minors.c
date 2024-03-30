@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-double	_3x3minor(const t_3x3matrix m, int row, int col)
+double	_3x3minor(const t_matrix m, int row, int col)
 {
 	(void)m;
 	(void)row;

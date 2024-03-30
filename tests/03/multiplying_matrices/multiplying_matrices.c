@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 #include <criterion/internal/assert.h>
 #include <criterion/internal/test.h>
 
@@ -21,7 +21,8 @@
        "| 16| 26 | 46 | 42 |"
 
 Test(multiplying_matrices, multiplying_two_matrices, .description = scenario1) {
-	t_matrix a = create_4x4_matrix(&(t_matrix){
+	t_matrix a = {
+		.grid =
 		{1,2,3,4},
 		{5,6,7,8},
 		{9, 8, 7, 6},

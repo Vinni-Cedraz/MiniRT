@@ -19,20 +19,6 @@ t_bool	matrices_eq(t_matrix a, t_matrix b)
 	return (FALSE);
 }
 
-t_bool	_3x3matrices_eq(t_3x3matrix a, t_3x3matrix b)
-{
-	(void)a;
-	(void)b;
-	return (FALSE);
-}
-
-t_bool	_2x2matrices_eq(t_2x2matrix a, t_2x2matrix b)
-{
-	(void)a;
-	(void)b;
-	return (FALSE);
-}
-
 t_bool	tuples_neq(const double *result, const double *expected, int len)
 {
 	(void)result;

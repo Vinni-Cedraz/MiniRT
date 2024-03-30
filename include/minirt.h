@@ -279,28 +279,8 @@ t_bool					matrices_eq(t_matrix a, t_matrix b);
 double					dot(const t_tuple a, const t_tuple b);
 t_matrix				mult_by_identity(t_matrix a);
 t_matrix				transpose_matrix(t_matrix a);
-double					_2x2determinant(const t_2x2matrix m);
-t_2x2matrix				_3x3submatrix(const t_3x3matrix m, int row_to_delete,
-							int col_to_delete);
 t_bool					tuples_neq(const double *result, const double *expected,
 							int len);
-t_bool					_3x3matrices_eq(t_3x3matrix a, t_3x3matrix b);
-t_bool					_2x2matrices_eq(t_2x2matrix a, t_2x2matrix b);
-t_3x3matrix				_4x4submatrix(const t_matrix m, int not_row,
-							int not_col);
-double					_3x3minor(const t_3x3matrix m, int row, int col);
-double					_3x3cofactor(const t_3x3matrix m, int row, int col);
-double					_3x3determinant(const t_3x3matrix m);
-double					_4x4determinant(const t_matrix m);
-double					_3x3minor(const t_3x3matrix m, int row, int col);
-double					_4x4minor(const t_matrix m, int row, int col);
-double					_3x3cofactor(const t_3x3matrix m, int row, int col);
-double					_4x4cofactor(const t_matrix m, int row, int col);
-t_bool					is_invertible(const t_matrix m);
-t_matrix				invert_matrix(const t_matrix m);
-t_matrix				create_4x4_matrix(t_matrix *m);
-t_3x3matrix				create_3x3_matrix(t_3x3matrix *m);
-t_2x2matrix				create_2x2_matrix(t_2x2matrix *m);
 t_matrix				create_translation_matrix(t_tuple point);
 t_matrix				create_matrix_of_cofactors(const t_matrix m);
 t_matrix				create_x_rotation_matrix(double r);
@@ -387,12 +367,17 @@ static inline void	print_tuple(const t_tuple a)
 	printf("X: %f, Y: %f, Z: %f, W: %d\n", a.x, a.y, a.z, a.w);
 }
 
-static inline void	print_4x4matrix(const t_matrix a)
+static inline void	print_matrix(t_matrix mat, int size)
 {
-	print_tuple(a.row_1);
-	print_tuple(a.row_2);
-	print_tuple(a.row_3);
-	print_tuple(a.row_4);
+	int i = -1;
+	int j = -1;
+	while (++i < size)
+	{
+		j = -1;
+		while (++j < size)
+			printf("%f ", mat.grid[i][j]);
+		printf("\n");
+	}
 }
 
 #endif
