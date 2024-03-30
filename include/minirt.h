@@ -35,21 +35,8 @@
 # define FALSE 0
 # define TRUE 1
 
-# define COL1 0
-# define COL2 1
-# define COL3 2
-# define COL4 3
-
-# define DEFAULT -1
-# define AMBIENT 0
-# define DIFFUSE 1
-# define SPECULAR 2
-# define SHININESS 3
-
-# define ROW1 0
-# define ROW2 1
-# define ROW3 2
-# define ROW4 3
+# define ROW 0
+# define COL 1
 
 # define SIZEH 500
 # define SIZEW 500
@@ -85,7 +72,7 @@ typedef struct s_canvas
 }						t_canvas;
 
 typedef struct  s_matrix {
-	float		grid[4][4];
+	double 		grid[4][4];
 	int			size;
 }				t_matrix;
 
