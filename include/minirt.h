@@ -38,6 +38,11 @@
 # define ROW 0
 # define COL 1
 
+# define DEFAULT -1
+# define AMBIENT 0
+# define DIFFUSE 1
+# define SPECULAR 2
+# define SHININESS 3
 # define SIZEH 500
 # define SIZEW 500
 
@@ -247,7 +252,8 @@ t_tuple					add_tuples(const t_tuple a, const t_tuple b);
 t_tuple					subtract_tuples(const t_tuple a, const t_tuple b);
 t_tuple					negate_tuple(const t_tuple a);
 t_tuple					multiply_tuple_by_scalar(const t_tuple a, const double scalar);
-void					multiply_tuple_by_matrix(const t_tuple row, t_matrix m, t_tuple res);
+// this implementation my create an issue in the future
+t_tuple					multiply_tuple_by_matrix(double a[4], t_matrix b, short type);
 void					multiply_colors(const t_tuple c1, const t_tuple c2,
 							t_tuple result);
 t_bool					doubles_eq(double a, double b);
@@ -348,6 +354,7 @@ void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
 t_bool					is_shadowed(t_world *w, t_tuple p);
 void					add_object(t_world *w, t_shape *new_obj, int index);
 t_material				create_plane_material(void);
+t_matrix				tuple_to_matrix(t_tuple tuple);
 
 static inline void	print_tuple(const t_tuple a)
 {

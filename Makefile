@@ -39,7 +39,7 @@ VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/ppm/ ./src/math/m
 
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/
-C_FLAGS = -Wall -Werror -Wextra
+C_FLAGS = -Wall -Werror -Wextra -g
 OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))
 BUILD_DIR_RT= ./build/
 CMD = $(CC) $(LIBFT) $(OBJS) $(C_FLAGS) -I$(MLX_INCLUDE) -I $(INCLUDE) -c $< -o $@

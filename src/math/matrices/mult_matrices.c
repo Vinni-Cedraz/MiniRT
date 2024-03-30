@@ -13,13 +13,47 @@
 #include "minirt.h"
 
 // static t_matrix	last_result(t_matrix *matrices[], const int idx);
-static double mult_position_(t_matrix a, t_matrix b, int *i);
+static double	mult_position_(t_matrix a, t_matrix b, int *i);
+static double	multiply_row_col(const double row[], const double col[],
+					short size);
+
+t_tuple	multiply_tuple_by_matrix(double a[4], t_matrix b, short type)
+{
+	int		i;
+	double	result[4];
+
+	i = -1;
+	while (++i < 4)
+		result[i] = multiply_row_col(b.grid[i], a, b.size);
+	return ((t_tuple){
+		.x = result[0],
+		.y = result[1],
+		.z = result[2],
+		.w = type
+	});
+}
+
+// Function to multiply a row and a column represented as arrays
+static double	multiply_row_col(const double row[], const double col[],
+		short size)
+{
+	double	result;
+	int		i;
+
+	result = 0;
+	i = -1;
+	while (++i < size)
+	{
+		result += row[i] * col[i];
+	}
+	return (result);
+}
 
 t_matrix	mult_matrices(t_matrix a, t_matrix b)
 {
-	t_matrix result;
-	int row;
-	int col;
+	t_matrix	result;
+	int			row;
+	int			col;
 
 	row = -1;
 	while (++row < a.size)
@@ -31,24 +65,16 @@ t_matrix	mult_matrices(t_matrix a, t_matrix b)
 	return (result);
 }
 
-void	multiply_tuple_by_matrix(const t_tuple row, t_matrix m, t_tuple res)
-{
-	(void)row;
-	(void)m;
-	(void)res;
-}
-
-// mult_n_matrices
 t_matrix	chain_transformations(t_matrix *matrices[])
 {
 	(void)matrices;
-	return (t_matrix){0};
+	return ((t_matrix){0});
 }
 
-static double mult_position_(t_matrix a, t_matrix b, int *i)
+static double	mult_position_(t_matrix a, t_matrix b, int *i)
 {
-	double result;
-	int index;
+	double	result;
+	int		index;
 
 	result = 0;
 	index = -1;
@@ -56,11 +82,12 @@ static double mult_position_(t_matrix a, t_matrix b, int *i)
 		result += a.grid[i[ROW]][index] * b.grid[index][i[COL]];
 	return (result);
 }
+
 // static t_matrix	last_result(t_matrix *matrices[], const int idx)
 // {
 // 	(void)matrices;
 // 	(void)idx;
-// 	return (t_matrix){0};
+// 	return ((t_matrix){0});
 // }
 
 // #include "../../tests/tester.h"

@@ -10,18 +10,18 @@
 
 static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple expected) {
 
-    cr_expect(doubles_eq(result.x, expected.x), RED".x value of the tuples are different"RESET);
+    cr_expect(doubles_eq(result.x, expected.x), RED ".x value of the tuples are different" RESET);
     if (!doubles_eq(result.x, expected.x))
         return (FALSE);
-    cr_expect(doubles_eq(result.y, expected.y), RED".y value of the tuples are different"RESET);
-	if (!doubles_eq(result.y, expected.y))
-		return (FALSE);
-    cr_expect(doubles_eq(result.z, expected.z), RED".z value of the tuples are different"RESET);
-	if (!doubles_eq(result.z, expected.z))
-		return (FALSE);
-    cr_expect(doubles_eq(result.w, expected.w), RED".w value of the tuples are different"RESET);
-	if (!doubles_eq(result.w, expected.w))
-		return (FALSE);
+    cr_expect(doubles_eq(result.y, expected.y), RED ".y value of the tuples are different" RESET);
+    if (!doubles_eq(result.y, expected.y))
+        return (FALSE);
+    cr_expect(doubles_eq(result.z, expected.z), RED ".z value of the tuples are different" RESET);
+    if (!doubles_eq(result.z, expected.z))
+        return (FALSE);
+    cr_expect(doubles_eq(result.w, expected.w), RED ".w value of the tuples are different" RESET);
+    if (!doubles_eq(result.w, expected.w))
+        return (FALSE);
     return (TRUE);
 }
 
@@ -35,16 +35,6 @@ static inline void create_ppm_file(t_constr ppm_string, t_constr filename) {
     int fd = open(filename, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
     write(fd, ppm_string, strlen(ppm_string));
     close(fd);
-}
-
-static inline t_bool cr_expect_matrices_eq(t_matrix a, t_matrix b) {
-    int res;
-
-    res = cr_expect_tuples_eq(a.row_1, b.row_1);
-    res = cr_expect_tuples_eq(a.row_2, b.row_2);
-    res = cr_expect_tuples_eq(a.row_3, b.row_3);
-    res = cr_expect_tuples_eq(a.row_4, b.row_4);
-    return (!res);
 }
 
 static inline int invert_axis(int size, double axis) { return ((int)size - axis); }
