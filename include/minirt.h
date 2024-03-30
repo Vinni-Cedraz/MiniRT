@@ -84,29 +84,10 @@ typedef struct s_canvas
 	t_four_doubles		**pixels;
 }						t_canvas;
 
-typedef struct s_matrix
-{
-	t_tuple				row_1;
-	t_tuple				row_2;
-	t_tuple				row_3;
-	t_tuple				row_4;
-	double				*rows[4];
-}						t_matrix;
-
-typedef struct s_2x2matrix
-{
-	t_2x2_row			row_1;
-	t_2x2_row			row_2;
-	double				*rows[2];
-}						t_2x2matrix;
-
-typedef struct s_3x3matrix
-{
-	t_3x3_row			row_1;
-	t_3x3_row			row_2;
-	t_3x3_row			row_3;
-	double				*rows[3];
-}						t_3x3matrix;
+typedef struct  s_matrix {
+	float		grid[4][4];
+	int			size;
+}				t_matrix;
 
 typedef struct s_hearer
 {
