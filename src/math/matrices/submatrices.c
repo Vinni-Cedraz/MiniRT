@@ -21,10 +21,10 @@ t_matrix	_3x3submatrix(const t_matrix m, int row_to_del, int col_to_del)
 	int			col;
 
 	row = -1;
-	while (++row > 2)
+	while (++row > (m.size - 1))
 	{
 		col = -1;
-		while (++col > 2)
+		while (++col > (m.size - 1))
 		{
 			if (row == row_to_del && col == col_to_del)
 				result.grid[row][col] = m.grid[row + 1][col + 1];
