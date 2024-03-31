@@ -40,7 +40,7 @@ Test(spotting_submatrices, _3x3_submatrix, .description = scenario1) {
 	};
 	t_matrix result;
 
-	result = _3x3submatrix(a, ROW1, COL3);
+	result = _submatrix(a, ROW1, COL3);
 	cr_expect_eq(TRUE, matrices_eq(expected1, result));
 	const t_matrix expected2 = {
 		.grid = {
@@ -49,7 +49,7 @@ Test(spotting_submatrices, _3x3_submatrix, .description = scenario1) {
 		},
 		.size = 2
 	};
-	result = _3x3submatrix(a, ROW2, COL2);
+	result = _submatrix(a, ROW2, COL2);
 	cr_expect_eq(TRUE, matrices_eq(expected2, result));
 }
 
@@ -84,7 +84,6 @@ Test(spotting_submatrices, submatrix_of_4x4_matrix, .description = scenario2) {
 	};
 	t_matrix result;
 
-	result = _4x4submatrix(a, ROW3, COL2);
+	result = _submatrix(a, 2, 1);
 	cr_expect_eq(TRUE, matrices_eq(expected, result));
 }
-
