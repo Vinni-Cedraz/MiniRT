@@ -284,6 +284,7 @@ t_bool					matrices_eq(t_matrix a, t_matrix b);
 double					dot(const t_tuple a, const t_tuple b);
 t_matrix				mult_by_identity(t_matrix a);
 t_matrix				transpose_matrix(t_matrix a);
+double					_determinant(t_matrix m, const double *row);
 t_bool					tuples_neq(const double *result, const double *expected,
 							int len);
 t_matrix				create_translation_matrix(t_tuple point);

@@ -12,18 +12,16 @@
 
 #include "minirt.h"
 
-double	_3x3determinant(const t_matrix m)
+double	_determinant(t_matrix m, const double *row)
 {
-	(void)m;
-	return 0;
-}
+	double determinant;
 
-double	_4x4determinant(const t_matrix m)
-{
-	(void)m;
-	return 0;
+	determinant = 0;
+	if (m.size == 2)
+		return (_2x2determinant(m));
+	determinant += *row * _determinant(_submatrix(m,0,0), row + 1);
+	return (determinant);
 }
-
 static _Bool is_odd(int nb)
 {
 	return (nb % 2);
