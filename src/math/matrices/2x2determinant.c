@@ -14,6 +14,10 @@
 
 double	_2x2determinant(t_matrix m)
 {
-	(void)m;
-	return (0);
+	double ad;
+	double bc;
+
+	ad = m.grid[0][0] * m.grid[1][1];
+	bc = m.grid[1][0] * m.grid[0][1];
+	return (ad - bc);
 }
