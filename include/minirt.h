@@ -282,7 +282,7 @@ t_matrix				create_z_rotation_matrix(double r);
 t_matrix				create_scaling_matrix(const double x, const double y,
 							const double z);
 t_matrix				create_shearing_matrix(t_shearer shearer);
-t_matrix				chain_transformations(t_matrix *matrices[]);
+t_matrix				chain_transformations(t_matrix trix);
 void					translate_coordinate(t_four_doubles point,
 							t_canvas *canvas, t_four_doubles res);
 void					get_position(t_ray ray, double distance,

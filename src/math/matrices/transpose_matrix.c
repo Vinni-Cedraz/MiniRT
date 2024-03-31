@@ -17,8 +17,16 @@
 
 t_matrix	transpose_matrix(t_matrix m)
 {
-	(void)m;
-	return (t_matrix){0};
+	const t_matrix	ma = {
+			.grid = {
+					{m.grid[0][0],m.grid[1][0] , m.grid[2][0], m.grid[3][0]},
+					{m.grid[0][1], m.grid[1][1], m.grid[2][1], m.grid[3][1]},
+					{m.grid[0][2], m.grid[1][2], m.grid[2][2], m.grid[3][2]},
+					{m.grid[0][3], m.grid[1][3], m.grid[2][3], m.grid[3][3]},
+			},
+			.size = m.size
+	};
+	return (ma);
 }
 
 // static inline void	turn_col_into_row(t_tuple col, t_tuple row)

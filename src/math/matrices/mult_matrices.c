@@ -25,7 +25,7 @@ t_tuple	multiply_tuple_by_matrix(double a[4], t_matrix b, short type)
 	i = -1;
 	while (++i < 4)
 		result[i] = multiply_row_col(b.grid[i], a, b.size);
-	return ((t_tuple){
+	return ((t_tuple) {
 		.x = result[0],
 		.y = result[1],
 		.z = result[2],
@@ -65,10 +65,10 @@ t_matrix	mult_matrices(t_matrix a, t_matrix b)
 	return (result);
 }
 
-t_matrix	chain_transformations(t_matrix *matrices[])
+t_matrix	chain_transformations(t_matrix matrices)
 {
 	(void)matrices;
-	return ((t_matrix){0});
+	return (t_matrix){0};
 }
 
 static double	mult_position_(t_matrix a, t_matrix b, int *i)
