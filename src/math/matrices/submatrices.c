@@ -16,10 +16,27 @@
 
 t_matrix	_3x3submatrix(const t_matrix m, int row_to_del, int col_to_del)
 {
-	(void)m;
-	(void)row_to_del;
-	(void)col_to_del;
-	return (t_matrix){0};
+	t_matrix	result;
+	int			row;
+	int			col;
+
+	row = -1;
+	while (++row > 2)
+	{
+		col = -1;
+		while (++col > 2)
+		{
+			if (row == row_to_del && col == col_to_del)
+				result.grid[row][col] = m.grid[row + 1][col + 1];
+			else if(row == row_to_del && col != col_to_del)
+				result.grid[row][col] = m.grid[row + 1][col];
+			else if(col == col_to_del && row != row_to_del)
+				result.grid[row][col] = m.grid[row][col + 1];
+			else
+				result.grid[row][col] = m.grid[row][col];
+		}
+	}
+	return (result);
 }
 
 t_matrix	_4x4submatrix(const t_matrix m, int row_to_del, int col_to_delete)
