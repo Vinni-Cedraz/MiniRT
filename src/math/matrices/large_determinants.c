@@ -26,10 +26,14 @@ double	_4x4determinant(const t_matrix m)
 
 double	_3x3cofactor(const t_matrix m, int row, int col)
 {
-	(void)m;
-	(void)row;
-	(void)col;
-	return 0;
+	double	_minor;
+	double	_cofactor;
+
+	_minor = _3x3minor(m, row, col);
+	_cofactor = _minor;
+	if ((row + col) % 2)
+		_cofactor = _minor * -1;
+	return (_cofactor);
 }
 
 double	_4x4cofactor(const t_matrix m, int row, int col)
