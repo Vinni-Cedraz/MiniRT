@@ -35,6 +35,16 @@
 # define FALSE 0
 # define TRUE 1
 
+# define ROW1 0
+# define ROW2 1
+# define ROW3 2
+# define ROW4 3
+
+# define COL1 0
+# define COL2 1
+# define COL3 2
+# define COL4 3
+
 # define ROW 0
 # define COL 1
 
@@ -260,6 +270,8 @@ t_bool					doubles_eq(double a, double b);
 double					magnitude(const t_tuple vec);
 t_tuple					normalize(const t_tuple vec);
 short					is_point(short w);
+t_bool					is_invertible(t_matrix m);
+t_matrix				invert_matrix(t_matrix m);
 t_tuple					cross(const t_tuple a, const t_tuple b);
 t_canvas				create_canvas(unsigned short height,
 							unsigned short width);
@@ -279,6 +291,15 @@ t_matrix				create_matrix_of_cofactors(const t_matrix m);
 t_matrix				create_x_rotation_matrix(double r);
 t_matrix				create_y_rotation_matrix(double r);
 t_matrix				create_z_rotation_matrix(double r);
+double					_2x2determinant(t_matrix m);
+double					_3x3determinant(const t_matrix m);
+double					_4x4determinant(const t_matrix m);
+double					_3x3cofactor(const t_matrix m, int row, int col);
+double					_4x4cofactor(const t_matrix m, int row, int col);
+t_matrix				_3x3submatrix(const t_matrix m, int row_to_del, int col_to_del);
+t_matrix				_4x4submatrix(const t_matrix m, int row_to_del, int col_to_delete);
+double					_3x3minor(const t_matrix m, int row, int col);
+double					_4x4minor(const t_matrix m, int row, int col);
 t_matrix				create_scaling_matrix(const double x, const double y,
 							const double z);
 t_matrix				create_shearing_matrix(t_shearer shearer);
