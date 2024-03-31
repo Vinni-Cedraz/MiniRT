@@ -12,8 +12,6 @@
 
 #include "minirt.h"
 
-// static void	subrow(t_tuple row, int col_to_delete, double subrow[], int n);
-
 t_matrix	_submatrix(const t_matrix m, int row_to_del, int col_to_del)
 {
 	t_matrix	submatrix;

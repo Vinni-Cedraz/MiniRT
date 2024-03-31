@@ -44,7 +44,7 @@ Test(inversion, testing_an_invertible_matrix_for_invertibility, .description = s
 		.size = 4
 	};
 
-	cr_expect_eq(-2120, _4x4determinant(a));
+	cr_expect_eq(-2120, _determinant(a));
 	cr_expect_eq(TRUE, is_invertible(a));
 }
 
@@ -59,7 +59,7 @@ Test(inversion, testing_a_noninvertible_matrix_for_invertibility, .description =
 		.size = 4
 	};
 
-	cr_expect_eq(0, _4x4determinant(a));
+	cr_expect_eq(0, _determinant(a));
 	cr_expect_eq(FALSE, is_invertible(a));
 }
 
@@ -94,10 +94,10 @@ Test(inversion, calculating_the_inverse_of_a_matrix, .description = scenario3) {
 		.size = 4
 	};
 	t_matrix b = invert_matrix(a);
-	cr_assert_eq(532, _4x4determinant(a));
-	cr_assert_eq(-160, _4x4cofactor(a, 2, 3));
+	cr_assert_eq(532, _determinant(a));
+	cr_assert_eq(-160, _cofactor(a, 2, 3));
 	cr_assert_eq(TRUE, doubles_eq(-160.0/532, b.grid[3][2]));
-	cr_assert_eq(105, _4x4cofactor(a, 3, 2));
+	cr_assert_eq(105, _cofactor(a, 3, 2));
 	cr_assert_eq(TRUE, doubles_eq(b.grid[2][3], 105.0/532));
 	t_matrix expected = {.grid = {
 		{0.21805, 0.45113, 0.24060, -0.04511},

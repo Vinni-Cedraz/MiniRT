@@ -12,37 +12,24 @@
 
 #include "minirt.h"
 
-double	_determinant(t_matrix m, const double *row)
+double	_cofactor(const t_matrix m, int row, int col)
 {
-	double determinant;
+	t_matrix	sub;
+	double		det;
 
-	determinant = 0;
+	sub = _submatrix(m, row, col);
+	det = _determinant(sub);
+	return (pow(-1, row + col) * det);
+}
+
+double	_determinant(const t_matrix m)
+{
+	double	det;
+
 	if (m.size == 2)
 		return (_2x2determinant(m));
-	determinant += *row * _determinant(_submatrix(m,0,0), row + 1);
-	return (determinant);
-}
-static _Bool is_odd(int nb)
-{
-	return (nb % 2);
-}
-
-double	_3x3cofactor(const t_matrix m, int row, int col)
-{
-	double	_minor;
-	double	_cofactor;
-
-	_minor = _3x3minor(m, row, col);
-	_cofactor = _minor;
-	if (is_odd(row + col))
-		_cofactor = _minor * -1;
-	return (_cofactor);
-}
-
-double	_4x4cofactor(const t_matrix m, int row, int col)
-{
-	(void)m;
-	(void)row;
-	(void)col;
-	return 0;
+	det = 0;
+	for (int col = 0; col < m.size; col++)
+		det += m.grid[0][col] * _cofactor(m, 0, col);
+	return (det);
 }
