@@ -296,8 +296,7 @@ double					_3x3determinant(const t_matrix m);
 double					_4x4determinant(const t_matrix m);
 double					_3x3cofactor(const t_matrix m, int row, int col);
 double					_4x4cofactor(const t_matrix m, int row, int col);
-t_matrix				_3x3submatrix(const t_matrix m, int row_to_del, int col_to_del);
-t_matrix				_4x4submatrix(const t_matrix m, int row_to_del, int col_to_delete);
+t_matrix				_submatrix(const t_matrix m, int row_to_del, int col_to_del);
 double					_3x3minor(const t_matrix m, int row, int col);
 double					_4x4minor(const t_matrix m, int row, int col);
 t_matrix				create_scaling_matrix(const double x, const double y,
