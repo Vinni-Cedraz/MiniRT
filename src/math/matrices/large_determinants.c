@@ -24,6 +24,11 @@ double	_4x4determinant(const t_matrix m)
 	return 0;
 }
 
+static _Bool is_odd(int nb)
+{
+	return (nb % 2);
+}
+
 double	_3x3cofactor(const t_matrix m, int row, int col)
 {
 	double	_minor;
@@ -31,7 +36,7 @@ double	_3x3cofactor(const t_matrix m, int row, int col)
 
 	_minor = _3x3minor(m, row, col);
 	_cofactor = _minor;
-	if ((row + col) % 2)
+	if (is_odd(row + col))
 		_cofactor = _minor * -1;
 	return (_cofactor);
 }
