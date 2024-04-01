@@ -26,9 +26,9 @@ Test(inverting_matrices, determinant_of_2x2_matrix, .description = Scenario1) {
 	.grid = {
 		{1,5},
 		{-3,2}
-		},
-	.size = 4
+	},
+	.size = 2
 	};
 
-	cr_expect_eq(17, _2x2determinant(a));
+	cr_expect_eq(17, _determinant(a));
 }

@@ -33,6 +33,6 @@ Test(manipulating_minors, calculating_a_minor_of_a_3x3_matrix, .description = sc
 	};
 	t_matrix b = _submatrix(a, ROW2, COL1);
 
-	cr_expect_eq(25, _2x2determinant(b));
-	cr_expect_eq(25, _3x3minor(a, ROW2, COL1));
+	cr_expect_eq(25, _determinant(b));
+	cr_expect_eq(25, _minor(a, ROW2, COL1));
 }

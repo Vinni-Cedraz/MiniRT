@@ -240,25 +240,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/math/matrices/large_determinants.c",
-   "-o",
-   "build/large_determinants.o"
-  ],
-  "file": "./src/math/matrices/large_determinants.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/math/matrices/minors.c",
    "-o",
    "build/minors.o"
@@ -1189,10 +1170,29 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/math/matrices/create_identity_matrix.c",
+   "./src/math/matrices/determinants.c",
    "-o",
-   "build/create_identity_matrix.o"
+   "build/determinants.o"
   ],
-  "file": "./src/math/matrices/create_identity_matrix.c"
+  "file": "./src/math/matrices/determinants.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrices/create_matrix.c",
+   "-o",
+   "build/create_matrix.o"
+  ],
+  "file": "./src/math/matrices/create_matrix.c"
  }
 ]

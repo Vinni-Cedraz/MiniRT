@@ -13,7 +13,6 @@
 #include "minirt.h"
 
 static double	_2x2determinant(t_matrix m);
-static double	_cofactor(const t_matrix m, int row, int col);
 
 double	_determinant(const t_matrix m)
 {
@@ -41,10 +40,5 @@ static double	_2x2determinant(t_matrix m)
 
 double	_cofactor(const t_matrix m, int row, int col)
 {
-	t_matrix	sub;
-	double		det;
-
-	sub = _submatrix(m, row, col);
-	det = _determinant(sub);
-	return (pow(-1, row + col) * det);
+	return (pow(-1, row + col) * _minor(m, row, col));
 }

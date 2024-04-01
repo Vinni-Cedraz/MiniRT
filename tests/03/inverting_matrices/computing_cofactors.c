@@ -33,8 +33,8 @@ Test(computing_cofactor, calculating_a_cofactor_of_a_3x3_matrix, .description = 
 		.size = 3
 	};
 
-	cr_expect_eq(-12, _3x3minor(a, 0, 0));
+	cr_expect_eq(-12, _minor(a, 0, 0));
 	cr_expect_eq(-12, _cofactor(a, 0, 0));
-	cr_expect_eq(25, _3x3minor(a, 1, 0));
+	cr_expect_eq(25, _minor(a, 1, 0));
 	cr_expect_eq(-25, _cofactor(a, 1, 0));
 }

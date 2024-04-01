@@ -298,8 +298,7 @@ t_matrix				create_x_rotation_matrix(double r);
 t_matrix				create_y_rotation_matrix(double r);
 t_matrix				create_z_rotation_matrix(double r);
 t_matrix				_submatrix(const t_matrix m, int row_to_del, int col_to_del);
-double					_3x3minor(const t_matrix m, int row, int col);
-double					_4x4minor(const t_matrix m, int row, int col);
+double					_minor(const t_matrix m, int row, int col);
 t_matrix				create_scaling_matrix(const double x, const double y,
 							const double z);
 t_matrix				create_shearing_matrix(t_shearer shearer);
@@ -317,6 +316,7 @@ t_node					get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
 void					set_transform(t_shape *s, t_matrix t);
+double					_cofactor(const t_matrix m, int row, int col);
 void					sphere_normal_at(const t_shape *sphere, const t_tuple p,
 							t_tuple res);
 void					plane_normal_at(const t_shape *sphere, const t_tuple p,
