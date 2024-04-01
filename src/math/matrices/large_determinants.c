@@ -12,15 +12,8 @@
 
 #include "minirt.h"
 
-double	_cofactor(const t_matrix m, int row, int col)
-{
-	t_matrix	sub;
-	double		det;
-
-	sub = _submatrix(m, row, col);
-	det = _determinant(sub);
-	return (pow(-1, row + col) * det);
-}
+static double	_2x2determinant(t_matrix m);
+static double	_cofactor(const t_matrix m, int row, int col);
 
 double	_determinant(const t_matrix m)
 {
@@ -34,4 +27,24 @@ double	_determinant(const t_matrix m)
 	while (++col < m.size)
 		det += m.grid[0][col] * _cofactor(m, 0, col);
 	return (det);
+}
+
+static double	_2x2determinant(t_matrix m)
+{
+	double	ad;
+	double	bc;
+
+	ad = m.grid[0][0] * m.grid[1][1];
+	bc = m.grid[1][0] * m.grid[0][1];
+	return (ad - bc);
+}
+
+double	_cofactor(const t_matrix m, int row, int col)
+{
+	t_matrix	sub;
+	double		det;
+
+	sub = _submatrix(m, row, col);
+	det = _determinant(sub);
+	return (pow(-1, row + col) * det);
 }

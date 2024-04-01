@@ -292,8 +292,6 @@ t_matrix				create_matrix_of_cofactors(const t_matrix m);
 t_matrix				create_x_rotation_matrix(double r);
 t_matrix				create_y_rotation_matrix(double r);
 t_matrix				create_z_rotation_matrix(double r);
-double					_2x2determinant(t_matrix m);
-double					_cofactor(const t_matrix m, int row, int col);
 t_matrix				_submatrix(const t_matrix m, int row_to_del, int col_to_del);
 double					_3x3minor(const t_matrix m, int row, int col);
 double					_4x4minor(const t_matrix m, int row, int col);
