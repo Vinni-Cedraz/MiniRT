@@ -240,25 +240,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/math/matrices/2x2determinant.c",
-   "-o",
-   "build/2x2determinant.o"
-  ],
-  "file": "./src/math/matrices/2x2determinant.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/math/matrices/large_determinants.c",
    "-o",
    "build/large_determinants.o"

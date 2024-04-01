@@ -59,6 +59,7 @@
 typedef double			t_four_doubles[4];
 typedef double			t_3x3_row[3];
 typedef double			t_2x2_row[2];
+typedef	double			arr_mat[16];
 typedef _Bool			t_bool;
 typedef unsigned short	t_short;
 typedef					void(t_parse_table)(char *, t_node *);
@@ -289,6 +290,7 @@ t_bool					tuples_neq(const double *result, const double *expected,
 							int len);
 t_matrix				create_translation_matrix(t_tuple point);
 t_matrix				create_matrix_of_cofactors(const t_matrix m);
+t_matrix				create_matrix(double arr[]);
 t_matrix				create_x_rotation_matrix(double r);
 t_matrix				create_y_rotation_matrix(double r);
 t_matrix				create_z_rotation_matrix(double r);
@@ -337,6 +339,8 @@ t_matrix				view_transform(t_tuple from, t_tuple forward,
 							t_tuple up);
 t_camera				create_camera(int hsize, int vsize,
 							double field_of_view);
+t_matrix create_mat(double arr[]);
+
 t_ray					ray_for_pixel(t_camera c, int x, int y);
 t_canvas				render(t_camera camera, t_world world);
 t_intersection			intersect_sphere(t_shape **obj, t_tuple dist);
