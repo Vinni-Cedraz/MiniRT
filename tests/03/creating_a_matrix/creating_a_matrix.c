@@ -112,6 +112,8 @@ Test(matrix_equality, _4x4identical_matrices, .description = scenario4) {
 		9, 8, 7, 6,
 		5, 4, 3, 2
 	});
+	cr_expect_eq(matrix_a.size, 4);
+	cr_expect_eq(matrix_b.size, 4);
 	matrices_eq(matrix_a, matrix_b);
 }
 
@@ -128,5 +130,7 @@ Test(matrix_equality, _4x4different_matrices, .description = scenario5) {
 		8, 7, 6, 5,
 		4, 3, 2, 1
 	});
+	cr_expect_eq(matrix_a.size, 4);
+	cr_expect_eq(matrix_b.size, 4);
 	matrices_eq(matrix_a, matrix_b);
 }
