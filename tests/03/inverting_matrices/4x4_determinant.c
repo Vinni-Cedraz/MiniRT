@@ -47,9 +47,9 @@ Test(determinant_large_matrices, calculating_the_determinant_of_a_3x3_matrix, .d
 		.size = 4
 	};
 
-	// cr_expect_eq(56, _cofactor(a, 0, 0));
-	// cr_expect_eq(12, _cofactor(a, 0, 1));
-	// cr_expect_eq(-46, _cofactor(a, 0, 2));
+	cr_expect_eq(56, _cofactor(a, 0, 0));
+	cr_expect_eq(12 , _cofactor(a, 0, 1));
+	cr_expect_eq(-46 , _cofactor(a, 0, 2));
 	cr_expect_eq(doubles_eq(-196, _determinant(a)), TRUE);
 }
 
@@ -64,10 +64,10 @@ Test(determinant_large_matrices, calculating_the_determinant_of_a_4x4_matrix, .d
 		.size = 4
 	};
 
-	// cr_expect_eq(690, _cofactor(a, 0, 0));
-	// cr_expect_eq(447, _cofactor(a, 0, 1));
-	// cr_expect_eq(210, _cofactor(a, 0, 2));
-	// cr_expect_eq(51, _cofactor(a, 0, 3));
+	cr_expect_eq(690, _cofactor(a, 0, 0));
+	cr_expect_eq(447, _cofactor(a, 0, 1));
+	cr_expect_eq(210, _cofactor(a, 0, 2));
+	cr_expect_eq(51, _cofactor(a, 0, 3));
 	cr_expect_eq(doubles_eq(-4071, _determinant(a)), TRUE);
 }
 
@@ -80,5 +80,13 @@ Test(cofactor, a_1_1) {
 		},
 		.size = 4,
 	};
-	cr_expect_eq(-8, _cofactor(a, 0, 0));
+	cr_expect_eq(56, _cofactor(a, 0, 0));
+	cr_expect_eq(12 , _cofactor(a, 0, 1));
+	cr_expect_eq(-46 , _cofactor(a, 0, 2));
+	cr_expect_eq(28 , _cofactor(a, 1, 0));
+	cr_expect_eq(-8 , _cofactor(a, 1, 1));
+	cr_expect_eq(-2 , _cofactor(a, 1, 2));
+	cr_expect_eq(-56 , _cofactor(a, 2, 0));
+	cr_expect_eq(-26 , _cofactor(a, 2, 1));
+	cr_expect_eq(18 , _cofactor(a, 2, 2));
 }

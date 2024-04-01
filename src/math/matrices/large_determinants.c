@@ -25,11 +25,13 @@ double	_cofactor(const t_matrix m, int row, int col)
 double	_determinant(const t_matrix m)
 {
 	double	det;
+	int		col;
 
 	if (m.size == 2)
 		return (_2x2determinant(m));
 	det = 0;
-	for (int col = 0; col < m.size; col++)
+	col = -1;
+	while (++col < m.size)
 		det += m.grid[0][col] * _cofactor(m, 0, col);
 	return (det);
 }
