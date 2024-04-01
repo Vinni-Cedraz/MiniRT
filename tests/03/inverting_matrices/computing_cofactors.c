@@ -24,14 +24,12 @@
 " And cofactor(A, 1, 0) = -25"RESET              \
 
 Test(computing_cofactor, calculating_a_cofactor_of_a_3x3_matrix, .description = scenario1) {
-	t_matrix a = {
-		.grid = {
-			{3,5,0},
-			{2,-1,-7},
-			{6,-1,5}
-		},
-		.size = 3
-	};
+	t_matrix a = create_matrix((double []){
+			3,5,0,
+			2,-1,-7,
+			6,-1,5,
+			END_MATRIX
+	});
 
 	cr_expect_eq(-12, _minor(a, 0, 0));
 	cr_expect_eq(-12, _cofactor(a, 0, 0));

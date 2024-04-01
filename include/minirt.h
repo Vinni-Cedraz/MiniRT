@@ -48,6 +48,9 @@
 # define ROW 0
 # define COL 1
 
+#define END_MATRIX -(__INT_MAX__)
+#define ERROR -42
+
 # define DEFAULT -1
 # define AMBIENT 0
 # define DIFFUSE 1
@@ -62,7 +65,6 @@
 typedef double			t_four_doubles[4];
 typedef double			t_3x3_row[3];
 typedef double			t_2x2_row[2];
-typedef	double			arr_mat[];
 typedef _Bool			t_bool;
 typedef unsigned short	t_short;
 typedef					void(t_parse_table)(char *, t_node *);
@@ -293,7 +295,8 @@ t_bool					tuples_neq(const double *result, const double *expected,
 							int len);
 t_matrix				create_translation_matrix(t_tuple point);
 t_matrix				create_matrix_of_cofactors(const t_matrix m);
-t_matrix				create_matrix(arr_mat);
+// ALWAYS USE END_MATRIX WITH THE create_matrix FUNCTION!!!!!!!!!!!!!!!!!
+t_matrix				create_matrix(double arr_mat[]);
 t_matrix				create_x_rotation_matrix(double r);
 t_matrix				create_y_rotation_matrix(double r);
 t_matrix				create_z_rotation_matrix(double r);

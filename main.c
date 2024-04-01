@@ -1,11 +1,13 @@
 #include "minirt.h"
-#include <stdio.h>
 
 int main() {
-	double array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-	t_matrix teste = create_matrix(array);
+	t_matrix matrix = create_matrix((double []){
+		1, 2, 3, 4,
+		5.5, 6.5, 7.5, 8.5,
+		9, 10, 11, 12,
+		13.5, 14.5, 15.5, 16.5,
+		END_MATRIX
+	});
 
-	printf("O tamanho do array é: %d bytes\n", teste.size);
-
-	return 0;
+	printf("%d\n", matrix.size);
 }

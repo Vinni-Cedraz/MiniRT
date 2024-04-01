@@ -36,15 +36,13 @@
 "And cofactor(A, 0, 3) = 51\n"                               \
 "And determinant(A) = -4071"                               \
 
-Test(cofactor, a_1_1, .description = CYAN"Tests cofacto function on all elements"RESET) {
-	t_matrix a = {
-		.grid = {
-			{1,2,6},
-			{-5,8,-4},
-			{2,6,4}
-		},
-		.size = 3,
-	};
+Test(cofactor, a_1_1, .description = CYAN"Tests cofactor function on all elements"RESET) {
+	t_matrix a = create_matrix((double []){
+			1,2,6,
+			-5,8,-4,
+			2,6,4,
+			END_MATRIX
+	});
 	cr_expect_eq(56, _cofactor(a, 0, 0));
 	cr_expect_eq(12 , _cofactor(a, 0, 1));
 	cr_expect_eq(-46 , _cofactor(a, 0, 2));
@@ -57,14 +55,12 @@ Test(cofactor, a_1_1, .description = CYAN"Tests cofacto function on all elements
 }
 
 Test(determinant_large_matrices, calculating_the_determinant_of_a_3x3_matrix, .description = scenario1) {
-	t_matrix a = {
-		.grid  = {
-			{1,2,6},
-			{-5,8,-4},
-			{2,6,4}
-		},
-		.size = 3
-	};
+	t_matrix a = create_matrix((double[]) {
+			1, 2, 6,
+			-5, 8, -4,
+			2, 6, 4,
+			END_MATRIX
+	});
 
 	cr_expect_eq(56, _cofactor(a, 0, 0));
 	cr_expect_eq(12 , _cofactor(a, 0, 1));
@@ -74,15 +70,8 @@ Test(determinant_large_matrices, calculating_the_determinant_of_a_3x3_matrix, .d
 }
 
 Test(determinant_large_matrices, calculating_the_determinant_of_a_4x4_matrix, .description = scenario2) {
-	t_matrix a = {
-		.grid = {
-			{-2,-8,3,5},
-			{-3,1,7,3},
-			{1,2,-9,6},
-			{-6,7,7,-9}
-		},
-		.size = 4
-	};
+	double temp_array[] = {-2, -8, 3, 5, -3, 1, 7, 3, 1, 2, -9, 6, -6, 7, 7, -9, END_MATRIX};
+	t_matrix a = create_matrix(temp_array);
 
 	cr_expect_eq(690, _cofactor(a, 0, 0));
 	cr_expect_eq(447, _cofactor(a, 0, 1));

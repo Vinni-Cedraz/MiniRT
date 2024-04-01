@@ -17,15 +17,18 @@
 						"And M[3,2] = 15.5" RESET
 
 Test(creating_a_matrix, 4x4matrix, .description = scenario1) {
-	t_matrix matrix = create_matrix((arr_mat){
+	t_matrix matrix = create_matrix((double []){
 		1, 2, 3, 4,
 		5.5, 6.5, 7.5, 8.5,
 		9, 10, 11, 12,
 		13.5, 14.5, 15.5, 16.5,
+		END_MATRIX
 	});
 
 	cr_expect_eq(matrix.size, 4);
-	cr_expect_eq(_determinant(matrix), -296);
+	printf("%d\n", matrix.size);
+	printf("%f\n", _determinant(matrix));
+	cr_expect_eq(_determinant(matrix), 0);
 }
 
  // Scenario : Constructing and inspecting a 4x4 matrix
@@ -39,9 +42,10 @@ Test(creating_a_matrix, 4x4matrix, .description = scenario1) {
 				"And M[1,1] = -2" RESET
 
 Test(creating_a_matrix, _2x2matrix, .description = scenario2) {
-	t_matrix matrix = create_matrix((arr_mat){
+	t_matrix matrix = create_matrix((double []){
 		-3, 5,
 		1, 5,
+		END_MATRIX
 	});
 
 	cr_expect_eq(matrix.size, 2);
@@ -61,10 +65,11 @@ Test(creating_a_matrix, _2x2matrix, .description = scenario2) {
 				"And M[2,2] = 1" RESET
 
 Test(creating_a_matrix, _3x3matrix, .description = scenario3) {
-	t_matrix matrix = create_matrix((arr_mat){
+	t_matrix matrix = create_matrix((double []){
 		-3, 5, 0,
 		1, -2, 7,
 		0, 1, 1,
+		END_MATRIX
 	});
 
 	cr_expect_eq(matrix.size, 3);
@@ -100,17 +105,19 @@ Test(creating_a_matrix, _3x3matrix, .description = scenario3) {
 				"Then A != B" RESET
 
 Test(matrix_equality, _4x4identical_matrices, .description = scenario4) {
-	t_matrix matrix_a = create_matrix((arr_mat){
+	t_matrix matrix_a = create_matrix((double []){
 		1, 2, 3, 4,
 		5, 6, 7, 8,
 		9, 8, 7, 6,
-		5, 4, 3, 2
+		5, 4, 3, 2,
+		END_MATRIX
 	});
-	t_matrix matrix_b = create_matrix((arr_mat){
+	t_matrix matrix_b = create_matrix((double []){
 		1, 2, 3, 4,
 		5, 6, 7, 8,
 		9, 8, 7, 6,
-		5, 4, 3, 2
+		5, 4, 3, 2,
+		END_MATRIX
 	});
 	cr_expect_eq(matrix_a.size, 4);
 	cr_expect_eq(matrix_b.size, 4);
@@ -118,17 +125,19 @@ Test(matrix_equality, _4x4identical_matrices, .description = scenario4) {
 }
 
 Test(matrix_equality, _4x4different_matrices, .description = scenario5) {
-	t_matrix matrix_a = create_matrix((arr_mat){
+	t_matrix matrix_a = create_matrix((double []){
 		1, 2, 3, 4,
 		5, 6, 7, 8,
 		9, 8, 7, 6,
-		5, 4, 3, 2
+		5, 4, 3, 2,
+		END_MATRIX
 	});
-	t_matrix matrix_b = create_matrix((arr_mat){
+	t_matrix matrix_b = create_matrix((double []){
 		2, 3, 4, 5,
 		6, 7, 8, 9,
 		8, 7, 6, 5,
-		4, 3, 2, 1
+		4, 3, 2, 1,
+		END_MATRIX
 	});
 	cr_expect_eq(matrix_a.size, 4);
 	cr_expect_eq(matrix_b.size, 4);

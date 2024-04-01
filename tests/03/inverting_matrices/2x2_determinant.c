@@ -22,13 +22,11 @@
 "Then determinant(A) = 17" RESET
 
 Test(inverting_matrices, determinant_of_2x2_matrix, .description = Scenario1) {
-	t_matrix a = {
-	.grid = {
-		{1,5},
-		{-3,2}
-	},
-	.size = 2
-	};
+	t_matrix a = create_matrix((double []){
+		1,5,
+		-3,2,
+		END_MATRIX
+	});
 
 	cr_expect_eq(17, _determinant(a));
 }
