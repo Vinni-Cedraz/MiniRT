@@ -1,0 +1,21 @@
+[
+ {
+  "directory": "/root/MiniRT/tests/03/creating_a_matrix",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-w",
+   "creating_a_matrix.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "creating_a_matrix"
+  ],
+  "file": "creating_a_matrix.c"
+ }
+]

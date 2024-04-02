@@ -38,7 +38,7 @@ static double	_2x2determinant(t_matrix m)
 	return (ad - bc);
 }
 
-double	_cofact(const t_matrix m, int row, int col)
+double	_cofac(const t_matrix m, int row, int col)
 {
 	return (pow(-1, row + col) * _minor(m, row, col));
 }

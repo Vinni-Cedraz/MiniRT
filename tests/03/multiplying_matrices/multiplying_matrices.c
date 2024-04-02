@@ -31,7 +31,6 @@ Test(multiplying_matrices, multiplying_two_matrices, .description = scenario1) {
 	t_matrix expected = { .grid = { {20, 22, 50, 48}, {44, 54, 114, 108}, {40, 58, 110, 102}, {16, 26, 46, 42} }, .size = 4 };
 
 	t_matrix result = mult_matrices(a , b);
-	print_matrix(result, 4);
 	cr_assert_eq(matrices_eq(expected, result), TRUE);
 }
 
@@ -53,6 +52,5 @@ Test(multiplying_matrices, a_matrix_multiplied_by_a_tuple, .description = scenar
 	t_tuple expected = {18, 24, 33, 1};
 
 	t_tuple result = multiply_tuple_by_matrix((double[4]){b.x, b.y, b.z, b.w}, A, POINT);
-	print_tuple(result);
 	cr_assert_eq(tuples_eq(expected, result), TRUE);
 }

@@ -43,15 +43,15 @@ Test(cofactor, a_1_1, .description = CYAN"Tests cofactor function on all element
 			2,6,4,
 			END_MATRIX
 	});
-	cr_expect_eq(56, _cofactor(a, 0, 0));
-	cr_expect_eq(12 , _cofactor(a, 0, 1));
-	cr_expect_eq(-46 , _cofactor(a, 0, 2));
-	cr_expect_eq(28 , _cofactor(a, 1, 0));
-	cr_expect_eq(-8 , _cofactor(a, 1, 1));
-	cr_expect_eq(-2 , _cofactor(a, 1, 2));
-	cr_expect_eq(-56 , _cofactor(a, 2, 0));
-	cr_expect_eq(-26 , _cofactor(a, 2, 1));
-	cr_expect_eq(18 , _cofactor(a, 2, 2));
+	cr_expect_eq(56, _cofac(a, 0, 0));
+	cr_expect_eq(12 , _cofac(a, 0, 1));
+	cr_expect_eq(-46 , _cofac(a, 0, 2));
+	cr_expect_eq(28 , _cofac(a, 1, 0));
+	cr_expect_eq(-8 , _cofac(a, 1, 1));
+	cr_expect_eq(-2 , _cofac(a, 1, 2));
+	cr_expect_eq(-56 , _cofac(a, 2, 0));
+	cr_expect_eq(-26 , _cofac(a, 2, 1));
+	cr_expect_eq(18 , _cofac(a, 2, 2));
 }
 
 Test(determinant_large_matrices, calculating_the_determinant_of_a_3x3_matrix, .description = scenario1) {
@@ -62,9 +62,9 @@ Test(determinant_large_matrices, calculating_the_determinant_of_a_3x3_matrix, .d
 			END_MATRIX
 	});
 
-	cr_expect_eq(56, _cofactor(a, 0, 0));
-	cr_expect_eq(12 , _cofactor(a, 0, 1));
-	cr_expect_eq(-46 , _cofactor(a, 0, 2));
+	cr_expect_eq(56, _cofac(a, 0, 0));
+	cr_expect_eq(12 , _cofac(a, 0, 1));
+	cr_expect_eq(-46 , _cofac(a, 0, 2));
 	printf("%f\n", _determinant(a));
 	cr_expect_eq(doubles_eq(-196, _determinant(a)), TRUE);
 }
@@ -73,10 +73,10 @@ Test(determinant_large_matrices, calculating_the_determinant_of_a_4x4_matrix, .d
 	double temp_array[] = {-2, -8, 3, 5, -3, 1, 7, 3, 1, 2, -9, 6, -6, 7, 7, -9, END_MATRIX};
 	t_matrix a = create_matrix(temp_array);
 
-	cr_expect_eq(690, _cofactor(a, 0, 0));
-	cr_expect_eq(447, _cofactor(a, 0, 1));
-	cr_expect_eq(210, _cofactor(a, 0, 2));
-	cr_expect_eq(51, _cofactor(a, 0, 3));
+	cr_expect_eq(690, _cofac(a, 0, 0));
+	cr_expect_eq(447, _cofac(a, 0, 1));
+	cr_expect_eq(210, _cofac(a, 0, 2));
+	cr_expect_eq(51, _cofac(a, 0, 3));
 	cr_expect_eq(doubles_eq(-4071, _determinant(a)), TRUE);
 }
 

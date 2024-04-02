@@ -62,6 +62,7 @@ t_matrix	mult_matrices(t_matrix a, t_matrix b)
 		while (++col < b.size)
 			result.grid[row][col] = mult_position_(a, b, (int []){row, col});
 	}
+	result.size = a.size;
 	return (result);
 }
 

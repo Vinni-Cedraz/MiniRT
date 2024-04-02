@@ -52,16 +52,16 @@ static t_matrix	create_matrix_of_cofactors(const t_matrix m)
 static double	_div(t_matrix m, double d)
 {
 	static int	i;
-	static int	j;
+	static int	j = -1;
 
 	if (j == 3)
 	{
 		i++;
-		j = 0;
+		j = -1;
 	}
-	if (i == 3)
+	if (i == 4)
 		i = 0;
-	return (m.grid[i][j] / d);
+	return (m.grid[i][++j] / d);
 }
 
 static t_matrix	divide_each_element_by_det(t_matrix m, const double d)
@@ -157,28 +157,6 @@ static t_matrix	divide_each_element_by_det(t_matrix m, const double d)
 // 	cr_expect_eq(TRUE, matrices_eq(res, expected));
 // }
 //
-// Test(translation, multiplying_by_inverse_of_translation) {
-// 	t_tuple			p;
-// 	t_matrix		translation_matrix;
-// 	t_matrix		inverse_of_translation_matrix;
-// 	t_tuple			result;
-//
-// 	translation_matrix = create_translation_matrix((t_tuple){5, -3, 2, POINT});
-// 	inverse_of_translation_matrix = invert_matrix(translation_matrix);
-//  	p.x = -3, p.y = 4, p.z = 5, p.w = POINT;
-// 	printf(CYAN"translation matrix: \n"RESET);
-// 	print_matrix(translation_matrix);
-// 	printf(CYAN"inverse matrix: \n"RESET);
-// 	print_matrix(inverse_of_translation_matrix);
-// 	result = multiply_tuple_by_matrix((double[]){p.x, p.y, p.z, p.w}, inverse_of_translation_matrix, p.w);
-// 	printf(CYAN"result point: \n"RESET);
-// 	print_tuple(result);
-// 	printf(CYAN"expected point: \n"RESET);
-// 	const t_tuple	expected = {-8, 7, 3, POINT};
-// 	print_tuple(expected);
-// 	cr_expect_tuples_eq(result, expected);
-// }
-//
 // Test(invert, matrix_of_divisions_of_everything_by_original_det) {
 // 	const t_matrix m = create_matrix((double []){
 // 		0, 1, 0, 3,
@@ -188,13 +166,18 @@ static t_matrix	divide_each_element_by_det(t_matrix m, const double d)
 // 		END_MATRIX
 // 	});
 // 	const t_matrix expected = create_matrix((double []){
-// 		0, 1, 0, 3,
-// 		1, 0, 0, -5,
-// 		0, 0, 1, -2,
-// 		0, 0, 0, 1,
+// 		0, -1, 0, -3,
+// 		-1, 0, 0, 5,
+// 		0, 0, -1, 2,
+// 		0, 0, 0, -1,
 // 		END_MATRIX
 // 	});
-// 	const int det = _determinant(m);
-// 	const t_matrix result = divide_each_element_by_det(m, det);
+// 	const t_matrix result = divide_each_element_by_det(m, _determinant(m));
+//
+// 	printf("%f\n", _determinant(m));
+// 	printf(CYAN"result matrix:\n"RESET);
+// 	print_matrix(result);
+// 	printf(CYAN"expected :\n"RESET);
+// 	print_matrix(expected);
 // 	cr_expect_eq(matrices_eq(result, expected), TRUE);
 // }
