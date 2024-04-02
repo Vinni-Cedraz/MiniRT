@@ -294,7 +294,6 @@ double 					_determinant(const t_matrix m);
 t_bool					tuples_neq(const double *result, const double *expected,
 							int len);
 t_matrix				create_translation_matrix(t_tuple point);
-t_matrix				create_matrix_of_cofactors(const t_matrix m);
 // ALWAYS USE END_MATRIX WITH THE create_matrix FUNCTION!!!!!!!!!!!!!!!!!
 t_matrix				create_matrix(double arr_mat[]);
 t_matrix				create_x_rotation_matrix(double r);
@@ -319,7 +318,7 @@ t_node					get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
 void					set_transform(t_shape *s, t_matrix t);
-double					_cofactor(const t_matrix m, int row, int col);
+double					_cofac(const t_matrix m, int row, int col);
 void					sphere_normal_at(const t_shape *sphere, const t_tuple p,
 							t_tuple res);
 void					plane_normal_at(const t_shape *sphere, const t_tuple p,
@@ -387,14 +386,14 @@ static inline void	print_tuple(const t_tuple a)
 	printf("X: %f, Y: %f, Z: %f, W: %d\n", a.x, a.y, a.z, a.w);
 }
 
-static inline void	print_matrix(t_matrix mat, int size)
+static inline void	print_matrix(t_matrix mat)
 {
 	int i = -1;
 	int j = -1;
-	while (++i < size)
+	while (++i < mat.size)
 	{
 		j = -1;
-		while (++j < size)
+		while (++j < mat.size)
 			printf("%f ", mat.grid[i][j]);
 		printf("\n");
 	}

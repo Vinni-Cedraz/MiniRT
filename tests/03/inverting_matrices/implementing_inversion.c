@@ -83,34 +83,32 @@ Test(inversion, testing_a_noninvertible_matrix_for_invertibility, .description =
 " | -0.52256 | -0.81391 | -0.30075 | 0.30639 |"                               \
 
 
-// Test(inversion, calculating_the_inverse_of_a_matrix, .description = scenario3) {
-// 	t_matrix a = {
-// 		.grid = {
-// 			{-5,2,6,-8},
-// 			{1,-5,1,8},
-// 			{7,7,-6,-7},
-// 			{1,-3,7,4}
-// 		},
-// 		.size = 4
-// 	};
-// 	t_matrix b = invert_matrix(a);
-// 	cr_assert_eq(532, _determinant(a));
-// 	cr_assert_eq(-160, _cofactor(a, 2, 3));
-// 	cr_assert_eq(TRUE, doubles_eq(-160.0/532, b.grid[3][2]));
-// 	cr_assert_eq(105, _cofactor(a, 3, 2));
-// 	cr_assert_eq(TRUE, doubles_eq(b.grid[2][3], 105.0/532));
-// 	t_matrix expected = {.grid = {
-// 		{0.21805, 0.45113, 0.24060, -0.04511},
-// 		{-0.80827, -1.45677, -0.44361, 0.52068},                               
-// 		{-0.07895, -0.22368, -0.05263, 0.19737},                              
-// 		{-0.52256, -0.81391, -0.30075, 0.30639},                               
-// 	},
-// 			 .size = 4
-// 	};
-//
-// 	cr_expect_eq(TRUE, matrices_eq(b, expected));
-// }
-//
+Test(inversion, calculating_the_inverse_of_a_matrix, .description = scenario3) {
+	t_matrix a = create_matrix((double[]){
+			-5,2,6,-8,
+			1,-5,1,8,
+			7,7,-6,-7,
+			1,-3,7,4,
+			END_MATRIX
+	});
+	t_matrix b = invert_matrix(a);
+	cr_assert_eq(532, _determinant(a));
+	cr_assert_eq(-160, _cofactor(a, 2, 3));
+	cr_assert_eq(TRUE, doubles_eq(-160.0/532, b.grid[3][2]));
+	cr_assert_eq(105, _cofactor(a, 3, 2));
+	cr_assert_eq(TRUE, doubles_eq(b.grid[2][3], 105.0/532));
+
+	t_matrix expected = create_matrix((double []){
+		0.21805, 0.45113, 0.24060, -0.04511,
+		-0.80827, -1.45677, -0.44361, 0.52068,                               
+		-0.07895, -0.22368, -0.05263, 0.19737,                              
+		-0.52256, -0.81391, -0.30075, 0.30639,                               
+		END_MATRIX
+	});
+
+	cr_expect_eq(TRUE, matrices_eq(b, expected));
+}
+
 // // Scenario : Calculating the invert_matrix of another matrix
 // #define scenario4 CYAN "\nGiven the following 4x4 matrix A:\n" \
 // "| 8 | -5 | 9 | 2 |\n" \

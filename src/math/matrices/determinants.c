@@ -24,7 +24,7 @@ double	_determinant(const t_matrix m)
 	det = 0;
 	col = -1;
 	while (++col < m.size)
-		det += m.grid[0][col] * _cofactor(m, 0, col);
+		det += m.grid[0][col] * _cofac(m, 0, col);
 	return (det);
 }
 
@@ -38,7 +38,7 @@ static double	_2x2determinant(t_matrix m)
 	return (ad - bc);
 }
 
-double	_cofactor(const t_matrix m, int row, int col)
+double	_cofact(const t_matrix m, int row, int col)
 {
 	return (pow(-1, row + col) * _minor(m, row, col));
 }
