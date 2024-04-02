@@ -19,8 +19,9 @@
 
 t_bool	is_invertible(t_matrix m)
 {
-	(void)m;
-	return (TRUE);
+	if (m.size == 4 && _determinant(m))
+		return (true);
+	return false;
 }
 
 t_matrix	invert_matrix(t_matrix m)
