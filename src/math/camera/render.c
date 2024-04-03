@@ -15,5 +15,5 @@
 t_canvas	render(t_camera camera, t_world world)
 {
 	(void)camera, (void)world;
-	return (t_canvas){0};
+	return ((t_canvas){0});
 }

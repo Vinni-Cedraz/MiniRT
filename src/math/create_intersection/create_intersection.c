@@ -15,21 +15,20 @@
 
 t_intersection	create_intersection(void *obj, t_ray r)
 {
-	//void all variables of this function;
 	(void)obj;
 	(void)r;
-	return (t_intersection){0};
+	return ((t_intersection){0});
 }
 
 t_intersection	link_intersection_nodes(t_node *arr[])
 {
 	(void)arr;
-	return (t_intersection){0};
+	return ((t_intersection){0});
 }
 
 t_node	*intersection(double point, t_shape **obj)
 {
 	(void)point;
 	(void)obj;
-	return (t_node *)0;
+	return ((t_node *)0);
 }

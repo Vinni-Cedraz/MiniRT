@@ -12,20 +12,9 @@
 
 #include "minirt.h"
 
-// static void	init_light(t_world *world, t_lighting *lighting_object);
-// static void	init_position_and_vectors(t_prep_comps *comps, t_lighting *lght);
-
 void	shade_hit(t_world *world, t_prep_comps *comps, t_tuple result)
 {
 	(void)world;
 	(void)comps;
 	(void)result;
 }
-
-// static void	init_light(t_world *world, t_lighting *lighting_object)
-// {
-// }
-//
-// static void	init_position_and_vectors(t_prep_comps *comps, t_lighting *lght)
-// {
-// }

@@ -12,15 +12,9 @@
 
 #include "minirt.h"
 
-// static void		calculate_over_point(t_prep_comps *comps);
-
 t_prep_comps	prepare_computations(t_node *hit, t_ray ray)
 {
 	(void)hit;
 	(void)ray;
-	return (t_prep_comps){0};
+	return ((t_prep_comps){0});
 }
-
-// static void	calculate_over_point(t_prep_comps *comps)
-// {
-// }

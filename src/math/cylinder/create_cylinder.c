@@ -14,5 +14,5 @@
 
 t_cylinder	create_cylinder(void)
 {
-	return (t_cylinder){0};
+	return ((t_cylinder){0});
 }

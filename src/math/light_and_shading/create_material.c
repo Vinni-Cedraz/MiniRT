@@ -14,10 +14,10 @@
 
 t_material	create_material(void)
 {
-	return (t_material){0};
+	return ((t_material){0});
 }
 
 t_material	create_plane_material(void)
 {
-	return (t_material){0};
+	return ((t_material){0});
 }

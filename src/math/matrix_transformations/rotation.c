@@ -15,17 +15,17 @@
 t_matrix	create_x_rotation_matrix(double r)
 {
 	(void)r;
-	return (t_matrix){0};
+	return ((t_matrix){0});
 }
 
 t_matrix	create_y_rotation_matrix(double r)
 {
 	(void)r;
-	return (t_matrix){0};
+	return ((t_matrix){0});
 }
 
 t_matrix	create_z_rotation_matrix(double r)
 {
 	(void)r;
-	return (t_matrix){0};
+	return ((t_matrix){0});
 }

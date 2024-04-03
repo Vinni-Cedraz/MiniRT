@@ -14,5 +14,5 @@
 
 t_sphere	create_sphere(void)
 {
-	return (t_sphere){0};
+	return ((t_sphere){0});
 }
