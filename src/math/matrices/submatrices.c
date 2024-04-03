@@ -12,40 +12,29 @@
 
 #include "minirt.h"
 
-// static void	subrow(t_tuple row, int col_to_delete, double subrow[], int n);
-
-t_2x2matrix	_3x3submatrix(const t_3x3matrix m, int row_to_del, int col_to_del)
+t_matrix	_submatrix(const t_matrix m, int row_to_del, int col_to_del)
 {
-	(void)m;
-	(void)row_to_del;
-	(void)col_to_del;
-	return (t_2x2matrix){0};
+	t_matrix	submatrix;
+	int			row;
+	int			col;
+	int			res_row;
+	int			res_col;
+
+	row = -1;
+	res_row = -1;
+	while (++row < m.size)
+	{
+		col = -1;
+		res_col = -1;
+		if (row != row_to_del && col != col_to_del)
+			++res_row;
+		while (++col < m.size)
+		{
+			if (row == row_to_del || col == col_to_del)
+				continue ;
+			submatrix.grid[res_row][++res_col] = m.grid[row][col];
+		}
+	}
+	submatrix.size = m.size - 1;
+	return (submatrix);
 }
-
-t_3x3matrix	_4x4submatrix(const t_matrix m, int row_to_del, int col_to_delete)
-{
-	(void)m;
-	(void)row_to_del;
-	(void)col_to_delete;
-	return (t_3x3matrix){0};
-}
-
-// static void	subrow(t_tuple row, int col_to_delete, double subrow[], int len)
-// {
-// }
-
-// #include "../../tests/tester.h"
-// Test(submatrix, subrow) {
-// 	t_tuple a = {1,5,0};
-// 	t_tuple expected0 = {5,0};
-// 	t_tuple expected1 = {1,0};
-// 	t_tuple expected2 = {1,5};
-// 	t_tuple result;
-//
-// 	subrow(a, 0, result, 3);
-// 	cr_expect_tuple_eq(result, expected0);
-// 	subrow(a, 1, result, 3);
-// 	cr_expect_tuple_eq(result, expected1);
-// 	subrow(a, 2, result, 3);
-// 	cr_expect_tuple_eq(result, expected2);
-// }

@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 
 // Scenario: calculating the discriminant when there is no intersection
 #define scenario1 CYAN \
@@ -12,9 +12,7 @@
 Test(discriminant, negative_discriminant_no_intersections, .description = scenario1) {
 	const t_ray ray = create_ray((t_tuple){0, 2, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
 	const t_sphere s = create_sphere();
-	t_tuple distance_sphere_to_ray;
-
-	subtract_tuples(ray.origin, s.origin, distance_sphere_to_ray);
+	t_tuple distance_sphere_to_ray = subtract_tuples(ray.origin, s.origin);
 	if (discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) >= 0)
 		printf(RED"discriminant: %f\n"RESET, discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}));
 	cr_expect_eq(discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) < 0, TRUE);
@@ -34,7 +32,7 @@ Test(discriminant, positive_discriminant_two_intersections, .description = scena
 	const t_sphere s = create_sphere();
 	t_tuple distance_sphere_to_ray;
 
-	subtract_tuples(ray.origin, s.origin, distance_sphere_to_ray);
+	distance_sphere_to_ray = subtract_tuples(ray.origin, s.origin);
 	if (discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) < 0)
 		printf(RED"discriminant: %f\n"RESET, discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}));
 	cr_expect_eq(discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) >= 0, TRUE);
@@ -54,7 +52,7 @@ Test(discriminant, inside_sphere_positive_discriminant, .description = scenario3
 	const t_sphere s = create_sphere();
 	t_tuple distance_sphere_to_ray;
 
-	subtract_tuples(ray.origin, s.origin, distance_sphere_to_ray);
+	distance_sphere_to_ray = subtract_tuples(ray.origin, s.origin);
 	if (discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) < 0)
 		printf(RED"discriminant: %f\n"RESET, discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}));
 	cr_expect_eq(discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) >= 0, TRUE);
@@ -75,7 +73,7 @@ Test(discriminant, single_intersection_discriminant_is_zero, .description = scen
 	const t_sphere s = create_sphere();
 	t_tuple distance_sphere_to_ray;
 	
-	subtract_tuples(ray.origin, s.origin, distance_sphere_to_ray);
+	distance_sphere_to_ray = subtract_tuples(ray.origin, s.origin);
 	if (discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) < 0)
 		printf(RED"discriminant: %f\n"RESET, discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}));
 	cr_expect_eq(discriminant(distance_sphere_to_ray, ray, &(t_baskara){0}) >= 0, TRUE);

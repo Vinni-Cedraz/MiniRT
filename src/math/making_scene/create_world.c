@@ -14,12 +14,12 @@
 
 t_world	create_world(void)
 {
-	return (t_world){0};
+	return ((t_world){0});
 }
 
 t_world	default_world(void)
 {
-	return (t_world){0};
+	return ((t_world){0});
 }
 
 void	add_object(t_world *w, t_shape *new_obj,

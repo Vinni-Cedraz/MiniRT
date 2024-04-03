@@ -14,34 +14,37 @@
 
 t_tuple	create_point(float x, float y, float z)
 {
-	t_tuple	tuple;
+	const t_tuple	tuple = {
+		.x = x,
+		.y = y,
+		.z = z,
+		.w = 1,
+	};
 
-	tuple.x = x;
-	tuple.y = y;
-	tuple.z = z;
-	tuple.w = 1;
 	return (tuple);
 }
 
 t_tuple	create_vector(float x, float y, float z)
 {
-	t_tuple	tuple;
+	const t_tuple	tuple = {
+		.x = x,
+		.y = y,
+		.z = z,
+		.w = 0,
+	};
 
-	tuple.x = x;
-	tuple.y = y;
-	tuple.z = z;
-	tuple.w = 0;
 	return (tuple);
 }
 
 t_tuple	create_tuple(float x, float y, float z, short w)
 {
-	t_tuple	tuple;
+	const t_tuple	tuple = {
+		.x = x,
+		.y = y,
+		.z = z,
+		.w = w,
+	};
 
-	tuple.x = x;
-	tuple.y = y;
-	tuple.z = z;
-	tuple.w = w;
 	return (tuple);
 }
 
@@ -52,4 +55,12 @@ void	add_three_tuples(t_tuple ambient, t_tuple diffuse, t_tuple specular,
 	(void)diffuse;
 	(void)specular;
 	(void)result;
+}
+
+void	tuple_to_arr(t_tuple a, double arr[4])
+{
+	arr[X] = a.x;
+	arr[Y] = a.y;
+	arr[Z] = a.z;
+	arr[W] = a.w;
 }

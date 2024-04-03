@@ -1,5 +1,5 @@
 #include "minirt.h"
-#include "tester.h"
+#include "../../tester.h"
 
 //Scenario : Transposing a matrix
 
@@ -17,17 +17,23 @@
 
 Test(transposing_matrices, transposing_a_matrix, .description = Scenario1) {
 	t_matrix a = {
+		.grid = {
 		{0,9,3,0},
 		{9,8,0,8},
 		{1,8,5,3},
 		{0,0,5,8}
+		},
+		.size = 4,
 	};
 
 	t_matrix expected = {
+		.grid = {
 		{0,9,1,0},
 		{9,8,8,0},
 		{3,0,5,5},
 		{0,8,3,8}
+		},
+		.size = 4
 	};
 	t_matrix result;
 
@@ -50,17 +56,23 @@ Test(transposing_matrices, transposing_a_matrix, .description = Scenario1) {
 
 Test(transposing_matrices, transposing_identity_matrix, .description = Scenario2) {
 	t_matrix a = {
+		.grid = {
 		{1,0,0,0},
 		{0,1,0,0},
 		{0,0,1,0},
 		{0,0,0,1}
+		},
+		.size = 4
 	};
 
 	t_matrix expected = {
+		.grid = {
 		{1,0,0,0},
 		{0,1,0,0},
 		{0,0,1,0},
 		{0,0,0,1}
+		},
+		.size = 4
 	};
 	t_matrix result;
 

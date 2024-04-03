@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../include/minirt.h"
 
 int	main(int argc, char **argv)
 {
-	mlx_t* mlx;
+	mlx_t	*mlx;
 
-	if (!(mlx = mlx_init(SIZEW, SIZEH, "MLX42", true)))
+	mlx = mlx_init(SIZEW, SIZEH, "MLX42", true);
+	if (!mlx)
 	{
 		puts(mlx_strerror(mlx_errno));
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 	if (argc != 2)
 		return (0);
 	if (!endwith(argv[1], ".rt"))
 		printf("Arquivo nao .rt\n");
-	render_a_default_world(mlx);
 	mlx_image_to_window(mlx, *get_image_to_render(mlx), 0, 0);
 	mlx_loop(mlx);
 }

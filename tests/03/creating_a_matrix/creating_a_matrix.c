@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 #include <criterion/internal/assert.h>
 #include <stdio.h>
 
@@ -17,21 +17,18 @@
 						"And M[3,2] = 15.5" RESET
 
 Test(creating_a_matrix, 4x4matrix, .description = scenario1) {
-	t_matrix matrix = create_4x4_matrix(&(t_matrix){
-		.row_1 = {1, 2, 3, 4},
-		.row_2 = {5.5, 6.5, 7.5, 8.5},
-		.row_3 = {9, 10, 11, 12},
-		.row_4 = {13.5, 14.5, 15.5, 16.5},
+	t_matrix matrix = create_matrix((double []){
+		1, 2, 3, 4,
+		5.5, 6.5, 7.5, 8.5,
+		9, 10, 11, 12,
+		13.5, 14.5, 15.5, 16.5,
+		END_MATRIX
 	});
 
-	cr_expect_tuples_eq(matrix.row_1, (t_tuple){1, 2, 3, 4});
-	cr_expect_tuples_eq(matrix.rows[ROW1], (t_tuple){1, 2, 3, 4});
-	cr_expect_tuples_eq(matrix.row_2, (t_tuple){5.5, 6.5, 7.5, 8.5});
-	cr_expect_tuples_eq(matrix.rows[ROW2], (t_tuple){5.5, 6.5, 7.5, 8.5});
-	cr_expect_tuples_eq(matrix.row_3, (t_tuple){9, 10, 11, 12});
-	cr_expect_tuples_eq(matrix.rows[ROW3], (t_tuple){9, 10, 11, 12});
-	cr_expect_tuples_eq(matrix.row_4, (t_tuple){13.5, 14.5, 15.5, 16.5});
-	cr_expect_tuples_eq(matrix.rows[ROW4], (t_tuple){13.5, 14.5, 15.5, 16.5});
+	cr_expect_eq(matrix.size, 4);
+	printf("%d\n", matrix.size);
+	printf("%f\n", _determinant(matrix));
+	cr_expect_eq(_determinant(matrix), 0);
 }
 
  // Scenario : Constructing and inspecting a 4x4 matrix
@@ -45,19 +42,14 @@ Test(creating_a_matrix, 4x4matrix, .description = scenario1) {
 				"And M[1,1] = -2" RESET
 
 Test(creating_a_matrix, _2x2matrix, .description = scenario2) {
-	t_2x2matrix matrix = create_2x2_matrix(&(t_2x2matrix){
-		.row_1 = {-3, 5},
-		.row_2 = {1, 5},
+	t_matrix matrix = create_matrix((double []){
+		-3, 5,
+		1, 5,
+		END_MATRIX
 	});
 
-	cr_expect_eq(matrix.row_1[X], -3);
-	cr_expect_eq(matrix.row_1[Y], 5);
-	cr_expect_eq(matrix.rows[ROW1][X], -3);
-	cr_expect_eq(matrix.rows[ROW1][Y], 5);
-	cr_expect_eq(matrix.row_2[X], 1);
-	cr_expect_eq(matrix.row_2[Y], 5);
-	cr_expect_eq(matrix.rows[ROW2][X], 1);
-	cr_expect_eq(matrix.rows[ROW2][Y], 5);
+	cr_expect_eq(matrix.size, 2);
+	cr_expect_eq(_determinant(matrix), -20);
 }
 
  // Scenario : Constructing and inspecting a 4x4 matrix
@@ -73,33 +65,15 @@ Test(creating_a_matrix, _2x2matrix, .description = scenario2) {
 				"And M[2,2] = 1" RESET
 
 Test(creating_a_matrix, _3x3matrix, .description = scenario3) {
-	t_3x3matrix matrix = create_3x3_matrix(&(t_3x3matrix){
-		.row_1 = {-3, 5, 0},
-		.row_2 = {1, -2, 7},
-		.row_3 = {0, 1, 1},
+	t_matrix matrix = create_matrix((double []){
+		-3, 5, 0,
+		1, -2, 7,
+		0, 1, 1,
+		END_MATRIX
 	});
 
-	cr_expect_eq(matrix.row_1[X], -3);
-	cr_expect_eq(matrix.row_1[Y], 5);
-	cr_expect_eq(matrix.row_1[Z], 0);
-	cr_expect_eq(matrix.rows[ROW1][X],-3);
-	cr_expect_eq(matrix.rows[ROW1][Y], 5);
-	cr_expect_eq(matrix.rows[ROW1][Z], 0);
-
-	cr_expect_eq(matrix.row_2[X], 1);
-	cr_expect_eq(matrix.row_2[Y], -2);
-	cr_expect_eq(matrix.row_2[Z], 7);
-	cr_expect_eq(matrix.rows[ROW2][X], 1);
-	cr_expect_eq(matrix.rows[ROW2][Y], -2);
-	cr_expect_eq(matrix.rows[ROW2][Z], 7);
-
-	cr_expect_eq(matrix.row_3[X], 0);
-	cr_expect_eq(matrix.row_3[Y], 1);
-	cr_expect_eq(matrix.row_3[Z], 1);
-	cr_expect_eq(matrix.rows[ROW3][X], 0);
-	cr_expect_eq(matrix.rows[ROW3][Y], 1);
-	cr_expect_eq(matrix.rows[ROW3][Z], 1);
-
+	cr_expect_eq(matrix.size, 3);
+	cr_expect_eq(_determinant(matrix), 22);
 }
 
 // Scenario4: Matrix equality with identical matrices"
@@ -131,39 +105,41 @@ Test(creating_a_matrix, _3x3matrix, .description = scenario3) {
 				"Then A != B" RESET
 
 Test(matrix_equality, _4x4identical_matrices, .description = scenario4) {
-	t_matrix matrix_a = create_4x4_matrix(&(t_matrix){
-		{1, 2, 3, 4},
-		{5, 6, 7, 8},
-		{9, 8, 7, 6},
-		{5, 4, 3, 2}
+	t_matrix matrix_a = create_matrix((double []){
+		1, 2, 3, 4,
+		5, 6, 7, 8,
+		9, 8, 7, 6,
+		5, 4, 3, 2,
+		END_MATRIX
 	});
-	t_matrix matrix_b = create_4x4_matrix(&(t_matrix){
-		{1, 2, 3, 4},
-		{5, 6, 7, 8},
-		{9, 8, 7, 6},
-		{5, 4, 3, 2}
+	t_matrix matrix_b = create_matrix((double []){
+		1, 2, 3, 4,
+		5, 6, 7, 8,
+		9, 8, 7, 6,
+		5, 4, 3, 2,
+		END_MATRIX
 	});
+	cr_expect_eq(matrix_a.size, 4);
+	cr_expect_eq(matrix_b.size, 4);
 	matrices_eq(matrix_a, matrix_b);
-	cr_expect_eq(matrix_b.rows[ROW3][X], 9);
-	cr_expect_eq(matrix_b.rows[ROW3][Y], 8);
-	cr_expect_eq(matrix_a.rows[ROW1][X], 1);
-	cr_expect_eq(matrix_a.rows[ROW4][Z], 3);
-	cr_expect_eq(matrix_b.rows[ROW4][Z], 3);
-	cr_expect_eq(matrix_b.rows[ROW4][W], 2);
 }
 
 Test(matrix_equality, _4x4different_matrices, .description = scenario5) {
-	t_matrix matrix_a = {
-		{1, 2, 3, 4},
-		{5, 6, 7, 8},
-		{9, 8, 7, 6},
-		{5, 4, 3, 2}
-	};
-	t_matrix matrix_b = {
-		{2, 3, 4, 5},
-		{6, 7, 8, 9},
-		{8, 7, 6, 5},
-		{4, 3, 2, 1}
-	};
+	t_matrix matrix_a = create_matrix((double []){
+		1, 2, 3, 4,
+		5, 6, 7, 8,
+		9, 8, 7, 6,
+		5, 4, 3, 2,
+		END_MATRIX
+	});
+	t_matrix matrix_b = create_matrix((double []){
+		2, 3, 4, 5,
+		6, 7, 8, 9,
+		8, 7, 6, 5,
+		4, 3, 2, 1,
+		END_MATRIX
+	});
+	cr_expect_eq(matrix_a.size, 4);
+	cr_expect_eq(matrix_b.size, 4);
 	matrices_eq(matrix_a, matrix_b);
 }

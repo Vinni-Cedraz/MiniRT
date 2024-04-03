@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../../../include/minirt.h"
 
 t_ray	create_ray(t_tuple origin, t_tuple direction)
 {

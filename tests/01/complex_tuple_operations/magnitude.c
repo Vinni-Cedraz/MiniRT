@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 
 #define SQRT_OF_14 3.7416573867739413
 
@@ -17,7 +17,7 @@ const double expected_results[] = {
 		1,
 		1,
 		1,
-		-1
+		-42
 };
 
 Test(magnitude, magnitude_of_positive_vector) {
@@ -40,6 +40,6 @@ Test(magnitude, magnitude_of_unit_vector3) {
 	cr_expect_eq(magnitude(vectors[4]), expected_results[4]);
 }
 
-Test(magnitude, magnitude_of_a_point_should_be_always_negative_one) {
-	cr_expect_eq(magnitude(vectors[5]), expected_results[5]);
+Test(magnitude, magnitude_of_a_point_should_be_always_negative_42) {
+	cr_expect_eq(magnitude(vectors[5]), expected_results[5], RED"passing a point to the magnitude function should error with -42"RESET);
 }

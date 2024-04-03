@@ -15,5 +15,5 @@
 t_node	get_hit(t_intersection intersections)
 {
 	(void)intersections;
-	return (t_node){0};
+	return ((t_node){0});
 }

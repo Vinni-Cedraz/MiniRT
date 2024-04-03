@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tester.h"
+#include "../../tester.h"
 
 // Scenario : Multiplying by a translation matrix
 #define scenario1 CYAN "\nGiven translation_matrix ← translation(5, -3, 2)\n" \
@@ -34,7 +34,7 @@ Test(translation, multiplying_by_translation_matrix, .description = scenario1) {
 	const t_tuple		expected = {2, 1, 7, POINT};
 	t_tuple				result;
 
-	multiply_tuple_by_matrix(p, translation_matrix, result);
+	result = multiply_tuple_by_matrix(p, translation_matrix);
 	cr_expect_tuples_eq(result, expected);
 }
 
@@ -44,7 +44,7 @@ Test(translation, multiplying_by_inverse_of_translation, .description = scenario
 	t_tuple			p = {-3, 4, 5, POINT};
 	t_tuple			result; 
 
-	multiply_tuple_by_matrix(p, inverse_of_translation_matrix, result);
+	result = multiply_tuple_by_matrix(p, inverse_of_translation_matrix);
 	const t_tuple	expected = {-8, 7, 3, POINT};
 	print_tuple(result);
 	print_tuple(expected);
@@ -57,6 +57,6 @@ Test(translation, translation_shouldnt_affect_vectors, .description = scenario3)
 	const t_tuple	expected = {-3, 4, 5, VECTOR};
 	t_tuple			result;
 
-	multiply_tuple_by_matrix(v, translation_matrix, result);
+	result = multiply_tuple_by_matrix(v, translation_matrix);
 	cr_expect_tuples_eq(result, expected);
 }

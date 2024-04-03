@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 // Scenario : Individual transformations are applied in sequence
-#include "minirt.h"
-#include "tester.h"
+#include "../../../include/minirt.h"
+#include "../../tester.h"
 #include <criterion/internal/test.h>
 #include <math.h>
 
@@ -42,21 +42,21 @@ Test(chaining_transformations, join, .description = scenario1)
 
 	t_tuple p2_result;
 	t_tuple expected_point = {1, -1, 0, POINT};
-	multiply_tuple_by_matrix(p, _A, p2_result);
+	p2_result = multiply_tuple_by_matrix(p, _A);
 	cr_expect_tuples_eq(p2_result, expected_point);
 
 // scaling
 
 	t_tuple p3_result;
 	t_tuple expected_point3 = {5, -5, 0, POINT};
-	multiply_tuple_by_matrix(p2_result, _B, p3_result);
+	p3_result = multiply_tuple_by_matrix(p2_result, _B);
 	cr_expect_tuples_eq(p3_result, expected_point3);
 	
 // transformation
 
 	t_tuple p4_result;
 	t_tuple expected_point4 = {15, 0, 7, POINT};
-	multiply_tuple_by_matrix(p3_result, _C, p4_result);
+	p4_result = multiply_tuple_by_matrix(p3_result, _C);
 	cr_expect_tuples_eq(p4_result, expected_point4);
 }
 
@@ -79,8 +79,8 @@ Test(chaining_transformations, reverse_order, .description = scene2)
 	const t_matrix	T = chain_transformations((t_matrix[]){A, B_, C, create_identity_matrix()});
 	const t_tuple	expected = {15, 0, 7, POINT};
 
-	print_4x4matrix(T);
-	multiply_tuple_by_matrix(p, T, result);
+	print_matrix(T);
+	result = multiply_tuple_by_matrix(p, T);
 	print_tuple(result);
 	cr_expect_tuples_eq(result, expected);
 }

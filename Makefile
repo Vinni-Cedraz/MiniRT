@@ -21,14 +21,14 @@ NAME = minirt
 SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c \
 	  write_pixel.c basic_tuple_operations.c compare_floats.c \
 	  complex_tuple_operations.c create_tuples.c mult_matrices.c comparison.c \
-	  transpose_matrix.c 2x2determinant.c large_determinants.c minors.c submatrices.c \
+	  transpose_matrix.c determinants.c minors.c submatrices.c chain_transformations.c \
       invert_matrix.c create_matrix.c translation.c rotation.c shearing.c scaling.c \
       translate_coordinate.c rays.c point.c create.c create_intersection.c get_hit.c transform_ray.c \
 	  set_transform.c surface_normals.c reflect.c create_material.c calculate_lighting.c \
 	  create_world.c set_material.c intersect_world_with_ray.c prepare_computations.c shade_hit.c \
 	  color_at.c view_transformation.c create_camera.c ray_for_pixel.c render.c intersect_sphere.c \
 	  intersect_plane.c intersect_cylinder.c create_plane.c create_cylinder.c cylinder_setters.c \
-	  shadows.c default_world.c render_image.c endwith.c load_file.c ambiente_lightning.c camera.c \
+	  shadows.c render_image.c endwith.c load_file.c ambiente_lightning.c camera.c \
 	  cylinder_parse.c light_parse.c plane_parse.c sphere_parse.c parse_functions_table.c caps.c
 
 VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/ppm/ ./src/math/matrices \
@@ -39,13 +39,14 @@ VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/ppm/ ./src/math/m
 
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/
-C_FLAGS = -Wall -Werror -Wextra
+C_FLAGS = -Wall -Werror -Wextra -g
 OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))
 BUILD_DIR_RT= ./build/
 CMD = $(CC) $(LIBFT) $(OBJS) $(C_FLAGS) -I$(MLX_INCLUDE) -I $(INCLUDE) -c $< -o $@
 
 ### RECIPES
-##### THIS IS FOR COMPILING ALL ALL FUNCTIONS INTO A STATIC LIBRARY TO BE EASILY INCLUDED BY THE TESTERS #####
+
+##### THIS IS FOR COMPILING ALL FUNCTIONS INTO A STATIC LIBRARY TO BE EASILY INCLUDED BY THE TESTERS #####
 
 all: $(NAME)
 
@@ -81,6 +82,7 @@ fclean: clean
 	@echo "Fully Cleaning..."
 	@make fclean --no-print-directory -C ./libs/
 	@make clean --no-print-directory -C ./tests
+	@rm -rf MLX42/
 	@rm -f $(NAME) $(LIB)
 
 makelib:
@@ -88,7 +90,8 @@ makelib:
 
 $(LIB): $(OBJS) $(LIB_OBJS) $(LIB_BOBJS)
 	@printf "\n$(YELLOW)[ linking ] $(DEF_COLOR)objects into library $(YELLOW)$@ $(DEF_COLOR)\n"
-	@ar rcs $@ $^
+	@mv $(LIBMLX_TARGET) $(LIB)
+	@ar rcs $(LIB) $^
 
 as_lib: all makelib $(LIB)
 re: fclean all

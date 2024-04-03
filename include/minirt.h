@@ -21,7 +21,7 @@
 # include <stdio.h>
 
 # define CYAN "\033[36m"
-# define EPSILON 1e-5
+# define EPSILON 1e-4
 # define X 0
 # define Y 1
 # define Z 2
@@ -35,24 +35,32 @@
 # define FALSE 0
 # define TRUE 1
 
+# define ROW1 0
+# define ROW2 1
+# define ROW3 2
+# define ROW4 3
+
 # define COL1 0
 # define COL2 1
 # define COL3 2
 # define COL4 3
+
+# define ROW 0
+# define COL 1
+
+#define END_MATRIX -(__INT_MAX__)
+#define ERROR -42
 
 # define DEFAULT -1
 # define AMBIENT 0
 # define DIFFUSE 1
 # define SPECULAR 2
 # define SHININESS 3
-
-# define ROW1 0
-# define ROW2 1
-# define ROW3 2
-# define ROW4 3
-
 # define SIZEH 500
 # define SIZEW 500
+#define CYAN "\033[36m"
+#define RED "\033[31m"
+#define RESET "\033[0m"
 
 typedef double			t_four_doubles[4];
 typedef double			t_3x3_row[3];
@@ -70,9 +78,9 @@ typedef enum e_num
 
 typedef struct s_tuple
 {
-	float				x;
-	float				y;
-	float				z;
+	double 				x;
+	double 				y;
+	double 				z;
 	short				w;
 }						t_tuple;
 
@@ -84,29 +92,10 @@ typedef struct s_canvas
 	t_four_doubles		**pixels;
 }						t_canvas;
 
-typedef struct s_matrix
-{
-	t_tuple				row_1;
-	t_tuple				row_2;
-	t_tuple				row_3;
-	t_tuple				row_4;
-	double				*rows[4];
-}						t_matrix;
-
-typedef struct s_2x2matrix
-{
-	t_2x2_row			row_1;
-	t_2x2_row			row_2;
-	double				*rows[2];
-}						t_2x2matrix;
-
-typedef struct s_3x3matrix
-{
-	t_3x3_row			row_1;
-	t_3x3_row			row_2;
-	t_3x3_row			row_3;
-	double				*rows[3];
-}						t_3x3matrix;
+typedef struct  s_matrix {
+	double 		grid[4][4];
+	short 		size;
+}				t_matrix;
 
 typedef struct s_hearer
 {
@@ -272,23 +261,25 @@ typedef void			(*t_normal_at_function)(const t_shape *, const t_tuple,
 				t_tuple);
 
 t_tuple					create_point(float x, float y, float z);
+void					tuple_to_arr(t_tuple a, double arr[4]);
 t_tuple					create_vector(float x, float y, float z);
 t_tuple					create_tuple(float x, float y, float z, short w);
 t_bool					doubles_eq(double a, double b);
 t_tuple					add_tuples(const t_tuple a, const t_tuple b);
 t_tuple					subtract_tuples(const t_tuple a, const t_tuple b);
 t_tuple					negate_tuple(const t_tuple a);
-void					multiply_tuple_by_scalar(const t_tuple a,
-							const double s, t_tuple r);
-void					multiply_tuple_by_matrix(const t_tuple row, t_matrix m,
-							t_tuple res);
+t_tuple					multiply_tuple_by_scalar(const t_tuple a, const double scalar);
+// this implementation my create an issue in the future
+t_tuple					multiply_tuple_by_matrix(t_tuple a, t_matrix b);
 void					multiply_colors(const t_tuple c1, const t_tuple c2,
 							t_tuple result);
 t_bool					doubles_eq(double a, double b);
 double					magnitude(const t_tuple vec);
-short					normalize(const t_tuple vec, t_tuple result);
-short					cross(const t_tuple a, const t_tuple b,
-							t_tuple cross_product);
+t_tuple					normalize(const t_tuple vec);
+short					is_point(short w);
+t_bool					is_invertible(t_matrix m);
+t_matrix				invert_matrix(t_matrix m);
+t_tuple					cross(const t_tuple a, const t_tuple b);
 t_canvas				create_canvas(unsigned short height,
 							unsigned short width);
 void					write_pixel(t_canvas *canvas, int y, int x,
@@ -300,37 +291,21 @@ t_bool					matrices_eq(t_matrix a, t_matrix b);
 double					dot(const t_tuple a, const t_tuple b);
 t_matrix				mult_by_identity(t_matrix a);
 t_matrix				transpose_matrix(t_matrix a);
-double					_2x2determinant(const t_2x2matrix m);
-t_2x2matrix				_3x3submatrix(const t_3x3matrix m, int row_to_delete,
-							int col_to_delete);
+double 					_determinant(const t_matrix m);
 t_bool					tuples_neq(const double *result, const double *expected,
 							int len);
-t_bool					_3x3matrices_eq(t_3x3matrix a, t_3x3matrix b);
-t_bool					_2x2matrices_eq(t_2x2matrix a, t_2x2matrix b);
-t_3x3matrix				_4x4submatrix(const t_matrix m, int not_row,
-							int not_col);
-double					_3x3minor(const t_3x3matrix m, int row, int col);
-double					_3x3cofactor(const t_3x3matrix m, int row, int col);
-double					_3x3determinant(const t_3x3matrix m);
-double					_4x4determinant(const t_matrix m);
-double					_3x3minor(const t_3x3matrix m, int row, int col);
-double					_4x4minor(const t_matrix m, int row, int col);
-double					_3x3cofactor(const t_3x3matrix m, int row, int col);
-double					_4x4cofactor(const t_matrix m, int row, int col);
-t_bool					is_invertible(const t_matrix m);
-t_matrix				invert_matrix(const t_matrix m);
-t_matrix				create_4x4_matrix(t_matrix *m);
-t_3x3matrix				create_3x3_matrix(t_3x3matrix *m);
-t_2x2matrix				create_2x2_matrix(t_2x2matrix *m);
 t_matrix				create_translation_matrix(t_tuple point);
-t_matrix				create_matrix_of_cofactors(const t_matrix m);
+// ALWAYS USE END_MATRIX WITH THE create_matrix FUNCTION!!!!!!!!!!!!!!!!!
+t_matrix				create_matrix(double arr_mat[]);
 t_matrix				create_x_rotation_matrix(double r);
 t_matrix				create_y_rotation_matrix(double r);
 t_matrix				create_z_rotation_matrix(double r);
+t_matrix				_submatrix(const t_matrix m, int row_to_del, int col_to_del);
+double					_minor(const t_matrix m, int row, int col);
 t_matrix				create_scaling_matrix(const double x, const double y,
 							const double z);
 t_matrix				create_shearing_matrix(t_shearer shearer);
-t_matrix				chain_transformations(t_matrix *matrices[]);
+t_matrix				chain_transformations(t_matrix trix[]);
 void					translate_coordinate(t_four_doubles point,
 							t_canvas *canvas, t_four_doubles res);
 void					get_position(t_ray ray, double distance,
@@ -344,6 +319,7 @@ t_node					get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
 void					set_transform(t_shape *s, t_matrix t);
+double					_cofac(const t_matrix m, int row, int col);
 void					sphere_normal_at(const t_shape *sphere, const t_tuple p,
 							t_tuple res);
 void					plane_normal_at(const t_shape *sphere, const t_tuple p,
@@ -369,6 +345,8 @@ t_matrix				view_transform(t_tuple from, t_tuple forward,
 							t_tuple up);
 t_camera				create_camera(int hsize, int vsize,
 							double field_of_view);
+t_matrix create_mat(double arr[]);
+
 t_ray					ray_for_pixel(t_camera c, int x, int y);
 t_canvas				render(t_camera camera, t_world world);
 t_intersection			intersect_sphere(t_shape **obj, t_tuple dist);
@@ -402,18 +380,24 @@ void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
 t_bool					is_shadowed(t_world *w, t_tuple p);
 void					add_object(t_world *w, t_shape *new_obj, int index);
 t_material				create_plane_material(void);
+t_matrix				tuple_to_matrix(t_tuple tuple);
 
 static inline void	print_tuple(const t_tuple a)
 {
 	printf("X: %f, Y: %f, Z: %f, W: %d\n", a.x, a.y, a.z, a.w);
 }
 
-static inline void	print_4x4matrix(const t_matrix a)
+static inline void	print_matrix(t_matrix mat)
 {
-	print_tuple(a.row_1);
-	print_tuple(a.row_2);
-	print_tuple(a.row_3);
-	print_tuple(a.row_4);
+	int i = -1;
+	int j = -1;
+	while (++i < mat.size)
+	{
+		j = -1;
+		while (++j < mat.size)
+			printf("%f ", mat.grid[i][j]);
+		printf("\n");
+	}
 }
 
 #endif

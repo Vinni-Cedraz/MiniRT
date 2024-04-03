@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 
 #define SQRT_14 3.7416573867739413
 
@@ -9,24 +9,26 @@ const t_tuple vecs[] = 	   {{4, 0, 0, VECTOR}, {1, 2, 3, VECTOR}};
 const t_tuple expected[] = {{1, 0, 0, VECTOR}, {1 / SQRT_14, 2 / SQRT_14, 3 / SQRT_14, VECTOR}};
 
 Test(normalization, normalizing_vector_4_0_0) {
-    normalize(vecs[0], res);
-    cr_expect_arr_eq(res, expected[0], sizeof(t_tuple));
+    const t_tuple res = normalize(vecs[0]);
+    cr_expect_tuples_eq(res, expected[0]);
 }
 
 Test(normalization, normalizing_vector_1_2_3) {
-    normalize(vecs[1], res);
+    const t_tuple res = normalize(vecs[1]);
 	cr_expect_tuples_eq(res, expected[1]);
 }
 
 Test(normalization, magnitude_of_normalized_vector_1_2_3) {
-    normalize(vecs[1], res);
+    const t_tuple res = normalize(vecs[1]);
     cr_expect_eq(doubles_eq(magnitude(res), 1), TRUE);
 }
 
 Test(normalization, normalization_of_zero_magnitude_vector_should_fail) {
-	cr_expect_eq(normalize((t_tuple){0, 0, 0, VECTOR}, res), -1);
+	const t_tuple res = normalize((t_tuple){0, 0, 0, VECTOR});
+	cr_expect_eq(-42, res.w);
 }
 
 Test(normalization, normalization_of_point_should_fail) {
-	cr_expect_eq(normalize((t_tuple){1, 2, 3, POINT}, res), -1);
+	const t_tuple res = normalize((t_tuple){1, 2, 3, POINT});
+	cr_expect_eq(-42, res.w);
 }

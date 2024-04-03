@@ -10,28 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tester.h"
+#include "../../tester.h"
 
 // Scenario : Calculating a cofactor of a 3x3 matrix
 #define scenario1 CYAN \
-"\Given the following 3x3 matrix A:\n"                               \
+"\nGiven the following 3x3 matrix A:\n"           \
 " | 3 | 5 | 0 |\n"                               \
-" | 2 | -1 | -7 |\n"                               \
-" | 6 | -1 | 5 |\n"                               \
-" Then minor(A, 0, 0) = -12\n"                               \
-" And cofactor(A, 0, 0) = -12\n"                               \
-" And minor(A, 1, 0) = 25\n"                               \
-" And cofactor(A, 1, 0) = -25\n"                               \
+" | 2 | -1 | -7 |\n"                             \
+" | 6 | -1 | 5 |\n"                              \
+" Then minor(A, 0, 0) = -12\n"                   \
+" And cofactor(A, 0, 0) = -12\n"                 \
+" And minor(A, 1, 0) = 25\n"                     \
+" And cofactor(A, 1, 0) = -25"RESET              \
 
 Test(computing_cofactor, calculating_a_cofactor_of_a_3x3_matrix, .description = scenario1) {
-	t_3x3matrix a = create_3x3_matrix(&(t_3x3matrix){
-		{3,5,0},
-		{2,-1,-7},
-		{6,-1,5}
+	t_matrix a = create_matrix((double []){
+			3,5,0,
+			2,-1,-7,
+			6,-1,5,
+			END_MATRIX
 	});
 
-	cr_expect_eq(-12, _3x3minor(a, 0, 0));
-	cr_expect_eq(-12, _3x3cofactor(a, 0, 0));
-	cr_expect_eq(25, _3x3minor(a, 1, 0));
-	cr_expect_eq(-25, _3x3cofactor(a, 1, 0));
+	cr_expect_eq(-12, _minor(a, 0, 0));
+	cr_expect_eq(-12, _cofac(a, 0, 0));
+	cr_expect_eq(25, _minor(a, 1, 0));
+	cr_expect_eq(-25, _cofac(a, 1, 0));
 }
