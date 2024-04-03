@@ -12,11 +12,13 @@
 
 #include "minirt.h"
 
-t_matrix	create_scaling_matrix(const double x, const double y,
-		const double z)
+t_matrix	create_scaling_matrix(double x, double y, double z)
 {
-	(void)x;
-	(void)y;
-	(void)z;
-	return ((t_matrix){0});
+	t_matrix	identity;
+
+	identity = create_identity_matrix();
+	identity.grid[0][0] = x;
+	identity.grid[1][1] = y;
+	identity.grid[2][2] = z;
+	return (identity);
 }
