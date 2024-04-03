@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 
 #define suite transforming_rays_and_spheres
 

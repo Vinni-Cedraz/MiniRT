@@ -14,6 +14,11 @@
 
 t_matrix	create_translation_matrix(t_tuple point)
 {
-	(void)point;
-	return ((t_matrix){0});
+	t_matrix	identity;
+
+	identity = create_identity_matrix();
+	identity.grid[0][3] = point.x;
+	identity.grid[1][3] = point.y;
+	identity.grid[2][3] = point.z;
+	return (identity);
 }

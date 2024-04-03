@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_matrix	chain_transformations(t_matrix matrices)
+t_matrix	chain_transformations(t_matrix matrices[])
 {
 	(void)matrices;
 	return ((t_matrix){0});

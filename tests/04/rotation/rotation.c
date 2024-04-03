@@ -1,6 +1,5 @@
 #include "../../tester.h"
 
-t_tuple 		res;
 const t_tuple	p = {0, 1, 0, POINT};
 
 // Scenario : Rotating a point around the x axis
@@ -8,19 +7,20 @@ const t_tuple	p = {0, 1, 0, POINT};
 				"Given p ← point(0, 1, 0)\n" \
 				"And half_quarter ← create_x_rotation_matrix(π / 4)\n"              \
 				"And full_quarter ← create_x_rotation_matrix(π / 2)\n"              \
-				"Then half_quarter * p = point(0, 0.707107, 0.707107)\n"                    \
+				"Then half_quarter * p = point(0, sqrt(2)/2, sqrt(2)/2\n"                    \
 				"And full_quarter * p = point(0, 0, 1)" RESET
 
 Test(rotation, rotating_around_x_axis, .description = scenario2) {
 	const t_matrix half_quarter = create_x_rotation_matrix(M_PI / 4);
 	const t_matrix full_quarter = create_x_rotation_matrix(M_PI / 2);
-	const t_tuple expected1 = {0, 0.707107, 0.707107, POINT};
+	const t_tuple expected1 = {0, sqrt(2)/2, sqrt(2)/2, POINT};
 	const t_tuple expected2 = {0, 0, 1, POINT};
-	res = multiply_tuple_by_matrix(p, half_quarter);
-	cr_expect_tuples_eq(res, expected1);
-	res = multiply_tuple_by_matrix(p, full_quarter);
-	cr_expect_tuples_eq(res, expected2);
+	const t_tuple res1 = multiply_tuple_by_matrix(p, half_quarter);
+	cr_expect_tuples_eq(res1, expected1);
+	const t_tuple res2 = multiply_tuple_by_matrix(p, full_quarter);
+	cr_expect_tuples_eq(res2, expected2);
 }
+
 //Scenario : The inverse of an x-rotation rotates in the opposite direction
 #define scenario3 "CYAN\n"                                           \
 				   "Given p ← point(0, 1, 0)\n"                      \
@@ -32,7 +32,7 @@ Test(rotation, the_inverse_of_the_rotation_matrix_rotates_in_the_opposite_direct
 	const t_matrix half_quarter = create_x_rotation_matrix(M_PI/4);
 	const t_matrix inverse_rotation = invert_matrix(half_quarter);
 	const t_tuple expected = {0, (sqrt(2)/2), -(sqrt(2)/2), POINT};
-	res = multiply_tuple_by_matrix(p, inverse_rotation);
+	const t_tuple res = multiply_tuple_by_matrix(p, inverse_rotation);
 	print_tuple(res);
 	cr_expect_tuples_eq(res, expected);
 }
@@ -51,10 +51,10 @@ Test(rotation, rotating_around_y_axis, .description = scenario4) {
 	const t_matrix	full_quarter = create_y_rotation_matrix(M_PI / 2);
 	const t_tuple	expected1 = {0.707107, 0, 0.707107, POINT};
 	const t_tuple	expected2 = {1, 0, 0, POINT};
-	res = multiply_tuple_by_matrix(p, half_quarter);
-	cr_expect_tuples_eq(expected1, res);
-	res = multiply_tuple_by_matrix(p, full_quarter);
-	cr_expect_tuples_eq(expected2, res);
+	const t_tuple res1 = multiply_tuple_by_matrix(p, half_quarter);
+	cr_expect_tuples_eq(expected1, res1);
+	const t_tuple res2 = multiply_tuple_by_matrix(p, full_quarter);
+	cr_expect_tuples_eq(expected2, res2);
 }
 
 // Scenario : Rotating a point around the z axis
