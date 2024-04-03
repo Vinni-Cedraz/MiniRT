@@ -12,9 +12,13 @@
 
 #include "minirt.h"
 
-t_ray	create_ray(t_tuple origin, t_tuple vector)
+t_ray	create_ray(t_tuple origin, t_tuple direction)
 {
-	(void)origin;
-	(void)vector;
-	return (t_ray){0};
+	t_ray	ray;
+
+	ray.origin = origin;
+	ray.direction = direction;
+	ray.origin.w = POINT;
+	ray.direction.w = VECTOR;
+	return (ray);
 }
