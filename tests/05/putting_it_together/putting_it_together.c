@@ -1,5 +1,4 @@
-#include "minirt.h"
-#include "tester.h"
+#include "../../tester.h"
 
 #define wall_z 7
 #define wall_size 1000.0
@@ -55,26 +54,29 @@ static void ray_casting(const double half, const double pixel_size, t_ray r, t_i
 static void get_ray_direction(const t_tuple position, const t_tuple ray_origin, t_tuple direction) {
     t_tuple sphere_to_ray;
 
-    create_vector(sphere_to_ray);
-    subtract_tuples(position, ray_origin, sphere_to_ray);
-    normalize(sphere_to_ray, direction);
+    sphere_to_ray = subtract_tuples(position, ray_origin);
+    direction = normalize(sphere_to_ray);
 }
 
 static void randomize_color(t_tuple color) {
-    color[X] = rand() % 255;
-    color[Y] = rand() % 255;
-    color[Z] = rand() % 255;
+    color.x = rand() % 255;
+    color.y = rand() % 255;
+    color.z = rand() % 255;
+	color.w = COLOR;
     normalize_rgb(color);
 }
 
 static void paint_a_pixel(t_canvas *c, int y, int x) {
     t_tuple color = {1, 0, 0, COLOR};
+	double arr[4];
+
+	tuple_to_arr(color, arr);
     randomize_color(color);
-    write_pixel(c, y, x, color);
+    write_pixel(c, y, x, arr);
 }
 
 static void normalize_rgb(t_tuple raw_rgb) {
-    raw_rgb[X] = raw_rgb[X] / 255;
-    raw_rgb[Y] = raw_rgb[Y] / 255;
-    raw_rgb[Z] = raw_rgb[Z] / 255;
+    raw_rgb.x = raw_rgb.x / 255;
+    raw_rgb.y = raw_rgb.y / 255;
+    raw_rgb.z = raw_rgb.z / 255;
 }
