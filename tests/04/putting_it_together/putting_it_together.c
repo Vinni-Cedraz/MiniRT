@@ -10,20 +10,10 @@ t_tuple		twelve_o_clock = {
 		0, -450, 0, POINT };
 const t_tuple WHITE  = {1, 1, 1, COLOR};
 
-// Test(putting_it_together, drawing_a_point_in_the_middle, .description = scenario1) {
-//
-//  	t_canvas 		canvas;
-//
-// 	canvas = create_canvas(1080, 1920);
-// 	write_pixel(&canvas, twelve_o_clock[X], twelve_o_clock[Y], WHITE);
-// 	t_constr str = canvas_to_ppm(&canvas);
-//     create_ppm_file(str);
-// }
-//
-// #define scenario2 CYAN "\n Given canvas(1080, 1920)\n"  \
-// 					"And twelve_o'clock(0, -450)\n"            \
-// 					"And R <- create_z_rotation_matrix(π/6)\n" \
-// 					"Then translate_coordinate(twelve_o'clock * R) -> (one o clock)\n" RESET
+#define scenario2 CYAN "\n Given canvas(1080, 1920)\n"  \
+					"And twelve_o'clock(0, -450)\n"            \
+					"And R <- create_z_rotation_matrix(π/6)\n" \
+					"Then translate_coordinate(twelve_o'clock * R) -> (one o clock)\n" RESET
 
 
 // Test(putting_it_together, drawing_twelve_of_clock_and_one_o_clock, .description = scenario2) {
@@ -56,21 +46,23 @@ Test(putting_it_together, drawing_whole_clock, .description = scenario3) {
 	t_tuple		hour = {
 		0, -450, 0, POINT };
 	int i = 12;
+	double twelve_o_clock_arr[4];
+	double next_hour_arr[4];
 
 	canvas = create_canvas(1080, 1920);
 	t_matrix Rz = create_z_rotation_matrix((M_PI / 6));
-
-	translate_coordinate(twelve_o_clock, &canvas, twelve_o_clock);
-	write_pixel(&canvas, twelve_o_clock[Y], twelve_o_clock[X], WHITE);
+	tuple_to_arr(twelve_o_clock, twelve_o_clock_arr);
+	translate_coordinate(twelve_o_clock_arr, &canvas, twelve_o_clock_arr);
+	write_pixel(&canvas, twelve_o_clock.y, twelve_o_clock.x, (double[4]){1, 1, 1, COLOR});
 	while (--i)
 	{
-		multiply_tuple_by_matrix(hour, Rz, next_hour);
-		hour[X] = next_hour[X];
-		hour[Y] = next_hour[Y];
-		hour[Z] = next_hour[Z];
-		hour[W] = next_hour[W];
-		translate_coordinate(next_hour, &canvas, next_hour);
-		write_pixel(&canvas, next_hour[Y], next_hour[X], WHITE);
+		next_hour = multiply_tuple_by_matrix(hour, Rz);
+		hour.x = next_hour.x;
+		hour.y = next_hour.y;
+		hour.z = next_hour.z;
+		hour.w = next_hour.w;
+		translate_coordinate(next_hour_arr, &canvas, next_hour_arr);
+		write_pixel(&canvas, next_hour.y, next_hour.x, (double[4]){1, 1, 1, COLOR});
 	}
 	t_constr str = canvas_to_ppm(&canvas);
     create_ppm_file(str, "clock.ppm");

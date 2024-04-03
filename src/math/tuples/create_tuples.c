@@ -56,3 +56,11 @@ void	add_three_tuples(t_tuple ambient, t_tuple diffuse, t_tuple specular,
 	(void)specular;
 	(void)result;
 }
+
+void	tuple_to_arr(t_tuple a, double arr[4])
+{
+	arr[X] = a.x;
+	arr[Y] = a.y;
+	arr[Z] = a.z;
+	arr[W] = a.w;
+}

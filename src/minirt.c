@@ -26,7 +26,6 @@ int	main(int argc, char **argv)
 		return (0);
 	if (!endwith(argv[1], ".rt"))
 		printf("Arquivo nao .rt\n");
-	render_a_default_world(mlx);
 	mlx_image_to_window(mlx, *get_image_to_render(mlx), 0, 0);
 	mlx_loop(mlx);
 }

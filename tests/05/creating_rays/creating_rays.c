@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tester.h"
+#include "../../tester.h"
 #include <criterion/internal/test.h>
 
 // Scenario: Creating and querying a ray
@@ -47,6 +47,7 @@ Test(creating_rays, point_from_distance, .description = scenario2)
 	);
 	t_tuple	result;
 
+	result = (t_tuple){0};
 	get_position(ray, 0, result);
 	cr_expect_tuples_eq(result, (t_tuple){2, 3, 4, POINT});
 	get_position(ray, 1, result);

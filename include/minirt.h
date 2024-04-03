@@ -261,6 +261,7 @@ typedef void			(*t_normal_at_function)(const t_shape *, const t_tuple,
 				t_tuple);
 
 t_tuple					create_point(float x, float y, float z);
+void					tuple_to_arr(t_tuple a, double arr[4]);
 t_tuple					create_vector(float x, float y, float z);
 t_tuple					create_tuple(float x, float y, float z, short w);
 t_bool					doubles_eq(double a, double b);
@@ -269,7 +270,7 @@ t_tuple					subtract_tuples(const t_tuple a, const t_tuple b);
 t_tuple					negate_tuple(const t_tuple a);
 t_tuple					multiply_tuple_by_scalar(const t_tuple a, const double scalar);
 // this implementation my create an issue in the future
-t_tuple					multiply_tuple_by_matrix(double a[4], t_matrix b, short type);
+t_tuple					multiply_tuple_by_matrix(t_tuple a, t_matrix b);
 void					multiply_colors(const t_tuple c1, const t_tuple c2,
 							t_tuple result);
 t_bool					doubles_eq(double a, double b);
@@ -304,7 +305,7 @@ double					_minor(const t_matrix m, int row, int col);
 t_matrix				create_scaling_matrix(const double x, const double y,
 							const double z);
 t_matrix				create_shearing_matrix(t_shearer shearer);
-t_matrix				chain_transformations(t_matrix trix);
+t_matrix				chain_transformations(t_matrix trix[]);
 void					translate_coordinate(t_four_doubles point,
 							t_canvas *canvas, t_four_doubles res);
 void					get_position(t_ray ray, double distance,

@@ -942,25 +942,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/render/default_world.c",
-   "-o",
-   "build/default_world.o"
-  ],
-  "file": "./src/render/default_world.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/render/render_image.c",
    "-o",
    "build/render_image.o"
@@ -1194,5 +1175,24 @@
    "build/create_matrix.o"
   ],
   "file": "./src/math/matrices/create_matrix.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrices/chain_transformations.c",
+   "-o",
+   "build/chain_transformations.o"
+  ],
+  "file": "./src/math/matrices/chain_transformations.c"
  }
 ]
