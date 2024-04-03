@@ -308,8 +308,7 @@ t_matrix				create_shearing_matrix(t_shearer shearer);
 t_matrix				chain_transformations(t_matrix trix[]);
 void					translate_coordinate(t_four_doubles point,
 							t_canvas *canvas, t_four_doubles res);
-void					get_position(t_ray ray, double distance,
-							t_tuple _result);
+t_tuple					get_position(t_ray ray, double distance);
 t_ray					create_ray(t_tuple origin, t_tuple direction);
 t_sphere				create_sphere(void);
 t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
