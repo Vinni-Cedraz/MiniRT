@@ -12,9 +12,12 @@
 
 #include "minirt.h"
 
-void	get_position(t_ray ray, double t, t_tuple result)
+t_tuple	get_position(t_ray ray, double t)
 {
-	(void)ray;
-	(void)t;
-	(void)result;
+	return ((t_tuple) {
+		.x = ray.origin.x + ray.direction.x * t,
+		.y = ray.origin.y + ray.direction.y * t,
+		.z = ray.origin.z + ray.direction.z * t,
+		.w = POINT
+	});
 }
