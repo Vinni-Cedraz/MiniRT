@@ -150,7 +150,7 @@ typedef struct s_lighting
 
 typedef struct s_intersect
 {
-	t_node				*head;
+	t_node				this_obj_intersections[2];
 	t_short				count;
 }						t_intersection;
 
@@ -312,7 +312,7 @@ t_tuple					_intersection_coordinates(t_ray ray, double t);
 t_ray					create_ray(t_tuple origin, t_tuple direction);
 t_sphere				create_sphere(void);
 t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
-t_intersection			create_intersection(void *shape, t_ray r);
+t_intersection			intersect(t_sphere *s, t_ray r);
 t_intersection			link_intersection_nodes(t_node *arr[]);
 t_node					get_hit(t_intersection i);
 t_matrix				create_identity_matrix(void);
@@ -348,7 +348,7 @@ t_matrix create_mat(double arr[]);
 
 t_ray					ray_for_pixel(t_camera c, int x, int y);
 t_canvas				render(t_camera camera, t_world world);
-t_intersection			intersect_sphere(t_shape **obj, t_tuple dist);
+// t_intersection			intersect(t_sphere *obj, t_tuple obj_dist_ray);
 t_intersection			intersect_plane(t_shape **obj, t_tuple dist);
 t_intersection			intersect_cylinder(t_shape **obj,
 							t_tuple obj_dist_to_ray);

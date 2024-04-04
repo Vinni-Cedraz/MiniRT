@@ -12,10 +12,10 @@
 
 #include "minirt.h"
 
-t_intersection	intersect_sphere(t_shape **obj, t_tuple obj_dist_ray)
+t_intersection	intersect(t_sphere *obj, t_ray r)
 {
 	(void)obj;
-	(void)obj_dist_ray;
+	(void)r;
 	return ((t_intersection){0});
 }
 

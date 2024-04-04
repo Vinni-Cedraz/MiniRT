@@ -14,5 +14,9 @@
 
 t_sphere	create_sphere(void)
 {
-	return ((t_sphere){0});
+	static int	id;
+	t_sphere	sphere;
+
+	sphere.id = id++;
+	return (sphere);
 }

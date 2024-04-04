@@ -21,7 +21,7 @@ typedef struct s_shape	t_shape;
 
 typedef struct s_nodes
 {
-	float				t;
+	double				t;
 	t_shape				*object;
 	t_node				*next;
 }						t_node;

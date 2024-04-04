@@ -13,13 +13,6 @@
 #include "libft_bonus.h"
 #include "minirt.h"
 
-t_intersection	create_intersection(void *obj, t_ray r)
-{
-	(void)obj;
-	(void)r;
-	return ((t_intersection){0});
-}
-
 t_intersection	link_intersection_nodes(t_node *arr[])
 {
 	(void)arr;
