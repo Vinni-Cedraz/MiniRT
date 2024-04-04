@@ -48,8 +48,8 @@
 # define ROW 0
 # define COL 1
 
-#define END_MATRIX -(__INT_MAX__)
-#define ERROR -42
+# define END_MATRIX -__INT_MAX__
+# define ERROR -42
 
 # define DEFAULT -1
 # define AMBIENT 0
@@ -58,9 +58,9 @@
 # define SHININESS 3
 # define SIZEH 500
 # define SIZEW 500
-#define CYAN "\033[36m"
-#define RED "\033[31m"
-#define RESET "\033[0m"
+# define CYAN "\033[36m"
+# define RED "\033[31m"
+# define RESET "\033[0m"
 
 typedef double			t_four_doubles[4];
 typedef double			t_3x3_row[3];
@@ -78,9 +78,9 @@ typedef enum e_num
 
 typedef struct s_tuple
 {
-	double 				x;
-	double 				y;
-	double 				z;
+	double				x;
+	double				y;
+	double				z;
 	short				w;
 }						t_tuple;
 
@@ -92,10 +92,11 @@ typedef struct s_canvas
 	t_four_doubles		**pixels;
 }						t_canvas;
 
-typedef struct  s_matrix {
-	double 		grid[4][4];
-	short 		size;
-}				t_matrix;
+typedef struct s_matrix
+{
+	double				grid[4][4];
+	short				size;
+}						t_matrix;
 
 typedef struct s_hearer
 {
@@ -171,17 +172,10 @@ typedef struct s_shape
 
 typedef struct s_phere
 {
-	unsigned short		id;
-	int					type;
+	t_tuple				dis_to_ray;
 	t_tuple				origin;
-	t_matrix			_t;
-	t_matrix			inverse_t;
-	t_matrix			transposed_inverse_t;
-	t_material			material;
-	double				min;
-	double				max;
-	t_bool				closed;
-	t_ray				r;
+	_Bool 				radius;
+	int					id;
 }						t_sphere;
 
 typedef struct s_plane
@@ -226,8 +220,6 @@ typedef struct s_baskara
 	double				a;
 	double				b;
 	double				c;
-	double				t0;
-	double				t1;
 }						t_baskara;
 
 typedef struct s_comp
@@ -268,7 +260,8 @@ t_bool					doubles_eq(double a, double b);
 t_tuple					add_tuples(const t_tuple a, const t_tuple b);
 t_tuple					subtract_tuples(const t_tuple a, const t_tuple b);
 t_tuple					negate_tuple(const t_tuple a);
-t_tuple					multiply_tuple_by_scalar(const t_tuple a, const double scalar);
+t_tuple					multiply_tuple_by_scalar(const t_tuple a,
+							const double scalar);
 // this implementation my create an issue in the future
 t_tuple					multiply_tuple_by_matrix(t_tuple a, t_matrix b);
 void					multiply_colors(const t_tuple c1, const t_tuple c2,
@@ -291,7 +284,7 @@ t_bool					matrices_eq(t_matrix a, t_matrix b);
 double					dot(const t_tuple a, const t_tuple b);
 t_matrix				mult_by_identity(t_matrix a);
 t_matrix				transpose_matrix(t_matrix a);
-double 					_determinant(const t_matrix m);
+double					_determinant(const t_matrix m);
 t_bool					tuples_neq(const double *result, const double *expected,
 							int len);
 t_matrix				create_translation_matrix(t_tuple point);
@@ -300,7 +293,8 @@ t_matrix				create_matrix(double arr_mat[]);
 t_matrix				create_x_rotation_matrix(double r);
 t_matrix				create_y_rotation_matrix(double r);
 t_matrix				create_z_rotation_matrix(double r);
-t_matrix				_submatrix(const t_matrix m, int row_to_del, int col_to_del);
+t_matrix				_submatrix(const t_matrix m, int row_to_del,
+							int col_to_del);
 double					_minor(const t_matrix m, int row, int col);
 t_matrix				create_scaling_matrix(const double x, const double y,
 							const double z);
@@ -344,7 +338,7 @@ t_matrix				view_transform(t_tuple from, t_tuple forward,
 							t_tuple up);
 t_camera				create_camera(int hsize, int vsize,
 							double field_of_view);
-t_matrix create_mat(double arr[]);
+t_matrix				create_mat(double arr[]);
 
 t_ray					ray_for_pixel(t_camera c, int x, int y);
 t_canvas				render(t_camera camera, t_world world);
@@ -354,7 +348,7 @@ t_intersection			intersect_cylinder(t_shape **obj,
 							t_tuple obj_dist_to_ray);
 t_plane					create_plane(void);
 t_cylinder				create_cylinder(void);
-double					discriminant(t_tuple obj_dist_ray, t_ray ray,
+double					_discriminant(t_tuple obj_dist_ray, t_ray ray,
 							t_baskara *bask);
 void					set_cyl_min_max(t_cylinder *cyl, double min,
 							double max);
@@ -388,8 +382,11 @@ static inline void	print_tuple(const t_tuple a)
 
 static inline void	print_matrix(t_matrix mat)
 {
-	int i = -1;
-	int j = -1;
+	int	i;
+	int	j;
+
+	i = -1;
+	j = -1;
 	while (++i < mat.size)
 	{
 		j = -1;

@@ -10,8 +10,8 @@
 
 Test(intersecting_rays, intersects_at_two_points, .description = scenario1) {
 	const t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	const t_sphere s = create_sphere();
-	const t_intersection inter = intersect((void *)&s, r);
+	t_sphere s = create_sphere();
+	const t_intersection inter = intersect(&s, r);
 
 	cr_expect_eq(inter.count, 2);
 	cr_expect_eq(TRUE, doubles_eq(inter.this_obj_intersections[0].t, 4.0));
