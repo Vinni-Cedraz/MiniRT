@@ -47,12 +47,14 @@ Test(creating_rays, point_from_distance, .description = scenario2)
 	);
 	t_tuple	result;
 
-	result = get_position(ray, 0);
+	result = _intersection_coordinates(ray, 0);
 	cr_expect_tuples_eq(result, (t_tuple){2, 3, 4, POINT});
-	result = get_position(ray, 1);
-	cr_expect_tuples_eq(result, (t_tuple){3, 3, 4, POINT});
-	result = get_position(ray, -1);
+	result = _intersection_coordinates(ray, 1);
+	cr_expect_tuples_eq(result, (t_tup
+	le){3, 3, 4, POINT});
+	result = _intersection_coordinates(ray, -1);
 	cr_expect_tuples_eq(result, (t_tuple){1, 3, 4, POINT});
-	result = get_position(ray, 2.5);
+	result = _intersection_coordinates(ray, 2.5);
+
 	cr_expect_tuples_eq(result, (t_tuple){4.5, 3, 4, POINT});
 }

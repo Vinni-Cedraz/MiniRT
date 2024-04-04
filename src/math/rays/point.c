@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_tuple	get_position(t_ray ray, double t)
+t_tuple	_intersection_coordinates(t_ray ray, double t)
 {
 	return ((t_tuple) {
 		.x = ray.origin.x + ray.direction.x * t,

@@ -38,3 +38,4 @@ t_matrix	_submatrix(const t_matrix m, int row_to_del, int col_to_del)
 	submatrix.size = m.size - 1;
 	return (submatrix);
 }
+
