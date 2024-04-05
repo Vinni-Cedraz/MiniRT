@@ -12,8 +12,33 @@
 
 #include "minirt.h"
 
-t_intersection	get_hit(t_intersections intersections)
+int				_arr_size(const t_intersection *arr[]);
+
+t_intersection	_hit(const t_intersection *arr[])
 {
-	(void)intersections;
-	return ((t_intersection){0});
+	t_intersection			tmp;
+	int						size;
+	int						i;
+
+	i = 0;
+	size = _arr_size(arr);
+	tmp.t = __INT_MAX__;
+	tmp.object = NULL;
+	while (i < size)
+	{
+		if (arr[i]->t < tmp.t && arr[i]->t > 0)
+			tmp = *arr[i];
+		i++;
+	}
+	return (tmp);
+}
+
+int	_arr_size(const t_intersection *arr[])
+{
+	int	counter;
+
+	counter = 0;
+	while (arr[counter] != NULL)
+		counter++;
+	return (counter);
 }
