@@ -69,12 +69,12 @@ typedef _Bool			t_bool;
 typedef unsigned short	t_short;
 typedef					void(t_parse_table)(char *, t_intersection *);
 
-typedef enum e_num
+typedef enum e_typ
 {
 	SPHERE,
 	PLANE,
 	CYLINDER,
-}						t_enum;
+}						t_type;
 
 typedef struct s_tuple
 {
@@ -176,6 +176,7 @@ typedef struct s_sphere
 	t_tuple				origin;
 	_Bool 				radius;
 	int					id;
+	t_type				type;
 }						t_sphere;
 
 typedef struct s_plane
