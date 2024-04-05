@@ -1,5 +1,5 @@
 TESTS =		\
-  intersecting_rays \
+  intersecting_spheres \
   discriminant \
 
 INCS = -I../../ -I../../../include/ -I../../../libs/

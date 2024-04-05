@@ -1,6 +1,6 @@
 TESTDIRS = \
   creating_rays \
-  intersecting_rays \
+  intersecting_spheres \
   tracking_intersections \
   identifying_hits \
   transforming_rays_and_spheres \
