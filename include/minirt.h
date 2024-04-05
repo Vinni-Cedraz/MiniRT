@@ -21,7 +21,7 @@
 # include <stdio.h>
 
 # define CYAN "\033[36m"
-# define EPSILON 1e-4
+# define EPSILON 1e-5
 # define X 0
 # define Y 1
 # define Z 2

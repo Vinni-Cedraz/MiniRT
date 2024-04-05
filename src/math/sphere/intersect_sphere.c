@@ -18,7 +18,7 @@ t_intersections	intersect(t_sphere *obj, t_ray r)
 	t_baskara		bask;
 	double			d;
 
-	obj->dis_to_ray = subtract_tuples(r.origin, create_point(0, 0, 0));
+	obj->dis_to_ray = subtract_tuples(r.origin, obj->origin);
 	d = _discriminant(obj->dis_to_ray, r, &bask);
 	if (d < 0)
 	{
