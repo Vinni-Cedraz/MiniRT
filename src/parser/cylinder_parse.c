@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void	parse_cylinder(char *str, t_node *head)
+void	parse_cylinder(char *str, t_intersect *head)
 {
 	printf("shape\n");
 	(void)head;

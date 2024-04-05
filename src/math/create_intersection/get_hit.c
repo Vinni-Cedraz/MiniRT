@@ -12,8 +12,8 @@
 
 #include "minirt.h"
 
-t_node	get_hit(t_intersections intersections)
+t_intersect	get_hit(t_intersections intersections)
 {
 	(void)intersections;
-	return ((t_node){0});
+	return ((t_intersect){0});
 }

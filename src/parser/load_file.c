@@ -28,7 +28,7 @@ static int	open_file(char *file)
 	return (fd);
 }
 
-static void	load_data(char *str, t_node *node)
+static void	load_data(char *str, t_intersect *node)
 {
 	t_parse_table	**apply;
 	int				count;
@@ -45,7 +45,7 @@ int	parse_file(char *file)
 {
 	int		fd;
 	char	*line;
-	t_node	*head;
+	t_intersect	*head;
 
 	head = NULL;
 	fd = open_file(file);
