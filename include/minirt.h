@@ -309,7 +309,7 @@ t_sphere				create_sphere(void);
 t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
 t_intersections			intersect(t_sphere *obj, t_ray r);
 t_intersections			link_intersection_nodes(t_intersection *arr[]);
-t_intersection			get_hit(t_intersection *arr[]);
+t_intersection			_hit(const t_intersection *arr[]);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
 void					set_transform(t_shape *s, t_matrix t);

@@ -18,7 +18,7 @@ Test(identifying_hits, positive_t, .description = scenario1) {
 	t_intersection *arr[] = {
 		&i1, &i2, NULL
 	};
-	const t_intersection hit = get_hit(arr);
+	const t_intersection hit = _hit(arr);
 	cr_expect_eq(hit.t, 1);
 }
 
@@ -40,7 +40,7 @@ Test(identifying_hits, negative_t, .description = scenario2)
 		&i1, &i2, NULL
 	};
 	
-	const t_intersection hit = get_hit(arr);
+	const t_intersection hit = _hit(arr);
 	printf("%f\n", hit.t);
 	cr_expect_eq(hit.t, 1);
 }
@@ -62,7 +62,7 @@ Test(identifying_hits, all_negatives, .description = scenario3)
 	t_intersection *arr[] = { 
 		&i1, &i2, NULL
 	};
-	const t_intersection hit = get_hit(arr);
+	const t_intersection hit = _hit(arr);
 	cr_expect_eq(hit.object, NULL);
 }
 
@@ -93,6 +93,6 @@ Test(identifying_hits, hit_is_alway_lowest_nonnegative_intersection, .descriptio
 			NULL
 	};
 
-	const t_intersection hit = get_hit(arr);
+	const t_intersection hit = _hit(arr);
 	cr_expect_eq(hit.t, 2);
 }
