@@ -12,9 +12,9 @@
 
 #include "minirt.h"
 
-t_intersection	intersect_cylinder(t_shape **obj, t_tuple obj_dist_to_ray)
+t_intersections	intersect_cylinder(t_shape **obj, t_tuple obj_dist_to_ray)
 {
 	(void)obj;
 	(void)obj_dist_to_ray;
-	return ((t_intersection){0});
+	return ((t_intersections){0});
 }

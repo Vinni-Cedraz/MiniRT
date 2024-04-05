@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersect_sphereay.c                                 :+:      :+:    :+:   */
+/*   intersect_sphere.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vcedraz- <vcedraz-@studentay.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 04:30:58 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/19 04:31:09 by vcedraz-         ###   ########.fr       */
+/*   Created: 2024/04/05 14:39:57 by vcedraz-          #+#    #+#             */
+/*   Updated: 2024/04/05 14:40:01 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_intersection	intersect(t_sphere *obj, t_ray r)
+t_intersections	intersect(t_sphere *obj, t_ray r)
 {
-	t_intersection result;
-	t_baskara bask;
-	double d;
+	t_intersections	result;
+	t_baskara		bask;
+	double			d;
 
 	obj->dis_to_ray = subtract_tuples(r.origin, create_point(0, 0, 0));
 	d = _discriminant(obj->dis_to_ray, r, &bask);

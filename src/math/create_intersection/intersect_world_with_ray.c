@@ -12,9 +12,9 @@
 
 #include "minirt.h"
 
-t_intersection	intersect_world_with_ray(t_world *w, t_ray *r)
+t_intersections	intersect_world_with_ray(t_world *w, t_ray *r)
 {
 	(void)w;
 	(void)r;
-	return ((t_intersection){0});
+	return ((t_intersections){0});
 }

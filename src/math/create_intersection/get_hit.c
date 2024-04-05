@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_node	get_hit(t_intersection intersections)
+t_node	get_hit(t_intersections intersections)
 {
 	(void)intersections;
 	return ((t_node){0});
