@@ -13,7 +13,7 @@
 #include "minirt.h"
 #include <stdio.h>
 
-void	parse_sphere(char *str, t_intersect *head)
+void	parse_sphere(char *str, t_intersection *head)
 {
 	printf("shape\n");
 	(void)head;

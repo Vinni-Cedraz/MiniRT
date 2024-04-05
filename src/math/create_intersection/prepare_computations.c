@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_prep_comps	prepare_computations(t_intersect *hit, t_ray ray)
+t_prep_comps	prepare_computations(t_intersection *hit, t_ray ray)
 {
 	(void)hit;
 	(void)ray;

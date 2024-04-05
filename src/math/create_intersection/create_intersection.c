@@ -13,15 +13,15 @@
 #include "libft_bonus.h"
 #include "minirt.h"
 
-t_intersections	link_intersection_nodes(t_intersect *arr[])
+t_intersections	link_intersection_nodes(t_intersection *arr[])
 {
 	(void)arr;
 	return ((t_intersections){0});
 }
 
-t_intersect	intersection(double t, t_sphere *obj)
+t_intersection	intersection(double t, t_sphere *obj)
 {
-	t_intersect	result;
+	t_intersection	result;
 
 	result.t = t;
 	result.object = obj;

@@ -67,7 +67,7 @@ typedef double			t_3x3_row[3];
 typedef double			t_2x2_row[2];
 typedef _Bool			t_bool;
 typedef unsigned short	t_short;
-typedef					void(t_parse_table)(char *, t_intersect *);
+typedef					void(t_parse_table)(char *, t_intersection *);
 
 typedef enum e_num
 {
@@ -149,9 +149,9 @@ typedef struct s_lighting
 	t_bool				in_shadow;
 }						t_lighting;
 
-typedef struct s_intersect
+typedef struct s_intersections
 {
-	t_intersect				this_obj_intersections[2];
+	t_intersection			arr[2];
 	t_short				count;
 }						t_intersections;
 
@@ -307,8 +307,8 @@ t_ray					create_ray(t_tuple origin, t_tuple direction);
 t_sphere				create_sphere(void);
 t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
 t_intersections			intersect(t_sphere *obj, t_ray r);
-t_intersections			link_intersection_nodes(t_intersect *arr[]);
-t_intersect					get_hit(t_intersections i);
+t_intersections			link_intersection_nodes(t_intersection *arr[]);
+t_intersection					get_hit(t_intersections i);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
 void					set_transform(t_shape *s, t_matrix t);
@@ -329,7 +329,7 @@ t_world					default_world(void);
 void					set_material(t_tuple reflections, t_tuple color,
 							t_material *m);
 t_intersections			intersect_world_with_ray(t_world *w, t_ray *r);
-t_prep_comps			prepare_computations(t_intersect *intersection, t_ray ray);
+t_prep_comps			prepare_computations(t_intersection *intersection, t_ray ray);
 void					shade_hit(t_world *world, t_prep_comps *comps,
 							t_tuple result);
 void					init_tuple(const t_tuple tuple, t_tuple res);
@@ -357,17 +357,17 @@ void					load_objs_into_world(mlx_image_t *image,
 mlx_image_t				**get_image_to_render(mlx_t *mlx);
 void					render_a_default_world(mlx_t *mlx);
 int						endwith(char *str, char *end);
-void					parse_sphere(char *str, t_intersect *head);
-void					parse_plane(char *str, t_intersect *head);
-void					parse_light(char *str, t_intersect *head);
-void					parse_cylinder(char *str, t_intersect *head);
+void					parse_sphere(char *str, t_intersection *head);
+void					parse_plane(char *str, t_intersection *head);
+void					parse_light(char *str, t_intersection *head);
+void					parse_cylinder(char *str, t_intersection *head);
 t_parse_table			**get_parser_table(void);
-void					parse_ambient_lightning(char *str, t_intersect *head);
-void					parse_camera(char *str, t_intersect *head);
+void					parse_ambient_lightning(char *str, t_intersection *head);
+void					parse_camera(char *str, t_intersection *head);
 int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
-									   t_intersect **head);
-t_intersect					intersection(double t, t_sphere *obj);
+									   t_intersection **head);
+t_intersection					intersection(double t, t_sphere *obj);
 void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
 							t_tuple specular, t_tuple result);
 t_bool					is_shadowed(t_world *w, t_tuple p);

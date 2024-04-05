@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void	parse_ambient_lightning(char *str, t_intersect *head)
+void	parse_ambient_lightning(char *str, t_intersection *head)
 {
 	printf("shape\n");
 	(void)head;

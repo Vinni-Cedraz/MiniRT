@@ -25,8 +25,8 @@ t_intersections	intersect(t_sphere *obj, t_ray r)
 		result.count = 0;
 		return (result);
 	}
-	result.this_obj_intersections[0].t = (-bask.b - sqrt(d)) / 2 * bask.a;
-	result.this_obj_intersections[1].t = (-bask.b + sqrt(d)) / 2 * bask.a;
+	result.arr[0] = intersection(((-bask.b - sqrt(d)) / 2 * bask.a), obj);
+	result.arr[1] = intersection(((-bask.b + sqrt(d)) / 2 * bask.a), obj);
 	result.count = 2;
 	return (result);
 }
