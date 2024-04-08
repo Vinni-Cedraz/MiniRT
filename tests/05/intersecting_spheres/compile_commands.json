@@ -7,28 +7,6 @@
    "-lcriterion",
    "-lm",
    "-w",
-<<<<<<< HEAD
-   "intersecting_spheres.c",
-   "-I../../",
-   "-I../../../include/",
-   "-I../../../libs/",
-   "../../../libs/*.a",
-   "../../../minirt.a",
-   "-o",
-   "intersecting_spheres"
-  ],
-  "file": "intersecting_spheres.c"
- },
- {
-  "directory": "/root/MiniRT/tests/05/intersecting_spheres",
-  "arguments": [
-   "cc",
-   "-O3",
-   "-lcriterion",
-   "-lm",
-   "-w",
-=======
->>>>>>> 53d2588080972a5156e0ad4440b83d083d973070
    "discriminant.c",
    "-I../../",
    "-I../../../include/",
@@ -39,5 +17,24 @@
    "discriminant"
   ],
   "file": "discriminant.c"
+ },
+ {
+  "directory": "/root/MiniRT/tests/05/intersecting_spheres",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-w",
+   "intersecting_spheres.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "intersecting_spheres"
+  ],
+  "file": "intersecting_spheres.c"
  }
 ]

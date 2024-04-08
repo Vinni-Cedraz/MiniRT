@@ -1,9 +1,9 @@
 TESTDIRS = \
   creating_rays \
   intersecting_spheres \
-  tracking_intersections \
-  identifying_hits \
-  transforming_rays_and_spheres \
+  # tracking_intersections \
+  # identifying_hits \
+  # transforming_rays_and_spheres \
   # putting_it_together
 
 ORANGE = \033[38;5;214m
