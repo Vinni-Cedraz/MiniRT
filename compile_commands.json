@@ -525,25 +525,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/math/transform_ray/transform_ray.c",
-   "-o",
-   "build/transform_ray.o"
-  ],
-  "file": "./src/math/transform_ray/transform_ray.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/math/create_intersection/set_transform.c",
    "-o",
    "build/set_transform.o"
@@ -1157,5 +1138,24 @@
    "build/caps.o"
   ],
   "file": "./src/math/cylinder/caps.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/rays/transform_ray.c",
+   "-o",
+   "build/transform_ray.o"
+  ],
+  "file": "./src/math/rays/transform_ray.c"
  }
 ]

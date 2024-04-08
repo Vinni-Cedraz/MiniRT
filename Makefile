@@ -33,7 +33,7 @@ SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c \
 
 VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/ppm/ ./src/math/matrices \
 		./src/math/matrix_transformations ./src/math/rays ./src/math/sphere \
-		./src/math/transform_ray ./src/math/light_and_shading/ ./src/math/making_scene/ \
+		./src/math/rays/ ./src/math/light_and_shading/ ./src/math/making_scene/ \
 		./src/math/camera/ ./src/math/cylinder/ ./src/math/plane/ ./src/math/create_intersection/ \
 		./src/render ./src/utils ./src/parser
 

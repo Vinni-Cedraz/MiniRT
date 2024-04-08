@@ -162,6 +162,8 @@ typedef struct s_shape
 
 typedef struct s_sphere
 {
+	t_matrix			_t;
+	t_matrix			inverse_t;
 	t_tuple				dis_to_ray;
 	t_tuple				origin;
 	_Bool 				radius;
@@ -301,7 +303,7 @@ t_intersections			link_intersection_nodes(t_node *arr[]);
 t_node					_hit(t_intersections intersections);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
-void					set_transform(t_shape *s, t_matrix t);
+void					set_transform(t_sphere *s, t_matrix t);
 double					_cofac(const t_matrix m, int row, int col);
 void					sphere_normal_at(const t_shape *sphere, const t_tuple p,
 							t_tuple res);

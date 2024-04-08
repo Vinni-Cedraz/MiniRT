@@ -12,8 +12,8 @@
 
 #include "minirt.h"
 
-void	set_transform(t_shape *s, t_matrix t)
+void	set_transform(t_sphere *s, t_matrix t)
 {
-	(void)s;
-	(void)t;
+	s->_t = t;
+	s->inverse_t = invert_matrix(t);
 }

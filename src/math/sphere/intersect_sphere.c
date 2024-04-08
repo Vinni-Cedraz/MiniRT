@@ -18,6 +18,7 @@ t_intersections	intersect_sphere(t_sphere *obj, t_ray r)
 	t_baskara		bask;
 	double			d;
 
+	r = transform_ray(r, obj->inverse_t);
 	obj->dis_to_ray = subtract_tuples(r.origin, obj->origin);
 	d = _discriminant(obj->dis_to_ray, r, &bask);
 	if (d < 0)
@@ -25,8 +26,8 @@ t_intersections	intersect_sphere(t_sphere *obj, t_ray r)
 		result.count = 0;
 		return (result);
 	}
-	result.head = ft_lstnew((-bask.b - sqrt(d)) / 2 * bask.a, obj);
-	result.head->next = ft_lstnew((-bask.b + sqrt(d)) / 2 * bask.a, obj);
+	result.head = ft_lstnew((-bask.b - sqrt(d)) / (2 * bask.a), obj);
+	result.head->next = ft_lstnew((-bask.b + sqrt(d)) / (2 * bask.a), obj);
 	result.count = 2;
 	return (result);
 }
