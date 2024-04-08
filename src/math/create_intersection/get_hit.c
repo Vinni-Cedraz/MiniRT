@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_hit.c                                          :+:      :+:    :+:   */
+/*   _hit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,8 +12,17 @@
 
 #include "minirt.h"
 
-t_node	get_hit(t_intersections intersections)
+t_node	_hit(t_intersections intersections)
 {
-	(void)intersections;
-	return ((t_node){0});
+	t_node			smallest;
+
+	smallest.t = __INT_MAX__;
+	smallest.object = NULL;
+	while (intersections.head != NULL)
+	{
+		if(smallest.t > intersections.head->t && intersections.head->t > 0)
+			smallest = *intersections.head;
+		intersections.head = intersections.head->next;
+	}
+	return (smallest);
 }

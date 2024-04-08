@@ -16,7 +16,7 @@ Test(identifying_hits, positive_t, .description = scenario1) {
 	intersections.head = ft_lstnew(1, &s);
 	ft_lstadd_back(&intersections.head, ft_lstnew(2, &s));
 	intersections.count = 2;
-	const t_node hit = get_hit(intersections);
+	const t_node hit = _hit(intersections);
 	cr_expect_eq(hit.t, 1);
 }
 
@@ -26,7 +26,7 @@ Test(identifying_hits, positive_t, .description = scenario1) {
 "And i1 ← ft_lstnew(-1, s)\n" \
 "And i2 ← ft_lstnew(1, s)\n" \
 "And xs ← intersections(i2, i1)\n" \
-"When hit ← get_hit(xs)\n" \
+"When hit ← _hit(xs)\n" \
 "Then hit = i2\n" RESET
 
 Test(identifying_hits, negative_t, .description = scenario2)
@@ -36,7 +36,7 @@ Test(identifying_hits, negative_t, .description = scenario2)
 	intersections.head = ft_lstnew(1, &s);
 	ft_lstadd_back(&intersections.head, ft_lstnew(-1,&s));
 	intersections.count = 2;
-	const t_node hit = get_hit(intersections);
+	const t_node hit = _hit(intersections);
 	cr_expect_eq(hit.t, 1);
 }
 
@@ -46,7 +46,7 @@ Test(identifying_hits, negative_t, .description = scenario2)
 "And i1 ← ft_lstnew(-2, s)\n" \
 "And i2 ← ft_lstnew(-1, s)\n" \
 "And xs ← intersections(i2, i1)\n" \
-"When hit ← get_hit(xs)\n" \
+"When hit ← _hit(xs)\n" \
 "Then hit is nothing\n" RESET
 
 Test(identifying_hits, all_negatives, .description = scenario3)
@@ -56,7 +56,7 @@ Test(identifying_hits, all_negatives, .description = scenario3)
 	intersections.head = ft_lstnew(-1, &s);
 	ft_lstadd_back(&intersections.head, ft_lstnew(-2, &s));
 	intersections.count = 2;
-	const t_node hit = get_hit(intersections);
+	const t_node hit = _hit(intersections);
 	cr_expect_eq(hit.object, NULL);
 }
 
@@ -68,7 +68,7 @@ Test(identifying_hits, all_negatives, .description = scenario3)
 "And i3 ← ft_lstnew(-3, s)\n" \
 "And i4 ← ft_lstnew(2, s)\n" \
 "And xs ← intersections(i1, i2, i3, i4)\n" \
-"When hit ← get_hit(xs)\n" \
+"When hit ← _hit(xs)\n" \
 "Then hit = i4\n" RESET
 
 Test(identifying_hits, hit_is_alway_lowest_nonnegative_intersection, .description = scenario4)
@@ -82,6 +82,6 @@ Test(identifying_hits, hit_is_alway_lowest_nonnegative_intersection, .descriptio
 	ft_lstadd_back(&intersections.head, ft_lstnew(2, &s));
 	intersections.count = 4;
 
-	const t_node hit = get_hit(intersections);
+	const t_node hit = _hit(intersections);
 	cr_expect_eq(hit.t, 2);
 }
