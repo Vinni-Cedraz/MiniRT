@@ -18,10 +18,3 @@ t_intersections	link_intersection_nodes(t_node *arr[])
 	(void)arr;
 	return ((t_intersections){0});
 }
-
-t_node	*intersection(double point, t_sphere *obj)
-{
-	(void)point;
-	(void)obj;
-	return ((t_node *)0);
-}

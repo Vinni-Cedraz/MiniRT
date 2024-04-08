@@ -357,7 +357,7 @@ void					parse_camera(char *str, t_node *head);
 int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
 									   t_node **head);
-t_node					*intersection(double t, t_sphere *obj);
+t_node					*init_node(double t, t_sphere *obj);
 void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
 							t_tuple specular, t_tuple result);
 t_bool					is_shadowed(t_world *w, t_tuple p);

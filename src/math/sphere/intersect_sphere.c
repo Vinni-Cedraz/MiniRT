@@ -25,8 +25,8 @@ t_intersections	intersect_sphere(t_sphere *obj, t_ray r)
 		result.count = 0;
 		return (result);
 	}
-	result.head = ft_lstnew((-bask.b - sqrt(d)) / 2 * bask.a);
-	ft_lstadd_back(&result.head, ft_lstnew((-bask.b + sqrt(d)) / 2 * bask.a));
+	result.head = ft_lstnew((-bask.b - sqrt(d)) / 2 * bask.a, obj);
+	result.head->next = ft_lstnew((-bask.b + sqrt(d)) / 2 * bask.a, obj);
 	result.count = 2;
 	return (result);
 }

@@ -28,7 +28,7 @@ typedef struct s_nodes
 
 // LINKED LISTS BASIC FUNCTIONS
 // ft_lstnew creates a new node
-t_node					*ft_lstnew(double content);
+t_node					*ft_lstnew(double content, t_sphere *obj);
 // ft_lstadd_back adds a new element at the end of a list
 void					ft_lstadd_back(t_node **head, t_node *new_node);
 // ft_lstadd_front adds a new element at the beginning of a list
