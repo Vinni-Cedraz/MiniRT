@@ -17,12 +17,12 @@
 
 typedef struct s_nodes	t_node;
 typedef unsigned int	t_ui;
-typedef struct s_shape	t_shape;
+typedef struct s_sphere	t_sphere;
 
 typedef struct s_nodes
 {
 	double				t;
-	t_shape				*object;
+	t_sphere			*object;
 	t_node				*next;
 }						t_node;
 

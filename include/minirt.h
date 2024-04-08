@@ -67,9 +67,13 @@ typedef double			t_3x3_row[3];
 typedef double			t_2x2_row[2];
 typedef _Bool			t_bool;
 typedef unsigned short	t_short;
-typedef					void(t_parse_table)(char *, t_node *);
+typedef					void(t_parse_table)(char *, t_intersection *);
 
+<<<<<<< HEAD
 typedef enum e_enum
+=======
+typedef enum e_typ
+>>>>>>> 53d2588080972a5156e0ad4440b83d083d973070
 {
 	SPHERE,
 	PLANE,
@@ -139,7 +143,7 @@ typedef struct s_lighting
 	t_bool				in_shadow;
 }						t_lighting;
 
-typedef struct s_intersect
+typedef struct s_intersections
 {
 	t_node				*head;
 	t_short				count;
@@ -160,7 +164,7 @@ typedef struct s_shape
 	t_ray				r;
 }						t_shape;
 
-typedef struct s_phere
+typedef struct s_sphere
 {
 	t_tuple				dis_to_ray;
 	t_tuple				origin;
@@ -319,7 +323,7 @@ t_world					default_world(void);
 void					set_material(t_tuple reflections, t_tuple color,
 							t_material *m);
 t_intersections			intersect_world_with_ray(t_world *w, t_ray *r);
-t_prep_comps			prepare_computations(t_node *intersection, t_ray ray);
+t_prep_comps			prepare_computations(t_intersection *intersection, t_ray ray);
 void					shade_hit(t_world *world, t_prep_comps *comps,
 							t_tuple result);
 void					init_tuple(const t_tuple tuple, t_tuple res);
@@ -347,17 +351,17 @@ void					load_objs_into_world(mlx_image_t *image,
 mlx_image_t				**get_image_to_render(mlx_t *mlx);
 void					render_a_default_world(mlx_t *mlx);
 int						endwith(char *str, char *end);
-void					parse_sphere(char *str, t_node *head);
-void					parse_plane(char *str, t_node *head);
-void					parse_light(char *str, t_node *head);
-void					parse_cylinder(char *str, t_node *head);
+void					parse_sphere(char *str, t_intersection *head);
+void					parse_plane(char *str, t_intersection *head);
+void					parse_light(char *str, t_intersection *head);
+void					parse_cylinder(char *str, t_intersection *head);
 t_parse_table			**get_parser_table(void);
-void					parse_ambient_lightning(char *str, t_node *head);
-void					parse_camera(char *str, t_node *head);
+void					parse_ambient_lightning(char *str, t_intersection *head);
+void					parse_camera(char *str, t_intersection *head);
 int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
-							t_node **head);
-t_node					*intersection(double point, t_shape **obj);
+									   t_intersection **head);
+t_intersection					intersection(double t, t_sphere *obj);
 void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
 							t_tuple specular, t_tuple result);
 t_bool					is_shadowed(t_world *w, t_tuple p);

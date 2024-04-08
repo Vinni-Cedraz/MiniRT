@@ -7,6 +7,7 @@
    "-lcriterion",
    "-lm",
    "-w",
+<<<<<<< HEAD
    "intersecting_spheres.c",
    "-I../../",
    "-I../../../include/",
@@ -26,6 +27,8 @@
    "-lcriterion",
    "-lm",
    "-w",
+=======
+>>>>>>> 53d2588080972a5156e0ad4440b83d083d973070
    "discriminant.c",
    "-I../../",
    "-I../../../include/",
