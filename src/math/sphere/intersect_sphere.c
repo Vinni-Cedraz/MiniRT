@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_intersections	intersect(t_sphere *obj, t_ray r)
+t_intersections	intersect_sphere(t_sphere *obj, t_ray r)
 {
 	t_intersections	result;
 	t_baskara		bask;
@@ -25,8 +25,8 @@ t_intersections	intersect(t_sphere *obj, t_ray r)
 		result.count = 0;
 		return (result);
 	}
-	result.this_obj_intersections[0].t = (-bask.b - sqrt(d)) / 2 * bask.a;
-	result.this_obj_intersections[1].t = (-bask.b + sqrt(d)) / 2 * bask.a;
+	result.head = ft_lstnew((-bask.b - sqrt(d)) / 2 * bask.a);
+	ft_lstadd_back(&result.head, ft_lstnew((-bask.b + sqrt(d)) / 2 * bask.a));
 	result.count = 2;
 	return (result);
 }

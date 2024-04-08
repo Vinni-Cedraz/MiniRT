@@ -20,5 +20,6 @@ t_sphere	create_sphere(void)
 	sphere.radius = 1;
 	sphere.origin = create_point(0, 0, 0);
 	sphere.id = id++;
+	sphere.type = SPHERE;
 	return (sphere);
 }

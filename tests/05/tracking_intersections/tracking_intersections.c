@@ -48,7 +48,7 @@ Test(intersection, encapsulates_t_and_object, .description = scenario1)
 	const t_sphere *s_ptr = &s;
 	const t_node *n = intersection(3.5, (t_shape**)&s_ptr);
 
-	cr_expect_eq(n->t, 3.5);
+	cr_expect_eq(doubles_eq(n->t, 3.5), true);
 	cr_expect_eq(((t_sphere *)(n->object))->type, SPHERE);
 }
 
@@ -62,8 +62,8 @@ Test(intersection, aggregation_intersections, .description = scenario2)
 	const t_intersection xs = link_intersection_nodes(arr);
 
 	cr_expect_eq(xs.count, 2);
-	cr_expect_eq(xs.head->t, 1);
-	cr_expect_eq(xs.head->next->t, 2);
+	cr_expect_eq(doubles_eq(xs.head->t, 1), true);
+	cr_expect_eq(doubles_eq(xs.head->next->t, 2), true);
 }
 
 Test(intersection, sets_the_object, .description = scenario3)
