@@ -24,5 +24,6 @@ t_sphere	create_sphere(void)
 	sphere._t = create_identity_matrix();
 	sphere.inverse_t = create_identity_matrix();
 	sphere.trans_inv = create_identity_matrix();
+	sphere.material = create_material();
 	return (sphere);
 }

@@ -170,6 +170,7 @@ typedef struct s_sphere
 	_Bool 				radius;
 	int					id;
 	t_type				type;
+	t_material			material;
 }						t_sphere;
 
 typedef struct s_plane
