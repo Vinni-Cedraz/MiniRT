@@ -60,7 +60,7 @@ t_tuple	cross(const t_tuple a, const t_tuple b)
 
 short	is_point(short w)
 {
-	if (w > 0)
+	if (w == POINT)
 		return (-42);
 	return (w);
 }

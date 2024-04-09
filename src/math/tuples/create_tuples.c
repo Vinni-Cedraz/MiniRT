@@ -48,13 +48,15 @@ t_tuple	create_tuple(float x, float y, float z, short w)
 	return (tuple);
 }
 
-void	add_three_tuples(t_tuple ambient, t_tuple diffuse, t_tuple specular,
-		t_tuple result)
+t_tuple	add_three_tuples(t_tuple a, t_tuple d, t_tuple s)
 {
-	(void)ambient;
-	(void)diffuse;
-	(void)specular;
-	(void)result;
+	const t_tuple	result = {
+			a.x + d.x + s.x,
+			a.y + d.y + s.y,
+			a.z + d.z + s.z,
+			COLOR
+	};
+	return (result);
 }
 
 void	tuple_to_arr(t_tuple a, double arr[4])

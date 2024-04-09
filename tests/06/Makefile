@@ -1,7 +1,7 @@
 TESTDIRS = 		\
   surface_normals \
   reflecting_vectors \
-  # phong_reflection \
+  phong_reflection \
   # putting_it_together \
 
 ## VARIABLES

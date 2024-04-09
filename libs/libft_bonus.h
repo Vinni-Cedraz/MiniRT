@@ -43,11 +43,11 @@ t_node					*ft_lstlast(t_node *first_node);
 int						ft_lstsize(t_node *first_node);
 // ft_lst_print prints the content of a list
 void					ft_lstprint(t_node **lst);
-// adds a node at a specific position in the list and returns a pointer to it
+// adds a node at a specific point in the list and returns a pointer to it
 t_node					*ft_lstadd_here(t_node **lst, t_node *n, t_ui index);
 // del a node at a given index
 void					ft_lstdel_here(t_node **lst, t_ui index);
-// returns a pointer to the node at the index position in the list
+// returns a pointer to the node at the index point in the list
 t_node					*ft_lstgetby_index(t_node *lst, t_ui index);
 // returns the index at which a given content is found within a list
 int						ft_lstgetby_content(t_node *lst, void *content);

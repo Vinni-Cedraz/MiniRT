@@ -60,9 +60,12 @@ t_tuple	multiply_tuple_by_scalar(const t_tuple a, const double scalar)
 	return (res);
 }
 
-void	multiply_colors(const t_tuple c1, const t_tuple c2, t_tuple result)
+t_tuple	multiply_colors(const t_tuple a, const t_tuple b)
 {
-	(void)c1;
-	(void)c2;
-	(void)result;
+	return ((t_tuple) {
+			.x = a.x * b.x,
+			.y = a.y * b.y,
+			.z = a.z * b.z,
+			.w = COLOR
+	});
 }

@@ -133,11 +133,24 @@ typedef struct s_lighting
 {
 	t_material			material;
 	t_point_light		light;
-	t_tuple				position;
+	t_tuple				point;
 	t_tuple				eye_vec;
 	t_tuple				normal_vec;
 	t_bool				in_shadow;
 }						t_lighting;
+
+typedef struct	s_types_of_lighting
+{
+	t_tuple	a;
+	t_tuple	d;
+	t_tuple	s;
+	double	light_dot_normal;
+	double	reflect_dot_eye;
+	double 	factor;
+	t_tuple	effective_color;
+	t_tuple	lightv;
+	t_tuple	reflectv;
+}			t_type_light;
 
 typedef struct s_intersections
 {
@@ -259,8 +272,7 @@ t_tuple					multiply_tuple_by_scalar(const t_tuple a,
 							const double scalar);
 // this implementation my create an issue in the future
 t_tuple					multiply_tuple_by_matrix(t_tuple a, t_matrix b);
-void					multiply_colors(const t_tuple c1, const t_tuple c2,
-							t_tuple result);
+t_tuple					multiply_colors(const t_tuple a, const t_tuple b);
 t_bool					doubles_eq(double a, double b);
 double					magnitude(const t_tuple vec);
 t_tuple					normalize(const t_tuple vec);
@@ -313,7 +325,7 @@ void					cylinder_normal_at(const t_shape *cyl, const t_tuple p,
 							t_tuple res);
 t_tuple 				reflect(t_tuple vector, t_tuple normal);
 t_material				create_material(void);
-void					calculate_lighting(t_lighting *obj, t_tuple result);
+t_tuple					calculate_lighting(t_lighting *obj);
 t_constr				make_aslib_test(void);
 t_world					create_world(void);
 t_world					default_world(void);
@@ -359,8 +371,7 @@ int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
 									   t_node **head);
 t_node					intersection(double t, t_sphere *obj);
-void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
-							t_tuple specular, t_tuple result);
+t_tuple					add_three_tuples(t_tuple a, t_tuple d, t_tuple s);
 t_bool					is_shadowed(t_world *w, t_tuple p);
 void					add_object(t_world *w, t_shape *new_obj, int index);
 t_material				create_plane_material(void);
