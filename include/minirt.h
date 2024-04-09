@@ -164,6 +164,7 @@ typedef struct s_sphere
 {
 	t_matrix			_t;
 	t_matrix			inverse_t;
+	t_matrix			trans_inv;
 	t_tuple				dis_to_ray;
 	t_tuple				origin;
 	_Bool 				radius;

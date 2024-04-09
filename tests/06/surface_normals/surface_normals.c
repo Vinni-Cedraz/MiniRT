@@ -90,9 +90,10 @@ Test(surface_normals, normal_on_a_translated_sphere, .description = scenario6) {
 	t_tuple			actual_normal;
 	const t_tuple	expected_normal = {0, 0.70711, -0.70711, VECTOR};
 	const t_tuple 	p = {0, 1.707107, -0.707107, POINT};
+	t_matrix 		transforming_matrix = create_translation_matrix((t_tuple) {0, 1, 0, POINT});
 
  	s = create_sphere();
-	set_transform(&s, create_translation_matrix((t_tuple) {0, 1, 0, POINT}));
+	set_transform(&s, transforming_matrix);
 	actual_normal = sphere_normal_at(&s, p);
 	cr_expect_tuples_eq(actual_normal, expected_normal);
 }

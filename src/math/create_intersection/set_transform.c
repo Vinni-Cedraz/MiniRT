@@ -16,4 +16,5 @@ void	set_transform(t_sphere *s, t_matrix t)
 {
 	s->_t = t;
 	s->inverse_t = invert_matrix(t);
+	s->trans_inv = transpose_matrix(s->inverse_t);
 }
