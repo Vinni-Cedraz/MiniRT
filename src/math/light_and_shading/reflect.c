@@ -12,9 +12,9 @@
 
 #include "minirt.h"
 
-void	reflect(t_tuple vector, t_tuple normal, t_tuple _return)
+t_tuple reflect(t_tuple vector, t_tuple normal)
 {
 	(void)vector;
 	(void)normal;
-	(void)_return;
+	return (t_tuple){0};
 }
