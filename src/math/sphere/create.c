@@ -21,5 +21,8 @@ t_sphere	create_sphere(void)
 	sphere.origin = create_point(0, 0, 0);
 	sphere.id = id++;
 	sphere.type = SPHERE;
+	sphere._t = create_identity_matrix();
+	sphere.inverse_t = create_identity_matrix();
+	sphere.trans_inv = create_identity_matrix();
 	return (sphere);
 }

@@ -8,7 +8,7 @@
 						"And inters.this_obj_intersections->t = 4.0\n" \
 						"And inters.this_obj_intersections->next->t = 6.0\n" RESET
 
-Test(intersecting_rays, intersects_at_two_points, .description = scenario1) {
+Test(intersecting_spheres, intersects_at_two_points, .description = scenario1) {
 	const t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
 	t_sphere s = create_sphere();
 	const t_intersections inter = intersect_sphere(&s, r);
@@ -26,7 +26,7 @@ Test(intersecting_rays, intersects_at_two_points, .description = scenario1) {
 				  "Then inter.count = 1\n"                               \
 				  "And inter.this_obj_intersections->t = 5.0\n"                                 \
 
-Test(intersecting_rays, tangent_intersection, .description = scenario2) {
+Test(intersecting_spheres, tangent_intersection, .description = scenario2) {
 	const t_ray r = create_ray((t_tuple){0, 1, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
 	t_sphere s = create_sphere();
 	const t_intersections inter = intersect_sphere(&s, r);
@@ -44,7 +44,7 @@ Test(intersecting_rays, tangent_intersection, .description = scenario2) {
 				 "Then i.count == 0\n" \
 				 "And i.this_obj_intersections == NULL" RESET
 
-Test(intersecting_rays, intersects_nothing, .description = scenario3) {
+Test(intersecting_spheres, intersects_nothing, .description = scenario3) {
 	const t_ray r = create_ray((t_tuple){0, 2, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
 	t_sphere s = create_sphere();
 	const t_intersections inter = intersect_sphere(&s, r);
