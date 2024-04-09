@@ -14,9 +14,10 @@
 
 t_tuple	sphere_normal_at(t_sphere *sphere, const t_tuple wrld_p)
 {
-	(void)sphere;
-	(void)wrld_p;
-	return (t_tuple){0};
+	t_tuple normal;
+
+	normal = subtract_tuples(wrld_p,sphere->origin);
+	return (normal);
 }
 
 void	plane_normal_at( \
