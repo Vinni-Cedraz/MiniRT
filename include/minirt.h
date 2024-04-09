@@ -268,8 +268,7 @@ t_matrix				invert_matrix(t_matrix m);
 t_tuple					cross(const t_tuple a, const t_tuple b);
 t_canvas				create_canvas(unsigned short height,
 							unsigned short width);
-void					write_pixel(t_canvas *canvas, int y, int x,
-							const t_four_doubles pixel);
+void					write_pixel(t_canvas *canvas, int y, int x, t_tuple pixel);
 char					*canvas_to_ppm(const t_canvas *canvas);
 void					destroy_canvas(const t_canvas *canvas);
 t_matrix				mult_matrices(t_matrix a, t_matrix b);
@@ -310,8 +309,7 @@ void					plane_normal_at(const t_shape *sphere, const t_tuple p,
 							t_tuple res);
 void					cylinder_normal_at(const t_shape *cyl, const t_tuple p,
 							t_tuple res);
-void					reflect(t_tuple vector, t_tuple normal,
-							t_tuple _return);
+t_tuple 				reflect(t_tuple vector, t_tuple normal);
 t_material				create_material(void);
 void					calculate_lighting(t_lighting *obj, t_tuple result);
 t_constr				make_aslib_test(void);
