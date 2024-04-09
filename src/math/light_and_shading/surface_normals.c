@@ -12,12 +12,11 @@
 
 #include "minirt.h"
 
-void	sphere_normal_at( \
-		const t_shape *sphere, const t_tuple wrld_p, t_tuple normal)
+t_tuple	sphere_normal_at(t_sphere *sphere, const t_tuple wrld_p)
 {
 	(void)sphere;
 	(void)wrld_p;
-	(void)normal;
+	return (t_tuple){0};
 }
 
 void	plane_normal_at( \

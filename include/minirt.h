@@ -305,8 +305,7 @@ t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
 void					set_transform(t_sphere *s, t_matrix t);
 double					_cofac(const t_matrix m, int row, int col);
-void					sphere_normal_at(const t_shape *sphere, const t_tuple p,
-							t_tuple res);
+t_tuple					sphere_normal_at(t_sphere *sphere, const t_tuple p);
 void					plane_normal_at(const t_shape *sphere, const t_tuple p,
 							t_tuple res);
 void					cylinder_normal_at(const t_shape *cyl, const t_tuple p,

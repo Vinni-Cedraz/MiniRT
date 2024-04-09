@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 
 // Scenario : The normal on a sphere at a point on the x axis
 #define scenario1 CYAN                 		          \
@@ -7,11 +7,11 @@
 "Then n = vector(1, 0, 0)"RESET
 
 Test(surface_normals, sphere_normal_at_x_axial_point, .description = scenario1) {
-	const t_sphere s = create_sphere();
+	t_sphere s = create_sphere();
 	t_tuple normal;
 	const t_tuple p = {1, 0, 0, POINT};
 
-	sphere_normal_at(&s, p, normal);
+	normal = sphere_normal_at(&s, p);
 	print_tuple(normal);
 	cr_expect_tuples_eq(normal, (t_tuple){1, 0, 0, VECTOR});
 }
@@ -24,10 +24,10 @@ Test(surface_normals, sphere_normal_at_x_axial_point, .description = scenario1) 
 
 Test(surface_normals, sphere_normal_at_y_axial_point, .description = scenario2) {
 	t_tuple normal;
-	const t_sphere s = create_sphere();
+	t_sphere s = create_sphere();
 	const t_tuple p = {0, 1, 0, POINT};
 
-	sphere_normal_at(&s, p, normal);
+	normal = sphere_normal_at(&s, p);
 	cr_expect_tuples_eq(normal, (t_tuple){0, 1, 0, VECTOR});
 }
 
@@ -38,11 +38,11 @@ Test(surface_normals, sphere_normal_at_y_axial_point, .description = scenario2) 
 "Then n = vector(0, 0, 1)"RESET                       
 
 Test(surface_normals, sphere_normal_at_z_axial_point, .description = scenario3) {
-	const t_sphere s = create_sphere();
+	t_sphere s = create_sphere();
 	t_tuple		normal;
 	const t_tuple p = {0, 0, 1, POINT};
 
-	sphere_normal_at(&s, p, normal);
+	normal = sphere_normal_at(&s, p);
 	cr_expect_tuples_eq(normal, (t_tuple){0, 0, 1, VECTOR});
 }
 
@@ -54,10 +54,10 @@ Test(surface_normals, sphere_normal_at_z_axial_point, .description = scenario3) 
 
 Test(surface_normals, sphere_normal_at_nonaxial_point, .description = scenario4) {
 	const t_tuple	_p1 = {(sqrt(3)/3), (sqrt(3)/3), (sqrt(3)/3), POINT};
-	const t_sphere	s = create_sphere();
+	t_sphere		s = create_sphere();
 	t_tuple			normal;
 
-	sphere_normal_at(&s, _p1, normal);
+	normal = sphere_normal_at(&s, _p1);
 	cr_expect_tuples_eq(normal, (t_tuple){sqrt(3)/3, sqrt(3)/3, sqrt(3)/3, VECTOR});
 }
 
@@ -69,12 +69,12 @@ Test(surface_normals, sphere_normal_at_nonaxial_point, .description = scenario4)
 
 Test(surface_normals, the_normal_is_normalized, .description = scenario5) {
 	const t_tuple	_p1 = {(sqrt(3)/3), (sqrt(3)/3), (sqrt(3)/3), POINT};
-	const t_sphere	s = create_sphere();
+	t_sphere		s = create_sphere();
 	t_tuple			actual_normal;
 	t_tuple			expected_normal;
 
-	sphere_normal_at(&s, _p1, actual_normal);
-	normalize(actual_normal, expected_normal);
+	actual_normal = sphere_normal_at(&s, _p1);
+	expected_normal = normalize(actual_normal);
 	cr_expect_tuples_eq(actual_normal, expected_normal);
 }
 
@@ -93,7 +93,7 @@ Test(surface_normals, normal_on_a_translated_sphere, .description = scenario6) {
 
  	s = create_sphere();
 	set_transform(&s, create_translation_matrix((t_tuple) {0, 1, 0, POINT}));
-	sphere_normal_at(&s, p, actual_normal);
+	actual_normal = sphere_normal_at(&s, p);
 	cr_expect_tuples_eq(actual_normal, expected_normal);
 }
 
@@ -116,6 +116,6 @@ Test(surface_normals, normal_on_a_transformed_sphere, .description = scenario7) 
 
  	s = create_sphere();
 	set_transform(&s, t);
-	sphere_normal_at(&s, p, actual_normal);
+	actual_normal = sphere_normal_at(&s, p);
 	cr_expect_tuples_eq(actual_normal, expected_normal);
 }
