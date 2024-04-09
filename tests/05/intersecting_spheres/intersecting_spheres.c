@@ -61,7 +61,7 @@ Test(intersecting_spheres, intersects_nothing, .description = scenario3) {
 					"And i.this_obj_intersections->t = -1.0\n" \
 					"And i.this_obj_intersections->next->t = 1.0" RESET
 
-Test(intersecting_rays, ray_starts_inside_of_a_sphere, .description = scenario4) {
+Test(intersecting_spheres, ray_starts_inside_of_a_sphere, .description = scenario4) {
 	const t_ray r = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
 	t_sphere s = create_sphere();
 	t_intersections inter = intersect_sphere(&s, r);
@@ -79,7 +79,7 @@ Test(intersecting_rays, ray_starts_inside_of_a_sphere, .description = scenario4)
 				"And i.this_obj_intersections->t == -6.0\n" \
 				"And i.this_obj_intersections->next->t == -4.0\n" RESET
 
-Test(intersecting_rays, sphere_is_behind_the_ray, .description = scenario5) {
+Test(intersecting_spheres, sphere_is_behind_the_ray, .description = scenario5) {
 	const t_ray r = create_ray((t_tuple){0, 0, 5, POINT}, (t_tuple){0, 0, 1, VECTOR});
 	t_sphere s = create_sphere();
 	const t_intersections inter = intersect_sphere(&s, r);
@@ -108,7 +108,7 @@ t_bool	low_precision_doubles_eq(double a, double b)
 		return (TRUE);
 }
 
-Test(intersecting_rays, the_ray_is_diagonal_and_tangencies_the_sphere, .description = scenario6) {
+Test(intersecting_spheres, the_ray_is_diagonal_and_tangencies_the_sphere, .description = scenario6) {
 	const t_tuple ray_origin = create_point(0, 0, -2);
 	const t_tuple intersection_t = create_point(0, 0.8660254037844, -0.5);
 	const t_tuple direction = subtract_tuples(intersection_t, ray_origin);
