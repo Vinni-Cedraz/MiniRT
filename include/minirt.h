@@ -219,7 +219,7 @@ typedef struct s_cylinder
 typedef struct s_world
 {
 	t_sphere			*objs;
-	t_point_light		*light;
+	t_point_light		light;
 	int					count;
 }						t_world;
 
@@ -233,7 +233,7 @@ typedef struct s_baskara
 typedef struct s_comp
 {
 	double				t;
-	t_shape				*object;
+	t_sphere				*object;
 	t_tuple				over_point;
 	t_tuple				point;
 	t_tuple				eyev;
@@ -256,9 +256,9 @@ typedef struct s_camera
 	double				world_y;
 }						t_camera;
 
-typedef t_intersections	(*t_intersect_function)(t_shape **, t_tuple);
-typedef void			(*t_normal_at_function)(const t_shape *, const t_tuple,
-				t_tuple);
+typedef t_intersections	(*t_intersect_function)(t_sphere **, t_tuple);
+typedef void			(*t_normal_at_function)(const t_sphere *, const t_tuple,
+												t_tuple);
 
 t_tuple					create_point(float x, float y, float z);
 void					tuple_to_arr(t_tuple a, double arr[4]);
@@ -320,10 +320,10 @@ t_ray					transform_ray(t_ray ray, t_matrix matrix);
 void					set_transform(t_sphere *s, t_matrix t);
 double					_cofac(const t_matrix m, int row, int col);
 t_tuple					sphere_normal_at(t_sphere *sphere, const t_tuple p);
-void					plane_normal_at(const t_shape *sphere, const t_tuple p,
-							t_tuple res);
-void					cylinder_normal_at(const t_shape *cyl, const t_tuple p,
-							t_tuple res);
+void					plane_normal_at(const t_sphere *sphere, const t_tuple p,
+										t_tuple res);
+void					cylinder_normal_at(const t_sphere *cyl, const t_tuple p,
+										   t_tuple res);
 t_tuple 				reflect(t_tuple vector, t_tuple normal);
 t_material				create_material(void);
 t_tuple					calculate_lighting(t_lighting *obj);
@@ -346,9 +346,9 @@ t_matrix				create_mat(double arr[]);
 t_ray					ray_for_pixel(t_camera c, int x, int y);
 t_canvas				render(t_camera camera, t_world world);
 // t_node			intersect_sphere(t_sphere *obj, t_tuple obj_dist_ray);
-t_intersections			intersect_plane(t_shape **obj, t_tuple dist);
-t_intersections			intersect_cylinder(t_shape **obj,
-							t_tuple obj_dist_to_ray);
+t_intersections			intersect_plane(t_sphere **obj, t_tuple dist);
+t_intersections			intersect_cylinder(t_sphere **obj,
+											  t_tuple obj_dist_to_ray);
 t_plane					create_plane(void);
 t_cylinder				create_cylinder(void);
 double					_discriminant(t_tuple obj_dist_ray, t_ray ray,
@@ -372,7 +372,7 @@ void					intersect_caps(const t_cylinder *cyl, const t_ray r,
 									   t_node **head);
 t_tuple					add_three_tuples(t_tuple a, t_tuple d, t_tuple s);
 t_bool					is_shadowed(t_world *w, t_tuple p);
-void					add_object(t_world *w, t_shape *new_obj, int index);
+void					add_object(t_world *w, t_sphere *new_obj, int index);
 t_material				create_plane_material(void);
 t_matrix				tuple_to_matrix(t_tuple tuple);
 

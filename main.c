@@ -1,4 +1,4 @@
-#include "minirt.h"
+#include "include/minirt.h"
 #include <stdio.h>
 
 #define wall_z 1000

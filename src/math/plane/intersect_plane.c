@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_intersections	intersect_plane(t_shape **obj, t_tuple obj_dist_to_ray)
+t_intersections	intersect_plane(t_sphere **obj, t_tuple obj_dist_to_ray)
 {
 	(void)obj;
 	(void)obj_dist_to_ray;
