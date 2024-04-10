@@ -1,8 +1,32 @@
-#include "tests/tester.h"
+#include "minirt.h"
 
-#define wall_z 7
-#define wall_size 1000.0
+#define wall_z 3
+#define wall_size 50.0
 #define canvas_pixels 1000
+
+static inline void create_ppm_file(t_constr ppm_string, t_constr filename) {
+    int fd = open(filename, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+    write(fd, ppm_string, ft_strlen(ppm_string));
+    close(fd);
+}
+
+void quick_render(t_world *w, const t_tuple from) {
+
+    t_camera camera = create_camera(100, 100, M_PI / 4);
+    t_tuple to = (t_tuple){0, 0, 0, POINT};
+    t_tuple up = (t_tuple){0, 1, 0, VECTOR};
+    const t_tuple forward = subtract_tuples(to, from);
+
+    const t_tuple normalized_forward = normalize(forward);
+    camera.transform = view_transform(from, normalized_forward, up);
+
+    t_canvas c = render(camera, *w);
+    char *str = canvas_to_ppm(&c);
+    create_ppm_file(str, "main.ppm");
+    destroy_canvas(&c);
+    free(str);
+    free(w->objs);
+}
 
 static void normalize_rgb(t_tuple raw_rgb);
 static t_tuple get_ray_direction(const t_tuple position, const t_tuple ray_origin);
@@ -14,7 +38,7 @@ t_canvas c;
 t_sphere s;
 const t_tuple ray_origin = {0, 0, -10.0, POINT};
 
-Test(putting_it_together, drawing_a_circle) {
+int main() {
     const double half = wall_size / 2;
     const double pixel_size = wall_size / canvas_pixels;
 
@@ -35,7 +59,9 @@ static void ray_casting(const double half, const double pixel_size) {
     t_tuple direction;
     t_ray r;
     t_intersections xs;
+	t_sphere s;
 
+	s = create_sphere();
     y = -1;
     while (++y < c.height) {
         x = -1;
@@ -47,6 +73,7 @@ static void ray_casting(const double half, const double pixel_size) {
             xs = intersect_sphere(&s, r);
             if (_hit(xs).object != NULL)
                 paint_a_pixel(&c, y, x);
+			ft_lstfree(&xs.head);
         }
     }
 }

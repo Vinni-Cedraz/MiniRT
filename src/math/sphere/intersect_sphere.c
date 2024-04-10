@@ -23,7 +23,7 @@ t_intersections	intersect_sphere(t_sphere *obj, t_ray r)
 	d = _discriminant(obj->dis_to_ray, r, &bask);
 	if (d < 0)
 	{
-		result.count = 0;
+		ft_bzero((void *)&result, sizeof(t_intersections));
 		return (result);
 	}
 	result.head = ft_lstnew((-bask.b - sqrt(d)) / (2 * bask.a), obj);
