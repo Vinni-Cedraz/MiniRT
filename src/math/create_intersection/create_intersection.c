@@ -13,8 +13,7 @@
 #include "libft_bonus.h"
 #include "minirt.h"
 
-t_intersections	link_intersection_nodes(t_node *arr[])
+void link_intersection_nodes(t_node *head1, t_node *head2)
 {
-	(void)arr;
-	return ((t_intersections){0});
+	ft_lstadd_back(&head1, head2);
 }

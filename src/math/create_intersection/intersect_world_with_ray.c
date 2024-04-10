@@ -14,7 +14,20 @@
 
 t_intersections	intersect_world_with_ray(t_world *w, t_ray *r)
 {
-	(void)w;
-	(void)r;
-	return ((t_intersections){0});
+	t_intersections	result;
+	t_intersections	tmp;
+	int				idx;
+
+	idx = 0;
+	result.head = NULL;
+	tmp = intersect_sphere(&w->objs[0], *r);
+	while (idx < w->count - 1)
+	{
+		tmp = intersect_sphere(&w->objs[idx], *r);
+		printf("%f\n", tmp.head->next->t);
+		ft_lstadd_back(&result.head, tmp.head);
+		idx++;
+	}
+	result.count = w->count * 2;
+	return (result);
 }
