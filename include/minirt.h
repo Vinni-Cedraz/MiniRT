@@ -56,8 +56,8 @@
 # define DIFFUSE 1
 # define SPECULAR 2
 # define SHININESS 3
-# define SIZEH 500
-# define SIZEW 500
+# define SIZEH 1920
+# define SIZEW 1080
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -276,6 +276,7 @@ t_tuple					multiply_colors(const t_tuple a, const t_tuple b);
 t_bool					doubles_eq(double a, double b);
 double					magnitude(const t_tuple vec);
 t_tuple					normalize(const t_tuple vec);
+uint32_t				normalized_color_to_int(t_tuple color);
 short					is_point(short w);
 t_bool					is_invertible(t_matrix m);
 t_matrix				invert_matrix(t_matrix m);
