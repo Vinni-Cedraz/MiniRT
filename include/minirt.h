@@ -218,7 +218,7 @@ typedef struct s_cylinder
 
 typedef struct s_world
 {
-	t_shape				*objs;
+	t_sphere			*objs;
 	t_point_light		*light;
 	int					count;
 }						t_world;
@@ -334,10 +334,9 @@ void					set_material(t_tuple reflections, t_tuple color,
 							t_material *m);
 t_intersections			intersect_world_with_ray(t_world *w, t_ray *r);
 t_prep_comps			prepare_computations(t_node *intersection, t_ray ray);
-void					shade_hit(t_world *world, t_prep_comps *comps,
-							t_tuple result);
+t_tuple					shade_hit(t_world *world, t_prep_comps *comps);
 void					init_tuple(const t_tuple tuple, t_tuple res);
-void					color_at(t_world *world, t_ray *ray, t_tuple color);
+t_tuple					color_at(t_world *world, t_ray *ray);
 t_matrix				view_transform(t_tuple from, t_tuple forward,
 							t_tuple up);
 t_camera				create_camera(int hsize, int vsize,
@@ -371,7 +370,6 @@ void					parse_camera(char *str, t_node *head);
 int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
 									   t_node **head);
-t_node					intersection(double t, t_sphere *obj);
 t_tuple					add_three_tuples(t_tuple a, t_tuple d, t_tuple s);
 t_bool					is_shadowed(t_world *w, t_tuple p);
 void					add_object(t_world *w, t_shape *new_obj, int index);

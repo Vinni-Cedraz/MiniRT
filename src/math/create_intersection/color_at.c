@@ -12,9 +12,9 @@
 
 #include "minirt.h"
 
-void	color_at(t_world *w, t_ray *r, t_tuple color)
+t_tuple	color_at(t_world *w, t_ray *r)
 {
 	(void)w;
 	(void)r;
-	(void)color;
+	return (t_tuple){0};
 }

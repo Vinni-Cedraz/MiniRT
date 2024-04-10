@@ -44,7 +44,7 @@ void	load_objs_into_world(mlx_image_t *image, t_camera camera,
 		while (x < camera.hsize)
 		{
 			ray = ray_for_pixel(camera, y, x);
-			color_at(world, &ray, (t_tuple){col.x, col.y, col.z, COLOR});
+			col = color_at(world, &ray);
 			mlx_put_pixel(image, x, y, normalized_color_to_int(col));
 			x++;
 		}

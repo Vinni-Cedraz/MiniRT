@@ -61,11 +61,11 @@ void create_test_world(t_world *world, const t_tuple from, int num_shapes, ...) 
     va_list shapes;
     va_start(shapes, num_shapes);
 
-    world->objs = malloc(sizeof(t_shape) * num_shapes);
+    world->objs = malloc(sizeof(t_sphere) * num_shapes);
     world->count = num_shapes;
     for (int i = 0; i < num_shapes; i++) {
-        t_shape shape = va_arg(shapes, t_shape);
-        world->objs[i] = *(t_shape *)&shape;
+        t_sphere shape = va_arg(shapes, t_sphere);
+        world->objs[i] = *(t_sphere *)&shape;
     }
     quick_render(world, from);
     va_end(shapes);

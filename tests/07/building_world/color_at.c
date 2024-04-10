@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 
 // Scenario : The color when a ray misses
 #define scenario9 CYAN\
@@ -11,7 +11,7 @@ Test(building_world, the_color_when_a_ray_misses, .description = scenario9) {
 	t_ray 	r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 1, 0, VECTOR});
 	t_tuple color;
 
-	color_at(&w, &r, color);
+	color = color_at(&w, &r);
 	cr_expect_tuples_eq(color, (t_tuple){0, 0, 0, COLOR});
 }
 
@@ -26,7 +26,7 @@ Test(building_world, the_color_when_a_ray_hits, .description = scenario10) {
 	t_ray	r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
 	t_tuple color;
 
-	color_at(&w, &r, color);
+	color = color_at(&w, &r);
 	cr_expect_tuples_eq(color, (t_tuple){0.38066, 0.47583, 0.2855, COLOR});
 }
 
@@ -49,6 +49,6 @@ Test(building_world, the_color_with_intersection_behind_ray, .description = scen
 	t_ray	r = create_ray((t_tuple){0, 0, 0.75, POINT}, (t_tuple){0, 0, -1, VECTOR});
 	t_tuple color;
 
-	color_at(&w, &r, color);
+	color = color_at(&w, &r);
 	cr_expect_tuples_eq(color, inner->material.color);
 }
