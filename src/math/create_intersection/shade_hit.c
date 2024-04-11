@@ -14,7 +14,12 @@
 
 t_tuple	shade_hit(t_world *world, t_prep_comps *comps)
 {
-	(void)world;
-	(void)comps;
-	return ((t_tuple){0});
+	return (calculate_lighting(&(t_lighting){
+			comps->object->material,
+			world->light,
+			comps->point,
+			comps->eyev,
+			comps->normalv,
+			is_shadowed(world, comps->over_point),
+		}));
 }

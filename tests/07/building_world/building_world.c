@@ -142,111 +142,58 @@ Test(building_world, hit_when_intersection_is_inside, .description = scenario6) 
 	cr_expect_tuples_eq(prep_comps.normalv, (t_tuple){0, 0, -1, VECTOR});
 }
 
-//
-// // Scenario : Shading an ft_lstnew
-// #define scenario7 CYAN \
-// "\nGiven w ← default_world()\n"                                        \
-// "And r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                      \
-// "And shape ← the first object in w\n"								   \
-// "And i ← ft_lstnew(4, shape)\n"    								   \
-// "When prep_comps ← prepare_computations(i, r)\n"                       \
-// "And c ← shade_hit(w, prep_comps)\n"                                   \
-// "Then c = color(0.38066, 0.47583, 0.2855)"RESET
-// Test(building_world, shading_intersection, .description = scenario7) {
-// 	t_world w;
-// 	t_ray r;
-// 	t_sphere s;
-// 	t_node *i;
-// 	t_tuple color;
-// 	t_prep_comps prep_comps;
-// 	const t_tuple expected_color = {0.38066, 0.47583, 0.2855, COLOR};
-//
-// 	w = default_world();
-// 	r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-// 	s = *(t_sphere *)w.objs;
-// 	i = ft_lstnew(4, &s);
-// 	prep_comps = prepare_computations(i, r);
-//
-// 	color = shade_hit(&w, &prep_comps);
-// 	cr_expect_tuples_eq(color, expected_color);
-// }
-//
-// Scenario : Shading an ft_lstnew from the inside
-// #define scenario8 CYAN\
-// "\nGiven w ← default_world()\n"                                       \
-// "And w.light ← point_light(point(0, 0.25, 0), color(1, 1, 1))\n"      \
-// "And r ← ray(point(0, 0, 0), vector(0, 0, 1))\n"                      \
-// "And shape ← the second object in w\n"                                \
-// "And i ← ft_lstnew(0.5, shape)\n"                                  \
-// "When prep_comps ← prepare_computations(i, r)\n"                      \
-// "And c ← shade_hit(w, prep_comps)\n"                                  \
-// "Then c = color(0.90498, 0.90498, 0.90498)"RESET
-// Test(building_world, shading_intersection_from_inside, .description = scenario8) {
-// 	t_world w = default_world();
-// 	w.light = (t_point_light){
-// 		.position = {0, 0.25, 0, POINT},
-// 		.intensity = {1, 1, 1, COLOR},
-// 	};
-// 	t_ray 			r = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
-// 	t_sphere 		*s = &w.objs[1];
-// 	t_node	 		*i = ft_lstnew(0.5, s);
-// 	t_prep_comps 	prep_comps = prepare_computations(i, r);
-// 	t_tuple 		color;
-//
-// 	color = shade_hit(&w, &prep_comps);
-// 	print_tuple(color);
-// 	cr_expect_tuples_eq(color, (t_tuple){0.90498, 0.90498, 0.90498, COLOR});
-// }
-//
-// // Scenario : The color when a ray misses
-// #define scenario9 CYAN\
-// "\nGiven w ← default_world()\n"                                       \
-// "And r ← ray(point(0, 0, -5), vector(0, 1, 0))\n"                     \
-// "When c ← color_at(w, r)\n"                                       	  \
-// "Then c = color(0, 0, 0)"RESET
-// Test(building_world, the_color_when_a_ray_misses, .description = scenario9) {
-// 	t_world w = default_world();
-// 	t_ray 	r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 1, 0, VECTOR});
-// 	t_tuple color;
-//
-// 	color = color_at(&w, &r);
-// 	cr_expect_tuples_eq(color, (t_tuple){0, 0, 0, COLOR});
-// }
-//
-// // Scenario : The color when a ray hits
-// #define scenario10 CYAN\
-// "\nGiven w ← default_world()\n"                                       \
-// "And r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                     \
-// "When c ← color_at(w, r)\n"                                       	  \
-// "Then c = color(0.38066, 0.47583, 0.2855"RESET
-// Test(building_world, the_color_when_a_ray_hits, .description = scenario10) {
-// 	t_world w = default_world();
-// 	t_ray	r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-// 	t_tuple color;
-//
-// 	color = color_at(&w, &r);
-// 	cr_expect_tuples_eq(color, (t_tuple){0.38066, 0.47583, 0.2855, COLOR});
-// }
-//
-// // Scenario : The color with an ft_lstnew behind the ray
-// #define scenario11 CYAN\
-// "\nGiven w ← default_world()\n"                                      \
-// "And outer ← the first object in w\n"                                \
-// "And outer.material.ambient ← 1\n"                                   \
-// "And inner ← the second object in w\n"                               \
-// "And inner.material.ambient ← 1\n"                                   \
-// "And r ← ray(point(0, 0, 0.75), vector(0, 0, -1))\n"                 \
-// "When c ← color_at(w, r)\n"                                          \
-// "Then c = inner.material.color"RESET
-// Test(building_world, the_color_with_intersection_behind_ray, .description = scenario11) {
-// 	t_world w = default_world();
-// 	t_sphere *outer = &w.objs[0];
-// 	t_sphere *inner = &w.objs[1];
-// 	outer->material.ambient = 1;
-// 	inner->material.ambient = 1;
-// 	t_ray	r = create_ray((t_tuple){0, 0, 0.75, POINT}, (t_tuple){0, 0, -1, VECTOR});
-// 	t_tuple color;
-//
-// 	color = color_at(&w, &r);
-// 	cr_expect_tuples_eq(color, inner->material.color);
-// }
+
+// Scenario : Shading an intersection 
+#define scenario7 CYAN \
+"\nGiven w ← default_world()\n"                                        \
+"And r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                      \
+"And shape ← the first object in w\n"								   \
+"And i ← ft_lstnew(4, shape)\n"    								   \
+"When prep_comps ← prepare_computations(i, r)\n"                       \
+"And c ← shade_hit(w, prep_comps)\n"                                   \
+"Then c = color(0.38066, 0.47583, 0.2855)"RESET
+Test(building_world, shading_intersection, .description = scenario7) {
+	t_world w;
+	t_ray r;
+	t_sphere s;
+	t_node *i;
+	t_tuple color;
+	t_prep_comps prep_comps;
+	const t_tuple expected_color = {0.38066, 0.47583, 0.2855, COLOR};
+
+	w = default_world();
+	r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	s = *(t_sphere *)w.objs;
+	i = ft_lstnew(4, &s);
+	prep_comps = prepare_computations(i, r);
+
+	color = shade_hit(&w, &prep_comps);
+	cr_expect_tuples_eq(color, expected_color);
+}
+
+//Scenario : Shading an ft_lstnew from the inside
+#define scenario8 CYAN\
+"\nGiven w ← default_world()\n"                                       \
+"And w.light ← point_light(point(0, 0.25, 0), color(1, 1, 1))\n"      \
+"And r ← ray(point(0, 0, 0), vector(0, 0, 1))\n"                      \
+"And shape ← the second object in w\n"                                \
+"And i ← ft_lstnew(0.5, shape)\n"                                  \
+"When prep_comps ← prepare_computations(i, r)\n"                      \
+"And c ← shade_hit(w, prep_comps)\n"                                  \
+"Then c = color(0.90498, 0.90498, 0.90498)"RESET
+Test(building_world, shading_intersection_from_inside, .description = scenario8) {
+	t_world w = default_world();
+	w.light = (t_point_light){
+		.position = {0, 0.25, 0, POINT},
+		.intensity = {1, 1, 1, COLOR},
+	};
+	t_ray 			r = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_sphere 		*s = &w.objs[1];
+	t_node	 		*i = ft_lstnew(0.5, s);
+	t_prep_comps 	prep_comps = prepare_computations(i, r);
+	t_tuple 		color;
+
+	color = shade_hit(&w, &prep_comps);
+	print_tuple(color);
+	cr_expect_tuples_eq(color, (t_tuple){0.90498, 0.90498, 0.90498, COLOR});
+}

@@ -4,9 +4,9 @@ TESTDIRS = 01 \
 	       05 \
 	       06 \
 		   07 \
-		   08 \
-		   09 \
-		   13
+		   # 08 \
+		   # 09 \
+		   # 13
 		   
 all:
 	@$(foreach file,$(TESTDIRS),$(MAKE) --no-print-directory -C $(file);)

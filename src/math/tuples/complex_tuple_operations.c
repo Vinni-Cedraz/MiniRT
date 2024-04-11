@@ -48,13 +48,16 @@ double	dot(const t_tuple a, const t_tuple b)
 
 t_tuple	cross(const t_tuple a, const t_tuple b)
 {
-	const t_tuple	cross_product = {
+	t_tuple	cross_product;
+
+	if (is_point(a.w) || is_point(b.w))
+		return (create_tuple(-42, -42, -42, -42));
+	cross_product = (t_tuple){
 		a.y * b.z - a.z * b.y,
 		a.z * b.x - a.x * b.z,
 		a.x * b.y - a.y * b.x,
-		.w = is_point((short)(a.w + b.w))
+		.w = VECTOR
 	};
-
 	return (cross_product);
 }
 

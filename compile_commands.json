@@ -487,25 +487,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/math/create_intersection/create_intersection.c",
-   "-o",
-   "build/create_intersection.o"
-  ],
-  "file": "./src/math/create_intersection/create_intersection.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/math/create_intersection/get_hit.c",
    "-o",
    "build/get_hit.o"
