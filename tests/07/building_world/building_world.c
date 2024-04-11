@@ -96,50 +96,52 @@ Test(building_world, the_default_world, .description = scenario2) {
  	cr_expect_tuples_eq(prep_comps.eyev, (t_tuple){0, 0, -1, VECTOR});
  	cr_expect_tuples_eq(prep_comps.normalv, (t_tuple){0, 0, -1, VECTOR});
  }
-//
-// // Scenario : The hit, when an ft_lstnew occurs on the outside
-// #define scenario5 CYAN\
-// "\nGiven r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                \
-// "And shape ← create_sphere()\n"                						 \
-// "And i ← ft_lstnew(4, shape)\n"                					 \
-// "When prep_comps ← prepare_computations(i, r)\n"                			 \
-// "Then prep_comps.inside = false"RESET
-// Test(building_world, hit_when_intersection_is_outside, .description = scenario5) {
-// 	t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-// 	t_sphere s = create_sphere();
-// 	t_node *i = ft_lstnew(4, &s);
-// 	const t_prep_comps prep_comps = prepare_computations(i, r);
-//
-// 	cr_expect_eq(prep_comps.inside, FALSE);
-// }
-//
-// // Scenario : The hit, when an ft_lstnew occurs on the inside
-// #define scenario6 CYAN\
-// "And shape ← create_sphere()\n"                  					 \
-// "\nGiven r ← ray(point(0, 0, 0), vector(0, 0, 1))\n"                 \
-// "And i ← ft_lstnew(1, shape)\n"                  				 \
-// "When prep_comps ← prepare_computations(i, r)\n"                  	 \
-// "Then prep_comps.point = point(0, 0, 1)\n"                  		 \
-// "And prep_comps.eyev = vector(0, 0, -1)\n"                  		 \
-// "And prep_comps.inside = true\n"                  					 \
-// "// normal would have been (0, 0, 1), but is inverted!\n"            \
-// "And prep_comps.normalv = vector(0, 0, -1)"RESET
-// Test(building_world, hit_when_intersection_is_inside, .description = scenario6) {
-// 	t_sphere s;
-// 	t_ray r;
-// 	t_node *i;
-// 	t_prep_comps prep_comps;
-//
-//
-// 	s = create_sphere();
-// 	r = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
-// 	i = ft_lstnew(1, &s);
-// 	prep_comps = prepare_computations(i, r);
-// 	cr_expect_tuples_eq(prep_comps.point, (t_tuple){0, 0, 1, POINT});
-// 	cr_expect_tuples_eq(prep_comps.eyev, (t_tuple){0, 0, -1, VECTOR});
-// 	cr_expect_eq(prep_comps.inside, TRUE);
-// 	cr_expect_tuples_eq(prep_comps.normalv, (t_tuple){0, 0, -1, VECTOR});
-// }
+
+// Scenario : The hit, when an intersection occurs on the outside
+#define scenario5 CYAN\
+"\nGiven r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                \
+"And shape ← create_sphere()\n"                						 \
+"And i ← ft_lstnew(4, shape)\n"                					 \
+"When prep_comps ← prepare_computations(i, r)\n"                			 \
+"Then prep_comps.inside = false"RESET
+Test(building_world, hit_when_intersection_is_outside, .description = scenario5) {
+	t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	t_sphere s = create_sphere();
+	t_node *i = ft_lstnew(4, &s);
+	const t_prep_comps prep_comps = prepare_computations(i, r);
+
+	cr_expect_eq(prep_comps.inside, FALSE);
+}
+
+
+// Scenario : The hit, when an intersection occurs on the inside
+#define scenario6 CYAN\
+"And shape ← create_sphere()\n"                  					 \
+"\nGiven r ← ray(point(0, 0, 0), vector(0, 0, 1))\n"                 \
+"And i ← ft_lstnew(1, shape)\n"                  				 \
+"When prep_comps ← prepare_computations(i, r)\n"                  	 \
+"Then prep_comps.point = point(0, 0, 1)\n"                  		 \
+"And prep_comps.eyev = vector(0, 0, -1)\n"                  		 \
+"And prep_comps.inside = true\n"                  					 \
+"// normal would have been (0, 0, 1), but is inverted!\n"            \
+"And prep_comps.normalv = vector(0, 0, -1)"RESET
+Test(building_world, hit_when_intersection_is_inside, .description = scenario6) {
+	t_sphere s;
+	t_ray r;
+	t_node *i;
+	t_prep_comps prep_comps;
+
+
+	s = create_sphere();
+	r = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
+	i = ft_lstnew(1, &s);
+	prep_comps = prepare_computations(i, r);
+	cr_expect_tuples_eq(prep_comps.point, (t_tuple){0, 0, 1, POINT});
+	cr_expect_tuples_eq(prep_comps.eyev, (t_tuple){0, 0, -1, VECTOR});
+	cr_expect_eq(prep_comps.inside, TRUE);
+	cr_expect_tuples_eq(prep_comps.normalv, (t_tuple){0, 0, -1, VECTOR});
+}
+
 //
 // // Scenario : Shading an ft_lstnew
 // #define scenario7 CYAN \
@@ -169,7 +171,7 @@ Test(building_world, the_default_world, .description = scenario2) {
 // 	cr_expect_tuples_eq(color, expected_color);
 // }
 //
-// // Scenario : Shading an ft_lstnew from the inside
+// Scenario : Shading an ft_lstnew from the inside
 // #define scenario8 CYAN\
 // "\nGiven w ← default_world()\n"                                       \
 // "And w.light ← point_light(point(0, 0.25, 0), color(1, 1, 1))\n"      \
@@ -181,7 +183,7 @@ Test(building_world, the_default_world, .description = scenario2) {
 // "Then c = color(0.90498, 0.90498, 0.90498)"RESET
 // Test(building_world, shading_intersection_from_inside, .description = scenario8) {
 // 	t_world w = default_world();
-// 	w.light = &(t_point_light){
+// 	w.light = (t_point_light){
 // 		.position = {0, 0.25, 0, POINT},
 // 		.intensity = {1, 1, 1, COLOR},
 // 	};
@@ -225,7 +227,7 @@ Test(building_world, the_default_world, .description = scenario2) {
 // 	color = color_at(&w, &r);
 // 	cr_expect_tuples_eq(color, (t_tuple){0.38066, 0.47583, 0.2855, COLOR});
 // }
-
+//
 // // Scenario : The color with an ft_lstnew behind the ray
 // #define scenario11 CYAN\
 // "\nGiven w ← default_world()\n"                                      \

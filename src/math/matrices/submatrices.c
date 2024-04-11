@@ -12,7 +12,11 @@
 
 #include "minirt.h"
 
-t_matrix	_submatrix(const t_matrix m, int row_to_del, int col_to_del)
+static _Bool	this_number_must_stay(int row, int col, int del_col,
+					int del_row);
+static _Bool	this_number_must_go(int row, int col, int del_col, int del_row);
+
+t_matrix	_submatrix(const t_matrix m, int del_row, int del_col)
 {
 	t_matrix	submatrix;
 	int			row;
@@ -26,11 +30,11 @@ t_matrix	_submatrix(const t_matrix m, int row_to_del, int col_to_del)
 	{
 		col = -1;
 		res_col = -1;
-		if (row != row_to_del && col != col_to_del)
+		if (this_number_must_stay(row, col, del_col, del_row))
 			++res_row;
 		while (++col < m.size)
 		{
-			if (row == row_to_del || col == col_to_del)
+			if (this_number_must_go(row, col, del_col, del_row))
 				continue ;
 			submatrix.grid[res_row][++res_col] = m.grid[row][col];
 		}
@@ -39,3 +43,19 @@ t_matrix	_submatrix(const t_matrix m, int row_to_del, int col_to_del)
 	return (submatrix);
 }
 
+static _Bool	this_number_must_stay(int row, int col, int del_col,
+		int del_row)
+{
+	if (row != del_row && col != del_col)
+		return (true);
+	else
+		return (false);
+}
+
+static _Bool	this_number_must_go(int row, int col, int del_col, int del_row)
+{
+	if (row == del_row || col == del_col)
+		return (true);
+	else
+		return (false);
+}

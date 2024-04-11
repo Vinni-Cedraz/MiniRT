@@ -21,7 +21,7 @@ t_prep_comps	prepare_computations(t_node *hit, t_ray ray)
 	prep.point = _intersection_coordinates(ray, prep.t);
 	prep.eyev = negate_tuple(ray.direction);
 	prep.normalv = sphere_normal_at(prep.object, prep.point);
-	if(dot(prep.normalv, prep.eyev) < 0)
+	if (dot(prep.normalv, prep.eyev) < 0)
 	{
 		prep.inside = true;
 		prep.normalv = negate_tuple(prep.normalv);

@@ -16,7 +16,7 @@
 
 uint32_t	normalized_color_to_int(const t_tuple color)
 {
-	t_tuple col;
+	t_tuple	col;
 
 	col = color;
 	if (col.x > 1)

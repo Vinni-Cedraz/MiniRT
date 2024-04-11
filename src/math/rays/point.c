@@ -14,7 +14,7 @@
 
 t_tuple	_intersection_coordinates(t_ray ray, double t)
 {
-	return ((t_tuple) {
+	return ((t_tuple){
 		.x = ray.origin.x + ray.direction.x * t,
 		.y = ray.origin.y + ray.direction.y * t,
 		.z = ray.origin.z + ray.direction.z * t,

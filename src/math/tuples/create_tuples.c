@@ -51,11 +51,12 @@ t_tuple	create_tuple(float x, float y, float z, short w)
 t_tuple	add_three_tuples(t_tuple a, t_tuple d, t_tuple s)
 {
 	const t_tuple	result = {
-			a.x + d.x + s.x,
-			a.y + d.y + s.y,
-			a.z + d.z + s.z,
-			COLOR
+		a.x + d.x + s.x,
+		a.y + d.y + s.y,
+		a.z + d.z + s.z,
+		COLOR
 	};
+
 	return (result);
 }
 

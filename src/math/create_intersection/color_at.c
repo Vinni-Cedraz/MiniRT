@@ -16,5 +16,5 @@ t_tuple	color_at(t_world *w, t_ray *r)
 {
 	(void)w;
 	(void)r;
-	return (t_tuple){0};
+	return ((t_tuple){0});
 }

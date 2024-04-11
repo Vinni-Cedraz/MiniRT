@@ -39,7 +39,7 @@ void	create_test_world(t_world *world, const t_tuple from, int num_shapes,
 		...)
 {
 	va_list		shapes;
-	t_sphere		shape;
+	t_sphere	shape;
 	t_camera	camera;
 	int			i;
 

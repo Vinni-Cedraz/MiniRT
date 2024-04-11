@@ -12,17 +12,31 @@
 
 #include "minirt.h"
 
-t_node	_hit(t_intersections intersections)
+static _Bool	t_is_positive(double t);
+static _Bool	this_t_is_the_smallest_positive(double this_t, double smallest);
+
+t_node	_hit(t_intersections lst)
 {
-	t_node			smallest;
+	t_node	smallest;
 
 	smallest.t = __INT_MAX__;
 	smallest.object = NULL;
-	while (intersections.head != NULL)
+	while (lst.head)
 	{
-		if(smallest.t > intersections.head->t && intersections.head->t > 0)
-			smallest = *intersections.head;
-		intersections.head = intersections.head->next;
+		if (this_t_is_the_smallest_positive(lst.head->t, smallest.t))
+			smallest = *lst.head;
+		lst.head = lst.head->next;
 	}
 	return (smallest);
+}
+
+static _Bool	this_t_is_the_smallest_positive(double this_t,
+		double smallest_t)
+{
+	return (this_t < smallest_t && t_is_positive(this_t));
+}
+
+_Bool	t_is_positive(double t)
+{
+	return (t > 0);
 }

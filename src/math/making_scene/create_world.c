@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-static void set_sphere(t_sphere *obj, double scaling, int color);
+static void	set_sphere(t_sphere *obj, double scaling, int color);
 
 t_world	create_world(void)
 {
@@ -21,7 +21,7 @@ t_world	create_world(void)
 
 t_world	default_world(void)
 {
-	t_world scene;
+	t_world	scene;
 
 	scene = create_world();
 	scene.light.position = create_tuple(-10, 10, -10, POINT);
@@ -35,9 +35,8 @@ t_world	default_world(void)
 	return (scene);
 }
 
-static void set_sphere(t_sphere *obj, double scaling, int color)
+static void	set_sphere(t_sphere *obj, double scaling, int color)
 {
-
 	if (scaling)
 	{
 		obj->_t = create_scaling_matrix(scaling, scaling, scaling);
@@ -50,8 +49,9 @@ static void set_sphere(t_sphere *obj, double scaling, int color)
 		obj->material.specular = 0.2;
 	}
 }
+
 void	add_object(t_world *w, t_sphere *new_obj,
-				   int total_nb_of_objects_in_the_world)
+		int total_nb_of_objects_in_the_world)
 {
 	(void)w;
 	(void)new_obj;
