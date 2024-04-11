@@ -65,9 +65,9 @@ Test(building_world, the_default_world, .description = scenario2) {
 
  	cr_expect_eq(xs.count, 4);
  	cr_expect_eq(doubles_eq(xs.head->t, 4), TRUE);
- 	cr_expect_eq(doubles_eq(xs.head->next->t, 6), TRUE);
- 	cr_expect_eq(doubles_eq(xs.head->next->next->t, 4.5), TRUE);
- 	cr_expect_eq(doubles_eq(xs.head->next->next->next->t, 5.5), TRUE);
+ 	cr_expect_eq(doubles_eq(xs.head->next->t, 4.5), TRUE);
+ 	cr_expect_eq(doubles_eq(xs.head->next->next->t, 5.5), TRUE);
+ 	cr_expect_eq(doubles_eq(xs.head->next->next->next->t, 6), TRUE);
  }
 
  // Scenario : Precomputing the state of an ft_lstnew

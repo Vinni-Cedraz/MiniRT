@@ -29,5 +29,4 @@ void	ft_lstadd_back(t_node **lst, t_node *nw)
 	while (temp->next)
 		temp = temp->next;
 	temp->next = nw;
-	nw->next = NULL;
 }
