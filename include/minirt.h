@@ -51,11 +51,6 @@
 # define END_MATRIX -__INT_MAX__
 # define ERROR -42
 
-# define DEFAULT -1
-# define AMBIENT 0
-# define DIFFUSE 1
-# define SPECULAR 2
-# define SHININESS 3
 # define SIZEH 1920
 # define SIZEW 1080
 # define CYAN "\033[36m"
@@ -71,6 +66,9 @@ typedef					void(t_parse_table)(char *, t_node *);
 
 typedef enum e_typ
 {
+	AMBIENT,
+	CAMERA,
+	LIGHT,
 	SPHERE,
 	PLANE,
 	CYLINDER,
@@ -83,6 +81,12 @@ typedef struct s_tuple
 	double				z;
 	short				w;
 }						t_tuple;
+
+typedef struct s_token
+{
+	t_type				type;
+	char				**args;
+}						t_token;
 
 typedef struct s_canvas
 {
