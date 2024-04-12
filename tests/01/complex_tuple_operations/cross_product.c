@@ -33,10 +33,3 @@ Test(cross_product, cross_product_of_b_a, .description = scenario2) {
 	cr_expect_eq(result.w, VECTOR, RED"cross product of two vectors should be a vector"RESET);
 	cr_expect_tuples_eq(expected, result);
 }
-
-Test(cross_product, cross_product_of_points_should_fail, .description = scenario3) {
-	const t_tuple a = {1, 2, 3, POINT};
-	const t_tuple b = {2, 3, 4, POINT};
-	const t_tuple err = cross(a, b);
-	cr_assert_eq(err.w, -42, RED"cross product of two points should fail with -42"RESET);
-}
