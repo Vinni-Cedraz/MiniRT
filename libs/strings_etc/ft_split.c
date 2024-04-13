@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 18:49:25 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 17:44:05 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/13 17:35:46 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ t_split	*ft_split(char const *s, char c)
 		return (NULL);
 	i = -1;
 	tool = (t_split *)malloc(sizeof(t_split));
-	tool->words = ft_word_counter(s, c);
+	tool->count = ft_word_counter(s, c);
 	tool->start = (char *)s;
 	tool->end = tool->start;
-	tool->str_arr = (char **)aux_calloc(tool->words + 1, sizeof(char *));
-	while (++i < tool->words)
+	tool->words = (char **)aux_calloc(tool->count + 1, sizeof(char *));
+	while (++i < tool->count)
 	{
 		while (*tool->end == c && tool->end++)
 			if (*tool->end != c)
@@ -38,7 +38,7 @@ t_split	*ft_split(char const *s, char c)
 		tool->end = ft_memchr(tool->start, c, aux_strlen(tool->start));
 		if (!tool->end)
 			tool->end = tool->end + aux_strlen(tool->start);
-		tool->str_arr[i] = aux_substr(tool->start, 0, tool->end - tool->start);
+		tool->words[i] = aux_substr(tool->start, 0, tool->end - tool->start);
 	}
 	return (tool);
 }

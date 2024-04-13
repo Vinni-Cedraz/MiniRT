@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 09:41:49 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/09/28 15:10:35 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/13 17:36:50 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,8 @@ typedef struct s_plit
 {
 	char				*end;
 	char				*start;
-	char				**str_arr;
-	size_t				words;
-
+	char				**words;
+	size_t				count;
 }						t_split;
 
 typedef struct s_gnl

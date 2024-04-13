@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include <fcntl.h>
+#include "libft.h"
 
 int	open_file(char *file)
 {
@@ -19,7 +20,7 @@ int	open_file(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{
-		printf("Arquivo nao encontrado\n");
+		ft_putstr("Arquivo nao encontrado\n");
 		return (0);
 	}
 	return (fd);

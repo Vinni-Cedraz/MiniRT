@@ -981,25 +981,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/parser/load_file.c",
-   "-o",
-   "build/load_file.o"
-  ],
-  "file": "./src/parser/load_file.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/parser/ambiente_lightning.c",
    "-o",
    "build/ambiente_lightning.o"

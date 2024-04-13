@@ -13,9 +13,8 @@
 #include "minirt.h"
 #include <stdio.h>
 
-void	parse_sphere(char *str, t_node *head)
+void	parse_sphere(t_token token)
 {
+	(void)token;
 	printf("shape\n");
-	(void)head;
-	(void)str;
 }

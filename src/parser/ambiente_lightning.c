@@ -12,9 +12,8 @@
 
 #include "minirt.h"
 
-void	parse_ambient_lightning(char *str, t_node *head)
+void	parse_ambient_lightning(t_token token)
 {
+	(void)token;
 	printf("shape\n");
-	(void)head;
-	(void)str;
 }

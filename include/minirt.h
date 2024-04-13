@@ -62,7 +62,6 @@ typedef double			t_3x3_row[3];
 typedef double			t_2x2_row[2];
 typedef _Bool			t_bool;
 typedef unsigned short	t_short;
-typedef					void(t_parse_table)(char *, t_node *);
 
 typedef enum e_typ
 {
@@ -87,6 +86,8 @@ typedef struct s_token
 	t_type				type;
 	char				**args;
 }						t_token;
+
+typedef					void(t_parse_table)(t_token token);
 
 typedef struct s_canvas
 {
@@ -364,13 +365,13 @@ void					load_objs_into_world(mlx_image_t *image,
 mlx_image_t				**get_image_to_render(mlx_t *mlx);
 void					render_a_default_world(mlx_t *mlx);
 int						endwith(char *str, char *end);
-void					parse_sphere(char *str, t_node *head);
-void					parse_plane(char *str, t_node *head);
-void					parse_light(char *str, t_node *head);
-void					parse_cylinder(char *str, t_node *head);
+void					parse_sphere(t_token token);
+void					parse_plane(t_token token);
+void					parse_light(t_token token);
+void					parse_cylinder(t_token token);
 t_parse_table			**get_parser_table(void);
-void					parse_ambient_lightning(char *str, t_node *head);
-void					parse_camera(char *str, t_node *head);
+void					parse_ambient_lightning(t_token token);
+void					parse_camera(t_token token);
 int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
 									   t_node **head);
