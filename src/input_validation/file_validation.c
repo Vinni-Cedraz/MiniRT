@@ -21,9 +21,8 @@ _Bool	file_validation(int fd)
 	while (line)
 	{
 		splitted = ft_split(line, ' ');
-		check_unique_type_identifiers(line, splitted, fd);
-		check_type_identifiers(line, splitted, fd);
-		ft_putstr(line);
+		if (line[0] != '\n')
+			check_type_identifiers(line, splitted, fd);
 		free(line);
 		ft_free_t_split(splitted);
 		line = ft_gnl(fd);

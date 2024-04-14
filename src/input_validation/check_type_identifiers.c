@@ -59,6 +59,7 @@ void	check_type_identifiers(char *line, t_split *splitted, int fd)
 {
 	const char	identifier[4] = {line[0], line[1], line[2]};
 
+	check_unique_type_identifiers(line, splitted, fd);
 	if (is_unique_type_identifier(line))
 		return ;
 	if (false == is_non_unique_type(identifier))
@@ -70,11 +71,11 @@ void	check_type_identifiers(char *line, t_split *splitted, int fd)
 
 int	is_non_unique_type(const char *line)
 {
-	const char	non_unique_types[4][3] = {"pl ", "sp ", "cy ", "\n"};
+	const char	non_unique_types[3][3] = {"pl ", "sp ", "cy "};
 	int			i;
 
 	i = -1;
-	while (++i < 4)
+	while (++i < 3)
 		if (!ft_strncmp(line, non_unique_types[i], 3))
 			return (true);
 	return (false);
