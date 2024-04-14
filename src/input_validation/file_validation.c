@@ -22,7 +22,10 @@ _Bool	file_validation(int fd)
 	{
 		splitted = ft_split(line, ' ');
 		if (line[0] != '\n')
+		{
 			check_type_identifiers(line, splitted, fd);
+			validate_line(line, splitted, fd);
+		}
 		free(line);
 		ft_free_t_split(splitted);
 		line = ft_gnl(fd);

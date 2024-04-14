@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2024/04/14 14:00:06 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/14 17:19:22 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -399,6 +399,7 @@ void					free_and_exit_error(char *line, t_split *splitted,
 							int fd);
 int						open_file(char *file);
 _Bool					file_validation(int fd);
+void					validate_line(char *line, t_split *splitted, int fd);
 
 static inline void	print_tuple(const t_tuple a)
 {

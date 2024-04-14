@@ -1176,5 +1176,24 @@
    "build/open_file.o"
   ],
   "file": "./src/input_validation/open_file.c"
+ },
+ {
+  "directory": "/home/myuser/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/input_validation/validate_line.c",
+   "-o",
+   "build/validate_line.o"
+  ],
+  "file": "./src/input_validation/validate_line.c"
  }
 ]
