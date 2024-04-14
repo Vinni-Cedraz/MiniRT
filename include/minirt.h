@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2024/03/24 17:35:30 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/14 14:00:06 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,15 @@ typedef enum e_typ
 	PLANE,
 	CYLINDER,
 }						t_type;
+
+typedef struct s_checker
+{
+	char				identifier;
+	t_split				*splitted;
+	int					*counter;
+	char				*line;
+	int					fd;
+}						t_checker;
 
 typedef struct s_tuple
 {
@@ -144,18 +153,18 @@ typedef struct s_lighting
 	t_bool				in_shadow;
 }						t_lighting;
 
-typedef struct	s_types_of_lighting
+typedef struct s_types_of_lighting
 {
-	t_tuple	a;
-	t_tuple	d;
-	t_tuple	s;
-	double	light_dot_normal;
-	double	reflect_dot_eye;
-	double 	factor;
-	t_tuple	effective_color;
-	t_tuple	lightv;
-	t_tuple	reflectv;
-}			t_type_light;
+	t_tuple				a;
+	t_tuple				d;
+	t_tuple				s;
+	double				light_dot_normal;
+	double				reflect_dot_eye;
+	double				factor;
+	t_tuple				effective_color;
+	t_tuple				lightv;
+	t_tuple				reflectv;
+}						t_type_light;
 
 typedef struct s_intersections
 {
@@ -185,7 +194,7 @@ typedef struct s_sphere
 	t_matrix			trans_inv;
 	t_tuple				dis_to_ray;
 	t_tuple				origin;
-	_Bool 				radius;
+	_Bool				radius;
 	int					id;
 	t_type				type;
 	t_material			material;
@@ -238,7 +247,7 @@ typedef struct s_baskara
 typedef struct s_comp
 {
 	double				t;
-	t_sphere				*object;
+	t_sphere			*object;
 	t_tuple				over_point;
 	t_tuple				point;
 	t_tuple				eyev;
@@ -263,7 +272,7 @@ typedef struct s_camera
 
 typedef t_intersections	(*t_intersect_function)(t_sphere **, t_tuple);
 typedef void			(*t_normal_at_function)(const t_sphere *, const t_tuple,
-												t_tuple);
+				t_tuple);
 
 t_tuple					create_point(float x, float y, float z);
 void					tuple_to_arr(t_tuple a, double arr[4]);
@@ -288,7 +297,8 @@ t_matrix				invert_matrix(t_matrix m);
 t_tuple					cross(const t_tuple a, const t_tuple b);
 t_canvas				create_canvas(unsigned short height,
 							unsigned short width);
-void					write_pixel(t_canvas *canvas, int y, int x, t_tuple pixel);
+void					write_pixel(t_canvas *canvas, int y, int x,
+							t_tuple pixel);
 char					*canvas_to_ppm(const t_canvas *canvas);
 void					destroy_canvas(const t_canvas *canvas);
 t_matrix				mult_matrices(t_matrix a, t_matrix b);
@@ -326,10 +336,10 @@ void					set_transform(t_sphere *s, t_matrix t);
 double					_cofac(const t_matrix m, int row, int col);
 t_tuple					sphere_normal_at(t_sphere *sphere, const t_tuple p);
 void					plane_normal_at(const t_sphere *sphere, const t_tuple p,
-										t_tuple res);
+							t_tuple res);
 void					cylinder_normal_at(const t_sphere *cyl, const t_tuple p,
-										   t_tuple res);
-t_tuple 				reflect(t_tuple vector, t_tuple normal);
+							t_tuple res);
+t_tuple					reflect(t_tuple vector, t_tuple normal);
 t_material				create_material(void);
 t_tuple					calculate_lighting(t_lighting *obj);
 t_constr				make_aslib_test(void);
@@ -338,7 +348,8 @@ t_world					default_world(void);
 void					set_material(t_tuple reflections, t_tuple color,
 							t_material *m);
 t_intersections			intersect_world_with_ray(t_world *w, t_ray *r);
-t_prep_comps			prepare_computations(const t_node *intersection, t_ray ray);
+t_prep_comps			prepare_computations(const t_node *intersection,
+							t_ray ray);
 t_tuple					shade_hit(t_world *world, t_prep_comps *comps);
 void					init_tuple(const t_tuple tuple, t_tuple res);
 t_tuple					color_at(t_world *world, t_ray *ray);
@@ -353,7 +364,7 @@ t_canvas				render(t_camera camera, t_world world);
 // t_node			intersect_sphere(t_sphere *obj, t_tuple obj_dist_ray);
 t_intersections			intersect_plane(t_sphere **obj, t_tuple dist);
 t_intersections			intersect_cylinder(t_sphere **obj,
-											  t_tuple obj_dist_to_ray);
+							t_tuple obj_dist_to_ray);
 t_plane					create_plane(void);
 t_cylinder				create_cylinder(void);
 double					_discriminant(t_tuple obj_dist_ray, t_ray ray,
@@ -374,12 +385,20 @@ void					parse_ambient_lightning(t_token token);
 void					parse_camera(t_token token);
 int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
-									   t_node **head);
+							t_node **head);
 t_tuple					add_three_tuples(t_tuple a, t_tuple d, t_tuple s);
 t_bool					is_shadowed(t_world *w, t_tuple p);
 void					add_object(t_world *w, t_sphere *new_obj, int index);
 t_material				create_plane_material(void);
 t_matrix				tuple_to_matrix(t_tuple tuple);
+void					check_unique_type_identifiers(char *line,
+							t_split *splitted, int fd);
+void					check_type_identifiers(char *line, t_split *splitted,
+							int fd);
+void					free_and_exit_error(char *line, t_split *splitted,
+							int fd);
+int						open_file(char *file);
+_Bool					file_validation(int fd);
 
 static inline void	print_tuple(const t_tuple a)
 {
