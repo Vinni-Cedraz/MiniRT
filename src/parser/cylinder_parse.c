@@ -12,9 +12,8 @@
 
 #include "minirt.h"
 
-void	parse_cylinder(char *str, t_intersection *head)
+void	parse_cylinder(t_token token)
 {
+	(void)token;
 	printf("shape\n");
-	(void)head;
-	(void)str;
 }

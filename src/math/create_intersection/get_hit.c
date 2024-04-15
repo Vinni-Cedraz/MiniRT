@@ -12,33 +12,31 @@
 
 #include "minirt.h"
 
-int				_arr_size(const t_intersection *arr[]);
+static _Bool	t_is_positive(double t);
+static _Bool	this_t_is_the_smallest_positive(double this_t, double smallest);
 
-t_intersection	_hit(const t_intersection *arr[])
+t_node	_hit(t_intersections lst)
 {
-	t_intersection			tmp;
-	int						size;
-	int						i;
+	t_node	smallest;
 
-	i = 0;
-	size = _arr_size(arr);
-	tmp.t = __INT_MAX__;
-	tmp.object = NULL;
-	while (i < size)
+	smallest.t = __INT_MAX__;
+	smallest.object = NULL;
+	while (lst.head)
 	{
-		if (arr[i]->t < tmp.t && arr[i]->t > 0)
-			tmp = *arr[i];
-		i++;
+		if (this_t_is_the_smallest_positive(lst.head->t, smallest.t))
+			smallest = *lst.head;
+		lst.head = lst.head->next;
 	}
-	return (tmp);
+	return (smallest);
 }
 
-int	_arr_size(const t_intersection *arr[])
+static _Bool	this_t_is_the_smallest_positive(double this_t,
+		double smallest_t)
 {
-	int	counter;
+	return (this_t < smallest_t && t_is_positive(this_t));
+}
 
-	counter = 0;
-	while (arr[counter] != NULL)
-		counter++;
-	return (counter);
+_Bool	t_is_positive(double t)
+{
+	return (t > 0);
 }

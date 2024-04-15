@@ -487,25 +487,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/math/create_intersection/create_intersection.c",
-   "-o",
-   "build/create_intersection.o"
-  ],
-  "file": "./src/math/create_intersection/create_intersection.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/math/create_intersection/get_hit.c",
    "-o",
    "build/get_hit.o"
@@ -525,11 +506,11 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/math/transform_ray/transform_ray.c",
+   "./src/math/rays/transform_ray.c",
    "-o",
    "build/transform_ray.o"
   ],
-  "file": "./src/math/transform_ray/transform_ray.c"
+  "file": "./src/math/rays/transform_ray.c"
  },
  {
   "directory": "/root/MiniRT",
@@ -981,30 +962,11 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/utils/endwith.c",
+   "./src/input_validation/endwith.c",
    "-o",
    "build/endwith.o"
   ],
-  "file": "./src/utils/endwith.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/load_file.c",
-   "-o",
-   "build/load_file.o"
-  ],
-  "file": "./src/parser/load_file.c"
+  "file": "./src/input_validation/endwith.c"
  },
  {
   "directory": "/root/MiniRT",
@@ -1157,5 +1119,100 @@
    "build/caps.o"
   ],
   "file": "./src/math/cylinder/caps.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/input_validation/check_type_identifiers.c",
+   "-o",
+   "build/check_type_identifiers.o"
+  ],
+  "file": "./src/input_validation/check_type_identifiers.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/input_validation/file_validation.c",
+   "-o",
+   "build/file_validation.o"
+  ],
+  "file": "./src/input_validation/file_validation.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/input_validation/open_file.c",
+   "-o",
+   "build/open_file.o"
+  ],
+  "file": "./src/input_validation/open_file.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/input_validation/validate_line.c",
+   "-o",
+   "build/validate_line.o"
+  ],
+  "file": "./src/input_validation/validate_line.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/tokenizer/tokenizer.c",
+   "-o",
+   "build/tokenizer.o"
+  ],
+  "file": "./src/tokenizer/tokenizer.c"
  }
 ]

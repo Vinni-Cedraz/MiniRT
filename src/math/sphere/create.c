@@ -17,9 +17,13 @@ t_sphere	create_sphere(void)
 	static int	id;
 	t_sphere	sphere;
 
-	sphere.type = SPHERE;
 	sphere.radius = 1;
 	sphere.origin = create_point(0, 0, 0);
 	sphere.id = id++;
+	sphere.type = SPHERE;
+	sphere._t = create_identity_matrix();
+	sphere.inverse_t = create_identity_matrix();
+	sphere.trans_inv = create_identity_matrix();
+	sphere.material = create_material();
 	return (sphere);
 }

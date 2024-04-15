@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_intersection.c                              :+:      :+:    :+:   */
+/*   open_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 17:22:57 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/19 17:23:16 by vcedraz-         ###   ########.fr       */
+/*   Created: 2024/04/12 16:16:19 by vcedraz-          #+#    #+#             */
+/*   Updated: 2024/04/12 16:16:20 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
-#include "minirt.h"
+#include <fcntl.h>
+#include "libft.h"
 
-t_intersections	link_intersection_nodes(t_intersection *arr[])
+int	open_file(char *file)
 {
-	(void)arr;
-	return ((t_intersections){0});
-}
+	int		fd;
 
-t_intersection	intersection(double t, t_sphere *obj)
-{
-	t_intersection	result;
-
-	result.t = t;
-	result.object = obj;
-	return (result);
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+	{
+		ft_putstr("Arquivo nao encontrado\n");
+		return (0);
+	}
+	return (fd);
 }

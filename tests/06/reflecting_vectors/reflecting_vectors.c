@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tester.h"
+#include "../../tester.h"
 #include "minirt.h"
 
 // Scenario : Reflecting a vector approaching at 45°
@@ -26,8 +26,8 @@ Test(reflecting, approaching_at_45, .description = scenario1)
 	t_tuple n = {0, -1, 0, VECTOR};
 	t_tuple res;
 	
-	reflect(v, n, res);
-	cr_expect_tuples_eq(res, (t_tuple){1, 1, 0});
+	res = reflect(v, n);
+	cr_expect_tuples_eq(res, (t_tuple){1, 1, 0, VECTOR});
 }
 
 // Scenario : Reflecting a vector off a slanted surface
@@ -44,6 +44,6 @@ Test(reflecting, reflecting_a_vector, .description = scenario1)
 	t_tuple n = {SQRT_OF_2/2, SQRT_OF_2/2, 0, VECTOR};
 	t_tuple res;
 
-	reflect(v, n, res);
+	res = reflect(v, n);
 	cr_expect_tuples_eq(res, (t_tuple){1, 0, 0, VECTOR});
 }

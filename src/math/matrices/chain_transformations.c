@@ -12,12 +12,12 @@
 
 #include "minirt.h"
 
-int size_array(t_matrix m[]);
+int			size_array(t_matrix m[]);
 
 t_matrix	chain_transformations(t_matrix matrices[])
 {
-	t_matrix result;
-	int size;
+	t_matrix	result;
+	int			size;
 
 	size = size_array(matrices);
 	if (size == 1)
@@ -26,10 +26,10 @@ t_matrix	chain_transformations(t_matrix matrices[])
 	return (result);
 }
 
-int size_array(t_matrix m[])
+int	size_array(t_matrix m[])
 {
-	int i;
-	const t_matrix end = create_identity_matrix();
+	int				i;
+	const t_matrix	end = create_identity_matrix();
 
 	i = 0;
 	while (!matrices_eq(m[i], end))

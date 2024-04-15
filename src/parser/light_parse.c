@@ -12,9 +12,8 @@
 
 #include "minirt.h"
 
-void	parse_light(char *str, t_intersection *head)
+void	parse_light(t_token token)
 {
+	(void)token;
 	printf("shape\n");
-	(void)head;
-	(void)str;
 }

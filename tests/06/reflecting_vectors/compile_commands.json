@@ -1,21 +1,21 @@
 [
  {
-  "directory": "/root/MiniRT/tests/05/identifying_hits",
+  "directory": "/root/MiniRT/tests/06/reflecting_vectors",
   "arguments": [
    "cc",
    "-O3",
    "-lcriterion",
    "-lm",
    "-w",
-   "identifying_hits.c",
+   "reflecting_vectors.c",
    "-I../../",
    "-I../../../include/",
    "-I../../../libs/",
    "../../../libs/*.a",
    "../../../minirt.a",
    "-o",
-   "identifying_hits"
+   "reflecting_vectors"
   ],
-  "file": "identifying_hits.c"
+  "file": "reflecting_vectors.c"
  }
 ]

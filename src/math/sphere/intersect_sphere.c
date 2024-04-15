@@ -12,21 +12,22 @@
 
 #include "minirt.h"
 
-t_intersections	intersect(t_sphere *obj, t_ray r)
+t_intersections	intersect_sphere(t_sphere *obj, t_ray r)
 {
 	t_intersections	result;
 	t_baskara		bask;
 	double			d;
 
+	r = transform_ray(r, obj->inverse_t);
 	obj->dis_to_ray = subtract_tuples(r.origin, obj->origin);
 	d = _discriminant(obj->dis_to_ray, r, &bask);
 	if (d < 0)
 	{
-		result.count = 0;
+		ft_bzero((void *)&result, sizeof(t_intersections));
 		return (result);
 	}
-	result.arr[0] = intersection(((-bask.b - sqrt(d)) / 2 * bask.a), obj);
-	result.arr[1] = intersection(((-bask.b + sqrt(d)) / 2 * bask.a), obj);
+	result.head = ft_lstnew((-bask.b - sqrt(d)) / (2 * bask.a), obj);
+	result.head->next = ft_lstnew((-bask.b + sqrt(d)) / (2 * bask.a), obj);
 	result.count = 2;
 	return (result);
 }

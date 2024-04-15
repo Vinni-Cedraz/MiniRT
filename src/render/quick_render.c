@@ -39,19 +39,19 @@ void	create_test_world(t_world *world, const t_tuple from, int num_shapes,
 		...)
 {
 	va_list		shapes;
-	t_shape		shape;
+	t_sphere	shape;
 	t_camera	camera;
 	int			i;
 
 	i = 0;
 	camera = (t_camera){0};
 	va_start(shapes, num_shapes);
-	world->objs = malloc(sizeof(t_shape) * num_shapes);
+	world->objs = malloc(sizeof(t_sphere) * num_shapes);
 	world->count = num_shapes;
 	while (i < num_shapes)
 	{
-		shape = va_arg(shapes, t_shape);
-		world->objs[i] = *(t_shape *)&shape;
+		shape = va_arg(shapes, t_sphere);
+		world->objs[i] = *(t_sphere *)&shape;
 		i++;
 	}
 	quick_render(world, from, camera);

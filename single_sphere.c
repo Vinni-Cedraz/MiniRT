@@ -1,4 +1,5 @@
-#include "../../tester.h"
+#include "include/minirt.h"
+#include <stdio.h>
 
 #define wall_z 1000
 #define wall_size 2000.0
@@ -12,17 +13,24 @@ static void ray_casting(const double half, const double pixel_size);
 
 t_sphere s;
 const t_tuple ray_origin = {0, 0, -15, POINT};
-t_sphere s;
-mlx_t	mlx;
+mlx_t	*mlx;
+mlx_image_t *image;
 
-Test(putting_it_together, drawing_a_circle) {
+int main() {
     const double half = wall_size / 2;
     const double pixel_size = wall_size / canvas_size;
+
  	s = create_sphere();
+	s.material.color = create_tuple(1, 1, 1, COLOR);
 #define scale 10
     set_transform(&s, create_scaling_matrix(scale, scale, scale));
+	mlx = mlx_init(SIZEW, SIZEH, "MLX42", true);
+	image = mlx_new_image(mlx, SIZEH, SIZEW);
+	if (image)
+		printf("null\n");
     ray_casting(half, pixel_size);
-
+	mlx_image_to_window(mlx, image, 0, 0);
+	mlx_loop(mlx);
 }
 
 static void ray_casting(const double half, const double pixel_size) {
@@ -63,26 +71,20 @@ static t_tuple get_ray_direction(const t_tuple position, const t_tuple ray_origi
     return(normalize(sphere_to_ray));
 }
 
-static void set_material_color(t_material *m, t_tuple color) {
-	m->color.x = color.x;
-	m->color.y = color.y;
-	m->color.z = color.z;
-}
-
 static void paint_a_pixel(int y, int x, t_lighting *lighting, t_ray *r) {
     t_tuple color;
 
     lighting->material = s.material;
-	set_material_color(&lighting->material, (t_tuple){1, 0.2, 1, COLOR});
+	lighting->material.color = (t_tuple){1, 0.2, 1, COLOR};
     lighting->eye_vec = negate_tuple(r->direction);
     lighting->light = (t_point_light){
-			.position = {-10, 10, -10, POINT},
+			.position = {0, 0, -20, POINT},
 			.intensity = {1, 1, 1, COLOR},
 	};
-
     color = calculate_lighting(lighting);
-	mlx_put_pixel(*get_image_to_render(&mlx), x, y, normalized_color_to_int(color));
+	mlx_put_pixel(image, y, x, normalized_color_to_int(color));
 }
+
 //
 // static void normalize_rgb(t_tuple raw_rgb) {
 //     raw_rgb.x = raw_rgb.x / 255;

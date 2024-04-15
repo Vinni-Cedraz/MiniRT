@@ -50,8 +50,7 @@ Test(creating_rays, point_from_distance, .description = scenario2)
 	result = _intersection_coordinates(ray, 0);
 	cr_expect_tuples_eq(result, (t_tuple){2, 3, 4, POINT});
 	result = _intersection_coordinates(ray, 1);
-	cr_expect_tuples_eq(result, (t_tup
-	le){3, 3, 4, POINT});
+	cr_expect_tuples_eq(result, (t_tuple){3, 3, 4, POINT});
 	result = _intersection_coordinates(ray, -1);
 	cr_expect_tuples_eq(result, (t_tuple){1, 3, 4, POINT});
 	result = _intersection_coordinates(ray, 2.5);

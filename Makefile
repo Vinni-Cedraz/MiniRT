@@ -23,19 +23,20 @@ SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c \
 	  complex_tuple_operations.c create_tuples.c mult_matrices.c comparison.c \
 	  transpose_matrix.c determinants.c minors.c submatrices.c chain_transformations.c \
       invert_matrix.c create_matrix.c translation.c rotation.c scaling.c \
-      translate_coordinate.c rays.c point.c create.c create_intersection.c get_hit.c transform_ray.c \
+      translate_coordinate.c rays.c point.c create.c get_hit.c transform_ray.c \
 	  set_transform.c surface_normals.c reflect.c create_material.c calculate_lighting.c \
 	  create_world.c set_material.c intersect_world_with_ray.c prepare_computations.c shade_hit.c \
 	  color_at.c view_transformation.c create_camera.c ray_for_pixel.c render.c intersect_sphere.c \
 	  intersect_plane.c intersect_cylinder.c create_plane.c create_cylinder.c cylinder_setters.c \
-	  shadows.c render_image.c endwith.c load_file.c ambiente_lightning.c camera.c \
-	  cylinder_parse.c light_parse.c plane_parse.c sphere_parse.c parse_functions_table.c caps.c
+	  shadows.c render_image.c endwith.c ambiente_lightning.c camera.c \
+	  cylinder_parse.c light_parse.c plane_parse.c sphere_parse.c parse_functions_table.c caps.c \
+	  check_type_identifiers.c file_validation.c open_file.c validate_line.c tokenizer.c
 
 VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/ppm/ ./src/math/matrices \
 		./src/math/matrix_transformations ./src/math/rays ./src/math/sphere \
-		./src/math/transform_ray ./src/math/light_and_shading/ ./src/math/making_scene/ \
+		./src/math/rays/ ./src/math/light_and_shading/ ./src/math/making_scene/ \
 		./src/math/camera/ ./src/math/cylinder/ ./src/math/plane/ ./src/math/create_intersection/ \
-		./src/render ./src/utils ./src/parser
+		./src/render ./src/input_validation ./src/parser ./src/tokenizer/
 
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/

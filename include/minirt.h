@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2024/03/24 17:35:30 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:18:43 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,8 @@
 # define END_MATRIX -__INT_MAX__
 # define ERROR -42
 
-# define DEFAULT -1
-# define AMBIENT 0
-# define DIFFUSE 1
-# define SPECULAR 2
-# define SHININESS 3
-# define SIZEH 500
-# define SIZEW 500
+# define SIZEH 1920
+# define SIZEW 1080
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -67,10 +62,12 @@ typedef double			t_3x3_row[3];
 typedef double			t_2x2_row[2];
 typedef _Bool			t_bool;
 typedef unsigned short	t_short;
-typedef					void(t_parse_table)(char *, t_intersection *);
 
 typedef enum e_typ
 {
+	AMBIENT,
+	CAMERA,
+	LIGHT,
 	SPHERE,
 	PLANE,
 	CYLINDER,
@@ -83,6 +80,31 @@ typedef struct s_tuple
 	double				z;
 	short				w;
 }						t_tuple;
+
+typedef struct s_token
+{
+	t_type				type;
+	char				args[5][30];
+}						t_token;
+
+typedef struct s_checker
+{
+	t_type				identifier;
+	_Bool				counters[3];
+	t_split				*splitted;
+	char				*line;
+	int					fd;
+}						t_checker;
+
+typedef struct s_tokenizer
+{
+	t_split				*splitted;
+	char				*line;
+	int					fd;
+	t_token				*tokens;
+}						t_tokenizer;
+
+typedef					void(t_parse_table)(t_token token);
 
 typedef struct s_canvas
 {
@@ -97,16 +119,6 @@ typedef struct s_matrix
 	double				grid[4][4];
 	short				size;
 }						t_matrix;
-
-typedef struct s_hearer
-{
-	double				x_to_y;
-	double				x_to_z;
-	double				y_to_x;
-	double				y_to_z;
-	double				z_to_x;
-	double				z_to_y;
-}						t_shearer;
 
 typedef struct s_ray
 {
@@ -143,15 +155,28 @@ typedef struct s_lighting
 {
 	t_material			material;
 	t_point_light		light;
-	t_tuple				position;
+	t_tuple				point;
 	t_tuple				eye_vec;
 	t_tuple				normal_vec;
 	t_bool				in_shadow;
 }						t_lighting;
 
+typedef struct s_types_of_lighting
+{
+	t_tuple				a;
+	t_tuple				d;
+	t_tuple				s;
+	double				light_dot_normal;
+	double				reflect_dot_eye;
+	double				factor;
+	t_tuple				effective_color;
+	t_tuple				lightv;
+	t_tuple				reflectv;
+}						t_type_light;
+
 typedef struct s_intersections
 {
-	t_intersection			arr[2];
+	t_node				*head;
 	t_short				count;
 }						t_intersections;
 
@@ -172,11 +197,15 @@ typedef struct s_shape
 
 typedef struct s_sphere
 {
+	t_matrix			_t;
+	t_matrix			inverse_t;
+	t_matrix			trans_inv;
 	t_tuple				dis_to_ray;
 	t_tuple				origin;
-	_Bool 				radius;
+	_Bool				radius;
 	int					id;
 	t_type				type;
+	t_material			material;
 }						t_sphere;
 
 typedef struct s_plane
@@ -211,8 +240,8 @@ typedef struct s_cylinder
 
 typedef struct s_world
 {
-	t_shape				*objs;
-	t_point_light		*light;
+	t_sphere			*objs;
+	t_point_light		light;
 	int					count;
 }						t_world;
 
@@ -226,7 +255,7 @@ typedef struct s_baskara
 typedef struct s_comp
 {
 	double				t;
-	t_shape				*object;
+	t_sphere			*object;
 	t_tuple				over_point;
 	t_tuple				point;
 	t_tuple				eyev;
@@ -249,8 +278,8 @@ typedef struct s_camera
 	double				world_y;
 }						t_camera;
 
-typedef t_intersections	(*t_intersect_function)(t_shape **, t_tuple);
-typedef void			(*t_normal_at_function)(const t_shape *, const t_tuple,
+typedef t_intersections	(*t_intersect_function)(t_sphere **, t_tuple);
+typedef void			(*t_normal_at_function)(const t_sphere *, const t_tuple,
 				t_tuple);
 
 t_tuple					create_point(float x, float y, float z);
@@ -265,11 +294,11 @@ t_tuple					multiply_tuple_by_scalar(const t_tuple a,
 							const double scalar);
 // this implementation my create an issue in the future
 t_tuple					multiply_tuple_by_matrix(t_tuple a, t_matrix b);
-void					multiply_colors(const t_tuple c1, const t_tuple c2,
-							t_tuple result);
+t_tuple					multiply_colors(const t_tuple a, const t_tuple b);
 t_bool					doubles_eq(double a, double b);
 double					magnitude(const t_tuple vec);
 t_tuple					normalize(const t_tuple vec);
+uint32_t				normalized_color_to_int(t_tuple color);
 short					is_point(short w);
 t_bool					is_invertible(t_matrix m);
 t_matrix				invert_matrix(t_matrix m);
@@ -277,7 +306,7 @@ t_tuple					cross(const t_tuple a, const t_tuple b);
 t_canvas				create_canvas(unsigned short height,
 							unsigned short width);
 void					write_pixel(t_canvas *canvas, int y, int x,
-							const t_four_doubles pixel);
+							t_tuple pixel);
 char					*canvas_to_ppm(const t_canvas *canvas);
 void					destroy_canvas(const t_canvas *canvas);
 t_matrix				mult_matrices(t_matrix a, t_matrix b);
@@ -299,7 +328,6 @@ t_matrix				_submatrix(const t_matrix m, int row_to_del,
 double					_minor(const t_matrix m, int row, int col);
 t_matrix				create_scaling_matrix(const double x, const double y,
 							const double z);
-t_matrix				create_shearing_matrix(t_shearer shearer);
 t_matrix				chain_transformations(t_matrix trix[]);
 void					translate_coordinate(t_four_doubles point,
 							t_canvas *canvas, t_four_doubles res);
@@ -307,34 +335,32 @@ t_tuple					_intersection_coordinates(t_ray ray, double t);
 t_ray					create_ray(t_tuple origin, t_tuple direction);
 t_sphere				create_sphere(void);
 t_bool					tuples_eq(const t_tuple result, const t_tuple expected);
-t_intersections			intersect(t_sphere *obj, t_ray r);
-t_intersections			link_intersection_nodes(t_intersection *arr[]);
-t_intersection			_hit(const t_intersection *arr[]);
+t_intersections			intersect_sphere(t_sphere *obj, t_ray r);
+void					link_intersection_nodes(t_node *head1, t_node *head2);
+t_node					_hit(t_intersections intersections);
 t_matrix				create_identity_matrix(void);
 t_ray					transform_ray(t_ray ray, t_matrix matrix);
-void					set_transform(t_shape *s, t_matrix t);
+void					set_transform(t_sphere *s, t_matrix t);
 double					_cofac(const t_matrix m, int row, int col);
-void					sphere_normal_at(const t_shape *sphere, const t_tuple p,
+t_tuple					sphere_normal_at(t_sphere *sphere, const t_tuple p);
+void					plane_normal_at(const t_sphere *sphere, const t_tuple p,
 							t_tuple res);
-void					plane_normal_at(const t_shape *sphere, const t_tuple p,
+void					cylinder_normal_at(const t_sphere *cyl, const t_tuple p,
 							t_tuple res);
-void					cylinder_normal_at(const t_shape *cyl, const t_tuple p,
-							t_tuple res);
-void					reflect(t_tuple vector, t_tuple normal,
-							t_tuple _return);
+t_tuple					reflect(t_tuple vector, t_tuple normal);
 t_material				create_material(void);
-void					calculate_lighting(t_lighting *obj, t_tuple result);
+t_tuple					calculate_lighting(t_lighting *obj);
 t_constr				make_aslib_test(void);
 t_world					create_world(void);
 t_world					default_world(void);
 void					set_material(t_tuple reflections, t_tuple color,
 							t_material *m);
 t_intersections			intersect_world_with_ray(t_world *w, t_ray *r);
-t_prep_comps			prepare_computations(t_intersection *intersection, t_ray ray);
-void					shade_hit(t_world *world, t_prep_comps *comps,
-							t_tuple result);
+t_prep_comps			prepare_computations(const t_node *intersection,
+							t_ray ray);
+t_tuple					shade_hit(t_world *world, t_prep_comps *comps);
 void					init_tuple(const t_tuple tuple, t_tuple res);
-void					color_at(t_world *world, t_ray *ray, t_tuple color);
+t_tuple					color_at(t_world *world, t_ray *ray);
 t_matrix				view_transform(t_tuple from, t_tuple forward,
 							t_tuple up);
 t_camera				create_camera(int hsize, int vsize,
@@ -343,9 +369,9 @@ t_matrix				create_mat(double arr[]);
 
 t_ray					ray_for_pixel(t_camera c, int x, int y);
 t_canvas				render(t_camera camera, t_world world);
-// t_intersection			intersect(t_sphere *obj, t_tuple obj_dist_ray);
-t_intersections			intersect_plane(t_shape **obj, t_tuple dist);
-t_intersections			intersect_cylinder(t_shape **obj,
+// t_node			intersect_sphere(t_sphere *obj, t_tuple obj_dist_ray);
+t_intersections			intersect_plane(t_sphere **obj, t_tuple dist);
+t_intersections			intersect_cylinder(t_sphere **obj,
 							t_tuple obj_dist_to_ray);
 t_plane					create_plane(void);
 t_cylinder				create_cylinder(void);
@@ -358,23 +384,29 @@ void					load_objs_into_world(mlx_image_t *image,
 mlx_image_t				**get_image_to_render(mlx_t *mlx);
 void					render_a_default_world(mlx_t *mlx);
 int						endwith(char *str, char *end);
-void					parse_sphere(char *str, t_intersection *head);
-void					parse_plane(char *str, t_intersection *head);
-void					parse_light(char *str, t_intersection *head);
-void					parse_cylinder(char *str, t_intersection *head);
+void					parse_sphere(t_token token);
+void					parse_plane(t_token token);
+void					parse_light(t_token token);
+void					parse_cylinder(t_token token);
 t_parse_table			**get_parser_table(void);
-void					parse_ambient_lightning(char *str, t_intersection *head);
-void					parse_camera(char *str, t_intersection *head);
+void					parse_ambient_lightning(t_token token);
+void					parse_camera(t_token token);
 int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
-									   t_intersection **head);
-t_intersection					intersection(double t, t_sphere *obj);
-void					add_three_tuples(t_tuple ambient, t_tuple diffuse,
-							t_tuple specular, t_tuple result);
+							t_node **head);
+t_tuple					add_three_tuples(t_tuple a, t_tuple d, t_tuple s);
 t_bool					is_shadowed(t_world *w, t_tuple p);
-void					add_object(t_world *w, t_shape *new_obj, int index);
+void					add_object(t_world *w, t_sphere *new_obj, int index);
 t_material				create_plane_material(void);
 t_matrix				tuple_to_matrix(t_tuple tuple);
+void					check_unique_type_identifiers(t_checker *c);
+void					check_type_identifiers(t_checker *checker);
+void					free_and_exit_error(char *line, t_split *splitted,
+							int fd);
+int						open_file(char *file);
+t_token					*tokenizer(int fd, int number_of_tokens);
+void					validate_line(char *line, t_split *splitted, int fd);
+_Bool					file_validation(int fd, int *valid_lines);
 
 static inline void	print_tuple(const t_tuple a)
 {

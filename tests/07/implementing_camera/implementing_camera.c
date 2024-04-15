@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 
 // Scenario : Constructing a camera
 #define scenario1                                                                                                      \
@@ -20,7 +20,7 @@ Test(camera, implementing_a_camera, .description = scenario1) {
     cr_expect_eq(c.hsize, 160);
     cr_expect_eq(c.vsize, 120);
     cr_expect_eq(doubles_eq(c.field_of_view, M_PI / 2), TRUE);
-    cr_expect_matrices_eq(c.transform, create_identity_matrix());
+    cr_expect_eq(true, matrices_eq(c.transform, create_identity_matrix()));
 }
 
 // Scenario: The pixel size for a horizontal canvas
@@ -92,7 +92,7 @@ Test(camera, ray_when_camera_transformed, .description = scenario6) {
 }
 
 // Scenario: Rendering a world with a camera
-# define scenario6 CYAN \
+# define scenario7 CYAN \
 "Given w ← default_world()\n"         \
 "And c ← camera(11, 11, π/2)\n"         \
 "And from ← point(0, 0, -5)\n"         \
@@ -113,9 +113,10 @@ Test(camera, rendering_a_world, .description = scenario6)
 	t_tuple to = (t_tuple){0, 0, 0, POINT};
 	t_tuple up = (t_tuple){0, 1, 0, VECTOR};
 
-	subtract_tuples(to, from, forward);
-	normalize(forward, forward);
+	forward = subtract_tuples(to, from);
+	forward = normalize(forward);
 	c.transform = view_transform(from, forward, up);
 	image = render(c, w);
-	cr_expect_eq(tuples_eq(image.pixels[5][5], (t_tuple){0.38066, 0.47583, 0.28550, COLOR}), TRUE);
+	t_tuple color_at_that_pixel = create_tuple(image.pixels[5][5][0], image.pixels[5][5][1], image.pixels[5][5][2], COLOR);
+	cr_expect_eq(tuples_eq(color_at_that_pixel, (t_tuple){0.38066, 0.47583, 0.28550, COLOR}), TRUE);
 }

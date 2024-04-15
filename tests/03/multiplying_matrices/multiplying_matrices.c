@@ -51,6 +51,6 @@ Test(multiplying_matrices, a_matrix_multiplied_by_a_tuple, .description = scenar
 	t_tuple b = {1, 2, 3, POINT};
 	t_tuple expected = {18, 24, 33, 1};
 
-	t_tuple result = multiply_tuple_by_matrix((double[4]){b.x, b.y, b.z, b.w}, A, POINT);
+	t_tuple result = multiply_tuple_by_matrix(b, A);
 	cr_assert_eq(tuples_eq(expected, result), TRUE);
 }

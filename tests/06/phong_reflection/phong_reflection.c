@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 
 #define SQRT_2by2 -0.7071
 #define negSQRT_2by2 -0.7071
@@ -16,6 +16,8 @@ Test(phong_reflection, t_point_light_exists, .description = scenario1) {
         .intensity = {1, 1, 1, COLOR},
         .position = {0, 0, 0, POINT},
     };
+	printf("tem que ser 1: %d\n", light.position.w);
+	printf("tem que ser 2: %d\n", light.intensity.w);
     cr_expect_tuples_eq(light.position, (t_tuple){0, 0, 0, POINT});
     cr_expect_tuples_eq(light.intensity, (t_tuple){1, 1, 1, COLOR});
 }
@@ -36,6 +38,7 @@ Test(phong_reflection, the_default_material, .description = scenario2) {
     cr_expect_eq(doubles_eq(m.diffuse, 0.9), TRUE);
     cr_expect_eq(doubles_eq(m.specular, 0.9), TRUE);
     cr_expect_eq(doubles_eq(m.shininess, 200.0), TRUE);
+	printf("tem que ser 2: %d\n", m.color.w);
     cr_expect_tuples_eq(m.color, (t_tuple){1, 1, 1, COLOR});
 }
 
@@ -53,6 +56,7 @@ Test(phong_reflection, a_sphere_is_created_with_a_default_material_in_it,
     cr_expect_eq(doubles_eq(s.material.diffuse, 0.9), TRUE);
     cr_expect_eq(doubles_eq(s.material.specular, 0.9), TRUE);
     cr_expect_eq(doubles_eq(s.material.shininess, 200.0), TRUE);
+	printf("tem que ser 2: %d\n", default_color.w);
     cr_expect_tuples_eq(s.material.color, default_color);
 }
 
@@ -69,9 +73,9 @@ Test(phong_reflection, a_sphere_is_created_with_a_default_material_in_it,
 Test(phong_reflection, lighting_with_eye_between_light_and_surface, .description = scenario4) {
 	t_tuple				result;
     const t_tuple 		expected_result = {1.9, 1.9, 1.9, COLOR};
-    const t_lighting 	lighting_obj = {
+    t_lighting 	lighting_obj = {
         .material = create_material(),
-        .position = {0, 0, 0, POINT},
+        .point = {0, 0, 0, POINT},
         .eye_vec = {0, 0, -1, VECTOR},
         .normal_vec = {0, 0, -1, VECTOR},
         .light =
@@ -80,7 +84,8 @@ Test(phong_reflection, lighting_with_eye_between_light_and_surface, .description
             .intensity = {1, 1, 1, COLOR}}
 	};
 
-    calculate_lighting(&lighting_obj, result);
+    result = calculate_lighting(&lighting_obj);
+	printf("tem que ser 2: %d\n", result.w);
     cr_expect_tuples_eq(result, expected_result);
 }
 
@@ -95,9 +100,9 @@ Test(phong_reflection, lighting_with_eye_between_light_and_surface, .description
 Test(phong_reflection, lighting_with_eye_between_light_and_surface_offset_45, .description = scenario5) {
 	t_tuple result;
 	const t_tuple expected_result = {1.0, 1.0, 1.0, COLOR};
-	const t_lighting lighting_obj = {
+	t_lighting lighting_obj = {
 		.material = create_material(),
-		.position = {0, 0, 0, POINT},
+		.point = {0, 0, 0, POINT},
 		.eye_vec = {0, SQRT_2by2, negSQRT_2by2, VECTOR},
 		.normal_vec = {0, 0, -1, VECTOR},
 		.light = (t_point_light) {
@@ -105,7 +110,8 @@ Test(phong_reflection, lighting_with_eye_between_light_and_surface_offset_45, .d
 			.intensity = {1, 1, 1, COLOR},
 	}};
 
-	calculate_lighting(&lighting_obj, result);
+	result = calculate_lighting(&lighting_obj);
+	printf("tem que ser 2: %d\n", result.w);
 	cr_expect_tuples_eq(result, expected_result);
 }
 
@@ -122,9 +128,9 @@ Test(phong_reflection, lighting_with_eye_opposite_surface_light_offset_45, .desc
 	const t_tuple 		expected_result = {
 		0.7364, 0.7364, 0.7364, COLOR
 	};
-	const t_lighting 	lighting_obj = {
+	t_lighting 	lighting_obj = {
 		.material = create_material(),
-		.position = {0, 0, 0, POINT},
+		.point = {0, 0, 0, POINT},
 		.eye_vec = {0, 0, -1, VECTOR},
 		.normal_vec = {0, 0, -1, VECTOR},
 		.light = (t_point_light){
@@ -132,8 +138,8 @@ Test(phong_reflection, lighting_with_eye_opposite_surface_light_offset_45, .desc
 			.intensity = {1, 1, 1, COLOR}
 	}};
 
-	calculate_lighting(&lighting_obj, result);
-	print_tuple(result);
+	result = calculate_lighting(&lighting_obj);
+	printf("tem que ser 2: %d\n", result.w);
 	cr_expect_tuples_eq(result, expected_result);
 }
 
@@ -148,9 +154,9 @@ Test(phong_reflection, lighting_with_eye_opposite_surface_light_offset_45, .desc
 Test(phong_reflection, lighting_with_eye_in_the_path_of_reflection_vector, .description = scenario7) {
 	t_tuple result;
 	const t_tuple expected_result = {1.634672, 1.634672, 1.634672, COLOR};
-	const t_lighting lighting_obj = {
+	t_lighting lighting_obj = {
 		.material = create_material(),
-		.position = {0, 0, 0, POINT},
+		.point = {0, 0, 0, POINT},
 		.eye_vec = {0, negSQRT_2by2, negSQRT_2by2, VECTOR},
 		.normal_vec = {0, 0, -1, VECTOR},
 		.light = (t_point_light){
@@ -158,8 +164,8 @@ Test(phong_reflection, lighting_with_eye_in_the_path_of_reflection_vector, .desc
 			.intensity = {1, 1, 1, COLOR}
 	}};
 
-	calculate_lighting(&lighting_obj, result);
-	print_tuple(result);
+	result = calculate_lighting(&lighting_obj);
+	printf("tem que ser 2: %d\n", result.w);
 	cr_expect_tuples_eq(result, expected_result);
 }
 
@@ -178,7 +184,7 @@ Test(phong_reflection, lighting_with_light_behind_surface, .description = scenar
 	};
 	t_lighting lighting_obj = {
 		.material = create_material(),
-		.position = {0, 0, 0, POINT},
+		.point = {0, 0, 0, POINT},
 		.eye_vec = {0, 0, -1, VECTOR},
 		.normal_vec = {0, 0, -1, VECTOR},
 		.light = (t_point_light) {
@@ -186,6 +192,7 @@ Test(phong_reflection, lighting_with_light_behind_surface, .description = scenar
 			.intensity = {1, 1, 1, COLOR}
 	}};
 
-	calculate_lighting(&lighting_obj, result);
+	result = calculate_lighting(&lighting_obj);
+	printf("tem que ser 2: %d\n", result.w);
 	cr_expect_tuples_eq(result, expected_result);
 }

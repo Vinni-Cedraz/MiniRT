@@ -28,7 +28,7 @@ static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple exp
 static inline void set_all_pixels_to_one_color(const t_canvas *c, t_tuple color) {
     for (int y = 0; y < c->height; y++)
         for (int x = 0; x < c->width; x++)
-            write_pixel((t_canvas *)c, y, x, (t_four_doubles){color.x, color.y, color.z, color.w});
+            write_pixel((t_canvas *)c, y, x, color);
 }
 
 static inline void create_ppm_file(t_constr ppm_string, t_constr filename) {
@@ -61,11 +61,11 @@ void create_test_world(t_world *world, const t_tuple from, int num_shapes, ...) 
     va_list shapes;
     va_start(shapes, num_shapes);
 
-    world->objs = malloc(sizeof(t_shape) * num_shapes);
+    world->objs = malloc(sizeof(t_sphere) * num_shapes);
     world->count = num_shapes;
     for (int i = 0; i < num_shapes; i++) {
-        t_shape shape = va_arg(shapes, t_shape);
-        world->objs[i] = *(t_shape *)&shape;
+        t_sphere shape = va_arg(shapes, t_sphere);
+        world->objs[i] = *(t_sphere *)&shape;
     }
     quick_render(world, from);
     va_end(shapes);

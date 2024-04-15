@@ -12,9 +12,14 @@
 
 #include "minirt.h"
 
-void	color_at(t_world *w, t_ray *r, t_tuple color)
+t_tuple	color_at(t_world *w, t_ray *r)
 {
-	(void)w;
-	(void)r;
-	(void)color;
+	t_prep_comps			prep;
+	const t_intersections	lst = intersect_world_with_ray(w, r);
+	const t_node			hit = _hit(lst);
+
+	if (hit.object == NULL)
+		return (create_tuple(0, 0, 0, COLOR));
+	prep = prepare_computations(&hit, *r);
+	return (shade_hit(w, &prep));
 }

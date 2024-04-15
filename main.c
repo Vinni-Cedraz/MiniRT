@@ -1,14 +1,13 @@
-#include "minirt.h"
+#include "include/minirt.h"
 
-int main () {
-	t_sphere s = create_sphere();
+int main ()
+{
+ 	t_world w = default_world();
+ 	t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
+ 	t_intersections xs = intersect_world_with_ray(&w, &r);
 
-	t_intersection i1 = intersection(2, &s);
-	t_intersection i2 = intersection(1, &s);
-	t_intersection i3 = intersection(-2, &s);
-	const t_intersection *arr[] = {
-		&i1, &i2, &i3, NULL
-	};
-	const t_intersection hit = _hit(arr);
-	printf("%f\n", hit.t);
-}
+	printf("xs.count -> %d\n", xs.count);
+	printf("first > %f\n", xs.head->t);
+	printf("second > %f\n", xs.head->next->t);
+	printf("third > %f\n", xs.head->next->next->t);
+	printf("fourth > %f\n", xs.head->next->next->next->t);

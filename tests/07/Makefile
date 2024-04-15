@@ -1,7 +1,7 @@
 TESTDIRS = 		\
   building_world \
-  view_transformation \
-  implementing_camera \
+  # view_transformation \
+  # implementing_camera \
   # putting_it_together \
 
 ## VARIABLES

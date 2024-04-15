@@ -12,9 +12,8 @@
 
 #include "minirt.h"
 
-void	parse_camera(char *str, t_intersection *head)
+void	parse_camera(t_token token)
 {
-	printf("shape\n");
-	(void)head;
-	(void)str;
+	(void)token;
+	printf("camera\n");
 }

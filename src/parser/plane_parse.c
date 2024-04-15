@@ -12,9 +12,8 @@
 
 #include "minirt.h"
 
-void	parse_plane(char *str, t_intersection *head)
+void	parse_plane(t_token token)
 {
+	(void)token;
 	printf("shape\n");
-	(void)head;
-	(void)str;
 }

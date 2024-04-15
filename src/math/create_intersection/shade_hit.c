@@ -12,9 +12,14 @@
 
 #include "minirt.h"
 
-void	shade_hit(t_world *world, t_prep_comps *comps, t_tuple result)
+t_tuple	shade_hit(t_world *world, t_prep_comps *comps)
 {
-	(void)world;
-	(void)comps;
-	(void)result;
+	return (calculate_lighting(&(t_lighting){
+			comps->object->material,
+			world->light,
+			comps->point,
+			comps->eyev,
+			comps->normalv,
+			is_shadowed(world, comps->over_point),
+		}));
 }

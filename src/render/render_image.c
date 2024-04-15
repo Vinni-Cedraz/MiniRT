@@ -14,23 +14,26 @@
 
 #define MULTI 255
 
-uint32_t	normalized_color_to_int(t_four_doubles col)
+uint32_t	normalized_color_to_int(const t_tuple color)
 {
-	if (col[X] > 1)
-		col[X] = 1;
-	if (col[Y] > 1)
-		col[Y] = 1;
-	if (col[Z] > 1)
-		col[Z] = 1;
-	return (((uint32_t)(col[X] * MULTI) << 24) | ((uint32_t)(col[Y]
-				* MULTI) << 16) | ((uint32_t)(col[Z] * MULTI) << 8) | 0xff);
+	t_tuple	col;
+
+	col = color;
+	if (col.x > 1)
+		col.x = 1;
+	if (col.y > 1)
+		col.y = 1;
+	if (col.z > 1)
+		col.z = 1;
+	return (((uint32_t)(col.x * MULTI) << 24) | ((uint32_t)(col.y
+				* MULTI) << 16) | ((uint32_t)(col.z * MULTI) << 8) | 0xff);
 }
 
 void	load_objs_into_world(mlx_image_t *image, t_camera camera,
 		t_world *world)
 {
 	t_ray			ray;
-	t_four_doubles	col;
+	t_tuple			col;
 	int				x;
 	int				y;
 
@@ -41,7 +44,7 @@ void	load_objs_into_world(mlx_image_t *image, t_camera camera,
 		while (x < camera.hsize)
 		{
 			ray = ray_for_pixel(camera, y, x);
-			color_at(world, &ray, (t_tuple){col[X], col[Y], col[Z], col[W]});
+			col = color_at(world, &ray);
 			mlx_put_pixel(image, x, y, normalized_color_to_int(col));
 			x++;
 		}

@@ -12,26 +12,31 @@
 
 #include "minirt.h"
 
-void	sphere_normal_at( \
-		const t_shape *sphere, const t_tuple wrld_p, t_tuple normal)
+t_tuple	sphere_normal_at(t_sphere *sphere, const t_tuple world_point)
 {
-	(void)sphere;
-	(void)wrld_p;
-	(void)normal;
+	t_tuple	object_normal;
+	t_tuple	world_normal;
+	t_tuple	object_point;
+
+	object_point = multiply_tuple_by_matrix(world_point, sphere->inverse_t);
+	object_normal = subtract_tuples(object_point, sphere->origin);
+	world_normal = multiply_tuple_by_matrix(object_normal, sphere->trans_inv);
+	world_normal.w = VECTOR;
+	return (normalize(world_normal));
 }
 
 void	plane_normal_at( \
-		const t_shape *plane, const t_tuple wrld_p, t_tuple res)
+		const t_sphere *plane, const t_tuple world_point, t_tuple res)
 {
 	(void)plane;
-	(void)wrld_p;
+	(void)world_point;
 	(void)res;
 }
 
 void	cylinder_normal_at( \
-		const t_shape *cyl, const t_tuple wrld_p, t_tuple res)
+		const t_sphere *cyl, const t_tuple world_point, t_tuple res)
 {
 	(void)cyl;
-	(void)wrld_p;
+	(void)world_point;
 	(void)res;
 }
