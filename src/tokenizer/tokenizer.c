@@ -12,8 +12,10 @@
 
 #include "minirt.h"
 
-static void		set_token(t_token *token, t_split *spl);
+static void		set_token(t_token *token, t_split *spl, int fd, char *line);
 static t_token	*safe_calloc(size_t size, int fd);
+static void		init_token_args(t_split *spl, int fd, char *ln, t_token *token);
+static void		incorrect_line_size_error(char *ln, t_split *spl, int fd);
 
 t_token	*tokenizer(int fd, int number_of_tokens)
 {
@@ -30,7 +32,7 @@ t_token	*tokenizer(int fd, int number_of_tokens)
 		splitted = ft_split(line, ' ');
 		if (line[0] != '\n')
 		{
-			set_token(&tokens[idx], splitted);
+			set_token(&tokens[idx], splitted, fd, line);
 			idx++;
 		}
 		free(line);
@@ -41,28 +43,45 @@ t_token	*tokenizer(int fd, int number_of_tokens)
 	return (tokens);
 }
 
-static void	set_token(t_token *token, t_split *spl)
+static void	set_token(t_token *token, t_split *spl, int fd, char *line)
 {
 	static char		identifier[] = {'A', 'C', 'L', 's', 'p', 'c'};
 	static t_type	type[] = {AMBIENT, CAMERA, LIGHT, SPHERE, PLANE, CYLINDER};
-	int				len;
 	int				i;
-	int				j;
 
 	i = -1;
-	j = -1;
 	while (++i < 6)
 	{
 		if (spl->words[0][0] == identifier[i])
 		{
 			token->type = type[i];
-			while (++j < (int)spl->count)
-			{
-				len = ft_strlen(spl->words[j + 1]);
-				ft_strlcpy(token->args[j], spl->words[j + 1], len + 1);
-			}
+			init_token_args(spl, fd, line, token);
 		}
 	}
+}
+
+static void	init_token_args(t_split *spl, int fd, char *ln, t_token *token)
+{
+	static int	nb_of_args[] = {2, 3, 2, 3, 3, 5};
+	int			len;
+	int			idx;
+
+	idx = -1;
+	if ((int)spl->count - 1 != nb_of_args[token->type])
+		incorrect_line_size_error(ln, spl, fd);
+	while (++idx < (int)spl->count)
+	{
+		len = ft_strlen(spl->words[idx + 1]);
+		if (len > 24)
+			incorrect_line_size_error(ln, spl, fd);
+		ft_strlcpy(token->args[idx], spl->words[idx + 1], len + 1);
+	}
+}
+
+static void	incorrect_line_size_error(char *ln, t_split *spl, int fd)
+{
+	printf(RED "Error, incorrect line: %s\n" RESET, ln);
+	free_and_exit_error(ln, spl, fd);
 }
 
 static t_token	*safe_calloc(size_t size, int fd)

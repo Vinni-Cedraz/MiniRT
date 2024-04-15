@@ -16,6 +16,8 @@ static inline void	aux_free_arr(char **arr, void **aux);
 
 void	ft_free_t_split(t_split *split)
 {
+	if (!split)
+		return ;
 	aux_free_arr(split->words, (void **)split->words);
 	free(split);
 }

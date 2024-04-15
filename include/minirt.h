@@ -93,7 +93,7 @@ typedef struct s_tuple
 typedef struct s_token
 {
 	t_type				type;
-	char				args[5][15];
+	char				args[5][25];
 }						t_token;
 
 typedef					void(t_parse_table)(t_token token);
