@@ -18,26 +18,37 @@ static t_ray	compute_ray_direction(t_camera *c);
 
 t_ray	ray_for_pixel(t_camera camera, int pixel_y, int pixel_x)
 {
-	set_world_yx(&camera);
+	t_ray	ray;
+
 	set_offset_yx(&camera, pixel_y, pixel_x);
-	compute_ray_direction(&camera);
-	return ((t_ray){0});
+	set_world_yx(&camera);
+	ray = compute_ray_direction(&camera);
+	return (ray);
 }
 
 static void	set_offset_yx(t_camera *c, int pixel_y, int pixel_x)
 {
-	(void)c;
-	(void)pixel_y;
-	(void)pixel_x;
+	c->xoffset = (pixel_x + 0.5) * c->pixel_size;
+	c->yoffset = (pixel_y + 0.5) * c->pixel_size;
 }
 
 static void	set_world_yx(t_camera *c)
 {
-	(void)c;
+	c->world_x = c->half_width - c->xoffset;
+	c->world_y = c->half_height - c->yoffset;
 }
 
 static t_ray	compute_ray_direction(t_camera *c)
 {
-	(void)c;
-	return ((t_ray){0});
+	t_ray		r;
+	t_tuple		pixel;
+	t_tuple		point;
+	t_matrix	invert_m;
+
+	invert_m = invert_matrix(c->transform);
+	point = create_point(c.world_x, c->world_y, -1);
+	pixel = multiply_tuple_by_matrix(invert_m, point);
+	r.origin = multiply_tuple_by_matrix(invert_m, create_point(0, 0, 0));
+	r.direction = normalize(subtract_tuples(pixel, r.origin));
+	return (r);
 }
