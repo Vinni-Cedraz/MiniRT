@@ -12,11 +12,6 @@
 					    "And cross(b, a, result)\n"                 \
 						"Then result == vector(1, -2, 1)"RESET
 
-#define scenario3 CYAN"\nGiven a ← point(1, 2, 3)\n"                \
-					    "And b ← point(2, 3, 4)\n"                  \
-					    "And res = cross(b, a)\n"		            \
-						"Then res.w = -42"RESET
-
 const t_tuple a = {1, 2, 3, VECTOR};
 const t_tuple b = {2, 3, 4, VECTOR};
 

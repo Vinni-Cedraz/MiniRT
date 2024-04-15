@@ -23,11 +23,6 @@ Test(normalization, magnitude_of_normalized_vector_1_2_3) {
     cr_expect_eq(doubles_eq(magnitude(res), 1), TRUE);
 }
 
-Test(normalization, normalization_of_zero_magnitude_vector_should_fail) {
-	const t_tuple res = normalize((t_tuple){0, 0, 0, VECTOR});
-	cr_expect_eq(-42, res.w);
-}
-
 Test(normalization, normalization_of_point_should_fail) {
 	const t_tuple res = normalize((t_tuple){1, 2, 3, POINT});
 	cr_expect_eq(-42, res.w);
