@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_functions_table.c                            :+:      :+:    :+:   */
+/*   parse_tokens_and_draw_image.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: johmatos <johmatos@student.42sp.org.br >   +#+  +:+       +#+        */
+/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 10:54:26 by johmatos          #+#    #+#             */
-/*   Updated: 2024/04/15 18:21:46 by vcedraz-         ###   ########.fr       */
+/*   Created: 2024/04/15 18:20:31 by vcedraz-          #+#    #+#             */
+/*   Updated: 2024/04/15 18:28:50 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_parse_table	**get_parser_table(void)
+void	parse_tokens_and_draw_image(t_token *tokens)
 {
-	static t_parse_table	*table[10] = {
-		&parse_ambient_lightning,
-		&parse_camera,
-		&parse_light,
-		&parse_sphere,
-		&parse_plane,
-		&parse_cylinder,
-		NULL,
-	};
-
-	return (table);
+	(void)tokens;
 }

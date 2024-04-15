@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2024/04/14 19:18:43 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/15 18:21:05 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -407,6 +407,9 @@ int						open_file(char *file);
 t_token					*tokenizer(int fd, int number_of_tokens);
 void					validate_line(char *line, t_split *splitted, int fd);
 _Bool					file_validation(int fd, int *valid_lines);
+void					print_tokens(t_token *tokens, int nb);
+void					parse_tokens_and_draw_image(t_token *tokens);
+
 
 static inline void	print_tuple(const t_tuple a)
 {

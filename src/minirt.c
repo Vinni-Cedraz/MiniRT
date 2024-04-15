@@ -12,8 +12,6 @@
 
 #include "../include/minirt.h"
 
-static void	print_tokens(t_token *tokens, int nb);
-
 int	main(int argc, char **argv)
 {
 	int		fd;
@@ -30,7 +28,6 @@ int	main(int argc, char **argv)
 	file_validation(fd, &number_of_tokens);
 	fd = open_file(argv[1]);
 	tokens = tokenizer(fd, number_of_tokens);
-	print_tokens(tokens, number_of_tokens);
 	free(tokens);
 }
 
