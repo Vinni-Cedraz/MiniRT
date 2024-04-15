@@ -12,7 +12,8 @@
 
 #include "minirt.h"
 
-static void	set_token(t_token *token, t_split *spl);
+static void		set_token(t_token *token, t_split *spl);
+static t_token	*safe_calloc(size_t size, int fd);
 
 t_token	*tokenizer(int fd, int number_of_tokens)
 {
@@ -22,7 +23,7 @@ t_token	*tokenizer(int fd, int number_of_tokens)
 	int		idx;
 
 	idx = 0;
-	tokens = ft_calloc(sizeof(t_token), number_of_tokens + 1);
+	tokens = safe_calloc(number_of_tokens, fd);
 	line = ft_gnl(fd);
 	while (line)
 	{
@@ -62,4 +63,18 @@ static void	set_token(t_token *token, t_split *spl)
 			}
 		}
 	}
+}
+
+static t_token	*safe_calloc(size_t size, int fd)
+{
+	t_token	*tokens;
+
+	tokens = calloc(sizeof(t_token), size + 1);
+	if (tokens == NULL)
+	{
+		close(fd);
+		perror("calloc failed");
+		exit(1);
+	}
+	return (tokens);
 }
