@@ -11,4 +11,3 @@ int main ()
 	printf("second > %f\n", xs.head->next->t);
 	printf("third > %f\n", xs.head->next->next->t);
 	printf("fourth > %f\n", xs.head->next->next->next->t);
-}
