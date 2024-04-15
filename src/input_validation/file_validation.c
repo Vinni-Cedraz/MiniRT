@@ -18,6 +18,8 @@ _Bool	file_validation(int fd, int *valid_lines)
 	t_split	*splitted;
 
 	line = ft_gnl(fd);
+	if (!line)
+		free_and_exit_error(line, NULL, fd);
 	while (line)
 	{
 		splitted = ft_split(line, ' ');

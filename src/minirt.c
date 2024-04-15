@@ -47,7 +47,7 @@ void	print_tokens(t_token *tokens, int nb)
 		printf("Token %d:\n", i + 1);
 		printf("  Type: %s\n", identifiers[tokens[i].type]);
 		j = 0;
-		while (j < 5 && tokens[i].args[j][0] != '\0')
+		while (&tokens[i] && j < 5 && tokens[i].args[j][0] != '\0')
 		{
 			printf("  Arg %d: %s\n", j + 1, tokens[i].args[j]);
 			j++;
