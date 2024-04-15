@@ -6,13 +6,13 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:24:25 by vcedraz-          #+#    #+#             */
-/*   Updated: 2024/04/14 14:00:05 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:47:35 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-_Bool	file_validation(int fd)
+_Bool	file_validation(int fd, int *valid_lines)
 {
 	char	*line;
 	t_split	*splitted;
@@ -23,6 +23,7 @@ _Bool	file_validation(int fd)
 		splitted = ft_split(line, ' ');
 		if (line[0] != '\n')
 		{
+			(*valid_lines)++;
 			check_type_identifiers(line, splitted, fd);
 			validate_line(line, splitted, fd);
 		}

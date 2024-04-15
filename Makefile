@@ -30,13 +30,13 @@ SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c \
 	  intersect_plane.c intersect_cylinder.c create_plane.c create_cylinder.c cylinder_setters.c \
 	  shadows.c render_image.c endwith.c ambiente_lightning.c camera.c \
 	  cylinder_parse.c light_parse.c plane_parse.c sphere_parse.c parse_functions_table.c caps.c \
-	  check_type_identifiers.c file_validation.c open_file.c validate_line.c
+	  check_type_identifiers.c file_validation.c open_file.c validate_line.c tokenizer.c
 
 VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/ppm/ ./src/math/matrices \
 		./src/math/matrix_transformations ./src/math/rays ./src/math/sphere \
 		./src/math/rays/ ./src/math/light_and_shading/ ./src/math/making_scene/ \
 		./src/math/camera/ ./src/math/cylinder/ ./src/math/plane/ ./src/math/create_intersection/ \
-		./src/render ./src/input_validation ./src/parser
+		./src/render ./src/input_validation ./src/parser ./src/tokenizer/
 
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/

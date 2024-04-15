@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2024/04/14 17:19:22 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:18:43 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ typedef struct s_tuple
 typedef struct s_token
 {
 	t_type				type;
-	char				**args;
+	char				args[5][15];
 }						t_token;
 
 typedef					void(t_parse_table)(t_token token);
@@ -398,8 +398,9 @@ void					check_type_identifiers(char *line, t_split *splitted,
 void					free_and_exit_error(char *line, t_split *splitted,
 							int fd);
 int						open_file(char *file);
-_Bool					file_validation(int fd);
+t_token					*tokenizer(int fd, int number_of_tokens);
 void					validate_line(char *line, t_split *splitted, int fd);
+_Bool					file_validation(int fd, int *valid_lines);
 
 static inline void	print_tuple(const t_tuple a)
 {

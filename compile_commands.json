@@ -1195,5 +1195,24 @@
    "build/validate_line.o"
   ],
   "file": "./src/input_validation/validate_line.c"
+ },
+ {
+  "directory": "/home/myuser/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/tokenizer/tokenizer.c",
+   "-o",
+   "build/tokenizer.o"
+  ],
+  "file": "./src/tokenizer/tokenizer.c"
  }
 ]
