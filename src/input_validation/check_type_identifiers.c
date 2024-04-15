@@ -14,22 +14,34 @@
 
 static _Bool	is_unique_type_identifier(char *line);
 static int		is_non_unique_type(const char *line);
-static void		check_counter(t_checker checker);
+static void		check_counter(t_checker *checker);
 
-void	check_unique_type_identifiers(char *line, t_split *splitted, int fd)
+void	check_type_identifiers(t_checker *c)
 {
-	static int	counter_ambient;
-	static int	counter_camera;
-	static int	counter_light;
+	const char	identifier[4] = {c->line[0], c->line[1], c->line[2]};
 
-	if (is_unique_type_identifier(line) == false)
+	check_unique_type_identifiers(c);
+	if (is_unique_type_identifier(c->line))
 		return ;
-	if (line[0] == 'A')
-		check_counter((t_checker){'A', splitted, &counter_ambient, line, fd});
-	if (line[0] == 'C')
-		check_counter((t_checker){'C', splitted, &counter_camera, line, fd});
-	if (line[0] == 'L')
-		check_counter((t_checker){'L', splitted, &counter_light, line, fd});
+	if (false == is_non_unique_type(identifier))
+	{
+		printf(RED"Error, unknown identifier: '%s'\n" RESET, identifier);
+		free_and_exit_error(c->line, c->splitted, c->fd);
+	}
+}
+
+void	check_unique_type_identifiers(t_checker *c)
+{
+	static const char	identifiers[] = {'A', 'C', 'L'};
+	int					idx;
+
+	idx = -1;
+	if (false == is_unique_type_identifier(c->line))
+		return ;
+	while (++idx < 3)
+		if (c->line[0] == identifiers[idx])
+			c->identifier = idx;
+	check_counter(c);
 }
 
 _Bool	is_unique_type_identifier(char *line)
@@ -44,29 +56,17 @@ _Bool	is_unique_type_identifier(char *line)
 	return (false);
 }
 
-void	check_counter(t_checker checker)
+void	check_counter(t_checker *checker)
 {
-	if ((*checker.counter) > 0)
+	static const char	id[] = {'A', 'C', 'L'};
+
+	if ((checker->counters[checker->identifier]) == true)
 	{
 		printf(RED "Error: The file can only have a single '%c' identifier\n"
-			RESET, checker.identifier);
-		free_and_exit_error(checker.line, checker.splitted, checker.fd);
+			RESET, id[checker->identifier]);
+		free_and_exit_error(checker->line, checker->splitted, checker->fd);
 	}
-	(*checker.counter)++;
-}
-
-void	check_type_identifiers(char *line, t_split *splitted, int fd)
-{
-	const char	identifier[4] = {line[0], line[1], line[2]};
-
-	check_unique_type_identifiers(line, splitted, fd);
-	if (is_unique_type_identifier(line))
-		return ;
-	if (false == is_non_unique_type(identifier))
-	{
-		printf(RED"Error, unknown identifier: '%s'\n" RESET, identifier);
-		free_and_exit_error(line, splitted, fd);
-	}
+	(checker->counters[checker->identifier]) = true;
 }
 
 int	is_non_unique_type(const char *line)

@@ -89,9 +89,9 @@ typedef struct s_token
 
 typedef struct s_checker
 {
-	char				identifier;
+	t_type				identifier;
+	_Bool				counters[3];
 	t_split				*splitted;
-	int					*counter;
 	char				*line;
 	int					fd;
 }						t_checker;
@@ -399,10 +399,8 @@ t_bool					is_shadowed(t_world *w, t_tuple p);
 void					add_object(t_world *w, t_sphere *new_obj, int index);
 t_material				create_plane_material(void);
 t_matrix				tuple_to_matrix(t_tuple tuple);
-void					check_unique_type_identifiers(char *line,
-							t_split *splitted, int fd);
-void					check_type_identifiers(char *line, t_split *splitted,
-							int fd);
+void					check_unique_type_identifiers(t_checker *c);
+void					check_type_identifiers(t_checker *checker);
 void					free_and_exit_error(char *line, t_split *splitted,
 							int fd);
 int						open_file(char *file);
