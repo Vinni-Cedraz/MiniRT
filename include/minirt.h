@@ -73,15 +73,6 @@ typedef enum e_typ
 	CYLINDER,
 }						t_type;
 
-typedef struct s_checker
-{
-	char				identifier;
-	t_split				*splitted;
-	int					*counter;
-	char				*line;
-	int					fd;
-}						t_checker;
-
 typedef struct s_tuple
 {
 	double				x;
@@ -93,8 +84,25 @@ typedef struct s_tuple
 typedef struct s_token
 {
 	t_type				type;
-	char				args[5][25];
+	char				args[5][30];
 }						t_token;
+
+typedef struct s_checker
+{
+	char				identifier;
+	t_split				*splitted;
+	int					*counter;
+	char				*line;
+	int					fd;
+}						t_checker;
+
+typedef struct s_tokenizer
+{
+	t_split				*splitted;
+	char				*line;
+	int					fd;
+	t_token				*tokens;
+}						t_tokenizer;
 
 typedef					void(t_parse_table)(t_token token);
 
