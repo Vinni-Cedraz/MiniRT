@@ -46,9 +46,9 @@ static t_ray	compute_ray_direction(t_camera *c)
 	t_matrix	invert_m;
 
 	invert_m = invert_matrix(c->transform);
-	point = create_point(c.world_x, c->world_y, -1);
-	pixel = multiply_tuple_by_matrix(invert_m, point);
-	r.origin = multiply_tuple_by_matrix(invert_m, create_point(0, 0, 0));
+	point = create_point(c->world_x, c->world_y, -1);
+	pixel = multiply_tuple_by_matrix(point, invert_m);
+	r.origin = multiply_tuple_by_matrix(create_point(0, 0, 0), invert_m);
 	r.direction = normalize(subtract_tuples(pixel, r.origin));
 	return (r);
 }
