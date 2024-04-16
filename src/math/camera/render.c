@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_canvas	render(t_camera camera, t_world world)
+void	render(mlx_image_t *ima t_camera camera, t_world world)
 {
 	int		x;
 	int		y;
@@ -27,7 +27,9 @@ t_canvas	render(t_camera camera, t_world world)
 		{
 			ray = ray_for_pixel(camera, x, y);
 			color = color_at(world, ray);
-			
+			mlx_put_pixel(ima, x, y, normalized_color_to_int(color));
+			x++;
 		}
+		y++;
 	}
 }
