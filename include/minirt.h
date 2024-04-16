@@ -368,7 +368,7 @@ t_camera				create_camera(int hsize, int vsize,
 t_matrix				create_mat(double arr[]);
 
 t_ray					ray_for_pixel(t_camera c, int x, int y);
-t_canvas				render(t_camera camera, t_world world);
+void					render(mlx_image_t *image, t_camera camera, t_world world);
 // t_node			intersect_sphere(t_sphere *obj, t_tuple obj_dist_ray);
 t_intersections			intersect_plane(t_sphere **obj, t_tuple dist);
 t_intersections			intersect_cylinder(t_sphere **obj,
