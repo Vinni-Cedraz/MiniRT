@@ -99,5 +99,6 @@ static t_token	*safe_calloc(size_t size, int fd)
 		perror("calloc failed");
 		exit(1);
 	}
+	tokens[size].type = END;
 	return (tokens);
 }

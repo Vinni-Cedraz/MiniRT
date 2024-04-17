@@ -71,6 +71,7 @@ typedef enum e_typ
 	SPHERE,
 	PLANE,
 	CYLINDER,
+	END
 }						t_type;
 
 typedef struct s_tuple
@@ -368,8 +369,7 @@ t_camera				create_camera(int hsize, int vsize,
 t_matrix				create_mat(double arr[]);
 
 t_ray					ray_for_pixel(t_camera c, int x, int y);
-void					render(mlx_image_t *image, t_camera camera,
-							t_world world);
+void					render(mlx_image_t *image, t_world world);
 // t_node			intersect_sphere(t_sphere *obj, t_tuple obj_dist_ray);
 t_intersections			intersect_plane(t_sphere **obj, t_tuple dist);
 t_intersections			intersect_cylinder(t_sphere **obj,
@@ -391,7 +391,7 @@ void					parse_plane(t_token token, t_world *w);
 void					parse_light(t_token token, t_world *w);
 void					parse_cylinder(t_token token, t_world *w);
 void					parse_camera(t_token token, t_world *w);
-t_parse_table			**get_parser_table(void);
+t_parse_table			**parse_functions(void);
 int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
 							t_node **head);
@@ -409,7 +409,7 @@ t_token					*tokenizer(int fd, int number_of_tokens);
 void					validate_line(char *line, t_split *splitted, int fd);
 _Bool					file_validation(int fd, int *valid_lines);
 void					print_tokens(t_token *tokens, int nb);
-void					parse_tokens_into_world(t_token *tokens, t_world *w);
+t_world					parse_tokens_into_world(t_token *tokens);
 
 
 static inline void	print_tuple(const t_tuple a)

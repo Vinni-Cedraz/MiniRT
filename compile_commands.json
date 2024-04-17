@@ -791,25 +791,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/math/camera/render.c",
-   "-o",
-   "build/render.o"
-  ],
-  "file": "./src/math/camera/render.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/math/sphere/intersect_sphere.c",
    "-o",
    "build/intersect_sphere.o"
@@ -1214,5 +1195,43 @@
    "build/parse_sphere.o"
   ],
   "file": "./src/parser/parse_sphere.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/render/render.c",
+   "-o",
+   "build/render.o"
+  ],
+  "file": "./src/render/render.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/parser/parse_tokens_into_world.c",
+   "-o",
+   "build/parse_tokens_into_world.o"
+  ],
+  "file": "./src/parser/parse_tokens_into_world.c"
  }
 ]

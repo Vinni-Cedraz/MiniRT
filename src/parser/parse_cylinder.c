@@ -14,7 +14,12 @@
 
 void	parse_cylinder(t_token token, t_world *w)
 {
+	static const char types[6][20] = {
+		"parse_ambient", "parse_camera", "parse_light",
+		"parse_sphere", "parse_plane", "parse_cylinder"
+	};
+
+	printf("%s\n", types[token.type]);
 	(void)token;
 	(void)w;
-	printf("shape\n");
 }

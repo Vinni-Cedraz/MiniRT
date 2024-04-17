@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void	render(mlx_image_t *image, t_camera camera, t_world world)
+void	render(mlx_image_t *image, t_world world)
 {
 	int		x;
 	int		y;
@@ -20,12 +20,12 @@ void	render(mlx_image_t *image, t_camera camera, t_world world)
 	t_tuple	color;
 
 	y = 0;
-	while (y < camera.vsize - 1)
+	while (y < world.camera.vsize - 1)
 	{
 		x = 0;
-		while (x < camera.hsize - 1)
+		while (x < world.camera.hsize - 1)
 		{
-			ray = ray_for_pixel(camera, y, x);
+			ray = ray_for_pixel(world.camera, y, x);
 			color = color_at(&world, &ray);
 			mlx_put_pixel(image, x, y, normalized_color_to_int(color));
 			x++;

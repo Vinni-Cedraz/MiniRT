@@ -12,16 +12,15 @@
 
 #include "minirt.h"
 
-t_parse_table	**get_parser_table(void)
+t_parse_table	**parse_functions(void)
 {
-	static t_parse_table	*table[10] = {
+	static t_parse_table	*table[6] = {
 		&parse_ambient_light,
 		&parse_camera,
 		&parse_light,
 		&parse_sphere,
 		&parse_plane,
 		&parse_cylinder,
-		NULL,
 	};
 
 	return (table);
