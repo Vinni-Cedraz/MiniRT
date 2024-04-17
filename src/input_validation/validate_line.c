@@ -70,5 +70,5 @@ static _Bool	has_consecutive_separators(const char *string)
 
 static _Bool	is_separator(char ch)
 {
-	return (ch == ',' || ch == '.' || ch == '-');
+	return (ch == ',' || ch == '.');
 }

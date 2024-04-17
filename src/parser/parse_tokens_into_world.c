@@ -12,15 +12,28 @@
 
 #include "minirt.h"
 
+static void	check_error(int error, const t_token *tokens);
+
 t_world	parse_tokens_into_world(t_token *tokens)
 {
+	const t_token	*free_tokens = tokens;
 	static t_world	world;
+	int				error;
 
-	world.camera = create_camera(SIZEH, SIZEW, M_PI / 3);
 	while (tokens->type != END)
 	{
-		parse_functions()[tokens->type](*tokens, &world);
+		error = parse_functions()[tokens->type](*tokens, &world);
+		check_error(error, free_tokens);
 		tokens++;
 	}
 	return (world);
+}
+
+static void	check_error(int error, const t_token *tokens)
+{
+	if (error == ERROR)
+	{
+		free((void *)tokens);
+		exit(EXIT_FAILURE);
+	}
 }

@@ -16,8 +16,8 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "../libs/libft.h"
 # include "../libs/libft_bonus.h"
+#include <float.h>
 # include <math.h>
-# include <stdint.h>
 # include <stdio.h>
 
 static const char types[6][20] = {
@@ -53,7 +53,7 @@ static const char types[6][20] = {
 # define ROW 0
 # define COL 1
 
-# define END_MATRIX -__INT_MAX__
+# define END_MATRIX -DBL_MAX
 # define ERROR -42
 
 # define SIZEH 1920 / 4
@@ -276,7 +276,7 @@ typedef struct s_world
 	int					count;
 }						t_world;
 
-typedef					void(t_parse_table)(t_token token, t_world *);
+typedef					int(t_parse_table)(t_token token, t_world *);
 typedef t_intersections	(*t_intersect_function)(t_sphere **, t_tuple);
 typedef void			(*t_normal_at_function)(const t_sphere *, const t_tuple,
 				t_tuple);
@@ -375,12 +375,12 @@ void					load_objs_into_world(mlx_image_t *image,
 mlx_image_t				**get_image_to_render(mlx_t *mlx);
 void					render_a_default_world(mlx_t *mlx);
 int						endwith(char *str, char *end);
-void					parse_ambient_light(t_token token, t_world *w);
-void					parse_sphere(t_token token, t_world *w);
-void					parse_plane(t_token token, t_world *w);
-void					parse_light(t_token token, t_world *w);
-void					parse_cylinder(t_token token, t_world *w);
-void					parse_camera(t_token token, t_world *w);
+int						parse_ambient_light(t_token token, t_world *w);
+int						parse_sphere(t_token token, t_world *w);
+int						parse_plane(t_token token, t_world *w);
+int						parse_light(t_token token, t_world *w);
+int						parse_cylinder(t_token token, t_world *w);
+int						parse_camera(t_token token, t_world *w);
 t_parse_table			**parse_functions(void);
 int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
@@ -400,6 +400,8 @@ void					validate_line(char *line, t_split *splitted, int fd);
 _Bool					file_validation(int fd, int *valid_lines);
 t_world					parse_tokens_into_world(t_token *tokens);
 t_tuple					parse_tuple(char *str, short type);
+_Bool					is_a_normalized_vector(t_tuple result);
+double					parse_double(char *str);
 
 
 static inline void	print_tuple(const t_tuple a)
