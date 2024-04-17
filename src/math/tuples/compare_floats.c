@@ -20,6 +20,14 @@ t_bool	doubles_eq(double a, double b)
 		return (TRUE);
 }
 
+t_bool	low_precision_doubles_eq(double a, double b)
+{
+	if (fabs(a - b) > 1e-2)
+		return (FALSE);
+	else
+		return (TRUE);
+}
+
 t_bool	tuples_eq(const t_tuple result, const t_tuple expected)
 {
 	if (doubles_eq(result.x, expected.x) == FALSE)
@@ -33,8 +41,7 @@ t_bool	tuples_eq(const t_tuple result, const t_tuple expected)
 	return (TRUE);
 }
 
-_Bool	is_a_normalized_vector(t_tuple result)
+int	is_a_normalized_vector(t_tuple result)
 {
-	return (1 == magnitude(result));
+	return (low_precision_doubles_eq(1, magnitude(result)));
 }
-

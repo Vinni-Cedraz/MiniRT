@@ -12,35 +12,27 @@
 
 #include "minirt.h"
 
-static int	validate_tuple(t_tuple tuple, int commas, short type);
+static int	validate_tuple(char *str, t_tuple tuple, short type);
+static int	count_commas(char *str);
 static int	validate_color(t_tuple tuple);
 
 t_tuple	parse_tuple(char *str, short type)
 {
 	t_tuple	result;
 	int		i;
-	int		commas;
 
 	i = 0;
-	commas = 0;
 	result.x = ft_atof(str);
 	while (str[i] && str[i] != ',')
-	{
 		i++;
-		if (str[i] == ',')
-			commas++;
-	}
 	result.y = ft_atof(str + ++i);
 	while (str[i] && str[i] != ',')
-	{
 		i++;
-		if (str[i] == ',')
-			commas++;
-	}
 	result.z = ft_atof(str + i + 1);
 	result.w = type;
-	if (ERROR == validate_tuple(result, commas, type))
+	if (ERROR == validate_tuple(str, result, type))
 		result.w = ERROR;
+	print_tuple(result);
 	return (result);
 }
 
@@ -67,9 +59,9 @@ double	parse_double(char *str)
 	return (ft_atof(str));
 }
 
-static int	validate_tuple(t_tuple tuple, int commas, short type)
+static int	validate_tuple(char *str, t_tuple tuple, short type)
 {
-	if (commas != 2)
+	if (count_commas(str) != 2)
 	{
 		printf(RED "Error: Invalid number of commas in tuple.\n" RESET);
 		return (ERROR);
@@ -77,6 +69,7 @@ static int	validate_tuple(t_tuple tuple, int commas, short type)
 	if (type == VECTOR && !is_a_normalized_vector(tuple))
 	{
 		printf(RED "Error: Vector is not normalized.\n" RESET);
+		print_tuple(tuple);
 		return (ERROR);
 	}
 	if (type == COLOR && !validate_color(tuple))
@@ -96,4 +89,20 @@ static int	validate_color(t_tuple tuple)
 	if (tuple.z < 0 || tuple.z > 255)
 		return (0);
 	return (1);
+}
+
+static int	count_commas(char *str)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		if (str[i] == ',')
+			count++;
+		i++;
+	}
+	return (count);
 }

@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-int parse_cylinder(t_token token, t_world *w)
+int	parse_cylinder(t_token token, t_world *w)
 {
 	printf("%s\n", types[token.type]);
 	(void)token;

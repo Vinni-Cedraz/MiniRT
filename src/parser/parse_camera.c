@@ -19,9 +19,9 @@ int	parse_camera(t_token token, t_world *w)
 	const double	fov = parse_double(token.args[2]);
 
 	if (from.w == ERROR || forward.w == ERROR || fov == -DBL_MAX)
-		return (true);
+		return (ERROR);
 	printf("%s\n", types[token.type]);
 	w->camera = create_camera(SIZEW, SIZEH, fov);
 	w->camera.transform = view_transform(from, forward, w->camera.up);
-	return (false);
+	return (0);
 }

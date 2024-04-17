@@ -12,7 +12,6 @@
 
 #include "minirt.h"
 
-static _Bool	t_is_positive(double t);
 static _Bool	this_t_is_the_smallest_positive(double this_t, double smallest);
 
 t_node	_hit(t_intersections lst)
@@ -33,10 +32,5 @@ t_node	_hit(t_intersections lst)
 static _Bool	this_t_is_the_smallest_positive(double this_t,
 		double smallest_t)
 {
-	return (this_t < smallest_t && t_is_positive(this_t));
-}
-
-_Bool	t_is_positive(double t)
-{
-	return (t > 0);
+	return (this_t < smallest_t && this_t > 0);
 }

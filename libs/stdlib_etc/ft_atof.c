@@ -12,71 +12,30 @@
 
 #include "libft.h"
 
-static double	ft_process_integer_part(const char *str, int *index, int sign);
-static double	ft_process_fractional_part(const char *str, int *index);
-
 double	ft_atof(const char *str)
 {
-	int		i;
 	int		sign;
-	double	integer_part;
-	double	fractional_part;
-
-	i = 0;
-	sign = 1;
-	while (is_whitespace(str[i]))
-		i++;
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	integer_part = ft_process_integer_part(str, &i, sign);
-	if (str[i] == '.')
-	{
-		i++;
-		fractional_part = ft_process_fractional_part(str, &i);
-		return (integer_part + fractional_part);
-	}
-	else
-		return (integer_part);
-}
-
-int	is_whitespace(char c)
-{
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\r')
-		return (1);
-	else
-		return (0);
-}
-
-static double	ft_process_integer_part(const char *str, int *index, int sign)
-{
-	double	result;
-
-	result = 0.0;
-	while (ft_isdigit(str[*index]))
-	{
-		result = result * 10.0 + (str[*index] - '0');
-		(*index)++;
-	}
-	return (sign * result);
-}
-
-static double	ft_process_fractional_part(const char *str, int *index)
-{
 	double	result;
 	double	power;
+	int		i;
 
-	result = 0.0;
-	power = 10.0;
-	while (ft_isdigit(str[*index]))
+	sign = 1;
+	result = 0;
+	power = 1;
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		if (str[i++] == '-')
+			sign *= -1;
+	while (ft_isdigit(str[i]))
+		result = result * 10 + str[i++] - '0';
+	if (str[i] == '.')
+		i++;
+	while (ft_isdigit(str[i]))
 	{
-		result = result * 10.0 + (str[*index] - '0');
-		power *= 10.0;
-		(*index)++;
+		result = result * 10 + str[i++] - '0';
+		power *= 10;
 	}
-	return (result / power);
+	return (sign * result / power);
 }

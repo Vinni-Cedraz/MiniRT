@@ -100,14 +100,6 @@ Test(intersecting_spheres, sphere_is_behind_the_ray, .description = scenario5) {
 		"And i.this_obj_intersections[0].t = sqrt(3)\n" \
 		"And i.this_obj_intersections[1].t = sqrt(3)\n"RESET
 
-t_bool	low_precision_doubles_eq(double a, double b)
-{
-	if (fabs(a - b) > 1e-2)
-		return (FALSE);
-	else
-		return (TRUE);
-}
-
 Test(intersecting_spheres, the_ray_is_diagonal_and_tangencies_the_sphere, .description = scenario6) {
 	const t_tuple ray_origin = create_point(0, 0, -2);
 	const t_tuple intersection_t = create_point(0, 0.8660254037844, -0.5);

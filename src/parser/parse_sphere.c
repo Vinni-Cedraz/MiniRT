@@ -13,7 +13,7 @@
 #include "minirt.h"
 #include <stdio.h>
 
-int parse_sphere(t_token token, t_world *w)
+int	parse_sphere(t_token token, t_world *w)
 {
 	(void)w;
 	(void)token;

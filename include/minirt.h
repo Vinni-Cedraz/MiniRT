@@ -400,8 +400,9 @@ void					validate_line(char *line, t_split *splitted, int fd);
 _Bool					file_validation(int fd, int *valid_lines);
 t_world					parse_tokens_into_world(t_token *tokens);
 t_tuple					parse_tuple(char *str, short type);
-_Bool					is_a_normalized_vector(t_tuple result);
+int						is_a_normalized_vector(t_tuple result);
 double					parse_double(char *str);
+t_bool					low_precision_doubles_eq(double a, double b);
 
 
 static inline void	print_tuple(const t_tuple a)
