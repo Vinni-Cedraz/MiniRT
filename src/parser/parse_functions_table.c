@@ -6,7 +6,7 @@
 /*   By: johmatos <johmatos@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:54:26 by johmatos          #+#    #+#             */
-/*   Updated: 2024/04/15 18:21:46 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/17 11:26:20 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_parse_table	**get_parser_table(void)
 {
 	static t_parse_table	*table[10] = {
-		&parse_ambient_lightning,
+		&parse_ambient_light,
 		&parse_camera,
 		&parse_light,
 		&parse_sphere,

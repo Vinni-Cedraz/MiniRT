@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder_parse.c                                   :+:      :+:    :+:   */
+/*   parse_tokens_into_world.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: johmatos <johmatos@student.42sp.org.br >   +#+  +:+       +#+        */
+/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 11:04:32 by johmatos          #+#    #+#             */
-/*   Updated: 2023/12/05 11:04:49 by johmatos         ###   ########.fr       */
+/*   Created: 2024/04/17 11:24:11 by vcedraz-          #+#    #+#             */
+/*   Updated: 2024/04/17 11:27:00 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	parse_cylinder(t_token token)
+void	parse_tokens_into_world(t_token *tokens, t_world *w)
 {
-	(void)token;
-	printf("shape\n");
+	(void)w;
+	(void)tokens;
 }

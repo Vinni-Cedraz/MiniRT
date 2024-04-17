@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2024/04/15 18:21:05 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/17 11:26:19 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,6 @@ typedef struct s_tokenizer
 	int					fd;
 	t_token				*tokens;
 }						t_tokenizer;
-
-typedef					void(t_parse_table)(t_token token);
 
 typedef struct s_canvas
 {
@@ -279,6 +277,7 @@ typedef struct s_world
 	int					count;
 }						t_world;
 
+typedef					void(t_parse_table)(t_token token, t_world *);
 typedef t_intersections	(*t_intersect_function)(t_sphere **, t_tuple);
 typedef void			(*t_normal_at_function)(const t_sphere *, const t_tuple,
 				t_tuple);
@@ -386,13 +385,13 @@ void					load_objs_into_world(mlx_image_t *image,
 mlx_image_t				**get_image_to_render(mlx_t *mlx);
 void					render_a_default_world(mlx_t *mlx);
 int						endwith(char *str, char *end);
-void					parse_sphere(t_token token);
-void					parse_plane(t_token token);
-void					parse_light(t_token token);
-void					parse_cylinder(t_token token);
+void					parse_ambient_light(t_token token, t_world *w);
+void					parse_sphere(t_token token, t_world *w);
+void					parse_plane(t_token token, t_world *w);
+void					parse_light(t_token token, t_world *w);
+void					parse_cylinder(t_token token, t_world *w);
+void					parse_camera(t_token token, t_world *w);
 t_parse_table			**get_parser_table(void);
-void					parse_ambient_lightning(t_token token);
-void					parse_camera(t_token token);
 int						parse_file(char *file);
 void					intersect_caps(const t_cylinder *cyl, const t_ray r,
 							t_node **head);
@@ -410,7 +409,7 @@ t_token					*tokenizer(int fd, int number_of_tokens);
 void					validate_line(char *line, t_split *splitted, int fd);
 _Bool					file_validation(int fd, int *valid_lines);
 void					print_tokens(t_token *tokens, int nb);
-void					parse_tokens_and_draw_image(t_token *tokens);
+void					parse_tokens_into_world(t_token *tokens, t_world *w);
 
 
 static inline void	print_tuple(const t_tuple a)

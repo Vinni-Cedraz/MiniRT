@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_tokens_and_draw_image.c                      :+:      :+:    :+:   */
+/*   parse_cylinder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br >   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 18:20:31 by vcedraz-          #+#    #+#             */
-/*   Updated: 2024/04/15 18:28:50 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/12/05 11:04:32 by johmatos          #+#    #+#             */
+/*   Updated: 2024/04/17 11:27:18 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	parse_tokens_and_draw_image(t_token *tokens)
+void	parse_cylinder(t_token token, t_world *w)
 {
-	(void)tokens;
+	(void)token;
+	(void)w;
+	printf("shape\n");
 }
