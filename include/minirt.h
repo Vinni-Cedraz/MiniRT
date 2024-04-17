@@ -51,8 +51,8 @@
 # define END_MATRIX -__INT_MAX__
 # define ERROR -42
 
-# define SIZEH 1920
-# define SIZEW 1080
+# define SIZEH 1920 / 4
+# define SIZEW 1080 / 4
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -238,13 +238,6 @@ typedef struct s_cylinder
 	t_ray				r;
 }						t_cylinder;
 
-typedef struct s_world
-{
-	t_sphere			*objs;
-	t_point_light		light;
-	int					count;
-}						t_world;
-
 typedef struct s_baskara
 {
 	double				a;
@@ -277,6 +270,14 @@ typedef struct s_camera
 	double				world_x;
 	double				world_y;
 }						t_camera;
+
+typedef struct s_world
+{
+	t_sphere			*objs;
+	t_point_light		light;
+	t_camera			camera;
+	int					count;
+}						t_world;
 
 typedef t_intersections	(*t_intersect_function)(t_sphere **, t_tuple);
 typedef void			(*t_normal_at_function)(const t_sphere *, const t_tuple,
@@ -368,7 +369,8 @@ t_camera				create_camera(int hsize, int vsize,
 t_matrix				create_mat(double arr[]);
 
 t_ray					ray_for_pixel(t_camera c, int x, int y);
-void					render(mlx_image_t *image, t_camera camera, t_world world);
+void					render(mlx_image_t *image, t_camera camera,
+							t_world world);
 // t_node			intersect_sphere(t_sphere *obj, t_tuple obj_dist_ray);
 t_intersections			intersect_plane(t_sphere **obj, t_tuple dist);
 t_intersections			intersect_cylinder(t_sphere **obj,

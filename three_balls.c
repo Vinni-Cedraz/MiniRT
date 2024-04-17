@@ -1,18 +1,18 @@
 #include "minirt.h"
 
 int main() {
-    t_sphere left_ball = create_sphere();
-    t_sphere right_ball = create_sphere();
-    t_sphere middle_ball = create_sphere();
-    t_sphere floor = create_sphere();
-    t_sphere left_wall = create_sphere();
-    t_sphere right_wall = create_sphere();
-    t_world world;
-    t_matrix translation = create_translation_matrix((t_tuple){0, 0, -1, POINT});
-    t_matrix scaling = create_scaling_matrix(10, 0.01, 10);
-	mlx_t	*mlx;
+    t_sphere 	left_ball = create_sphere();
+    t_sphere 	right_ball = create_sphere();
+    t_sphere 	middle_ball = create_sphere();
+    t_sphere 	floor = create_sphere();
+    t_sphere 	left_wall = create_sphere();
+    t_sphere 	right_wall = create_sphere();
+    t_world		world;
+    t_matrix 	translation = create_translation_matrix((t_tuple){0, 0, -1, POINT});
+    t_matrix 	scaling = create_scaling_matrix(10, 0.01, 10);
+	mlx_t		*mlx;
 
-	mlx = mlx_init(SIZEW, SIZEH, "TRinim", true);
+	mlx = mlx_init(SIZEH, SIZEW, "TRinim", true);
 	if (!mlx)
 	{
 		puts(mlx_strerror(mlx_errno));
@@ -20,13 +20,16 @@ int main() {
 	}
     // FLOOR
     floor.material = create_material();
-    floor.material.color = create_tuple(1, 0.9, 0.9, COLOR);
+    floor.material.color = create_tuple(1, 0, 0, COLOR);
     floor.material.specular = 0;
     set_transform((t_sphere *)&floor, create_scaling_matrix(10, 0.01, 10));
 
     // BALLS
+	
+
     set_transform((t_sphere *)&right_ball, mult_matrices(create_translation_matrix((t_tuple){1.15, 0.7, 0.5, POINT}),
                                                         create_scaling_matrix(0.5, 0.5, 0.5)));
+	right_ball.material.color = (t_tuple){0, 0, 1, COLOR};
 
     set_transform((t_sphere *)&middle_ball, mult_matrices(create_translation_matrix((t_tuple){0, 0.8, 0.1, POINT}),
                                                          create_scaling_matrix(0.7, 0.7, 0.7)));
