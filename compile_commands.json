@@ -69,44 +69,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/math/canvas/create_canvas.c",
-   "-o",
-   "build/create_canvas.o"
-  ],
-  "file": "./src/math/canvas/create_canvas.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/canvas/write_pixel.c",
-   "-o",
-   "build/write_pixel.o"
-  ],
-  "file": "./src/math/canvas/write_pixel.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/math/tuples/basic_tuple_operations.c",
    "-o",
    "build/basic_tuple_operations.o"
@@ -397,25 +359,6 @@
    "build/scaling.o"
   ],
   "file": "./src/math/matrix_transformations/scaling.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/canvas/translate_coordinate.c",
-   "-o",
-   "build/translate_coordinate.o"
-  ],
-  "file": "./src/math/canvas/translate_coordinate.c"
  },
  {
   "directory": "/root/MiniRT",
@@ -1233,5 +1176,24 @@
    "build/parse_tokens_into_world.o"
   ],
   "file": "./src/parser/parse_tokens_into_world.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/parser/parse_utils.c",
+   "-o",
+   "build/parse_utils.o"
+  ],
+  "file": "./src/parser/parse_utils.c"
  }
 ]

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2024/04/17 11:26:19 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:26:57 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 # include <math.h>
 # include <stdint.h>
 # include <stdio.h>
+
+static const char types[6][20] = {
+		"parse_ambient", "parse_camera", "parse_light",
+		"parse_sphere", "parse_plane", "parse_cylinder"
+};
 
 # define CYAN "\033[36m"
 # define EPSILON 1e-5
@@ -104,14 +109,6 @@ typedef struct s_tokenizer
 	int					fd;
 	t_token				*tokens;
 }						t_tokenizer;
-
-typedef struct s_canvas
-{
-	unsigned short		width;
-	unsigned short		height;
-	unsigned short		size;
-	t_four_doubles		**pixels;
-}						t_canvas;
 
 typedef struct s_matrix
 {
@@ -268,6 +265,7 @@ typedef struct s_camera
 	double				yoffset;
 	double				world_x;
 	double				world_y;
+	t_tuple				up;
 }						t_camera;
 
 typedef struct s_world
@@ -304,12 +302,6 @@ short					is_point(short w);
 t_bool					is_invertible(t_matrix m);
 t_matrix				invert_matrix(t_matrix m);
 t_tuple					cross(const t_tuple a, const t_tuple b);
-t_canvas				create_canvas(unsigned short height,
-							unsigned short width);
-void					write_pixel(t_canvas *canvas, int y, int x,
-							t_tuple pixel);
-char					*canvas_to_ppm(const t_canvas *canvas);
-void					destroy_canvas(const t_canvas *canvas);
 t_matrix				mult_matrices(t_matrix a, t_matrix b);
 t_bool					matrices_eq(t_matrix a, t_matrix b);
 double					dot(const t_tuple a, const t_tuple b);
@@ -330,8 +322,6 @@ double					_minor(const t_matrix m, int row, int col);
 t_matrix				create_scaling_matrix(const double x, const double y,
 							const double z);
 t_matrix				chain_transformations(t_matrix trix[]);
-void					translate_coordinate(t_four_doubles point,
-							t_canvas *canvas, t_four_doubles res);
 t_tuple					_intersection_coordinates(t_ray ray, double t);
 t_ray					create_ray(t_tuple origin, t_tuple direction);
 t_sphere				create_sphere(void);
@@ -408,8 +398,8 @@ int						open_file(char *file);
 t_token					*tokenizer(int fd, int number_of_tokens);
 void					validate_line(char *line, t_split *splitted, int fd);
 _Bool					file_validation(int fd, int *valid_lines);
-void					print_tokens(t_token *tokens, int nb);
 t_world					parse_tokens_into_world(t_token *tokens);
+t_tuple					parse_tuple(char *str, short type);
 
 
 static inline void	print_tuple(const t_tuple a)

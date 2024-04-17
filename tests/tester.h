@@ -8,6 +8,79 @@
 #define RED "\033[31m"
 #define RESET "\033[0m"
 
+static inline void	print_tokens(t_token *tokens, int nb)
+{
+	int			i;
+	int			j;
+	const char	identifiers[6][9] = {\
+			"AMBIENT", "CAMERA", "LIGHT", "SPHERE", "PLANE", "CYLINDER"};
+
+	i = 0;
+	while (i < nb)
+	{
+		printf("Token %d:\n", i + 1);
+		printf("  Type: %s\n", identifiers[tokens[i].type]);
+		j = 0;
+		while (&tokens[i] && j < 5 && tokens[i].args[j][0] != '\0')
+		{
+			printf("  Arg %d: %s\n", j + 1, tokens[i].args[j]);
+			j++;
+		}
+		i++;
+	}
+}
+
+static inline void print_world(t_world world) {
+    printf("World:\n");
+
+    // Camera Information
+    printf("  Camera:\n");
+    printf("    hsize: %f\n", world.camera.hsize);
+    printf("    vsize: %f\n", world.camera.vsize);
+    printf("    half_width: %f\n", world.camera.half_width);
+    printf("    half_height: %f\n", world.camera.half_height);
+    printf("    field_of_view: %f\n", world.camera.field_of_view);
+    printf("    transform:\n");
+    print_matrix(world.camera.transform);
+    printf("    pixel_size: %f\n", world.camera.pixel_size);
+    printf("    xoffset: %f\n", world.camera.xoffset);
+    printf("    yoffset: %f\n", world.camera.yoffset);
+    printf("    world_x: %f\n", world.camera.world_x);
+    printf("    world_y: %f\n", world.camera.world_y);
+
+    // Light Information
+    printf("  Light:\n");
+    printf("    position:\n");
+    print_tuple(world.light.position);
+    printf("    intensity:\n");
+    print_tuple(world.light.intensity);
+
+    // Objects 
+    printf("  Objects:\n");
+    for (int i = 0; i < world.count; i++) {
+        printf("    Object %d (Sphere):\n", i);
+        printf("      transform:\n");
+        print_matrix(world.objs[i]._t);
+        printf("      inverse_t:\n");
+        print_matrix(world.objs[i].inverse_t);
+        printf("      trans_inv:\n");
+        print_matrix(world.objs[i].trans_inv); // Added!
+        printf("      dis_to_ray:\n");
+        print_tuple(world.objs[i].dis_to_ray);  // Added!
+        printf("      origin:\n");
+        print_tuple(world.objs[i].origin);      // Added!
+        printf("      radius: %d\n", world.objs[i].radius);       // Added!
+        printf("      id: %d\n", world.objs[i].id); 
+        printf("      type: %d\n", world.objs[i].type);         // Added!
+        printf("      material:\n");
+        printf("        ambient: %f\n", world.objs[i].material.ambient);
+        printf("        diffuse: %f\n", world.objs[i].material.diffuse);
+        printf("        specular: %f\n", world.objs[i].material.specular);
+        printf("        shininess: %f\n", world.objs[i].material.shininess);
+        printf("        color:\n"); 
+        print_tuple(world.objs[i].material.color);
+    }
+}
 static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple expected) {
 
     cr_expect(doubles_eq(result.x, expected.x), RED ".x value of the tuples are different" RESET);
@@ -23,18 +96,6 @@ static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple exp
     if (!doubles_eq(result.w, expected.w))
         return (FALSE);
     return (TRUE);
-}
-
-static inline void set_all_pixels_to_one_color(const t_canvas *c, t_tuple color) {
-    for (int y = 0; y < c->height; y++)
-        for (int x = 0; x < c->width; x++)
-            write_pixel((t_canvas *)c, y, x, color);
-}
-
-static inline void create_ppm_file(t_constr ppm_string, t_constr filename) {
-    int fd = open(filename, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-    write(fd, ppm_string, strlen(ppm_string));
-    close(fd);
 }
 
 static inline int invert_axis(int size, double axis) { return ((int)size - axis); }

@@ -74,7 +74,7 @@ int main() {
     forward = normalize(forward);
     camera.transform = view_transform(from, forward, up);
 
-    render(*get_image_to_render(mlx), camera, world);
+    render(*get_image_to_render(mlx), world);
 	mlx_image_to_window(mlx, *get_image_to_render(mlx), 0, 0);
 	mlx_loop(mlx);
 }

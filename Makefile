@@ -18,19 +18,19 @@ LIB := minirt.a
 
 ### MINIRT
 NAME = minirt
-SRC = minirt.c canvas_to_ppm.c canvas_to_ppm_aux.c create_canvas.c \
-	  write_pixel.c basic_tuple_operations.c compare_floats.c \
+SRC = minirt.c \
+	  basic_tuple_operations.c compare_floats.c \
 	  complex_tuple_operations.c create_tuples.c mult_matrices.c comparison.c \
 	  transpose_matrix.c determinants.c minors.c submatrices.c chain_transformations.c \
       invert_matrix.c create_matrix.c translation.c rotation.c scaling.c \
-      translate_coordinate.c rays.c point.c create.c get_hit.c transform_ray.c \
+      rays.c point.c create.c get_hit.c transform_ray.c \
 	  set_transform.c surface_normals.c reflect.c create_material.c calculate_lighting.c \
 	  create_world.c set_material.c intersect_world_with_ray.c prepare_computations.c shade_hit.c \
 	  color_at.c view_transformation.c create_camera.c ray_for_pixel.c render.c intersect_sphere.c \
 	  intersect_plane.c intersect_cylinder.c create_plane.c create_cylinder.c cylinder_setters.c \
-	  shadows.c render_image.c endwith.c parse_ambient.c parse_camera.c parse_plane.c \
+	  shadows.c render_image.c endwith.c parse_ambient.c parse_camera.c parse_plane.c parse_utils.c \
 	  parse_cylinder.c parse_light.c parse_sphere.c parse_functions_table.c parse_tokens_into_world.c caps.c \
-	  check_type_identifiers.c file_validation.c open_file.c validate_line.c tokenizer.c
+	  check_type_identifiers.c file_validation.c open_file.c validate_line.c tokenizer.c 
 
 VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/ppm/ ./src/math/matrices \
 		./src/math/matrix_transformations ./src/math/rays ./src/math/sphere \
