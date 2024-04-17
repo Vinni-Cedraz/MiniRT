@@ -39,36 +39,36 @@ static inline void create_ppm_file(t_constr ppm_string, t_constr filename) {
 
 static inline int invert_axis(int size, double axis) { return ((int)size - axis); }
 
-void quick_render(t_world *w, const t_tuple from) {
-
-    t_camera camera = create_camera(800, 600, M_PI / 4);
-    t_tuple to = (t_tuple){0, 0, 0, POINT};
-    t_tuple up = (t_tuple){0, 1, 0, VECTOR};
-    const t_tuple forward = subtract_tuples(to, from);
-
-    const t_tuple normalized_forward = normalize(forward);
-    camera.transform = view_transform(from, normalized_forward, up);
-
-    t_canvas c = render(camera, *w);
-    char *str = canvas_to_ppm(&c);
-    create_ppm_file(str, "main.ppm");
-    destroy_canvas(&c);
-    free(str);
-    free(w->objs);
-}
-
-void create_test_world(t_world *world, const t_tuple from, int num_shapes, ...) {
-    va_list shapes;
-    va_start(shapes, num_shapes);
-
-    world->objs = malloc(sizeof(t_sphere) * num_shapes);
-    world->count = num_shapes;
-    for (int i = 0; i < num_shapes; i++) {
-        t_sphere shape = va_arg(shapes, t_sphere);
-        world->objs[i] = *(t_sphere *)&shape;
-    }
-    quick_render(world, from);
-    va_end(shapes);
-}
+// void quick_render(t_world *w, const t_tuple from) {
+//
+//     t_camera camera = create_camera(800, 600, M_PI / 4);
+//     t_tuple to = (t_tuple){0, 0, 0, POINT};
+//     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
+//     const t_tuple forward = subtract_tuples(to, from);
+//
+//     const t_tuple normalized_forward = normalize(forward);
+//     camera.transform = view_transform(from, normalized_forward, up);
+//
+//     t_canvas c = render(camera, *w);
+//     char *str = canvas_to_ppm(&c);
+//     create_ppm_file(str, "main.ppm");
+//     destroy_canvas(&c);
+//     free(str);
+//     free(w->objs);
+// }
+//
+// void create_test_world(t_world *world, const t_tuple from, int num_shapes, ...) {
+//     va_list shapes;
+//     va_start(shapes, num_shapes);
+//
+//     world->objs = malloc(sizeof(t_sphere) * num_shapes);
+//     world->count = num_shapes;
+//     for (int i = 0; i < num_shapes; i++) {
+//         t_sphere shape = va_arg(shapes, t_sphere);
+//         world->objs[i] = *(t_sphere *)&shape;
+//     }
+//     quick_render(world, from);
+//     va_end(shapes);
+// }
 
 #endif
