@@ -32,3 +32,9 @@ t_bool	tuples_eq(const t_tuple result, const t_tuple expected)
 		return (FALSE);
 	return (TRUE);
 }
+
+_Bool	is_a_normalized_vector(t_tuple result)
+{
+	return (1 == magnitude(result));
+}
+

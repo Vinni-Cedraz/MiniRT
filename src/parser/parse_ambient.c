@@ -12,9 +12,10 @@
 
 #include "minirt.h"
 
-void	parse_ambient_light(t_token token, t_world *w)
+int	parse_ambient_light(t_token token, t_world *w)
 {
 	printf("%s\n", types[token.type]);
 	(void)token;
 	(void)w;
+	return (false);
 }
