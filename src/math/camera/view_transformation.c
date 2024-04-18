@@ -34,7 +34,6 @@ t_matrix	view_transform(t_tuple from, t_tuple forward, t_tuple up)
 			0, 0, 0, 1,
 			END_MATRIX
 		});
-		
 	return (mult_matrices(orientation, trans_from));
 }
 

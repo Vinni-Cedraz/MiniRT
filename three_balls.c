@@ -1,16 +1,16 @@
-#include "minirt.h"
+#include "include/minirt.h"
 
 int main() {
-    t_sphere left_ball = create_sphere();
-    t_sphere right_ball = create_sphere();
-    t_sphere middle_ball = create_sphere();
-    t_sphere floor = create_sphere();
-    t_sphere left_wall = create_sphere();
-    t_sphere right_wall = create_sphere();
-    t_world world;
-    t_matrix translation = create_translation_matrix((t_tuple){0, 0, -1, POINT});
-    t_matrix scaling = create_scaling_matrix(10, 0.01, 10);
-	mlx_t	*mlx;
+    t_sphere 	left_ball = create_sphere();
+    t_sphere 	right_ball = create_sphere();
+    t_sphere 	middle_ball = create_sphere();
+    t_sphere 	floor = create_sphere();
+    t_sphere 	left_wall = create_sphere();
+    t_sphere 	right_wall = create_sphere();
+    t_world		world;
+    t_matrix	translation = create_translation_matrix((t_tuple){0, 0, 5, POINT});
+    t_matrix	scaling = create_scaling_matrix(10, 0.01, 10);
+	mlx_t		*mlx;
 
 	mlx = mlx_init(SIZEW, SIZEH, "TRinim", true);
 	if (!mlx)
@@ -25,14 +25,23 @@ int main() {
     set_transform((t_sphere *)&floor, create_scaling_matrix(10, 0.01, 10));
 
     // BALLS
-    set_transform((t_sphere *)&right_ball, mult_matrices(create_translation_matrix((t_tuple){1.15, 0.7, 0.5, POINT}),
+	right_ball.material.color = (t_tuple){0.5, 1, 0.1, COLOR};
+	right_ball.material.diffuse = 0.7;
+	right_ball.material.specular = 0.3;
+    set_transform((t_sphere *)&right_ball, mult_matrices(create_translation_matrix((t_tuple){1.15, 0.5, -0.5, POINT}),
                                                         create_scaling_matrix(0.5, 0.5, 0.5)));
 
-    set_transform((t_sphere *)&middle_ball, mult_matrices(create_translation_matrix((t_tuple){0, 0.8, 0.1, POINT}),
-                                                         create_scaling_matrix(0.7, 0.7, 0.7)));
-
-    set_transform((t_sphere *)&left_ball, mult_matrices(create_translation_matrix((t_tuple){-0.95, 0.33, 0.4, POINT}),
+	left_ball.material.color = (t_tuple){1, 0.8, 0.1, COLOR};
+	left_ball.material.diffuse = 0.7;
+	left_ball.material.specular = 0.3;
+    set_transform((t_sphere *)&left_ball, mult_matrices(create_translation_matrix((t_tuple){-1.5, 0.33, -0.75, POINT}),
                                                        create_scaling_matrix(0.33, 0.33, 0.33)));
+
+	middle_ball.material.color = (t_tuple){0.1, 1, 0.5, COLOR};
+	middle_ball.material.diffuse = 0.7;
+	middle_ball.material.specular = 0.3;
+    set_transform((t_sphere *)&middle_ball, mult_matrices(create_translation_matrix((t_tuple){-0.5, 1, 0.5, POINT}),
+                                                         create_scaling_matrix(1, 1, 1)));
 
     // LEFT_WALL
     t_matrix y_rotation = create_y_rotation_matrix(-M_PI / 4);
@@ -57,12 +66,12 @@ int main() {
     world.objs[5] = *(t_sphere *)&left_ball;
 
     world.light = (t_point_light){
-        {10, 25, 10, POINT},
+        {-10, 10, -10, POINT},
         {1, 1, 1, COLOR},
     };
 
     t_camera camera = create_camera(SIZEH, SIZEW, M_PI / 3);
-    t_tuple from = (t_tuple){0, 3.5, 3, POINT};
+    t_tuple from = (t_tuple){0, 1.5, -5, POINT};
     t_tuple to = (t_tuple){0, 1, 0, POINT};
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
     t_tuple forward;
