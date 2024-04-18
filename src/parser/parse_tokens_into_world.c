@@ -14,13 +14,16 @@
 
 static void	check_error(int error, const t_token *tokens);
 
-t_world	parse_tokens_into_world(t_token *tokens)
+t_world	parse_tokens_into_world(t_token *tokens, int number_of_tokens)
 {
 	const t_token	*free_tokens = tokens;
 	static t_world	world;
 	int				error;
 
-	while (tokens->type != END)
+	world.objs = ft_calloc(sizeof(t_sphere), number_of_tokens);
+	world.count = number_of_tokens - 3;
+	printf(GREEN"WORLD COUNT: %d\n"RESET, world.count);
+	while (number_of_tokens--)
 	{
 		error = parse_functions()[tokens->type](*tokens, &world);
 		check_error(error, free_tokens);

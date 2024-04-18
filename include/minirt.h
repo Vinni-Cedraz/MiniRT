@@ -16,14 +16,12 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "../libs/libft.h"
 # include "../libs/libft_bonus.h"
-#include <float.h>
+# include <float.h>
 # include <math.h>
 # include <stdio.h>
 
-static const char types[6][20] = {
-		"parse_ambient", "parse_camera", "parse_light",
-		"parse_sphere", "parse_plane", "parse_cylinder"
-};
+static const char		types[6][20] = {"parse_ambient", "parse_camera",
+			"parse_light", "parse_sphere", "parse_plane", "parse_cylinder"};
 
 # define CYAN "\033[36m"
 # define EPSILON 1e-5
@@ -56,8 +54,8 @@ static const char types[6][20] = {
 # define END_MATRIX -DBL_MAX
 # define ERROR -42
 
-# define SIZEH 1920 / 4
-# define SIZEW 1080 / 4
+# define SIZEH 500
+# define SIZEW 500
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -399,13 +397,13 @@ int						open_file(char *file);
 t_token					*tokenizer(int fd, int number_of_tokens);
 void					validate_line(char *line, t_split *splitted, int fd);
 _Bool					file_validation(int fd, int *valid_lines);
-t_world					parse_tokens_into_world(t_token *tokens);
+t_world					parse_tokens_into_world(t_token *tokens,
+							int number_of_tokens);
 t_tuple					parse_tuple(char *str, short type);
 int						is_a_normalized_vector(t_tuple result);
-double					parse_fov(char *str);
+double					parse_double(char *str, _Bool is_fov);
 t_bool					low_precision_doubles_eq(double a, double b);
 t_tuple					normalize_color(const t_tuple a);
-
 
 static inline void	print_tuple(const t_tuple a)
 {
