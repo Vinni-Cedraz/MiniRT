@@ -42,6 +42,17 @@ int main() {
 	middle_ball.material.specular = 0.3;
     set_transform((t_sphere *)&middle_ball, mult_matrices(create_translation_matrix((t_tuple){-0.5, 1, 0.5, POINT}),
                                                          create_scaling_matrix(1, 1, 1)));
+	right_ball.material.color = (t_tuple){1, 0, 0, COLOR};
+    set_transform((t_sphere *)&right_ball, mult_matrices(create_translation_matrix((t_tuple){1.15, 0.7, 0.5, POINT}),
+                                                        create_scaling_matrix(0.5, 0.5, 0.5)));
+
+	left_ball.material.color = (t_tuple){0, 0, 1, COLOR};
+    set_transform((t_sphere *)&left_ball, mult_matrices(create_translation_matrix((t_tuple){-0.95, 0.33, 0.4, POINT}),
+                                                       create_scaling_matrix(0.33, 0.33, 0.33)));
+
+	middle_ball.material.color = (t_tuple){0, 1, 0, COLOR};
+    set_transform((t_sphere *)&middle_ball, mult_matrices(create_translation_matrix((t_tuple){0, 0.8, 0.1, POINT}),
+                                                         create_scaling_matrix(0.7, 0.7, 0.7)));
 
     // LEFT_WALL
     t_matrix y_rotation = create_y_rotation_matrix(-M_PI / 4);
