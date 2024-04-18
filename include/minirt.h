@@ -376,7 +376,7 @@ void					load_objs_into_world(mlx_image_t *image,
 mlx_image_t				**get_image_to_render(mlx_t *mlx);
 void					render_a_default_world(mlx_t *mlx);
 int						endwith(char *str, char *end);
-int						parse_ambient_light(t_token token, t_world *w);
+int						parse_ambient(t_token token, t_world *w);
 int						parse_sphere(t_token token, t_world *w);
 int						parse_plane(t_token token, t_world *w);
 int						parse_light(t_token token, t_world *w);

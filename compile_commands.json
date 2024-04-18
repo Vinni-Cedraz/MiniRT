@@ -1038,25 +1038,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/parser/parse_ambient.c",
-   "-o",
-   "build/parse_ambient.o"
-  ],
-  "file": "./src/parser/parse_ambient.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/parser/parse_camera.c",
    "-o",
    "build/parse_camera.o"
@@ -1100,25 +1081,6 @@
    "build/parse_cylinder.o"
   ],
   "file": "./src/parser/parse_cylinder.c"
- },
- {
-  "directory": "/root/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I",
-   "./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_light.c",
-   "-o",
-   "build/parse_light.o"
-  ],
-  "file": "./src/parser/parse_light.c"
  },
  {
   "directory": "/root/MiniRT",
@@ -1214,5 +1176,24 @@
    "build/colors.o"
   ],
   "file": "./src/math/tuples/colors.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/parser/parse_ambient_and_light.c",
+   "-o",
+   "build/parse_ambient_and_light.o"
+  ],
+  "file": "./src/parser/parse_ambient_and_light.c"
  }
 ]

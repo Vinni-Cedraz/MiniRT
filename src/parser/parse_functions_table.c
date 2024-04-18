@@ -15,7 +15,7 @@
 t_parse_table	**parse_functions(void)
 {
 	static t_parse_table	*table[6] = {
-		&parse_ambient_light,
+		&parse_ambient,
 		&parse_camera,
 		&parse_light,
 		&parse_sphere,
