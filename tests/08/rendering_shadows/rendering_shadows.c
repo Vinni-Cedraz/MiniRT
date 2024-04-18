@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 
 // I received an email from the Academy 4 days ago after enrolling, and I have been waiting to receive the English test since then. When should I expect to receive it?
 
@@ -28,22 +28,22 @@ Test(rendering_shadows, shade_hit_receives_a_hit_in_shadow, .description = scena
     t_tuple			color;
 
     w = create_world();
-    w.light = &(t_point_light){
+    w.light = (t_point_light){
 		.position = {0, 0, -10, POINT},
 		.intensity = {1, 1, 1, COLOR},
 	};
     *s1 = create_sphere();
     *s2 = create_sphere();
-    set_transform((t_shape *)s2, create_translation_matrix((t_tuple){0, 0, 10}));
-    add_object(&w, (t_shape *)s1, 0);
-    add_object(&w, (t_shape *)s2, 1);
+    set_transform((t_sphere *)s2, create_translation_matrix(create_point(0, 0, 10)));
+    add_object(&w, (t_sphere *)s1, 0);
+    add_object(&w, (t_sphere *)s2, 1);
     r = (t_ray){
 		.origin = {0, 0, 5, POINT},
 		.direction = {0, 0, 1, VECTOR}
 	};
-    head = intersection(4, (t_shape **)&s2);
+    head = ft_lstnew(4, (void *)&s2);
     comps = prepare_computations(head, r);
-    shade_hit(&w, &comps, color);
+    color = shade_hit(&w, &comps);
     cr_expect_tuples_eq(color, (t_tuple){0.1, 0.1, 0.1, COLOR});
 }
 
@@ -68,10 +68,10 @@ Test(rendering_shadows, hit_should_offset_the_point, .description = scenario2) {
 
 	s = malloc(sizeof(t_sphere));
 	*s = create_sphere();
-	set_transform((t_shape *)s, create_translation_matrix((t_tuple){0, 0, 1, POINT}));
-	i = intersection(5, (t_shape **)&s);
+	set_transform((t_sphere *)s, create_translation_matrix(create_point(0, 0, 1)));
+	i = ft_lstnew(5, (void *)&s);
 	comps = prepare_computations(i, r);
 
-	cr_expect(comps.over_point[Z] < -EPSILON / 2);
-	cr_expect(comps.point[Z] > comps.over_point[Z]);
+	cr_expect(comps.over_point.z < -EPSILON / 2);
+	cr_expect(comps.point.z > comps.over_point.z);
 }
