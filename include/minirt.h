@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:09:38 by vcedraz-          #+#    #+#             */
-/*   Updated: 2024/04/17 14:26:57 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:24:45 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -273,6 +273,7 @@ typedef struct s_world
 	t_sphere			*objs;
 	t_point_light		light;
 	t_camera			camera;
+	t_tuple				ambient;
 	int					count;
 }						t_world;
 
@@ -401,8 +402,9 @@ _Bool					file_validation(int fd, int *valid_lines);
 t_world					parse_tokens_into_world(t_token *tokens);
 t_tuple					parse_tuple(char *str, short type);
 int						is_a_normalized_vector(t_tuple result);
-double					parse_double(char *str);
+double					parse_fov(char *str);
 t_bool					low_precision_doubles_eq(double a, double b);
+t_tuple					normalize_color(const t_tuple a);
 
 
 static inline void	print_tuple(const t_tuple a)

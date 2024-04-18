@@ -1195,5 +1195,24 @@
    "build/parse_utils.o"
   ],
   "file": "./src/parser/parse_utils.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/tuples/colors.c",
+   "-o",
+   "build/colors.o"
+  ],
+  "file": "./src/math/tuples/colors.c"
  }
 ]

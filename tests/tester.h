@@ -47,7 +47,6 @@ static inline void print_world(t_world world) {
     printf("    yoffset: %f\n", world.camera.yoffset);
     printf("    world_x: %f\n", world.camera.world_x);
     printf("    world_y: %f\n", world.camera.world_y);
-	// print up tuple
 	printf("    up: (%f, %f, %f)\n", world.camera.up.x, world.camera.up.y, world.camera.up.z);
 
     // Light Information
@@ -56,6 +55,8 @@ static inline void print_world(t_world world) {
     print_tuple(world.light.position);
     printf("    intensity:\n");
     print_tuple(world.light.intensity);
+	printf("    ambient factor:\n");
+	print_tuple(world.ambient);
 
     // Objects 
     printf("  Objects:\n");

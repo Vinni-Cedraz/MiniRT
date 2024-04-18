@@ -32,11 +32,12 @@ t_tuple	parse_tuple(char *str, short type)
 	result.w = type;
 	if (ERROR == validate_tuple(str, result, type))
 		result.w = ERROR;
-	print_tuple(result);
+	else if (COLOR == result.w)
+		result = normalize_color(result);
 	return (result);
 }
 
-double	parse_double(char *str)
+double	parse_fov(char *str)
 {
 	int	i;
 
