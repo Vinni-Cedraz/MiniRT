@@ -16,11 +16,10 @@ int	parse_camera(t_token token, t_world *w)
 {
 	const t_tuple	from = parse_tuple(token.args[0], POINT);
 	const t_tuple	forward = parse_tuple(token.args[1], VECTOR);
-	const double	fov = parse_fov(token.args[2]);
+	const double	fov = parse_double(token.args[2], true);
 
 	if (from.w == ERROR || forward.w == ERROR || fov == -DBL_MAX)
 		return (ERROR);
-	printf("%s\n", types[token.type]);
 	w->camera = create_camera(SIZEW, SIZEH, fov);
 	w->camera.transform = view_transform(from, forward, w->camera.up);
 	return (0);

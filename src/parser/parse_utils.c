@@ -37,7 +37,7 @@ t_tuple	parse_tuple(char *str, short type)
 	return (result);
 }
 
-double	parse_fov(char *str)
+double	parse_double(char *str, _Bool is_fov)
 {
 	int	i;
 
@@ -52,7 +52,7 @@ double	parse_fov(char *str)
 		}
 		i++;
 	}
-	if (ft_atof(str) < 0 || ft_atof(str) > 180)
+	if (is_fov && (ft_atof(str) < 0 || ft_atof(str) > 180))
 	{
 		printf(RED "Error, fov should be between 0 and 180.\n" RESET);
 		return (-DBL_MAX);

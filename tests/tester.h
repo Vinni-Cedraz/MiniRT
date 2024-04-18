@@ -60,6 +60,7 @@ static inline void print_world(t_world world) {
 
     // Objects 
     printf("  Objects:\n");
+	printf(RED"WORLD COUNT: %d\n"RESET, world.count);
     for (int i = 0; i < world.count; i++) {
         printf("    Object %d (Sphere):\n", i);
         printf("      transform:\n");

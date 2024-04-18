@@ -35,19 +35,19 @@ void	validate_line(char *line, t_split *splitted, int fd)
 	}
 }
 
-static _Bool	has_forbidden_chars(const char *string)
+static _Bool	has_forbidden_chars(const char *str)
 {
 	int	i;
 
 	i = 0;
-	if (string[i] == '-')
+	if (str[i] == '-')
 		i++;
-	if (!ft_isdigit(string[i]))
+	if (!ft_isdigit(str[i]))
 		return (true);
 	i++;
-	while (string[i] != '\0' && string[i] != '\n')
+	while (str[i] != '\0' && str[i] != '\n')
 	{
-		if (!ft_isdigit(string[i]) && string[i] != ',' && string[i] != '.')
+		if (!ft_isdigit(str[i]) && !is_separator(str[i]) && str[i] != '-')
 			return (true);
 		i++;
 	}

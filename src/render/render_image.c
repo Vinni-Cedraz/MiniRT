@@ -28,3 +28,12 @@ uint32_t	normalized_color_to_int(const t_tuple color)
 	return (((uint32_t)(col.x * MULTI) << 24) | ((uint32_t)(col.y
 				* MULTI) << 16) | ((uint32_t)(col.z * MULTI) << 8) | 0xff);
 }
+
+mlx_image_t	**get_image_to_render(mlx_t *mlx)
+{
+	static mlx_image_t	*image = NULL;
+
+	if (image == NULL)
+		image = mlx_new_image(mlx, SIZEW, SIZEH);
+	return (&image);
+}
