@@ -34,7 +34,7 @@ Test(rendering_shadows, shade_hit_receives_a_hit_in_shadow, .description = scena
 	};
     *s1 = create_sphere();
     *s2 = create_sphere();
-    set_transform((t_sphere *)s2, create_translation_matrix((t_tuple){0, 0, 10, POINT}));
+    set_transform((t_sphere *)s2, create_translation_matrix(create_point(0, 0, 10)));
     add_object(&w, (t_sphere *)s1, 0);
     add_object(&w, (t_sphere *)s2, 1);
     r = (t_ray){
@@ -68,7 +68,7 @@ Test(rendering_shadows, hit_should_offset_the_point, .description = scenario2) {
 
 	s = malloc(sizeof(t_sphere));
 	*s = create_sphere();
-	set_transform((t_sphere *)s, create_translation_matrix((t_tuple){0, 0, 1, POINT}));
+	set_transform((t_sphere *)s, create_translation_matrix(create_point(0, 0, 1)));
 	i = ft_lstnew(5, (void *)&s);
 	comps = prepare_computations(i, r);
 

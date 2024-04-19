@@ -27,7 +27,8 @@ void	render(mlx_image_t *image, t_world world)
 		{
 			ray = ray_for_pixel(world.camera, y, x);
 			color = color_at(&world, &ray);
-			mlx_put_pixel(image, x, y, normalized_color_to_int(color));
+			mlx_put_pixel(image, camera.hsize - x - 1,
+				y, normalized_color_to_int(color));
 			x++;
 		}
 		y++;

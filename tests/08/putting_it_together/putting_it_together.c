@@ -45,6 +45,15 @@ Test(putting, it_together) {
                                                          create_scaling_matrix(0.7, 0.7, 0.7)));
 
     set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){1, 0.8, 0.1, POINT}, &left_ball.material);
+    set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.5, 1, 0.1, COLOR}, &right_ball.material);
+    set_transform((t_sphere *)&right_ball, mult_matrices(create_translation_matrix((t_tuple){1.85, 0.7, 0.5, POINT}),
+                                                        create_scaling_matrix(0.5, 0.5, 0.5)));
+
+    set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){0.1, 1, 0.1, COLOR}, &middle_ball.material);
+    set_transform((t_sphere *)&middle_ball, mult_matrices(create_translation_matrix((t_tuple){0, 0.8, 0, POINT}),
+                                                         create_scaling_matrix(0.7, 0.7, 0.7)));
+
+    set_material((t_tuple){0.1, 0.9, 0.9, 200}, (t_tuple){1, 0.8, 0.1, COLOR}, &left_ball.material);
     set_transform((t_sphere *)&left_ball, mult_matrices(create_translation_matrix((t_tuple){-1.95, 0.33, 0.4, POINT}),
                                                        create_scaling_matrix(0.33, 0.33, 0.33)));
 

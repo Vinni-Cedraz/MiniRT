@@ -12,9 +12,15 @@
 
 #include "minirt.h"
 
-t_bool	is_shadowed(t_world *w, t_tuple p)
+t_bool	is_shadowed(t_world *w, t_tuple point)
 {
-	(void)w;
-	(void)p;
+	const t_tuple	vec = subtract_tuples(w->light.position, point);
+	const double	distance = magnitude(vec);
+	const t_tuple	direction = normalize(vec);
+	const t_ray		r = create_ray(point, direction);
+	const t_node	hit = _hit(intersect_world_with_ray(w, (t_ray *)&r));
+
+	if (hit.object && hit.t < distance)
+		return (TRUE);
 	return (FALSE);
 }
