@@ -17,7 +17,7 @@ int	parse_sphere(t_token token, t_world *w)
 	const t_tuple	coordinates = parse_tuple(token.args[0], POINT);
 	const double	scale = parse_double(token.args[1], false);
 	const t_tuple	color = parse_tuple(token.args[2], COLOR);
-	t_sphere		sphere;
+	t_shape			sphere;
 
 	sphere = create_sphere();
 	if (coordinates.w == ERROR || scale == -DBL_MAX || color.w == ERROR)

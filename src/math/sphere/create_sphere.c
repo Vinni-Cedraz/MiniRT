@@ -6,16 +6,16 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 17:17:20 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/16 16:29:31 by johmatos         ###   ########.fr       */
+/*   Updated: 2024/04/20 19:27:52 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_sphere	create_sphere(void)
+t_shape	create_sphere(void)
 {
 	static int	id;
-	t_sphere	sphere;
+	t_shape		sphere;
 
 	sphere.radius = 1;
 	sphere.origin = create_point(0, 0, 0);
@@ -26,5 +26,6 @@ t_sphere	create_sphere(void)
 	sphere.trans_inv = create_identity_matrix();
 	sphere.material = create_material();
 	sphere.dis_to_ray = create_vector(0, 0, 0);
+	sphere.intersect = &intersect_sphere;
 	return (sphere);
 }

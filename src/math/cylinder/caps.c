@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void	intersect_caps(const t_cylinder *cyl, const t_ray r, t_node **head)
+void	intersect_caps(const t_shape *cyl, const t_ray r, t_node **head)
 {
 	(void)cyl;
 	(void)r;

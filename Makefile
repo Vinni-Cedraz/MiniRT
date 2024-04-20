@@ -22,30 +22,28 @@ SRC = minirt.c \
 	  basic_tuple_operations.c compare_floats.c \
 	  complex_tuple_operations.c create_tuples.c mult_matrices.c comparison.c \
 	  transpose_matrix.c determinants.c minors.c submatrices.c chain_transformations.c \
-      invert_matrix.c create_matrix.c translation.c rotation.c scaling.c \
-      rays.c point.c create.c get_hit.c transform_ray.c colors.c \
+      invert_matrix.c create_matrix.c translation.c rotation.c scaling.c intersect_shape.c \
+      get_hit.c create_and_transform_rays.c intersection_coordinates.c colors.c \
 	  set_transform.c surface_normals.c reflect.c create_material.c calculate_lighting.c \
 	  create_world.c set_material.c intersect_world_with_ray.c prepare_computations.c shade_hit.c \
 	  color_at.c view_transformation.c create_camera.c ray_for_pixel.c render.c intersect_sphere.c \
 	  intersect_plane.c intersect_cylinder.c create_plane.c create_cylinder.c cylinder_setters.c \
 	  shadows.c render_image.c endwith.c parse_ambient_and_light.c parse_camera.c parse_plane.c parse_utils.c \
 	  parse_cylinder.c parse_sphere.c parse_functions_table.c parse_tokens_into_world.c caps.c \
-	  check_type_identifiers.c file_validation.c open_file.c validate_line.c tokenizer.c 
+	  check_type_identifiers.c file_validation.c open_file.c validate_line.c tokenizer.c create_sphere.c
 
 VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/ppm/ ./src/math/matrices \
 		./src/math/matrix_transformations ./src/math/rays ./src/math/sphere \
 		./src/math/rays/ ./src/math/light_and_shading/ ./src/math/making_scene/ \
 		./src/math/camera/ ./src/math/cylinder/ ./src/math/plane/ ./src/math/create_intersection/ \
-		./src/render ./src/input_validation ./src/parser ./src/tokenizer/
+		./src/render ./src/input_validation ./src/parser ./src/tokenizer/ ./src/math/shape/
 
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/
-C_FLAGS = -Wall -Werror -Wextra -O3 -MD -MP
+C_FLAGS = -Wall -Werror -Wextra -Ofast
 OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))
 BUILD_DIR_RT= ./build/
 CMD = $(CC) $(LIBFT) $(OBJS) $(C_FLAGS) -I$(MLX_INCLUDE) -I $(INCLUDE) -c $< -o $@
-
--include $(OBJS:.o=.d)
 
 ### RECIPES
 

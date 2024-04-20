@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:07:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/17 16:44:17 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/20 19:31:21 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 
 typedef struct s_nodes	t_node;
 typedef unsigned int	t_ui;
-typedef struct s_sphere	t_sphere;
+typedef struct s_shape 	t_shape;
 
 typedef struct s_nodes
 {
 	double				t;
-	t_sphere			*object;
+	const t_shape		*object;
 	t_node				*next;
 }						t_node;
 
 // LINKED LISTS BASIC FUNCTIONS
 // ft_lstnew creates a new node
-t_node					*ft_lstnew(double content, t_sphere *obj);
+t_node					*ft_lstnew(double content, const t_shape *obj);
 // ft_lstadd_back adds a new element at the end of a list
 void					ft_lstadd_back(t_node **head, t_node *new_node);
 // ft_lstadd_front adds a new element at the beginning of a list

@@ -20,7 +20,7 @@ t_world	parse_tokens_into_world(t_token *tokens, int number_of_tokens)
 	static t_world	world;
 	int				error;
 
-	world.objs = ft_calloc(sizeof(t_sphere), number_of_tokens);
+	world.objs = ft_calloc(sizeof(t_shape), number_of_tokens);
 	world.count = number_of_tokens - 3;
 	printf(GREEN"WORLD COUNT: %d\n"RESET, world.count);
 	while (number_of_tokens--)

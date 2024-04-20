@@ -23,10 +23,10 @@ t_intersections	intersect_world_with_ray(t_world *w, t_ray *r)
 
 	idx = 0;
 	result.head = NULL;
-	tmp = intersect_sphere(&w->objs[0], *r);
+	tmp = intersect_shape(&w->objs[0], r);
 	while (idx < w->count)
 	{
-		tmp = intersect_sphere(&w->objs[idx], *r);
+		tmp = intersect_shape(&w->objs[idx], r);
 		ft_lstadd_back(&result.head, tmp.head);
 		idx++;
 	}
