@@ -14,12 +14,10 @@
 
 t_shape	create_sphere(void)
 {
-	static int	id;
 	t_shape		sphere;
 
 	sphere.radius = 1;
 	sphere.origin = create_point(0, 0, 0);
-	sphere.id = id++;
 	sphere.type = SPHERE;
 	sphere._t = create_identity_matrix();
 	sphere.inverse_t = create_identity_matrix();
@@ -27,5 +25,6 @@ t_shape	create_sphere(void)
 	sphere.material = create_material();
 	sphere.dis_to_ray = create_vector(0, 0, 0);
 	sphere.intersect = &intersect_sphere;
+	sphere.normal_at = &sphere_normal_at;
 	return (sphere);
 }

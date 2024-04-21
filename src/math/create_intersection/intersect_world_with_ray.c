@@ -23,14 +23,14 @@ t_intersections	intersect_world_with_ray(t_world *w, t_ray *r)
 
 	idx = 0;
 	result.head = NULL;
-	tmp = intersect_shape(&w->objs[0], r);
-	while (idx < w->count)
+	tmp = intersect_shape(&w->shapes[0], r);
+	while (idx < w->fixed_count)
 	{
-		tmp = intersect_shape(&w->objs[idx], r);
+		tmp = intersect_shape(&w->shapes[idx], r);
 		ft_lstadd_back(&result.head, tmp.head);
 		idx++;
 	}
-	result.count = w->count * 2;
+	result.count = w->fixed_count * 2;
 	insertion_sort(&result.head);
 	return (result);
 }

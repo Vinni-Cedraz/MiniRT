@@ -54,8 +54,8 @@ static const char			types[6][20] = {"parse_ambient", "parse_camera",
 # define END_MATRIX -DBL_MAX
 # define ERROR -42
 
-# define SIZEH 500
-# define SIZEW 500
+# define SIZEH 720
+# define SIZEW 1280
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -74,7 +74,6 @@ typedef enum e_typ
 	SPHERE,
 	PLANE,
 	CYLINDER,
-	END
 }							t_type;
 
 typedef struct s_tuple
@@ -152,6 +151,7 @@ typedef struct s_lighting
 	t_tuple					point;
 	t_tuple					eye_vec;
 	t_tuple					normal_vec;
+	t_tuple					parser_ambient;
 	t_bool					in_shadow;
 }							t_lighting;
 
@@ -176,14 +176,15 @@ typedef struct s_intersections
 
 typedef t_intersections		(*t_intersect_function)(const t_shape *,
 			const t_ray *);
+typedef t_tuple				(*t_normal_at_function)(const t_shape *,
+					const t_tuple);
 
 typedef struct s_shape
 {
 	t_matrix				_t;
 	t_matrix				inverse_t;
 	t_matrix				trans_inv;
-	int						id;
-	int						type;
+	t_type					type;
 	t_tuple					origin;
 	t_tuple					dis_to_ray;
 	t_material				material;
@@ -193,6 +194,7 @@ typedef struct s_shape
 	t_ray					r;
 	_Bool					radius;
 	t_intersect_function	intersect;
+	t_normal_at_function	normal_at;
 }							t_shape;
 
 typedef struct s_baskara
@@ -205,7 +207,7 @@ typedef struct s_baskara
 typedef struct s_comp
 {
 	double					t;
-	const t_shape			*object;
+	const t_shape			*shape;
 	t_tuple					over_point;
 	t_tuple					point;
 	t_tuple					eyev;
@@ -231,16 +233,15 @@ typedef struct s_camera
 
 typedef struct s_world
 {
-	t_shape					*objs;
+	t_shape					*shapes;
 	t_point_light			light;
 	t_camera				camera;
-	t_tuple					ambient;
-	int						count;
+	t_tuple					parser_ambient;
+	int						fixed_count;
+	int						moving_idx;
 }							t_world;
 
 typedef						int(t_parse_table)(t_token token, t_world *);
-typedef void				(*t_normal_at_function)(const t_shape *,
-					const t_tuple, t_tuple);
 
 t_tuple						create_point(float x, float y, float z);
 void						tuple_to_arr(t_tuple a, double arr[4]);

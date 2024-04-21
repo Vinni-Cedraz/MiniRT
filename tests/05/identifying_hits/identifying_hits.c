@@ -12,7 +12,7 @@
 
 Test(identifying_hits, positive_t, .description = scenario1) {
 	t_intersections intersections;
-	t_sphere s = create_sphere();
+	t_shape s = create_sphere();
 	intersections.head = ft_lstnew(1, &s);
 	ft_lstadd_back(&intersections.head, ft_lstnew(2, &s));
 	intersections.count = 2;
@@ -31,7 +31,7 @@ Test(identifying_hits, positive_t, .description = scenario1) {
 
 Test(identifying_hits, negative_t, .description = scenario2)
 {
-	t_sphere s = create_sphere();
+	t_shape s = create_sphere();
 	t_intersections intersections;
 	intersections.head = ft_lstnew(1, &s);
 	ft_lstadd_back(&intersections.head, ft_lstnew(-1,&s));
@@ -51,13 +51,13 @@ Test(identifying_hits, negative_t, .description = scenario2)
 
 Test(identifying_hits, all_negatives, .description = scenario3)
 {
-	t_sphere s = create_sphere();
+	t_shape s = create_sphere();
 	t_intersections intersections;
 	intersections.head = ft_lstnew(-1, &s);
 	ft_lstadd_back(&intersections.head, ft_lstnew(-2, &s));
 	intersections.count = 2;
 	const t_node hit = _hit(intersections);
-	cr_expect_eq(hit.object, NULL);
+	cr_expect_eq(hit.shape, NULL);
 }
 
 // Scenario : The hit is always the lowest nonnegative ft_lstnew
@@ -73,7 +73,7 @@ Test(identifying_hits, all_negatives, .description = scenario3)
 
 Test(identifying_hits, hit_is_alway_lowest_nonnegative_intersection, .description = scenario4)
 {
-	t_sphere s = create_sphere();
+	t_shape s = create_sphere();
 	t_intersections intersections;
 
 	intersections.head = ft_lstnew(5, &s);

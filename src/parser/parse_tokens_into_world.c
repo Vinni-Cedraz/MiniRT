@@ -13,23 +13,39 @@
 #include "minirt.h"
 
 static void	check_error(int error, const t_token *tokens);
+static void	init_world(int number_of_tokens, t_world *world);
+static void	load_world(int number_of_tokens, t_world *world, t_token *tokens);
 
 t_world	parse_tokens_into_world(t_token *tokens, int number_of_tokens)
 {
-	const t_token	*free_tokens = tokens;
-	static t_world	world;
-	int				error;
+	t_world			world;
 
-	world.objs = ft_calloc(sizeof(t_shape), number_of_tokens);
-	world.count = number_of_tokens - 3;
-	printf(GREEN"WORLD COUNT: %d\n"RESET, world.count);
+	world = (t_world){0};
+	init_world(number_of_tokens, &world);
+	load_world(number_of_tokens, &world, tokens);
+	return (world);
+}
+
+static void	init_world(int number_of_tokens, t_world *world)
+{
+	const int	number_of_non_shape_tokens = 3;
+
+	world->shapes = ft_calloc(sizeof(t_shape), number_of_tokens);
+	world->fixed_count = (number_of_tokens - number_of_non_shape_tokens);
+	world->moving_idx = world->fixed_count - 1;
+}
+
+static void	load_world(int number_of_tokens, t_world *world, t_token *tokens)
+{
+	int				error;
+	const t_token	*free_tokens = tokens;
+
 	while (number_of_tokens--)
 	{
-		error = parse_functions()[tokens->type](*tokens, &world);
+		error = parse_functions()[tokens->type](*tokens, world);
 		check_error(error, free_tokens);
 		tokens++;
 	}
-	return (world);
 }
 
 static void	check_error(int error, const t_token *tokens)

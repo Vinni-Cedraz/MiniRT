@@ -57,14 +57,14 @@ int main() {
                   chain_transformations((t_matrix []){scaling, x_rotation, y_rotation, translation, create_identity_matrix()}));
     right_wall.material = floor.material;
 
-    world.objs = malloc(sizeof(t_shape) * 6);
-    world.count = 6;
-    world.objs[0] = *(t_shape *)&floor;
-    world.objs[1] = *(t_shape *)&left_wall;
-    world.objs[2] = *(t_shape *)&right_wall;
-    world.objs[3] = *(t_shape *)&middle_ball;
-    world.objs[4] = *(t_shape *)&right_ball;
-    world.objs[5] = *(t_shape *)&left_ball;
+    world.shapes = malloc(sizeof(t_shape) * 6);
+    world.fixed_count = 6;
+    world.shapes[0] = *(t_shape *)&floor;
+    world.shapes[1] = *(t_shape *)&left_wall;
+    world.shapes[2] = *(t_shape *)&right_wall;
+    world.shapes[3] = *(t_shape *)&middle_ball;
+    world.shapes[4] = *(t_shape *)&right_ball;
+    world.shapes[5] = *(t_shape *)&left_ball;
 
     world.light = (t_point_light){
         {-10, 10, -10, POINT},

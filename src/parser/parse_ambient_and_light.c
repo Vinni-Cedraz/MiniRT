@@ -21,7 +21,7 @@ int	parse_ambient(t_token token, t_world *w)
 
 	if (amb_intensity == -DBL_MAX || amb_color.w == ERROR)
 		return (ERROR);
-	w->ambient = multiply_tuple_by_scalar(amb_color, amb_intensity);
+	w->parser_ambient = multiply_tuple_by_scalar(amb_color, amb_intensity);
 	return (0);
 }
 

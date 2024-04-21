@@ -26,12 +26,12 @@ t_world	default_world(void)
 	scene = create_world();
 	scene.light.position = create_tuple(-10, 10, -10, POINT);
 	scene.light.intensity = create_tuple(1, 1, 1, COLOR);
-	scene.objs = malloc(2 * sizeof(t_shape));
-	scene.objs[0] = create_sphere();
-	scene.objs[1] = create_sphere();
-	scene.count = 2;
-	set_sphere(&scene.objs[0], 0, 1);
-	set_sphere(&scene.objs[1], 0.5, 0);
+	scene.shapes = malloc(2 * sizeof(t_shape));
+	scene.shapes[0] = create_sphere();
+	scene.shapes[1] = create_sphere();
+	scene.fixed_count = 2;
+	set_sphere(&scene.shapes[0], 0, 1);
+	set_sphere(&scene.shapes[1], 0.5, 0);
 	return (scene);
 }
 

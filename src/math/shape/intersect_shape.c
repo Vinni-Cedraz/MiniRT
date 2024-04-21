@@ -14,8 +14,10 @@
 
 t_intersections	intersect_shape(t_shape *obj, const t_ray *r)
 {
-	const t_ray	transformed_ray = transform_ray(r, obj->inverse_t);
+	const t_ray		transformed_ray = transform_ray(r, obj->inverse_t);
+	t_intersections	this_obj_intersections;
 
 	obj->dis_to_ray = subtract_tuples(transformed_ray.origin, obj->origin);
-	return (obj->intersect(obj, &transformed_ray));
+	this_obj_intersections = obj->intersect(obj, &transformed_ray);
+	return (this_obj_intersections);
 }

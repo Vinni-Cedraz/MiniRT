@@ -22,7 +22,7 @@ typedef struct s_shape 	t_shape;
 typedef struct s_nodes
 {
 	double				t;
-	const t_shape		*object;
+	const t_shape		*shape;
 	t_node				*next;
 }						t_node;
 

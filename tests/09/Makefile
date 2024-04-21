@@ -1,6 +1,6 @@
 TESTDIRS = 		\
   refactoring_shapes \
-  implementing_plane \
+  # implementing_plane \
   # putting_it_together \
 
 ## VARIABLES

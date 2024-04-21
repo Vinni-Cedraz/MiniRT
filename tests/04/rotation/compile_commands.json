@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/04/rotation",
+  "directory": "/home/myuser/MiniRT/tests/04/rotation",
   "arguments": [
    "cc",
    "-O3",

@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/03/transposing_matrices",
+  "directory": "/home/myuser/MiniRT/tests/03/transposing_matrices",
   "arguments": [
    "cc",
    "-O3",

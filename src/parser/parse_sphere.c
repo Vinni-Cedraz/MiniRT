@@ -12,22 +12,29 @@
 
 #include "minirt.h"
 
+static t_shape	init_sphere(const t_tuple c, const double s, const t_tuple cl);
+
 int	parse_sphere(t_token token, t_world *w)
 {
 	const t_tuple	coordinates = parse_tuple(token.args[0], POINT);
 	const double	scale = parse_double(token.args[1], false);
 	const t_tuple	color = parse_tuple(token.args[2], COLOR);
-	t_shape			sphere;
 
-	sphere = create_sphere();
 	if (coordinates.w == ERROR || scale == -DBL_MAX || color.w == ERROR)
 		return (ERROR);
-	sphere._t = mult_matrices(
-			create_translation_matrix(coordinates),
-			create_scaling_matrix(scale, scale, scale));
-	sphere.inverse_t = invert_matrix(sphere._t);
-	sphere.trans_inv = transpose_matrix(sphere.inverse_t);
-	sphere.material.color = color;
-	w->objs[sphere.id] = sphere;
+	w->shapes[w->moving_idx--] = init_sphere(coordinates, scale, color);
 	return (false);
+}
+
+static t_shape	init_sphere(const t_tuple coordinates, const double scale,
+		const t_tuple color)
+{
+	t_shape	sphere;
+
+	sphere = create_sphere();
+	set_transform(&sphere, mult_matrices(
+			create_translation_matrix(coordinates),
+			create_scaling_matrix(scale, scale, scale)));
+	sphere.material.color = color;
+	return (sphere);
 }

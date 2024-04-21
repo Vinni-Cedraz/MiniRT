@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/06/surface_normals",
+  "directory": "/home/myuser/MiniRT/tests/06/surface_normals",
   "arguments": [
    "cc",
    "-O3",
