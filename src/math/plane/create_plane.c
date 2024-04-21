@@ -10,9 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft_bonus.h"
 #include "minirt.h"
 
 t_shape	create_plane(void)
 {
-	return ((t_shape){0});
+	t_shape	plane;
+
+	plane = (t_shape){0};
+	plane.type = PLANE;
+	plane.intersect = &intersect_plane;
+	plane.normal_at = &plane_normal_at;
+	plane.material = create_material();
+	set_transform(&plane, create_identity_matrix());
+	return (plane);
+}
+
+t_matrix	plane_view_transform(t_tuple from, t_tuple up)
+{
+	t_matrix	transform;
+	t_tuple		right;
+	t_tuple		forward;
+
+	if (fabs(up.x) < 0.999)
+		right = normalize(cross(up, create_vector(0, 1, 0)));
+	else
+		right = normalize(cross(up, create_vector(0, 0, 1)));
+	forward = cross(right, up);
+	transform = create_matrix((double []){
+			right.x, up.x, forward.x, from.x,
+			right.y, up.y, forward.y, from.y,
+			right.z, up.z, forward.z, from.z,
+			0, 0, 0, 1,
+			END_MATRIX
+		});
+	return (transform);
 }

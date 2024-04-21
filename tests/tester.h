@@ -62,7 +62,7 @@ static inline void print_world(t_world world) {
     printf("  Objects:\n");
 	printf(RED"WORLD COUNT: %d\n"RESET, world.fixed_count);
     for (int i = 0; i < world.fixed_count; i++) {
-        printf("    Object %d (Sphere):\n", i);
+        printf("    Object %d: (%s)\n", i, types[world.shapes[i].type]);
         printf("      transform:\n");
         print_matrix(world.shapes[i]._t);
         printf("      inverse_t:\n");

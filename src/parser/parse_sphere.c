@@ -23,7 +23,7 @@ int	parse_sphere(t_token token, t_world *w)
 	if (coordinates.w == ERROR || scale == -DBL_MAX || color.w == ERROR)
 		return (ERROR);
 	w->shapes[w->moving_idx--] = init_sphere(coordinates, scale, color);
-	return (false);
+	return (0);
 }
 
 static t_shape	init_sphere(const t_tuple coordinates, const double scale,
