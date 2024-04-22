@@ -24,7 +24,7 @@ t_camera	create_camera(int hsize, int vsize, double field_of_view)
 		.field_of_view = field_of_view,
 		.transform = create_identity_matrix(),
 		.pixel_size = 0,
-		.up = (t_tuple){0, 1, 0, VECTOR}
+		.up = create_vector(0, 1, 0)
 	};
 	set_pixel_size(&c);
 	return (c);
@@ -35,7 +35,7 @@ static void	set_pixel_size(t_camera *c)
 	double	half_view;
 	double	aspect;
 
-	half_view = tan(c->field_of_view / 2);
+	half_view = tan(c->field_of_view * M_PI / 360);
 	aspect = (double)c->hsize / c->vsize;
 	if (aspect >= 1)
 	{

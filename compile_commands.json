@@ -2,7 +2,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -21,7 +21,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -40,7 +40,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -59,7 +59,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -78,7 +78,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -97,7 +97,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -116,7 +116,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -135,7 +135,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -154,7 +154,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -173,7 +173,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -192,7 +192,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -211,7 +211,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -230,7 +230,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -249,7 +249,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -268,7 +268,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -287,7 +287,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -306,7 +306,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -325,7 +325,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -344,7 +344,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -363,7 +363,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -382,7 +382,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -401,7 +401,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -420,7 +420,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -439,7 +439,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -458,7 +458,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -477,7 +477,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -496,7 +496,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -515,7 +515,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -534,7 +534,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -553,7 +553,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -572,7 +572,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -591,7 +591,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -610,7 +610,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -629,7 +629,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -648,7 +648,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -667,7 +667,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -686,7 +686,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -705,7 +705,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -724,7 +724,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -743,7 +743,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -762,7 +762,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -781,7 +781,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -800,7 +800,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -819,7 +819,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -838,7 +838,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -857,7 +857,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -876,7 +876,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -895,7 +895,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -914,7 +914,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -933,7 +933,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -952,7 +952,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -971,7 +971,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -990,7 +990,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -1009,7 +1009,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -1028,7 +1028,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -1047,7 +1047,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -1066,7 +1066,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -1085,7 +1085,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -1104,7 +1104,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -1123,7 +1123,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
@@ -1142,7 +1142,7 @@
  {
   "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
