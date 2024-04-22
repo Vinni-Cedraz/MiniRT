@@ -55,34 +55,33 @@ static inline void print_world(t_world world) {
     print_tuple(world.light.position);
     printf("    intensity:\n");
     print_tuple(world.light.intensity);
-	printf("    ambient factor:\n");
-	print_tuple(world.ambient);
+	printf("    parser_ambient factor:\n");
+	print_tuple(world.parser_ambient);
 
     // Objects 
     printf("  Objects:\n");
-	printf(RED"WORLD COUNT: %d\n"RESET, world.count);
-    for (int i = 0; i < world.count; i++) {
+	printf(RED"WORLD COUNT: %d\n"RESET, world.fixed_count);
+    for (int i = 0; i < world.fixed_count; i++) {
         printf("    Object %d (Sphere):\n", i);
         printf("      transform:\n");
-        print_matrix(world.objs[i]._t);
+        print_matrix(world.shapes[i]._t);
         printf("      inverse_t:\n");
-        print_matrix(world.objs[i].inverse_t);
+        print_matrix(world.shapes[i].inverse_t);
         printf("      trans_inv:\n");
-        print_matrix(world.objs[i].trans_inv); // Added!
+        print_matrix(world.shapes[i].trans_inv); // Added!
         printf("      dis_to_ray:\n");
-        print_tuple(world.objs[i].dis_to_ray);  // Added!
+        print_tuple(world.shapes[i].dis_to_ray);  // Added!
         printf("      origin:\n");
-        print_tuple(world.objs[i].origin);      // Added!
-        printf("      radius: %d\n", world.objs[i].radius);       // Added!
-        printf("      id: %d\n", world.objs[i].id); 
-        printf("      type: %d\n", world.objs[i].type);         // Added!
+        print_tuple(world.shapes[i].origin);      // Added!
+        printf("      radius: %d\n", world.shapes[i].radius);       // Added!
+        printf("      type: %d\n", world.shapes[i].type);         // Added!
         printf("      material:\n");
-        printf("        ambient: %f\n", world.objs[i].material.ambient);
-        printf("        diffuse: %f\n", world.objs[i].material.diffuse);
-        printf("        specular: %f\n", world.objs[i].material.specular);
-        printf("        shininess: %f\n", world.objs[i].material.shininess);
+        printf("        ambient: %f\n", world.shapes[i].material.ambient);
+        printf("        diffuse: %f\n", world.shapes[i].material.diffuse);
+        printf("        specular: %f\n", world.shapes[i].material.specular);
+        printf("        shininess: %f\n", world.shapes[i].material.shininess);
         printf("        color:\n"); 
-        print_tuple(world.objs[i].material.color);
+        print_tuple(world.shapes[i].material.color);
     }
 }
 static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple expected) {

@@ -8,7 +8,7 @@
 
 Test(building_world, create_world, .description = scenario1) {
 	const t_world w = create_world();
-	cr_expect_eq(w.objs, NULL);
+	cr_expect_eq(w.shapes, NULL);
 	cr_expect_tuples_eq(w.light.position, create_tuple(0, 0, 0, 0));
 	cr_expect_tuples_eq(w.light.intensity, create_tuple(0, 0, 0, 0));
 }
@@ -40,11 +40,11 @@ Test(building_world, the_default_world, .description = scenario2) {
 
 	cr_expect_tuples_eq(world.light.position, expected_light.position);
 	cr_expect_tuples_eq(world.light.intensity, expected_light.intensity);
-	cr_expect_eq(doubles_eq(world.objs[0].material.diffuse, 0.7), TRUE);
-	cr_expect_eq(doubles_eq(world.objs[0].material.specular, 0.2), TRUE);
-	cr_expect_tuples_eq(world.objs[0].material.color, expected.color);
-	cr_expect_eq(matrices_eq(scaling_matrix, world.objs[1]._t), true);
-	cr_expect_eq(matrices_eq(inverse_scaling_matrix, world.objs[1].inverse_t), true);
+	cr_expect_eq(doubles_eq(world.shapes[0].material.diffuse, 0.7), TRUE);
+	cr_expect_eq(doubles_eq(world.shapes[0].material.specular, 0.2), TRUE);
+	cr_expect_tuples_eq(world.shapes[0].material.color, expected.color);
+	cr_expect_eq(matrices_eq(scaling_matrix, world.shapes[1]._t), true);
+	cr_expect_eq(matrices_eq(inverse_scaling_matrix, world.shapes[1].inverse_t), true);
 }
 
  // Scenario: Intersect a world with a ray
@@ -77,7 +77,7 @@ Test(building_world, the_default_world, .description = scenario2) {
  "And i ← ft_lstnew(4, shape)\n"                					 \
  "When prep_comps ← prepare_computations(i, r)\n"                	 \
  "Then prep_comps.t = i.t\n"                						 	 \
- "And prep_comps.object = i.object\n"                				 \
+ "And prep_comps.shape = i.shape\n"                				 \
  "And prep_comps.point = point(0, 0, -1)\n"                			 \
  "And prep_comps.eyev = vector(0, 0, -1)\n"                			 \
  "And prep_comps.normalv = vector(0, 0, -1)"RESET
@@ -86,12 +86,12 @@ Test(building_world, the_default_world, .description = scenario2) {
  			(t_tuple){0, 0, -5, POINT},
  			(t_tuple){0, 0, 1, VECTOR}
  	);
- 	t_sphere				s = create_sphere();
+ 	t_shape				s = create_sphere();
  	t_node					*i = ft_lstnew(4, &s);
  	t_prep_comps			prep_comps = prepare_computations(i, r);
 
  	cr_expect_eq(doubles_eq(prep_comps.t, i->t), TRUE);
- 	cr_expect_eq(prep_comps.object, i->object); // must be the address of the same sphere
+ 	cr_expect_eq(prep_comps.shape, i->shape); // must be the address of the same sphere
  	cr_expect_tuples_eq(prep_comps.point, (t_tuple){0, 0, -1, POINT});
  	cr_expect_tuples_eq(prep_comps.eyev, (t_tuple){0, 0, -1, VECTOR});
  	cr_expect_tuples_eq(prep_comps.normalv, (t_tuple){0, 0, -1, VECTOR});
@@ -106,7 +106,7 @@ Test(building_world, the_default_world, .description = scenario2) {
 "Then prep_comps.inside = false"RESET
 Test(building_world, hit_when_intersection_is_outside, .description = scenario5) {
 	t_ray r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	t_sphere s = create_sphere();
+	t_shape s = create_sphere();
 	t_node *i = ft_lstnew(4, &s);
 	const t_prep_comps prep_comps = prepare_computations(i, r);
 
@@ -126,7 +126,7 @@ Test(building_world, hit_when_intersection_is_outside, .description = scenario5)
 "// normal would have been (0, 0, 1), but is inverted!\n"            \
 "And prep_comps.normalv = vector(0, 0, -1)"RESET
 Test(building_world, hit_when_intersection_is_inside, .description = scenario6) {
-	t_sphere s;
+	t_shape s;
 	t_ray r;
 	t_node *i;
 	t_prep_comps prep_comps;
@@ -147,7 +147,7 @@ Test(building_world, hit_when_intersection_is_inside, .description = scenario6) 
 #define scenario7 CYAN \
 "\nGiven w ← default_world()\n"                                        \
 "And r ← ray(point(0, 0, -5), vector(0, 0, 1))\n"                      \
-"And shape ← the first object in w\n"								   \
+"And shape ← the first shape in w\n"								   \
 "And i ← ft_lstnew(4, shape)\n"    								   \
 "When prep_comps ← prepare_computations(i, r)\n"                       \
 "And c ← shade_hit(w, prep_comps)\n"                                   \
@@ -155,7 +155,7 @@ Test(building_world, hit_when_intersection_is_inside, .description = scenario6) 
 Test(building_world, shading_intersection, .description = scenario7) {
 	t_world w;
 	t_ray r;
-	t_sphere s;
+	t_shape s;
 	t_node *i;
 	t_tuple color;
 	t_prep_comps prep_comps;
@@ -163,7 +163,7 @@ Test(building_world, shading_intersection, .description = scenario7) {
 
 	w = default_world();
 	r = create_ray((t_tuple){0, 0, -5, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	s = *(t_sphere *)w.objs;
+	s = *(t_shape *)w.shapes;
 	i = ft_lstnew(4, &s);
 	prep_comps = prepare_computations(i, r);
 
@@ -176,7 +176,7 @@ Test(building_world, shading_intersection, .description = scenario7) {
 "\nGiven w ← default_world()\n"                                       \
 "And w.light ← point_light(point(0, 0.25, 0), color(1, 1, 1))\n"      \
 "And r ← ray(point(0, 0, 0), vector(0, 0, 1))\n"                      \
-"And shape ← the second object in w\n"                                \
+"And shape ← the second shape in w\n"                                \
 "And i ← ft_lstnew(0.5, shape)\n"                                  \
 "When prep_comps ← prepare_computations(i, r)\n"                      \
 "And c ← shade_hit(w, prep_comps)\n"                                  \
@@ -188,7 +188,7 @@ Test(building_world, shading_intersection_from_inside, .description = scenario8)
 		.intensity = {1, 1, 1, COLOR},
 	};
 	t_ray 			r = create_ray((t_tuple){0, 0, 0, POINT}, (t_tuple){0, 0, 1, VECTOR});
-	t_sphere 		*s = &w.objs[1];
+	t_shape 		*s = &w.shapes[1];
 	t_node	 		*i = ft_lstnew(0.5, s);
 	t_prep_comps 	prep_comps = prepare_computations(i, r);
 	t_tuple 		color;

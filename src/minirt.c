@@ -36,5 +36,5 @@ int	main(int argc, char **argv)
 	mlx_image_to_window(mlx, *get_image_to_render(mlx), 0, 0);
 	mlx_loop(mlx);
 	free(tokens);
-	free(world.objs);
+	free(world.shapes);
 }

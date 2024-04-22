@@ -45,6 +45,7 @@ static void	init_of_compute_the_diffuse(t_type_light *c, t_lighting *l)
 	c->effective_color = multiply_colors(l->material.color, l->light.intensity);
 	c->lightv = normalize(subtract_tuples(l->light.position, l->point));
 	c->a = multiply_tuple_by_scalar(c->effective_color, l->material.ambient);
+	c->a = add_tuples(c->a, l->parser_ambient);
 	c->light_dot_normal = dot(c->lightv, l->normal_vec);
 	if (c->light_dot_normal < 0)
 	{

@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/04/translation",
+  "directory": "/home/myuser/MiniRT/tests/04/translation",
   "arguments": [
    "cc",
    "-O3",

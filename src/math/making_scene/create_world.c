@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-static void	set_sphere(t_sphere *obj, double scaling, int color);
+static void	set_sphere(t_shape *j, double scaling, int color);
 
 t_world	create_world(void)
 {
@@ -26,16 +26,16 @@ t_world	default_world(void)
 	scene = create_world();
 	scene.light.position = create_tuple(-10, 10, -10, POINT);
 	scene.light.intensity = create_tuple(1, 1, 1, COLOR);
-	scene.objs = malloc(2 * sizeof(t_sphere));
-	scene.objs[0] = create_sphere();
-	scene.objs[1] = create_sphere();
-	scene.count = 2;
-	set_sphere(&scene.objs[0], 0, 1);
-	set_sphere(&scene.objs[1], 0.5, 0);
+	scene.shapes = malloc(2 * sizeof(t_shape));
+	scene.shapes[0] = create_sphere();
+	scene.shapes[1] = create_sphere();
+	scene.fixed_count = 2;
+	set_sphere(&scene.shapes[0], 0, 1);
+	set_sphere(&scene.shapes[1], 0.5, 0);
 	return (scene);
 }
 
-static void	set_sphere(t_sphere *obj, double scaling, int color)
+static void	set_sphere(t_shape *obj, double scaling, int color)
 {
 	if (scaling)
 	{
@@ -48,12 +48,4 @@ static void	set_sphere(t_sphere *obj, double scaling, int color)
 		obj->material.diffuse = 0.7;
 		obj->material.specular = 0.2;
 	}
-}
-
-void	add_object(t_world *w, t_sphere *new_obj,
-		int total_nb_of_objects_in_the_world)
-{
-	(void)w;
-	(void)new_obj;
-	(void)total_nb_of_objects_in_the_world;
 }

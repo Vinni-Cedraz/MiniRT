@@ -50,7 +50,7 @@ Test(phong_reflection, the_default_material, .description = scenario2) {
          "Then m = material()" RESET
 Test(phong_reflection, a_sphere_is_created_with_a_default_material_in_it,
      .description = scenario3) {
-    const t_sphere s = create_sphere();
+    const t_shape s = create_sphere();
     const t_tuple default_color = {1, 1, 1, COLOR};
     cr_expect_eq(doubles_eq(s.material.ambient, 0.1), TRUE);
     cr_expect_eq(doubles_eq(s.material.diffuse, 0.9), TRUE);

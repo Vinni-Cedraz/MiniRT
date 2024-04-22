@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_cylinder	create_cylinder(void)
+t_shape	create_cylinder(void)
 {
-	return ((t_cylinder){0});
+	return ((t_shape){0});
 }

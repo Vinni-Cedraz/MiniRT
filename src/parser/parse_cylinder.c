@@ -14,8 +14,8 @@
 
 int	parse_cylinder(t_token token, t_world *w)
 {
-	printf("%s\n", types[token.type]);
-	(void)token;
 	(void)w;
-	return (false);
+	printf("%s\n", types[token.type]);
+	exit(0);
+	return (0);
 }

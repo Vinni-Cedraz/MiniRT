@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_plane	create_plane(void)
+t_shape	create_plane(void)
 {
-	return ((t_plane){0});
+	return ((t_shape){0});
 }

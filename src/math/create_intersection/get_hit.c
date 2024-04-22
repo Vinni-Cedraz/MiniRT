@@ -19,7 +19,7 @@ t_node	_hit(t_intersections lst)
 	t_node	smallest;
 
 	smallest.t = __INT_MAX__;
-	smallest.object = NULL;
+	smallest.shape = NULL;
 	while (lst.head)
 	{
 		if (this_t_is_the_smallest_positive(lst.head->t, smallest.t))
