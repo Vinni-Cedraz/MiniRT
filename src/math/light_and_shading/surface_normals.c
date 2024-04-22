@@ -25,12 +25,14 @@ t_tuple	sphere_normal_at(const t_shape *sphere, const t_tuple world_point)
 	return (normalize(world_normal));
 }
 
-void	plane_normal_at( \
-		const t_shape *plane, const t_tuple world_point, t_tuple res)
+t_tuple	plane_normal_at( \
+		const t_shape *plane, const t_tuple world_point)
 {
-	(void)plane;
+	const t_tuple	up = create_vector(0, 1, 0);
+	const t_tuple	new_nrmal = multiply_tuple_by_matrix(up, plane->trans_inv);
+
 	(void)world_point;
-	(void)res;
+	return (normalize(new_nrmal));
 }
 
 void	cylinder_normal_at( \

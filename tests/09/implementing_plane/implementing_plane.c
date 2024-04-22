@@ -81,7 +81,7 @@ Test(implementing_plane, ray_from_above_intersects_plane, .description = scenari
 	t_intersections xs = intersect_shape(&plane, &ray);
 	cr_assert_eq(xs.count, 1);
 	cr_assert_eq(xs.head[0].shape->type, PLANE);
-	cr_assert_eq(xs.head[1].shape, (t_shape *)&plane);
+	cr_assert_eq(xs.head[0].shape, (t_shape *)&plane);
 }
 
 // Scenario : A ray intersecting a plane from below

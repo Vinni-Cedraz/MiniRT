@@ -19,12 +19,10 @@ t_shape	create_sphere(void)
 	sphere.radius = 1;
 	sphere.origin = create_point(0, 0, 0);
 	sphere.type = SPHERE;
-	sphere._t = create_identity_matrix();
-	sphere.inverse_t = create_identity_matrix();
-	sphere.trans_inv = create_identity_matrix();
 	sphere.material = create_material();
 	sphere.dis_to_ray = create_vector(0, 0, 0);
 	sphere.intersect = &intersect_sphere;
 	sphere.normal_at = &sphere_normal_at;
+	set_transform(&sphere, create_identity_matrix());
 	return (sphere);
 }

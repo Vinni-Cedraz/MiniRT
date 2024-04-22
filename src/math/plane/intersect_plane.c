@@ -12,9 +12,16 @@
 
 #include "minirt.h"
 
-t_intersections	intersect_plane(const t_shape *obj, const t_ray trans_ray)
+t_intersections	intersect_plane(const t_shape *obj, const t_ray *trans_ray)
 {
-	(void)obj;
-	(void)trans_ray;
-	return ((t_intersections){0});
+	t_intersections	intersections;
+	double			t;
+
+	intersections = (t_intersections){0};
+	if (fabs(trans_ray->direction.y) < EPSILON)
+		return (intersections);
+	t = -trans_ray->origin.y / trans_ray->direction.y;
+	intersections.head = ft_lstnew(t, obj);
+	intersections.count = 1;
+	return (intersections);
 }

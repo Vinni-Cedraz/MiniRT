@@ -1,7 +1,6 @@
 TESTDIRS = 		\
   refactoring_shapes \
-  # implementing_plane \
-  # putting_it_together \
+  implementing_plane \
 
 ## VARIABLES
 ORANGE = \033[38;5;214m

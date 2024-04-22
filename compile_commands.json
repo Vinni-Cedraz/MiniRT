@@ -1,12 +1,12 @@
 [
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -19,13 +19,13 @@
   "file": "./src/minirt.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -38,13 +38,13 @@
   "file": "./src/math/tuples/basic_tuple_operations.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -57,13 +57,13 @@
   "file": "./src/math/tuples/compare_floats.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -76,13 +76,13 @@
   "file": "./src/math/tuples/complex_tuple_operations.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -95,13 +95,13 @@
   "file": "./src/math/tuples/create_tuples.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -114,13 +114,13 @@
   "file": "./src/math/matrices/mult_matrices.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -133,13 +133,13 @@
   "file": "./src/math/matrices/comparison.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -152,13 +152,13 @@
   "file": "./src/math/matrices/transpose_matrix.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -171,13 +171,13 @@
   "file": "./src/math/matrices/determinants.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -190,13 +190,13 @@
   "file": "./src/math/matrices/minors.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -209,13 +209,13 @@
   "file": "./src/math/matrices/submatrices.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -228,13 +228,13 @@
   "file": "./src/math/matrices/chain_transformations.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -247,13 +247,13 @@
   "file": "./src/math/matrices/invert_matrix.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -266,13 +266,13 @@
   "file": "./src/math/matrices/create_matrix.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -285,13 +285,13 @@
   "file": "./src/math/matrix_transformations/translation.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -304,13 +304,13 @@
   "file": "./src/math/matrix_transformations/rotation.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -323,13 +323,13 @@
   "file": "./src/math/matrix_transformations/scaling.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -342,13 +342,13 @@
   "file": "./src/math/shape/intersect_shape.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -361,13 +361,13 @@
   "file": "./src/math/create_intersection/get_hit.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -380,13 +380,13 @@
   "file": "./src/math/rays/create_and_transform_rays.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -399,13 +399,13 @@
   "file": "./src/math/rays/intersection_coordinates.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -418,13 +418,13 @@
   "file": "./src/math/tuples/colors.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -437,13 +437,13 @@
   "file": "./src/math/create_intersection/set_transform.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -456,13 +456,13 @@
   "file": "./src/math/light_and_shading/surface_normals.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -475,13 +475,13 @@
   "file": "./src/math/light_and_shading/reflect.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -494,13 +494,13 @@
   "file": "./src/math/light_and_shading/create_material.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -513,13 +513,13 @@
   "file": "./src/math/light_and_shading/calculate_lighting.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -532,13 +532,13 @@
   "file": "./src/math/making_scene/create_world.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -551,13 +551,13 @@
   "file": "./src/math/light_and_shading/set_material.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -570,13 +570,13 @@
   "file": "./src/math/create_intersection/intersect_world_with_ray.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -589,13 +589,13 @@
   "file": "./src/math/create_intersection/prepare_computations.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -608,13 +608,13 @@
   "file": "./src/math/create_intersection/shade_hit.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -627,13 +627,13 @@
   "file": "./src/math/create_intersection/color_at.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -646,13 +646,13 @@
   "file": "./src/math/camera/view_transformation.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -665,13 +665,13 @@
   "file": "./src/math/camera/create_camera.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -684,13 +684,13 @@
   "file": "./src/math/camera/ray_for_pixel.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -703,13 +703,13 @@
   "file": "./src/render/render.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -722,13 +722,13 @@
   "file": "./src/math/sphere/intersect_sphere.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -741,13 +741,13 @@
   "file": "./src/math/plane/intersect_plane.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -760,13 +760,13 @@
   "file": "./src/math/cylinder/intersect_cylinder.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -779,13 +779,13 @@
   "file": "./src/math/plane/create_plane.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -798,13 +798,13 @@
   "file": "./src/math/cylinder/create_cylinder.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -817,13 +817,13 @@
   "file": "./src/math/cylinder/cylinder_setters.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -836,13 +836,13 @@
   "file": "./src/math/light_and_shading/shadows.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -855,13 +855,13 @@
   "file": "./src/render/render_image.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -874,13 +874,13 @@
   "file": "./src/input_validation/endwith.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -893,13 +893,13 @@
   "file": "./src/parser/parse_ambient_and_light.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -912,13 +912,13 @@
   "file": "./src/parser/parse_camera.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -931,13 +931,13 @@
   "file": "./src/parser/parse_plane.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -950,13 +950,13 @@
   "file": "./src/parser/parse_utils.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -969,13 +969,13 @@
   "file": "./src/parser/parse_cylinder.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -988,13 +988,13 @@
   "file": "./src/parser/parse_sphere.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -1007,13 +1007,13 @@
   "file": "./src/parser/parse_functions_table.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -1026,13 +1026,13 @@
   "file": "./src/parser/parse_tokens_into_world.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -1045,13 +1045,13 @@
   "file": "./src/math/cylinder/caps.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -1064,13 +1064,13 @@
   "file": "./src/input_validation/check_type_identifiers.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -1083,13 +1083,13 @@
   "file": "./src/input_validation/file_validation.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -1102,13 +1102,13 @@
   "file": "./src/input_validation/open_file.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -1121,13 +1121,13 @@
   "file": "./src/input_validation/validate_line.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",
@@ -1140,13 +1140,13 @@
   "file": "./src/tokenizer/tokenizer.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/nfs/homes/vcedraz-/MiniRT",
   "arguments": [
-   "cc",
+   "/usr/bin/cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I",
    "./include",
    "-I",

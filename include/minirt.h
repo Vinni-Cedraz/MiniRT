@@ -20,8 +20,8 @@
 # include <math.h>
 # include <stdio.h>
 
-static const char			types[6][20] = {"parse_ambient", "parse_camera",
-				"parse_light", "parse_sphere", "parse_plane", "parse_cylinder"};
+static const char			types[6][20] = {"AMBIENT", "CAMERA",
+				"LIGHT", "SPHERE", "PLANE", "CYLINDER"};
 
 # define CYAN "\033[36m"
 # define EPSILON 1e-5
@@ -54,8 +54,8 @@ static const char			types[6][20] = {"parse_ambient", "parse_camera",
 # define END_MATRIX -DBL_MAX
 # define ERROR -42
 
-# define SIZEH 720
-# define SIZEW 1280
+# define SIZEH 800
+# define SIZEW 800
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -151,7 +151,7 @@ typedef struct s_lighting
 	t_tuple					point;
 	t_tuple					eye_vec;
 	t_tuple					normal_vec;
-	t_tuple					parser_ambient;
+	t_tuple					wrld_ambien;
 	t_bool					in_shadow;
 }							t_lighting;
 
@@ -298,8 +298,7 @@ void						set_transform(t_shape *s, t_matrix t);
 double						_cofac(const t_matrix m, int row, int col);
 t_tuple						sphere_normal_at(const t_shape *sphere,
 								const t_tuple world_point);
-void						plane_normal_at(const t_shape *sphere,
-								const t_tuple p, t_tuple res);
+t_tuple						plane_normal_at(const t_shape *sphere, const t_tuple p);
 void						cylinder_normal_at(const t_shape *cyl,
 								const t_tuple p, t_tuple res);
 t_tuple						reflect(t_tuple vector, t_tuple normal);
@@ -324,8 +323,7 @@ t_matrix					create_mat(double arr[]);
 
 t_ray						ray_for_pixel(t_camera c, int x, int y);
 void						render(mlx_image_t *image, t_world world);
-t_intersections				intersect_plane(const t_shape *obj,
-								const t_ray trans_ray);
+t_intersections				intersect_plane(const t_shape *obj, const t_ray *trans_ray);
 t_intersections				intersect_cylinder(const t_shape *obj,
 								const t_ray *transformed_ray);
 t_intersections				intersect_sphere(const t_shape *obj,
@@ -373,6 +371,7 @@ t_tuple						normalize_color(const t_tuple a);
 double						_discriminant(t_tuple obj_dist_ray,
 								const t_ray *ray, t_baskara *bask);
 t_intersections				intersect_shape(t_shape *obj, const t_ray *r);
+t_matrix					plane_view_transform(t_tuple from, t_tuple up);
 
 static inline void	print_tuple(const t_tuple a)
 {
