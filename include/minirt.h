@@ -151,7 +151,7 @@ typedef struct s_lighting
 	t_tuple					point;
 	t_tuple					eye_vec;
 	t_tuple					normal_vec;
-	t_tuple					parser_ambient;
+	t_tuple					wrld_ambien;
 	t_bool					in_shadow;
 }							t_lighting;
 
