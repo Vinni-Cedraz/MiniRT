@@ -15,6 +15,7 @@
 static void    compute_the_specular(t_type_light *c, t_lighting *l);
 static void    create_black(t_type_light *c, int single);
 static void    init_of_compute(t_type_light *c, t_lighting *l);
+static void    compute_the_diffuse(t_type_light *c, t_lighting *l);
 
 t_tuple    calculate_lighting(t_lighting *l)
 {
@@ -22,16 +23,11 @@ t_tuple    calculate_lighting(t_lighting *l)
 	t_type_light    c;
 
 	init_of_compute(&c, l);
-	c.a = multiply_tuple_by_scalar(c.effective_color, l->material.ambient);
-	// if(l->in_shadow)
-	// 	return (multiply_tuple_by_scalar(c.effective_color, l->material.ambient));
-	c.light_dot_normal = dot(c.lightv, l->normal_vec);
-	if (c.light_dot_normal < 0)
-		create_black(&c,0);
-	else
+	 if(l->in_shadow)
+	 	return (multiply_tuple_by_scalar(c.effective_color, l->material.ambient));
+	if (c.light_dot_normal >= 0)
 	{
-		c.d = multiply_tuple_by_scalar(c.effective_color, \
-                c.light_dot_normal * l->material.diffuse);
+		compute_the_diffuse(&c, l);
 		c.lightv = negate_tuple(c.lightv);
 		c.reflectv = reflect(c.lightv,l->normal_vec);
 		c.reflect_dot_eye = dot(c.reflectv, l->eye_vec);
@@ -49,7 +45,10 @@ static void    init_of_compute(t_type_light *c, t_lighting *l)
 	c->effective_color = multiply_colors(l->material.color, l->light.intensity);
 	c->lightv = subtract_tuples(l->light.position, l->point);
 	c->lightv = normalize(c->lightv);
-
+	c->a = multiply_tuple_by_scalar(c->effective_color, l->material.ambient);
+	c->light_dot_normal = dot(c->lightv, l->normal_vec);
+	if (c->light_dot_normal < 0)
+		create_black(c,0);
 }
 
 static void    create_black(t_type_light *c, int single)
@@ -66,5 +65,17 @@ static void    create_black(t_type_light *c, int single)
 static void    compute_the_specular(t_type_light *c, t_lighting *l)
 {
 	c->factor = pow(c->reflect_dot_eye, l->material.shininess);
-	c->s = multiply_tuple_by_scalar(c->d, c->light_dot_normal);
+	c->s = multiply_tuple_by_scalar(l->light.intensity, \
+            l->material.specular);
+	c->s = multiply_tuple_by_scalar(c->s, c->factor);
+}
+
+static void    compute_the_diffuse(t_type_light *c, t_lighting *l)
+{
+	if (c->light_dot_normal >= 0)
+	{
+		c->d = multiply_tuple_by_scalar(c->effective_color, \
+                l->material.diffuse);
+		c->d = multiply_tuple_by_scalar(c->d, c->light_dot_normal);
+	}
 }
