@@ -72,7 +72,7 @@ int main() {
     };
 
     world.camera = create_camera(SIZEW, SIZEH, M_PI / 3);
-    t_tuple from = (t_tuple){0, 1.5, -5, POINT};
+    t_tuple from = (t_tuple){0, 200, -1500, POINT};
     t_tuple to = (t_tuple){0, 1, 0, POINT};
     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
     t_tuple forward;

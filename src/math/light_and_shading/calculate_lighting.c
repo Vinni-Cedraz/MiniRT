@@ -23,8 +23,8 @@ t_tuple    calculate_lighting(t_lighting *l)
 
 	init_of_compute(&c, l);
 	c.a = multiply_tuple_by_scalar(c.effective_color, l->material.ambient);
-	if(l->in_shadow)
-		return (multiply_tuple_by_scalar(c.effective_color, l->material.ambient));
+	// if(l->in_shadow)
+	// 	return (multiply_tuple_by_scalar(c.effective_color, l->material.ambient));
 	c.light_dot_normal = dot(c.lightv, l->normal_vec);
 	if (c.light_dot_normal < 0)
 		create_black(&c,0);

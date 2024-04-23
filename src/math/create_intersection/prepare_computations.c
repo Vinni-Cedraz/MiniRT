@@ -28,5 +28,6 @@ t_prep_comps	prepare_computations(const t_node *hit, t_ray ray)
 	}
 	else
 		prep.inside = false;
+	prep.over_point = add_tuples(prep.point, multiply_tuple_by_scalar(prep.normalv, EPSILON));
 	return (prep);
 }

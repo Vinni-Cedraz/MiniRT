@@ -54,8 +54,8 @@ static const char			types[6][20] = {"AMBIENT", "CAMERA",
 # define END_MATRIX -DBL_MAX
 # define ERROR -42
 
-# define SIZEH 800
-# define SIZEW 800
+# define SIZEH 1080
+# define SIZEW 1920
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
