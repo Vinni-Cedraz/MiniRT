@@ -41,7 +41,7 @@ t_matrix	plane_view_transform(t_tuple from, t_tuple up)
 			right.x, up.x, forward.x, from.x,
 			right.y, up.y, forward.y, from.y,
 			right.z, up.z, forward.z, from.z,
-			0, 0, 0, 1,
+			right.w, up.w, forward.w, from.w,
 			END_MATRIX
 		});
 	return (transform);
