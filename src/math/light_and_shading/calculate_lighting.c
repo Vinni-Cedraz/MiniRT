@@ -24,9 +24,9 @@ t_tuple    calculate_lighting(t_lighting *l)
 	init_of_compute(&c, l);
 	c.a = multiply_tuple_by_scalar(c.effective_color, l->material.ambient);
 	if(l->in_shadow)
-		return (c.a);
+		return (multiply_tuple_by_scalar(c.effective_color, l->material.ambient));
 	c.light_dot_normal = dot(c.lightv, l->normal_vec);
-	if (c.reflect_dot_eye < 0)
+	if (c.light_dot_normal < 0)
 		create_black(&c,0);
 	else
 	{
@@ -35,7 +35,7 @@ t_tuple    calculate_lighting(t_lighting *l)
 		c.lightv = negate_tuple(c.lightv);
 		c.reflectv = reflect(c.lightv,l->normal_vec);
 		c.reflect_dot_eye = dot(c.reflectv, l->eye_vec);
-		if (c.light_dot_normal <= 0)
+		if (c.reflect_dot_eye <= 0)
 			create_black(&c,1);
 		else
 			compute_the_specular(&c, l);
