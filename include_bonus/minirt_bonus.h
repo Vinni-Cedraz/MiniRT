@@ -20,8 +20,8 @@
 # include <math.h>
 # include <stdio.h>
 
-static const char			types[6][20] = {"AMBIENT", "CAMERA",
-				"LIGHT", "SPHERE", "PLANE", "CYLINDER"};
+static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
+				"SPHERE", "PLANE", "CYLINDER"};
 
 # define CYAN "\033[36m"
 # define EPSILON 1e-5
@@ -240,7 +240,7 @@ typedef struct s_world
 	t_tuple					parser_ambient;
 	int						fixed_count;
 	int						moving_idx;
-	short					lights_idx;
+	short					nb_of_lights;
 }							t_world;
 
 typedef						int(t_parse_table)(t_token token, t_world *);
@@ -248,7 +248,8 @@ typedef						int(t_parse_table)(t_token token, t_world *);
 t_tuple						create_point(double x, double y, double z);
 void						tuple_to_arr(t_tuple a, double arr[4]);
 t_tuple						create_vector(double x, double y, double z);
-t_tuple						create_tuple(double x, double y, double z, double w);
+t_tuple						create_tuple(double x, double y, double z,
+								double w);
 t_bool						doubles_eq(double a, double b);
 t_tuple						add_tuples(const t_tuple a, const t_tuple b);
 t_tuple						subtract_tuples(const t_tuple a, const t_tuple b);
@@ -300,7 +301,8 @@ void						set_transform(t_shape *s, t_matrix t);
 double						_cofac(const t_matrix m, int row, int col);
 t_tuple						sphere_normal_at(const t_shape *sphere,
 								const t_tuple world_point);
-t_tuple						plane_normal_at(const t_shape *sphere, const t_tuple p);
+t_tuple						plane_normal_at(const t_shape *sphere,
+								const t_tuple p);
 void						cylinder_normal_at(const t_shape *cyl,
 								const t_tuple p, t_tuple res);
 t_tuple						reflect(t_tuple vector, t_tuple normal);
@@ -325,7 +327,8 @@ t_matrix					create_mat(double arr[]);
 
 t_ray						ray_for_pixel(t_camera c, int x, int y);
 void						render(mlx_image_t *image, t_world world);
-t_intersections				intersect_plane(const t_shape *obj, const t_ray *trans_ray);
+t_intersections				intersect_plane(const t_shape *obj,
+								const t_ray *trans_ray);
 t_intersections				intersect_cylinder(const t_shape *obj,
 								const t_ray *transformed_ray);
 t_intersections				intersect_sphere(const t_shape *obj,
@@ -362,9 +365,10 @@ int							open_file(char *file);
 t_token						*tokenizer(int fd, int number_of_tokens);
 void						validate_line(char *line, t_split *splitted,
 								int fd);
-_Bool						file_validation(int fd, int *valid_lines);
-t_world						parse_tokens_into_world(t_token *tokens,
-								int number_of_tokens);
+// this function validates the file AND returns the number of lights in the file
+short						file_validation(int fd, int *valid_lines);
+void						parse_tokens_into_world(t_token *tokens,
+								int nb_of_tokens, t_world *w);
 t_tuple						parse_tuple(char *str, short type);
 int							is_a_normalized_vector(t_tuple result);
 double						parse_double(char *str, _Bool is_fov);

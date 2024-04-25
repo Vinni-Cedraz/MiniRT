@@ -16,20 +16,15 @@ static void	check_error(int error, const t_token *tokens);
 static void	init_world(int number_of_tokens, t_world *world);
 static void	load_world(int number_of_tokens, t_world *world, t_token *tokens);
 
-t_world	parse_tokens_into_world(t_token *tokens, int number_of_tokens)
+void	parse_tokens_into_world(t_token *tokens, int nb_of_tokens, t_world *w)
 {
-	t_world			world;
-
-	world = (t_world){0};
-	init_world(number_of_tokens, &world);
-	load_world(number_of_tokens, &world, tokens);
-	printf(GREEN"Parsing Done\n"RESET);
-	return (world);
+	init_world(nb_of_tokens, w);
+	load_world(nb_of_tokens, w, tokens);
 }
 
 static void	init_world(int number_of_tokens, t_world *world)
 {
-	const int	number_of_non_shape_tokens = world->lights_idx + 3;
+	const int	number_of_non_shape_tokens = world->nb_of_lights + 2;
 
 	world->fixed_count = (number_of_tokens - number_of_non_shape_tokens);
 	world->shapes = ft_calloc(sizeof(t_shape), world->fixed_count);

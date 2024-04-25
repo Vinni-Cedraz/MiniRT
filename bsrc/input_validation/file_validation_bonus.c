@@ -14,7 +14,7 @@
 
 static void	check_identifiers(t_checker *c);
 
-_Bool	file_validation(int fd, int *valid_lines)
+short	file_validation(int fd, int *valid_lines)
 {
 	t_checker	c;
 
@@ -37,7 +37,7 @@ _Bool	file_validation(int fd, int *valid_lines)
 		c.line = ft_gnl(fd);
 	}
 	check_identifiers(&c);
-	return (true);
+	return (c.counters[LIGHT]);
 }
 
 void	free_and_exit_error(char *line, t_split *splitted, int fd)
