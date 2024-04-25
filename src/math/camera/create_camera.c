@@ -23,6 +23,7 @@ t_camera	create_camera(int hsize, int vsize, double field_of_view)
 		.vsize = vsize,
 		.field_of_view = field_of_view,
 		.transform = create_identity_matrix(),
+		.cam_inv_trans = create_identity_matrix(),
 		.pixel_size = 0,
 		.up = create_vector(0, 1, 0)
 	};

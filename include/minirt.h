@@ -81,7 +81,7 @@ typedef struct s_tuple
 	double					x;
 	double					y;
 	double					z;
-	short					w;
+	double					w;
 }							t_tuple;
 
 typedef struct s_token
@@ -223,6 +223,7 @@ typedef struct s_camera
 	double					half_height;
 	double					field_of_view;
 	t_matrix				transform;
+	t_matrix				cam_inv_trans;
 	double					pixel_size;
 	double					xoffset;
 	double					yoffset;
@@ -243,10 +244,10 @@ typedef struct s_world
 
 typedef						int(t_parse_table)(t_token token, t_world *);
 
-t_tuple						create_point(float x, float y, float z);
+t_tuple						create_point(double x, double y, double z);
 void						tuple_to_arr(t_tuple a, double arr[4]);
-t_tuple						create_vector(float x, float y, float z);
-t_tuple						create_tuple(float x, float y, float z, short w);
+t_tuple						create_vector(double x, double y, double z);
+t_tuple						create_tuple(double x, double y, double z, double w);
 t_bool						doubles_eq(double a, double b);
 t_tuple						add_tuples(const t_tuple a, const t_tuple b);
 t_tuple						subtract_tuples(const t_tuple a, const t_tuple b);
@@ -375,7 +376,7 @@ t_matrix					plane_view_transform(t_tuple from, t_tuple up);
 
 static inline void	print_tuple(const t_tuple a)
 {
-	printf("X: %f, Y: %f, Z: %f, W: %d\n", a.x, a.y, a.z, a.w);
+	printf("X: %f, Y: %f, Z: %f, W: %f\n", a.x, a.y, a.z, a.w);
 }
 
 static inline void	print_matrix(t_matrix mat)

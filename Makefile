@@ -30,9 +30,10 @@ SRC = minirt.c \
 	  intersect_plane.c intersect_cylinder.c create_plane.c create_cylinder.c cylinder_setters.c \
 	  shadows.c render_image.c endwith.c parse_ambient_and_light.c parse_camera.c parse_plane.c parse_utils.c \
 	  parse_cylinder.c parse_sphere.c parse_functions_table.c parse_tokens_into_world.c caps.c \
-	  check_type_identifiers.c file_validation.c open_file.c validate_line.c tokenizer.c create_sphere.c
+	  check_type_identifiers.c file_validation.c open_file.c validate_line.c tokenizer.c create_sphere.c \
+	  multiply_tuple_by_matrix.c
 
-VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/ppm/ ./src/math/matrices \
+VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/matrices \
 		./src/math/matrix_transformations ./src/math/rays ./src/math/sphere \
 		./src/math/rays/ ./src/math/light_and_shading/ ./src/math/making_scene/ \
 		./src/math/camera/ ./src/math/cylinder/ ./src/math/plane/ ./src/math/create_intersection/ \
@@ -40,7 +41,7 @@ VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/ppm/ ./src/math/m
 
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/
-C_FLAGS = -Wall -Werror -Wextra -g
+C_FLAGS = -Wall -Werror -Wextra -Ofast
 OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))
 BUILD_DIR_RT= ./build/
 CMD = $(CC) $(LIBFT) $(OBJS) $(C_FLAGS) -I$(MLX_INCLUDE) -I $(INCLUDE) -c $< -o $@

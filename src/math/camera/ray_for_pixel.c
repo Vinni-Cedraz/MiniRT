@@ -40,15 +40,14 @@ static void	set_world_yx(t_camera *c)
 
 static t_ray	compute_ray_direction(t_camera *c)
 {
-	t_ray		r;
-	t_tuple		pixel;
-	t_tuple		point;
-	t_matrix	invert_m;
+	t_ray			r;
+	t_tuple			pixel;
+	t_tuple			point;
+	const t_tuple	up = create_point(0, 0, 0);
 
-	invert_m = invert_matrix(c->transform);
 	point = create_point(c->world_x, c->world_y, -1);
-	pixel = multiply_tuple_by_matrix(point, invert_m);
-	r.origin = multiply_tuple_by_matrix(create_point(0, 0, 0), invert_m);
+	pixel = multiply_tuple_by_matrix(point, c->cam_inv_trans);
+	r.origin = multiply_tuple_by_matrix(up, c->cam_inv_trans);
 	r.direction = normalize(subtract_tuples(pixel, r.origin));
 	return (r);
 }

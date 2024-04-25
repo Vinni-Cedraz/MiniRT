@@ -41,9 +41,7 @@ t_tuple	normalize(const t_tuple vec)
 
 double	dot(const t_tuple a, const t_tuple b)
 {
-	if (a.w && b.w)
-		return (-42);
-	return ((a.x * b.x) + (a.y * b.y) + (a.z * b.z));
+	return ((a.x * b.x) + (a.y * b.y) + (a.z * b.z) + (a.w * b.w));
 }
 
 t_tuple	cross(const t_tuple a, const t_tuple b)

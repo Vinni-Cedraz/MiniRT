@@ -22,5 +22,6 @@ int	parse_camera(t_token token, t_world *w)
 		return (ERROR);
 	w->camera = create_camera(SIZEW, SIZEH, fov);
 	w->camera.transform = view_transform(from, forward, w->camera.up);
+	w->camera.cam_inv_trans = invert_matrix(w->camera.transform);
 	return (0);
 }

@@ -13,7 +13,7 @@
 ## SET-UP VARIABLES ##
 NAME = libft.a
 INC = -I./
-CFLAGS = $(INC) -Wall -Werror -Wextra -g
+CFLAGS = $(INC) -Wall -Werror -Wextra -Ofast
 R = rm -f
 RD = rm -rf
 OBJS_PATH = ./objs/

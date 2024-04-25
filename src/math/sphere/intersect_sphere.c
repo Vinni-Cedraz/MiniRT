@@ -20,10 +20,7 @@ t_intersections	intersect_sphere(const t_shape *obj, const t_ray *trans_r)
 
 	d = _discriminant(obj->dis_to_ray, trans_r, &bask);
 	if (d < 0)
-	{
-		ft_bzero((void *)&result, sizeof(t_intersections));
-		return (result);
-	}
+		return ((t_intersections){0});
 	result.head = ft_lstnew((-bask.b - sqrt(d)) / (2 * bask.a), obj);
 	result.head->next = ft_lstnew((-bask.b + sqrt(d)) / (2 * bask.a), obj);
 	result.count = 2;
