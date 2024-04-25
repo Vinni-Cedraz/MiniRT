@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static t_matrix	create_matrix_of_cofactors(const t_matrix m);
 static t_matrix	divide_each_element_by_det(t_matrix m, \

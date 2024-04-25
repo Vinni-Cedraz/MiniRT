@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 t_intersections	intersect_plane(const t_shape *obj, const t_ray *trans_ray)
 {

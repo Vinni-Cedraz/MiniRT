@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static void		init_grid(t_matrix *matrix, double *src_arr);
 static short	count_mat_size(double *arr);

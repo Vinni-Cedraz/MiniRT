@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../include_bonus/minirt_bonus.h"
 
 int	parse_camera(t_token token, t_world *w)
 {

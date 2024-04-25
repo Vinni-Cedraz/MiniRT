@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static void	check_error(int error, const t_token *tokens);
 static void	init_world(int number_of_tokens, t_world *world);
@@ -23,15 +23,16 @@ t_world	parse_tokens_into_world(t_token *tokens, int number_of_tokens)
 	world = (t_world){0};
 	init_world(number_of_tokens, &world);
 	load_world(number_of_tokens, &world, tokens);
+	printf(GREEN"Parsing Done\n"RESET);
 	return (world);
 }
 
 static void	init_world(int number_of_tokens, t_world *world)
 {
-	const int	number_of_non_shape_tokens = 3;
+	const int	number_of_non_shape_tokens = world->lights_idx + 3;
 
-	world->shapes = ft_calloc(sizeof(t_shape), number_of_tokens);
 	world->fixed_count = (number_of_tokens - number_of_non_shape_tokens);
+	world->shapes = ft_calloc(sizeof(t_shape), world->fixed_count);
 	world->moving_idx = world->fixed_count - 1;
 }
 

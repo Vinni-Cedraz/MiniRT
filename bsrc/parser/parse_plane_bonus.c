@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 t_shape	init_plane(const t_tuple c, const t_tuple up, const t_tuple cl);
 _Bool	is_standard_orientation(t_tuple up, t_tuple from);

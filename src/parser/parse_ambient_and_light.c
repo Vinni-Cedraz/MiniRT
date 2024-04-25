@@ -32,7 +32,7 @@ int	parse_light(t_token token, t_world *w)
 
 	if (coordinates.w == ERROR || in == -DBL_MAX)
 		return (ERROR);
-	w->light = (t_point_light){coordinates, create_tuple(in, in, in, COLOR)};
+	w->lights = (t_point_light){coordinates, create_tuple(in, in, in, COLOR)};
 	return (false);
 }
 

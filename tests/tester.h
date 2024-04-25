@@ -1,7 +1,8 @@
 #ifndef TEST_H
 #define TEST_H
 
-#include "../include/minirt.h"
+// #include "../include/minirt.h"
+#include "../include_bonus/minirt_bonus.h"
 #include <criterion/criterion.h>
 #include <stdio.h>
 #define CYAN "\033[36m"
@@ -50,13 +51,14 @@ static inline void print_world(t_world world) {
 	printf("    up: (%f, %f, %f)\n", world.camera.up.x, world.camera.up.y, world.camera.up.z);
 
     // Light Information
-    printf("  Light:\n");
-    printf("    position:\n");
-    print_tuple(world.light.position);
-    printf("    intensity:\n");
-    print_tuple(world.light.intensity);
-	printf("    parser_ambient factor:\n");
-	print_tuple(world.parser_ambient);
+	for (int idx = 0; idx < world.lights_idx; idx++) {
+		printf("  Light:\n");
+		printf("    position:\n");
+		print_tuple(world.lights[idx].position);
+		printf("    intensity:\n");
+		print_tuple(world.lights[idx].intensity);
+	}
+	printf("	ambient:	"), print_tuple(world.parser_ambient);
 
     // Objects 
     printf("  Objects:\n");

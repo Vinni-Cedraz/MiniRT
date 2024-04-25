@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 // static void	insertion_sort(t_node **head_ref);
 // static void	sorted_insert(t_node **head_ref, t_node *new_node);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 t_prep_comps	prepare_computations(const t_node *hit, t_ray ray)
 {

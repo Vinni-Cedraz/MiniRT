@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 void	intersect_caps(const t_shape *cyl, const t_ray r, t_node **head)
 {

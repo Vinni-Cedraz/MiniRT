@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static int	validate_tuple(char *str, t_tuple tuple, short type);
 static int	count_commas(char *str);

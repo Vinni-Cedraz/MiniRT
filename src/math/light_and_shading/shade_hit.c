@@ -16,7 +16,7 @@ t_tuple	shade_hit(t_world *world, t_prep_comps *comps)
 {
 	return (calculate_lighting(&(t_lighting){
 			comps->shape->material,
-			world->light,
+			world->lights,
 			comps->point,
 			comps->eyev,
 			comps->normalv,

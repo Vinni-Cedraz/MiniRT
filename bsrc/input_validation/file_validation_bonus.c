@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
-static void	check_if_theres_one_of_each_unique_identifier(t_checker *c);
+static void	check_identifiers(t_checker *c);
 
 _Bool	file_validation(int fd, int *valid_lines)
 {
@@ -36,7 +36,7 @@ _Bool	file_validation(int fd, int *valid_lines)
 		ft_free_t_split(c.splitted);
 		c.line = ft_gnl(fd);
 	}
-	check_if_theres_one_of_each_unique_identifier(&c);
+	check_identifiers(&c);
 	return (true);
 }
 
@@ -51,12 +51,19 @@ void	free_and_exit_error(char *line, t_split *splitted, int fd)
 	exit(1);
 }
 
-static void	check_if_theres_one_of_each_unique_identifier(t_checker *c)
+static void	check_identifiers(t_checker *c)
 {
-	if (3 != (c->counters[AMBIENT] + c->counters[CAMERA] + c->counters[LIGHT]))
+	if (!(c->counters[AMBIENT] && c->counters[CAMERA] && c->counters[LIGHT]))
 	{
 		printf(RED
-			"Error: you need one Ambient light, one Light and one Camera!\n"
+			"Error: you need one Ambient, one Camera and at least one Light!\n"
+			RESET);
+		free_and_exit_error(c->line, NULL, c->fd);
+	}
+	if (c->counters[LIGHT] > 4)
+	{
+		printf(RED
+			"Error: you can only have up to 4 different Light sources!\n"
 			RESET);
 		free_and_exit_error(c->line, NULL, c->fd);
 	}

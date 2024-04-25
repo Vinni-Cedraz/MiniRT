@@ -28,7 +28,7 @@ SRC = minirt.c \
       invert_matrix.c create_matrix.c translation.c rotation.c scaling.c intersect_shape.c \
       get_hit.c create_and_transform_rays.c intersection_coordinates.c colors.c \
 	  set_transform.c surface_normals.c reflect.c create_material.c calculate_lighting.c \
-	  create_world.c set_material.c intersect_world_with_ray.c prepare_computations.c shade_hit.c \
+	  create_world.c intersect_world_with_ray.c prepare_computations.c shade_hit.c \
 	  color_at.c view_transformation.c create_camera.c ray_for_pixel.c render.c intersect_sphere.c \
 	  intersect_plane.c intersect_cylinder.c create_plane.c create_cylinder.c cylinder_setters.c \
 	  shadows.c render_image.c endwith.c parse_ambient_and_light.c parse_camera.c parse_plane.c parse_utils.c \
@@ -53,9 +53,8 @@ BSRC = minirt_bonus.c basic_tuple_operations_bonus.c compare_floats_bonus.c \
 		intersect_shape_bonus.c get_hit_bonus.c create_and_transform_rays_bonus.c \
 		intersection_coordinates_bonus.c colors_bonus.c set_transform_bonus.c \
 		surface_normals_bonus.c reflect_bonus.c create_material_bonus.c \
-		calculate_lighting_bonus.c create_world_bonus.c set_material_bonus.c \
-		intersect_world_with_ray_bonus.c prepare_computations_bonus.c shade_hit_bonus.c \
-		color_at_bonus.c view_transformation_bonus.c create_camera_bonus.c \
+		calculate_lighting_bonus.c intersect_world_with_ray_bonus.c prepare_computations_bonus.c \
+		shade_hit_bonus.c color_at_bonus.c view_transformation_bonus.c create_camera_bonus.c \
 		ray_for_pixel_bonus.c render_bonus.c intersect_sphere_bonus.c \
 		intersect_plane_bonus.c intersect_cylinder_bonus.c create_plane_bonus.c \
 		create_cylinder_bonus.c cylinder_setters_bonus.c shadows_bonus.c \
@@ -68,17 +67,19 @@ BSRC = minirt_bonus.c basic_tuple_operations_bonus.c compare_floats_bonus.c \
 
 VPATH += ./bsrc ./bsrc/math/canvas/ ./bsrc/math/tuples/ ./bsrc/math/matrices \
 		./bsrc/math/matrix_transformations ./bsrc/math/rays ./bsrc/math/sphere \
-		./bsrc/math/rays/ ./bsrc/math/light_and_shading/ ./bsrc/math/making_scene/ \
+		./bsrc/math/rays/ ./bsrc/math/light_and_shading/ \
 		./bsrc/math/camera/ ./bsrc/math/cylinder/ ./bsrc/math/plane/ \
 		./bsrc/math/create_intersection/ ./bsrc/render ./bsrc/input_validation \
 		./bsrc/parser ./bsrc/tokenizer/ ./bsrc/math/shape/
 
 BUILD_SRC = ./build/
-INCLUDE = -I ./include -I ./libs/
+INCLUDE = -I./include -I ./libs/
+B_INCLUDE = -I./include_bonus -I./libs/
 C_FLAGS = -Wall -Werror -Wextra -g
 BUILD_DIR_RT= ./build/
+B_BUILD_DIR_RT= ./build_bonus/
 OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))
-BOBJS = $(addprefix $(BUILD_DIR_RT),$(BSRC:.c=.o))
+BOBJS = $(addprefix $(B_BUILD_DIR_RT),$(BSRC:.c=.o))
 
 ### RECIPES
 all: $(NAME)
@@ -92,12 +93,16 @@ $(NAME): $(LIBMLX_TARGET) $(OBJS)
 
 $(BNAME): $(LIBMLX_TARGET) $(BOBJS)
 	@printf "$(GREEN)[ Build ]$(DEF_COLOR) $(RED) $@ $(GREEN)complete $(DEF_COLOR)"
-	@$(CC) $(C_FLAGS) $(BOBJS) $(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -L ./libs/ -lft -o $@
+	@$(CC) $(C_FLAGS) $(BOBJS) $(B_INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -L ./libs/ -lft -o $@
 	@compiledb make as_lib_bonus --no-print-directory
 
 $(BUILD_DIR_RT)%.o: %.c $(LIBFT)
 	@test -d $(BUILD_DIR_RT) || mkdir $(BUILD_DIR_RT)
 	$(CC) $(C_FLAGS) $(INCLUDE) -c $< -o $@
+
+$(B_BUILD_DIR_RT)%.o: %.c $(LIBFT)
+	@test -d $(B_BUILD_DIR_RT) || mkdir $(B_BUILD_DIR_RT)
+	$(CC) $(C_FLAGS) $(B_INCLUDE) -c $< -o $@
 
 $(LIBFT):
 	make --no-print-directory -C ./libs && make bonus --no-print-directory -C ./libs
@@ -117,13 +122,14 @@ clean:
 	@echo "Cleaning..."
 	@make clean --no-print-directory -C libs/
 	rm -rf $(BUILD_DIR_RT)
+	rm -rf $(B_BUILD_DIR_RT)
 
 fclean: clean
 	@echo "Fully Cleaning..."
 	@make fclean --no-print-directory -C ./libs/
 	@make clean --no-print-directory -C ./tests
 	@rm -rf MLX42/
-	@rm -f $(NAME) $(LIB)
+	@rm -f $(BNAME) $(NAME) $(LIB) $(BLIB)
 
 makelib:
 	@make --no-print-directory -C libs/

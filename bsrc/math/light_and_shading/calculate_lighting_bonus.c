@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static void	init_of_compute_the_diffuse(t_type_light *c, t_lighting *l);
 

@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static _Bool	is_unique_type_identifier(char *line);
 static int		is_non_unique_type(const char *line);
-static void		check_counter(t_checker *checker);
+static void		check_counter(t_checker *c);
 
 void	check_type_identifiers(t_checker *c)
 {
@@ -56,17 +56,17 @@ _Bool	is_unique_type_identifier(char *line)
 	return (false);
 }
 
-void	check_counter(t_checker *checker)
+void	check_counter(t_checker *c)
 {
-	static const char	id[] = {'A', 'C', 'L'};
+	static const char	id[] = {'A', 'C'};
 
-	if ((checker->counters[checker->identifier]) == true)
+	if (c->identifier != LIGHT && c->counters[c->identifier] == true)
 	{
 		printf(RED "Error: The file can only have a single '%c' identifier\n"
-			RESET, id[checker->identifier]);
-		free_and_exit_error(checker->line, checker->splitted, checker->fd);
+			RESET, id[c->identifier]);
+		free_and_exit_error(c->line, c->splitted, c->fd);
 	}
-	(checker->counters[checker->identifier]) = true;
+	c->counters[c->identifier]++;
 }
 
 int	is_non_unique_type(const char *line)

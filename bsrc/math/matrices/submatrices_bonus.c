@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static _Bool	this_number_must_stay(int row, int col, int del_col,
 					int del_row);

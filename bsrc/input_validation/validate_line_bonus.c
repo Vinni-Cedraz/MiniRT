@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static _Bool	has_forbidden_chars(const char *string);
 static _Bool	has_consecutive_separators(const char *string);

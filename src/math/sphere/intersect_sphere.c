@@ -15,7 +15,7 @@
 t_intersections	intersect_sphere(const t_shape *obj, const t_ray *trans_r)
 {
 	t_intersections	result;
-	t_baskara		bask;
+	t_bhaskara		bask;
 	double			d;
 
 	d = _discriminant(obj->dis_to_ray, trans_r, &bask);
@@ -27,7 +27,7 @@ t_intersections	intersect_sphere(const t_shape *obj, const t_ray *trans_r)
 	return (result);
 }
 
-double	_discriminant(t_tuple obj_dist_ray, const t_ray *ray, t_baskara *bask)
+double	_discriminant(t_tuple obj_dist_ray, const t_ray *ray, t_bhaskara *bask)
 {
 	bask->a = dot(ray->direction, ray->direction);
 	bask->b = 2 * dot(ray->direction, obj_dist_ray);

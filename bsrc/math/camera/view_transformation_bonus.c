@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 t_matrix	view_transform(t_tuple from, t_tuple forward, t_tuple up)
 {

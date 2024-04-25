@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 t_tuple	sphere_normal_at(const t_shape *sphere, const t_tuple world_point)
 {

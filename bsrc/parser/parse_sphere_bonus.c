@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static t_shape	init_sphere(const t_tuple c, const double s, const t_tuple cl);
 

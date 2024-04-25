@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static _Bool	this_t_is_the_smallest_positive(double this_t, double smallest);
 

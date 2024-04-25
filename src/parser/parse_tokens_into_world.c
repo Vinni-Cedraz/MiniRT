@@ -23,6 +23,7 @@ t_world	parse_tokens_into_world(t_token *tokens, int number_of_tokens)
 	world = (t_world){0};
 	init_world(number_of_tokens, &world);
 	load_world(number_of_tokens, &world, tokens);
+	printf(GREEN"Parsing Done\n"RESET);
 	return (world);
 }
 

@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 t_tuple	shade_hit(t_world *world, t_prep_comps *comps)
 {
 	return (calculate_lighting(&(t_lighting){
 			comps->shape->material,
-			world->light,
+			world->lights[0],
 			comps->point,
 			comps->eyev,
 			comps->normalv,

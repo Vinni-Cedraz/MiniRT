@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static void		set_offset_yx(t_camera *c, int pixel_y, int pixel_x);
 static void		set_world_yx(t_camera *c);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static double	parse_intensity(char *str);
 
@@ -22,6 +22,8 @@ int	parse_ambient(t_token token, t_world *w)
 	if (amb_intensity == -DBL_MAX || amb_color.w == ERROR)
 		return (ERROR);
 	w->parser_ambient = multiply_tuple_by_scalar(amb_color, amb_intensity);
+	printf(GREEN"PARSER AMBIENT:	"RESET);
+	print_tuple(w->parser_ambient);
 	return (0);
 }
 
@@ -29,11 +31,15 @@ int	parse_light(t_token token, t_world *w)
 {
 	const t_tuple	coordinates = parse_tuple(token.args[0], POINT);
 	const double	in = parse_intensity(token.args[1]);
+	const t_tuple	color = parse_tuple(token.args[2], COLOR);
 
-	if (coordinates.w == ERROR || in == -DBL_MAX)
+	if (coordinates.w == ERROR || in == -DBL_MAX || color.w == ERROR)
 		return (ERROR);
-	w->light = (t_point_light){coordinates, create_tuple(in, in, in, COLOR)};
-	return (false);
+	w->lights[w->lights_idx++] = (t_point_light){
+		.position = coordinates,
+		.intensity = multiply_tuple_by_scalar(color, in)
+	};
+	return (0);
 }
 
 static double	parse_intensity(char *str)

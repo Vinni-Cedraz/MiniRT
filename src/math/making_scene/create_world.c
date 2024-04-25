@@ -24,8 +24,8 @@ t_world	default_world(void)
 	t_world	scene;
 
 	scene = create_world();
-	scene.light.position = create_tuple(-10, 10, -10, POINT);
-	scene.light.intensity = create_tuple(1, 1, 1, COLOR);
+	scene.lights.position = create_tuple(-10, 10, -10, POINT);
+	scene.lights.intensity = create_tuple(1, 1, 1, COLOR);
 	scene.shapes = malloc(2 * sizeof(t_shape));
 	scene.shapes[0] = create_sphere();
 	scene.shapes[1] = create_sphere();

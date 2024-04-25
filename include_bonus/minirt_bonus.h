@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#ifndef MINIRT_BONUS_H
+# define MINIRT_BONUS_H
 
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "../libs/libft.h"
@@ -93,7 +93,7 @@ typedef struct s_token
 typedef struct s_checker
 {
 	t_type					identifier;
-	_Bool					counters[3];
+	short					counters[3];
 	t_split					*splitted;
 	char					*line;
 	int						fd;
@@ -197,7 +197,7 @@ typedef struct s_shape
 	t_normal_at_function	normal_at;
 }							t_shape;
 
-typedef struct s_bhaskara
+typedef struct s_baskara
 {
 	double					a;
 	double					b;
@@ -235,11 +235,12 @@ typedef struct s_camera
 typedef struct s_world
 {
 	t_shape					*shapes;
-	t_point_light			lights;
+	t_point_light			lights[4];
 	t_camera				camera;
 	t_tuple					parser_ambient;
 	int						fixed_count;
 	int						moving_idx;
+	short					lights_idx;
 }							t_world;
 
 typedef						int(t_parse_table)(t_token token, t_world *);
