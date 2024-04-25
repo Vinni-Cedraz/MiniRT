@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_material.c                                  :+:      :+:    :+:   */
+/*   color_at.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 11:26:35 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/31 16:13:03 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/11/07 13:40:34 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/11/19 17:28:12 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_material	create_material(void)
+t_tuple	color_at(t_world *w, t_ray *r)
 {
-	return ((t_material){
-		.color = create_tuple(1, 1, 1, COLOR),
-		.ambient = 0.1,
-		.diffuse = 0.9,
-		.specular = 0,
-		.shininess = 200.0
-	});
+	t_prep_comps			prep;
+	const t_intersections	lst = intersect_world_with_ray(w, r);
+	const t_node			hit = _hit(lst);
+
+	if (hit.shape == NULL)
+		return (create_tuple(0, 0, 0, COLOR));
+	prep = prepare_computations(&hit, *r);
+	return (shade_hit(w, &prep));
 }

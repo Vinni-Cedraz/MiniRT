@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_material.c                                  :+:      :+:    :+:   */
+/*   intersect_cylinder.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 11:26:35 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/31 16:13:03 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/11/19 04:33:58 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/11/19 04:34:05 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_material	create_material(void)
+t_intersections	intersect_cylinder(const t_shape *obj, const t_ray *trans_ray)
 {
-	return ((t_material){
-		.color = create_tuple(1, 1, 1, COLOR),
-		.ambient = 0.1,
-		.diffuse = 0.9,
-		.specular = 0,
-		.shininess = 200.0
-	});
+	(void)obj;
+	(void)trans_ray;
+	return ((t_intersections){0});
 }

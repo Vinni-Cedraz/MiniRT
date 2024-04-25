@@ -18,7 +18,12 @@ t_material	create_material(void)
 		.color = create_tuple(1, 1, 1, COLOR),
 		.ambient = 0.1,
 		.diffuse = 0.9,
-		.specular = 0,
+		.specular = 0.9,
 		.shininess = 200.0
 	});
+}
+
+t_material	create_plane_material(void)
+{
+	return ((t_material){0});
 }

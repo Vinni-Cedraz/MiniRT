@@ -13,6 +13,8 @@
 #ifndef LIBFT_BONUS_H
 # define LIBFT_BONUS_H
 
+#include "libft.h"
+
 typedef struct s_nodes	t_node;
 typedef unsigned int	t_ui;
 typedef struct s_shape	t_shape;

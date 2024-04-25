@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_material.c                                  :+:      :+:    :+:   */
+/*   intersect_plane.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 11:26:35 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/31 16:13:03 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/11/19 04:31:41 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/11/19 04:33:44 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_material	create_material(void)
+t_intersections	intersect_plane(const t_shape *obj, const t_ray *trans_ray)
 {
-	return ((t_material){
-		.color = create_tuple(1, 1, 1, COLOR),
-		.ambient = 0.1,
-		.diffuse = 0.9,
-		.specular = 0,
-		.shininess = 200.0
-	});
+	t_intersections	intersections;
+	double			t;
+
+	intersections = (t_intersections){0};
+	if (fabs(trans_ray->direction.y) < EPSILON)
+		return (intersections);
+	t = -trans_ray->origin.y / trans_ray->direction.y;
+	intersections.head = ft_lstnew(t, obj);
+	intersections.count = 1;
+	return (intersections);
 }

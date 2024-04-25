@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_material.c                                  :+:      :+:    :+:   */
+/*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 11:26:35 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/31 16:13:03 by vcedraz-         ###   ########.fr       */
+/*   Created: 2024/04/18 16:23:47 by vcedraz-          #+#    #+#             */
+/*   Updated: 2024/04/18 16:24:26 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_material	create_material(void)
+t_tuple	multiply_colors(const t_tuple a, const t_tuple b)
 {
-	return ((t_material){
-		.color = create_tuple(1, 1, 1, COLOR),
-		.ambient = 0.1,
-		.diffuse = 0.9,
-		.specular = 0,
-		.shininess = 200.0
+	return ((t_tuple){
+		.x = a.x * b.x,
+		.y = a.y * b.y,
+		.z = a.z * b.z,
+		.w = COLOR
 	});
+}
+
+t_tuple	normalize_color(const t_tuple a)
+{
+	return (create_tuple(a.x / 255, a.y / 255, a.z / 255, COLOR));
 }

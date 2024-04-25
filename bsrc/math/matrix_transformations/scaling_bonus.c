@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_material.c                                  :+:      :+:    :+:   */
+/*   scaling.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: johmatos <johmatos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 11:26:35 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/10/31 16:13:03 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/10/11 16:25:48 by johmatos          #+#    #+#             */
+/*   Updated: 2023/10/11 19:27:29 by johmatos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_material	create_material(void)
+t_matrix	create_scaling_matrix(double x, double y, double z)
 {
-	return ((t_material){
-		.color = create_tuple(1, 1, 1, COLOR),
-		.ambient = 0.1,
-		.diffuse = 0.9,
-		.specular = 0,
-		.shininess = 200.0
-	});
+	t_matrix	identity;
+
+	identity = create_identity_matrix();
+	identity.grid[0][0] = x;
+	identity.grid[1][1] = y;
+	identity.grid[2][2] = z;
+	return (identity);
 }

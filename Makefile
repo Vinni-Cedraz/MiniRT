@@ -11,13 +11,16 @@ CODAM_LIB_FLAGS = -L./MLX42/build/ -lmlx42 -ldl -lglfw -pthread -lm
 
 ### LIBFT
 LIBFT = ./libs/*.a
-SRCSLIB = $(wildcard ./src/*/*.c)
 LIB_OBJS = $(wildcard libs/objs/*.o)
 LIB_BOBJS = $(wildcard libs/objs_bonus/*.o)
 LIB := minirt.a
+BLIB := minirt_bonus.a
 
-### MINIRT
+
+#### MANDATORY RULES ####
+
 NAME = minirt
+
 SRC = minirt.c \
 	  basic_tuple_operations.c compare_floats.c \
 	  complex_tuple_operations.c create_tuples.c mult_matrices.c comparison.c \
@@ -39,23 +42,58 @@ VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/matrices \
 		./src/math/camera/ ./src/math/cylinder/ ./src/math/plane/ ./src/math/create_intersection/ \
 		./src/render ./src/input_validation ./src/parser ./src/tokenizer/ ./src/math/shape/
 
+#### BONUS RULES ####
+BNAME = minirt_bonus
+
+BSRC = minirt_bonus.c basic_tuple_operations_bonus.c compare_floats_bonus.c \
+		complex_tuple_operations_bonus.c create_tuples_bonus.c mult_matrices_bonus.c \
+		comparison_bonus.c transpose_matrix_bonus.c determinants_bonus.c minors_bonus.c \
+		submatrices_bonus.c chain_transformations_bonus.c invert_matrix_bonus.c \
+		create_matrix_bonus.c translation_bonus.c rotation_bonus.c scaling_bonus.c \
+		intersect_shape_bonus.c get_hit_bonus.c create_and_transform_rays_bonus.c \
+		intersection_coordinates_bonus.c colors_bonus.c set_transform_bonus.c \
+		surface_normals_bonus.c reflect_bonus.c create_material_bonus.c \
+		calculate_lighting_bonus.c create_world_bonus.c set_material_bonus.c \
+		intersect_world_with_ray_bonus.c prepare_computations_bonus.c shade_hit_bonus.c \
+		color_at_bonus.c view_transformation_bonus.c create_camera_bonus.c \
+		ray_for_pixel_bonus.c render_bonus.c intersect_sphere_bonus.c \
+		intersect_plane_bonus.c intersect_cylinder_bonus.c create_plane_bonus.c \
+		create_cylinder_bonus.c cylinder_setters_bonus.c shadows_bonus.c \
+		render_image_bonus.c endwith_bonus.c parse_ambient_and_light_bonus.c \
+		parse_camera_bonus.c parse_plane_bonus.c parse_utils_bonus.c \
+		parse_cylinder_bonus.c parse_sphere_bonus.c parse_functions_table_bonus.c \
+		parse_tokens_into_world_bonus.c caps_bonus.c check_type_identifiers_bonus.c \
+		file_validation_bonus.c open_file_bonus.c validate_line_bonus.c \
+		tokenizer_bonus.c create_sphere_bonus.c multiply_tuple_by_matrix_bonus.c
+
+VPATH += ./bsrc ./bsrc/math/canvas/ ./bsrc/math/tuples/ ./bsrc/math/matrices \
+		./bsrc/math/matrix_transformations ./bsrc/math/rays ./bsrc/math/sphere \
+		./bsrc/math/rays/ ./bsrc/math/light_and_shading/ ./bsrc/math/making_scene/ \
+		./bsrc/math/camera/ ./bsrc/math/cylinder/ ./bsrc/math/plane/ \
+		./bsrc/math/create_intersection/ ./bsrc/render ./bsrc/input_validation \
+		./bsrc/parser ./bsrc/tokenizer/ ./bsrc/math/shape/
+
 BUILD_SRC = ./build/
 INCLUDE = -I ./include -I ./libs/
-C_FLAGS = -Wall -Werror -Wextra -Ofast
-OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))
+C_FLAGS = -Wall -Werror -Wextra -g
 BUILD_DIR_RT= ./build/
-CMD = $(CC) $(LIBFT) $(OBJS) $(C_FLAGS) -I$(MLX_INCLUDE) -I $(INCLUDE) -c $< -o $@
+OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))
+BOBJS = $(addprefix $(BUILD_DIR_RT),$(BSRC:.c=.o))
 
 ### RECIPES
-
-##### THIS IS FOR COMPILING ALL FUNCTIONS INTO A STATIC LIBRARY TO BE EASILY INCLUDED BY THE TESTERS #####
-
 all: $(NAME)
+
+bonus: $(BNAME)
 
 $(NAME): $(LIBMLX_TARGET) $(OBJS)
 	@printf "$(GREEN)[ Build ]$(DEF_COLOR) $(RED) $@ $(GREEN)complete $(DEF_COLOR)"
 	@$(CC) $(C_FLAGS) $(OBJS) $(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -L ./libs/ -lft -o $@
 	@compiledb make as_lib --no-print-directory
+
+$(BNAME): $(LIBMLX_TARGET) $(BOBJS)
+	@printf "$(GREEN)[ Build ]$(DEF_COLOR) $(RED) $@ $(GREEN)complete $(DEF_COLOR)"
+	@$(CC) $(C_FLAGS) $(BOBJS) $(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -L ./libs/ -lft -o $@
+	@compiledb make as_lib_bonus --no-print-directory
 
 $(BUILD_DIR_RT)%.o: %.c $(LIBFT)
 	@test -d $(BUILD_DIR_RT) || mkdir $(BUILD_DIR_RT)
@@ -95,7 +133,13 @@ $(LIB): $(OBJS) $(LIB_OBJS) $(LIB_BOBJS)
 	@mv $(LIBMLX_TARGET) $(LIB)
 	@ar rcs $(LIB) $^
 
+$(BLIB): $(BOBJS) $(LIB_OBJS) $(LIB_BOBJS)
+	@printf "\n$(YELLOW)[ linking ] $(DEF_COLOR)objects into library $(YELLOW)$@ $(DEF_COLOR)\n"
+	@mv $(LIBMLX_TARGET) $(BLIB)
+	@ar rcs $(BLIB) $^
+
 as_lib: all makelib $(LIB)
+as_lib_bonus: bonus makelib $(BLIB)
 re: fclean all
 
 # COLORS
