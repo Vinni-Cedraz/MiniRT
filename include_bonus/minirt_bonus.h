@@ -37,6 +37,7 @@ static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
 # define COLOR 2
 # define FALSE 0
 # define TRUE 1
+# define NUM_THREADS 10
 
 # define ROW1 0
 # define ROW2 1
@@ -54,8 +55,8 @@ static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
 # define END_MATRIX -DBL_MAX
 # define ERROR -42
 
-# define SIZEH 700
-# define SIZEW 1300
+# define SIZEH 1080
+# define SIZEW 1920
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -217,8 +218,8 @@ typedef struct s_comp
 
 typedef struct s_camera
 {
-	double					hsize;
-	double					vsize;
+	int						vsize;
+	int						hsize;
 	double					half_width;
 	double					half_height;
 	double					field_of_view;
@@ -241,7 +242,17 @@ typedef struct s_world
 	int						fixed_count;
 	int						moving_idx;
 	short					nb_of_lights;
+	mlx_image_t				*image;
 }							t_world;
+
+typedef struct s_task
+{
+	int			start_idx;
+	int			end_idx;
+	t_world		*world;
+	t_camera	camera;
+	mlx_image_t	*image;
+}				t_task;
 
 typedef						int(t_parse_table)(t_token token, t_world *);
 
@@ -313,20 +324,20 @@ t_world						create_world(void);
 t_world						default_world(void);
 void						set_material(t_tuple reflections, t_tuple color,
 								t_material *m);
-t_intersections				intersect_world_with_ray(t_world *w, t_ray *r);
+t_intersections				intersect_world_with_ray(t_world *w, const t_ray *r);
 t_prep_comps				prepare_computations(const t_node *intersection,
 								t_ray ray);
 t_tuple						shade_hit(t_world *world, t_prep_comps *comps);
 void						init_tuple(const t_tuple tuple, t_tuple res);
-t_tuple						color_at(t_world *world, t_ray *ray);
+t_tuple						color_at(t_world *w, const t_ray *r);
 t_matrix					view_transform(t_tuple from, t_tuple forward,
 								t_tuple up);
 t_camera					create_camera(int hsize, int vsize,
 								double field_of_view);
 t_matrix					create_mat(double arr[]);
 
-t_ray						ray_for_pixel(t_camera c, int x, int y);
-void						render(mlx_image_t *image, t_world world);
+t_ray						ray_for_pixel(t_camera c, int y, int x);
+void						render(t_world world);
 t_intersections				intersect_plane(const t_shape *obj,
 								const t_ray *trans_ray);
 t_intersections				intersect_cylinder(const t_shape *obj,

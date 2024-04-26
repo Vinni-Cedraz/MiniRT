@@ -15,7 +15,7 @@
 // static void	insertion_sort(t_node **head_ref);
 // static void	sorted_insert(t_node **head_ref, t_node *new_node);
 
-t_intersections	intersect_world_with_ray(t_world *w, t_ray *r)
+t_intersections	intersect_world_with_ray(t_world *w, const t_ray *r)
 {
 	t_intersections	result;
 	t_intersections	tmp;

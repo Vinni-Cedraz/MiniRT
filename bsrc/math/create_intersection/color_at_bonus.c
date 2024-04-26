@@ -12,7 +12,7 @@
 
 #include "minirt_bonus.h"
 
-t_tuple	color_at(t_world *w, t_ray *r)
+t_tuple	color_at(t_world *w, const t_ray *r)
 {
 	t_prep_comps			prep;
 	const t_intersections	lst = intersect_world_with_ray(w, r);
