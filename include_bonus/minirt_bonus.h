@@ -55,8 +55,8 @@ static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
 # define END_MATRIX -DBL_MAX
 # define ERROR -42
 
-# define SIZEH 1080
-# define SIZEW 1920
+# define SIZEH 900
+# define SIZEW 1280
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -247,11 +247,13 @@ typedef struct s_world
 
 typedef struct s_task
 {
+	int			id;
 	int			start_idx;
 	int			end_idx;
 	t_world		*world;
 	t_camera	camera;
 	mlx_image_t	*image;
+	pthread_mutex_t	mutex;
 }				t_task;
 
 typedef						int(t_parse_table)(t_token token, t_world *);
