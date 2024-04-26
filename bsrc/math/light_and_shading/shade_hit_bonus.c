@@ -22,14 +22,14 @@ t_tuple	shade_hit(t_world *world, t_prep_comps *comps)
 	while (++idx < world->nb_of_lights)
 	{
 		result = add_tuples(result,
-				calculate_lighting(&(t_lighting){
+				calculate_lighting((t_lighting){
 					comps->shape->material,
 					world->lights[idx],
 					comps->point,
 					comps->eyev,
 					comps->normalv,
 					world->parser_ambient,
-					is_shadowed(world, comps->over_point),
+					is_shadowed(world, comps->over_point, world->lights[idx]),
 				}));
 	}
 	return (result);

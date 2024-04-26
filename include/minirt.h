@@ -55,7 +55,7 @@ static const char			types[6][20] = {"AMBIENT", "CAMERA",
 # define ERROR -42
 
 # define SIZEH 800
-# define SIZEW 800
+# define SIZEW 1128
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -127,10 +127,10 @@ typedef struct s_point_light
 
 typedef struct s_material
 {
-	double					ambient;
-	double					diffuse;
+	double					ambi;
+	double					dffse;
 	double					specular;
-	double					shininess;
+	double					shiny;
 	t_tuple					color;
 }							t_material;
 
@@ -235,7 +235,7 @@ typedef struct s_camera
 typedef struct s_world
 {
 	t_shape					*shapes;
-	t_point_light			lights;
+	t_point_light			light;
 	t_camera				camera;
 	t_tuple					parser_ambient;
 	int						fixed_count;
@@ -314,7 +314,7 @@ t_intersections				intersect_world_with_ray(t_world *w, t_ray *r);
 t_prep_comps				prepare_computations(const t_node *intersection,
 								t_ray ray);
 t_tuple						shade_hit(t_world *world, t_prep_comps *comps);
-void						init_tuple(const t_tuple tuple, t_tuple res);
+//void						init_tuple(const t_tuple tuple, t_tuple res);
 t_tuple						color_at(t_world *world, t_ray *ray);
 t_matrix					view_transform(t_tuple from, t_tuple forward,
 								t_tuple up);

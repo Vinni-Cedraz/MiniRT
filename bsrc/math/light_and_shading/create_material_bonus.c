@@ -16,10 +16,10 @@ t_material	create_material(void)
 {
 	return ((t_material){
 		.color = create_tuple(1, 1, 1, COLOR),
-		.ambient = 0.1,
-		.diffuse = 0.9,
+		.ambi = 0.1,
+		.dffse = 0.9,
 		.specular = 0.9,
-		.shininess = 200.0
+		.shiny = 200.0
 	});
 }
 

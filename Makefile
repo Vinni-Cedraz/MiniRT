@@ -28,7 +28,7 @@ SRC = minirt.c \
       invert_matrix.c create_matrix.c translation.c rotation.c scaling.c intersect_shape.c \
       get_hit.c create_and_transform_rays.c intersection_coordinates.c colors.c \
 	  set_transform.c surface_normals.c reflect.c create_material.c calculate_lighting.c \
-	  create_world.c intersect_world_with_ray.c prepare_computations.c shade_hit.c \
+	  intersect_world_with_ray.c prepare_computations.c shade_hit.c \
 	  color_at.c view_transformation.c create_camera.c ray_for_pixel.c render.c intersect_sphere.c \
 	  intersect_plane.c intersect_cylinder.c create_plane.c create_cylinder.c cylinder_setters.c \
 	  shadows.c render_image.c endwith.c parse_ambient_and_light.c parse_camera.c parse_plane.c parse_utils.c \

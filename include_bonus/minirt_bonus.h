@@ -54,8 +54,8 @@ static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
 # define END_MATRIX -DBL_MAX
 # define ERROR -42
 
-# define SIZEH 800
-# define SIZEW 800
+# define SIZEH 700
+# define SIZEW 1300
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -127,10 +127,10 @@ typedef struct s_point_light
 
 typedef struct s_material
 {
-	double					ambient;
-	double					diffuse;
+	double					ambi;
+	double					dffse;
 	double					specular;
-	double					shininess;
+	double					shiny;
 	t_tuple					color;
 }							t_material;
 
@@ -307,7 +307,7 @@ void						cylinder_normal_at(const t_shape *cyl,
 								const t_tuple p, t_tuple res);
 t_tuple						reflect(t_tuple vector, t_tuple normal);
 t_material					create_material(void);
-t_tuple						calculate_lighting(t_lighting *obj);
+t_tuple						calculate_lighting(t_lighting l);
 t_constr					make_aslib_test(void);
 t_world						create_world(void);
 t_world						default_world(void);
@@ -353,7 +353,7 @@ int							parse_file(char *file);
 void						intersect_caps(const t_shape *cyl, const t_ray r,
 								t_node **head);
 t_tuple						add_three_tuples(t_tuple a, t_tuple d, t_tuple s);
-t_bool						is_shadowed(t_world *w, t_tuple p);
+t_bool						is_shadowed(t_world *w, t_tuple p, t_point_light light);
 void						add_object(t_world *w, t_shape *new_obj, int index);
 t_material					create_plane_material(void);
 t_matrix					tuple_to_matrix(t_tuple tuple);

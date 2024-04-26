@@ -14,7 +14,18 @@
 
 t_bool	is_shadowed(t_world *w, t_tuple p)
 {
-	(void)w;
-	(void)p;
-	return (FALSE);
+	t_tuple			vec;
+	t_ray			ray;
+	double			distance;
+	t_node			hit;
+
+	vec = subtract_tuples(w->light.position, p);
+	distance = magnitude(vec);
+	ray = create_ray(p, ray.origin);
+	ray.direction = normalize(vec);
+	hit = _hit(intersect_world_with_ray(w, &ray));
+	if (hit.shape && hit.t < distance)
+		return (TRUE);
+	else
+		return (FALSE);
 }
