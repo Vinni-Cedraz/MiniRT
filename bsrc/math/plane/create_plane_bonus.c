@@ -22,6 +22,7 @@ t_shape	create_plane(void)
 	plane.intersect = &intersect_plane;
 	plane.normal_at = &plane_normal_at;
 	plane.material = create_material();
+	plane.origin = create_point(0, 0, 0);
 	set_transform(&plane, create_identity_matrix());
 	return (plane);
 }

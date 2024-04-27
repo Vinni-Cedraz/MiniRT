@@ -16,7 +16,7 @@ static void		set_offset_yx(t_camera *c, int pixel_y, int pixel_x);
 static void		set_world_yx(t_camera *c);
 static t_ray	compute_ray_direction(t_camera *c);
 
-t_ray	ray_for_pixel(t_camera camera, int pixel_y, int pixel_x)
+t_ray	ray_for_pixel(t_camera camera, int pixel_x, int pixel_y)
 {
 	t_ray	ray;
 

@@ -20,7 +20,6 @@ t_shape	create_sphere(void)
 	sphere.origin = create_point(0, 0, 0);
 	sphere.type = SPHERE;
 	sphere.material = create_material();
-	sphere.dis_to_ray = create_vector(0, 0, 0);
 	sphere.intersect = &intersect_sphere;
 	sphere.normal_at = &sphere_normal_at;
 	set_transform(&sphere, create_identity_matrix());

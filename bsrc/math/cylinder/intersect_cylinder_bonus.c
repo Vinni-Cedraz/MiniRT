@@ -12,9 +12,11 @@
 
 #include "minirt_bonus.h"
 
-t_intersections	intersect_cylinder(const t_shape *obj, const t_ray *trans_ray)
+t_intersections	intersect_cylinder(const t_shape *obj, const t_ray *trans_ray,
+		const t_tuple dist_to_ray)
 {
 	(void)obj;
 	(void)trans_ray;
+	(void)dist_to_ray;
 	return ((t_intersections){0});
 }
