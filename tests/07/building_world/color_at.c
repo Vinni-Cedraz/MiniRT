@@ -44,8 +44,8 @@ Test(color_at, the_color_with_intersection_behind_ray, .description = scenario11
 	t_world w = default_world();
 	t_shape *outer = &w.shapes[0];
 	t_shape *inner = &w.shapes[1];
-	outer->material.ambient = 1;
-	inner->material.ambient = 1;
+	outer->material.ambi = 1;
+	inner->material.ambi = 1;
 	t_ray	r = create_ray((t_tuple){0, 0, 0.75, POINT}, (t_tuple){0, 0, -1, VECTOR});
 	t_tuple color;
 

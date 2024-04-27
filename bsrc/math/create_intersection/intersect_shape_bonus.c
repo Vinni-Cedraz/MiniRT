@@ -12,7 +12,7 @@
 
 #include "minirt_bonus.h"
 
-t_intersections	intersect_shape(t_shape *obj, const t_ray *r)
+t_intersections	intersect_shape(const t_shape *obj, const t_ray *r)
 {
 	const t_ray		transformed_ray = transform_ray(r, obj->inverse_t);
 	const t_tuple	dist = subtract_tuples(transformed_ray.origin, obj->origin);
