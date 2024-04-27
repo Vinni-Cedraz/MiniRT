@@ -1,1086 +1,6 @@
 [
  {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/minirt.c",
-   "-o",
-   "build/minirt.o"
-  ],
-  "file": "./src/minirt.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/tuples/basic_tuple_operations.c",
-   "-o",
-   "build/basic_tuple_operations.o"
-  ],
-  "file": "./src/math/tuples/basic_tuple_operations.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/tuples/compare_floats.c",
-   "-o",
-   "build/compare_floats.o"
-  ],
-  "file": "./src/math/tuples/compare_floats.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/tuples/complex_tuple_operations.c",
-   "-o",
-   "build/complex_tuple_operations.o"
-  ],
-  "file": "./src/math/tuples/complex_tuple_operations.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/tuples/create_tuples.c",
-   "-o",
-   "build/create_tuples.o"
-  ],
-  "file": "./src/math/tuples/create_tuples.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/mult_matrices.c",
-   "-o",
-   "build/mult_matrices.o"
-  ],
-  "file": "./src/math/matrices/mult_matrices.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/comparison.c",
-   "-o",
-   "build/comparison.o"
-  ],
-  "file": "./src/math/matrices/comparison.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/transpose_matrix.c",
-   "-o",
-   "build/transpose_matrix.o"
-  ],
-  "file": "./src/math/matrices/transpose_matrix.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/determinants.c",
-   "-o",
-   "build/determinants.o"
-  ],
-  "file": "./src/math/matrices/determinants.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/minors.c",
-   "-o",
-   "build/minors.o"
-  ],
-  "file": "./src/math/matrices/minors.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/submatrices.c",
-   "-o",
-   "build/submatrices.o"
-  ],
-  "file": "./src/math/matrices/submatrices.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/chain_transformations.c",
-   "-o",
-   "build/chain_transformations.o"
-  ],
-  "file": "./src/math/matrices/chain_transformations.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/invert_matrix.c",
-   "-o",
-   "build/invert_matrix.o"
-  ],
-  "file": "./src/math/matrices/invert_matrix.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/create_matrix.c",
-   "-o",
-   "build/create_matrix.o"
-  ],
-  "file": "./src/math/matrices/create_matrix.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrix_transformations/translation.c",
-   "-o",
-   "build/translation.o"
-  ],
-  "file": "./src/math/matrix_transformations/translation.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrix_transformations/rotation.c",
-   "-o",
-   "build/rotation.o"
-  ],
-  "file": "./src/math/matrix_transformations/rotation.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrix_transformations/scaling.c",
-   "-o",
-   "build/scaling.o"
-  ],
-  "file": "./src/math/matrix_transformations/scaling.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/create_intersection/intersect_shape.c",
-   "-o",
-   "build/intersect_shape.o"
-  ],
-  "file": "./src/math/create_intersection/intersect_shape.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/create_intersection/get_hit.c",
-   "-o",
-   "build/get_hit.o"
-  ],
-  "file": "./src/math/create_intersection/get_hit.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/rays/create_and_transform_rays.c",
-   "-o",
-   "build/create_and_transform_rays.o"
-  ],
-  "file": "./src/math/rays/create_and_transform_rays.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/rays/intersection_coordinates.c",
-   "-o",
-   "build/intersection_coordinates.o"
-  ],
-  "file": "./src/math/rays/intersection_coordinates.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/tuples/colors.c",
-   "-o",
-   "build/colors.o"
-  ],
-  "file": "./src/math/tuples/colors.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/create_intersection/set_transform.c",
-   "-o",
-   "build/set_transform.o"
-  ],
-  "file": "./src/math/create_intersection/set_transform.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/light_and_shading/surface_normals.c",
-   "-o",
-   "build/surface_normals.o"
-  ],
-  "file": "./src/math/light_and_shading/surface_normals.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/light_and_shading/reflect.c",
-   "-o",
-   "build/reflect.o"
-  ],
-  "file": "./src/math/light_and_shading/reflect.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/light_and_shading/create_material.c",
-   "-o",
-   "build/create_material.o"
-  ],
-  "file": "./src/math/light_and_shading/create_material.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/light_and_shading/calculate_lighting.c",
-   "-o",
-   "build/calculate_lighting.o"
-  ],
-  "file": "./src/math/light_and_shading/calculate_lighting.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/create_intersection/intersect_world_with_ray.c",
-   "-o",
-   "build/intersect_world_with_ray.o"
-  ],
-  "file": "./src/math/create_intersection/intersect_world_with_ray.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/create_intersection/prepare_computations.c",
-   "-o",
-   "build/prepare_computations.o"
-  ],
-  "file": "./src/math/create_intersection/prepare_computations.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/light_and_shading/shade_hit.c",
-   "-o",
-   "build/shade_hit.o"
-  ],
-  "file": "./src/math/light_and_shading/shade_hit.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/create_intersection/color_at.c",
-   "-o",
-   "build/color_at.o"
-  ],
-  "file": "./src/math/create_intersection/color_at.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/camera/view_transformation.c",
-   "-o",
-   "build/view_transformation.o"
-  ],
-  "file": "./src/math/camera/view_transformation.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/camera/create_camera.c",
-   "-o",
-   "build/create_camera.o"
-  ],
-  "file": "./src/math/camera/create_camera.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/camera/ray_for_pixel.c",
-   "-o",
-   "build/ray_for_pixel.o"
-  ],
-  "file": "./src/math/camera/ray_for_pixel.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/render/render.c",
-   "-o",
-   "build/render.o"
-  ],
-  "file": "./src/render/render.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/sphere/intersect_sphere.c",
-   "-o",
-   "build/intersect_sphere.o"
-  ],
-  "file": "./src/math/sphere/intersect_sphere.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/plane/intersect_plane.c",
-   "-o",
-   "build/intersect_plane.o"
-  ],
-  "file": "./src/math/plane/intersect_plane.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/cylinder/intersect_cylinder.c",
-   "-o",
-   "build/intersect_cylinder.o"
-  ],
-  "file": "./src/math/cylinder/intersect_cylinder.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/plane/create_plane.c",
-   "-o",
-   "build/create_plane.o"
-  ],
-  "file": "./src/math/plane/create_plane.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/cylinder/create_cylinder.c",
-   "-o",
-   "build/create_cylinder.o"
-  ],
-  "file": "./src/math/cylinder/create_cylinder.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/cylinder/cylinder_setters.c",
-   "-o",
-   "build/cylinder_setters.o"
-  ],
-  "file": "./src/math/cylinder/cylinder_setters.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/light_and_shading/shadows.c",
-   "-o",
-   "build/shadows.o"
-  ],
-  "file": "./src/math/light_and_shading/shadows.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/render/render_image.c",
-   "-o",
-   "build/render_image.o"
-  ],
-  "file": "./src/render/render_image.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/input_validation/endwith.c",
-   "-o",
-   "build/endwith.o"
-  ],
-  "file": "./src/input_validation/endwith.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_ambient_and_light.c",
-   "-o",
-   "build/parse_ambient_and_light.o"
-  ],
-  "file": "./src/parser/parse_ambient_and_light.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_camera.c",
-   "-o",
-   "build/parse_camera.o"
-  ],
-  "file": "./src/parser/parse_camera.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_plane.c",
-   "-o",
-   "build/parse_plane.o"
-  ],
-  "file": "./src/parser/parse_plane.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_utils.c",
-   "-o",
-   "build/parse_utils.o"
-  ],
-  "file": "./src/parser/parse_utils.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_cylinder.c",
-   "-o",
-   "build/parse_cylinder.o"
-  ],
-  "file": "./src/parser/parse_cylinder.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_sphere.c",
-   "-o",
-   "build/parse_sphere.o"
-  ],
-  "file": "./src/parser/parse_sphere.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_functions_table.c",
-   "-o",
-   "build/parse_functions_table.o"
-  ],
-  "file": "./src/parser/parse_functions_table.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_tokens_into_world.c",
-   "-o",
-   "build/parse_tokens_into_world.o"
-  ],
-  "file": "./src/parser/parse_tokens_into_world.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/cylinder/caps.c",
-   "-o",
-   "build/caps.o"
-  ],
-  "file": "./src/math/cylinder/caps.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/input_validation/check_type_identifiers.c",
-   "-o",
-   "build/check_type_identifiers.o"
-  ],
-  "file": "./src/input_validation/check_type_identifiers.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/input_validation/file_validation.c",
-   "-o",
-   "build/file_validation.o"
-  ],
-  "file": "./src/input_validation/file_validation.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/input_validation/open_file.c",
-   "-o",
-   "build/open_file.o"
-  ],
-  "file": "./src/input_validation/open_file.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/input_validation/validate_line.c",
-   "-o",
-   "build/validate_line.o"
-  ],
-  "file": "./src/input_validation/validate_line.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/tokenizer/tokenizer.c",
-   "-o",
-   "build/tokenizer.o"
-  ],
-  "file": "./src/tokenizer/tokenizer.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/sphere/create_sphere.c",
-   "-o",
-   "build/create_sphere.o"
-  ],
-  "file": "./src/math/sphere/create_sphere.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/multiply_tuple_by_matrix.c",
-   "-o",
-   "build/multiply_tuple_by_matrix.o"
-  ],
-  "file": "./src/math/matrices/multiply_tuple_by_matrix.c"
- },
- {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1097,7 +17,7 @@
   "file": "./bsrc/minirt_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1114,7 +34,7 @@
   "file": "./bsrc/math/tuples/basic_tuple_operations_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1131,7 +51,7 @@
   "file": "./bsrc/math/tuples/compare_floats_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1148,7 +68,7 @@
   "file": "./bsrc/math/tuples/complex_tuple_operations_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1165,7 +85,7 @@
   "file": "./bsrc/math/tuples/create_tuples_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1182,7 +102,7 @@
   "file": "./bsrc/math/matrices/mult_matrices_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1199,7 +119,7 @@
   "file": "./bsrc/math/matrices/comparison_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1216,7 +136,7 @@
   "file": "./bsrc/math/matrices/transpose_matrix_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1233,7 +153,7 @@
   "file": "./bsrc/math/matrices/determinants_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1250,7 +170,7 @@
   "file": "./bsrc/math/matrices/minors_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1267,7 +187,7 @@
   "file": "./bsrc/math/matrices/submatrices_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1284,7 +204,7 @@
   "file": "./bsrc/math/matrices/chain_transformations_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1301,7 +221,7 @@
   "file": "./bsrc/math/matrices/invert_matrix_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1318,7 +238,7 @@
   "file": "./bsrc/math/matrices/create_matrix_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1335,7 +255,7 @@
   "file": "./bsrc/math/matrix_transformations/translation_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1352,7 +272,7 @@
   "file": "./bsrc/math/matrix_transformations/rotation_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1369,7 +289,7 @@
   "file": "./bsrc/math/matrix_transformations/scaling_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1386,7 +306,7 @@
   "file": "./bsrc/math/create_intersection/intersect_shape_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1403,7 +323,7 @@
   "file": "./bsrc/math/create_intersection/get_hit_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1420,7 +340,7 @@
   "file": "./bsrc/math/rays/create_and_transform_rays_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1437,7 +357,7 @@
   "file": "./bsrc/math/rays/intersection_coordinates_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1454,7 +374,7 @@
   "file": "./bsrc/math/tuples/colors_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1471,7 +391,7 @@
   "file": "./bsrc/math/create_intersection/set_transform_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1488,7 +408,7 @@
   "file": "./bsrc/math/light_and_shading/surface_normals_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1505,7 +425,7 @@
   "file": "./bsrc/math/light_and_shading/reflect_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1522,7 +442,7 @@
   "file": "./bsrc/math/light_and_shading/create_material_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1539,7 +459,7 @@
   "file": "./bsrc/math/light_and_shading/calculate_lighting_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1556,7 +476,7 @@
   "file": "./bsrc/math/create_intersection/intersect_world_with_ray_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1573,7 +493,7 @@
   "file": "./bsrc/math/create_intersection/prepare_computations_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1590,7 +510,7 @@
   "file": "./bsrc/math/light_and_shading/shade_hit_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1607,7 +527,7 @@
   "file": "./bsrc/math/create_intersection/color_at_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1624,7 +544,7 @@
   "file": "./bsrc/math/camera/view_transformation_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1641,7 +561,7 @@
   "file": "./bsrc/math/camera/create_camera_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1658,7 +578,7 @@
   "file": "./bsrc/math/camera/ray_for_pixel_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1675,7 +595,7 @@
   "file": "./bsrc/render/render_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1692,7 +612,7 @@
   "file": "./bsrc/math/sphere/intersect_sphere_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1709,7 +629,7 @@
   "file": "./bsrc/math/plane/intersect_plane_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1726,7 +646,7 @@
   "file": "./bsrc/math/cylinder/intersect_cylinder_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1743,7 +663,7 @@
   "file": "./bsrc/math/plane/create_plane_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1760,7 +680,7 @@
   "file": "./bsrc/math/cylinder/create_cylinder_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1777,7 +697,7 @@
   "file": "./bsrc/math/cylinder/cylinder_setters_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1794,7 +714,7 @@
   "file": "./bsrc/math/light_and_shading/shadows_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1811,7 +731,7 @@
   "file": "./bsrc/render/render_image_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1828,7 +748,7 @@
   "file": "./bsrc/input_validation/endwith_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1845,7 +765,7 @@
   "file": "./bsrc/parser/parse_ambient_and_light_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1862,7 +782,7 @@
   "file": "./bsrc/parser/parse_camera_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1879,7 +799,7 @@
   "file": "./bsrc/parser/parse_plane_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1896,7 +816,7 @@
   "file": "./bsrc/parser/parse_utils_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1913,7 +833,7 @@
   "file": "./bsrc/parser/parse_cylinder_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1930,7 +850,7 @@
   "file": "./bsrc/parser/parse_sphere_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1947,7 +867,7 @@
   "file": "./bsrc/parser/parse_functions_table_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1964,7 +884,7 @@
   "file": "./bsrc/parser/parse_tokens_into_world_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1981,7 +901,7 @@
   "file": "./bsrc/math/cylinder/caps_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -1998,7 +918,7 @@
   "file": "./bsrc/input_validation/check_type_identifiers_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -2015,7 +935,7 @@
   "file": "./bsrc/input_validation/file_validation_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -2032,7 +952,7 @@
   "file": "./bsrc/input_validation/open_file_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -2049,7 +969,7 @@
   "file": "./bsrc/input_validation/validate_line_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -2066,7 +986,7 @@
   "file": "./bsrc/tokenizer/tokenizer_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -2083,7 +1003,7 @@
   "file": "./bsrc/math/sphere/create_sphere_bonus.c"
  },
  {
-  "directory": "/home/vcedraz-/MiniRT",
+  "directory": "/home/myuser/MiniRT",
   "arguments": [
    "cc",
    "-Wall",

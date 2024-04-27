@@ -176,7 +176,7 @@ typedef struct s_intersections
 }							t_intersections;
 
 typedef t_intersections		(*t_intersect_function)(const t_shape *,
-			const t_ray *);
+			const t_ray *, const t_tuple);
 typedef t_tuple				(*t_normal_at_function)(const t_shape *,
 					const t_tuple);
 
@@ -187,7 +187,6 @@ typedef struct s_shape
 	t_matrix				trans_inv;
 	t_type					type;
 	t_tuple					origin;
-	t_tuple					dis_to_ray;
 	t_material				material;
 	double					min;
 	double					max;
@@ -341,11 +340,11 @@ t_matrix					create_mat(double arr[]);
 t_ray						ray_for_pixel(t_camera c, int y, int x);
 void						render(t_world world);
 t_intersections				intersect_plane(const t_shape *obj,
-								const t_ray *trans_ray);
+								const t_ray *trans_ray, const t_tuple d);
 t_intersections				intersect_cylinder(const t_shape *obj,
-								const t_ray *transformed_ray);
+								const t_ray *transformed_ray, const t_tuple d);
 t_intersections				intersect_sphere(const t_shape *obj,
-								const t_ray *transformed_ray);
+								const t_ray *transformed_ray, const t_tuple d);
 t_shape						create_plane(void);
 t_shape						create_cylinder(void);
 void						set_cyl_min_max(t_shape *cyl, double min,

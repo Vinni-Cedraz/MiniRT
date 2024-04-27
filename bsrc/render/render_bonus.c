@@ -18,8 +18,6 @@ static int			get_start_idx(int thread_number);
 static int			get_end_idx(int thread_number);
 static void			draw_pixel(t_task task, int idx);
 
-pthread_mutex_t mutex;
-
 void	render(t_world world)
 {
 	int			idx;
@@ -27,7 +25,6 @@ void	render(t_world world)
 	t_task		task[NUM_THREADS];
 
 	idx = 0;
-	pthread_mutex_init(&mutex, NULL);
 	while (idx < NUM_THREADS)
 	{
 		task[idx] = (t_task){
@@ -48,15 +45,11 @@ void	render(t_world world)
 
 static inline void	*thread_routine(void *task_ptr)
 {
-	t_task	task = *(t_task *)task_ptr;
-	int				idx;
+	t_task	task;
+	int		idx;
 
+	task = *(t_task *)task_ptr;
 	idx = task.start_idx;
-	pthread_mutex_lock(&mutex);
-	printf("\n\ntask id: %d\n", task.id);
-	printf("start idx: %d\n", idx);
-	printf("end idx: %d\n\n", task.end_idx);
-	pthread_mutex_unlock(&mutex);
 	while (idx < task.end_idx)
 	{
 		draw_pixel(task, idx);
@@ -94,5 +87,5 @@ static inline int	get_end_idx(int thread_number)
 
 	total_pixels = SIZEH * SIZEW;
 	remainder = total_pixels % NUM_THREADS;
-	return ((total_pixels / NUM_THREADS) * thread_number + remainder) - 1;
+	return (((total_pixels / NUM_THREADS) * thread_number + remainder) - 1);
 }

@@ -12,13 +12,14 @@
 
 #include "minirt_bonus.h"
 
-t_intersections	intersect_sphere(const t_shape *obj, const t_ray *trans_r)
+t_intersections	intersect_sphere(const t_shape *obj, const t_ray *trans_r,
+		t_tuple dist_to_ray)
 {
 	t_intersections	result;
 	t_bhaskara		bask;
 	double			d;
 
-	d = _discriminant(obj->dis_to_ray, trans_r, &bask);
+	d = _discriminant(dist_to_ray, trans_r, &bask);
 	if (d < 0)
 		return ((t_intersections){0});
 	result.head = ft_lstnew((-bask.b - sqrt(d)) / (2 * bask.a), obj);
