@@ -40,7 +40,7 @@ VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/matrices \
 		./src/math/matrix_transformations ./src/math/rays ./src/math/sphere \
 		./src/math/rays/ ./src/math/light_and_shading/ ./src/math/making_scene/ \
 		./src/math/camera/ ./src/math/cylinder/ ./src/math/plane/ ./src/math/create_intersection/ \
-		./src/render ./src/input_validation ./src/parser ./src/tokenizer/ ./src/math/shape/
+		./src/render ./src/input_validation ./src/parser ./src/tokenizer/
 
 #### BONUS RULES ####
 BNAME = minirt_bonus
@@ -75,7 +75,7 @@ VPATH += ./bsrc ./bsrc/math/canvas/ ./bsrc/math/tuples/ ./bsrc/math/matrices \
 BUILD_SRC = ./build/
 INCLUDE = -I./include -I ./libs/
 B_INCLUDE = -I./include_bonus -I./libs/
-C_FLAGS = -Wall -Werror -Wextra -Ofast
+C_FLAGS = -Wall -Werror -Wextra -Ofast 
 BUILD_DIR_RT= ./build/
 B_BUILD_DIR_RT= ./build_bonus/
 OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))

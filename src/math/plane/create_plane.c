@@ -18,6 +18,7 @@ t_shape	create_plane(void)
 	t_shape	plane;
 
 	plane = (t_shape){0};
+	plane.origin = create_point(0, 0, 0);
 	plane.type = PLANE;
 	plane.intersect = &intersect_plane;
 	plane.normal_at = &plane_normal_at;

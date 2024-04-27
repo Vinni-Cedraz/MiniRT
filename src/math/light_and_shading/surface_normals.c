@@ -35,10 +35,10 @@ t_tuple	plane_normal_at( \
 	return (normalize(new_nrmal));
 }
 
-void	cylinder_normal_at( \
-		const t_shape *cyl, const t_tuple world_point, t_tuple res)
+t_tuple	cylinder_normal_at( \
+		const t_shape *cyl, const t_tuple world_point)
 {
 	(void)cyl;
 	(void)world_point;
-	(void)res;
+	return ((t_tuple){0});
 }

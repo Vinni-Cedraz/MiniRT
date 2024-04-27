@@ -300,8 +300,7 @@ double						_cofac(const t_matrix m, int row, int col);
 t_tuple						sphere_normal_at(const t_shape *sphere,
 								const t_tuple world_point);
 t_tuple						plane_normal_at(const t_shape *sphere, const t_tuple p);
-void						cylinder_normal_at(const t_shape *cyl,
-								const t_tuple p, t_tuple res);
+t_tuple						cylinder_normal_at(const t_shape *cyl, const t_tuple p);
 t_tuple						reflect(t_tuple vector, t_tuple normal);
 t_material					create_material(void);
 t_tuple						calculate_lighting(t_lighting *obj);
@@ -346,8 +345,7 @@ int							parse_cylinder(t_token token, t_world *w);
 int							parse_camera(t_token token, t_world *w);
 t_parse_table				**parse_functions(void);
 int							parse_file(char *file);
-void						intersect_caps(const t_shape *cyl, const t_ray r,
-								t_node **head);
+t_node						**intersect_caps(const t_shape *cyl, const t_ray r);
 t_tuple						add_three_tuples(t_tuple a, t_tuple d, t_tuple s);
 t_bool						is_shadowed(t_world *w, t_tuple p);
 void						add_object(t_world *w, t_shape *new_obj, int index);

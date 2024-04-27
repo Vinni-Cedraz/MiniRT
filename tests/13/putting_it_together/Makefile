@@ -1,5 +1,5 @@
 TESTS =		\
-  putting_it_together \
+	two_balls_and_a_finite_cylinder
 
 ## VARIABLES
 INCS = -I../../ -I../../../include/ -I../../../libs/
