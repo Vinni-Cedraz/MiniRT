@@ -29,11 +29,15 @@ uint32_t	normalized_color_to_int(const t_tuple color)
 				* MULTI) << 16) | ((uint32_t)(col.z * MULTI) << 8) | 0xff);
 }
 
-mlx_image_t	**get_image_to_render(mlx_t *mlx)
+mlx_image_t	*create_image(mlx_t *mlx)
 {
-	static mlx_image_t	*image = NULL;
+	return (mlx_new_image(mlx, SIZEW, SIZEH));
+}
 
-	if (image == NULL)
-		image = mlx_new_image(mlx, SIZEW, SIZEH);
-	return (&image);
+void	ft_mlx_draw_pixel(uint8_t *pixel, uint32_t color)
+{
+	*(pixel++) = (uint8_t)(color >> 24);
+	*(pixel++) = (uint8_t)(color >> 16);
+	*(pixel++) = (uint8_t)(color >> 8);
+	*(pixel++) = (uint8_t)(color & 0xFF);
 }

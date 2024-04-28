@@ -240,6 +240,7 @@ typedef struct s_world
 	t_tuple					parser_ambient;
 	int						fixed_count;
 	int						moving_idx;
+	mlx_image_t				*image;
 }							t_world;
 
 typedef						int(t_parse_table)(t_token token, t_world *);
@@ -334,7 +335,7 @@ void						set_cyl_min_max(t_shape *cyl, double min,
 								double max);
 void						load_objs_into_world(mlx_image_t *image,
 								t_camera camera, t_world *world);
-mlx_image_t					**get_image_to_render(mlx_t *mlx);
+mlx_image_t					*create_image(mlx_t *mlx);
 void						render_a_default_world(mlx_t *mlx);
 int							endwith(char *str, char *end);
 int							parse_ambient(t_token token, t_world *w);

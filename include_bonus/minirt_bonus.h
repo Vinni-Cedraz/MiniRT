@@ -337,7 +337,7 @@ t_camera					create_camera(int hsize, int vsize,
 								double field_of_view);
 t_matrix					create_mat(double arr[]);
 
-t_ray						ray_for_pixel(t_camera c, int y, int x);
+t_ray						ray_for_pixel(t_camera c, int idx);
 void						render(t_world world);
 t_intersections				intersect_plane(const t_shape *obj,
 								const t_ray *trans_ray, const t_tuple d);
@@ -351,7 +351,7 @@ void						set_cyl_min_max(t_shape *cyl, double min,
 								double max);
 void						load_objs_into_world(mlx_image_t *image,
 								t_camera camera, t_world *world);
-mlx_image_t					**get_image_to_render(mlx_t *mlx);
+mlx_image_t					*create_image(mlx_t *mlx);
 void						render_a_default_world(mlx_t *mlx);
 int							endwith(char *str, char *end);
 int							parse_ambient(t_token token, t_world *w);
@@ -390,6 +390,7 @@ double						_discriminant(t_tuple obj_dist_ray,
 								const t_ray *ray, t_bhaskara *bask);
 t_intersections				intersect_shape(const t_shape *obj, const t_ray *r);
 t_matrix					plane_view_transform(t_tuple from, t_tuple up);
+void						ft_mlx_draw_pixel(uint8_t *pixel, uint32_t color);
 
 static inline void	print_tuple(const t_tuple a)
 {

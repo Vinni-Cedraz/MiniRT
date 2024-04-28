@@ -353,42 +353,6 @@
    "-I",
    "./libs/",
    "-c",
-   "./src/math/rays/create_and_transform_rays.c",
-   "-o",
-   "build/create_and_transform_rays.o"
-  ],
-  "file": "./src/math/rays/create_and_transform_rays.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/rays/intersection_coordinates.c",
-   "-o",
-   "build/intersection_coordinates.o"
-  ],
-  "file": "./src/math/rays/intersection_coordinates.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
    "./src/math/tuples/colors.c",
    "-o",
    "build/colors.o"
@@ -592,24 +556,6 @@
    "build/create_camera.o"
   ],
   "file": "./src/math/camera/create_camera.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/camera/ray_for_pixel.c",
-   "-o",
-   "build/ray_for_pixel.o"
-  ],
-  "file": "./src/math/camera/ray_for_pixel.c"
  },
  {
   "directory": "/home/myuser/MiniRT",
@@ -1413,40 +1359,6 @@
    "-I./include_bonus",
    "-I./libs/",
    "-c",
-   "./bsrc/math/rays/create_and_transform_rays_bonus.c",
-   "-o",
-   "build_bonus/create_and_transform_rays_bonus.o"
-  ],
-  "file": "./bsrc/math/rays/create_and_transform_rays_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/rays/intersection_coordinates_bonus.c",
-   "-o",
-   "build_bonus/intersection_coordinates_bonus.o"
-  ],
-  "file": "./bsrc/math/rays/intersection_coordinates_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
    "./bsrc/math/tuples/colors_bonus.c",
    "-o",
    "build_bonus/colors_bonus.o"
@@ -1639,23 +1551,6 @@
    "build_bonus/create_camera_bonus.o"
   ],
   "file": "./bsrc/math/camera/create_camera_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/camera/ray_for_pixel_bonus.c",
-   "-o",
-   "build_bonus/ray_for_pixel_bonus.o"
-  ],
-  "file": "./bsrc/math/camera/ray_for_pixel_bonus.c"
  },
  {
   "directory": "/home/myuser/MiniRT",
@@ -2098,5 +1993,93 @@
    "build_bonus/multiply_tuple_by_matrix_bonus.o"
   ],
   "file": "./bsrc/math/matrices/multiply_tuple_by_matrix_bonus.c"
+ },
+ {
+  "directory": "/home/myuser/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-Ofast",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/camera/world.c",
+   "-o",
+   "build/world.o"
+  ],
+  "file": "./src/math/camera/world.c"
+ },
+ {
+  "directory": "/home/myuser/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-Ofast",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/rays/create_and_transform_ray.c",
+   "-o",
+   "build/create_and_transform_ray.o"
+  ],
+  "file": "./src/math/rays/create_and_transform_ray.c"
+ },
+ {
+  "directory": "/home/myuser/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-Ofast",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/rays/ray_for_pixel.c",
+   "-o",
+   "build/ray_for_pixel.o"
+  ],
+  "file": "./src/math/rays/ray_for_pixel.c"
+ },
+ {
+  "directory": "/home/myuser/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-Ofast",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/rays/create_ray_bonus.c",
+   "-o",
+   "build_bonus/create_ray_bonus.o"
+  ],
+  "file": "./bsrc/math/rays/create_ray_bonus.c"
+ },
+ {
+  "directory": "/home/myuser/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-Ofast",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/rays/ray_for_pixel_bonus.c",
+   "-o",
+   "build_bonus/ray_for_pixel_bonus.o"
+  ],
+  "file": "./bsrc/math/rays/ray_for_pixel_bonus.c"
  }
 ]
