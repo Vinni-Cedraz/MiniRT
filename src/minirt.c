@@ -30,9 +30,9 @@ int	main(int argc, char **argv)
 	fd = open_file(argv[1]);
 	file_validation(fd, &number_of_tokens);
 	fd = open_file(argv[1]);
-	world.image = create_image(mlx);
 	tokens = tokenizer(fd, number_of_tokens);
 	world = parse_tokens_into_world(tokens, number_of_tokens);
+	world.image = create_image(mlx);
 	render(world.image, world);
 	mlx_image_to_window(mlx, world.image, 0, 0);
 	mlx_loop(mlx);

@@ -75,7 +75,7 @@ VPATH += ./bsrc ./bsrc/math/canvas/ ./bsrc/math/tuples/ ./bsrc/math/matrices \
 BUILD_SRC = ./build/
 INCLUDE = -I./include -I ./libs/
 B_INCLUDE = -I./include_bonus -I./libs/
-C_FLAGS = -Wall -Werror -Wextra -Ofast 
+C_FLAGS = -Wall -Werror -Wextra -g
 BUILD_DIR_RT= ./build/
 B_BUILD_DIR_RT= ./build_bonus/
 OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))

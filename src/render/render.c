@@ -27,6 +27,11 @@ void	render(mlx_image_t *image, t_world world)
 		{
 			ray = ray_for_pixel(world.camera, y, x);
 			color = color_at(&world, &ray);
+			if (image == NULL)
+			{
+				printf("WTF");
+				exit(1);
+			}
 			mlx_put_pixel(image, x, y, normalized_color_to_int(color));
 			x++;
 		}
