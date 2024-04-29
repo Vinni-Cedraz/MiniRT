@@ -13,7 +13,6 @@
 #include "minirt.h"
 
 t_shape	init_plane(const t_tuple c, const t_tuple up, const t_tuple cl);
-_Bool	is_standard_orientation(t_tuple up, t_tuple from);
 
 int	parse_plane(t_token token, t_world *w)
 {
@@ -35,7 +34,7 @@ t_shape	init_plane(const t_tuple from, const t_tuple up, const t_tuple cl)
 	plane.material.color = cl;
 	if (is_standard_orientation(up, from))
 		return (plane);
-	set_transform(&plane, plane_view_transform(from, up));
+	set_transform(&plane, shape_view_transform(from, up));
 	return (plane);
 }
 

@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -18,7 +18,7 @@
   "file": "./src/minirt.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -36,7 +36,7 @@
   "file": "./src/math/tuples/basic_tuple_operations.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -54,1948 +54,7 @@
   "file": "./src/math/tuples/compare_floats.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/tuples/complex_tuple_operations.c",
-   "-o",
-   "build/complex_tuple_operations.o"
-  ],
-  "file": "./src/math/tuples/complex_tuple_operations.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/tuples/create_tuples.c",
-   "-o",
-   "build/create_tuples.o"
-  ],
-  "file": "./src/math/tuples/create_tuples.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/mult_matrices.c",
-   "-o",
-   "build/mult_matrices.o"
-  ],
-  "file": "./src/math/matrices/mult_matrices.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/comparison.c",
-   "-o",
-   "build/comparison.o"
-  ],
-  "file": "./src/math/matrices/comparison.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/transpose_matrix.c",
-   "-o",
-   "build/transpose_matrix.o"
-  ],
-  "file": "./src/math/matrices/transpose_matrix.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/determinants.c",
-   "-o",
-   "build/determinants.o"
-  ],
-  "file": "./src/math/matrices/determinants.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/minors.c",
-   "-o",
-   "build/minors.o"
-  ],
-  "file": "./src/math/matrices/minors.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/submatrices.c",
-   "-o",
-   "build/submatrices.o"
-  ],
-  "file": "./src/math/matrices/submatrices.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/chain_transformations.c",
-   "-o",
-   "build/chain_transformations.o"
-  ],
-  "file": "./src/math/matrices/chain_transformations.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/invert_matrix.c",
-   "-o",
-   "build/invert_matrix.o"
-  ],
-  "file": "./src/math/matrices/invert_matrix.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/create_matrix.c",
-   "-o",
-   "build/create_matrix.o"
-  ],
-  "file": "./src/math/matrices/create_matrix.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrix_transformations/translation.c",
-   "-o",
-   "build/translation.o"
-  ],
-  "file": "./src/math/matrix_transformations/translation.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrix_transformations/rotation.c",
-   "-o",
-   "build/rotation.o"
-  ],
-  "file": "./src/math/matrix_transformations/rotation.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrix_transformations/scaling.c",
-   "-o",
-   "build/scaling.o"
-  ],
-  "file": "./src/math/matrix_transformations/scaling.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/create_intersection/intersect_shape.c",
-   "-o",
-   "build/intersect_shape.o"
-  ],
-  "file": "./src/math/create_intersection/intersect_shape.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/create_intersection/get_hit.c",
-   "-o",
-   "build/get_hit.o"
-  ],
-  "file": "./src/math/create_intersection/get_hit.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/tuples/colors.c",
-   "-o",
-   "build/colors.o"
-  ],
-  "file": "./src/math/tuples/colors.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/create_intersection/set_transform.c",
-   "-o",
-   "build/set_transform.o"
-  ],
-  "file": "./src/math/create_intersection/set_transform.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/light_and_shading/surface_normals.c",
-   "-o",
-   "build/surface_normals.o"
-  ],
-  "file": "./src/math/light_and_shading/surface_normals.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/light_and_shading/reflect.c",
-   "-o",
-   "build/reflect.o"
-  ],
-  "file": "./src/math/light_and_shading/reflect.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/light_and_shading/create_material.c",
-   "-o",
-   "build/create_material.o"
-  ],
-  "file": "./src/math/light_and_shading/create_material.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/light_and_shading/calculate_lighting.c",
-   "-o",
-   "build/calculate_lighting.o"
-  ],
-  "file": "./src/math/light_and_shading/calculate_lighting.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/create_intersection/intersect_world_with_ray.c",
-   "-o",
-   "build/intersect_world_with_ray.o"
-  ],
-  "file": "./src/math/create_intersection/intersect_world_with_ray.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/create_intersection/prepare_computations.c",
-   "-o",
-   "build/prepare_computations.o"
-  ],
-  "file": "./src/math/create_intersection/prepare_computations.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/light_and_shading/shade_hit.c",
-   "-o",
-   "build/shade_hit.o"
-  ],
-  "file": "./src/math/light_and_shading/shade_hit.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/create_intersection/color_at.c",
-   "-o",
-   "build/color_at.o"
-  ],
-  "file": "./src/math/create_intersection/color_at.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/camera/view_transformation.c",
-   "-o",
-   "build/view_transformation.o"
-  ],
-  "file": "./src/math/camera/view_transformation.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/camera/create_camera.c",
-   "-o",
-   "build/create_camera.o"
-  ],
-  "file": "./src/math/camera/create_camera.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/render/render.c",
-   "-o",
-   "build/render.o"
-  ],
-  "file": "./src/render/render.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/sphere/intersect_sphere.c",
-   "-o",
-   "build/intersect_sphere.o"
-  ],
-  "file": "./src/math/sphere/intersect_sphere.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/plane/intersect_plane.c",
-   "-o",
-   "build/intersect_plane.o"
-  ],
-  "file": "./src/math/plane/intersect_plane.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/cylinder/intersect_cylinder.c",
-   "-o",
-   "build/intersect_cylinder.o"
-  ],
-  "file": "./src/math/cylinder/intersect_cylinder.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/plane/create_plane.c",
-   "-o",
-   "build/create_plane.o"
-  ],
-  "file": "./src/math/plane/create_plane.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/cylinder/create_cylinder.c",
-   "-o",
-   "build/create_cylinder.o"
-  ],
-  "file": "./src/math/cylinder/create_cylinder.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/cylinder/cylinder_setters.c",
-   "-o",
-   "build/cylinder_setters.o"
-  ],
-  "file": "./src/math/cylinder/cylinder_setters.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/light_and_shading/shadows.c",
-   "-o",
-   "build/shadows.o"
-  ],
-  "file": "./src/math/light_and_shading/shadows.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/render/render_image.c",
-   "-o",
-   "build/render_image.o"
-  ],
-  "file": "./src/render/render_image.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/input_validation/endwith.c",
-   "-o",
-   "build/endwith.o"
-  ],
-  "file": "./src/input_validation/endwith.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_ambient_and_light.c",
-   "-o",
-   "build/parse_ambient_and_light.o"
-  ],
-  "file": "./src/parser/parse_ambient_and_light.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_camera.c",
-   "-o",
-   "build/parse_camera.o"
-  ],
-  "file": "./src/parser/parse_camera.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_plane.c",
-   "-o",
-   "build/parse_plane.o"
-  ],
-  "file": "./src/parser/parse_plane.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_utils.c",
-   "-o",
-   "build/parse_utils.o"
-  ],
-  "file": "./src/parser/parse_utils.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_cylinder.c",
-   "-o",
-   "build/parse_cylinder.o"
-  ],
-  "file": "./src/parser/parse_cylinder.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_sphere.c",
-   "-o",
-   "build/parse_sphere.o"
-  ],
-  "file": "./src/parser/parse_sphere.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_functions_table.c",
-   "-o",
-   "build/parse_functions_table.o"
-  ],
-  "file": "./src/parser/parse_functions_table.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/parser/parse_tokens_into_world.c",
-   "-o",
-   "build/parse_tokens_into_world.o"
-  ],
-  "file": "./src/parser/parse_tokens_into_world.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/cylinder/caps.c",
-   "-o",
-   "build/caps.o"
-  ],
-  "file": "./src/math/cylinder/caps.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/input_validation/check_type_identifiers.c",
-   "-o",
-   "build/check_type_identifiers.o"
-  ],
-  "file": "./src/input_validation/check_type_identifiers.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/input_validation/file_validation.c",
-   "-o",
-   "build/file_validation.o"
-  ],
-  "file": "./src/input_validation/file_validation.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/input_validation/open_file.c",
-   "-o",
-   "build/open_file.o"
-  ],
-  "file": "./src/input_validation/open_file.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/input_validation/validate_line.c",
-   "-o",
-   "build/validate_line.o"
-  ],
-  "file": "./src/input_validation/validate_line.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/tokenizer/tokenizer.c",
-   "-o",
-   "build/tokenizer.o"
-  ],
-  "file": "./src/tokenizer/tokenizer.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/sphere/create_sphere.c",
-   "-o",
-   "build/create_sphere.o"
-  ],
-  "file": "./src/math/sphere/create_sphere.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-g",
-   "-I./include",
-   "-I",
-   "./libs/",
-   "-c",
-   "./src/math/matrices/multiply_tuple_by_matrix.c",
-   "-o",
-   "build/multiply_tuple_by_matrix.o"
-  ],
-  "file": "./src/math/matrices/multiply_tuple_by_matrix.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/minirt_bonus.c",
-   "-o",
-   "build_bonus/minirt_bonus.o"
-  ],
-  "file": "./bsrc/minirt_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/tuples/basic_tuple_operations_bonus.c",
-   "-o",
-   "build_bonus/basic_tuple_operations_bonus.o"
-  ],
-  "file": "./bsrc/math/tuples/basic_tuple_operations_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/tuples/compare_floats_bonus.c",
-   "-o",
-   "build_bonus/compare_floats_bonus.o"
-  ],
-  "file": "./bsrc/math/tuples/compare_floats_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/tuples/complex_tuple_operations_bonus.c",
-   "-o",
-   "build_bonus/complex_tuple_operations_bonus.o"
-  ],
-  "file": "./bsrc/math/tuples/complex_tuple_operations_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/tuples/create_tuples_bonus.c",
-   "-o",
-   "build_bonus/create_tuples_bonus.o"
-  ],
-  "file": "./bsrc/math/tuples/create_tuples_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrices/mult_matrices_bonus.c",
-   "-o",
-   "build_bonus/mult_matrices_bonus.o"
-  ],
-  "file": "./bsrc/math/matrices/mult_matrices_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrices/comparison_bonus.c",
-   "-o",
-   "build_bonus/comparison_bonus.o"
-  ],
-  "file": "./bsrc/math/matrices/comparison_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrices/transpose_matrix_bonus.c",
-   "-o",
-   "build_bonus/transpose_matrix_bonus.o"
-  ],
-  "file": "./bsrc/math/matrices/transpose_matrix_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrices/determinants_bonus.c",
-   "-o",
-   "build_bonus/determinants_bonus.o"
-  ],
-  "file": "./bsrc/math/matrices/determinants_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrices/minors_bonus.c",
-   "-o",
-   "build_bonus/minors_bonus.o"
-  ],
-  "file": "./bsrc/math/matrices/minors_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrices/submatrices_bonus.c",
-   "-o",
-   "build_bonus/submatrices_bonus.o"
-  ],
-  "file": "./bsrc/math/matrices/submatrices_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrices/chain_transformations_bonus.c",
-   "-o",
-   "build_bonus/chain_transformations_bonus.o"
-  ],
-  "file": "./bsrc/math/matrices/chain_transformations_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrices/invert_matrix_bonus.c",
-   "-o",
-   "build_bonus/invert_matrix_bonus.o"
-  ],
-  "file": "./bsrc/math/matrices/invert_matrix_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrices/create_matrix_bonus.c",
-   "-o",
-   "build_bonus/create_matrix_bonus.o"
-  ],
-  "file": "./bsrc/math/matrices/create_matrix_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrix_transformations/translation_bonus.c",
-   "-o",
-   "build_bonus/translation_bonus.o"
-  ],
-  "file": "./bsrc/math/matrix_transformations/translation_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrix_transformations/rotation_bonus.c",
-   "-o",
-   "build_bonus/rotation_bonus.o"
-  ],
-  "file": "./bsrc/math/matrix_transformations/rotation_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrix_transformations/scaling_bonus.c",
-   "-o",
-   "build_bonus/scaling_bonus.o"
-  ],
-  "file": "./bsrc/math/matrix_transformations/scaling_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/create_intersection/intersect_shape_bonus.c",
-   "-o",
-   "build_bonus/intersect_shape_bonus.o"
-  ],
-  "file": "./bsrc/math/create_intersection/intersect_shape_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/create_intersection/get_hit_bonus.c",
-   "-o",
-   "build_bonus/get_hit_bonus.o"
-  ],
-  "file": "./bsrc/math/create_intersection/get_hit_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/tuples/colors_bonus.c",
-   "-o",
-   "build_bonus/colors_bonus.o"
-  ],
-  "file": "./bsrc/math/tuples/colors_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/create_intersection/set_transform_bonus.c",
-   "-o",
-   "build_bonus/set_transform_bonus.o"
-  ],
-  "file": "./bsrc/math/create_intersection/set_transform_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/light_and_shading/surface_normals_bonus.c",
-   "-o",
-   "build_bonus/surface_normals_bonus.o"
-  ],
-  "file": "./bsrc/math/light_and_shading/surface_normals_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/light_and_shading/reflect_bonus.c",
-   "-o",
-   "build_bonus/reflect_bonus.o"
-  ],
-  "file": "./bsrc/math/light_and_shading/reflect_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/light_and_shading/create_material_bonus.c",
-   "-o",
-   "build_bonus/create_material_bonus.o"
-  ],
-  "file": "./bsrc/math/light_and_shading/create_material_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/light_and_shading/calculate_lighting_bonus.c",
-   "-o",
-   "build_bonus/calculate_lighting_bonus.o"
-  ],
-  "file": "./bsrc/math/light_and_shading/calculate_lighting_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/create_intersection/intersect_world_with_ray_bonus.c",
-   "-o",
-   "build_bonus/intersect_world_with_ray_bonus.o"
-  ],
-  "file": "./bsrc/math/create_intersection/intersect_world_with_ray_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/create_intersection/prepare_computations_bonus.c",
-   "-o",
-   "build_bonus/prepare_computations_bonus.o"
-  ],
-  "file": "./bsrc/math/create_intersection/prepare_computations_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/light_and_shading/shade_hit_bonus.c",
-   "-o",
-   "build_bonus/shade_hit_bonus.o"
-  ],
-  "file": "./bsrc/math/light_and_shading/shade_hit_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/create_intersection/color_at_bonus.c",
-   "-o",
-   "build_bonus/color_at_bonus.o"
-  ],
-  "file": "./bsrc/math/create_intersection/color_at_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/camera/view_transformation_bonus.c",
-   "-o",
-   "build_bonus/view_transformation_bonus.o"
-  ],
-  "file": "./bsrc/math/camera/view_transformation_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/camera/create_camera_bonus.c",
-   "-o",
-   "build_bonus/create_camera_bonus.o"
-  ],
-  "file": "./bsrc/math/camera/create_camera_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/render/render_bonus.c",
-   "-o",
-   "build_bonus/render_bonus.o"
-  ],
-  "file": "./bsrc/render/render_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/sphere/intersect_sphere_bonus.c",
-   "-o",
-   "build_bonus/intersect_sphere_bonus.o"
-  ],
-  "file": "./bsrc/math/sphere/intersect_sphere_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/plane/intersect_plane_bonus.c",
-   "-o",
-   "build_bonus/intersect_plane_bonus.o"
-  ],
-  "file": "./bsrc/math/plane/intersect_plane_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/cylinder/intersect_cylinder_bonus.c",
-   "-o",
-   "build_bonus/intersect_cylinder_bonus.o"
-  ],
-  "file": "./bsrc/math/cylinder/intersect_cylinder_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/plane/create_plane_bonus.c",
-   "-o",
-   "build_bonus/create_plane_bonus.o"
-  ],
-  "file": "./bsrc/math/plane/create_plane_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/cylinder/create_cylinder_bonus.c",
-   "-o",
-   "build_bonus/create_cylinder_bonus.o"
-  ],
-  "file": "./bsrc/math/cylinder/create_cylinder_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/cylinder/cylinder_setters_bonus.c",
-   "-o",
-   "build_bonus/cylinder_setters_bonus.o"
-  ],
-  "file": "./bsrc/math/cylinder/cylinder_setters_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/light_and_shading/shadows_bonus.c",
-   "-o",
-   "build_bonus/shadows_bonus.o"
-  ],
-  "file": "./bsrc/math/light_and_shading/shadows_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/render/render_image_bonus.c",
-   "-o",
-   "build_bonus/render_image_bonus.o"
-  ],
-  "file": "./bsrc/render/render_image_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/input_validation/endwith_bonus.c",
-   "-o",
-   "build_bonus/endwith_bonus.o"
-  ],
-  "file": "./bsrc/input_validation/endwith_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/parser/parse_ambient_and_light_bonus.c",
-   "-o",
-   "build_bonus/parse_ambient_and_light_bonus.o"
-  ],
-  "file": "./bsrc/parser/parse_ambient_and_light_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/parser/parse_camera_bonus.c",
-   "-o",
-   "build_bonus/parse_camera_bonus.o"
-  ],
-  "file": "./bsrc/parser/parse_camera_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/parser/parse_plane_bonus.c",
-   "-o",
-   "build_bonus/parse_plane_bonus.o"
-  ],
-  "file": "./bsrc/parser/parse_plane_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/parser/parse_utils_bonus.c",
-   "-o",
-   "build_bonus/parse_utils_bonus.o"
-  ],
-  "file": "./bsrc/parser/parse_utils_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/parser/parse_cylinder_bonus.c",
-   "-o",
-   "build_bonus/parse_cylinder_bonus.o"
-  ],
-  "file": "./bsrc/parser/parse_cylinder_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/parser/parse_sphere_bonus.c",
-   "-o",
-   "build_bonus/parse_sphere_bonus.o"
-  ],
-  "file": "./bsrc/parser/parse_sphere_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/parser/parse_functions_table_bonus.c",
-   "-o",
-   "build_bonus/parse_functions_table_bonus.o"
-  ],
-  "file": "./bsrc/parser/parse_functions_table_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/parser/parse_tokens_into_world_bonus.c",
-   "-o",
-   "build_bonus/parse_tokens_into_world_bonus.o"
-  ],
-  "file": "./bsrc/parser/parse_tokens_into_world_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/cylinder/caps_bonus.c",
-   "-o",
-   "build_bonus/caps_bonus.o"
-  ],
-  "file": "./bsrc/math/cylinder/caps_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/input_validation/check_type_identifiers_bonus.c",
-   "-o",
-   "build_bonus/check_type_identifiers_bonus.o"
-  ],
-  "file": "./bsrc/input_validation/check_type_identifiers_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/input_validation/file_validation_bonus.c",
-   "-o",
-   "build_bonus/file_validation_bonus.o"
-  ],
-  "file": "./bsrc/input_validation/file_validation_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/input_validation/open_file_bonus.c",
-   "-o",
-   "build_bonus/open_file_bonus.o"
-  ],
-  "file": "./bsrc/input_validation/open_file_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/input_validation/validate_line_bonus.c",
-   "-o",
-   "build_bonus/validate_line_bonus.o"
-  ],
-  "file": "./bsrc/input_validation/validate_line_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/tokenizer/tokenizer_bonus.c",
-   "-o",
-   "build_bonus/tokenizer_bonus.o"
-  ],
-  "file": "./bsrc/tokenizer/tokenizer_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/sphere/create_sphere_bonus.c",
-   "-o",
-   "build_bonus/create_sphere_bonus.o"
-  ],
-  "file": "./bsrc/math/sphere/create_sphere_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Werror",
-   "-Wextra",
-   "-Ofast",
-   "-I./include_bonus",
-   "-I./libs/",
-   "-c",
-   "./bsrc/math/matrices/multiply_tuple_by_matrix_bonus.c",
-   "-o",
-   "build_bonus/multiply_tuple_by_matrix_bonus.o"
-  ],
-  "file": "./bsrc/math/matrices/multiply_tuple_by_matrix_bonus.c"
- },
- {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -2013,25 +72,528 @@
   "file": "./src/math/camera/world.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
    "-I./include",
    "-I",
    "./libs/",
    "-c",
-   "./src/math/rays/create_and_transform_ray.c",
+   "./src/math/tuples/complex_tuple_operations.c",
    "-o",
-   "build/create_and_transform_ray.o"
+   "build/complex_tuple_operations.o"
   ],
-  "file": "./src/math/rays/create_and_transform_ray.c"
+  "file": "./src/math/tuples/complex_tuple_operations.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/tuples/create_tuples.c",
+   "-o",
+   "build/create_tuples.o"
+  ],
+  "file": "./src/math/tuples/create_tuples.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrices/mult_matrices.c",
+   "-o",
+   "build/mult_matrices.o"
+  ],
+  "file": "./src/math/matrices/mult_matrices.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrices/comparison.c",
+   "-o",
+   "build/comparison.o"
+  ],
+  "file": "./src/math/matrices/comparison.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrices/transpose_matrix.c",
+   "-o",
+   "build/transpose_matrix.o"
+  ],
+  "file": "./src/math/matrices/transpose_matrix.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrices/determinants.c",
+   "-o",
+   "build/determinants.o"
+  ],
+  "file": "./src/math/matrices/determinants.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrices/minors.c",
+   "-o",
+   "build/minors.o"
+  ],
+  "file": "./src/math/matrices/minors.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrices/submatrices.c",
+   "-o",
+   "build/submatrices.o"
+  ],
+  "file": "./src/math/matrices/submatrices.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrices/chain_transformations.c",
+   "-o",
+   "build/chain_transformations.o"
+  ],
+  "file": "./src/math/matrices/chain_transformations.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrices/invert_matrix.c",
+   "-o",
+   "build/invert_matrix.o"
+  ],
+  "file": "./src/math/matrices/invert_matrix.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrices/create_matrix.c",
+   "-o",
+   "build/create_matrix.o"
+  ],
+  "file": "./src/math/matrices/create_matrix.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrix_transformations/translation.c",
+   "-o",
+   "build/translation.o"
+  ],
+  "file": "./src/math/matrix_transformations/translation.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrix_transformations/rotation.c",
+   "-o",
+   "build/rotation.o"
+  ],
+  "file": "./src/math/matrix_transformations/rotation.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrix_transformations/scaling.c",
+   "-o",
+   "build/scaling.o"
+  ],
+  "file": "./src/math/matrix_transformations/scaling.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/create_intersection/intersect_shape.c",
+   "-o",
+   "build/intersect_shape.o"
+  ],
+  "file": "./src/math/create_intersection/intersect_shape.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/create_intersection/get_hit.c",
+   "-o",
+   "build/get_hit.o"
+  ],
+  "file": "./src/math/create_intersection/get_hit.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/rays/create_ray_bonus.c",
+   "-o",
+   "build_bonus/create_ray_bonus.o"
+  ],
+  "file": "./bsrc/math/rays/create_ray_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/tuples/colors.c",
+   "-o",
+   "build/colors.o"
+  ],
+  "file": "./src/math/tuples/colors.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/create_intersection/set_transform.c",
+   "-o",
+   "build/set_transform.o"
+  ],
+  "file": "./src/math/create_intersection/set_transform.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/light_and_shading/surface_normals.c",
+   "-o",
+   "build/surface_normals.o"
+  ],
+  "file": "./src/math/light_and_shading/surface_normals.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/light_and_shading/reflect.c",
+   "-o",
+   "build/reflect.o"
+  ],
+  "file": "./src/math/light_and_shading/reflect.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/light_and_shading/create_material.c",
+   "-o",
+   "build/create_material.o"
+  ],
+  "file": "./src/math/light_and_shading/create_material.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/light_and_shading/calculate_lighting.c",
+   "-o",
+   "build/calculate_lighting.o"
+  ],
+  "file": "./src/math/light_and_shading/calculate_lighting.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/create_intersection/intersect_world_with_ray.c",
+   "-o",
+   "build/intersect_world_with_ray.o"
+  ],
+  "file": "./src/math/create_intersection/intersect_world_with_ray.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/create_intersection/prepare_computations.c",
+   "-o",
+   "build/prepare_computations.o"
+  ],
+  "file": "./src/math/create_intersection/prepare_computations.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/light_and_shading/shade_hit.c",
+   "-o",
+   "build/shade_hit.o"
+  ],
+  "file": "./src/math/light_and_shading/shade_hit.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/create_intersection/color_at.c",
+   "-o",
+   "build/color_at.o"
+  ],
+  "file": "./src/math/create_intersection/color_at.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/camera/view_transformation.c",
+   "-o",
+   "build/view_transformation.o"
+  ],
+  "file": "./src/math/camera/view_transformation.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/camera/create_camera.c",
+   "-o",
+   "build/create_camera.o"
+  ],
+  "file": "./src/math/camera/create_camera.c"
+ },
+ {
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -2049,7 +611,7 @@
   "file": "./src/math/rays/ray_for_pixel.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
@@ -2060,20 +622,997 @@
    "-I",
    "./libs/",
    "-c",
-   "./bsrc/math/rays/create_ray_bonus.c",
+   "./src/render/render.c",
    "-o",
-   "build/create_ray_bonus.o"
+   "build/render.o"
   ],
-  "file": "./bsrc/math/rays/create_ray_bonus.c"
+  "file": "./src/render/render.c"
  },
  {
-  "directory": "/home/myuser/MiniRT",
+  "directory": "/root/MiniRT",
   "arguments": [
    "cc",
    "-Wall",
    "-Werror",
    "-Wextra",
-   "-Ofast",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/sphere/intersect_sphere.c",
+   "-o",
+   "build/intersect_sphere.o"
+  ],
+  "file": "./src/math/sphere/intersect_sphere.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/plane/intersect_plane.c",
+   "-o",
+   "build/intersect_plane.o"
+  ],
+  "file": "./src/math/plane/intersect_plane.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/cylinder/intersect_cylinder.c",
+   "-o",
+   "build/intersect_cylinder.o"
+  ],
+  "file": "./src/math/cylinder/intersect_cylinder.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/plane/create_plane.c",
+   "-o",
+   "build/create_plane.o"
+  ],
+  "file": "./src/math/plane/create_plane.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/cylinder/create_cylinder.c",
+   "-o",
+   "build/create_cylinder.o"
+  ],
+  "file": "./src/math/cylinder/create_cylinder.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/cylinder/cylinder_setters.c",
+   "-o",
+   "build/cylinder_setters.o"
+  ],
+  "file": "./src/math/cylinder/cylinder_setters.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/light_and_shading/shadows.c",
+   "-o",
+   "build/shadows.o"
+  ],
+  "file": "./src/math/light_and_shading/shadows.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/render/render_image.c",
+   "-o",
+   "build/render_image.o"
+  ],
+  "file": "./src/render/render_image.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/input_validation/endwith.c",
+   "-o",
+   "build/endwith.o"
+  ],
+  "file": "./src/input_validation/endwith.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/parser/parse_ambient_and_light.c",
+   "-o",
+   "build/parse_ambient_and_light.o"
+  ],
+  "file": "./src/parser/parse_ambient_and_light.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/parser/parse_camera.c",
+   "-o",
+   "build/parse_camera.o"
+  ],
+  "file": "./src/parser/parse_camera.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/parser/parse_plane.c",
+   "-o",
+   "build/parse_plane.o"
+  ],
+  "file": "./src/parser/parse_plane.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/parser/parse_utils.c",
+   "-o",
+   "build/parse_utils.o"
+  ],
+  "file": "./src/parser/parse_utils.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/parser/parse_cylinder.c",
+   "-o",
+   "build/parse_cylinder.o"
+  ],
+  "file": "./src/parser/parse_cylinder.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/parser/parse_sphere.c",
+   "-o",
+   "build/parse_sphere.o"
+  ],
+  "file": "./src/parser/parse_sphere.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/parser/parse_functions_table.c",
+   "-o",
+   "build/parse_functions_table.o"
+  ],
+  "file": "./src/parser/parse_functions_table.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/parser/parse_tokens_into_world.c",
+   "-o",
+   "build/parse_tokens_into_world.o"
+  ],
+  "file": "./src/parser/parse_tokens_into_world.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/cylinder/caps.c",
+   "-o",
+   "build/caps.o"
+  ],
+  "file": "./src/math/cylinder/caps.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/input_validation/check_type_identifiers.c",
+   "-o",
+   "build/check_type_identifiers.o"
+  ],
+  "file": "./src/input_validation/check_type_identifiers.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/input_validation/file_validation.c",
+   "-o",
+   "build/file_validation.o"
+  ],
+  "file": "./src/input_validation/file_validation.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/input_validation/open_file.c",
+   "-o",
+   "build/open_file.o"
+  ],
+  "file": "./src/input_validation/open_file.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/input_validation/validate_line.c",
+   "-o",
+   "build/validate_line.o"
+  ],
+  "file": "./src/input_validation/validate_line.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/tokenizer/tokenizer.c",
+   "-o",
+   "build/tokenizer.o"
+  ],
+  "file": "./src/tokenizer/tokenizer.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/sphere/create_sphere.c",
+   "-o",
+   "build/create_sphere.o"
+  ],
+  "file": "./src/math/sphere/create_sphere.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include",
+   "-I",
+   "./libs/",
+   "-c",
+   "./src/math/matrices/multiply_tuple_by_matrix.c",
+   "-o",
+   "build/multiply_tuple_by_matrix.o"
+  ],
+  "file": "./src/math/matrices/multiply_tuple_by_matrix.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/minirt_bonus.c",
+   "-o",
+   "build_bonus/minirt_bonus.o"
+  ],
+  "file": "./bsrc/minirt_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/tuples/basic_tuple_operations_bonus.c",
+   "-o",
+   "build_bonus/basic_tuple_operations_bonus.o"
+  ],
+  "file": "./bsrc/math/tuples/basic_tuple_operations_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/tuples/compare_floats_bonus.c",
+   "-o",
+   "build_bonus/compare_floats_bonus.o"
+  ],
+  "file": "./bsrc/math/tuples/compare_floats_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/tuples/complex_tuple_operations_bonus.c",
+   "-o",
+   "build_bonus/complex_tuple_operations_bonus.o"
+  ],
+  "file": "./bsrc/math/tuples/complex_tuple_operations_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/tuples/create_tuples_bonus.c",
+   "-o",
+   "build_bonus/create_tuples_bonus.o"
+  ],
+  "file": "./bsrc/math/tuples/create_tuples_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrices/mult_matrices_bonus.c",
+   "-o",
+   "build_bonus/mult_matrices_bonus.o"
+  ],
+  "file": "./bsrc/math/matrices/mult_matrices_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrices/comparison_bonus.c",
+   "-o",
+   "build_bonus/comparison_bonus.o"
+  ],
+  "file": "./bsrc/math/matrices/comparison_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrices/transpose_matrix_bonus.c",
+   "-o",
+   "build_bonus/transpose_matrix_bonus.o"
+  ],
+  "file": "./bsrc/math/matrices/transpose_matrix_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrices/determinants_bonus.c",
+   "-o",
+   "build_bonus/determinants_bonus.o"
+  ],
+  "file": "./bsrc/math/matrices/determinants_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrices/minors_bonus.c",
+   "-o",
+   "build_bonus/minors_bonus.o"
+  ],
+  "file": "./bsrc/math/matrices/minors_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrices/submatrices_bonus.c",
+   "-o",
+   "build_bonus/submatrices_bonus.o"
+  ],
+  "file": "./bsrc/math/matrices/submatrices_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrices/chain_transformations_bonus.c",
+   "-o",
+   "build_bonus/chain_transformations_bonus.o"
+  ],
+  "file": "./bsrc/math/matrices/chain_transformations_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrices/invert_matrix_bonus.c",
+   "-o",
+   "build_bonus/invert_matrix_bonus.o"
+  ],
+  "file": "./bsrc/math/matrices/invert_matrix_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrices/create_matrix_bonus.c",
+   "-o",
+   "build_bonus/create_matrix_bonus.o"
+  ],
+  "file": "./bsrc/math/matrices/create_matrix_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrix_transformations/translation_bonus.c",
+   "-o",
+   "build_bonus/translation_bonus.o"
+  ],
+  "file": "./bsrc/math/matrix_transformations/translation_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrix_transformations/rotation_bonus.c",
+   "-o",
+   "build_bonus/rotation_bonus.o"
+  ],
+  "file": "./bsrc/math/matrix_transformations/rotation_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrix_transformations/scaling_bonus.c",
+   "-o",
+   "build_bonus/scaling_bonus.o"
+  ],
+  "file": "./bsrc/math/matrix_transformations/scaling_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/create_intersection/intersect_shape_bonus.c",
+   "-o",
+   "build_bonus/intersect_shape_bonus.o"
+  ],
+  "file": "./bsrc/math/create_intersection/intersect_shape_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/create_intersection/get_hit_bonus.c",
+   "-o",
+   "build_bonus/get_hit_bonus.o"
+  ],
+  "file": "./bsrc/math/create_intersection/get_hit_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/tuples/colors_bonus.c",
+   "-o",
+   "build_bonus/colors_bonus.o"
+  ],
+  "file": "./bsrc/math/tuples/colors_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/create_intersection/set_transform_bonus.c",
+   "-o",
+   "build_bonus/set_transform_bonus.o"
+  ],
+  "file": "./bsrc/math/create_intersection/set_transform_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/light_and_shading/surface_normals_bonus.c",
+   "-o",
+   "build_bonus/surface_normals_bonus.o"
+  ],
+  "file": "./bsrc/math/light_and_shading/surface_normals_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/light_and_shading/reflect_bonus.c",
+   "-o",
+   "build_bonus/reflect_bonus.o"
+  ],
+  "file": "./bsrc/math/light_and_shading/reflect_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/light_and_shading/create_material_bonus.c",
+   "-o",
+   "build_bonus/create_material_bonus.o"
+  ],
+  "file": "./bsrc/math/light_and_shading/create_material_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/light_and_shading/calculate_lighting_bonus.c",
+   "-o",
+   "build_bonus/calculate_lighting_bonus.o"
+  ],
+  "file": "./bsrc/math/light_and_shading/calculate_lighting_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/create_intersection/intersect_world_with_ray_bonus.c",
+   "-o",
+   "build_bonus/intersect_world_with_ray_bonus.o"
+  ],
+  "file": "./bsrc/math/create_intersection/intersect_world_with_ray_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/create_intersection/prepare_computations_bonus.c",
+   "-o",
+   "build_bonus/prepare_computations_bonus.o"
+  ],
+  "file": "./bsrc/math/create_intersection/prepare_computations_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/light_and_shading/shade_hit_bonus.c",
+   "-o",
+   "build_bonus/shade_hit_bonus.o"
+  ],
+  "file": "./bsrc/math/light_and_shading/shade_hit_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/create_intersection/color_at_bonus.c",
+   "-o",
+   "build_bonus/color_at_bonus.o"
+  ],
+  "file": "./bsrc/math/create_intersection/color_at_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/camera/view_transformation_bonus.c",
+   "-o",
+   "build_bonus/view_transformation_bonus.o"
+  ],
+  "file": "./bsrc/math/camera/view_transformation_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/camera/create_camera_bonus.c",
+   "-o",
+   "build_bonus/create_camera_bonus.o"
+  ],
+  "file": "./bsrc/math/camera/create_camera_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
    "-I./include_bonus",
    "-I./libs/",
    "-c",
@@ -2082,5 +1621,447 @@
    "build_bonus/ray_for_pixel_bonus.o"
   ],
   "file": "./bsrc/math/rays/ray_for_pixel_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/render/render_bonus.c",
+   "-o",
+   "build_bonus/render_bonus.o"
+  ],
+  "file": "./bsrc/render/render_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/sphere/intersect_sphere_bonus.c",
+   "-o",
+   "build_bonus/intersect_sphere_bonus.o"
+  ],
+  "file": "./bsrc/math/sphere/intersect_sphere_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/plane/intersect_plane_bonus.c",
+   "-o",
+   "build_bonus/intersect_plane_bonus.o"
+  ],
+  "file": "./bsrc/math/plane/intersect_plane_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/cylinder/intersect_cylinder_bonus.c",
+   "-o",
+   "build_bonus/intersect_cylinder_bonus.o"
+  ],
+  "file": "./bsrc/math/cylinder/intersect_cylinder_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/plane/create_plane_bonus.c",
+   "-o",
+   "build_bonus/create_plane_bonus.o"
+  ],
+  "file": "./bsrc/math/plane/create_plane_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/cylinder/create_cylinder_bonus.c",
+   "-o",
+   "build_bonus/create_cylinder_bonus.o"
+  ],
+  "file": "./bsrc/math/cylinder/create_cylinder_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/cylinder/cylinder_setters_bonus.c",
+   "-o",
+   "build_bonus/cylinder_setters_bonus.o"
+  ],
+  "file": "./bsrc/math/cylinder/cylinder_setters_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/light_and_shading/shadows_bonus.c",
+   "-o",
+   "build_bonus/shadows_bonus.o"
+  ],
+  "file": "./bsrc/math/light_and_shading/shadows_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/render/render_image_bonus.c",
+   "-o",
+   "build_bonus/render_image_bonus.o"
+  ],
+  "file": "./bsrc/render/render_image_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/input_validation/endwith_bonus.c",
+   "-o",
+   "build_bonus/endwith_bonus.o"
+  ],
+  "file": "./bsrc/input_validation/endwith_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/parser/parse_ambient_and_light_bonus.c",
+   "-o",
+   "build_bonus/parse_ambient_and_light_bonus.o"
+  ],
+  "file": "./bsrc/parser/parse_ambient_and_light_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/parser/parse_camera_bonus.c",
+   "-o",
+   "build_bonus/parse_camera_bonus.o"
+  ],
+  "file": "./bsrc/parser/parse_camera_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/parser/parse_plane_bonus.c",
+   "-o",
+   "build_bonus/parse_plane_bonus.o"
+  ],
+  "file": "./bsrc/parser/parse_plane_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/parser/parse_utils_bonus.c",
+   "-o",
+   "build_bonus/parse_utils_bonus.o"
+  ],
+  "file": "./bsrc/parser/parse_utils_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/parser/parse_cylinder_bonus.c",
+   "-o",
+   "build_bonus/parse_cylinder_bonus.o"
+  ],
+  "file": "./bsrc/parser/parse_cylinder_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/parser/parse_sphere_bonus.c",
+   "-o",
+   "build_bonus/parse_sphere_bonus.o"
+  ],
+  "file": "./bsrc/parser/parse_sphere_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/parser/parse_functions_table_bonus.c",
+   "-o",
+   "build_bonus/parse_functions_table_bonus.o"
+  ],
+  "file": "./bsrc/parser/parse_functions_table_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/parser/parse_tokens_into_world_bonus.c",
+   "-o",
+   "build_bonus/parse_tokens_into_world_bonus.o"
+  ],
+  "file": "./bsrc/parser/parse_tokens_into_world_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/cylinder/caps_bonus.c",
+   "-o",
+   "build_bonus/caps_bonus.o"
+  ],
+  "file": "./bsrc/math/cylinder/caps_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/input_validation/check_type_identifiers_bonus.c",
+   "-o",
+   "build_bonus/check_type_identifiers_bonus.o"
+  ],
+  "file": "./bsrc/input_validation/check_type_identifiers_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/input_validation/file_validation_bonus.c",
+   "-o",
+   "build_bonus/file_validation_bonus.o"
+  ],
+  "file": "./bsrc/input_validation/file_validation_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/input_validation/open_file_bonus.c",
+   "-o",
+   "build_bonus/open_file_bonus.o"
+  ],
+  "file": "./bsrc/input_validation/open_file_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/input_validation/validate_line_bonus.c",
+   "-o",
+   "build_bonus/validate_line_bonus.o"
+  ],
+  "file": "./bsrc/input_validation/validate_line_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/tokenizer/tokenizer_bonus.c",
+   "-o",
+   "build_bonus/tokenizer_bonus.o"
+  ],
+  "file": "./bsrc/tokenizer/tokenizer_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/sphere/create_sphere_bonus.c",
+   "-o",
+   "build_bonus/create_sphere_bonus.o"
+  ],
+  "file": "./bsrc/math/sphere/create_sphere_bonus.c"
+ },
+ {
+  "directory": "/root/MiniRT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I./include_bonus",
+   "-I./libs/",
+   "-c",
+   "./bsrc/math/matrices/multiply_tuple_by_matrix_bonus.c",
+   "-o",
+   "build_bonus/multiply_tuple_by_matrix_bonus.o"
+  ],
+  "file": "./bsrc/math/matrices/multiply_tuple_by_matrix_bonus.c"
  }
 ]

@@ -389,8 +389,9 @@ t_tuple						normalize_color(const t_tuple a);
 double						_discriminant(t_tuple obj_dist_ray,
 								const t_ray *ray, t_bhaskara *bask);
 t_intersections				intersect_shape(const t_shape *obj, const t_ray *r);
-t_matrix					plane_view_transform(t_tuple from, t_tuple up);
+t_matrix					shape_view_transform(t_tuple from, t_tuple up);
 void						ft_mlx_draw_pixel(uint8_t *pixel, uint32_t color);
+_Bool						is_standard_orientation(t_tuple up, t_tuple from);
 
 static inline void	print_tuple(const t_tuple a)
 {

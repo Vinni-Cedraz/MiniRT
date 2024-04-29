@@ -14,8 +14,28 @@
 
 int	parse_cylinder(t_token token, t_world *w)
 {
-	(void)w;
-	printf("%s\n", types[token.type]);
-	exit(0);
+	const t_tuple	from = parse_tuple(token.args[0], POINT);
+	const t_tuple	up = parse_tuple(token.args[1], VECTOR);
+	const t_tuple	color = parse_tuple(token.args[2], COLOR);
+	const double	diamet = parse_double(token.args[3], false);
+	const double	height = parse_double(token.args[4], false);
+
+	if (from.w == ERROR || diamet == -DBL_MAX || color.w == ERROR
+		|| up.w == ERROR || height == -DBL_MAX)
+		return (ERROR);
+	set_cyl_min_max(&w->shapes[w->moving_idx], -height / 2, height / 2);
+	w->shapes[w->moving_idx--] = create_cylinder();
+	w->shapes[w->moving_idx].material.color = color;
+	if (is_standard_orientation(up, from))
+	{
+		set_transform(&w->shapes[w->moving_idx],
+			create_scaling_matrix(diamet / 2, diamet / 2, diamet / 2));
+		return (0);
+	}
+	set_transform(&w->shapes[w->moving_idx],
+		mult_matrices(
+			shape_view_transform(from, up),
+			create_scaling_matrix(diamet / 2, diamet / 2, diamet / 2))
+		);
 	return (0);
 }
