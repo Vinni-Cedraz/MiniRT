@@ -27,14 +27,14 @@ int	main(int argc, char **argv)
 		return (0);
 	if (!endwith(argv[1], ".rt"))
 		printf("Arquivo nao .rt\n");
-	world.image = *get_image_to_render(mlx);
+	world.image = create_image(mlx);
 	fd = open_file(argv[1]);
 	world.nb_of_lights = file_validation(fd, &number_of_tokens);
 	fd = open_file(argv[1]);
 	tokens = tokenizer(fd, number_of_tokens);
 	parse_tokens_into_world(tokens, number_of_tokens, &world);
 	render(world);
-	mlx_image_to_window(mlx, *get_image_to_render(mlx), 0, 0);
+	mlx_image_to_window(mlx, world.image, 0, 0);
 	mlx_loop(mlx);
 	free(tokens);
 	free(world.shapes);

@@ -16,11 +16,11 @@ static void		set_offset_yx(t_camera *c, int pixel_y, int pixel_x);
 static void		set_world_yx(t_camera *c);
 static t_ray	compute_ray_direction(t_camera *c);
 
-t_ray	ray_for_pixel(t_camera camera, int pixel_x, int pixel_y)
+t_ray	ray_for_pixel(t_camera camera, int idx)
 {
 	t_ray	ray;
 
-	set_offset_yx(&camera, pixel_y, pixel_x);
+	set_offset_yx(&camera, (idx / camera.hsize), (idx % camera.hsize));
 	set_world_yx(&camera);
 	ray = compute_ray_direction(&camera);
 	return (ray);
@@ -28,14 +28,14 @@ t_ray	ray_for_pixel(t_camera camera, int pixel_x, int pixel_y)
 
 static void	set_offset_yx(t_camera *c, int pixel_y, int pixel_x)
 {
-	c->xoffset = (pixel_x + 0.5) * c->pixel_size;
 	c->yoffset = (pixel_y + 0.5) * c->pixel_size;
+	c->xoffset = (pixel_x + 0.5) * c->pixel_size;
 }
 
 static void	set_world_yx(t_camera *c)
 {
-	c->world_x = c->half_width - c->xoffset;
 	c->world_y = c->half_height - c->yoffset;
+	c->world_x = c->half_width - c->xoffset;
 }
 
 static t_ray	compute_ray_direction(t_camera *c)

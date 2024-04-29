@@ -32,8 +32,9 @@ int	main(int argc, char **argv)
 	fd = open_file(argv[1]);
 	tokens = tokenizer(fd, number_of_tokens);
 	world = parse_tokens_into_world(tokens, number_of_tokens);
-	render(*get_image_to_render(mlx), world);
-	mlx_image_to_window(mlx, *get_image_to_render(mlx), 0, 0);
+	world.image = create_image(mlx);
+	render(world.image, world);
+	mlx_image_to_window(mlx, world.image, 0, 0);
 	mlx_loop(mlx);
 	free(tokens);
 	free(world.shapes);

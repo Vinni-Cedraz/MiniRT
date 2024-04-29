@@ -22,11 +22,11 @@ BLIB := minirt_bonus.a
 NAME = minirt
 
 SRC = minirt.c \
-	  basic_tuple_operations.c compare_floats.c \
+	  basic_tuple_operations.c compare_floats.c world.c \
 	  complex_tuple_operations.c create_tuples.c mult_matrices.c comparison.c \
 	  transpose_matrix.c determinants.c minors.c submatrices.c chain_transformations.c \
       invert_matrix.c create_matrix.c translation.c rotation.c scaling.c intersect_shape.c \
-      get_hit.c create_and_transform_rays.c intersection_coordinates.c colors.c \
+      get_hit.c create_ray_bonus.c colors.c \
 	  set_transform.c surface_normals.c reflect.c create_material.c calculate_lighting.c \
 	  intersect_world_with_ray.c prepare_computations.c shade_hit.c \
 	  color_at.c view_transformation.c create_camera.c ray_for_pixel.c render.c intersect_sphere.c \
@@ -50,8 +50,8 @@ BSRC = minirt_bonus.c basic_tuple_operations_bonus.c compare_floats_bonus.c \
 		comparison_bonus.c transpose_matrix_bonus.c determinants_bonus.c minors_bonus.c \
 		submatrices_bonus.c chain_transformations_bonus.c invert_matrix_bonus.c \
 		create_matrix_bonus.c translation_bonus.c rotation_bonus.c scaling_bonus.c \
-		intersect_shape_bonus.c get_hit_bonus.c create_and_transform_rays_bonus.c \
-		intersection_coordinates_bonus.c colors_bonus.c set_transform_bonus.c \
+		intersect_shape_bonus.c get_hit_bonus.c create_ray_bonus.c \
+		colors_bonus.c set_transform_bonus.c \
 		surface_normals_bonus.c reflect_bonus.c create_material_bonus.c \
 		calculate_lighting_bonus.c intersect_world_with_ray_bonus.c prepare_computations_bonus.c \
 		shade_hit_bonus.c color_at_bonus.c view_transformation_bonus.c create_camera_bonus.c \
@@ -75,7 +75,7 @@ VPATH += ./bsrc ./bsrc/math/canvas/ ./bsrc/math/tuples/ ./bsrc/math/matrices \
 BUILD_SRC = ./build/
 INCLUDE = -I./include -I ./libs/
 B_INCLUDE = -I./include_bonus -I./libs/
-C_FLAGS = -Wall -Werror -Wextra -Ofast 
+C_FLAGS = -Wall -Werror -Wextra -g
 BUILD_DIR_RT= ./build/
 B_BUILD_DIR_RT= ./build_bonus/
 OBJS = $(addprefix $(BUILD_DIR_RT),$(SRC:.c=.o))

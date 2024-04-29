@@ -30,3 +30,13 @@ t_ray	transform_ray(const t_ray *ray, t_matrix matrix)
 		.direction = multiply_tuple_by_matrix(ray->direction, matrix)
 	});
 }
+
+t_tuple	_intersection_coordinates(t_ray ray, double t)
+{
+	return ((t_tuple){
+		.x = ray.origin.x + ray.direction.x * t,
+		.y = ray.origin.y + ray.direction.y * t,
+		.z = ray.origin.z + ray.direction.z * t,
+		.w = POINT
+	});
+}

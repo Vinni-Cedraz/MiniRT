@@ -60,12 +60,12 @@ static inline void	*thread_routine(void *task_ptr)
 
 static inline void	draw_pixel(t_task task, int idx)
 {
-	const int		x = idx % task.camera.hsize;
-	const int		y = idx / task.camera.hsize;
-	const t_ray		ray = ray_for_pixel(task.camera, x, y);
+	const t_ray		ray = ray_for_pixel(task.camera, idx);
 	const t_tuple	color = color_at(task.world, &ray);
+	uint8_t			*pixelstart;
 
-	mlx_put_pixel(task.image, x, y, normalized_color_to_int(color));
+	pixelstart = &task.image->pixels[idx * sizeof(int32_t)];
+	ft_mlx_draw_pixel(pixelstart, normalized_color_to_int(color));
 }
 
 static inline int	get_start_idx(int thread_number)

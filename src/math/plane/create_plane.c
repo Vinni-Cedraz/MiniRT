@@ -27,7 +27,7 @@ t_shape	create_plane(void)
 	return (plane);
 }
 
-t_matrix	plane_view_transform(t_tuple from, t_tuple up)
+t_matrix	shape_view_transform(t_tuple from, t_tuple up)
 {
 	t_matrix	transform;
 	t_tuple		right;

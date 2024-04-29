@@ -54,8 +54,8 @@ static const char			types[6][20] = {"AMBIENT", "CAMERA",
 # define END_MATRIX -DBL_MAX
 # define ERROR -42
 
-# define SIZEH 800
-# define SIZEW 1128
+# define SIZEH 120
+# define SIZEW 120
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -240,6 +240,7 @@ typedef struct s_world
 	t_tuple					parser_ambient;
 	int						fixed_count;
 	int						moving_idx;
+	mlx_image_t				*image;
 }							t_world;
 
 typedef						int(t_parse_table)(t_token token, t_world *);
@@ -334,7 +335,7 @@ void						set_cyl_min_max(t_shape *cyl, double min,
 								double max);
 void						load_objs_into_world(mlx_image_t *image,
 								t_camera camera, t_world *world);
-mlx_image_t					**get_image_to_render(mlx_t *mlx);
+mlx_image_t					*create_image(mlx_t *mlx);
 void						render_a_default_world(mlx_t *mlx);
 int							endwith(char *str, char *end);
 int							parse_ambient(t_token token, t_world *w);
@@ -370,7 +371,8 @@ t_tuple						normalize_color(const t_tuple a);
 double						_discriminant(t_tuple obj_dist_ray,
 								const t_ray *ray, t_bhaskara *bask);
 t_intersections				intersect_shape(t_shape *obj, const t_ray *r);
-t_matrix					plane_view_transform(t_tuple from, t_tuple up);
+t_matrix					shape_view_transform(t_tuple from, t_tuple up);
+_Bool						is_standard_orientation(t_tuple up, t_tuple from);
 
 static inline void	print_tuple(const t_tuple a)
 {
