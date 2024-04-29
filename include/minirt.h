@@ -20,8 +20,8 @@
 # include <math.h>
 # include <stdio.h>
 
-static const char			types[6][20] = {"AMBIENT", "CAMERA",
-				"LIGHT", "SPHERE", "PLANE", "CYLINDER"};
+static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
+				"SPHERE", "PLANE", "CYLINDER"};
 
 # define CYAN "\033[36m"
 # define EPSILON 1e-5
@@ -175,7 +175,7 @@ typedef struct s_intersections
 }							t_intersections;
 
 typedef t_intersections		(*t_intersect_function)(const t_shape *,
-			const t_ray *);
+			const t_ray *, const t_tuple);
 typedef t_tuple				(*t_normal_at_function)(const t_shape *,
 					const t_tuple);
 
@@ -248,7 +248,8 @@ typedef						int(t_parse_table)(t_token token, t_world *);
 t_tuple						create_point(double x, double y, double z);
 void						tuple_to_arr(t_tuple a, double arr[4]);
 t_tuple						create_vector(double x, double y, double z);
-t_tuple						create_tuple(double x, double y, double z, double w);
+t_tuple						create_tuple(double x, double y, double z,
+								double w);
 t_bool						doubles_eq(double a, double b);
 t_tuple						add_tuples(const t_tuple a, const t_tuple b);
 t_tuple						subtract_tuples(const t_tuple a, const t_tuple b);
@@ -300,8 +301,10 @@ void						set_transform(t_shape *s, t_matrix t);
 double						_cofac(const t_matrix m, int row, int col);
 t_tuple						sphere_normal_at(const t_shape *sphere,
 								const t_tuple world_point);
-t_tuple						plane_normal_at(const t_shape *sphere, const t_tuple p);
-t_tuple						cylinder_normal_at(const t_shape *cyl, const t_tuple p);
+t_tuple						plane_normal_at(const t_shape *sphere,
+								const t_tuple p);
+t_tuple						cylinder_normal_at(const t_shape *cyl,
+								const t_tuple p);
 t_tuple						reflect(t_tuple vector, t_tuple normal);
 t_material					create_material(void);
 t_tuple						calculate_lighting(t_lighting *obj);
@@ -314,7 +317,7 @@ t_intersections				intersect_world_with_ray(t_world *w, t_ray *r);
 t_prep_comps				prepare_computations(const t_node *intersection,
 								t_ray ray);
 t_tuple						shade_hit(t_world *world, t_prep_comps *comps);
-//void						init_tuple(const t_tuple tuple, t_tuple res);
+// void						init_tuple(const t_tuple tuple, t_tuple res);
 t_tuple						color_at(t_world *world, t_ray *ray);
 t_matrix					view_transform(t_tuple from, t_tuple forward,
 								t_tuple up);
@@ -324,11 +327,14 @@ t_matrix					create_mat(double arr[]);
 
 t_ray						ray_for_pixel(t_camera c, int x, int y);
 void						render(mlx_image_t *image, t_world world);
-t_intersections				intersect_plane(const t_shape *obj, const t_ray *trans_ray);
+t_intersections				intersect_plane(const t_shape *obj,
+								const t_ray *trans_ray, const t_tuple dist);
 t_intersections				intersect_cylinder(const t_shape *obj,
-								const t_ray *transformed_ray);
+								const t_ray *transformed_ray,
+								const t_tuple dist);
 t_intersections				intersect_sphere(const t_shape *obj,
-								const t_ray *transformed_ray);
+								const t_ray *transformed_ray,
+								const t_tuple dist);
 t_shape						create_plane(void);
 t_shape						create_cylinder(void);
 void						set_cyl_min_max(t_shape *cyl, double min,

@@ -12,11 +12,13 @@
 
 #include "minirt.h"
 
-t_intersections	intersect_plane(const t_shape *obj, const t_ray *trans_ray)
+t_intersections	intersect_plane(const t_shape *obj, const t_ray *trans_ray,
+		const t_tuple dist)
 {
 	t_intersections	intersections;
 	double			t;
 
+	(void)dist;
 	intersections = (t_intersections){0};
 	if (fabs(trans_ray->direction.y) < EPSILON)
 		return (intersections);

@@ -315,8 +315,7 @@ t_tuple						sphere_normal_at(const t_shape *sphere,
 								const t_tuple world_point);
 t_tuple						plane_normal_at(const t_shape *sphere,
 								const t_tuple p);
-void						cylinder_normal_at(const t_shape *cyl,
-								const t_tuple p, t_tuple res);
+t_tuple						cylinder_normal_at(const t_shape *cyl, const t_tuple p);
 t_tuple						reflect(t_tuple vector, t_tuple normal);
 t_material					create_material(void);
 t_tuple						calculate_lighting(t_lighting l);
@@ -341,8 +340,7 @@ t_ray						ray_for_pixel(t_camera c, int idx);
 void						render(t_world world);
 t_intersections				intersect_plane(const t_shape *obj,
 								const t_ray *trans_ray, const t_tuple d);
-t_intersections				intersect_cylinder(const t_shape *obj,
-								const t_ray *transformed_ray, const t_tuple d);
+t_intersections				intersect_cylinder(const t_shape *obj, const t_ray *transformed_ray, const t_tuple d);
 t_intersections				intersect_sphere(const t_shape *obj,
 								const t_ray *transformed_ray, const t_tuple d);
 t_shape						create_plane(void);
