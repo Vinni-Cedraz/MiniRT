@@ -41,6 +41,8 @@ Test(capped_cylinders, intersecting_caps, .description = scenario2) {
 	cyl.closed = TRUE;
 	set_cyl_min_max(&cyl, 1, 2);
 	t_intersections xs = intersect_shape(&cyl, &r);
+	printf("xs.head lstsize %d\n", ft_lstsize(xs.head));
+	printf("xs.head.count %d\n", xs.count);
 	cr_assert_eq(ft_lstsize(xs.head), 2);
 }
 
@@ -97,5 +99,5 @@ Test(capped_cylinders, intersecting_caps5) {
 	cyl.closed = TRUE;
 	set_cyl_min_max(&cyl, 1, 2);
 	t_intersections xs = intersect_shape(&cyl, &r);
-	cr_assert_eq(ft_lstsize(xs.head), 2);
+	cr_assert_eq(xs.count, 2);
 }

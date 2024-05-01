@@ -43,7 +43,8 @@ Test(two_balls_and_a_cylinder, two_balls_and_a_cylinder) {
 	mlx_t *mlx;
 
 	mlx = mlx_init(SIZEW, SIZEH, "classic obscene test", 0);
-    render(*get_image_to_render(mlx), world);
-	mlx_image_to_window(mlx, *get_image_to_render(mlx), 0, 0);
+	world.image = create_image(mlx);
+    render(world.image, world);
+	mlx_image_to_window(mlx, world.image, 0, 0);
 	mlx_loop(mlx);
 }

@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/13/finding_cylinder's_normal",
+  "directory": "/home/myuser/MiniRT/tests/13/finding_cylinder's_normal",
   "arguments": [
    "cc",
    "-O3",

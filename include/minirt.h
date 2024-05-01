@@ -54,8 +54,8 @@ static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
 # define END_MATRIX -DBL_MAX
 # define ERROR -42
 
-# define SIZEH 120
-# define SIZEW 120
+# define SIZEH 700
+# define SIZEW 700
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -351,7 +351,7 @@ int							parse_cylinder(t_token token, t_world *w);
 int							parse_camera(t_token token, t_world *w);
 t_parse_table				**parse_functions(void);
 int							parse_file(char *file);
-t_node						**intersect_caps(const t_shape *cyl, const t_ray r);
+void						intersect_caps(const t_shape *cyl, const t_ray r, t_intersections *xs);
 t_tuple						add_three_tuples(t_tuple a, t_tuple d, t_tuple s);
 t_bool						is_shadowed(t_world *w, t_tuple p);
 void						add_object(t_world *w, t_shape *new_obj, int index);

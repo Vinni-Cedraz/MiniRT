@@ -16,9 +16,9 @@ int	parse_cylinder(t_token token, t_world *w)
 {
 	const t_tuple	from = parse_tuple(token.args[0], POINT);
 	const t_tuple	up = parse_tuple(token.args[1], VECTOR);
-	const t_tuple	color = parse_tuple(token.args[2], COLOR);
-	const double	diamet = parse_double(token.args[3], false);
-	const double	height = parse_double(token.args[4], false);
+	const double	diamet = parse_double(token.args[2], false);
+	const double	height = parse_double(token.args[3], false);
+	const t_tuple	color = parse_tuple(token.args[4], COLOR);
 
 	if (from.w == ERROR || diamet == -DBL_MAX || color.w == ERROR
 		|| up.w == ERROR || height == -DBL_MAX)

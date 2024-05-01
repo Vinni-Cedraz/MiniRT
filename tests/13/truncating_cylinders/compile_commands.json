@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/13/truncating_cylinders",
+  "directory": "/home/myuser/MiniRT/tests/13/truncating_cylinders",
   "arguments": [
    "cc",
    "-O3",
@@ -21,7 +21,7 @@
   "file": "min_max_bounds.c"
  },
  {
-  "directory": "/root/MiniRT/tests/13/truncating_cylinders",
+  "directory": "/home/myuser/MiniRT/tests/13/truncating_cylinders",
   "arguments": [
    "cc",
    "-O3",
