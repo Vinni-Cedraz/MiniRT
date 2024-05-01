@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder_settters.c                                :+:      :+:    :+:   */
+/*   create_orientation_vector.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 15:05:43 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/11/26 15:07:31 by vcedraz-         ###   ########.fr       */
+/*   Created: 2024/05/01 18:43:37 by vcedraz-          #+#    #+#             */
+/*   Updated: 2024/05/01 18:44:44 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	set_cyl_min_max(t_shape *cyl, double min, double max, _Bool closed)
+int	main(int argc, char *argv[])
 {
-	cyl->min = min;
-	cyl->max = max;
-	cyl->closed = closed;
+	t_tuple	dest;
+	t_tuple	src;
+	t_tuple	vector;
+	t_tuple	unit_vector;
+
+	if (argc != 3)
+	{
+		printf(GREEN \
+"usage: ./create_orientation_vector \'destination point\' \'source point\'"RESET
+			);
+		return (1);
+	}
+	dest = parse_tuple(argv[1], POINT);
+	src = parse_tuple(argv[2], POINT);
+	vector = subtract_tuples(dest, src);
+	unit_vector = normalize(vector);
+	print_tuple(unit_vector);
 }

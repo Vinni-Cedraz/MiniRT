@@ -23,19 +23,20 @@ int	parse_cylinder(t_token token, t_world *w)
 	if (from.w == ERROR || diamet == -DBL_MAX || color.w == ERROR
 		|| up.w == ERROR || height == -DBL_MAX)
 		return (ERROR);
-	set_cyl_min_max(&w->shapes[w->moving_idx], -height / 2, height / 2);
-	w->shapes[w->moving_idx--] = create_cylinder();
+	w->shapes[w->moving_idx] = create_cylinder();
 	w->shapes[w->moving_idx].material.color = color;
-	if (is_standard_orientation(up, from))
+	set_cyl_min_max(&w->shapes[w->moving_idx], -height / 2, height / 2, CLOSED);
+	if (is_standard_orientation(up))
 	{
-		set_transform(&w->shapes[w->moving_idx],
-			create_scaling_matrix(diamet / 2, diamet / 2, diamet / 2));
+		set_transform(&w->shapes[w->moving_idx--],
+			mult_matrices(
+				create_translation_matrix(from),
+				create_scaling_matrix(diamet / 2, diamet / 2, diamet / 2)));
 		return (0);
 	}
-	set_transform(&w->shapes[w->moving_idx],
+	set_transform(&w->shapes[w->moving_idx--],
 		mult_matrices(
 			shape_view_transform(from, up),
-			create_scaling_matrix(diamet / 2, diamet / 2, diamet / 2))
-		);
+			create_scaling_matrix(diamet / 2, diamet / 2, diamet / 2)));
 	return (0);
 }

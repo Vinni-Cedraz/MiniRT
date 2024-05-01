@@ -37,6 +37,7 @@ static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
 # define COLOR 2
 # define FALSE 0
 # define TRUE 1
+# define CLOSED 1
 
 # define ROW1 0
 # define ROW2 1
@@ -54,8 +55,8 @@ static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
 # define END_MATRIX -DBL_MAX
 # define ERROR -42
 
-# define SIZEH 700
-# define SIZEW 700
+# define SIZEH 720
+# define SIZEW 1280
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -337,7 +338,7 @@ t_intersections				intersect_sphere(const t_shape *obj,
 t_shape						create_plane(void);
 t_shape						create_cylinder(void);
 void						set_cyl_min_max(t_shape *cyl, double min,
-								double max);
+								double max, _Bool closed);
 void						load_objs_into_world(mlx_image_t *image,
 								t_camera camera, t_world *world);
 mlx_image_t					*create_image(mlx_t *mlx);
@@ -351,7 +352,8 @@ int							parse_cylinder(t_token token, t_world *w);
 int							parse_camera(t_token token, t_world *w);
 t_parse_table				**parse_functions(void);
 int							parse_file(char *file);
-void						intersect_caps(const t_shape *cyl, const t_ray r, t_intersections *xs);
+void						intersect_caps(const t_shape *cyl, const t_ray r,
+								t_intersections *xs);
 t_tuple						add_three_tuples(t_tuple a, t_tuple d, t_tuple s);
 t_bool						is_shadowed(t_world *w, t_tuple p);
 void						add_object(t_world *w, t_shape *new_obj, int index);
@@ -377,7 +379,7 @@ double						_discriminant(t_tuple obj_dist_ray,
 								const t_ray *ray, t_bhaskara *bask);
 t_intersections				intersect_shape(t_shape *obj, const t_ray *r);
 t_matrix					shape_view_transform(t_tuple from, t_tuple up);
-_Bool						is_standard_orientation(t_tuple up, t_tuple from);
+_Bool						is_standard_orientation(t_tuple up);
 
 static inline void	print_tuple(const t_tuple a)
 {
