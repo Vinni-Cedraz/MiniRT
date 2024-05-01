@@ -34,6 +34,7 @@ Test(truncating_cylinders, intersecting_constrained_cylinder, .description = sce
 
 	xs = intersect_shape(&cyl, &r1);
 	cr_expect_eq(xs.count, 0);
+	printf("xs.count -> %d\n", xs.count);
 	xs = intersect_shape(&cyl, &r2);
 	cr_expect_eq(xs.count, 0);
 	xs = intersect_shape(&cyl, &r3);

@@ -12,32 +12,54 @@
 
 #include "minirt.h"
 
-static double	cyl_discriminant(const t_ray *ray, t_bhaskara *bask);
+static double	cyl_discriminant(const t_ray r, t_bhaskara *bha);
+static _Bool	intersection_within_limits(double t, t_ray r, const t_shape *o);
 
 t_intersections	intersect_cylinder(const t_shape *obj, const t_ray *trans_r,
 		const t_tuple dist)
 {
 	t_intersections	result;
-	t_bhaskara		bask;
-	double			d;
+	t_bhaskara		bha;
+	double			discr;
+	double			t0;
+	double			t1;
 
 	(void)dist;
-	d = cyl_discriminant(trans_r, &bask);
-	if (doubles_eq(bask.a, 0) || d < 0)
-		return ((t_intersections){0});
-	result.head = ft_lstnew((-bask.b - sqrt(d)) / (2 * bask.a), obj);
-	result.head->next = ft_lstnew((-bask.b + sqrt(d)) / (2 * bask.a), obj);
-	result.count = 2;
+	result = (t_intersections){0};
+	discr = cyl_discriminant(*trans_r, &bha);
+	if (doubles_eq(bha.a, 0) || discr < 0)
+		return (result);
+	t0 = (-bha.b - sqrt(discr)) / (2 * bha.a);
+	if (intersection_within_limits(t0, *trans_r, obj))
+	{
+		ft_lstadd_back(&result.head, ft_lstnew(t0, obj));
+		result.count++;
+	}
+	t1 = (-bha.b + sqrt(discr)) / (2 * bha.a);
+	if (intersection_within_limits(t1, *trans_r, obj))
+	{
+		ft_lstadd_back(&result.head, ft_lstnew(t1, obj));
+		result.count++;
+	}
 	return (result);
 }
 
-static double	cyl_discriminant(const t_ray *ray, t_bhaskara *bask)
+static _Bool	intersection_within_limits(double t, t_ray r,
+		const t_shape *cyl)
 {
-	bask->a = pow(ray->direction.x, 2) + pow(ray->direction.z, 2);
-	if (doubles_eq(bask->a, 0))
+	const double	y = r.origin.y + t * r.direction.y;
+
+	if (y < cyl->max && y > cyl->min)
+		return (true);
+	return (false);
+}
+
+static double	cyl_discriminant(const t_ray r, t_bhaskara *bha)
+{
+	bha->a = pow(r.direction.x, 2) + pow(r.direction.z, 2);
+	if (doubles_eq(bha->a, 0))
 		return (-1);
-	bask->b = (2 * ray->origin.x * ray->direction.x) + (2 * ray->origin.z
-			* ray->direction.z);
-	bask->c = (pow(ray->origin.x, 2) + pow(ray->origin.z, 2)) - 1;
-	return (pow(bask->b, 2) - 4 * bask->a * bask->c);
+	bha->b = 2 * r.origin.x * r.direction.x + 2 * r.origin.z * r.direction.z;
+	bha->c = (pow(r.origin.x, 2) + pow(r.origin.z, 2)) - 1;
+	return (pow(bha->b, 2) - 4 * bha->a * bha->c);
 }

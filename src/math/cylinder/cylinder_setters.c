@@ -14,7 +14,6 @@
 
 void	set_cyl_min_max(t_shape *cyl, double min, double max)
 {
-	(void)cyl;
-	(void)min;
-	(void)max;
+	cyl->min = min;
+	cyl->max = max;
 }
