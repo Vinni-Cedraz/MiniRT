@@ -16,7 +16,6 @@ t_shape	create_cylinder(void)
 {
 	const double	infinity = (1.0 / 0.0);
 	t_shape			cyl;
-
 	cyl = (t_shape){0};
 	cyl.origin = create_point(0, 0, 0);
 	cyl.type = CYLINDER;
