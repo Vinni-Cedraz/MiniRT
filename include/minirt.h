@@ -330,7 +330,7 @@ void						render(mlx_image_t *image, t_world world);
 t_intersections				intersect_plane(const t_shape *obj,
 								const t_ray *trans_ray, const t_tuple dist);
 t_intersections				intersect_cylinder(const t_shape *obj,
-								const t_ray *trans_ray);
+								const t_ray *trans_ray, const t_tuple dist);
 t_intersections				intersect_sphere(const t_shape *obj,
 								const t_ray *transformed_ray,
 								const t_tuple dist);
