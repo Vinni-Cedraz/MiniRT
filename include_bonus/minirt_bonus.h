@@ -32,6 +32,7 @@ static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
 # define G 1
 # define B 2
 # define W 3
+# define CLOSED 1
 # define VECTOR 0
 # define POINT 1
 # define COLOR 2
@@ -246,14 +247,14 @@ typedef struct s_world
 
 typedef struct s_task
 {
-	int			id;
-	int			start_idx;
-	int			end_idx;
-	t_world		*world;
-	t_camera	camera;
-	mlx_image_t	*image;
-	pthread_mutex_t	mutex;
-}				t_task;
+	int						id;
+	int						start_idx;
+	int						end_idx;
+	t_world					*world;
+	t_camera				camera;
+	mlx_image_t				*image;
+	pthread_mutex_t			mutex;
+}							t_task;
 
 typedef						int(t_parse_table)(t_token token, t_world *);
 
@@ -315,7 +316,8 @@ t_tuple						sphere_normal_at(const t_shape *sphere,
 								const t_tuple world_point);
 t_tuple						plane_normal_at(const t_shape *sphere,
 								const t_tuple p);
-t_tuple						cylinder_normal_at(const t_shape *cyl, const t_tuple p);
+t_tuple						cylinder_normal_at(const t_shape *cyl,
+								const t_tuple p);
 t_tuple						reflect(t_tuple vector, t_tuple normal);
 t_material					create_material(void);
 t_tuple						calculate_lighting(t_lighting l);
@@ -324,7 +326,8 @@ t_world						create_world(void);
 t_world						default_world(void);
 void						set_material(t_tuple reflections, t_tuple color,
 								t_material *m);
-t_intersections				intersect_world_with_ray(t_world *w, const t_ray *r);
+t_intersections				intersect_world_with_ray(t_world *w,
+								const t_ray *r);
 t_prep_comps				prepare_computations(const t_node *intersection,
 								t_ray ray);
 t_tuple						shade_hit(t_world *world, t_prep_comps *comps);
@@ -340,13 +343,14 @@ t_ray						ray_for_pixel(t_camera c, int idx);
 void						render(t_world world);
 t_intersections				intersect_plane(const t_shape *obj,
 								const t_ray *trans_ray, const t_tuple d);
-t_intersections				intersect_cylinder(const t_shape *obj, const t_ray *transformed_ray, const t_tuple d);
+t_intersections				intersect_cylinder(const t_shape *obj,
+								const t_ray *transformed_ray, const t_tuple d);
 t_intersections				intersect_sphere(const t_shape *obj,
 								const t_ray *transformed_ray, const t_tuple d);
 t_shape						create_plane(void);
 t_shape						create_cylinder(void);
 void						set_cyl_min_max(t_shape *cyl, double min,
-								double max);
+								double max, _Bool closed);
 void						load_objs_into_world(mlx_image_t *image,
 								t_camera camera, t_world *world);
 mlx_image_t					*create_image(mlx_t *mlx);
@@ -361,9 +365,10 @@ int							parse_camera(t_token token, t_world *w);
 t_parse_table				**parse_functions(void);
 int							parse_file(char *file);
 void						intersect_caps(const t_shape *cyl, const t_ray r,
-								t_node **head);
+								t_intersections *xs);
 t_tuple						add_three_tuples(t_tuple a, t_tuple d, t_tuple s);
-t_bool						is_shadowed(t_world *w, t_tuple p, t_point_light light);
+t_bool						is_shadowed(t_world *w, t_tuple p,
+								t_point_light light);
 void						add_object(t_world *w, t_shape *new_obj, int index);
 t_material					create_plane_material(void);
 t_matrix					tuple_to_matrix(t_tuple tuple);
@@ -389,7 +394,7 @@ double						_discriminant(t_tuple obj_dist_ray,
 t_intersections				intersect_shape(const t_shape *obj, const t_ray *r);
 t_matrix					shape_view_transform(t_tuple from, t_tuple up);
 void						ft_mlx_draw_pixel(uint8_t *pixel, uint32_t color);
-_Bool						is_standard_orientation(t_tuple up, t_tuple from);
+_Bool						is_standard_orientation(t_tuple up);
 
 static inline void	print_tuple(const t_tuple a)
 {

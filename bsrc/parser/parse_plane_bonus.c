@@ -13,7 +13,7 @@
 #include "minirt_bonus.h"
 
 t_shape	init_plane(const t_tuple c, const t_tuple up, const t_tuple cl);
-_Bool	is_standard_orientation(t_tuple up, t_tuple from);
+_Bool	is_standard_orientation(t_tuple up);
 
 int	parse_plane(t_token token, t_world *w)
 {
@@ -33,16 +33,15 @@ t_shape	init_plane(const t_tuple from, const t_tuple up, const t_tuple cl)
 
 	plane = create_plane();
 	plane.material.color = cl;
-	if (is_standard_orientation(up, from))
+	if (is_standard_orientation(up))
 		return (plane);
 	set_transform(&plane, shape_view_transform(from, up));
 	return (plane);
 }
 
-_Bool	is_standard_orientation(t_tuple up, t_tuple from)
+_Bool	is_standard_orientation(t_tuple up)
 {
 	const t_tuple	standard_up = create_vector(0, 1, 0);
-	const t_tuple	standard_from = create_point(0, 0, 0);
 
-	return (tuples_eq(up, standard_up) && tuples_eq(from, standard_from));
+	return (tuples_eq(up, standard_up));
 }
