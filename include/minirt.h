@@ -198,6 +198,16 @@ typedef struct s_shape
 	t_normal_at_function	normal_at;
 }							t_shape;
 
+typedef struct s_cylinder
+{
+	t_tuple					from;
+	t_tuple					up;
+	double					diameter;
+	double					height;
+	t_tuple					color;
+	double					scale;
+}							t_parse_cylinder;
+
 typedef struct s_bhaskara
 {
 	double					a;

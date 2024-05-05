@@ -20,9 +20,6 @@
 # include <math.h>
 # include <stdio.h>
 
-static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
-				"SPHERE", "PLANE", "CYLINDER"};
-
 # define CYAN "\033[36m"
 # define EPSILON 1e-5
 # define X 0
@@ -197,6 +194,16 @@ typedef struct s_shape
 	t_intersect_function	intersect;
 	t_normal_at_function	normal_at;
 }							t_shape;
+
+typedef struct s_cylinder
+{
+	t_tuple					from;
+	t_tuple					up;
+	double					diameter;
+	double					height;
+	t_tuple					color;
+	double					scale;
+}							t_parse_cylinder;
 
 typedef struct s_baskara
 {
