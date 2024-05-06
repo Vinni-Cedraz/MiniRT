@@ -2,8 +2,8 @@ TESTS =		\
   implementing_camera \
 
 ## VARIABLES
-INCS = -I../../ -I../../../include/ -I../../../libs/
-FLAGS = -O3 -lcriterion -lm -w
+INCS = -I../../ -I../../../include/ -I../../../libs/ -I../../../MLX42/include/MLX42/
+FLAGS = -O3 -lcriterion -lm -w -lmlx -lXext -lX11 -lz -ldl -lglfw -pthread
 LIBS = ../../../libs/*.a ../../../minirt.a
 RM = rm -f
 SHELL = /bin/zsh

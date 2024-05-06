@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 09:41:49 by vcedraz-          #+#    #+#             */
-/*   Updated: 2024/04/13 17:36:50 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:20:47 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -290,5 +290,7 @@ void					ft_2d_iter(void **a, int n, t_function_ptr funct,
 							t_ype t);
 // does what itoa does but without allocating memory in the heap
 t_buf					ft_simple_itoa(int num);
+// ft_atof converts a string to a float
+double					ft_atof(const char *str);
 
 #endif

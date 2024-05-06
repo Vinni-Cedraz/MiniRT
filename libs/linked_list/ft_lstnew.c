@@ -12,13 +12,13 @@
 
 #include "libft_bonus.h"
 
-t_node	*ft_lstnew(double content, t_sphere *obj)
+t_node	*ft_lstnew(double content, const t_shape *obj)
 {
 	t_node	*node;
 
 	node = malloc(sizeof(*node));
 	node->t = content;
-	node->object = obj;
+	node->shape = obj;
 	node->next = NULL;
 	return (node);
 }

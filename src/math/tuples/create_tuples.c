@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_tuple	create_point(float x, float y, float z)
+t_tuple	create_point(double x, double y, double z)
 {
 	const t_tuple	tuple = {
 		.x = x,
@@ -24,7 +24,7 @@ t_tuple	create_point(float x, float y, float z)
 	return (tuple);
 }
 
-t_tuple	create_vector(float x, float y, float z)
+t_tuple	create_vector(double x, double y, double z)
 {
 	const t_tuple	tuple = {
 		.x = x,
@@ -36,7 +36,7 @@ t_tuple	create_vector(float x, float y, float z)
 	return (tuple);
 }
 
-t_tuple	create_tuple(float x, float y, float z, short w)
+t_tuple	create_tuple(double x, double y, double z, double w)
 {
 	const t_tuple	tuple = {
 		.x = x,

@@ -1,7 +1,6 @@
 TESTS =		\
 	min_max_bounds \
 	truncating_cylinders \
-	two_balls_and_a_finite_cylinder
 
 ## VARIABLES
 INCS = -I../../ -I../../../include/ -I../../../libs/

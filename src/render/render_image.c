@@ -29,35 +29,10 @@ uint32_t	normalized_color_to_int(const t_tuple color)
 				* MULTI) << 16) | ((uint32_t)(col.z * MULTI) << 8) | 0xff);
 }
 
-void	load_objs_into_world(mlx_image_t *image, t_camera camera,
-		t_world *world)
+mlx_image_t	*create_image(mlx_t *mlx)
 {
-	t_ray			ray;
-	t_tuple			col;
-	int				x;
-	int				y;
+	mlx_image_t	*image;
 
-	x = 0;
-	y = 0;
-	while (y < camera.vsize)
-	{
-		while (x < camera.hsize)
-		{
-			ray = ray_for_pixel(camera, y, x);
-			col = color_at(world, &ray);
-			mlx_put_pixel(image, x, y, normalized_color_to_int(col));
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-}
-
-mlx_image_t	**get_image_to_render(mlx_t *mlx)
-{
-	static mlx_image_t	*image = NULL;
-
-	if (image == NULL)
-		image = mlx_new_image(mlx, SIZEH, SIZEW);
-	return (&image);
+	image = mlx_new_image(mlx, SIZEW, SIZEH);
+	return (image);
 }

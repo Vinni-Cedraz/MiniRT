@@ -2,12 +2,90 @@
 #define TEST_H
 
 #include "../include/minirt.h"
+// #include "../include_bonus/minirt_bonus.h"
 #include <criterion/criterion.h>
 #include <stdio.h>
 #define CYAN "\033[36m"
 #define RED "\033[31m"
 #define RESET "\033[0m"
 
+static inline void	print_tokens(t_token *tokens, int nb)
+{
+	int			i;
+	int			j;
+	const char	identifiers[6][9] = {\
+			"AMBIENT", "CAMERA", "LIGHT", "SPHERE", "PLANE", "CYLINDER"};
+
+	i = 0;
+	while (i < nb)
+	{
+		printf("Token %d:\n", i + 1);
+		printf("  Type: %s\n", identifiers[tokens[i].type]);
+		j = 0;
+		while (&tokens[i] && j < 5 && tokens[i].args[j][0] != '\0')
+		{
+			printf("  Arg %d: %s\n", j + 1, tokens[i].args[j]);
+			j++;
+		}
+		i++;
+	}
+}
+
+// static inline void print_world(t_world world) {
+//     printf("World:\n");
+//
+//     // Camera Information
+//     printf("  Camera:\n");
+//     printf("    hsize: %f\n", world.camera.hsize);
+//     printf("    vsize: %f\n", world.camera.vsize);
+//     printf("    half_width: %f\n", world.camera.half_width);
+//     printf("    half_height: %f\n", world.camera.half_height);
+//     printf("    field_of_view: %f\n", world.camera.field_of_view);
+//     printf("    transform:\n");
+//     print_matrix(world.camera.transform);
+//     printf("    pixel_size: %f\n", world.camera.pixel_size);
+//     printf("    xoffset: %f\n", world.camera.xoffset);
+//     printf("    yoffset: %f\n", world.camera.yoffset);
+//     printf("    world_x: %f\n", world.camera.world_x);
+//     printf("    world_y: %f\n", world.camera.world_y);
+// 	printf("    up: (%f, %f, %f)\n", world.camera.up.x, world.camera.up.y, world.camera.up.z);
+//
+//     // Light Information
+// 	for (int idx = 0; idx < world.lights_idx; idx++) {
+// 		printf("  Light:\n");
+// 		printf("    position:\n");
+// 		print_tuple(world.lights[idx].position);
+// 		printf("    intensity:\n");
+// 		print_tuple(world.lights[idx].intensity);
+// 	}
+// 	printf("	ambient:	"), print_tuple(world.parser_ambient);
+//
+//     // Objects 
+//     printf("  Objects:\n");
+// 	printf(RED"WORLD COUNT: %d\n"RESET, world.fixed_count);
+//     for (int i = 0; i < world.fixed_count; i++) {
+//         printf("    Object %d: (%s)\n", i, types[world.shapes[i].type]);
+//         printf("      transform:\n");
+//         print_matrix(world.shapes[i]._t);
+//         printf("      inverse_t:\n");
+//         print_matrix(world.shapes[i].inverse_t);
+//         printf("      trans_inv:\n");
+//         print_matrix(world.shapes[i].trans_inv); // Added!
+//         printf("      dis_to_ray:\n");
+//         print_tuple(world.shapes[i].dis_to_ray);  // Added!
+//         printf("      origin:\n");
+//         print_tuple(world.shapes[i].origin);      // Added!
+//         printf("      radius: %d\n", world.shapes[i].radius);       // Added!
+//         printf("      type: %d\n", world.shapes[i].type);         // Added!
+//         printf("      material:\n");
+//         printf("        ambient: %f\n", world.shapes[i].material.ambient);
+//         printf("        diffuse: %f\n", world.shapes[i].material.diffuse);
+//         printf("        specular: %f\n", world.shapes[i].material.specular);
+//         printf("        shininess: %f\n", world.shapes[i].material.shininess);
+//         printf("        color:\n"); 
+//         print_tuple(world.shapes[i].material.color);
+//     }
+// }
 static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple expected) {
 
     cr_expect(doubles_eq(result.x, expected.x), RED ".x value of the tuples are different" RESET);
@@ -25,50 +103,6 @@ static inline t_bool cr_expect_tuples_eq(const t_tuple result, const t_tuple exp
     return (TRUE);
 }
 
-static inline void set_all_pixels_to_one_color(const t_canvas *c, t_tuple color) {
-    for (int y = 0; y < c->height; y++)
-        for (int x = 0; x < c->width; x++)
-            write_pixel((t_canvas *)c, y, x, color);
-}
-
-static inline void create_ppm_file(t_constr ppm_string, t_constr filename) {
-    int fd = open(filename, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-    write(fd, ppm_string, strlen(ppm_string));
-    close(fd);
-}
-
 static inline int invert_axis(int size, double axis) { return ((int)size - axis); }
-
-// void quick_render(t_world *w, const t_tuple from) {
-//
-//     t_camera camera = create_camera(800, 600, M_PI / 4);
-//     t_tuple to = (t_tuple){0, 0, 0, POINT};
-//     t_tuple up = (t_tuple){0, 1, 0, VECTOR};
-//     const t_tuple forward = subtract_tuples(to, from);
-//
-//     const t_tuple normalized_forward = normalize(forward);
-//     camera.transform = view_transform(from, normalized_forward, up);
-//
-//     t_canvas c = render(camera, *w);
-//     char *str = canvas_to_ppm(&c);
-//     create_ppm_file(str, "main.ppm");
-//     destroy_canvas(&c);
-//     free(str);
-//     free(w->objs);
-// }
-//
-// void create_test_world(t_world *world, const t_tuple from, int num_shapes, ...) {
-//     va_list shapes;
-//     va_start(shapes, num_shapes);
-//
-//     world->objs = malloc(sizeof(t_sphere) * num_shapes);
-//     world->count = num_shapes;
-//     for (int i = 0; i < num_shapes; i++) {
-//         t_sphere shape = va_arg(shapes, t_sphere);
-//         world->objs[i] = *(t_sphere *)&shape;
-//     }
-//     quick_render(world, from);
-//     va_end(shapes);
-// }
 
 #endif

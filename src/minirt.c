@@ -10,18 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minirt.h"
-
-static void	print_tokens(t_token *tokens, int nb);
+#include "minirt.h"
 
 int	main(int argc, char **argv)
 {
 	int		fd;
 	int		number_of_tokens;
 	t_token	*tokens;
+	t_world	world;
+	mlx_t	*mlx;
 
 	fd = 0;
 	number_of_tokens = 0;
+	mlx = mlx_init(SIZEW, SIZEH, "TRinim", true);
 	if (argc != 2)
 		return (0);
 	if (!endwith(argv[1], ".rt"))
@@ -30,28 +31,11 @@ int	main(int argc, char **argv)
 	file_validation(fd, &number_of_tokens);
 	fd = open_file(argv[1]);
 	tokens = tokenizer(fd, number_of_tokens);
-	print_tokens(tokens, number_of_tokens);
+	world = parse_tokens_into_world(tokens, number_of_tokens);
+	world.image = create_image(mlx);
+	render(world.image, world);
+	mlx_image_to_window(mlx, world.image, 0, 0);
+	mlx_loop(mlx);
 	free(tokens);
-}
-
-void	print_tokens(t_token *tokens, int nb)
-{
-	int			i;
-	int			j;
-	const char	identifiers[6][9] = {\
-			"AMBIENT", "CAMERA", "LIGHT", "SPHERE", "PLANE", "CYLINDER"};
-
-	i = 0;
-	while (i < nb)
-	{
-		printf("Token %d:\n", i + 1);
-		printf("  Type: %s\n", identifiers[tokens[i].type]);
-		j = 0;
-		while (&tokens[i] && j < 5 && tokens[i].args[j][0] != '\0')
-		{
-			printf("  Arg %d: %s\n", j + 1, tokens[i].args[j]);
-			j++;
-		}
-		i++;
-	}
+	free(world.shapes);
 }

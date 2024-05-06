@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/MiniRT/tests/01/basic_tuple_operations",
+  "directory": "/home/myuser/MiniRT/tests/01/basic_tuple_operations",
   "arguments": [
    "cc",
    "-O3",

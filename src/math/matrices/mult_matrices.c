@@ -13,40 +13,6 @@
 #include "minirt.h"
 
 static double	mult_position_(t_matrix a, t_matrix b, int *i);
-static double	multiply_row_col(double row[], double col[], int sz);
-
-t_tuple	multiply_tuple_by_matrix(t_tuple a, t_matrix b)
-{
-	int				i;
-	double			result[4];
-	double			arr_tuple[4];
-
-	i = -1;
-	tuple_to_arr(a, arr_tuple);
-	while (++i < 4)
-		result[i] = multiply_row_col(b.grid[i], arr_tuple, b.size);
-	return ((t_tuple){
-		.x = result[X],
-		.y = result[Y],
-		.z = result[Z],
-		.w = result[W]
-	});
-}
-
-// Function to multiply a row and a column represented as arrays
-static double	multiply_row_col(double row[], double col[], int sz)
-{
-	double	result;
-	int		i;
-
-	result = 0;
-	i = -1;
-	while (++i < sz)
-	{
-		result += row[i] * col[i];
-	}
-	return (result);
-}
 
 t_matrix	mult_matrices(t_matrix a, t_matrix b)
 {

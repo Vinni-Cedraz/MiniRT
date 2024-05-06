@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 
 // Scenario: Lighting with the surface in shadow
 #define scenario1 CYAN \
@@ -15,7 +15,7 @@ Test(lighting, surface_in_shadow, .description = scenario1) {
 	t_tuple res;
 	t_lighting lighting = {
 		.material = create_material(),
-		.position = {0, 0, 0, POINT},
+		.point = {0, 0, 0, POINT},
 		.eye_vec = {0, 0, -1, VECTOR},
 		.normal_vec = {0, 0, -1, VECTOR},
 		.light = {
@@ -25,7 +25,7 @@ Test(lighting, surface_in_shadow, .description = scenario1) {
 		.in_shadow = TRUE,
 	};
 
-	calculate_lighting(&lighting, res);
+	res = calculate_lighting(&lighting);
 	cr_assert(tuples_eq(res, (t_tuple){0.1, 0.1, 0.1, COLOR}));
 }
 

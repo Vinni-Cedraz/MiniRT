@@ -7,7 +7,7 @@
 "Then n = vector(1, 0, 0)"RESET
 
 Test(surface_normals, sphere_normal_at_x_axial_point, .description = scenario1) {
-	t_sphere s = create_sphere();
+	t_shape s = create_sphere();
 	t_tuple normal;
 	const t_tuple p = {1, 0, 0, POINT};
 
@@ -24,7 +24,7 @@ Test(surface_normals, sphere_normal_at_x_axial_point, .description = scenario1) 
 
 Test(surface_normals, sphere_normal_at_y_axial_point, .description = scenario2) {
 	t_tuple normal;
-	t_sphere s = create_sphere();
+	t_shape s = create_sphere();
 	const t_tuple p = {0, 1, 0, POINT};
 
 	normal = sphere_normal_at(&s, p);
@@ -38,7 +38,7 @@ Test(surface_normals, sphere_normal_at_y_axial_point, .description = scenario2) 
 "Then n = vector(0, 0, 1)"RESET                       
 
 Test(surface_normals, sphere_normal_at_z_axial_point, .description = scenario3) {
-	t_sphere s = create_sphere();
+	t_shape s = create_sphere();
 	t_tuple		normal;
 	const t_tuple p = {0, 0, 1, POINT};
 
@@ -54,7 +54,7 @@ Test(surface_normals, sphere_normal_at_z_axial_point, .description = scenario3) 
 
 Test(surface_normals, sphere_normal_at_nonaxial_point, .description = scenario4) {
 	const t_tuple	_p1 = {(sqrt(3)/3), (sqrt(3)/3), (sqrt(3)/3), POINT};
-	t_sphere		s = create_sphere();
+	t_shape		s = create_sphere();
 	t_tuple			normal;
 
 	normal = sphere_normal_at(&s, _p1);
@@ -69,7 +69,7 @@ Test(surface_normals, sphere_normal_at_nonaxial_point, .description = scenario4)
 
 Test(surface_normals, the_normal_is_normalized, .description = scenario5) {
 	const t_tuple	_p1 = {(sqrt(3)/3), (sqrt(3)/3), (sqrt(3)/3), POINT};
-	t_sphere		s = create_sphere();
+	t_shape		s = create_sphere();
 	t_tuple			actual_normal;
 	t_tuple			expected_normal;
 
@@ -86,7 +86,7 @@ Test(surface_normals, the_normal_is_normalized, .description = scenario5) {
 					"Then n = vector(0, 0.70711, -0.70711)"RESET
 
 Test(surface_normals, normal_on_a_translated_sphere, .description = scenario6) {
-	t_sphere		s;
+	t_shape		s;
 	t_tuple			actual_normal;
 	const t_tuple	expected_normal = {0, 0.70711, -0.70711, VECTOR};
 	const t_tuple 	p = {0, 1.707107, -0.707107, POINT};
@@ -109,7 +109,7 @@ Test(surface_normals, normal_on_a_translated_sphere, .description = scenario6) {
 #define SQRT_OF_2 	1.41421
 
 Test(surface_normals, normal_on_a_transformed_sphere, .description = scenario7) {
-	t_sphere		s;
+	t_shape		s;
 	t_tuple			actual_normal;
 	const t_matrix	t = mult_matrices(create_scaling_matrix(1, 0.5, 1), create_z_rotation_matrix(M_PI/5));
 	const t_tuple	p = {0, (SQRT_OF_2/2), (-SQRT_OF_2/2), POINT};

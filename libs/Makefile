@@ -6,14 +6,14 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/10/17 19:13:53 by vcedraz-         ###   ########.fr        #
+#    Updated: 2024/04/17 14:20:24 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ## SET-UP VARIABLES ##
 NAME = libft.a
 INC = -I./
-CFLAGS = $(INC) -Wall -Werror -Wextra -g
+CFLAGS = $(INC) -Wall -Werror -Wextra -Ofast
 R = rm -f
 RD = rm -rf
 OBJS_PATH = ./objs/
@@ -66,6 +66,7 @@ ft_tolower \
 ft_toupper \
 ft_bzero \
 ft_atol \
+ft_atof \
 ft_isalnum \
 ft_itoa_base \
 ft_putendl_fd \

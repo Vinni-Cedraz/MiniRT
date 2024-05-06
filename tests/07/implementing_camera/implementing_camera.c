@@ -14,12 +14,12 @@
 Test(camera, implementing_a_camera, .description = scenario1) {
     int hsize = 160;
     int vsize = 120;
-    double field_of_view = M_PI / 2;
+    double field_of_view = 90;
     const t_camera c = create_camera(hsize, vsize, field_of_view);
 
     cr_expect_eq(c.hsize, 160);
     cr_expect_eq(c.vsize, 120);
-    cr_expect_eq(doubles_eq(c.field_of_view, M_PI / 2), TRUE);
+    cr_expect_eq(doubles_eq(c.field_of_view, 90), TRUE);
     cr_expect_eq(true, matrices_eq(c.transform, create_identity_matrix()));
 }
 
@@ -29,7 +29,7 @@ Test(camera, implementing_a_camera, .description = scenario1) {
          "Then c.pixel_size = 0.01" RESET
 
 Test(camera, horizontal_pixel_size, .description = scenario2) {
-    const t_camera c = create_camera(200, 125, M_PI / 2);
+    const t_camera c = create_camera(200, 125, 90);
     cr_expect_eq(doubles_eq(c.pixel_size, 0.01), TRUE);
 }
 
@@ -40,7 +40,7 @@ Test(camera, horizontal_pixel_size, .description = scenario2) {
          "Then c.pixel_size = 0.01" RESET
 
 Test(camera, vertical_pixel_size, .description = scenario3) {
-    const t_camera c = create_camera(200, 125, M_PI / 2);
+    const t_camera c = create_camera(200, 125, 90);
     cr_expect_eq(doubles_eq(c.pixel_size, 0.01), TRUE);
 }
 
@@ -52,10 +52,10 @@ Test(camera, vertical_pixel_size, .description = scenario3) {
          "And r.direction = vector(0, 0, -1)" RESET
 // ERROR
 Test(camera, ray_for_pixel_center, .description = scenario4) {
-    const t_camera camera = create_camera(201, 101, M_PI / 2);
+    const t_camera camera = create_camera(201, 101, 90);
     const t_ray r = ray_for_pixel(camera, 50, 100);
-    cr_expect_eq(tuples_eq(r.origin, (t_tuple){0, 0, 0, POINT}), TRUE);
-    cr_expect_eq(tuples_eq(r.direction, (t_tuple){0, 0, -1, VECTOR}), TRUE);
+    cr_expect_eq(tuples_eq(r.origin, create_point(0, 0, 0)), TRUE);
+    cr_expect_eq(tuples_eq(r.direction, create_vector(0, 0, -1)), TRUE);
 }
 
 // Scenario: Constructing a ray through a corner of the canvas
@@ -66,10 +66,10 @@ Test(camera, ray_for_pixel_center, .description = scenario4) {
          "And r.direction = vector(0.66519, 0.33259, -0.66851)" RESET
 // ERROR
 Test(camera, ray_through_a_corner, .description = scenario4) {
-    const t_camera c = create_camera(201, 101, M_PI / 2);
+    const t_camera c = create_camera(201, 101, 90);
     const t_ray r = ray_for_pixel(c, 0, 0);
-    cr_expect_eq(tuples_eq(r.origin, (t_tuple){0, 0, 0, POINT}), TRUE);
-    cr_expect_eq(tuples_eq(r.direction, (t_tuple){0.66519, 0.33259, -0.66851, VECTOR}), TRUE);
+    cr_expect_eq(tuples_eq(r.origin, create_point(0, 0, 0)), TRUE);
+    cr_expect_eq(tuples_eq(r.direction, create_vector(0.66519, 0.33259, -0.66851)), TRUE);
 }
 
 // Scenario: Constructing a ray when the camera is transformed
@@ -81,14 +81,16 @@ Test(camera, ray_through_a_corner, .description = scenario4) {
          "And r.direction = vector(√2/2, 0, -√2/2)" RESET
 
 Test(camera, ray_when_camera_transformed, .description = scenario6) {
-    t_camera c = create_camera(201, 101, M_PI / 2);
+    t_camera c = create_camera(201, 101, 90);
     c.transform = mult_matrices(
 			create_y_rotation_matrix(M_PI / 4),
-			create_translation_matrix((t_tuple){0, -2, 5, POINT})\
+			create_translation_matrix((t_tuple){0, -2, 5, POINT}) \
 	);
+	c.cam_inv_trans = invert_matrix(c.transform);
+
     const t_ray r = ray_for_pixel(c, 50, 100);
-    cr_expect_eq(tuples_eq(r.origin, (t_tuple){0, 2, -5, POINT}), TRUE);
-    cr_expect_eq(tuples_eq(r.direction, (t_tuple){sqrt(2)/2, 0, -sqrt(2)/2, VECTOR}), TRUE);
+    cr_expect_eq(tuples_eq(r.origin, create_point(0, 2, -5)), TRUE);
+    cr_expect_eq(tuples_eq(r.direction, create_vector(sqrt(2)/2, 0, -sqrt(2)/2)), TRUE);
 }
 
 // // Scenario: Rendering a world with a camera
@@ -106,17 +108,21 @@ Test(camera, ray_when_camera_transformed, .description = scenario6) {
 // {
 // 	const t_world w = default_world();
 //
-// 	t_canvas image;
 // 	t_tuple forward;
 // 	t_camera c = create_camera(11, 11, M_PI / 2);
 // 	t_tuple from = (t_tuple){0, 0, -5, POINT};
 // 	t_tuple to = (t_tuple){0, 0, 0, POINT};
 // 	t_tuple up = (t_tuple){0, 1, 0, VECTOR};
+// 	mlx_image_t	*image;
+// 	mlx_t		*mlx;
+// 	const t_tuple expected_color = create_tuple(0.38066, 0.47583, 0.28550, COLOR);
 //
+// 	mlx = mlx_init(SIZEW, SIZEH, "THIS", 1);
+// 	image = mlx_new_image(mlx, SIZEW, SIZEH);
 // 	forward = subtract_tuples(to, from);
 // 	forward = normalize(forward);
 // 	c.transform = view_transform(from, forward, up);
-// 	image = render(c, w);
-// 	t_tuple color_at_that_pixel = create_tuple(image.pixels[5][5][0], image.pixels[5][5][1], image.pixels[5][5][2], COLOR);
-// 	cr_expect_eq(tuples_eq(color_at_that_pixel, (t_tuple){0.38066, 0.47583, 0.28550, COLOR}), TRUE);
+// 	render(image, w);
+// 	printf(RED"THIS:	%d\n"RESET, image->pixels[25]);
+// 	cr_expect_eq(image->pixels[25], normalized_color_to_int(expected_color));
 // }

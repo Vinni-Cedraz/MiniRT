@@ -52,5 +52,7 @@ Test(multiplying_matrices, a_matrix_multiplied_by_a_tuple, .description = scenar
 	t_tuple expected = {18, 24, 33, 1};
 
 	t_tuple result = multiply_tuple_by_matrix(b, A);
+	print_tuple(expected);
+	print_tuple(result);
 	cr_assert_eq(tuples_eq(expected, result), TRUE);
 }

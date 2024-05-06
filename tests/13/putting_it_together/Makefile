@@ -1,9 +1,9 @@
 TESTS =		\
-  putting_it_together \
+	two_balls_and_a_finite_cylinder
 
 ## VARIABLES
-INCS = -I../../ -I../../../include/ -I../../../libs/
-FLAGS = -O3 -lcriterion -lm -Wall -Wextra -Werror
+INCS = -I../../ -I../../../include/ -I../../../libs/ -I../../../MLX42
+FLAGS = -O3 -lcriterion -lm -Wall -Wextra -Werror -L./MLX42/build/ -ldl -lglfw -pthread -lm
 LIBS = ../../../libs/*.a ../../../minirt.a
 RM = rm -f
 SHELL = /bin/zsh

@@ -1,4 +1,4 @@
-#include "tester.h"
+#include "../../tester.h"
 // Scenario: There is no shadow when nothing is collinear with point and light
 #define scenario1 CYAN \
 		    "\nGiven w ← default_world()" 						 \

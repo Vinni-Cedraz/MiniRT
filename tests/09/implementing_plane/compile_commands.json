@@ -1,0 +1,23 @@
+[
+ {
+  "directory": "/home/myuser/MiniRT/tests/09/implementing_plane",
+  "arguments": [
+   "cc",
+   "-O3",
+   "-lcriterion",
+   "-lm",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "implementing_plane.c",
+   "-I../../",
+   "-I../../../include/",
+   "-I../../../libs/",
+   "../../../libs/*.a",
+   "../../../minirt.a",
+   "-o",
+   "implementing_plane"
+  ],
+  "file": "implementing_plane.c"
+ }
+]
