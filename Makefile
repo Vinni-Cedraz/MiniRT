@@ -1,6 +1,6 @@
 ### CODAM BUILD
 LIBMLX = libmlx42.a
-MLXSRC = https://github.com/codam-coding-college/MLX42.git
+MLXSRC = https://github.com/IsabelaGenial/MLX42.git
 BUILD_DIR_MLX = $(MLXDIR)/build
 MLX_INCLUDE = ./MLX42/include/MLX42/
 LIBMLX_TARGET = $(BUILD_DIR_MLX)/$(LIBMLX)
@@ -34,7 +34,7 @@ SRC = minirt.c \
 	  shadows.c render_image.c endwith.c parse_ambient_and_light.c parse_camera.c parse_plane.c parse_utils.c \
 	  parse_cylinder.c parse_sphere.c parse_functions_table.c parse_tokens_into_world.c caps.c \
 	  check_type_identifiers.c file_validation.c open_file.c validate_line.c tokenizer.c create_sphere.c \
-	  multiply_tuple_by_matrix.c
+	  multiply_tuple_by_matrix.c exit.c
 
 VPATH = ./src ./src/math/canvas/ ./src/math/tuples/ ./src/math/matrices \
 		./src/math/matrix_transformations ./src/math/rays ./src/math/sphere \
@@ -65,12 +65,12 @@ BSRC = minirt_bonus.c basic_tuple_operations_bonus.c compare_floats_bonus.c \
 		file_validation_bonus.c open_file_bonus.c validate_line_bonus.c \
 		tokenizer_bonus.c create_sphere_bonus.c multiply_tuple_by_matrix_bonus.c
 
-VPATH += ./bsrc ./bsrc/math/canvas/ ./bsrc/math/tuples/ ./bsrc/math/matrices \
-		./bsrc/math/matrix_transformations ./bsrc/math/rays ./bsrc/math/sphere \
-		./bsrc/math/rays/ ./bsrc/math/light_and_shading/ \
-		./bsrc/math/camera/ ./bsrc/math/cylinder/ ./bsrc/math/plane/ \
-		./bsrc/math/create_intersection/ ./bsrc/render ./bsrc/input_validation \
-		./bsrc/parser ./bsrc/tokenizer/ ./bsrc/math/shape/
+VPATH += ./src_bonus ./src_bonus/math/canvas/ ./src_bonus/math/tuples/ ./src_bonus/math/matrices \
+		./src_bonus/math/matrix_transformations ./src_bonus/math/rays ./src_bonus/math/sphere \
+		./src_bonus/math/rays/ ./src_bonus/math/light_and_shading/ \
+		./src_bonus/math/camera/ ./src_bonus/math/cylinder/ ./src_bonus/math/plane/ \
+		./src_bonus/math/create_intersection/ ./src_bonus/render ./src_bonus/input_validation \
+		./src_bonus/parser ./src_bonus/tokenizer/ ./src_bonus/math/shape/
 
 BUILD_SRC = ./build/
 INCLUDE = -I./include -I ./libs/
@@ -89,12 +89,10 @@ bonus: $(BNAME)
 $(NAME): $(LIBMLX_TARGET) $(OBJS)
 	@printf "$(GREEN)[ Build ]$(DEF_COLOR) $(RED) $@ $(GREEN)complete $(DEF_COLOR)"
 	@$(CC) $(C_FLAGS) $(OBJS) $(INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -L ./libs/ -lft -o $@
-	@compiledb make as_lib --no-print-directory
 
 $(BNAME): $(LIBMLX_TARGET) $(BOBJS)
 	@printf "$(GREEN)[ Build ]$(DEF_COLOR) $(RED) $@ $(GREEN)complete $(DEF_COLOR)"
 	@$(CC) $(C_FLAGS) $(BOBJS) $(B_INCLUDE) -I$(MLX_INCLUDE) $(CODAM_LIB_FLAGS) -L ./libs/ -lft -o $@
-	@compiledb make as_lib_bonus --no-print-directory
 
 $(BUILD_DIR_RT)%.o: %.c $(LIBFT)
 	@test -d $(BUILD_DIR_RT) || mkdir $(BUILD_DIR_RT)
@@ -127,8 +125,7 @@ clean:
 fclean: clean
 	@echo "Fully Cleaning..."
 	@make fclean --no-print-directory -C ./libs/
-	@make clean --no-print-directory -C ./tests
-	@rm -rf MLX42/
+	@rm -rf ./MLX42/
 	@rm -f $(BNAME) $(NAME) $(LIB) $(BLIB)
 
 makelib:
