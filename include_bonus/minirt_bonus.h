@@ -20,9 +20,6 @@
 # include <math.h>
 # include <stdio.h>
 
-static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
-				"SPHERE", "PLANE", "CYLINDER"};
-
 # define CYAN "\033[36m"
 # define EPSILON 1e-5
 # define X 0
@@ -395,26 +392,5 @@ t_intersections				intersect_shape(const t_shape *obj, const t_ray *r);
 t_matrix					shape_view_transform(t_tuple from, t_tuple up);
 void						ft_mlx_draw_pixel(uint8_t *pixel, uint32_t color);
 _Bool						is_standard_orientation(t_tuple up);
-
-static inline void	print_tuple(const t_tuple a)
-{
-	printf("X: %f, Y: %f, Z: %f, W: %f\n", a.x, a.y, a.z, a.w);
-}
-
-static inline void	print_matrix(t_matrix mat)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	j = -1;
-	while (++i < mat.size)
-	{
-		j = -1;
-		while (++j < mat.size)
-			printf("%f ", mat.grid[i][j]);
-		printf("\n");
-	}
-}
 
 #endif
