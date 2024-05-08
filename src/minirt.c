@@ -21,14 +21,14 @@ int	main(int argc, char **argv)
 
 	fd = 0;
 	number_of_tokens = 0;
-	mlx = mlx_init(SIZEW, SIZEH, "TRinim", true);
 	if (argc != 2)
 		return (0);
 	if (!endwith(argv[1], ".rt"))
-		printf("Arquivo nao .rt\n");
+		return (printf("Error: file extention .rt\n"));
 	fd = open_file(argv[1]);
 	file_validation(fd, &number_of_tokens);
 	fd = open_file(argv[1]);
+	mlx = mlx_init(SIZEW, SIZEH, "TRinim", true);
 	world.tokens = tokenizer(fd, number_of_tokens);
 	world = parse_tokens_into_world(world.tokens, number_of_tokens);
 	world.image = create_image(mlx);

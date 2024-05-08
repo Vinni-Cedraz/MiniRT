@@ -32,8 +32,7 @@ t_intersections	intersect_cylinder(const t_shape *obj, const t_ray *trans_r,
 		return (result);
 	}
 	set_t(obj, trans_r, &bask, &result);
-	if (!result.head)
-		intersect_caps(obj, *trans_r, &result);
+	intersect_caps(obj, *trans_r, &result);
 	return (result);
 }
 
