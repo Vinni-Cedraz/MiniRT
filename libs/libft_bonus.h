@@ -13,7 +13,7 @@
 #ifndef LIBFT_BONUS_H
 # define LIBFT_BONUS_H
 
-#include "libft.h"
+# include "libft.h"
 
 typedef struct s_nodes	t_node;
 typedef unsigned int	t_ui;
@@ -35,7 +35,6 @@ void					ft_lstadd_back(t_node **head, t_node *new_node);
 void					ft_lstadd_front(t_node **head, t_node *new_node);
 // ft_lstfree frees each node in a list and frees the list itself at the end
 void					ft_lstfree(t_node **list);
-
 // LINKED LISTS SPECIFIC OPERATIONS
 // ft_lstlast returns the last element of the list
 t_node					*ft_lstlast(t_node *first_node);

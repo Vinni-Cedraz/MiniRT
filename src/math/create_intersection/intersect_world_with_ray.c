@@ -12,9 +12,6 @@
 
 #include "minirt.h"
 
-// static void	insertion_sort(t_node **head_ref);
-// static void	sorted_insert(t_node **head_ref, t_node *new_node);
-
 t_intersections	intersect_world_with_ray(t_world *w, t_ray *r)
 {
 	t_intersections	result;
@@ -23,7 +20,6 @@ t_intersections	intersect_world_with_ray(t_world *w, t_ray *r)
 
 	idx = 0;
 	result.head = NULL;
-	tmp = intersect_shape(&w->shapes[0], r);
 	while (idx < w->fixed_count)
 	{
 		tmp = intersect_shape(&w->shapes[idx], r);

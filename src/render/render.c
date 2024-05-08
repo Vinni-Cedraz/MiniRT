@@ -32,6 +32,4 @@ void	render(mlx_image_t *image, t_world world)
 		}
 		y++;
 	}
-	printf("y = %i | vsize = %i	", y, world.camera.vsize);
-	printf("x = %i | hsize = %i\n", x, world.camera.hsize);
 }

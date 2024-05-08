@@ -156,4 +156,6 @@ YELLOW = \033[0;93m
 MAGENTA = \033[0;95m
 DEF_COLOR = \033[0;39m
 
+#valgrind --leak-check=full --show-leak-kinds=all --suppressions=sup.sup
+
 .PHONY: all clean fclean re mlxclean

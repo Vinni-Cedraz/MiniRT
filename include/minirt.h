@@ -20,17 +20,10 @@
 # include <math.h>
 # include <stdio.h>
 
-static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
-				"SPHERE", "PLANE", "CYLINDER"};
-
-# define CYAN "\033[36m"
 # define EPSILON 1e-5
 # define X 0
 # define Y 1
 # define Z 2
-# define R 0
-# define G 1
-# define B 2
 # define W 3
 # define VECTOR 0
 # define POINT 1
@@ -38,32 +31,17 @@ static const char			types[6][20] = {"AMBIENT", "CAMERA", "LIGHT",
 # define FALSE 0
 # define TRUE 1
 # define CLOSED 1
-
-# define ROW1 0
-# define ROW2 1
-# define ROW3 2
-# define ROW4 3
-
-# define COL1 0
-# define COL2 1
-# define COL3 2
-# define COL4 3
-
 # define ROW 0
 # define COL 1
 
 # define END_MATRIX -DBL_MAX
 # define ERROR -42
 
-# define SIZEH 50
-# define SIZEW 50
-# define CYAN "\033[36m"
+# define SIZEH 900
+# define SIZEW 1800
 # define RED "\033[31m"
 # define RESET "\033[0m"
 
-typedef double				t_four_doubles[4];
-typedef double				t_3x3_row[3];
-typedef double				t_2x2_row[2];
 typedef _Bool				t_bool;
 typedef unsigned short		t_short;
 
@@ -394,25 +372,25 @@ _Bool						is_standard_orientation(t_tuple up);
 void						ft_key(mlx_key_data_t keydata, void *p);
 void						exit_free(t_world	*world);
 
-static inline void	print_tuple(const t_tuple a)
-{
-	printf("X: %f, Y: %f, Z: %f, W: %f\n", a.x, a.y, a.z, a.w);
-}
-
-static inline void	print_matrix(t_matrix mat)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	j = -1;
-	while (++i < mat.size)
-	{
-		j = -1;
-		while (++j < mat.size)
-			printf("%f ", mat.grid[i][j]);
-		printf("\n");
-	}
-}
+//static inline void	print_tuple(const t_tuple a)
+//{
+//	printf("X: %f, Y: %f, Z: %f, W: %f\n", a.x, a.y, a.z, a.w);
+//}
+//
+//static inline void	print_matrix(t_matrix mat)
+//{
+//	int	i;
+//	int	j;
+//
+//	i = -1;
+//	j = -1;
+//	while (++i < mat.size)
+//	{
+//		j = -1;
+//		while (++j < mat.size)
+//			printf("%f ", mat.grid[i][j]);
+//		printf("\n");
+//	}
+//}
 
 #endif
