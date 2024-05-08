@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (0);
 	if (!endwith(argv[1], ".rt"))
-		return (printf("Error: file extention .rt\n"));
+		return (printf(RED"Error: file extention .rt\n"RESET));
 	fd = open_file(argv[1]);
 	file_validation(fd, &number_of_tokens);
 	fd = open_file(argv[1]);

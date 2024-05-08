@@ -38,7 +38,7 @@
 # define ERROR -42
 
 # define SIZEH 900
-# define SIZEW 1800
+# define SIZEW 900
 # define RED "\033[31m"
 # define RESET "\033[0m"
 
@@ -371,26 +371,5 @@ t_matrix					shape_view_transform(t_tuple from, t_tuple up);
 _Bool						is_standard_orientation(t_tuple up);
 void						ft_key(mlx_key_data_t keydata, void *p);
 void						exit_free(t_world	*world);
-
-//static inline void	print_tuple(const t_tuple a)
-//{
-//	printf("X: %f, Y: %f, Z: %f, W: %f\n", a.x, a.y, a.z, a.w);
-//}
-//
-//static inline void	print_matrix(t_matrix mat)
-//{
-//	int	i;
-//	int	j;
-//
-//	i = -1;
-//	j = -1;
-//	while (++i < mat.size)
-//	{
-//		j = -1;
-//		while (++j < mat.size)
-//			printf("%f ", mat.grid[i][j]);
-//		printf("\n");
-//	}
-//}
 
 #endif
