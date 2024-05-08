@@ -70,7 +70,6 @@ static int	validate_tuple(char *str, t_tuple tuple, short type)
 	if (type == VECTOR && !is_a_normalized_vector(tuple))
 	{
 		printf(RED "Error: Vector is not normalized.\n" RESET);
-		print_tuple(tuple);
 		return (ERROR);
 	}
 	if (type == COLOR && !validate_color(tuple))

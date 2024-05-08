@@ -1,0 +1,15 @@
+A 0.3 255,255,255
+C -0.05,0,5 0,0,-1 17
+L -0.7,0,0.8 1 255,255,255
+sp -1.05,0,0 0.858 textures/solar_system/sun.png
+sp -0.55,0,0 0.01 textures/solar_system/mercury.png
+sp -0.5,0,0 0.024 textures/solar_system/venus.png
+sp -0.45,0,0 0.026 textures/solar_system/earth.png
+sp -0.45,0.03,0 0.006 textures/solar_system/moon.png
+sp -0.41,0,0 0.014 textures/solar_system/mars.png
+sp -0.23,0,0 0.286 textures/solar_system/jupiter.png
+sp 0.06,0,0 0.242 textures/solar_system/saturn.png
+sp 0.31,0,0 0.204 textures/solar_system/uranus.png
+sp 0.54,0,0 0.198 textures/solar_system/neptune.png
+sp 0.67,0,0 0.004 textures/solar_system/pluto.png
+pl 0,0,-100 0,0,1 0,0,0

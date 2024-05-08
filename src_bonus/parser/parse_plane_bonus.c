@@ -34,7 +34,10 @@ t_shape	init_plane(const t_tuple from, const t_tuple up, const t_tuple cl)
 	plane = create_plane();
 	plane.material.color = cl;
 	if (is_standard_orientation(up))
+	{
+		set_transform(&plane, create_translation_matrix(from));
 		return (plane);
+	}
 	set_transform(&plane, shape_view_transform(from, up));
 	return (plane);
 }
@@ -42,6 +45,7 @@ t_shape	init_plane(const t_tuple from, const t_tuple up, const t_tuple cl)
 _Bool	is_standard_orientation(t_tuple up)
 {
 	const t_tuple	standard_up = create_vector(0, 1, 0);
+	const t_tuple	neg_standard_up = create_vector(0, -1, 0);
 
-	return (tuples_eq(up, standard_up));
+	return (tuples_eq(up, standard_up) || tuples_eq(up, neg_standard_up));
 }

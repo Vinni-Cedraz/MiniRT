@@ -51,7 +51,7 @@ BSRC = minirt_bonus.c basic_tuple_operations_bonus.c compare_floats_bonus.c \
 		submatrices_bonus.c chain_transformations_bonus.c invert_matrix_bonus.c \
 		create_matrix_bonus.c translation_bonus.c rotation_bonus.c scaling_bonus.c \
 		intersect_shape_bonus.c get_hit_bonus.c create_ray_bonus.c \
-		colors_bonus.c set_transform_bonus.c \
+		colors_bonus.c set_transform_bonus.c exit_bonus.c \
 		surface_normals_bonus.c reflect_bonus.c create_material_bonus.c \
 		calculate_lighting_bonus.c intersect_world_with_ray_bonus.c prepare_computations_bonus.c \
 		shade_hit_bonus.c color_at_bonus.c view_transformation_bonus.c create_camera_bonus.c \
@@ -156,6 +156,6 @@ YELLOW = \033[0;93m
 MAGENTA = \033[0;95m
 DEF_COLOR = \033[0;39m
 
-#valgrind --leak-check=full --show-leak-kinds=all --suppressions=sup.sup
+#valgrind --leak-check=full --show-leak-kinds=all --suppressions=sup.sup -q
 
 .PHONY: all clean fclean re mlxclean

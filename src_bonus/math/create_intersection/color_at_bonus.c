@@ -21,5 +21,6 @@ t_tuple	color_at(t_world *w, const t_ray *r)
 	if (hit.shape == NULL)
 		return (create_tuple(0, 0, 0, COLOR));
 	prep = prepare_computations(&hit, *r);
+	ft_lstfree((void *)&lst.head);
 	return (shade_hit(w, &prep));
 }

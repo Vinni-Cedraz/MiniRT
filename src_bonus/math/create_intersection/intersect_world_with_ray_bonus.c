@@ -23,7 +23,6 @@ t_intersections	intersect_world_with_ray(t_world *w, const t_ray *r)
 
 	idx = 0;
 	result.head = NULL;
-	tmp = intersect_shape(&w->shapes[0], r);
 	while (idx < w->fixed_count)
 	{
 		tmp = intersect_shape(&w->shapes[idx], r);

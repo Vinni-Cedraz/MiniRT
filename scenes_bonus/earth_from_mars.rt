@@ -1,0 +1,9 @@
+A                              0.01        255,255,255
+C  5,0,0         -1,0,0       40
+
+sp  0,0,0                      1           textures/solar_system/earth.png
+sp  1,-2.5,1.5                   4           textures/solar_system/mars.png
+sp  2,0,0                   20           textures/solar_system/stars.png
+
+L  4,3.5,-4                    1           255,255,255
+L  4,3.5,-4                    0.4         255,255,255

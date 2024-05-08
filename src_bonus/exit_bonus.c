@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   open_file.c                                        :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: igenial <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 16:16:19 by vcedraz-          #+#    #+#             */
-/*   Updated: 2024/04/12 16:16:20 by vcedraz-         ###   ########.fr       */
+/*   Created: 2024/05/07 13:24:15 by igenial           #+#    #+#             */
+/*   Updated: 2024/05/07 20:31:41 by igenial          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include "libft.h"
+#include "../include/minirt.h"
 
-int	open_file(char *file)
+void	ft_key(mlx_key_data_t button, void *p)
 {
-	int		fd;
+	mlx_t	*mlx;
 
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
+	mlx = (mlx_t *)p;
+	if (button.key == MLX_KEY_ESCAPE)
 	{
-		ft_putstr("Arquivo nao encontrado\n");
-		exit(EXIT_FAILURE);
-		return (0);
+		mlx_close_window(mlx);
 	}
-	return (fd);
+}
+
+void	exit_free(t_world	*world)
+{
+	free(world->tokens);
+	free(world->shapes);
 }

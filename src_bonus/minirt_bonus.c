@@ -22,17 +22,18 @@ int	main(int argc, char **argv)
 
 	fd = 0;
 	number_of_tokens = 0;
-	mlx = mlx_init(SIZEW, SIZEH, "TRinim", true);
 	if (argc != 2)
 		return (0);
 	if (!endwith(argv[1], ".rt"))
-		printf("Arquivo nao .rt\n");
-	world.image = create_image(mlx);
+		return (printf("Arquivo nao .rt\n"));
 	fd = open_file(argv[1]);
 	world.nb_of_lights = file_validation(fd, &number_of_tokens);
 	fd = open_file(argv[1]);
+	mlx = mlx_init(SIZEW, SIZEH, "TRinim", true);
+	world.image = create_image(mlx);
 	tokens = tokenizer(fd, number_of_tokens);
 	parse_tokens_into_world(tokens, number_of_tokens, &world);
+	mlx_key_hook(mlx, ft_key, mlx);
 	render(world);
 	mlx_image_to_window(mlx, world.image, 0, 0);
 	mlx_loop(mlx);
