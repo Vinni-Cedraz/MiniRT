@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_sphere.c                                    :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igenial <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/07 21:07:51 by igenial           #+#    #+#             */
-/*   Updated: 2024/05/07 21:07:54 by igenial          ###   ########.fr       */
+/*   Created: 2024/05/07 13:24:15 by igenial           #+#    #+#             */
+/*   Updated: 2024/05/07 20:31:41 by igenial          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../include/minirt.h"
 
-t_shape	create_sphere(void)
+void	ft_key(mlx_key_data_t button, void *p)
 {
-	t_shape		sphere;
+	mlx_t	*mlx;
 
-	sphere = (t_shape){0};
-	sphere.type = SPHERE;
-	sphere.radius = 1;
-	sphere.origin = create_point(0, 0, 0);
-	set_transform(&sphere, create_identity_matrix());
-	sphere.material = create_material();
-	sphere.intersect = &intersect_sphere;
-	sphere.normal_at = &sphere_normal_at;
-	return (sphere);
+	mlx = (mlx_t *)p;
+	if (button.key == MLX_KEY_ESCAPE)
+	{
+		mlx_close_window(mlx);
+	}
+}
+
+void	exit_free(t_world	*world)
+{
+	free(world->tokens);
+	free(world->shapes);
 }

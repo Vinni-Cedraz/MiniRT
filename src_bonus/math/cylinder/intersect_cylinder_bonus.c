@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   intersect_cylinder.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igenial <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/07 21:03:08 by igenial           #+#    #+#             */
-/*   Updated: 2024/05/07 23:10:37 by igenial          ###   ########.fr       */
+/*   Created: 2023/11/19 04:33:58 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/11/19 04:34:05 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 static double	cyl_discriminant(const t_ray r, t_bhaskara *bask);
 static _Bool	intersection_within_limits(double t, t_ray r, const t_shape *o);
@@ -18,7 +18,7 @@ static void		set_t(const t_shape *obj, const t_ray *trans_r, \
 					t_bhaskara *bask, t_intersections *result);
 
 t_intersections	intersect_cylinder(const t_shape *obj, const t_ray *trans_r,
-		const t_tuple dist)
+									  const t_tuple dist)
 {
 	t_intersections	result;
 	t_bhaskara		bask;
@@ -37,7 +37,7 @@ t_intersections	intersect_cylinder(const t_shape *obj, const t_ray *trans_r,
 }
 
 static _Bool	intersection_within_limits(double t, t_ray r,
-		const t_shape *cyl)
+										   const t_shape *cyl)
 {
 	const double	y = r.origin.y + t * r.direction.y;
 
@@ -56,7 +56,7 @@ static double	cyl_discriminant(const t_ray r, t_bhaskara *bask)
 }
 
 static void	set_t(const t_shape *obj, const t_ray *trans_r, t_bhaskara *bask,
-					t_intersections *result)
+					 t_intersections *result)
 {
 	double			discr;
 	double			t0;
