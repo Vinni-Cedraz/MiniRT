@@ -53,8 +53,8 @@
 # define END_MATRIX -DBL_MAX
 # define ERROR -42
 
-# define SIZEH 25
-# define SIZEW 25
+# define SIZEH 768
+# define SIZEW 1366
 # define CYAN "\033[36m"
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -403,5 +403,7 @@ t_matrix					shape_view_transform(t_tuple from, t_tuple up);
 void						ft_mlx_draw_pixel(uint8_t *pixel, uint32_t color);
 _Bool						is_standard_orientation(t_tuple up);
 void						ft_key(mlx_key_data_t keydata, void *p);
+t_tuple						multiply_three_colors(const t_tuple a,
+								const t_tuple b, const t_tuple c);
 
 #endif
