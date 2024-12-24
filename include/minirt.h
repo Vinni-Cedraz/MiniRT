@@ -297,7 +297,7 @@ t_tuple						cylinder_normal_at(const t_shape *cyl,
 								const t_tuple p);
 t_tuple						reflect(t_tuple vector, t_tuple normal);
 t_material					create_material(void);
-t_tuple						calculate_lighting(t_lighting *obj);
+t_tuple						calculate_lighting(t_lighting *l);
 t_constr					make_aslib_test(void);
 t_world						create_world(void);
 t_world						default_world(void);

@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_lighting.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igenial <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 16:54:09 by igenial           #+#    #+#             */
-/*   Updated: 2024/04/23 16:54:11 by igenial          ###   ########.fr       */
+/*   Created: 2024/12/24 10:45:58 by vcedraz-          #+#    #+#             */
+/*   Updated: 2024/12/24 10:46:24 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt_bonus.h"
+#include "minirt.h"
 
 static void	compute_the_specular(t_type_light *c, t_lighting *l);
 static void	init_of_compute(t_type_light *c, t_lighting *l);
 static void	compute_the_diffuse(t_type_light *c, t_lighting *l);
 
-t_tuple	calculate_lighting(t_lighting l)
+t_tuple	calculate_lighting(t_lighting *l)
 {
 	t_tuple			result;
 	t_type_light	c;
 
-	init_of_compute(&c, &l);
-	if (l.in_shadow)
+	init_of_compute(&c, l);
+	if (l->in_shadow)
 		return (c.a);
 	if (c.light_dot_normal < 0)
 	{
@@ -31,11 +31,11 @@ t_tuple	calculate_lighting(t_lighting l)
 	}
 	else
 	{
-		compute_the_diffuse(&c, &l);
+		compute_the_diffuse(&c, l);
 		c.lightv = negate_tuple(c.lightv);
-		c.reflectv = reflect(c.lightv, l.normal_vec);
-		c.reflect_dot_eye = dot(c.reflectv, l.eye_vec);
-		compute_the_specular(&c, &l);
+		c.reflectv = reflect(c.lightv, l->normal_vec);
+		c.reflect_dot_eye = dot(c.reflectv, l->eye_vec);
+		compute_the_specular(&c, l);
 	}
 	result = add_three_tuples(c.a, c.d, c.s);
 	return (result);

@@ -62,7 +62,7 @@ static void	set_token(t_token *token, t_tokenizer tokenizer)
 
 static void	init_token_args(t_tokenizer tokenizer, t_token *token)
 {
-	static int	nb_of_args[] = {2, 3, 2, 3, 3, 5};
+	static int	nb_of_args[] = {2, 3, 3, 3, 3, 5};
 	int			len;
 	int			idx;
 
